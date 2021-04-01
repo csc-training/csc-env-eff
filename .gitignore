@@ -1,0 +1,9 @@
+*~
+__pycache__/
+_build/
+venv/
+slides/reveal.js/
+slides/theme/
+slides/filter/
+slides/convert.sh
+slides/*.html
