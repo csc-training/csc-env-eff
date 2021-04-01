@@ -20,9 +20,10 @@ slide hierarchy, related tutorials and exercises.
 * [02 Logging in](02_logging_in.html)
 * [03 Disk areas](03_disk_areas.html)
 * [04 Modules](04_modules.html)
+* [05 Batch jobs](05_batch_jobs.html)
 </div>
 <div class="column">  
-* [05 Batch jobs](05_batch_jobs.html)
+* [06 Understanding usage](06_understanding_usage.html)
 * [07 Using Allas](07_allas.html)
 * [08 Installing Software](08_installing.html)
 * [09 Singularity](09_singularity.html)

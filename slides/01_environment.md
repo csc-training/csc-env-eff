@@ -17,7 +17,7 @@ lang: en
 
 # Cluster systems
 <div class="column">
-- Login nodes are used to set up the jobs
+- Login nodes are used to set up jobs (and to launch)
 - Jobs are run in the compute nodes
 - A batch job system (aka scheduler) is used to run and manage the jobs
   - On CSC machines we use Slurm
@@ -35,6 +35,7 @@ lang: en
   - Can it use GPU?
 - See what kind of resources are available
   - Each system is different, so check the documentation
+- What takes long (is the time limiting part) in your job?
 
 # Things to check
 - What kind of nodes are available?
@@ -48,7 +49,15 @@ lang: en
 
 # Available HPC resources
 
-Check CSC Docs pages for information on available resources
-  - [Puhti technical details](https://docs.csc.fi/computing/systems-puhti/)
-  - [Mahti technical details](https://docs.csc.fi/computing/systems-mahti/)
-  - [Available partitions](https://docs.csc.fi/computing/running/batch-job-partitions/)
+- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general purpose supercomputer :white_check_mark:
+- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
+- [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (Iaas)
+- [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via okd (Paas)
+
+# Quick and dirty comparison of Puhti and Mahti
+
+TODO
+
+
+
+
