@@ -1,6 +1,6 @@
 ---
 topic: installing
-title: Tutorial - installing_interpreted_language
+title: Tutorial - Installing interpreted language applictions
 ---
 
 # Installing applications and libraries for Java, Perl, Python and R 
