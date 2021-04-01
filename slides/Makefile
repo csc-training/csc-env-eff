@@ -1,5 +1,6 @@
 LECTURES= \
 00_study_tips.md \
+01_environment.md \
 02_logging_in.md \
 03_disk_areas.md \
 04_modules.md \
