@@ -3,14 +3,12 @@ theme: csc-2019
 lang: en
 ---
 
-# Using CSC Environment Efficiently
+# Using CSC HPC Environment Efficiently
 
-Specific sections of this material are linked to various
-courses and documents e.g. in e-learn.csc.fi, docs.csc.fi and
+These slides are used e.g. in e-learn.csc.fi, docs.csc.fi and
 hopefully at Universities' own materials introducing high
-performance computing. This page gives links to the presentation
-slide hierarchy, related tutorials and exercises. 
-[Related hands-on in github](https://cscfi.github.io/csc-env-eff/)
+performance computing. Related [tutorials and exercises can be 
+found in github](https://csc-training.github.io/csc-env-eff/)
 
 <br>                                                                                                                                    
                                                                                                                                         
