@@ -18,7 +18,7 @@ To follow the instructions, set up environment variable to point to your project
 ```text
 export PROJAPPL=/projappl/project_12345
 ```
-## Downloading
+## Obtaining source code
 
 Move to your `$PROJAPPL` directory and create there a new directory called mcl
 
@@ -26,6 +26,11 @@ Move to your `$PROJAPPL` directory and create there a new directory called mcl
 cd $PROJAPPL
 mkdir mcl
 ```
+You now have two options: Dowload a distribution package as compressed tar file or
+clone the source code from Git.
+
+### Option 1: Download distribution package
+
 Move to the newly created directory and download the distribution package:
 ```text
 cd mcl
@@ -41,12 +46,24 @@ After unpacking, the `ls` command shows that a new directory called `mcl-14-137`
 been created. This directory contains the actual installation files and documentation of the
 software. 
 
+### Option 2: Clone source code from Github
+Alternatively you can get the sofware from Git. 
+```text
+git clone https://github.com/JohannesBuchner/mcl.git
+ls -l
+```
+After cloning, the `ls` command shows that a new directory called `mcl` has 
+been created. This directory contains the actual installation files and documentation of the
+software. 
+
+## Preparing to install
+
 Create a new empty directory called `version-14-137` to the mcl directory. This vill be the actual
 installation directory.
 ```text
 mkdir version-14-137
 ```
-After this go to the `mcl-14-137` directory and study its content
+After this go to the `mcl-14-137` (or `mcl` if using git) directory and study its content
 ```text
 cd mcl-14-137
 ls -l
@@ -58,6 +75,7 @@ INSTALL file to find out how the  installation should be done.
 less INSTALL
 ```
 ## Installation
+
 Many open source software tools are installed using following three steps:
 1 Building up the so called Makefile with a `./configure` command.
 2 Running `make`  command that compiles the source code according to the instructions in the
@@ -105,7 +123,7 @@ Check what got installed  with:
 ls -l $PROJAPPL/mcl/version-14-137/bin
 ```
 
-## Running command
+## Running the software
 
 The software is now ready to run, but it is not in your `$PATH`. That means that if you try to run:
 ```text
