@@ -23,7 +23,8 @@
    ```
 5. To create the whole site add your page to the top of the Makefile (located in: csc-env-eff/slides/Makefile) list and run `make`
 
-Note, don't publish the theme and slidefactory accessory files, just the html (and related images etc.)!
+> Note, don't publish the theme and slidefactory accessory files, just the html (and related images etc.)!
+> Note, `a-publish` will not overwrite files in Allas, so you'll need to `a-delete` the file in Allas first.
 
 ## Speed up testing how the slides look like directly from Puhti
 
