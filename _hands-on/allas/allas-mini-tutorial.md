@@ -7,7 +7,7 @@ title: Tutorial - Allas mini tutorial
 
 Open the view to the Allas service in your browser using the cPouta WWW-interface.
 
-Open: https://pouta.csc.fi
+Open: [https://pouta.csc.fi](https://pouta.csc.fi)
 
 And login with your csc user account.
 
