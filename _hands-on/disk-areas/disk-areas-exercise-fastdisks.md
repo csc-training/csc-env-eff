@@ -1,6 +1,6 @@
 ---
 topic: disk-areas
-title: Exercise - disk-areas fastdisks 
+title: Exercise - High I/O operation computing tasks  
 ---
 
 # Where to run computing tasks that require high I/O operations ?
