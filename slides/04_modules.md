@@ -38,14 +38,14 @@ Same information can be found in [the module section of our user guide at docs.c
      - `module spider name`: Search for an application in the list of all existing modules
      - `module spider name/version`: Gives information on how to load the module (prerequisites etc).
 
-# Conda enviroment
-- Conda is a package management tool that is used to distribute and install software tools together with their dependencies
+# Conda environments
+- [Conda](https://docs.conda.io/en/latest/) is a package management tool for distributing and installing software tools and their dependencies
 - Some applications in Puhti are installed and used as [Conda environments](https://docs.csc.fi/support/tutorials/conda/#what-is-conda)
-- You can use Conda modules to install tools that are available in conda repositories (
-- See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
+      - See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
+- You can use Conda modules to install tools that are available in Conda repositories
  
 
-# Advanced module use
+# [Advanced module use](https://docs.csc.fi/computing/modules/#advanced-topics)
 
 - You can save your current module set (`module save filename`) and load it (`module restore filename`)
 - You can also write your own module files: 
