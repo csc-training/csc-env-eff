@@ -40,7 +40,7 @@ ssh XXXX@puhti.csc.fi   (replace XXXX with your csc user account)
 
 **Windows/PuTTY**
 
-   **host:* puhti.csc.fi
+   **host:** puhti.csc.fi
  
    **login as:** XXXX  (replace XXXX with your csc user account)
 
