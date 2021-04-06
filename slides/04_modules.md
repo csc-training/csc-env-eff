@@ -39,7 +39,11 @@ Same information can be found in [the module section of our user guide at docs.c
      - `module spider name/version`: Gives information on how to load the module (prerequisites etc).
 
 # Conda enviroment
-- Should we say something about the conda modules too?
+- Conda is a package management tool that is used to distribute and install software tools together with their dependencies
+- Some applications in Puhti are installed and used as [Conda environments](https://docs.csc.fi/support/tutorials/conda/#what-is-conda)
+- You can use Conda modules to install tools that are available in conda repositories (
+- See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
+ 
 
 # Advanced module use
 
