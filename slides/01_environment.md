@@ -7,17 +7,19 @@ lang: en
 
 # Some notes on vocabulary
 <div class="column">
+Roughly you can think of
+
 - computer ~= node
 - processor ~= socket
 - core~= CPU
 </div>
 <div class="column">
-<img src="./img/node.svg" />
+![](./img/node.svg){width=60%} 
 </div>
 
 # Cluster systems
 <div class="column">
-- Login nodes are used to set up jobs (and to launch)
+- Login nodes are used to set up jobs (and to launch them)
 - Jobs are run in the compute nodes
 - A batch job system (aka scheduler) is used to run and manage the jobs
   - On CSC machines we use Slurm
@@ -25,7 +27,7 @@ lang: en
   - Syntax is different, but basic operation is similar
 </div>
 <div class="column">
-<img src="./img/cluster.svg" />
+![](./img/cluster.svg){width=80%} 
 </div>
 
 # Planning jobs
@@ -56,8 +58,13 @@ lang: en
 
 # Quick and dirty comparison of Puhti and Mahti
 
-TODO
+|                             | Puhti  | Mahti    |
+| --------------------------- |------- | ----     | 
+| Number of preinstalled applications   | [123+](https://docs.csc.fi/apps/by_system/#puhti)   | [16+](https://docs.csc.fi/apps/by_system/#mahti)       | 
+| Cores per node              | 40     | 128       |
+| Job size (min-max) cores    | 1-1040 | 128-25600 |
+| Memory per node (GiB)       | 192-1536 | 256     |
+| GPU cards                   | 120 x V100 | to appear|
+| Fast node local disk (NVMe) | 120   | -        |
 
-
-
-
+In short: Mahti is for large parallel jobs, prepare to install and optimize your code.

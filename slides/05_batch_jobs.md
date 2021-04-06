@@ -5,25 +5,25 @@ lang: en
 
 # The batch job system in CSC's HPC environment {.title}
 
-# What is a batch job?
+# What is a batch job? 1/2
 - On a laptop we are used to start a program(job) by clicking on an icon and the job starts instantly
-- If we start many jobs at the same time we occationally run into problems like running out of memory etc. 
+- If we start many jobs at the same time we occasionally run into problems like running out of memory etc. 
 - In an HPC environment the computer is shared among hundreds of other users who all have different resource needs
 - In order to avoid problems and make the usage as efficient as possible, all HPC jobs include an **estimate on how much resources they are expected to use**
 
-# What is a batch job? (continued)
+# What is a batch job? 2/2
 - A batch job consists of two parts: A resource request and the actual computing step
 - A job is not started directly, but sent into a **queue**
 - Depending on the resources requested by the single job, and how many other jobs there are, the job usually have to wait for some time to get started
 - At CSC (and HPC systems in general) all heavy computing must be done via batch jobs (see [Usage policy](https://docs.csc.fi/computing/overview/#usage-policy))
 
-# What is a batch job system? 
+# What is a batch job system? 1/2
 - A resource management system that keeps track of all batch jobs that uses, or would like to use the computing resources
 - Aim is to share the resources in an efficient and fair way
 - Optimizes resource usage by filling the compute node with most suitable jobs
 - The batch system allows users to submit jobs requesting the resources (runtime, nodes, cores, memory, GPUs) that they need 
 
-# What is a batch job system? (continued)
+# What is a batch job system? 2/2
 - A job is queued and starts when the requested resources become available
 - The order in which the queued jobs start depend on available resources and their priority
 - At CSC the priority is configured to use "fair share"
@@ -69,7 +69,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - By avoiding an excessive "just-in-case" request, the job will start earlier 
 - Consult our [Getting started with the batch job system ](https://docs.csc.fi/computing/running/getting-started/)
 
-# Different type of HPC jobs
+# Different type of HPC jobs 1/2
 
 - Typically an HPC job can be classified as serial, parallel or gpu, depending on the main requested resource 
 - Each batch job is billed using a scheme that takes into account the requested resources
@@ -77,7 +77,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - See the [Billing unit (BU) and price calculator at research.csc.fi](https://research.csc.fi/billing-and-monitoring#buc)
 - The billing is done per project
 
-# Different type of HPC jobs (continued)
+# Different type of HPC jobs 2/2
 - Via the [My Projects page in MyCSC](https://my.csc.fi/welcome) you can monitor the BU consumption and apply for more billing units
 - "csc-projects" is a command line tool for showing the BU consumption per project    
 
@@ -88,7 +88,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
     - If the program works in parallel check that it benefits from the requested parallel resources 
     - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
 
-# HPC serial jobs 
+# HPC serial jobs 1/2
 
 - A serial software can only use one core, so don't reserve more!
 - Why could your serial job benefit from being executed using CSC's resources instead of on your own computer? 
@@ -99,32 +99,34 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
     - CSC's software licensing
     - Memory and/or disk demands
 
-# HPC serial jobs (continued)
+# HPC serial jobs 2/2
 - You can utilize parallel resources for running multiple serial jobs at the same time
     - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/) 
     - [GREASY jobs](https://docs.csc.fi/computing/running/greasy/)
-- pure serial resources are only available in Puhti, but **GREASY jobs** can use Mahti, as well
+- Pure serial resources are only available in Puhti, but **GREASY jobs** can use Mahti, as well
  
 # HPC parallel jobs
 
 - A parallel job distributes the calculation over several cores in order to achieve a shorter wall time (and/or a larger allocatable memory)   
 - There are two major parallelization schemes: [OpenMP](https://en.wikipedia.org/wiki/OpenMP) and [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)
-- depending on the parallellization scheme there is a slight difference between how the resource reservation is done  
+   - Note, depending on the parallellization scheme there is a slight difference between how the resource reservation is done  
 - [Examples of batch job skripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
 - [Examples of batch job skripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
 
 
-# HPC gpu jobs 
+# HPC GPU jobs 
 
 - A graphics processing unit (GPU, a video card), is capable of doing certain type of simlutaneous calculations very efficiently
 - In order to take advantage of this power, a computer program has to be reprogrammed to be adapt to how GPU's handles data   
 - CSC's gpu resources are relatively scarce and hence should be used with [particular care](https://docs.csc.fi/computing/overview/#gpu-nodes)
+    - A GPU uses 60 times more billing units than a single CPU core - see above for performance requirements
 
 # Interactive jobs
 
-- when you login to CSC's supercomputers, you end up in one of the login nodes of the computer. These login nodes are shared by all users and they are not intended for heavy computing. 
-- if you have a heavier job that still requires interactive response (e.g. graphical user interface )
-    - allocate the resource via the the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/)
+- When you login to CSC's supercomputers, you end up in one of the login nodes of the computer.
+    - These login nodes are shared by all users and they are [not intended for heavy computing.](https://docs.csc.fi/computing/overview/#usage-policy)
+- If you have a heavier job that still requires interactive response (_e.g._ graphical user interface )
+    - >llocate the resource via the the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/)
 
 # Submitting, cancelling and stats of batch jobs
 - The job script file is submitted with the command:
@@ -141,14 +143,13 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 # Reserving and optimizing batch job resources 
 
 The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for your job as accurately as possible, in order to minimize the **waste** 
+Try to estimate the resources that are needed for _your_ job, in order to minimize the **waste** 
 
+* It's ok if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
+   - It's _worse_ to run with way too big requests without knowing it.
 - Important resource requests that should be monitored are:
    - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
    - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
    - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
    - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
- 
-
-  
 
