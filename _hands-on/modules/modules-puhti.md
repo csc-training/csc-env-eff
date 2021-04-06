@@ -9,9 +9,9 @@ This tutorial requires that you have a [user account at CSC](https://docs.csc.fi
 and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 
-1. Log in to Puhti with your user credentials. (Replace <your_csc_username> with your CSC username, withouth the < > brackets!)
+1. Log in to Puhti with your user credentials. (Replace your_csc_username with your CSC username!)
 ```bash
-ssh <your_csc_username>@puhti.csc.fi
+ssh your_csc_username@puhti.csc.fi
 ```
 
 2. Check out which modules are loaded:
