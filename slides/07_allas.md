@@ -56,15 +56,19 @@ All project members have equal access to the data in Puhti and Allas.
 
 # Allas – object storage: terminology
 
+<div class="column">
 *  Storage space in Allas is provided per **CSC project**
 *  Project space can have multiple *buckets* ( up to 1000)
 *  There is only one level of hierarchy of buckets (no buckets within buckets)
 *  Data is stored as **objects** within a bucket
-*  Objects can contain can contain any type of data (generally, object = file)
+*  Objects can contain any type of data (generally, object = file)
+</div>
+<div class="column">
 *  In Allas you can have 500 000 objects / bucket
 *  Name of the bucket must be unique within Allas
 *  Objects have metadata that can be enriched 
 *  In reality, there is no hierarcical directory structure, although it sometimes looks like that.
+</div>
 
 # Allas supports two protocols
 
