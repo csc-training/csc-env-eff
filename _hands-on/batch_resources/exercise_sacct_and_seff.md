@@ -1,60 +1,43 @@
 ---
 topic: batch resources
-title: Exercise - sacct and seff 
+title: Exercise - find your past job resource usage
 ---
-# Using sacct and seff to look at finished jobs
+# Get an overview of recent jobs' resource usage
 
-In this exercise we look at commands `sacct` and `seff`.
+## What were my recent jobs?
 
-`Sacct` is usefull when you want to look at a listing of jobs, but
-by default it only shows minimal data.
+Using the commands as shown in the tutorial above, list
+your jobs from the past month and print out enough details
+so that you can remember what the jobs were about (perhaps,
+the name, partition, start time, allocated cores, used and
+requested memory).
 
-`Seff`, on the other hand, shows detailed data on used resources 
-in an easy-to-read format, but can only show one job at a time.
+Some tips:
 
-By deafault it shows the jobs you have run since last midnight:
-```text
-sacct
-```
-With the `-S`option you can specify the start time of listing.
+* The `sacct` command is a little bit heavy query for the 
+  scheduler accounting database. Don't make big queries for
+  testing (we don't want to slow down jobs getting scheduled
+  to run!), but start with the past day or so, until you get
+  the syntax right. (This applies to learning all new commands
+  and applications).
+* With `man sacct` you can see what keywords to use to print
+  out different fields stored in the database.
+* Once you have the data, print it out a file, so that you don't
+  need to rerequest it from the Slurm database. Then work with
+  the file. E.g. `sacct -S 2021-04-01 > output.txt` and then
+  use your favourite tools to look at the contents (and `grep`,
+  `awk`, `python`, etc.
 
-```text
-sacct -S 2021-03-01
-```
-With the ´-j` option you can specify a job id.
+## Look for patterns or anomalies
 
-In this example we look at an array job that was run previously:
-```text
-sacct -j 5431722
-```
-Sacct is especially handy here, because it is easy to spot the 
-failed sub jobs.
+Some things to look for:
 
-In this case we have only a few sub jobs, but if the array job 
-is larger, it's probably clearer to look at just the jobs, and 
-not at all the job steps:
-```text
-sacct -X -j 5431722
-```
-In this case it easy to see why one subjob died: Reason is listed as
-TIMEOUT, meaning job ran out of time reservation. 
+* Did some jobs fail, why?
+* How long did the jobs take?
+* Did you request a suitable amount of time? 
+* Was the memory request appropriate?
+* Take a sample of some parallel jobs (based on the `sacct` output parameters you should be able to find representative jobs for each type, that you've been running recently) and use `seff` to look for the CPU Efficiency.
+* If you used GPU, did those jobs really use GPU? (Also shown with `seff`)
 
-Often the reason may be listed simply as FAILED. To find out why 
-the steps may have failed, you can use `seff` to look at those steps.
-
-```text
-seff 5431722_6
-```
-You should naturally also look at any error messages and log 
-files produced by the failed jobs.
-
-In this case you can check the succesful jobs, and see how much 
-time they took.
-```text
-seff 5431722_1
-```
-When you know which subjobs failed and why, it you can adjust the
-resource requests as necessary, and re-run the failed subjobs.
-
-You can read more about [array jobs](https://docs.csc.fi/computing/running/array-jobs)
-and [seff](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/) in CSC Docs.
+Use this information to set the resource requests for similar new jobs.
+You can also look at my.csc.fi for previous monthly usage.
