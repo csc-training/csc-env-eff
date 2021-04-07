@@ -13,6 +13,7 @@ In this section you will learn about installing your own software on CSC servers
   - Installation method depends on code type (or category)
   - Instructions found on the web rarely work "copy/paste" in HPC environment
 - Before doing a lot of work, check if an alternative software is already available in [CSC application list](https://docs.csc.fi/apps/)
+  - Also check with `module spider`
 
 # Binares
 - If you have ready made binaries, you can just try to run them
@@ -27,8 +28,13 @@ In this section you will learn about installing your own software on CSC servers
 - Examples of High-level interpreted languages are
   -  Python, Java, Perl, R etc. 
 - These languages do not need to be compiled, but they often can be. 
-- These languages are often quite easy and efficient to program and therefore to get a result, but for very extensive computations they are rarely optimal (and can easily be very far from optimal). 
-- An efficient code should be constructed so that heavy computations utilize libraries and/or subroutines written in High-Performance-Computing programming languages
+- Running these programs often requires loading a suitable module for the language
+  - Loading modules also ensures the software behaves the same in the compute nodes
+
+# Interpreted languages (continued)
+- Some notes on code development/selection:
+  - Interpreted languages are often quite easy and efficient to program and therefore to get a result, but for very extensive computations they are rarely optimal (and can easily be very far from optimal). 
+  - An efficient code should be constructed so that heavy computations utilize libraries and/or subroutines written in High-Performance-Computing programming languages
 
 # High-Performance-Computing languages
 - Programming languages that need a compiler 
@@ -45,17 +51,33 @@ In this section you will learn about installing your own software on CSC servers
   - CSC's [Linux basics tutorial](https://docs.csc.fi/support/tutorials/env-guide/using-linux-in-command-line/)
   - [Linux Command line quick reference / Cheat Sheet](https://docs.csc.fi/img/csc-quick-reference.pdf)
 
+# Some general notes
+- No `sudo` for normal users in CSC machines
+  - You can't use package managers (`apt` , `yum`, etc)
+  - You can't install in "standard" locations (/usr/bin, /usr/lib, etc)
+    - Set installation directory to `/projappl` or similar (see software documentation for details)
+- Start by loading suitable compiler suite or language module
+  - Also many commonly used libraries available as modules
+- New software is not automatically added to `$PATH`
+  - Provide path when running or add to `$PATH`
 
-# Installation how-to 
+# Installing
+
 - See tutorials for each category for more detailed instructions
-  - [GitHub link for interpreted language tutorials](https://github.com/CSCfi/csc-env-eff/blob/master/hands-on/installing/README.md)
-  - [GitHub link for High-Performance-Computing language tutorials](https://github.com/CSCfi/csc-env-eff/blob/master/hands-on/installing/README.md)
-  - Applications may also be available as [containers](09_singularity.html), which can be used in CSC environment.
+  - [Installation tutorials](https://github.com/csc-training/csc-env-eff/blob/master/_hands-on/installing/README.md)
+- Applications may also be available as [containers](09_singularity.html), which can be used in CSC environment.
 
 # Testing - it's important to test _first_
-- Construct a batch script (see Chapter 3)
+- Construct a [batch job script](05_batch_jobs.html)
 - Make a short and simple test run
   - Use known test data, e.g. test data provided by the code developer if you use a ready made code.
   - Run a tutorial provided with the code
 - Run your test in the `test` queue or in an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) directly from the command line
-- Compare performance to existing data (your old data, reference from the web, ...)
+- Compare performance and results to existing data (your old data, reference from the web, ...)
+
+# More information 
+- Check CSC Docs pages:
+  - [Compiling applications in Puhti](https://docs.csc.fi/computing/compiling-puhti/)
+  - [Compiling applications in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+- Lot's of information in the net
+  - Try searching with error mesages from compiling etc
