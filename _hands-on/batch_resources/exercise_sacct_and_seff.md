@@ -9,8 +9,9 @@ title: Exercise - find your past job resource usage
 Using the commands as shown in the tutorial above, list
 your jobs from the past month and print out enough details
 so that you can remember what the jobs were about (perhaps,
-the name, partition, start time, allocated cores, used and
-requested memory).
+jobid, the name, partition, start time, allocated cores, used and
+requested memory). The jobid you can connect to slurm output
+files, if you still have those available.
 
 Some tips:
 
@@ -25,8 +26,8 @@ Some tips:
 * Once you have the data, print it out a file, so that you don't
   need to rerequest it from the Slurm database. Then work with
   the file. E.g. `sacct -S 2021-04-01 > output.txt` and then
-  use your favourite tools to look at the contents (and `grep`,
-  `awk`, `python`, etc.
+  use your favourite tools (`more` or `less`) to look at the 
+  contents (and `grep`, `awk`, `python`, etc.)
 
 ## Look for patterns or anomalies
 
@@ -40,4 +41,5 @@ Some things to look for:
 * If you used GPU, did those jobs really use GPU? (Also shown with `seff`)
 
 Use this information to set the resource requests for similar new jobs.
-You can also look at my.csc.fi for previous monthly usage.
+You can also look at [my.csc.fi](https://my.csc.fi] for previous (monthly)
+usage per project.
