@@ -59,7 +59,7 @@ lang: en
    - If CPU usage seems too low, look at the completion time
    - Sometimes jobs run outside `srun` don't record properly
 - Job output can be tailored with `sacct`
-   - `sacct -j SLIURM_JOBID -o jobid,partition,state,elapsed,start,end`
+   - `sacct -j SLURM_JOBID -o jobid,partition,state,elapsed,start,end`
    - `sacct -S 2021-04-01` would show all jobs started after that date
    - Note: these are heavy operations for Slurm. **Don't** query
      too long times.

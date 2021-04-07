@@ -73,7 +73,8 @@ Parallelism means that you may use, simply speaking, hundreds or thousands of or
 - GPUs, or Graphics Processing Units, are extremely powerful processors developed for graphics and gaming.
 - They can be used for science, but are often really tricky to program.
    - Only a small set of algorithms can use the full power of GPUs.
-- For any ready made software, check the manual if the software can utilize GPUs.
+- Check the manual if the software can utilize GPUs.
+   - If you process lots of data, make sure you [use disk efficiently](https://docs.csc.fi/support/tutorials/gpu-ml/#gpu-utilization)
 - Do not try to use GPUs, unless you know what you are doing.
    - If you're unsure, consult [how to check if your batch job used GPU](https://docs.csc.fi/support/tutorials/gpu-ml/#gpu-utilization)
    - The [CSC Usage policy](https://docs.csc.fi/computing/overview/#gpu-nodes) limits GPU usage to where it is most efficient
