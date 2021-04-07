@@ -42,3 +42,9 @@ In this section, you will learn how to login on CSC supercomputers with ssh and 
 - Using SSH-keys is easier and safer than using password with every login.
 - SSH-keys can be easily used in Windows, Macs, Linux
 - Consult our [tutorials on how to set up SSH-keys for your account](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
+
+# Advanced topic: Developing scripts remotely
+
+- It's possible to use a local editor and push edited files easily into Puhti (or Rahti, ...) via ssh
+   - For example IDE like Visual Studio Code or a text editor like Notepad++
+- Follow these [detailed instructions to set it up](https://docs.csc.fi/support/tutorials/remote-dev/)
