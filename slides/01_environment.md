@@ -55,6 +55,7 @@ Roughly you can think of
 - [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
 - [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (Iaas)
 - [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via okd (Paas)
+- [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
 
 # Quick and dirty comparison of Puhti and Mahti
 
