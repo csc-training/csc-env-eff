@@ -29,13 +29,6 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## Allas
-{% for hands-on in items %}
-{% if hands-on.topic == 'allas' %}
-- [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
-{% endif %}
-{% endfor %}
-
 ## Modules
 {% for hands-on in items %}
 {% if hands-on.topic == 'modules' %}
@@ -51,6 +44,20 @@ author: CSC Training
 {% endfor %}
 * [Exercise - Serial, array and parallel jobs with R + contours calculation from DEM with raster package (GIS) ](https://github.com/csc-training/geocomputing/tree/master/R/puhti)
 * [Exercise - Serial, array and parallel jobs with Python + NDVI calculation rasterio package (GIS) ](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
+
+## Batch job resource usage
+{% for hands-on in items %}
+{% if hands-on.topic == 'batch resources' %}
+- [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
+{% endif %}
+{% endfor %}
+
+## Allas
+{% for hands-on in items %}
+{% if hands-on.topic == 'allas' %}
+- [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
+{% endif %}
+{% endfor %}
 
 
 ## Singularity
