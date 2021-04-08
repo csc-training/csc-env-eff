@@ -6,13 +6,13 @@ title: Tutorial - sacct and seff, how much resources my jobs used?
 
 In this exercise we look at commands `sacct` and `seff`.
 
-`Sacct` is useful when you want to look at a listing of jobs, but
+`sacct` is useful when you want to look at a listing of jobs, but
 by default it only shows minimal data.
 
-`Seff`, on the other hand, shows detailed data on used resources 
+`seff`, on the other hand, shows detailed data on used resources 
 in an easy-to-read format, but can only show one job at a time.
 
-By deafault it shows the jobs you have run since last midnight:
+By default it shows the jobs you have run since last midnight:
 ```text
 sacct
 ```
@@ -27,10 +27,10 @@ In this example we look at an array job that was run previously:
 ```text
 sacct -j 5431722
 ```
-Sacct is especially handy here, because it is easy to spot the 
+`sacct` is especially handy here, because it is easy to spot the 
 failed sub jobs.
 
-In this case we have only a few sub jobs, but if the array job 
+In this case, we have only a few sub jobs, but if the array job 
 is larger, it's probably clearer to look at just the jobs, and 
 not at all the job steps:
 ```text
@@ -40,7 +40,7 @@ In this case it easy to see why one subjob died: Reason is listed as
 TIMEOUT, meaning job ran out of time reservation. 
 
 You can also print out everything (`sacct -l`) or specify what data to print 
-out for each job(step), e.g.:
+out for each job (step), e.g.:
 ```text
 sacct -j 5431722 -o jobid,jobname,partition,state,start,alloccpus,elapsed,maxrss,reqmem
 ```
@@ -58,7 +58,7 @@ time they took.
 ```text
 seff 5431722_1
 ```
-When you know which subjobs failed and why, it you can adjust the
+When you know which subjobs failed and why, you can adjust the
 resource requests as necessary, and re-run the failed subjobs.
 
 You can read more about [array jobs](https://docs.csc.fi/computing/running/array-jobs)
