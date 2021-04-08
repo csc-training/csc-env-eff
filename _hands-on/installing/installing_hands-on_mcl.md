@@ -105,7 +105,7 @@ module load gcc/9.1.0
 In this case we wish to install the software to the `version-14-137` directory in you
 $PROJAPPL area. Thus you must use following `./configure` command:
 ```text
-./configure --prefix=$USERAPPL/mcl/version-14-137
+./configure --prefix=$PROJAPPL/mcl/version-14-137
 ```
 Next we need to compile and install the software with commands:
 ```text
