@@ -12,7 +12,7 @@ Open: [https://pouta.csc.fi](https://pouta.csc.fi)
 And login with your csc user account.
 
 From the upper left corner, you find a project selection pop-up menu. If you have several projects available, select the
-training project: **project_2002389**
+training project: **project_2004306**
 
 Then from the menu on left side of the interface, select:
 
@@ -20,7 +20,7 @@ Then from the menu on left side of the interface, select:
 
 And create new container by pressing button: **+Container**
 
-Keep the container _Not public_ and name it as 2002389_xxxx ( replace xxxx with your user account).
+Keep the container _Not public_ and name it as 2004306_xxxx ( replace xxxx with your user account).
 
 Open the new bucket (that is here called as container) and upload one file from your computer. 
 Any file should do, but prefer a file that you can open in Puhti.
@@ -51,7 +51,7 @@ csc-workspaces
 ```
 Switch to the scratch directory of your project 
 ```text
-cd /scratch/project_2002389  # note! replace the text here (and below) with your project
+cd /scratch/project_2004306# note! replace the text here (and below) with your project
 ```
 And create your own sub-directory, named after your training account (if this directory does not yet exist):
 ```text
@@ -78,18 +78,18 @@ Study what you have in allas with commands
 a-list
 rclone lsd allas:
 
-a-list 2002389_xxxx
-rclone ls allas:2002389_xxxx
+a-list 2004306_xxxx
+rclone ls allas:2004306_xxxx
 ```
 
 Download the file you just uploaded to Allas from your local computer.
 You can do that in two ways (replace _your-file-name_ with the name of the file you uploaded):
 ```text
-a-get 2002389_xxxx/your-file-name
+a-get 2004306_xxxx/your-file-name
 ```
 or
 ```
-rclone copy allas:2002389_xxxx/your-file-name ./
+rclone copy allas:2004306_xxxx/your-file-name ./
 ```
 
 Upload the file back to Allas.
@@ -98,13 +98,13 @@ Try commands:
 
 ```text
 a-put your-file-name
-a-put --nc -b 2002389_xxxx 
+a-put --nc -b 2004306_xxxx 
 ```
 Use use `a-put -h` to figure out the difference between the two commands above.
 
 Then do the upload with rclone:
 ```text
-rclone copy your-file-name allas:2002389_xxxx/
+rclone copy your-file-name allas:2004306_xxxx/
 ```
 Locate the files you just uploaded in Pouta www-interface.
 
