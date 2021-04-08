@@ -24,7 +24,7 @@ Move to your `$PROJAPPL` directory and create there a new directory called mcl
 
 ```text
 cd $PROJAPPL
-mkdir mcl
+mkdir mcl # or if this exists, invent some other name for yourself!
 ```
 You now have two options: Dowload a distribution package as compressed tar file or
 clone the source code from Git.
@@ -39,7 +39,7 @@ wget https://micans.org/mcl/src/mcl-latest.tar.gz
 In this case the installation package is a tar-archive file that has been compressed 
 with gzip program. You can unpack this file with commands
 ```text
-tar xvf mcl-latest.tar
+tar xvf mcl-latest.tar.gz
 ls -l
 ```
 After unpacking, the `ls` command shows that a new directory called `mcl-14-137` has 

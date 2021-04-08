@@ -12,7 +12,7 @@ Open: https://pouta.csc.fi
 And login with your account.
 
 From the upper left corner, you find a project selection pop-up menu. If you have several projects available, select the
-training project: **project_2002389**
+training project: **project_2004306**
 
 Then from the menu in left side of the interface, select:
 
@@ -45,7 +45,7 @@ csc-workspaces
 ```
 Switch to the scratch directory of your project 
 ```text
-cd /scratch/project_2002389  # note! replace the text here (and below) with your project
+cd /scratch/project_2004306  # note! replace the text here (and below) with your project
 ```
 And create your own sub-directory, named after your training account (if this directory does not yet exist):
 ```text
@@ -116,9 +116,9 @@ A-put case 1: Store everything in one object:
 A-put case 2: Each subdirectory (species) as one object:
 ```text
  a-put pythium/*
- a-list 2002389-puhti-SCRATCH/trng_xxxx
+ a-list 2004306-puhti-SCRATCH/trng_xxxx
  a-check pythium/*
- a-info 2002389-puhti SCRATCH/training027/pythium/pythium_vexans.tar.zst 
+ a-info 2004306-puhti SCRATCH/training027/pythium/pythium_vexans.tar.zst 
 ```
 A-put case 3: Use your own bucket name
 ```text
