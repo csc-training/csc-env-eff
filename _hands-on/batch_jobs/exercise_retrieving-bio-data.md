@@ -42,7 +42,7 @@ page in the Docs.
 
 ## 1. Downloading data with curl
 
-`Curl` and `wget` are general tools to download data from an URL.
+`curl` and `wget` are general tools to download data from an URL.
 
 Download a dataset from internet using `curl` and uncompress it. The 
 dataset contains some *Pythium* genomes with  related BWA indexes.
@@ -69,7 +69,7 @@ Check how many proteins are found the NCBI protein databanks for
 ```text
 esearch -db protein -query "Pythium [ORGN]" 
 ```
-Then check the nuber of proteins: cellulose synthase 1, cellulose 
+Then check the number of proteins: cellulose synthase 1, cellulose 
 synthase 2 and cellulose synthase 3 that are found for Pythium species.
 
 For cellulose synthase 1 this can be done with:
@@ -82,8 +82,8 @@ Retrive the cellulose synthase 3 sequenses in Fasta format
 ```text
 esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 3 [PROT]" | efetch -format fasta > cesy3.fasta
 ```
-Then run esearch command that tells how many  cellulose synthase 3 
-sequences there are in total in NCBI protein database?
+Then run `esearch` command that tells how many  cellulose synthase 3 
+sequences there are in total in the NCBI protein database?
 
 ### Extra exercises for the fast ones: Align the cellulose synthase 3 set with mafft
 ```text
