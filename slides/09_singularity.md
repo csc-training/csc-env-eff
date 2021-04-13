@@ -5,8 +5,7 @@ lang: en
 
 # Introduction to Singularity containers {.title}
 
-In this section you will learn the basics of Singularity containers
-and how to use them in CSC environment.
+The basics of Singularity containers and how to use them in CSC environment.
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)

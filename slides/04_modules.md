@@ -5,7 +5,7 @@ lang: en
 
 # Module system {.title}
 
-In this section, you will learn about module systems and how to use them in CSC supercomputers.
+Module systems and how to use them in CSC supercomputers.
 Same information can be found in [the module section of our user guide at docs.csc.fi](https://docs.csc.fi/computing/modules/)
 
 <div class="column">
