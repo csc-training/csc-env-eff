@@ -8,6 +8,17 @@ lang: en
 In this section, you will learn about module systems and how to use them in CSC supercomputers.
 Same information can be found in [the module section of our user guide at docs.csc.fi](https://docs.csc.fi/computing/modules/)
 
+<div class="column">
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+</div>
+<div class="column">
+<small>
+All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors.
+This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 3.0
+Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+</small>
+</div>
+
 # Module systems in supercomputers
 
 - Several softwares with different (possibly conflicting) requirements are needed in one supercomputer

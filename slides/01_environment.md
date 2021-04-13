@@ -5,6 +5,17 @@ lang: en
 
 # Brief introduction to HPC environments {.title}
 
+<div class="column">
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+</div>
+<div class="column">
+<small>
+All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors.
+This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 3.0
+Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+</small>
+</div>
+
 # Some notes on vocabulary
 <div class="column">
 Roughly you can think of

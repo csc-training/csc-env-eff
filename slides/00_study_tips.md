@@ -4,6 +4,17 @@ lang: en
 ---
 # Study tips and problem solving {.title}
 
+<div class="column">
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+</div>
+<div class="column">
+<small>
+All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors.
+This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 3.0
+Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+</small>
+</div>
+
 # Using these materials
 
 - The material is organized by topics in increasing complexity
@@ -87,3 +98,6 @@ Ctrl-C
    - `bash` history is nice, but keeps also the ones that didn't work...
    - Note, don't overwrite your vault file (_e.g._ with `cat > $HOME/vault`)
 - Store scripts in `$HOME/bin` and take backups
+
+# License
+
