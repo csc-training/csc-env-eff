@@ -5,15 +5,19 @@ title: Tutorial - Installing Python applications and libraries
 
 # Python
 
-To run Python applications, first load suitable Python module. You can check 
-available modules with e.g.:
-```text
-module spider python
-```
-- `python-env` is a general purpose Python installation
-- `python-data` includes commonly used packages for data analysis and machine learning
+To run Python applications, first load suitable Python module. CSC
+has several Python environments available, with focus on different
+application areas.
 
-To install simple packages it is usually enough to use:
+For details, please see the [Python page](https://docs.csc.fi/apps/python/)
+in Docs.
+
+By selecting a suitable Python environment to start with, you'll minimize
+the need to install additional packages.
+
+## Installing Pyton packages.
+
+To install simple packages it is usually enough to use `pip`:
 ```text
 pip install --user package_to_install
 ```
@@ -22,26 +26,10 @@ installation location, and this will not work.
 
 For more complex installations it is preferable to create a virtual environment. 
 
-See instructions in our [python-data documentation](https://docs.csc.fi/apps/python-data/).
-The same instructions work also for the `python-env` module.
+See instructions in our [Python documentation](https://docs.csc.fi/apps/python/).
 
-## Biopython
-For applications requiring Biopython we have two options:
-
-First option using `biopythontools` module:
-```text
-module load biokit
-module load biopythontools
-```
-With this option use `pip install --user` as above.
-
-Second option activates a virtual environment with biopython (substitute your project name):
-```text
-export PROJAPPL=/projappl/project_12345
-module load bioconda
-biopython-env
-```
-See our [Biopython documentation](https://docs.csc.fi/apps/biopython/) for more details.
+Also see the the pages for each Python environment so see any environment specific
+instructions.
 
 ## Example
 We need library `coverage`.
