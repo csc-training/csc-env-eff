@@ -83,12 +83,12 @@ author: CSC Training
 {% endfor %}
 
 <div class="column">
-![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+<p><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" /></p>
 </div>
 <div class="column">
-<small>
-All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors.
-This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 3.0
-Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)
-</small>
+<p><small>
+  All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors. <br>
+  This work is licensed under a <strong>Creative Commons Attribution-NonCommercial-ShareAlike</strong> 3.0 <br>
+  Unported License, <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a>
+ </small></p>
 </div>
