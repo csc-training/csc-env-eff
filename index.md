@@ -21,6 +21,7 @@ author: CSC Training
 - [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
+* [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
 
 ## Disk-areas
 {% for hands-on in items %}
