@@ -20,19 +20,18 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - On a laptop we are used to start a program(job) by clicking on an icon and the job starts instantly
 - If we start many jobs at the same time we occasionally run into problems like running out of memory etc. 
 - In an HPC environment the computer is shared among hundreds of other users who all have different resource needs
-- In order to avoid problems and make the usage as efficient as possible, all HPC jobs include an **estimate on how much resources they are expected to use**
+- HPC batch jobs include an **estimate (requirement) on how much resources they are expected to use**
 
 # What is a batch job? 2/2
 - A batch job consists of two parts: A resource request and the actual computing step
 - A job is not started directly, but sent into a **queue**
-- Depending on the resources requested by the single job, and how many other jobs there are, the job usually have to wait for some time to get started
+- Depending on the requested resources and load, the job may need to wait to get started
 - At CSC (and HPC systems in general) all heavy computing must be done via batch jobs (see [Usage policy](https://docs.csc.fi/computing/overview/#usage-policy))
 
 # What is a batch job system? 1/2
-- A resource management system that keeps track of all batch jobs that uses, or would like to use the computing resources
-- Aim is to share the resources in an efficient and fair way
+- A resource management system that keeps track of all batch jobs that use, or would like to use the computing resources
+- Aims to share the resources in an efficient and fair way
 - Optimizes resource usage by filling the compute node with most suitable jobs
-- The batch system allows users to submit jobs requesting the resources (runtime, nodes, cores, memory, GPUs) that they need 
 
 # What is a batch job system? 2/2
 - A job is queued and starts when the requested resources become available
@@ -53,7 +52,6 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
     - number of cores
     - amount of memory
     - other resources like gpu, local disk, etc.
-- Jobs don't start instantly but are put in a queue (partition)
 
 # Example serial batch job script for Puhti
 
@@ -121,8 +119,8 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - A parallel job distributes the calculation over several cores in order to achieve a shorter wall time (and/or a larger allocatable memory)   
 - There are two major parallelization schemes: [OpenMP](https://en.wikipedia.org/wiki/OpenMP) and [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)
    - Note, depending on the parallellization scheme there is a slight difference between how the resource reservation is done  
-- [Examples of batch job skripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
-- [Examples of batch job skripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
+- [Examples of batch job scripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
+- [Examples of batch job scripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
 
 
 # HPC GPU jobs 
