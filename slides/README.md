@@ -8,7 +8,8 @@ lang: en
 These slides are used e.g. in e-learn.csc.fi, docs.csc.fi and
 hopefully at Universities' own materials introducing high
 performance computing. Related [tutorials and exercises can be 
-found in github](https://csc-training.github.io/csc-env-eff/)
+found in github](https://csc-training.github.io/csc-env-eff/).
+Navigate slides with arrow up/down.
 
 <br>                                                                                                                                    
                                                                                                                                         
