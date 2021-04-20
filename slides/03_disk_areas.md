@@ -30,7 +30,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # Main disk areas in Puhti/Mahti
 - Home directory (`$HOME`)
-- ProjAppl directory (`/projapple/project_name`)
+- ProjAppl directory (`/projappl/project_name`)
 - Scratch directory (`/scratch/project_name`)
 - These directories reside on [Lustre parallel file system](https://docs.csc.fi/computing/lustre/)
 - Note that:
