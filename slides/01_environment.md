@@ -76,7 +76,7 @@ Roughly you can think of
 | Cores per node              | 40     | 128       |
 | Job size (min-max) cores    | 1-1040 | 128-25600 |
 | Memory per node (GiB)       | 192-1536 | 256     |
-| GPU cards                   | 120 x V100 | to appear|
-| Fast node local disk (NVMe) | 120   | -        |
+| GPU cards                   | 120 x V100 | 96 x A100|
+| Fast node local disk (NVMe) | 120   | (24 GPU nodes)  |
 
 In short: Mahti is for large parallel jobs, prepare to install and optimize your code.
