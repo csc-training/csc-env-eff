@@ -79,4 +79,5 @@ Roughly you can think of
 | GPU cards                   | 120 x V100 | 96 x A100|
 | Fast node local disk (NVMe) | 120   | (24 GPU nodes)  |
 
-In short: Mahti is for large parallel jobs, prepare to install and optimize your code.
+In short: Mahti is for much larger parallel jobs, prepare to install and optimize your code.
+(Still, a Puhti *node* is > 10x your laptop.)
