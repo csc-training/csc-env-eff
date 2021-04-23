@@ -77,6 +77,7 @@ From: continuumio/miniconda3
 
     . /opt/conda/etc/profile.d/conda.sh
     conda env create -f environment.yml -p /opt/conda/envs/$ENV_NAME
+    conda clean --all
 
 %runscript
     exec "$@"
