@@ -181,7 +181,7 @@ sed -i "6s/^/7787/" C6H12_structures_10/7787.com
 ```text
 sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account yourprojectname greasy_10.tasklist-undefined.rst
 ```
-- When the GREASY job has finished check that the previously failed job has finnished
+- When the GREASY job has finished check that the previously failed job has successfully finished 
 
 ```text
 grep Summary greasy-*.log
