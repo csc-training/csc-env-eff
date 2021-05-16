@@ -17,7 +17,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 </div>
 
 # What is a batch job? 1/2
-- On a laptop we are used to start a program(job) by clicking on an icon and the job starts instantly
+- On a laptop we are used to start a program (job) by clicking on an icon and the job starts instantly
 - If we start many jobs at the same time we occasionally run into problems like running out of memory etc. 
 - In an HPC environment the computer is shared among hundreds of other users who all have different resource needs
 - HPC batch jobs include an **estimate (requirement) on how much resources they are expected to use**
@@ -74,7 +74,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 # Available batch job partitions
 
 - [The available batch job partitions](https://docs.csc.fi/computing/running/batch-job-partitions/) in docs.csc.fi
-- In order use the resources in an efficient way, it is important to estimate the request as accurately as possible
+- In order to use the resources in an efficient way, it is important to estimate the request as accurately as possible
 - By avoiding an excessive "just-in-case" request, the job will start earlier 
 - Consult our [Getting started with the batch job system ](https://docs.csc.fi/computing/running/getting-started/)
 
@@ -154,7 +154,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
 Try to estimate the resources that are needed for _your_ job, in order to minimize the **waste** 
 
-* It's ok if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
+* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
    - It's _worse_ to run with way too big requests without knowing it.
 - Important resource requests that should be monitored are:
    - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
