@@ -8,7 +8,7 @@ author: CSC Training
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
 ## 1. Prerequirements (accounts and projects, Linux 101)
-* [Tutorial - Login Puhti with ssh](hands-on/connecting/ssh-puhti.html)
+1. [Tutorial - Login Puhti with ssh](hands-on/connecting/ssh-puhti.html)
 {% for hands-on in items %}
 {% if hands-on.topic == 'Linux Prerequisites' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -21,7 +21,7 @@ author: CSC Training
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
-* [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
+1. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
 
 ## 3. Disk areas
 {% for hands-on in items %}
