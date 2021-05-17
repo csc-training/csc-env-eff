@@ -80,8 +80,7 @@ author: CSC Training
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
-
-
+<p>
 
 <div style="float: left; width: 50%;">
 <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" />
@@ -93,5 +92,4 @@ author: CSC Training
   Unported License, <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a>
  </small></p>
 </div>
-<br>
-<br>
+<p>
