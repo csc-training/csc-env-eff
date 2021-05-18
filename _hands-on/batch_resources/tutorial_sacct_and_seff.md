@@ -125,7 +125,7 @@ Note that in this case we can not use the `-X` option, as we want to
 see memory usage for each step:
 
 ```text
-saccct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j xxxxxx
+sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j xxxxxx
 ```
 
 Also look at the error messages produced by the failed jobs.
