@@ -75,7 +75,7 @@ Overview:
  - Update local repository `git pull`
  - Change to master branch (if not already) `git checkout master` 
  - Make a new branch from the master branch `git checkout -b my-new-branch`
- - Work and commit in your new branch `emacs ...; git add file`
+ - Create content and `add` edited files in your new branch `emacs ...; git add file`
  - Commit your changes `git commit -m 'short description'`
  - Check status (all files committed etc.) `git status`
  - Push changes to github `git push origin my-new-branch`
