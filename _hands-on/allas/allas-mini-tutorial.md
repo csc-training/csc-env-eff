@@ -124,17 +124,16 @@ Refresh the connection with command:
 ```text
 allas-conf -k project_2004306
 ```
-When OS_PASSWORD is set a-commands (a-put, a-get, a-list, a-delete), automatically refresh the Allas connecommands to the batch job script.
+When OS_PASSWORD is set, the a-commands (a-put, a-get, a-list, a-delete) automatically refresh the Allas connection when commands are ececuted in batch job.
 
-Create a new batch job script:
-First open a new text file with command:
+To test this, create a new batch job script. First open a new text file with command (relace xxxx  here too):
 
 ```text
 nano allas_xxxx.sh
 ```
 Then copy the batch job script sample lines from below to the text file you are editing.
 Replace _xxxx_ with your user account and _your-file-name_ with the name of the file you 
-previously uploaded to Allas.
+previously uploaded to Allas. When you are ready, save the changes with _Ctrl-o_ and exit nano with _Ctrl-x_ . 
 
 ```text
 #!/bin/bash
