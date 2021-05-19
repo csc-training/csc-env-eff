@@ -7,7 +7,7 @@
  - When in doubt, check how other pages are formatted
 
 ## Organizing content
- - Try to make standalone articles with a good name
+ - Try to make standalone slide stacks / hands ons with a good name
  - The content should be as concise as possible, but as lengthy as needed.
  - Link generously to main guide (docs.csc.fi) for additional information
    - Some details can be introduced via tutorials/exercises
@@ -26,16 +26,16 @@
 
 ## Images, linked documents
  - Put all slides images in `slides/img` folder (tutorials/exercise folders can have their own img/)
- - Put large files in Allas (write access with project 2001659) bucket docs-files,
+ - Put large files in Allas (write access with project 2001659) bucket **csc-env-files**,
  e.g.  [https://a3s.fi/csc-env-files/README.md](https://a3s.fi/csc-env-files/README.md)
-      - new files easy to share with `a-publish your-file.tgz -b csc-env-files` 
+      - new files easy to share with `a-publish your-file.tgz -b csc-env-files`
+      - existing files can be updated (overwritten) with `a-put -b csc-env-files -n --override README.html`
 
 ## Syntax highlighting
  - Write SLURM flags in long format (`--nodes` instead of `-N`, etc.)
  - All examples should use minimum viable reserved resources. I.e don't write examples 
    with --t=72:00:00 / --gres=gpu:v100:4 / --cpus-per-task=40, if it not needed. 
    Users tend to use these as default values.
- - FIXME anchors not tested
  - Internal links as `[cool page](page.md)`, `[stuff in
    page](page.md#anchor)`, `[stuff in other section](../other_section/page.md)`,
    `[stuff elsewhere](../other_section/page.md#anchor)` (no _internal_ links with https://...)
