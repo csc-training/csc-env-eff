@@ -174,12 +174,8 @@ In this case, the batch job script for Puhti could look like:
 #SBATCH --output=allas_output_%j.txt
 #SBATCH --error=allas_errors_%j.txt
 
-a-get 2004306_xxxx/your-file-name
-wc -l your-file-name > your-file-name.num_rows
-a-put -b 2004306_xxxx --nc your-file-name.num_rows
-
 #make sure connection to Allas is open
-source /appl/opt/allas-cli-utils/allas_conf -f -k project_2004306
+source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 rclone copy allas:2004306_xxxx/your-file-name ./
 
 wc -l your-file-name > your-file-name.num_rows
