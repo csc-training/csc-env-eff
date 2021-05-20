@@ -7,7 +7,7 @@
 
 ## Copy the theme and other dependencies to local directory (in Puhti)
 
-1. Go the the same directory as the source md files (= your git root directory for csc-env-eff in Puhti) (If you haven't yet cloned the repository, do so: git clone https://github.com/CSCfi/csc-env-eff). Note, this must be a subfolder in your $HOME.
+1. Go the the same directory as the source md files (= your git root directory for csc-env-eff in Puhti) (If you haven't yet cloned the repository, do so: `git clone https://github.com/csc-training/csc-env-eff`). Note, this must be a subfolder in your `$HOME`.
 2. Run command 
    ```bash
    singularity exec $HOME/bin/pandoc.sif /bin/sh -c "cp -r /slidetools/* ."
@@ -24,13 +24,13 @@
 5. To create the whole site add your page to the top of the Makefile (located in: csc-env-eff/slides/Makefile) list and run `make`
 
 > Note, don't publish the theme and slidefactory accessory files, just the html (and related images etc.)!
-> Note, `a-publish` will not overwrite files in Allas, so you'll need to `a-delete` the file in Allas first.
+> Note, `a-publish` will not _overwrite_ files in Allas, so you'll need to `a-put --override` or delete the file in Allas first.
 
 ## Speed up testing how the slides look like directly from Puhti
 
 Start a local http server in Puhti and access slides with your browser
 
-1. Go to the directory with html files (*i.e.* your csc-env git root) and run command 
+1. Go to the directory with html files (*i.e.* your csc-env git root, **not** your `$HOME`) and run command 
    ```
    python3 -m http.server 80XX
    ```
@@ -56,9 +56,9 @@ Start a local http server in Puhti and access slides with your browser
    ```
 2. Publish your slides
    - Note, `a-publish` is recursive, so if you want only some subfolder, `cd` there first.
-     Leave the *csc-env* bucket for the full repository and master branch only.
+     Leave the *CSC_training* bucket for the full repository and master branch only.
    ```bash
-   a-publish -b my-csc-env 0X_cool_chapter.html
+   a-publish -b test-csc-env 0X_cool_chapter.html
    ```
    - `a-publish` will echo the url, which in this case would be *https://a3s.fi/my-csc-env/0X_cool_chapter.html*
    
