@@ -9,7 +9,7 @@ CSC users working in a supercomputing environment have access to different disk 
 
 Upon completion of this tutorial, you will get familiar with:
 - Personal and project-specific disk areas and their quotas in CSC supercomputing environment
-- Ideal disk areas for large I/O operations
+- Ideal disk areas for large I/O operations (=reading and writing operations)
 
 ## Identify your personal and project-specific directories in Puhti and Mahti supercomputers
 
@@ -20,7 +20,7 @@ csc-workspaces
 ```
 The above command shows information about your directories and their current quotas. These directories can be briefly summerised as below:
 
-- User-specific directory: It is your home directory ($HOME) and is also the default directory when you login to Puhti/Mahti. You can store configuration files and other minor personal data. 
+- User-specific directory = Personal home folder: It is your home directory ($HOME) and is also the default directory when you login to Puhti/Mahti. You can store configuration files and other minor personal data. 
 
 - Project-specific directories: These are *scratch* and *projappl* directories. Each project contains its scratch disk space where actual data analysis tasks are performed. Scratch area is a temporary space. *Projappl* directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
 
@@ -72,7 +72,7 @@ Currently, all directories on scratch drive are project-based and one should be 
 csc-projects
 ```
 
-Once you know the project number which would be in the form of project_xxx, you can move your pre-processed data (i.e., Merged.fasta file) from earlier step to a project-specific directory on scratch area as below:
+Once you know the project number which would be in the form of project_xxx, you can move your pre-processed data from earlier step (i.e., Merged.fasta file) to a project-specific directory on scratch area. First create your own folder (using environment variable $USER) and then move the data as below:
 
 ```bash
 mkdir /scratch/project_xxx/$USER
