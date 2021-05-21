@@ -19,14 +19,14 @@ Let's imagine that we have some sequencing data that we wish to align to a refer
 
 1. Let's see the [list of applications](https://docs.csc.fi/apps/) and look for suitable aligners. Can you find for example TopHat, STAR, Bowtie and BWA aligners in the list? Which module is needed to run these applications?
 
-The *biokit module* sets up a set of commonly used bioinformatics tools. 
+   The *biokit module* sets up a set of commonly used bioinformatics tools. 
 
 2. All softwares installed in CSCs super computers don't necessarily have their own manual page in the application list (yet): they might be new installations, or installed from request of a single research group etc. Let's check if HISAT2 aligner is also available:
 
-```bash
-module spider hisat
-```
-Is there some version of HISAT2 also available?
+   ```bash
+   module spider hisat
+   ```
+   Is there some version of HISAT2 also available?
 
 3. Let's load the biokit module and see what is included.
 ```bash
