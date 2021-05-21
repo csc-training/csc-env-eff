@@ -29,15 +29,15 @@ Let's imagine that we have some sequencing data that we wish to align to a refer
    Is there some version of HISAT2 also available?
 
 3. Let's load the biokit module and see what is included.
-```bash
-module load biokit
-module list
-```
-Was HISAT2 available in the biokit?
+   ```bash
+   module load biokit
+   module list
+   ```
+   Was HISAT2 available in the biokit?
 
 ## Bioconda environment
 
-4. After aligning, we might want to check the quality of the alignment with RSeQC tool. As we can see from the `module list` command above, it was not included in the biokit. Like we learned, you can try to look for it from the application manual page and by using the `module spider rseqc`. 
+After aligning, we might want to check the quality of the alignment with RSeQC tool. As we can see from the `module list` command above, it was not included in the biokit. Like we learned, you can try to look for it from the application manual page and by using the `module spider rseqc`. 
 
 No luck? What next? Let's take a look at the bioconda environment.
 
@@ -62,4 +62,4 @@ See RSeQc there?
 
 ## Using modules in a batch script
 
-5. When we loaded the bioconda module, some dependency modules were loaded in the background. This means, that the environment changed, and the softwares that were previously loaded might not be available anymore. Note, that if you are writing a batch script that uses applications from different modules, you want to be careful that you load and unload the modules at the right time!
+When we loaded the bioconda module, some dependency modules were loaded in the background. This means, that the environment changed, and the softwares that were previously loaded might not be available anymore. Note, that if you are writing a batch script that uses applications from different modules, you want to be careful that you load and unload the modules at the right time!
