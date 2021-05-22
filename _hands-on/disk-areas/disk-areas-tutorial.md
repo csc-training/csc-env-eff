@@ -20,7 +20,7 @@ csc-workspaces
 ```
 The above command shows information about your directories and their current quotas. These directories can be briefly summerised as below:
 
-- User-specific directory = Personal home folder: It is your home directory ($HOME) and is also the default directory when you login to Puhti/Mahti. You can store configuration files and other minor personal data. 
+- User-specific directory (= Personal home folder): It is your home directory ($HOME) and is also the default directory when you login to Puhti/Mahti. You can store configuration files and other minor personal data. 
 
 - Project-specific directories: These are *scratch* and *projappl* directories. Each project contains its scratch disk space where actual data analysis tasks are performed. Scratch area is a temporary space. *Projappl* directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
 
