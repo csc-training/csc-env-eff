@@ -36,24 +36,24 @@ echo $TMPDIR
 ```
 This local disk area in login nodes is meant for some light-weight preprocessing of data before you start actual analysis on scratch drive. Let's look at the below  toy example where you can download a tar file containing thousands of small files and then you can  merge all of those files into one big file using local storage disks.
 
-Download tar file from *allas* object storage as shown below:
+1. Download tar file from *allas* object storage as shown below:
 
-```bash 
-cd $TMPDIR           
-wget https://a3s.fi/CSC_training/Individual_files.tar.gz
-```
-And then unpack the downloaded tar file as below:
+   ```bash 
+   cd $TMPDIR           
+   wget https://a3s.fi/CSC_training/Individual_files.tar.gz
+   ```
+2. And then unpack the downloaded tar file as below:
 
-```
-tar -xavf Individual_files.tar.gz
-cd Individual_files
-```
-Merge all those small files into one file and remove all small files
+   ```
+   tar -xavf Individual_files.tar.gz
+   cd Individual_files
+   ```
+3. Merge all those small files into one file and remove all small files
 
-```
-find . -name 'individual.fasta*' | xargs cat  >> Merged.fasta
-find . -name 'individual.fasta*' | xargs rm
-```
+   ```
+   find . -name 'individual.fasta*' | xargs cat  >> Merged.fasta
+   find . -name 'individual.fasta*' | xargs rm
+   ```
 
 However, if you are going to perform heavy-weight computing tasks on those larger number of smaller files, you have to use local storage areas in compute nodes which are accessed either [interactively](https://docs.csc.fi/computing/running/interactive-usage/) or using [batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-puhti).
 
