@@ -17,7 +17,11 @@ title: Tutorial - Serial batch job tutorial
 - Excess reservation is wasted since it wouldn't be available to other users
 - Within the job (or allocation), the actual program is launched using the command `srun` 
 - If you use a software that is preinstalled at CSC, please [check its infopage](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
-
+- First go to the scratch folder. Your input (and output) must be on a disk that is accessible on the compute node:
+```text
+cd /scratch/project_xxxx
+```
+, where `project_xxx` is one of your computing projects (you can list them with `csc-projects`). Then create a file containing this: 
 ```text 
 #!/bin/bash
 #SBATCH --account=myprojectname
