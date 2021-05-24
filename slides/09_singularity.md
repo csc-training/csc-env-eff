@@ -18,6 +18,12 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 </small>
 </div>
 
+# The one-slide lecture
+- Some software packages on CSC supercomputers are installed as containers
+  - May cause some changes to usage
+  - See instructions for each software for details
+- Containers provide an easy way for you to install software
+  - Single command installation if a suitable container exists
 
 # Containers
 - Containers are a way to package software with its dependencies (libraries, etc)
@@ -37,6 +43,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - Containers are becoming a popular way to distribute software
   - Single command installation
   - All dependencies included, so more portable
+  - Normal user rights enough when using an existing container
 - Root access on build system is enough
   - Root access, package managers (yum, apt, etc) can be utilized  even
   when not available in the target system.
@@ -93,7 +100,7 @@ necessary
 
 # Environment variables
 - Most environment variables from host are inherited by the container
-- Can be prevented if necessary by adding option `--cleanenv`
+- Can be prevented, if necessary, by adding option `--cleanenv`
 - Environment variables can be set specifically inside the container by 
 setting in host `$SINGULARITYENV_variablename`.
   - E.g. to set `$TEST` in container, set `$SINGUALRITYENV_TEST` in host
@@ -110,7 +117,8 @@ setting in host `$SINGULARITYENV_variablename`.
 - For example:
   - `singularity build pytorch_19.10-py3.sif docker://nvcr.io/nvidia/pytorch:19.10-py3`
 - Documentation in Docs:
-  - https://docs.csc.fi/computing/containers/run-existing/
+  - [Running Singularity containers](https://docs.csc.fi/computing/containers/run-existing/)
+  - [Creating Singularity containers](https://docs.csc.fi/computing/containers/creating/)
 
 # Singularity containers as installation method
 - Singularity is a good option in cases where installation is
@@ -142,7 +150,7 @@ otherwise problematic:
   
 # Building a new Singularity container (3/3)
 - 3. Build a production image from the sandbox
-- (optional) Make a definition file and build a production image from it
+- 4. (optional) Make a definition file and build a production image from it
   - Mostly necesary if you wish to distribute your container wider
   - Also helps with updating and re-using containers
 - Production image can be transferred to e.g. Puhti and run with user rights

@@ -18,8 +18,11 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 </small>
 </div>
 
+# The one-slide lecture
+- It is possible for users to install software on CSC supercomputers
+- If you don't know how, or run into problems while trying, contact servicedesk@csc.fi
+
 # Code categories
-- It is possible to install software on CSC servers
 - Start by reading the software documentation
   - Installation method depends on code type (or category)
   - Instructions found on the web rarely work "copy/paste" in HPC environment
@@ -73,9 +76,8 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
   - Provide path when running or add to `$PATH`
 
 # Installing
-
 - See tutorials for each category for more detailed instructions
-  - [Installation tutorials](https://github.com/csc-training/csc-env-eff/blob/master/_hands-on/installing/README.md)
+  - [Installation tutorials](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
 - Applications may also be available as [containers](09_singularity.html), which can be used in CSC environment.
 
 # Testing - it's important to test _first_
@@ -90,5 +92,6 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - Check CSC Docs pages:
   - [Compiling applications in Puhti](https://docs.csc.fi/computing/compiling-puhti/)
   - [Compiling applications in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+  - [High performance libraries](https://docs.csc.fi/computing/hpc-libraries/)
 - Lot's of information in the net
   - Try searching with error mesages from compiling etc
