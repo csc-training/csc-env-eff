@@ -23,7 +23,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
   - May cause some changes to usage
   - See instructions for each software for details
 - Containers provide an easy way for you to install software
-  - Single command installation if a suitable container exists
+  - Single command installation if a suitable Docker or Singularity container exists
 
 # Containers
 - Containers are a way to package software with its dependencies (libraries, etc)
