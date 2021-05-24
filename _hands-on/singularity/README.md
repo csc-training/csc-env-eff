@@ -1,6 +1,7 @@
 # Singularity
 
 ## Tutorials
+- [Running applications installed as containers](singularity-tutorial_running-installed.md)
 - [Singularity tutorial](singularity-tutorial.md)
 
 ## Extra tutorials
