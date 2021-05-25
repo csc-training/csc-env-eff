@@ -45,13 +45,13 @@ The first command is run in the host. The second command is run inside the conta
 
 The tutorial container is based on Ubuntu 18.04. The host and the container use the 
 same kernel, but the rest of the system can vary. That means a container can be based 
-on a different Linux distribution than the host (as long as they the are kernel compatible), 
-but can't run a totally differen OS like Windows.
+on a different Linux distribution than the host (as long as they are kernel-compatible), 
+but can't run a totally different OS like Windows.
 
 `Singularity exec` is the run method you will typically use in a batch job script.
 
 Make a file called `test.sh`, and copy the following contents to it. Change "project_xxxx"
-to the corrct project name.
+to the correct project name.
 ```text
 #!/bin/bash
 #SBATCH --job-name=test
@@ -95,7 +95,7 @@ It is also possible to open a shell inside the container.
 ```text
 singularity shell tutorial.sif
 ```
-You can see the comamnd prompt change to `Singularity>`. You can now run any software 
+You can see the command prompt change to `Singularity>`. You can now run any software 
 inside the container interactively:
 ```text
 hello_world
@@ -119,7 +119,7 @@ This is done with command line argument `--bind` (or `-B`). The basic syntax is
 `--bind /path/in/host:/path/inside/container`.
 
 The bind path does not need to exist inside the container. It is created if necessary. 
-More that one bind pair can be specified. The option is available for all the run methods 
+More than one bind pair can be specified. The option is available for all the run methods 
 described above.
 
 First try listing the contents of your project directory (substitute the correct path) 
@@ -242,13 +242,13 @@ Default location for this is `$HOME/.singularity/cache`. Since the home director
 limited capacity, and some images can be large, it's best to set `$SINGULARITY_CACHE` 
 to point to some other location with more space.
 
-If running with `sinteractive`, or as batch job on an IO node, you can use the 
+If you're running with `sinteractive`, or as batch job on an IO node, you can use the 
 fast local storage:
 ```text
 export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
 export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
 ```
-If running on a node with no local storage, you can use e.g. /scratch.
+If you're running on a node with no local storage, you can use e.g. /scratch.
 
 You can avoid some unnecessary warnings by unsetting a variable:
 ```text
@@ -266,7 +266,7 @@ To do this you will need an access to system where you have root access and that
 Singularity installed.
 
 Singularity version does not need to be exactly same, but it should be same major varsion 
-e.g. (3.x as oppsed to 2.x).
+e.g. (3.x as opposed to 2.x).
 
 You can check the current version on Puhti with:
 ```text
@@ -276,7 +276,7 @@ After creating an image file, you can transfer it to Puhti to use.
 
 ## More information
 
-This tutorial is meant as brief introduction to get you started.
+This tutorial is meant as a brief introduction to get you started.
 
 When searching the internet for instruction, pay attention that the instructions are
 for the same version of Singularity that you are using. There has been some command 
