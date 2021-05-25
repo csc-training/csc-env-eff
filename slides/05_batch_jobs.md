@@ -70,6 +70,18 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - The `--account` option is mandatory to tell which project should be billed.
 - The actual program is launched using the `srun` command
 - The content above could be copied into a file like `simple_serial.bash` and put into the queue with the command `sbatch simple_serial.bash`
+
+# Use an application specific batch script template
+
+<div class="column">
+- The [application list in docs](https://docs.csc.fi/apps/) contains example scripts for each software
+- Use these as the *starting point* for your own scripts
+- They have been tested and optimized (although for minimal resources) for *that* application
+   - Consult the manual or other examples to adapt to your own needs
+</div>
+<div class="column">
+![](img/apps-list.png "Applications list in docs.csc.fi"){width=90%}
+</div>
  
 # Available batch job partitions
 
@@ -121,7 +133,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
    - Note, depending on the parallellization scheme there is a slight difference between how the resource reservation is done  
 - [Examples of batch job scripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
 - [Examples of batch job scripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
-
+- **Best:** [Software specific batch scripts in docs](https://docs.csc.fi/apps/)
 
 # HPC GPU jobs 
 
