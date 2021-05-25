@@ -94,4 +94,4 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
   - [Compiling applications in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
   - [High performance libraries](https://docs.csc.fi/computing/hpc-libraries/)
 - Lot's of information in the net
-  - Try searching with error mesages from compiling etc
+  - Try searching with error messages from compiling etc
