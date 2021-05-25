@@ -8,14 +8,14 @@ title: Tutorial - Running applications installed as containers
 In this tutorial we get familiar with the basic usage of 
 software that has been installed as a container.
 
-Some software on CSC supercomputers has been installed 
+Some software on CSC supercomputers have been installed 
 as containers. In many cases we have tried to "hide" the 
 container behind wrapper scripts so that there is no change 
 in usage from the user perspective.
 
 On some cases, however, this is not practical, and in these 
 cases there can be some differences to the standard usage as 
-described by the software documentation. Typically this involves 
+described by the software documentation. Typically, this involves 
 prefixing the commands with `singularity_wrapper exec`.
 This will also typically be the case for software you install 
 yourself as a container.
@@ -63,6 +63,6 @@ You can see more details about the software in the
 
 ## More information
 
-There is a more [in-depht tutorial on using Singularity containers](https://csc-training.github.io/csc-env-eff/hands-on/singularity/singularity-tutorial.html) 
+There is a more [in-depth tutorial on using Singularity containers](https://csc-training.github.io/csc-env-eff/hands-on/singularity/singularity-tutorial.html) 
 you can go through after this.
 
