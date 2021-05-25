@@ -29,7 +29,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - Before doing a lot of work, check if an alternative software is already available in [CSC application list](https://docs.csc.fi/apps/)
   - Also check with `module spider`
 
-# Binares
+# Binaries
 - If you have ready made binaries, you can just try to run them
 - The problem with ready made binaries is that they are hardly ever optimal for the computer they are used on
   - Especially MPI codes should always be re-compiled
