@@ -11,6 +11,27 @@ and it is a member of a project that [has access to Puhti service](https://docs.
 Different operating systems have a little bit different SSH-clients (programs that
 you can use to take the connection with).
 
+## Linux
+
+Laptops and workstations running Linux typically have SSH installed. Simply open a terminal
+and give:
+```bash
+ssh yourcscusername@puhti.csc.fi
+```
+The terminal icon looks like this:
+![terminal-icon](../../slides/img/terminal-icon.png)
+
+(Scroll down to [In Puhti](#in-puhti))
+
+## macOS
+
+In macOS, you can use Terminal similarly as with Linux machines (see below). Simply open the Terminal application and type:
+```bash
+ssh yourcscusername@puhti.csc.fi
+```
+
+(Scroll down to [In Puhti](#in-puhti))
+
 ## Windows10
 
 On Windows 10, you can use the *Windows Power Shell*
@@ -28,24 +49,7 @@ in the bottom bar search box.
 5. Click "OK" at the bottom.
 6. MobaXterm will now log you in puhti.csc.fi and ask you for your password.
 
-* The next time you want to login to Puhti, just select it from the "session" menu on the left. (Scroll down to [In Puhti](#in-puhti))
-
-## MacOS
-
-In MacOS, you can use Terminal similarly as with Linux machines (see below). Simply open the Terminal application and type:
-```bash
-ssh yourcscusername@puhti.csc.fi
-```
-
-(Scroll down to [In Puhti](#in-puhti))
-
-## Linux
-
-Laptops and workstations running Linux typically have SSH installed. Simply open a terminal
-and give:
-```bash
-ssh yourcscusername@puhti.csc.fi
-```
+* The next time you want to login to Puhti, just select it from the "session" menu on the left. 
 
 ## In Puhti
 
