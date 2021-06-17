@@ -6,7 +6,7 @@ title: Tutorial - Basic linux commands
 
 This tutorial requires that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
-You have also already [logged to Puhti with ssh](ssh-puhti.md).
+You have also already [logged to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
 
 
 1. Now that you have logged in Puhti, let's check in which folder we are in! Type pwd and hit Enter.
@@ -55,4 +55,4 @@ rm my-first-file.sh
 ls
 ```
 
-Next, let's learn [how to edit that file](basic-file-editing.md)!
+Next, let's learn [how to edit that file](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-file-editing.html)!
