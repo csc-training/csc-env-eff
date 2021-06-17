@@ -19,7 +19,7 @@ and give:
 ssh yourcscusername@puhti.csc.fi
 ```
 The terminal icon looks like this:  
-![terminal-icon](slides/img/terminal_icon.png)
+![terminal-icon](../../slides/img/terminal_icon.png)
 
 (Scroll down to [In Puhti](#in-puhti))
 
