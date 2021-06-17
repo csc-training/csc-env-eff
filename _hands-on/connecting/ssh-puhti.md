@@ -51,6 +51,10 @@ in the bottom bar search box.
 
 * The next time you want to login to Puhti, just select it from the "session" menu on the left. 
 
+The MobXterm window looks like this:  
+![terminal-icon](../../slides/img/mobaxterm-login.png)
+
+
 ## In Puhti
 
 - if you're connecting to Puhti (or that Puhti login node) for the first time, SSH will
