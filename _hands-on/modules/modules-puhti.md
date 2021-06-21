@@ -31,21 +31,20 @@ module spider gromacs
 module avail gromacs-env
 ```
 
-6. Now, let's see which version is loaded with the default command! Do you notice any changes compared to the first command?
+6. Now, let's see which version is loaded with the default command! Do you notice any changes compared to the first command? 
 ```bash
 module load gromacs-env
 module list
 ```
 
-7. Just out of curiosity, let's switch to the 2020 GPU version of Gromacs, and check the situation. Do you notice any changes now?
+7. If no version is given in the module command, the default version is loaded. The default version is typically the latest stable version of the program. If the program version matters, it is best to give it in module load command, as the default version may change. Just out of curiosity, let's see how we could use the 2018 version of Gromacs. We check with spider command which modules are needed, first clean the existing modules and then load the needed modules.
 ```bash
-module load gromacs-env/2020-gpu
-module list
-```
-
-8. Let's clean up after ourselves, and unload all modules:
-```bash
+module spider gromacs/2018.8
 module purge
+module load gcc/9.1.0  
+module load hpcx-mpi/2.4.0
+module load gromacs/2018.8
+module list
 ```
 
 9. When actually starting to use Gromacs in Puhti, you would run it in the batch job system, which we hear more about later. Check however already the [example batch job script for Gromacs](https://docs.csc.fi/apps/gromacs/#example-parallel-batch-script-for-puhti) to see how the module is recommended to be loaded there (first two command lines after the `#SBATCH` commands and comments).
