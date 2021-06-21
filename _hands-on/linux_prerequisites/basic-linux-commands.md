@@ -37,7 +37,7 @@ wget https://github.com/CSCfi/csc-env-eff/raw/master/hands-on/linux_prerequisite
 
 6. What kind of file did you get? What's in that file now? What size is it? Let's use `ls` command with some extra parameters, and `less`  command to check out how the file looks like. 
 ```bash
-ls -lth
+ls -lth # parameters are l for long format, t for sorting by time and h for convenient size units. Anything that starts with a hashtag is a comment and is not executed
 less my-first-file.sh
 ```
 To exit the `less` preview of the file, hit 'q'. 
