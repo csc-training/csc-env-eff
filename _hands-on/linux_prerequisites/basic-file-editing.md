@@ -8,8 +8,7 @@ This tutorial requires that you have a [user account at CSC](https://docs.csc.fi
 and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 You have also already [logged to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html), and [learned the basic Linux commands](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-linux-commands.html).
 
-| ☝️ | NOTE: For graphical output to work you need to log in with `ssh -X account@puhti.csc.fi` |
-|----|:------------------|
+☝️ NOTE: For graphical output to work you need to log in with `ssh -X account@puhti.csc.fi`
 
 We downloaded a file called my-first-file.sh, made a copy of it (yourname-first-file.sh), and now we practise how to edit it!
 
@@ -33,8 +32,8 @@ less yourname-first-file.sh
 
 5. Let's download an image and a pdf
 ```bash
-wget https://github.com/CSCfi/csc-env-eff/raw/master/slides/img/terminal_icon.png
-wget https://github.com/CSCfi/csc-env-eff/raw/master/slides/img/schrodingerscat.pdf
+wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/terminal_icon.png
+wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/schrodingerscat.pdf
 ```
 
 6. Open the image with
@@ -64,8 +63,7 @@ nano yourname-cool-note-file.sh
 
 3. Copy the text-file to your personal computer for example with scp:
 
-| ☝️ | NOTE: This has to be typed in your personal computer's Terminal! |
-|----|:------------------|
+☝️ NOTE: This has to be typed in your personal computer's Terminal!
 
 ```bash
 scp account@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.txt] [path-to-local-folder-in-your-PC]
