@@ -37,10 +37,12 @@ wget https://github.com/CSCfi/csc-env-eff/raw/master/hands-on/linux_prerequisite
 
 6. What kind of file did you get? What's in that file now? What size is it? Let's use `ls` command with some extra parameters, and `less`  command to check out how the file looks like. 
 ```bash
-ls -lth
+ls -lth # parameters are l for long format, t for sorting by time and h for convenient size units. Anything that starts with a hashtag is a comment and is not executed
 less my-first-file.sh
 ```
 To exit the `less` preview of the file, hit 'q'. 
+
+> Tip: Instead of `less` you can use `cat` which prints the content of the file(s) straight into command line. For long texts `less` is recommended.
 
 7. Let's make a copy of this file (again, replace YourName with your name).
 ```bash
@@ -54,5 +56,7 @@ less YourName-first-file.sh
 rm my-first-file.sh
 ls
 ```
+
+> Tip: If you don't want to have duplicate files you can use `mv` to 'move/rename' the file. Syntax is the same: `mv [path/source] [path/destination]`.
 
 Next, let's learn [how to edit that file](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-file-editing.html)!
