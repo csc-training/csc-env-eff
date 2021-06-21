@@ -62,7 +62,7 @@ nano yourname-cool-note-file.sh
 
 2. Use `pwd` and copy the path to your current working directory
 
-3. 10. Copy the text-file to your personal computer for example with scp:
+3. Copy the text-file to your personal computer for example with scp:
 
 | ☝️ | NOTE: This has to be typed in your personal computer's Terminal! |
 |----|:------------------|
