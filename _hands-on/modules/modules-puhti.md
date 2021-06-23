@@ -26,21 +26,31 @@ module list
 module spider gromacs
 ```
 
-5. Quite a few of them! Check if some version can be loaded directly (compatible with currently loaded modules):
+5. Quite a few of them! Check if some versions can be loaded directly (compatible with currently loaded modules):
 ```bash
 module avail gromacs
 ```
 
-6. Now, let's see which version is loaded with the default command! Do you notice any changes compared to the first command? 
+6. Now, let's see which version is loaded with the default command! Is it the newest version? Do you notice any changes in the output of ```module list``` compared to the previous? 
 ```bash
 module load gromacs-env
 module list
 ```
 
-7. If no version is given in the module command, the default version is loaded. The default version is typically the latest stable version of the program. If the program version matters, it is best to give it in module load command, as the default version may change. Just out of curiosity, let's see how we could use the 2018 version of Gromacs. We check with spider command which modules are needed, first clean the existing modules and then load the needed modules.
+7. If no version is given in the module command, the default version is loaded. The default version is typically the latest **stable** version of the program. If the program version matters, it is best to give it in module load command, as the default version may change. Let's try and load the 2021 version:
 ```bash
-module spider gromacs/2018.8
+module load gromacs-env/2021
+module list
+```
+
+8. Just out of curiosity, let's see how we could use the "ancient" 2018 version of Gromacs. We first clean the existing modules, load again the standard environment, and then check with ```spider``` command which modules are needed for the old version, and then finally load all the needed modules.
+```bash
 module purge
+module list
+module load StdEnv
+module list
+
+module spider gromacs/2018.8
 module load gcc/9.1.0  
 module load hpcx-mpi/2.4.0
 module load gromacs/2018.8
