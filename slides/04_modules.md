@@ -55,6 +55,13 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
       - See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
 - You can use Conda modules to install tools that are available in Conda repositories
  
+# Customizing own environment
+- If you "always" use some modules, it is possible to add loading them to `.bashrc`, but **we do not recommend this**
+   - This causes the modules to be loaded always, also in batch jobs and likely will cause hard-to-spot issues later
+   - If you already did this, see the [`csc-env` command FAQ](https://docs.csc.fi/support/tutorials/using_csc_env/)
+- If it feels cumbersome to give the `module load this and that` at the start of each session, you can put these commands in an _alias_ in your `.bashrc`
+   - _e.g._ add this line in your _.bashrc_ `alias setmyenv='module load this and that'`
+   - Now, you can load all those modules simply with `setmyenv` (after logging out and back in)
 
 # [Advanced module use](https://docs.csc.fi/computing/modules/#advanced-topics)
 
