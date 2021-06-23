@@ -43,13 +43,8 @@ module load gromacs-env/2021
 module list
 ```
 
-8. Just out of curiosity, let's see how we could use the "ancient" 2018 version of Gromacs. We first clean the existing modules, load again the standard environment, and then check with ```spider``` command which modules are needed for the old version, and then finally load all the needed modules.
+8. Just out of curiosity, let's see how we could use the "ancient" 2018 version of Gromacs. As there is no "environment module" (as usage is not encouraged) one needs to check with ```spider``` command which modules are needed for the old version, and then finally load all of them manually.
 ```bash
-module purge
-module list
-module load StdEnv
-module list
-
 module spider gromacs/2018.8
 module load gcc/9.1.0  
 module load hpcx-mpi/2.4.0
@@ -57,4 +52,13 @@ module load gromacs/2018.8
 module list
 ```
 
-9. When actually starting to use Gromacs in Puhti, you would run it in the batch job system, which we hear more about later. Check however already the [example batch job script for Gromacs](https://docs.csc.fi/apps/gromacs/#example-parallel-batch-script-for-puhti) to see how the module is recommended to be loaded there (first two command lines after the `#SBATCH` commands and comments).
+9. If you wanted to do something else in the same session, it can be useful to reset the module environment to the default settings. This can be done by first removing all loaded modules and then loading the defaults.
+
+```bash
+module purge
+module list
+module load StdEnv
+module list
+```
+
+10. When actually starting to use Gromacs in Puhti, you would run it in the batch job system, which we hear more about later. Check however already the [example batch job script for Gromacs](https://docs.csc.fi/apps/gromacs/#example-parallel-batch-script-for-puhti) to see how the module is recommended to be loaded there (first two command lines after the `#SBATCH` commands and comments).
