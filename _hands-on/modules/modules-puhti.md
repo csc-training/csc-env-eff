@@ -26,9 +26,9 @@ module list
 module spider gromacs
 ```
 
-5. Quite a few of them! Check the recommended versions (=versions compatible with your current environment):
+5. Quite a few of them! Check if some version can be loaded directly (compatible with currently loaded modules):
 ```bash
-module avail gromacs-env
+module avail gromacs
 ```
 
 6. Now, let's see which version is loaded with the default command! Do you notice any changes compared to the first command? 
