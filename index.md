@@ -9,8 +9,8 @@ author: CSC Training
 
 ## 1. Prerequirements (accounts and projects, Linux 101)
 ### 1.1 [Slides](https://a3s.fi/CSC_training/00_study_tips.html)
-### 1.1 Video presentation of slides (link to come)
-### 1.1 Hands-on and tutorials
+### 1.2 Video presentation of slides (link to come)
+### 1.3 Hands-on and tutorials
 1. [Tutorial - Login Puhti with ssh](hands-on/connecting/ssh-puhti.html)
 {% for hands-on in items %}
 {% if hands-on.topic == 'Linux Prerequisites' %}
