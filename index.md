@@ -8,9 +8,6 @@ author: CSC Training
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
 ## 1. Prerequirements (accounts and projects, Linux 101)
-### 1.1 [Slides](https://a3s.fi/CSC_training/00_study_tips.html)
-### 1.2 Video presentation of slides (link to come)
-### 1.3 Hands-on and tutorials
 1. [Tutorial - Login Puhti with ssh](hands-on/connecting/ssh-puhti.html)
 {% for hands-on in items %}
 {% if hands-on.topic == 'Linux Prerequisites' %}
@@ -19,6 +16,9 @@ author: CSC Training
 {% endfor %}
 
 ## 2. Connecting
+### 2.1 [Slides](https://a3s.fi/CSC_training/02_logging_in.html)
+### 2.2 Video presentation of slides (link to come)
+### 2.3 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
