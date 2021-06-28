@@ -52,16 +52,14 @@ Now that we can open and edit files let's try to create one
 
 8. You can also create files with `nano`. Try simply:
 ```bash
-nano yourname-cool-note-file.sh
+nano yourname-cool-note-file.txt
 ```
 
-#### Extra steps for the Text-file expo -activity in Basic CLI -course
+9. In the text-file: write something eg. instructions for others how to replicate your file-creation process, save and close.
 
-1. In the text-file: write instructions for others how to replicate your file-creation process, save and close.
+10. Use `pwd` and copy the path to your current working directory
 
-2. Use `pwd` and copy the path to your current working directory
-
-3. Copy the text-file to your personal computer for example with scp:
+11. Copy the text-file to your personal computer for example with scp:
 
 ☝️ NOTE: This has to be typed in your personal computer's Terminal!
 
@@ -69,4 +67,4 @@ nano yourname-cool-note-file.sh
 scp account@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.txt] [path-to-local-folder-in-your-PC]
 ```
 
-4. Submit your file into eLena course page
+12. Look for the file in your personal computer and check that the contents match.
