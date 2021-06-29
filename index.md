@@ -10,23 +10,20 @@ author: CSC Training
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/02_logging_in.html)
 ### 1.2 Hands-on and tutorials
-1. [Tutorial - Login Puhti with ssh](hands-on/connecting/ssh-puhti.html)
-{% for hands-on in items %}
-{% if hands-on.topic == 'Linux Prerequisites' %}
-1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
-{% endif %}
-{% endfor %}
-
-## 2. Connecting
-### 2.1 [Slides](https://a3s.fi/CSC_training/02_logging_in.html)
-### 2.2 Video presentation of slides (link to come)
-### 2.3 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
+{% if hands-on.topic == 'Linux Prerequisites' %}
+1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
+{% endif %}
 {% endfor %}
-1. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
+1. [Login Puhti with NoMachine](https://docs.csc.fi/support/tutorials/nomachine-usage/) (Advanced)
+2. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
+
+## 2. Introduction to HPC environment
+### 2.1 [Slides](https://a3s.fi/CSC_training/01_environment.html)
+### 2.2 [Video: CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
 
 ## 3. Disk areas
 {% for hands-on in items %}
