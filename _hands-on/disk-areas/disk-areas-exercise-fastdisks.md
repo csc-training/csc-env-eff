@@ -31,7 +31,7 @@ sbatch batch_job.sh
 
 ```
 
-### How much tim,e did it take to finish above job?
+### How much time did it take to finish above job?
 
 ### Hints
 

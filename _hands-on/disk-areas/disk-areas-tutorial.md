@@ -25,7 +25,7 @@ The above command shows information about your directories and their current quo
 - Project-specific directories: These are *scratch* and *projappl* directories. Each project contains its scratch disk space where actual data analysis tasks are performed. Scratch area is a temporary space. *Projappl* directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
 
 
-## Perform a light-weight pre-porcessing on data files using fast I/O local disks
+## Perform a light-weight pre-processing on data files using fast I/O local disks
 
 We sometimes come across situations where we have to handle an uncommonly large number of smaller files that can cause heavy I/O load on supercomputing environment. In order to facilitate such operations, CSC provides fast local disk areas in login and compute nodes.
 
@@ -64,7 +64,7 @@ echo $LOCAL_SCRATCH
 ```
 When using batch job, use the environment variable $LOCAL_SCRATCH in your [batch job scripts](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) to access the local storage on that node.
 
-## Move your pre-proceessed data to a project-specific scratch area before analysis
+## Move your pre-processed data to a project-specific scratch area before analysis
 
 Currently, all directories on scratch drive are project-based and one should be aware of a project number to find out actual path on scratch directory. While we can actually find *scratch* directories corresponding to all your project numbers using `csc-workspace`, it may not be immediately obvious to map those project numbers to metadata of your projects. You can instead also use the following command to find more details on your project(s).
 
