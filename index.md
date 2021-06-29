@@ -57,6 +57,7 @@ author: CSC Training
 ## 6. Batch job resource usage
 ### 6.1 [Slides](https://a3s.fi/CSC_training/06_understanding_usage.html)
 ### 6.2 Hands-on and tutorials
+{% for hands-on in items %}
 {% if hands-on.topic == 'batch resources' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
