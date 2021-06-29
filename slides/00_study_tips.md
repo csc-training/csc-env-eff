@@ -99,5 +99,4 @@ Ctrl-C
    - Note, don't overwrite your vault file (_e.g._ with `cat > $HOME/vault`)
 - Store scripts in `$HOME/bin` and take backups
 
-# License
 

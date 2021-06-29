@@ -3,27 +3,31 @@ title: Using CSC HPC Environment Efficiently
 author: CSC Training
 ---
 
-# Hands-on
+# Material for Using CSC HPC Environment Efficiently -course
 
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
-## 1. Prerequirements (accounts and projects, Linux 101)
-1. [Tutorial - Login Puhti with ssh](hands-on/connecting/ssh-puhti.html)
-{% for hands-on in items %}
-{% if hands-on.topic == 'Linux Prerequisites' %}
-1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
-{% endif %}
-{% endfor %}
-
-## 2. Connecting
+## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
+### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/02_logging_in.html)
+### 1.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
+{% if hands-on.topic == 'Linux Prerequisites' %}
+1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
+{% endif %}
 {% endfor %}
-1. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
+1. [Login Puhti with NoMachine](https://docs.csc.fi/support/tutorials/nomachine-usage/) (Advanced)
+2. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
+
+## 2. Introduction to HPC environment
+### 2.1 [Slides](https://a3s.fi/CSC_training/01_environment.html)
+### 2.2 [Video: CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
 
 ## 3. Disk areas
+### 3.1 [Slides](https://a3s.fi/CSC_training/03_disk_areas.html)
+### 3.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'disk-areas' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -31,6 +35,8 @@ author: CSC Training
 {% endfor %}
 
 ## 4. Modules
+### 4.1 [Slides](https://a3s.fi/CSC_training/04_modules.html)
+### 4.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'modules' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -38,6 +44,8 @@ author: CSC Training
 {% endfor %}
 
 ## 5. Batch Jobs
+### 5.1 [Slides](https://a3s.fi/CSC_training/05_batch_jobs.html)
+### 5.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'Batch jobs' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -47,6 +55,8 @@ author: CSC Training
 1. [Exercise - Serial, array and parallel jobs with Python + NDVI calculation rasterio package (GIS) ](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
 
 ## 6. Batch job resource usage
+### 6.1 [Slides](https://a3s.fi/CSC_training/06_understanding_usage.html)
+### 6.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'batch resources' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -54,6 +64,8 @@ author: CSC Training
 {% endfor %}
 
 ## 7. Allas
+### 7.1 [Slides](https://a3s.fi/CSC_training/07_allas.html)
+### 7.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'allas' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -61,6 +73,8 @@ author: CSC Training
 {% endfor %}
 
 ## 8. Installing your own software
+### 8.1 [Slides](https://a3s.fi/CSC_training/08_installing.html)
+### 8.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'installing' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -68,13 +82,17 @@ author: CSC Training
 {% endfor %}
 
 ## 9. Containers (Singularity)
+### 9.1 [Slides](https://a3s.fi/CSC_training/09_singularity.html)
+### 9.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'singularity' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
 
-## Throughput
+## 10. Throughput (Speed up jobs)
+### 10.1 [Slides](https://a3s.fi/CSC_training/10_speed_up_jobs.html)
+### 10.2 Hands-on and tutorials
 {% for hands-on in items %}
 {% if hands-on.topic == 'throughput' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
