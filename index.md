@@ -34,7 +34,7 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## 4. Modules
+## 4. Module system
 ### 4.1 [Slides](https://a3s.fi/CSC_training/04_modules.html)
 ### 4.2 Hands-on and tutorials
 {% for hands-on in items %}
@@ -43,7 +43,7 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## 5. Batch Jobs
+## 5. Batch queue system and interactive use
 ### 5.1 [Slides](https://a3s.fi/CSC_training/05_batch_jobs.html)
 ### 5.2 Hands-on and tutorials
 {% for hands-on in items %}
@@ -63,7 +63,7 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## 7. Allas
+## 7. Allas and where to keep your data
 ### 7.1 [Slides](https://a3s.fi/CSC_training/07_allas.html)
 ### 7.2 Hands-on and tutorials
 {% for hands-on in items %}
@@ -81,7 +81,7 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## 9. Containers (Singularity)
+## 9. Containers and Singularity
 ### 9.1 [Slides](https://a3s.fi/CSC_training/09_singularity.html)
 ### 9.2 Hands-on and tutorials
 {% for hands-on in items %}
@@ -90,7 +90,7 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## 10. Throughput (Speed up jobs)
+## 10. How to speed up jobs
 ### 10.1 [Slides](https://a3s.fi/CSC_training/10_speed_up_jobs.html)
 ### 10.2 Hands-on and tutorials
 {% for hands-on in items %}
