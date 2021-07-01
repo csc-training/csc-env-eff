@@ -24,6 +24,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - Try out one or more of the exercises to verify your new skill
 - If you get stuck, consult [the docs](https://docs.csc.fi) linked to the topic slides
 - Press *ctrl* to open additional information links to a new window
+- Left-click on slides and you can then navigate them with arrow-keys
 
 # General problem solving
 
