@@ -13,7 +13,7 @@ author: CSC Training
 * Complete the tutorial to make sure you’ve got the steps right
 * Try out the exercises to verify your new skill
 * If you get stuck, consult [the docs](https://docs.csc.fi) linked to the topic slides
-* Press `ctrl/cmd` to open links to a new window/tab
+* Press `ctrl/cmd` to open links to a new window or tab
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/02_logging_in.html)
