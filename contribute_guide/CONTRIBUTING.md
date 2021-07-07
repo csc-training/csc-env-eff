@@ -71,7 +71,7 @@ to it directly instead of creating another pull request (the two choices at the 
 
 Overview:
 
- - Clone the reposity (if not done already) `git clone https://github.com/CSCfi/csc-env-eff`
+ - Clone the reposity (if not done already) `git clone https://github.com/csc-training/csc-env-eff.git`
  - Change to master branch (if not already) `git checkout master` 
  - Update local repository `git pull`
  - Make a new branch from the master branch `git checkout -b my-new-branch`
