@@ -18,7 +18,7 @@ author: CSC Training
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/02_logging_in.html)
-### 1.2 Hands-on and tutorials
+### 1.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -36,7 +36,7 @@ author: CSC Training
 
 ## 3. Disk areas
 ### 3.1 [Slides](https://a3s.fi/CSC_training/03_disk_areas.html)
-### 3.2 Hands-on and tutorials
+### 3.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'disk-areas' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -45,7 +45,7 @@ author: CSC Training
 
 ## 4. Module system
 ### 4.1 [Slides](https://a3s.fi/CSC_training/04_modules.html)
-### 4.2 Hands-on and tutorials
+### 4.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'modules' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -54,7 +54,7 @@ author: CSC Training
 
 ## 5. Batch queue system and interactive use
 ### 5.1 [Slides](https://a3s.fi/CSC_training/05_batch_jobs.html)
-### 5.2 Hands-on and tutorials
+### 5.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'Batch jobs' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -65,7 +65,7 @@ author: CSC Training
 
 ## 6. Batch job resource usage
 ### 6.1 [Slides](https://a3s.fi/CSC_training/06_understanding_usage.html)
-### 6.2 Hands-on and tutorials
+### 6.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'batch resources' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -74,7 +74,7 @@ author: CSC Training
 
 ## 7. Allas and where to keep your data
 ### 7.1 [Slides](https://a3s.fi/CSC_training/07_allas.html)
-### 7.2 Hands-on and tutorials
+### 7.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'allas' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -83,7 +83,7 @@ author: CSC Training
 
 ## 8. Installing your own software
 ### 8.1 [Slides](https://a3s.fi/CSC_training/08_installing.html)
-### 8.2 Hands-on and tutorials
+### 8.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'installing' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -92,7 +92,7 @@ author: CSC Training
 
 ## 9. Containers and Singularity
 ### 9.1 [Slides](https://a3s.fi/CSC_training/09_singularity.html)
-### 9.2 Hands-on and tutorials
+### 9.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'singularity' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -101,7 +101,7 @@ author: CSC Training
 
 ## 10. How to speed up jobs
 ### 10.1 [Slides](https://a3s.fi/CSC_training/10_speed_up_jobs.html)
-### 10.2 Hands-on and tutorials
+### 10.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'throughput' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
