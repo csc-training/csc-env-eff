@@ -1,6 +1,6 @@
 ---
 topic: batch resources
-title: Tutorial - sacct and seff, how much resources my jobs used? 
+title: Tutorial - sacct and seff, resources used 
 ---
 # Using sacct and seff to look at finished jobs
 

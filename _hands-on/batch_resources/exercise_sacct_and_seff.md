@@ -1,6 +1,6 @@
 ---
 topic: batch resources
-title: Exercise - find your past job resource usage
+title: Exercise - Find your past job resource usage
 ---
 # Get an overview of recent jobs' resource usage
 

@@ -1,6 +1,6 @@
 ---
 topic: allas
-title: Tutorial - Allas mini tutorial
+title: Tutorial - A quicker look to Allas
 ---
 
 # Allas Mini tutorial
