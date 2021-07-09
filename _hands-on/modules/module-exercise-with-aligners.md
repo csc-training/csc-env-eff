@@ -1,11 +1,11 @@
 ---
 topic: modules
-title: Exercise - Biosoftwares in Puhti
+title: Tutorial - Biosoftwares in Puhti
 ---
 
 # Biosoftwares in Puhti
 
-This exercise requires that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+This tutorial requires that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/). 
 
 You will learn:
