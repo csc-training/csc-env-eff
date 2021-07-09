@@ -1,6 +1,6 @@
 ---
 topic: Batch jobs
-title: Tutorial - Interactive batch job tutorial
+title: Tutorial - Interactive batch jobs
 ---
 
 # Batch job tutorial - Interactive jobs

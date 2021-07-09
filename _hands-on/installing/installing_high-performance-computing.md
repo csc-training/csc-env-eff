@@ -1,6 +1,6 @@
 ---
 topic: installing
-title: Exercise - installing own C, C++, or Fortran
+title: Exercise - Installing own C, C++, or Fortran
 ---
 
 # installing, making and making your own C, C++, or Fortran program in the CSC environment

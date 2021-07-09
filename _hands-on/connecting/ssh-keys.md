@@ -1,6 +1,6 @@
 ---
 topic: connecting
-title: Advanced tutorial - Use ssh-keys to authenticate connection
+title: Advanced tutorial - Use SSH-keys to authenticate connection
 ---
 
 # Ssh-keys improve security and facilitate use

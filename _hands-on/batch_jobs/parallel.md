@@ -1,6 +1,6 @@
 ---
 topic: Batch jobs
-title: Tutorial - Parallel batch job tutorial
+title: Tutorial - Parallel batch jobs
 ---
 
 # Batch job tutorial - Parallel jobs
