@@ -23,7 +23,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 - SSH is a terminal program that will give you access to the command line on the CSC supercomputer
 - It is the versatile main interface to a supercomputer
-   - Supercomputer <-> F1, Laptop <-> Toyota. F1 needs a specialist interface.
+   - Laptop <-> Toyota, Supercomputer <-> F1. F1 needs a specialist interface.
 - Please read this page for an introduction on [how to login with ssh](https://docs.csc.fi/computing/connecting/)
    - Mac and Linux come with ssh, Windows Powershell can be used, but we recommend applications like MobaXterm, Putty, CMDer
    - Note the [prerequisites to be able to access Puhti](https://docs.csc.fi/support/faq/how-to-get-puhti-access/)
