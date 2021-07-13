@@ -41,7 +41,7 @@ sbatch batch_job.sh
 #SBATCH --gres=nvme:<local_storage_space_per_node>  # e.g., to claim 200 GB of storage, use option --gres=nvme:200 
 
 ```
-- Use environment variable $LOCAL_SCRATCH to access the local storage on each node.
+- Use environment variable `$LOCAL_SCRATCH` to access the local storage on each node.
 
 - Please move any data to shared area once  the job is finished
 

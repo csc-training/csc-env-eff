@@ -1,6 +1,6 @@
 ---
 topic: disk-areas
-title: Exercise - Where to put files in CSC environment?
+title: Advanced tutorial - Where to put files in CSC environment?
 ---
 
 # Where to put files in CSC environment?
@@ -15,12 +15,10 @@ This exercise is aimed at familiarising yourself with main disk areas in Puhti a
 
 ### Solution
 
-1. First login to Puhti supecomputer using *ssh* command as below:
+1. First login to Puhti supecomputer using *SSH*:
    ```bash
    ssh yourcscusername@puhti.csc.fi
    ```
-    Authenticate using the password associated with CSC user account. Once your login to Puhti is successful, Linux terminal will be opened for command-line  
-    interaction in your home directory. 
 
 2. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
    ```bash
@@ -49,6 +47,7 @@ This exercise is aimed at familiarising yourself with main disk areas in Puhti a
 5. Set read-only permissions for your group members for the file *Merged.fasta*:
 
    ```bash
+   cd /scratch/project_xxxx/$USER
    chmod -R g-w Merged.fasta
    ```
 5. sharing files in Mahti supercomputer
