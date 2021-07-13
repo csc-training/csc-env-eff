@@ -62,7 +62,7 @@ Roughly you can think of
 
 # Available HPC resources
 
-- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general purpose supercomputer :white_check_mark:
+- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general purpose supercomputer ☑️
 - [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
 - [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (Iaas)
 - [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via okd (Paas)
