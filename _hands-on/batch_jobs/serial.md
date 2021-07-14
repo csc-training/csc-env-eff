@@ -49,7 +49,7 @@ squeue -u $USER
 - By default the output is written into a file named `slurm-XXXXXXX.out` where `XXXXXXX` is the unique job ID
 - Check the efficiency of the job compared to the reserved resources by issuing the command `seff XXXXXXX` (replace `XXXXXXX` with the job ID number from the `slurm-XXXXXXX.out` file) 
 
-💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`
+💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`  
 🗯 A submitted job can be cancelled using the command `scancel XXXXXXX` 
 
 ### Additional material [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC

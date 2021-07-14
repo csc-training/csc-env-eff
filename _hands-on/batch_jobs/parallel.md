@@ -12,7 +12,7 @@ title: Tutorial - Parallel batch jobs
 
 ## Parallel jobs
 - A parallel program is capable of utilizing several cores and other resources simultaneously for the same job
-- The aim of a parallel program is to solve a problem (job) faster and to be able to tacle a larger problem that wouldn't fit into a single core
+- The aim of a parallel program is to solve a problem (job) faster and to tackle a larger problem that wouldn't fit into a single core
 - There are two major strategies to divide the computational burden over several cores:
   - [OpenMP](https://e-learn.csc.fi/pluginfile.php/3007/mod_resource/content/1/09-OpenMP-intro.pdf) 
   - [MPI](https://e-learn.csc.fi/pluginfile.php/2997/mod_resource/content/1/04-intro-to-mpi.pdf)
@@ -48,6 +48,8 @@ srun hello_omp.x
 ```
 sbatch my_parallel_omp.bash
 ```
+
+#### Check the output
 - When finished, the output file `slurm-XXXXXXX.out` should contain the results printed from the four OpenMP threads 
 - Check it with 
 ```
@@ -90,12 +92,13 @@ srun hello_mpi.x
 ```
 sbatch my_parallel.bash
 ```
+#### Check the output and the efficiency
 - When finished, the output file `slurm-XXXXXXX.out` should contain the results obtained by the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
 - Check it with
 ```
 cat slurm-XXXXXXX.out
 ```
-- **Note!** This example asks 4 cores from each of the 2 nodes. Normally, this would not make sense, but it would be better to run all 8 cores in the same node (in Puhti one node has 40 cores). Typically, you want your resources (cores) to be spread on as few nodes as possible.
+- 🗯 **Note!** This example asks 4 cores from each of the 2 nodes. Normally, this would not make sense, but it would be better to run all 8 cores in the same node (in Puhti one node has 40 cores). Typically, you want your resources (cores) to be spread on as few nodes as possible.
 ```text
 cat slurm-5099873.out
 Hello world from node r07c01.bullx, rank 0 out of 8 tasks
