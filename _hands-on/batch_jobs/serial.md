@@ -22,7 +22,7 @@ title: Tutorial - Serial batch jobs
 ```bash
 cd /scratch/project_xxxx
 ```
-, where `project_xxx` is one of your computing projects (you can list them with `csc-projects`). Then create a file containing this: 
+Replace `project_xxx` with your computing projects (you can list them with `csc-projects`). Then create a file containing this: 
 
 ```bash
 #!/bin/bash
@@ -39,15 +39,17 @@ srun sleep 60
 - We want to run the program `hostname`, that will print the name of the Puhti computing node that has been allocated for this particular job.
 - In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job
 - Copy the example above into a file called `my_serial.bash` and change the `myprojectname` to the project you actually want to use (e.g. with `nano`)
-- Submit the job to the queue with the command:
+- Submit the job to the queue and then check the queue with the commands:
 ```
 sbatch my_serial.bash
-```   
-- If you are quick enough you should see your job in the queue by issuing the command `squeue -u $USER` 
-- By default the output is written into a file named `slurm-XXXXXXX.out` where `XXXXXXX` is a unique number corresponding to the job ID of the job 
-- Check the efficiency of the job compared to the reserved resources by issuing the command `seff XXXXXXX` (replace `XXXXXXX` with the actual  job ID number from the `slurm-XXXXXXX.out` file) 
-- You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`
-- A submitted job can be cancelled using the command `scancel XXXXXXX` 
+squeue -u $USER
+``` 
 
+### Checking the output and the efficiency
+- By default the output is written into a file named `slurm-XXXXXXX.out` where `XXXXXXX` is the unique job ID
+- Check the efficiency of the job compared to the reserved resources by issuing the command `seff XXXXXXX` (replace `XXXXXXX` with the job ID number from the `slurm-XXXXXXX.out` file) 
 
-## Additional material [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
+💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`
+🗯 A submitted job can be cancelled using the command `scancel XXXXXXX` 
+
+### Additional material [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
