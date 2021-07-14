@@ -82,6 +82,18 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 <div class="column">
 ![](img/apps-list.png "Applications list in docs.csc.fi"){width=90%}
 </div>
+
+# Submitting, cancelling and stats of batch jobs
+- The job script file is submitted with the command:
+   - `sbatch batch_job.bash`
+- List all your jobs that are queuing/running:
+   - `squeue -u $USER`
+- Detailed info of a queuing/running job:
+   - `scontrol show job <jobid>`
+- A job can be deleted using the command:
+   - `scancel <jobid>`
+- Display the used resources of a completed job:
+   - `seff <jobid>`
  
 # Available batch job partitions
 
@@ -89,6 +101,26 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - In order to use the resources in an efficient way, it is important to estimate the request as accurately as possible
 - By avoiding an excessive "just-in-case" request, the job will start earlier 
 - Consult our [Getting started with the batch job system ](https://docs.csc.fi/computing/running/getting-started/)
+
+# Mapping your needs and the performance
+
+- Before starting any large-scale calculations it's a good practice to check how the software and your actual input performs
+    - Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
+    - If the program works in parallel check that it benefits from the requested parallel resources 
+    - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
+
+# Reserving and optimizing batch job resources 
+
+The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
+Try to estimate the resources that are needed for _your_ job, in order to minimize the **waste** 
+
+* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
+   - It's _worse_ to run with way too big requests without knowing it.
+- Important resource requests that should be monitored are:
+   - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
+   - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
+   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
+   - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
 
 # Different type of HPC jobs 1/2
 
@@ -101,13 +133,6 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 # Different type of HPC jobs 2/2
 - Via the [My Projects page in MyCSC](https://my.csc.fi/welcome) you can monitor the BU consumption and apply for more billing units
 - "csc-projects" is a command line tool for showing the BU consumption per project    
-
-# Mapping your needs and the performance
-
-- Before starting any large-scale calculations it's a good practice to check how the software and your actual input performs
-    - Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
-    - If the program works in parallel check that it benefits from the requested parallel resources 
-    - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
 
 # HPC serial jobs 1/2
 
@@ -148,29 +173,3 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
     - These login nodes are shared by all users and they are [not intended for heavy computing.](https://docs.csc.fi/computing/overview/#usage-policy)
 - If you have a heavier job that still requires interactive response (_e.g._ graphical user interface )
     - >llocate the resource via the the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/)
-
-# Submitting, cancelling and stats of batch jobs
-- The job script file is submitted with the command:
-   - `sbatch batch_job.bash`
-- List all your jobs that are queuing/running:
-   - `squeue -u $USER`
-- Detailed info of a queuing/running job:
-   - `scontrol show job <jobid>`
-- A job can be deleted using the command:
-   - `scancel <jobid>`
-- Display the used resources of a completed job:
-   - `seff <jobid>`
-
-# Reserving and optimizing batch job resources 
-
-The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for _your_ job, in order to minimize the **waste** 
-
-* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
-   - It's _worse_ to run with way too big requests without knowing it.
-- Important resource requests that should be monitored are:
-   - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
-   - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
-   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
-   - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
-
