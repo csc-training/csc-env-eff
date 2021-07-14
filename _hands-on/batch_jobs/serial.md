@@ -22,7 +22,7 @@ title: Tutorial - Serial batch jobs
 ```bash
 cd /scratch/project_xxxx
 ```
-, where `project_xxx` is one of your computing projects (you can list them with `csc-projects`). Then create a file containing this: 
+Replace `project_xxx` with your computing projects (you can list them with `csc-projects`). Then create a file containing this: 
 
 ```bash
 #!/bin/bash
