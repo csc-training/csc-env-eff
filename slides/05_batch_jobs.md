@@ -158,7 +158,7 @@ Try to estimate the resources that are needed for _your_ job, in order to minimi
    - Note, depending on the parallellization scheme there is a slight difference between how the resource reservation is done  
 - [Examples of batch job scripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
 - [Examples of batch job scripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
-- **Best:** [Software specific batch scripts in docs](https://docs.csc.fi/apps/)
+- **The best starting point:** [Software specific batch scripts in docs](https://docs.csc.fi/apps/)
 
 # HPC GPU jobs 
 
@@ -172,4 +172,4 @@ Try to estimate the resources that are needed for _your_ job, in order to minimi
 - When you login to CSC's supercomputers, you end up in one of the login nodes of the computer.
     - These login nodes are shared by all users and they are [not intended for heavy computing.](https://docs.csc.fi/computing/overview/#usage-policy)
 - If you have a heavier job that still requires interactive response (_e.g._ graphical user interface )
-    - >llocate the resource via the the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/)
+    - >Allocate the resource via the the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/)
