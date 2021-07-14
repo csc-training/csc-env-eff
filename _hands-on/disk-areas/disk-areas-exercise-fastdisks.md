@@ -1,9 +1,11 @@
 ---
 topic: disk-areas
-title: Exercise - High I/O operation computing tasks  
+title: Exercise - High I/O operation computing tasks (advanced) 
 ---
 
 # Where to run computing tasks that require high I/O operations ?
+
+💬 _This exercise requires usage of the batch queue. Feel free to carry on or return to this after Topic 5._
 
 ## Background
 
@@ -19,8 +21,8 @@ Below is a normal batch job that pulls docker image from DockerHub and converts 
 #SBATCH --partition=small
 #SBATCH --account=project_xxx
 
-export SINGULARITY_TMPDIR=/scratch/project_xxx/$USER
-export SINGULARITY_CACHEDIR=/scratch/project_xxx/$USER
+export SINGULARITY_TMPDIR=/scratch/project_xxx/$USER    # Use these folders instead of the default: $HOME
+export SINGULARITY_CACHEDIR=/scratch/project_xxx/$USER  # because at $HOME there's less space and you hate cleaning, don't you?
 singularity pull --name trinity.simg  docker://trinityrnaseq/trinityrnaseq
 ```
 
@@ -35,6 +37,7 @@ sbatch batch_job.sh
 
 ### Hints
 
+- If you run the default script (above) first then you need to clear the cache before running the modified one.
 - Request NVME fast local storage using the --gres flag  in sbatch directive as below:
 
 ```
@@ -57,7 +60,7 @@ sbatch batch_job.sh
 
 export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
 export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
-unset XDG_RUNTIME_DIR
+unset XDG_RUNTIME_DIR  # Get rid of some onnecessary warnings in job.out
 
 cd $LOCAL_SCRATCH
 #pwd

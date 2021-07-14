@@ -57,12 +57,15 @@ This local disk area in login nodes is meant for some light-weight preprocessing
 
 However, if you are going to perform heavy-weight computing tasks on those larger number of smaller files, you have to use local storage areas in compute nodes which are accessed either [interactively](https://docs.csc.fi/computing/running/interactive-usage/) or using [batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-puhti).
 
-In the interactive jobs, use the following command to find out a local storage area in that compute node:
+💭 In the interactive jobs, use the following commands to find out a local storage area in that compute node (only in Puhti):
 
 ```bash
-echo $LOCAL_SCRATCH 
+[cscaccount@r07c50 ~]$ echo $LOCAL_SCRATCH
+/run/nvme/job_6891674/data
+[cscaccount@r07c50 ~]$ echo $TMPDIR
+/run/nvme/job_6891674/tmp
 ```
-When using batch job, use the environment variable $LOCAL_SCRATCH in your [batch job scripts](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) to access the local storage on that node.
+💭 When using batch job, use the environment variable $LOCAL_SCRATCH in your [batch job scripts](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) to access the local storage on that node (only in Puhti).
 
 ## Move your pre-processed data to a project-specific scratch area before analysis
 
