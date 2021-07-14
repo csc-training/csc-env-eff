@@ -1,6 +1,6 @@
 ---
 topic: modules
-title: Tutorial - Biosoftwares in Puhti
+title: Advanced tutorial - Biosoftwares in Puhti
 ---
 
 # Biosoftwares in Puhti
