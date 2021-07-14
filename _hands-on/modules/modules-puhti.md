@@ -61,4 +61,4 @@ module load StdEnv
 module list
 ```
 
-10. When actually starting to use Gromacs in Puhti, you would run it in the batch job system, which we hear more about later. Check however already the [example batch job script for Gromacs](https://docs.csc.fi/apps/gromacs/#example-parallel-batch-script-for-puhti) to see how the module is recommended to be loaded there (first two command lines after the `#SBATCH` commands and comments).
+💭 When actually starting to use Gromacs in Puhti, you would run it in the batch job system, which we hear more about later. Check however already the [example batch job script for Gromacs](https://docs.csc.fi/apps/gromacs/#example-parallel-batch-script-for-puhti) to see how the module is recommended to be loaded there (first two command lines after the `#SBATCH` commands and comments).
