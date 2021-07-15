@@ -1,6 +1,6 @@
 ---
 topic: allas
-title: Tutorial - Using Allas in CSC HPC environment
+title: Tutorial - Using Allas (bio-data example)
 ---
 
 # Using Allas in CSC HPC environment
