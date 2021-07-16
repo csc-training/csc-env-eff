@@ -29,7 +29,9 @@ nano allas_xxxx.sh    # replace xxxx with custom name
 ```
 - Copy the batch job script from below to the text file you are editing.
    - Replace _xxxx_ with your user account and _your-file-name_ with the name of the file you previously uploaded to Allas. 
+
 **Option 1: a-commands**
+
 ```text
 #!/bin/bash
 #SBATCH --job-name=my_allas_job
@@ -44,8 +46,10 @@ a-get 2004306_xxxx/your-file-name
 wc -l your-file-name > your-file-name.num_rows
 a-put -b 2004306_xxxx --nc your-file-name.num_rows
 ```
-**Option 2: rclone**
+
+**Option 2: rclone**  
 💭 If you use rclone or swift instead of the a-commands, you need to add _source allas_conf_ commands to your script. 
+
 ```text
 #!/bin/bash
 #SBATCH --job-name=my_allas_job
