@@ -22,13 +22,16 @@ allas-conf -k
 allas-conf -k project_2004306
 ```
    - When OS_PASSWORD is set, the a-commands (a-put, a-get, a-list, a-delete) automatically refresh the Allas connection when commands are executed in batch job.
-
+- Choose a file from Allas. The file should have text in it.
+```text
+a-list 2004306_xxxx   # replace xxxx to match your training bucket/container name
+```
 - Create a new batch job script. First open a new text file with command:
 ```text
 nano allas_xxxx.sh    # replace xxxx with custom name
 ```
 - Copy the batch job script from below to the text file you are editing.
-   - Replace _xxxx_ with your user account and _your-file-name_ with the name of the file you previously uploaded to Allas. 
+   - Replace _xxxx_ to match your bucket/container name and _your-file-name_ with the name of the file you have in Allas. 
 
 **Option 1: a-commands**
 
@@ -42,9 +45,9 @@ nano allas_xxxx.sh    # replace xxxx with custom name
 #SBATCH --output=allas_output_%j.txt
 #SBATCH --error=allas_errors_%j.txt
 
-a-get 2004306_xxxx/your-file-name
-wc -l your-file-name > your-file-name.num_rows
-a-put -b 2004306_xxxx --nc your-file-name.num_rows
+a-get 2004306_xxxx/your-file-name                  # Bucket name / File name
+wc -l your-file-name > your-file-name.num_rows     # File name
+a-put -b 2004306_xxxx --nc your-file-name.num_rows # Bucket name / File name
 ```
 
 **Option 2: rclone**  
@@ -62,22 +65,22 @@ a-put -b 2004306_xxxx --nc your-file-name.num_rows
 
 #make sure connection to Allas is open
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-rclone copy allas:2004306_xxxx/your-file-name ./
+rclone copy allas:2004306_xxxx/your-file-name ./        # Bucket name / File name
 
-wc -l your-file-name > your-file-name.num_rows
+wc -l your-file-name > your-file-name.num_rows          # File name
 
 #make sure connection to Allas is open
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-rclone copy your-file-name.num_rows allas:2004306_xxxx
+rclone copy your-file-name.num_rows allas:2004306_xxxx  # File name / Bucket name
 ```
 
 - Submit the batch job with command:
 ```text
-sbatch allas_xxxx.sh
+sbatch allas_xxxx.sh          # This was your custom name
 ```
 - Monitor the progress of your batch job:
 ```text
 squeue -u $USER
 sacct -u $USER
-a-list 2004306_xxxx
+a-list 2004306_xxxx           # Bucket name
 ```
