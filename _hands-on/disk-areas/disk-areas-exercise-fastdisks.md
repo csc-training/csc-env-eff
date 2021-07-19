@@ -17,10 +17,9 @@ Below is a normal batch job that pulls docker image from DockerHub and converts 
 
 ```bash
 #!/bin/bash
-#SBATCH --time=01:00:00
-#SBATCH --partition=small
-#SBATCH --account=project_xxx
-
+#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --time=01:00:00          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
 export SINGULARITY_TMPDIR=/scratch/project_xxx/$USER    # Use these folders instead of the default: $HOME
 export SINGULARITY_CACHEDIR=/scratch/project_xxx/$USER  # because at $HOME there's less space and you hate cleaning, don't you?
 singularity pull --name trinity.simg  docker://trinityrnaseq/trinityrnaseq
@@ -40,9 +39,8 @@ sbatch batch_job.sh
 - If you run the default script (above) first then you need to clear the cache before running the modified one.
 - Request NVME fast local storage using the --gres flag  in sbatch directive as below:
 
-```
+```bash
 #SBATCH --gres=nvme:<local_storage_space_per_node>  # e.g., to claim 200 GB of storage, use option --gres=nvme:200 
-
 ```
 - Use environment variable `$LOCAL_SCRATCH` to access the local storage on each node.
 
@@ -53,13 +51,13 @@ sbatch batch_job.sh
 
 ```bash
 #!/bin/bash
-#SBATCH --time=01:00:00
-#SBATCH --partition=small
-#SBATCH --account=project_xxx
-#SBATCH  --gres=nvme:100
+#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --time=01:00:00          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --gres=nvme:100          # Reservation of local NVMe storage. Unit: MiB
 
-export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
-export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
+export SINGULARITY_TMPDIR=$LOCAL_SCRATCH    # Set the local storage area to the environmental.. 
+export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH  # ..variable that Singularity understands.
 unset XDG_RUNTIME_DIR  # Get rid of some onnecessary warnings in job.out
 
 cd $LOCAL_SCRATCH

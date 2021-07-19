@@ -8,14 +8,14 @@ title: Tutorial - Singularity
 In this tutorial we get familiar with the basic usage of Singularity containers. 
 
 To run these exercises in Puhti, use `sinteractive`.
-```text
+```bash
 sinteractive -i
 ```
 ## Getting started
 
 To get started, download a test container image from allas.
 
-```text
+```bash
 wget  https://a3s.fi/saren-2001659-pub/tutorial.sif
 ls -lh tutorial.sif
 ```
@@ -33,11 +33,11 @@ There are three basic ways to run software in a Singularity container:
 ### 1. Singularity exec
 To execute a command inside the container, the command is `singularity exec`.
 
-```text
+```bash
 singularity exec tutorial.sif hello_world
 ```
 Compare the outputs of the following commands:
-```text
+```bash
 cat /etc/*release
 singularity exec tutorial.sif cat /etc/*release
 ```
@@ -52,20 +52,20 @@ but can't run a totally different OS like Windows.
 
 Make a file called `test.sh`, and copy the following contents to it. Change "project_xxxx"
 to the correct project name.
-```text
+```bash
 #!/bin/bash
-#SBATCH --job-name=test
-#SBATCH --account=project_xxxx
-#SBATCH --partition=test
-#SBATCH --time=00:01:00
-#SBATCH --mem=1G
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=1
+#SBATCH --job-name=test         # Name of the job visible in the queue.
+#SBATCH --account=project_xxxx  # Choose the billing project. Has to be defined!
+#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --time=00:01:00         # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --mem=1G                # How much RAM is reserved for job per node.
+#SBATCH --ntasks=1              # Number of tasks. Max: depends on partition.
+#SBATCH --cpus-per-task=1       # How many processors work on one task. Max: Number of CPUs per node.
 
 singularity exec tutorial.sif hello_world
 ```
 Submit the job to the queue with:
-```text
+```bash
 sbatch test.sh
 ```
 For more information on batch jobs, please see [CSC Docs pages](https://docs.csc.fi/computing/running/getting-started/).
@@ -77,31 +77,31 @@ or service inside the container. If you are using a container created by somebod
 you will need to check the documentation provided by the creator for details.
 
 In our test container it prints out a simple message:
-```text
+```bash
 singularity run tutorial.sif
 ```
 If the container image has execute rights, you can also run it directly:
-```text
+```bash
 chmod u+x tutorial.sif
 ./tutorial.sif
 ```
 You can see the actual script with command:
-```text
+```bash
 singularity inspect --runscript tutorial.sif
 ```
 
 ### 3. Singularity shell
 It is also possible to open a shell inside the container. 
-```text
+```bash
 singularity shell tutorial.sif
 ```
 You can see the command prompt change to `Singularity>`. You can now run any software 
 inside the container interactively:
-```text
+```bash
 hello_world
 ```
 You can exit the container with:
-```text
+```bash
 exit
 ```
 
@@ -125,7 +125,7 @@ described above.
 First try listing the contents of your project directory (substitute the correct path) 
 from inside the container without bind:
 
-```text
+```bash
 export SCRATCH=/scratch/project_12345
 singularity exec tutorial.sif ls $SCRATCH
 ```
@@ -134,7 +134,7 @@ This will not work. The container can not see the host diectory, so you will get
 
 Now try binding host directory `/scratch` to directory `/scratch` inside the container.
 
-```text
+```bash
 singularity exec --bind /scratch:/scratch tutorial.sif ls $SCRATCH
 ```
 This time the host directory is linked to to the container directory and the command works.
@@ -143,18 +143,18 @@ The path does not need to be the same in host and in the container. Some contain
 be set up, for example, to expect input data or configuration files in a certain directory.
 
 In this example we bind host directory specified in `$SCRATCH` into directory `/input`:
-```text
+```bash
 singularity exec --bind $SCRATCH:/input tutorial.sif ls /input
 ```
 
 If you use wrapper script `singularity_wrapper`, it will take care of the binds for most 
 common use cases. 
-```text
+```bash
 singularity_wrapper exec tutorial.sif ls $SCRATCH
 ```
 If environment variable `$SING_IMAGE` is set, you don't even need to provide path to the 
 image file.
-```text
+```bash
 export SING_IMAGE=$PWD/tutorial.sif
 singularity_wrapper exec ls $SCRATCH
 ```
@@ -174,13 +174,13 @@ environment variable `$SINGULARITYENV_xxx` (where xxx is the variable name) on t
 before invoking the container.
 
 Set some test variables:
-```text
+```bash
 export TEST1="value1"
 export SINGULARITYENV_TEST2="value2"
 ```
 Compare the outputs of:
 
-```text
+```bash
 env |grep TEST
 singularity exec tutorial.sif env |grep TEST
 singularity exec --cleanenv tutorial.sif env |grep TEST
@@ -192,7 +192,7 @@ The third command is also run  inside the container, but this time we omitted ho
 variables, so we only see `$TEST2`.
 
 It should be noted that any variables on command line are substituted by their values on the host.
-```text
+```bash
 singularity exec tutorial.sif echo $TEST2
 ```
 This will result in empty output because $TEST2 has not been set on host.
@@ -202,15 +202,15 @@ This will result in empty output because $TEST2 has not been set on host.
 Our test container includes program `hello2`, but it is not in the `$PATH`. One way to 
 find it is to try running `find` inside the container
 
-```text
+```bash
 singularity exec tutorial.sif find / -type f -name "hello2" 2>/dev/null
 ```
 You can now run it by providing the full path:
-```text
+```bash
 singularity exec tutorial.sif /found/me/hello2
 ```
 Or you could add it to `$PATH` inside the container:
-```text
+```bash
 export SINGULARITYENV_PREPEND_PATH=/found/me
 singularity exec tutorial.sif hello2
 ```
@@ -225,12 +225,12 @@ There are various option to do this.
 
 ### 1. Run or pull an existing Singularity container from a repository
 It is possible to run containers directly from repository:
-```text
+```bash
 singularity run shub://vsoch/hello-world:latest
 ```
 This can, however, lead to a batch job failing if there are network problems.
 Usually it is preferable to pull the container first and use the image file.
-```text
+```bash
 singularity pull shub://vsoch/hello-world:latest
 singularity run hello-world_latest.sif
 ```
@@ -244,18 +244,18 @@ to point to some other location with more space.
 
 If you're running with `sinteractive`, or as batch job on an IO node, you can use the 
 fast local storage:
-```text
+```bash
 export SINGULARITY_TMPDIR=$LOCAL_SCRATCH
 export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
 ```
 If you're running on a node with no local storage, you can use e.g. /scratch.
 
 You can avoid some unnecessary warnings by unsetting a variable:
-```text
+```bash
 unset XDG_RUNTIME_DIR
 ```
 You can now run `singularity build`:
-```text
+```bash
 singularity build alpine.sif docker://library/alpine:latest
 ```
 You can find more detailed instructions for converting Docker images in Docs CSC: 
@@ -269,7 +269,7 @@ Singularity version does not need to be exactly same, but it should be same majo
 e.g. (3.x as opposed to 2.x).
 
 You can check the current version on Puhti with:
-```text
+```bash
 singularity --version
 ```
 After creating an image file, you can transfer it to Puhti to use.

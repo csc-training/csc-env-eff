@@ -10,7 +10,7 @@ to download the distribution package.
 
 If you get an error message about java version, try loading a suitable java 
 module. You can check the available modules with command:
-```text
+```bash
 module spider java
 ```
 Despite their name, modules named `biojava` are just normal java installations,

@@ -28,7 +28,7 @@ During the exercises, you can use this interface to get another view to the buck
 1. Login to puhti.csc.fi and move to scratch:
 
 **Linux/mac/MobaXterm**
-```text
+```bash
 ssh XXXX@puhti.csc.fi   (replace XXXX with your csc user account)
 ```
 
@@ -40,28 +40,28 @@ ssh XXXX@puhti.csc.fi   (replace XXXX with your csc user account)
 
 
 In Puhti check your environment with command:
-```text
+```bash
 csc-workspaces
 ```
 Switch to the scratch directory of your project 
-```text
+```bash
 cd /scratch/project_2004306  # note! replace the text here (and below) with your project
 ```
 And create your own sub-directory, named after your training account (if this directory does not yet exist):
-```text
+```bash
 mkdir XXXX 
 ```
 (replace XXXX with your user account)
 
 move to the directory.
-```text
+```bash
 cd XXXX
 ```
 
 ## 2. Download data with curl
 Next download a dataset from internet and uncompress it. The dataset contains some pythiun genomes with related BWA indexes.
 
-```text
+```bash
 curl https://a3s.fi/course_12.11.2019/pythium.tgz > pythium.tgz
 ls -ltr
 tar zxvf pythium.tgz  
@@ -72,7 +72,7 @@ tree pythium
 ## Using Allas
 
 Open connection to Allas:
-```text
+```bash
 module load allas
 allas-conf 
 ```
@@ -81,7 +81,7 @@ If you have several Allas projects available, select the training project we are
 ### Upload case 1.  rclone
 
 Upload the data from Puhti to Allas with `rclone`. Use the command below (replace XXXX with your user account):
-```text
+```bash
 rclone -P copyto pythium allas:xxxx-genomes-rc/
 ```
 How long did the data upload took?
@@ -89,7 +89,7 @@ What was the transfer rate?
 How long would it take to transfer 100 GB with the same speed?
 
 Then study what you have uploaded to Allas with commands: 
-```text
+```bash
 rclone lsd allas:
 rclone ls allas:xxxx-genomes-rc/
 rclone lsl allas:xxxx-genomes-rc/
@@ -107,50 +107,50 @@ Upload the pythium directory from Puhti to Allas using following commands
 (replace XXXX with your user account)
 
 A-put case 1: Store everything in one object:
-```text
+```bash
  a-put pythium
  a-list
  a-list projectnumber-puhti-SCRATCH
  a-info projectnumber-puhti-SCRATCH/xxxx/pythium.tar.zst
 ```
 A-put case 2: Each subdirectory (species) as one object:
-```text
+```bash
  a-put pythium/*
  a-list 2004306-puhti-SCRATCH/trng_xxxx
  a-check pythium/*
  a-info 2004306-puhti SCRATCH/training027/pythium/pythium_vexans.tar.zst 
 ```
 A-put case 3: Use your own bucket name
-```text
+```bash
  a-put pythium/* -b xxxx-genomes-ap
  a-list xxxx-genomes-ap
 ```
 
 A-put case 4: Upload files without compression.
-```text 
+```bash 
 a-put --nc  pythium/pythium_vexans/bwaindex/* -b XXXX_ap_vexans_bwa
 a-list XXXX_ap_vexans_bwa
 ```
 Can you see the difference between the four _a-put_ commands above?
 
 Study the _xxxx-genomes-ap_ bucket with commands
-```text
+```bash
 a-list xxxx-genomes-ap
 rclone ls allas:xxxx-genomes-ap
 ```
 Why the two commands above list different amount of objects?
 
 Try command:
-```text
+```bash
 a-info xxxx-genomes-ap/pythium_vexans.tar.zst
 ```
 which is actually the same as:
-```text
+```bash
 rclone cat allas:xxxx-genomes-ap/pythium_vexans.tar.zst_ameta
 ```
 
 Finally try command:
-```text
+```bash
 a-flip pythium/pythium_vexans/pythium_vexans.fasta 
 ```
 Try opening the public link that a-flip produced, with your browser.
@@ -168,7 +168,7 @@ What did these commands do for your data?
 ## Exit
 
 The data in pythium directory is now stored in many ways to Allas so we can remove the data from puhti and log out.
-```text
+```bash
 rm -r pythium
 exit
 ```
@@ -178,7 +178,7 @@ exit
 1. Login to puhti.csc.fi and move to scratch:
 
 Linux/mac/MobaXterm
-```text
+```bash
 ssh xxxx@puhti.csc.fi   (replace xxxx with your user account )
 ```
 
@@ -190,20 +190,20 @@ Windows/PuTTY
 
 In Puhti check you projects with command:
 
-```text
+```bash
 csc-workspaces
 ```
 Go to your personal scratch directory of your project. 
-```text
+```bash
 cd /scratch/project_yourprojectnumber/xxxx
 ```
 Set up Allas connection
-```text
+```bash
 module load allas
 allas-conf 
 ```
 Then run commands
-```text
+```bash
 a-list
 rclone lsd allas:
 
@@ -218,12 +218,12 @@ Next download the data in different ways:
 
 ## 1. Download with rclone
 
-```text
+```bash
 mkdir rclone_dir
 cd rclone_dir/
 ```
 ### example 1: copy everything
-```text 
+```bash 
 mkdir all
 rclone ls allas:xxxx-genomes-rc 
 rclone copyto -P allas:xxxx-genomes-rc all/
@@ -231,13 +231,13 @@ ls -l all
 ```
 
 ### example 2:copy a set of objects
-```text
+```bash
 mkdir vexans 
 rclone copyto allas:xxxx-genomes-rc/pythium_vexans vexans/
 ls -l vexans
 ```
 ### example 3: copy just one object
-```text
+```bash
 rclone copyto allas:trng_xxxx-genomes-rc/pythium_vexans/pythium_vexans.fasta  ./vexans.fasta
 ls -l
 ```
@@ -245,12 +245,12 @@ ls -l
 ## 2. Download with  a-get
 
 Return to your XXXX directory in Puhti scratch
-```text
+```bash
 cd ..
 ```
 Check that you are in right place:
 
-```text
+```bash
 pwd
 ```
 
@@ -262,26 +262,26 @@ mkdir a_dir
 cd a_dir/
 ``
 create directory _all_ and go there: 
-```text
+```bash
  mkdir all
  cd all
 ```
 list your default scratch bucket.
-```text
+```bash
 a-list projectnumber-puhti-SCRATCH
 a-list projectnumber-puhti-SCRATCH/xxxx
 ```
 
 Look for file pythium_vexans.fasta in Puhti SCRATCH  bucket:
-```text
+```bash
 a-find pythium_vexans.fasta -b projectnumber-puhti-SCRATCH
 ```
 download the full dataset with command:
-```text 
+```bash 
 a-get projectnumber-puhti-SCRATCH/trng_xxxx/pythium.tar.zst
 ```
 And check what you got:
-```text
+```bash
 ls -l
 ls -R
 ```
@@ -296,18 +296,18 @@ ls -l pythium/pythium_vexans/
 
 ## 3. Downloading data from allas-backup
 Return to your main scratch directory and make a new directory:
-```text
+```bash
 cd ..
 mkdir a_backup
 cd a_backup/
 ```
 Use the commands below, to find out the ID of the most recent version backup of your pythium directory:
-```text
+```bash
 allas-backup list 
 allas-backup list | grep $USER
 ```
 Then use allas-backup restore to download the data:
-```text
+```bash
 allas-backup restore ID-string
 ls -l
 la -l pythium

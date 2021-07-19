@@ -14,16 +14,16 @@ modules, but it is very barebones and is missing many commonly used
 libraries.
 
 To check available versions, use:
-```text
+```bash
 module spider perl
 ```
 To make sure the applications uses the intended perl after loading a 
 module you should either call it with perl:
-```text
+```bash
 perl my_app.pl
 ```
 or make sure the shebang line of the script is:
-```text
+```bash
 #!/usr/bin/env perl
 ```
 
@@ -41,7 +41,7 @@ we need to first tell it where to install. This can be done by
 setting a few environment variables.
 
 Substitute the desired path for PERL_BASE.
-```text
+```bash
 export PERL_BASE="/projappl/project_12345/myperl"
 export PERL_MM_OPT="INSTALL_BASE=$PERL_BASE"
 export PERL_MB_OPT="--install_base $PERL_BASE"
@@ -55,15 +55,15 @@ included in perl `@INC`
 
 There are three main ways to do it:
 1. Inlude command line option -I (capital i) with the path on the command line:
-```text
+```bash
 perl -I /projappl/project_12345/myperl ./my_app.pl
 ```
 2. Include the path in `$PERL5LIB` environment variable.
-```text
+```bash
 export PERL5LIB=/projappl/project_12345/myperl:${PERL5LIB}
 ```
 3. Iclude the path in the perl code with `use lib`
-```text
+```bash
     use lib '/projappl/project_12345/myperl';
     use My::Module;
 ```
@@ -77,33 +77,33 @@ See our [biperl documentation](https://docs.csc.fi/apps/bioperl/) for details.
 In this example we add perl module JSON to our own environment.
 
 Let's start by loading perl module
-```text
+```bash
 module load perl/5.30.0
 ```
 Then we can check if JSON is already available:
-```text
+```bash
 perl -e 'use JSON;'
 ```
 We get an error message indicating that it is not found, so we need to install it.
 
 First we need to set the installation location. It needs to be directory where 
 you have write access. It could be e.g. your projects /projappl directory:
-```text
+```bash
 export PERL_BASE="/projappl/project_12345/local_perl"
 export PERL_MM_OPT="INSTALL_BASE=$PERL_BASE"
 export PERL_MB_OPT="--install_base $PERL_BASE"
 ```
 We can now install the module. In this case it is in CPAN, so we can use cpanm:
-```text
+```bash
 cpanm JSON
 ```
 To use it, we need to tell perl where to find it. In this case we set $PERL5LIB
 environment variable: 
-```text
+```bash
 export PERL5LIB="/projappl/Project_12345/local_perl/lib/perl5"
 ```
 We can now try it again:
-```text
+```bash
 perl -e 'use JSON;'
 ```
 This time we do not get an error message indicating that JSON module is now usable.

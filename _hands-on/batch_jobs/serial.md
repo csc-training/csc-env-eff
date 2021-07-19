@@ -26,21 +26,21 @@ Replace `project_xxx` with your computing projects (you can list them with `csc-
 
 ```bash
 #!/bin/bash
-#SBATCH --account=myprojectname
-#SBATCH --partition=test
-#SBATCH --ntasks=1
-#SBATCH --time=00:02:00
+#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
 
-srun hostname
-srun sleep 60
+srun hostname                    # Run hostname-command in each task
+srun sleep 60                    # Run sleep-command in each task
 ```
 
 - In the batch job example above we are requesting one core (`--ntasks=1`) for two minutes (`--time=00:02:00`) from the test queue (`--partition=test`)
 - We want to run the program `hostname`, that will print the name of the Puhti computing node that has been allocated for this particular job.
 - In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job
-- Copy the example above into a file called `my_serial.bash` and change the `myprojectname` to the project you actually want to use (e.g. with `nano`)
+- Copy the example above into a file called `my_serial.bash` and change the `project_xxx` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
-```
+```bash
 sbatch my_serial.bash
 squeue -u $USER
 ``` 

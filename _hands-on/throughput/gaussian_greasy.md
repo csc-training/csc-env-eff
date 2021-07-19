@@ -28,7 +28,7 @@ and that your account belongs to a project [that has access to Puhti service](ht
 
 - Create and enter a suitable scratch directory on Puhti (replace **`yourprojectname`** with the actual project name )
 
-```text
+```bash
 mkdir -p /scratch/yourprojectname/gaussian_greasy
 cd /scratch/yourprojectname/gaussian_greasy 
 ```
@@ -45,7 +45,7 @@ cd /scratch/yourprojectname/gaussian_greasy
 ### Convert these structures to Gaussian format
 - Use [OpenBabel](http://openbabel.org/wiki/Main_Page) to convert the structures to gaussian format
 
-```text
+```bash
 module load openbabel
 obabel *.mol -ocom -m
 ```
@@ -69,7 +69,7 @@ Here we write a Bash script that will create a suitable tasklist file for GREASY
   
 First we write a Bash script that will create a tasklist that can be processed by greasy.
 
-```text
+```bash
 #!/bin/bash
 #
 submission_dir=$PWD                            # Directory from where the job is submitted    
@@ -109,12 +109,12 @@ g16 < /scratch/yourprojectname/gaussian_greasy/C6H12_structures_10/11109.com > o
 - Declare the billing project **`--account yourprojectname`**, (replace **`yourprojectname`** with the actual project)
 - Submit the GREASY job using the newly generated GREASY tasklist `greasy_10.tasklist` and the resource requests above  
 
-```text
+```bash
 sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account yourprojectname greasy_10.tasklist
 ```
 - A successful submission should report something like:
 
-```text
+```bash
 sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account yourprojectname greasy_10.tasklist
 
 Task list "greasy_10.tasklist" includes 10 tasks.
@@ -141,14 +141,14 @@ Once the job has started you can monitor the progress of the job with command:
 
 - When the GREASY job has finished you can quickly check the summary using the command:
 
-```text
+```bash
 grep Summary greasy-*.log
 INFO: Summary of 10 tasks: 9 OK, 1 FAILED, 0 CANCELLED, 0 INVALID.
 ```
 - This tells that 9 of the 10 Gaussian jobs succeeded, but one failed due to some reason
 - GREASY creates a restart file based on failed jobs, in our case the file is named **`greasy_10.tasklist-undefined.rst`**
 - The command `cat greasy_10.tasklist-undefined.rst` shows:
-```text
+```bash
 # Greasy restart file generated at 2021-03-09 20:10:27
 # Original task file: /scratch/yourprojectname/gaussian_greasy/greasy_10.tasklist
 # Log file: /scratch/yourprojectname/gaussian_greasy/greasy-5162452.log
@@ -160,7 +160,7 @@ g16 < /scratch/yourprojectname/gaussian_greasy/C6H12_structures_10/7787.com > ou
 - The error report shows that the job `7787.com` has failed
 - Check the output of the failed job with `tail output/7787/7787.log`
 
-```text
+```bash
 
 Charge and Multiplicity card seems defective:
  Wanted an integer as input.
@@ -173,23 +173,23 @@ Charge and Multiplicity card seems defective:
 ```
 - The error message pointing to the input of job 7787, turns out to be a missing title at line 6
 - We correct it by inserting the missing title "7787" at row 6 
-```text
+```bash
 sed -i "6s/^/7787/" C6H12_structures_10/7787.com
 ```
 - Restart the job 
 
-```text
+```bash
 sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account yourprojectname greasy_10.tasklist-undefined.rst
 ```
 - When the GREASY job has finished check that the previously failed job has successfully finished 
 
-```text
+```bash
 grep Summary greasy-*.log
 INFO: Summary of 1 tasks: 1 OK, 0 FAILED, 0 CANCELLED, 0 INVALID.
 ```
 - You can print a list of the `b3lyp/cc-pVDZ` energies for the 10 structures
 
-```text
+```bash
 grep -rnw 'output/' -e 'E(RB3LYP)'
 output/12446/12446.log:265: SCF Done:  E(RB3LYP) =  -235.836869989     A.U. after   13 cycles
 output/10737/10737.log:265: SCF Done:  E(RB3LYP) =  -235.826753630     A.U. after   13 cycles

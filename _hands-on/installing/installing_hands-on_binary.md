@@ -32,28 +32,28 @@ CentOs or RedHat if present. Sometimes you may have to try different versions to
 find on ethat works.
 
 Copy the link for the Linux version and download the zip file:
-```text
+```bash
 wget https://cnsgenomics.com/software/gcta/bin/gcta_1.93.2beta.zip
 ```
 Open the zip file:
-```text
+```bash
 unzip gcta_1.93.2beta.zip
 ```
 The software is now ready to use, but you will have to tell the computer where
 to find it. 
 
 Trying just:
-```text
+```bash
 gcta64
 ```
 will result in a `command not found` error.
 
 Try instead:
-```text
+```bash
 gcta_1.93.2beta/gcta64
 ```
 Or:
-```text
+```bash
 cd gcta_1.93.2beta
 ./gcta64
 ```
@@ -65,16 +65,16 @@ Instead of providing the path in the command line, you can also add
 the application to `$PATH`. 
 
 To add the current directory to `$PATH`:
-```text
+```bash
 export PATH=$PWD:$PATH
 ```
 You should now be able to run the program from any directory with simply:
-```text
+```bash
 gcta64
 ```
 To make the addition permanent, you can add the `export` command to your
 `$HOME/.bashrc`file. Instead of `$PWD` use the full path, something like:
-```text
+```bash
 export PATH=/projappl/project_12345/gcta_1.93.2beta:$PATH
 ```
 ## Some notes: 

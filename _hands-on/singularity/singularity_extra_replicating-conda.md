@@ -49,12 +49,12 @@ made using conda commands. If you have made any changes directly, you will need 
 those changes in the definition file.
 
 Make sure the environment you want to replicate is activated, and give command:
-```text
+```bash
 conda env export > environment.yml
 ```
 You can try with one of your own environments, or download an example to use for
 this exercise:
-```text
+```bash
 wget https://raw.githubusercontent.com/CSCfi/csc-env-eff/master/data/environment.yml
 ```
 In addition to the `environmet.yml` file, you will need a Singularity definition file.
@@ -85,13 +85,13 @@ From: continuumio/miniconda3
 Make sure files `environment.yml` and `conda_environment.def` are in the
 current directory and give command:
 
-```text
+```bash
 sudo singularity build fastx.sif conda_environment.def
 ```
 This will build a Singularity image file called `fastx.sif`. 
 
 We can test now that it works:
-```text
+```bash
 singularity exec fastx.sif fastq_to_fasta -h
 ```
 The image file could now be transferred and used in Puhti.
@@ -107,7 +107,7 @@ In this case, however, the code is quite old, and will not compile with modern
 gcc versions without some changes to  source code.
 
 It is available in Bioconda repository, so it is available for install simply with:
-```text
+```bash
 conda install fastx_toolkit
 ```
 - Good: Can be done with user rights
@@ -122,7 +122,7 @@ better.
 - Bad: Can not be done directly in Puhti
 
 In this case there would even better option: Building from a ready container:
-```text
+```bash
 singularity build fastx.sif docker://biocontainers/fastx-toolkit:v0.0.14-6-deb_cv1
 ```
 - Good: This can be done with user right in Puhti and you end up with a single 61 MB file.

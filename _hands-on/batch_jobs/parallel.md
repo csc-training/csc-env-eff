@@ -25,18 +25,19 @@ title: Tutorial - Parallel batch jobs
 wget https://a3s.fi/hello_omp.x/hello_omp.x
 ```
 - Make it executable using the command:
-```
+```bash
 chmod +x hello_omp.x
 ``` 
-- Copy the following example into a file called `my_parallel_omp.bash` and change the `myprojectname` to the project you actually want to use
+- Copy the following example into a file called `my_parallel_omp.bash` and change the `projet_xxx` to the project you actually want to use
 
-```text
+```bash
 #!/bin/bash
-#SBATCH --account=myprojectname
-#SBATCH --partition=test
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=4
-#SBATCH --time=00:00:10
+#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+#SBATCH --cpus-per-task=4        # How many processors work on one task. Max: Number of CPUs per node.
+
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun hello_omp.x
 ```
@@ -52,11 +53,11 @@ sbatch my_parallel_omp.bash
 #### Check the output
 - When finished, the output file `slurm-XXXXXXX.out` should contain the results printed from the four OpenMP threads 
 - Check it with 
-```
+```bash
 cat slurm-XXXXXXX.out
 ``` 
 - The results should look like: 
-```text
+```bash
 cat slurm-5118404.out
 Hello from thread: 0
 Hello from thread: 3
@@ -69,19 +70,19 @@ Hello from thread: 1
 - Dowload a simple MPI parallel program with the command 
   `wget https://a3s.fi/hello_mpi.x/hello_mpi.x`
 - Make it executable using the command 
-```
+```bash
 chmod +x hello_mpi.x
 ``` 
 
-- Copy the example below into a file called `my_parallel.bash` and change the `myprojectname` to the project you actually want to use
+- Copy the example below into a file called `my_parallel.bash` and change the `project_xxx` to the project you actually want to use
 
-```text
+```bash
 #!/bin/bash
-#SBATCH --account=myprojectname
-#SBATCH --partition=test
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=4
-#SBATCH --time=00:00:10
+#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --nodes=2                # Number of computer nodes. Max: depends on partition.
+#SBATCH --ntasks-per-node=4      # How many tasks one node works on. Depends on max cores and memory of a node.
 
 srun hello_mpi.x
 ```
@@ -89,17 +90,17 @@ srun hello_mpi.x
 - We want to run the program `hello_mpi.x`, that will, based on the resource request, start 8 simultaneous tasks  
 - Each of the 8 tasks launced by `hello_mpi.x` will report on which node they got their resource 
 - Submit the job to the queue with the command
-```
+```bash
 sbatch my_parallel.bash
 ```
 #### Check the output and the efficiency
 - When finished, the output file `slurm-XXXXXXX.out` should contain the results obtained by the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
 - Check it with
-```
+```bash
 cat slurm-XXXXXXX.out
 ```
 - 🗯 **Note!** This example asks 4 cores from each of the 2 nodes. Normally, this would not make sense, but it would be better to run all 8 cores in the same node (in Puhti one node has 40 cores). Typically, you want your resources (cores) to be spread on as few nodes as possible.
-```text
+```bash
 cat slurm-5099873.out
 Hello world from node r07c01.bullx, rank 0 out of 8 tasks
 Hello world from node r07c02.bullx, rank 5 out of 8 tasks
