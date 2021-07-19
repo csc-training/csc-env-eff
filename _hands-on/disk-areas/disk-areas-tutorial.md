@@ -44,13 +44,13 @@ This local disk area in login nodes is meant for some light-weight preprocessing
    ```
 2. And then unpack the downloaded tar file as below:
 
-   ```
+   ```bash
    tar -xavf Individual_files.tar.gz
    cd Individual_files
    ```
 3. Merge all those small files into one file and remove all small files
 
-   ```
+   ```bash
    find . -name 'individual.fasta*' | xargs cat  >> Merged.fasta
    find . -name 'individual.fasta*' | xargs rm
    ```

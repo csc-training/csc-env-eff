@@ -42,7 +42,7 @@ MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearc
 Include: yum
 ```
 We then use that definition file to build the container:
-```text
+```bash
 sudo singularity build --sandbox mcl centos.def
 ```
 Note that instead of an image file, we created a directory called `mcl`. If
@@ -50,7 +50,7 @@ you need to include some reference files etc, you can copy them to correct subfo
 
 We can then open a shell in the container. We need the container file system 
 to be writable, so we include option `--writable`:
-```text
+```bash
 sudo singularity shell --writable mcl
 ```
 The command prompt should now be `singularity>`
@@ -69,56 +69,56 @@ dendencies easier.
 
 Also notice that it is not necessary to use `sudo` inside the container.
 
-```text
+```bash
 yum group install "Development Tools" -y
 yum install wget -y
 ```
 We are now ready to install the software. 
 
 Download and extract the distribuition package:
-```text
+```bash
 wget https://micans.org/mcl/src/mcl-latest.tar.gz
 tar xf mcl-latest.tar.gz
 cd mcl-14-137
 ```
 Run configure:
-```text
+```bash
 ./configure
 ```
 Check the output of `configure` and install any missing dependencies
 (In this case there should not be any.)
 
 And finally run `make`:
-```text
+```bash
 make
 make install
 ```
 
 We can now test the application to see it works:
-```text
+```bash
 mcl --version
 ```
 If everything works we can clean up:
-```text
+```bash
 cd ..
 rm -rf mcl-*
 ```
 We can also add a runscript:
-```text
+```bash
 echo 'exec /bin/bash "$@"' >> /singularity
 ```
 We can now exit the container:
-```text
+```bash
 exit
 ```
 In order to run the container without sudo rights we need to build
 a production image from the sandbox:
 
-```text
+```bash
 sudo singularity build  mcl.sif mcl
 ```
 We can now test it. Note that we no longer need `sudo`:
-```text
+```bash
 singularity exec mcl.sif mcl --version
 ```
 

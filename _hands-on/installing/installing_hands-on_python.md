@@ -18,7 +18,7 @@ the need to install additional packages.
 ## Installing Pyton packages.
 
 To install simple packages it is usually enough to use `pip`:
-```text
+```bash
 pip install --user package_to_install
 ```
 Remember to include `--user`. By default pip tries to install to the common Python 
@@ -35,22 +35,22 @@ instructions.
 We need library `coverage`.
 
 Let's start by loading a Python module and checking if the library is already installed.
-```text
+```bash
 module load python-env
 python -c "import coverage"
 ```
 We receive an error message indicating that the library is not available:
-```text
+```bash
 Traceback (most recent call last):
   File "<string>", line 1, in <module>
 ModuleNotFoundError: No module named 'coverage'
 ```
 Let's install the missing library:
-```text
+```bash
 pip install --user coverage
 ```
 We can now re-test if the library is available:
-```text
+```bash
 python -c "import coverage"
 ```
 This time we don't get and error message, indicating the import command was succesful-
@@ -58,6 +58,6 @@ This time we don't get and error message, indicating the import command was succ
 The library is installed in directory `$HOME/.local`
 
 To uninstall:
-```text
+```bash
 pip uninstall coverage
 ```

@@ -9,7 +9,7 @@ Puhti has several R version available as modules. You should start by checking
 if one of these is suitable for you needs. 
 
 To check available versions, use:
-```text
+```bash
 module spider r-env
 ```
 It is also possible to install your own R packages.

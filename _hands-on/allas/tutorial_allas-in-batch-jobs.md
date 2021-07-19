@@ -10,7 +10,7 @@ title: Tutorial - Allas in batch jobs
    - In the case of interactive usage this eight-hour limit is not problematic as allas-conf can be executed again to extend the validity of the connection.
    - In the case of batch jobs, the situation is different, as it may take more than eight hours before the job even starts. 
 - To be able to use Allas in a batch job, run _allas-conf_ again with option **-k**.
-```text
+```bash
 allas-conf -k 
 ```
    - Here the option -k indicates that the password will be stored in the environment variable $OS_PASSWORD. 
@@ -18,16 +18,16 @@ allas-conf -k
       - Note that if you mistype your password when using the -k option, you must use command **unset OS_PASSWORD** before you can try again.
 
 - Refresh the connection with command:
-```text
+```bash
 allas-conf -k project_2004306
 ```
    - When OS_PASSWORD is set, the a-commands (a-put, a-get, a-list, a-delete) automatically refresh the Allas connection when commands are executed in batch job.
 - Choose a file from Allas. The file should have text in it.
-```text
+```bash
 a-list 2004306_xxxx   # replace xxxx to match your training bucket/container name
 ```
 - Create a new batch job script. First open a new text file with command:
-```text
+```bash
 nano allas_xxxx.sh    # replace xxxx with custom name
 ```
 - Copy the batch job script from below to the text file you are editing.
@@ -35,15 +35,15 @@ nano allas_xxxx.sh    # replace xxxx with custom name
 
 **Option 1: a-commands**
 
-```text
+```bash
 #!/bin/bash
-#SBATCH --job-name=my_allas_job
-#SBATCH --account=project_2004306
-#SBATCH --time=00:05:00
-#SBATCH --mem-per-cpu=1G
-#SBATCH --partition=test
-#SBATCH --output=allas_output_%j.txt
-#SBATCH --error=allas_errors_%j.txt
+#SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
+#SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
+#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --output=allas_output_%j.txt   # Name of the output-file.
+#SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
 
 a-get 2004306_xxxx/your-file-name                  # Bucket name / File name
 wc -l your-file-name > your-file-name.num_rows     # File name
@@ -53,15 +53,15 @@ a-put -b 2004306_xxxx --nc your-file-name.num_rows # Bucket name / File name
 **Option 2: rclone**  
 💭 If you use rclone or swift instead of the a-commands, you need to add _source allas_conf_ commands to your script. 
 
-```text
+```bash
 #!/bin/bash
-#SBATCH --job-name=my_allas_job
-#SBATCH --account=project_2004306
-#SBATCH --time=00:05:00
-#SBATCH --mem-per-cpu=1G
-#SBATCH --partition=test
-#SBATCH --output=allas_output_%j.txt
-#SBATCH --error=allas_errors_%j.txt
+#SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
+#SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
+#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --output=allas_output_%j.txt   # Name of the output-file.
+#SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
 
 #make sure connection to Allas is open
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
@@ -75,11 +75,11 @@ rclone copy your-file-name.num_rows allas:2004306_xxxx  # File name / Bucket nam
 ```
 
 - Submit the batch job with command:
-```text
+```bash
 sbatch allas_xxxx.sh          # This was your custom name
 ```
 - Monitor the progress of your batch job:
-```text
+```bash
 squeue -u $USER
 sacct -u $USER
 a-list 2004306_xxxx           # Bucket name

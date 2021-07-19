@@ -24,15 +24,15 @@ title: Tutorial - File transfer with Allas
 
 - Login to puhti.csc.fi and move to scratch.
    - In Puhti check your environment with command:
-```text
+```bash
 csc-workspaces
 ```
    - Switch to the scratch directory of your project 
-```text
+```bash
 cd /scratch/project_2004306    # NOTE: Here you can use also your project
 ```
 - Create your own sub-directory:
-```text
+```bash
 mkdir XXXX      # replace XXXX with eg. username
 cd XXXX
 ```
@@ -40,20 +40,20 @@ cd XXXX
 **Then let's connect to allas:**
 
 - Open connection to Allas wih these commands:
-```text
+```bash
 module load allas
 allas-conf 
 ```
    - If you have several Allas projects available, select the training project because you created the container/bucket there.
 - Study what you have in allas with commands
    1. With a-commands:
-```text
+```bash
 a-list
 a-list 2004306_xxxx              # replace xxxx so that the name corresponds to your new container/bucket
 a-info 2004306_xxxx/your-file-name      # replace xxxx and your-file-name
 ```
    2. With r-tools
-```text
+```bash
 rclone lsd allas:
 rclone ls allas:2004306_xxxx     # replace xxxx so that the name corresponds to your new container/bucket
 rclone lsl allas:2004306_xxxx    # replace xxxx so that the name corresponds to your new container/bucket
@@ -62,28 +62,28 @@ rclone cat allas:2004306_xxxx/your-file-name    # replace xxxx and your-file-nam
 ```
 - Download the file you just uploaded to Allas from your local computer. You can do that in two ways: 
    1. With a-commands:
-```text
+```bash
 a-get 2004306_xxxx/your-file-name       # replace xxxx and your-file-name
 ```
    2. With r-tools
-```
+```bash
 rclone copy allas:2004306_xxxx/your-file-name ./ # replace xxxx and your-file-name
 ```
 - Open/edit (+rename) the file so that you can distinguish it from the original
 - Upload the file to Allas:
    1. With a-commands:
-```text
+```bash
 a-put --nc -b 2004306_xxxx your-file-name   # replace xxxx and your-file-name
 ```
 💭 Use `a-put -h` to figure out the command parameters above.
 
    2. With r-tools
 Then do the upload with rclone:
-```text
+```bash
 rclone copy your-file-name allas:2004306_xxxx/
 ```
 - Check that the file in Puhti indeed has a counterpart in Allas:
-```text
+```bash
 a-check --nc -b 2004306_xxxx your-file-name   # replace xxxx and your-file-name
 ```
 - Locate the files you just uploaded in Pouta web-interface.
@@ -96,14 +96,14 @@ The a-tools include a basic tool for publishing files to the internet. You'll no
 ‼️ NOTE: Using this command makes your entire bucket to be public! Do not use it if you don't want that to happen..
 
 - Select a file that has an appropriate content and publish it with command:
-```text
+```bash
 a-publish -b 2004306_xxxx your-file-name   # replace xxxx and your-file-name
 ```
 - The command outputs an URL. Copy it in your browser or send it to your friends 😎 
 
 ### Clean up
 - Delete the local file from Puhti so save (so much) space
-```text
+```bash
 rm your-file-name             # replace your-file-name
 ```
 - When you need your data you can download it from Allas

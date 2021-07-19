@@ -15,14 +15,14 @@ install it from the source code.
 To follow the instructions, set up environment variable to point to your projects
 /projappl folder (substitute "project_12345" with your project name):
 
-```text
+```bash
 export PROJAPPL=/projappl/project_12345
 ```
 ## Obtaining source code
 
 Move to your `$PROJAPPL` directory and create there a new directory called mcl
 
-```text
+```bash
 cd $PROJAPPL
 mkdir mcl # or if this exists, invent some other name for yourself!
 ```
@@ -32,13 +32,13 @@ clone the source code from Git.
 ### Option 1: Download distribution package
 
 Move to the newly created directory and download the distribution package:
-```text
+```bash
 cd mcl
 wget https://micans.org/mcl/src/mcl-latest.tar.gz
 ```
 In this case the installation package is a tar-archive file that has been compressed 
 with gzip program. You can unpack this file with commands
-```text
+```bash
 tar xvf mcl-latest.tar.gz
 ls -l
 ```
@@ -48,7 +48,7 @@ software.
 
 ### Option 2: Clone source code from Github
 Alternatively you can get the sofware from Git. 
-```text
+```bash
 git clone https://github.com/JohannesBuchner/mcl.git
 ls -l
 ```
@@ -60,18 +60,18 @@ software.
 
 Create a new empty directory called `version-14-137` to the mcl directory. This vill be the actual
 installation directory.
-```text
+```bash
 mkdir version-14-137
 ```
 After this go to the `mcl-14-137` (or `mcl` if using git) directory and study its content
-```text
+```bash
 cd mcl-14-137
 ls -l
 ```
 Installation packages contain often a short installation instructions. Typically this 
 instruction file is called as INSTALL or README. In this case you should read the 
 INSTALL file to find out how the  installation should be done.
-```text
+```bash
 less INSTALL
 ```
 ## Installation
@@ -98,17 +98,17 @@ example need to use certain C-compiler or python version in order to install the
 with different versions. If you still fail with the installation, ask help from the HelpDesk of CSC.
 
 For mcl we choose gcc environment.
-```text
+```bash
 module load gcc/9.1.0
 ```
 
 In this case we wish to install the software to the `version-14-137` directory in you
 $PROJAPPL area. Thus you must use following `./configure` command:
-```text
+```bash
 ./configure --prefix=$PROJAPPL/mcl/version-14-137
 ```
 Next we need to compile and install the software with commands:
-```text
+```bash
 make
 make install
 ```
@@ -119,33 +119,33 @@ Typically the executables, i.e. the compiled programs that can be launched, are 
 subdirectory called `bin`. 
 
 Check what got installed  with:
-```text
+```bash
 ls -l $PROJAPPL/mcl/version-14-137/bin
 ```
 
 ## Running the software
 
 The software is now ready to run, but it is not in your `$PATH`. That means that if you try to run:
-```text
+```bash
 mcl --help
 ```
 you get an error message `bash: mcl: command not found`.
 
 You need to tell the computer where to find that command. You can do this by providing the path for the 
 program, e.g.
-```text
+```bash
 $PROJAPPL/mcl/version-14-137/bin/mcl --help
 ```
 You can also add the directory path of you executables to the `$PATH` environment variable. In this case 
 we add path `${PROJAPPL}/mcl/version-14-137/bin` to the `$PATH` variable. This is done with command:
-```text
+```bash
 export PATH=${PROJAPPL}/mcl/version-14-137/bin:${PATH}
 ```
 Note that the first `PATH` word in the command above is without the dollar sign. Also note that we include 
 the current `$PATH`. If we omitted it, the normal shell commands would stop working.
 
 Now you can launch the program you have installed with simply:
-```text
+```bash
 mcl --help
 ```
 
@@ -167,7 +167,7 @@ the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/).
 If the software you have installed works correctly, you can remove the installation package and
 temporary directories that were used during the compilation. In this case we could remove the 
 `mcl-latest.tar.gz` file and the directory `mcl-14-137`
-```text
+```bash
 cd $PROJAPPL/mcl
 rm mcl-latest.tar.gz
 rm -rf mcl-14-137

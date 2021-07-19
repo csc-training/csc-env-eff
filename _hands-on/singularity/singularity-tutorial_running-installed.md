@@ -24,7 +24,7 @@ See the CSC documentation for each application to check any
 changes or considerations.
 
 To run these exercises in Puhti, use `sinteractive`.
-```text
+```bash
 sinteractive -i
 ```
 
@@ -33,7 +33,7 @@ sinteractive -i
 One example of a container-based installation that has been "hidden" behind
 a wrapper script is R.
 
-```text
+```bash
 module load r-env-singularity
 Rscript --version
 ```
@@ -44,7 +44,7 @@ You can see more details about using R in the [Docs page for r-env-singularity](
 
 If you can't open sinteractive session due to high load in the course, you can try this
 in the login shell instead:
-```text
+```bash
 module load cutadapt
 cutadapt -h
 ```
@@ -54,7 +54,7 @@ cutadapt -h
 prefix command with "singularity_wrapper exec".
 
 So instead of e.g. `zig4 --help`, you will need to use:
-```text
+```bash
 module load zonation
 singularity_wrapper exec zig4 --help
 ```
