@@ -54,7 +54,7 @@ FIXME: An error message is displayed after `cpanm library_name`:
 ! Couldn't find module or a distribution library_name
 ```
 
-To use your own perl packages, you need to make sure they are 
+💬 To use your own perl packages, you need to make sure they are 
 included in perl `@INC`
 
 There are three main ways to do it:
