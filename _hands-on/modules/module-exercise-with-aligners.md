@@ -59,6 +59,26 @@ module load bioconda/3
 conda env list
 ```
 See RSeQc there? 
+Try to run one of the RSeQC commands: open a help for [`bam_stat.py`](http://rseqc.sourceforge.net/#bam-stat-py). Then activate the RSeQC environment, and try again. Finally deactivate the conda environment.
+```bash
+bam_stat.py -h
+source activate rseqc
+bam_stat.py -h
+conda deactivate
+```
+### Advanced: Try to install an application to your own bioconda environment
+
+Try to look for [SeqKit application](https://bioinf.shenwei.me/seqkit/) like we did above with RSeQC. 
+Next, check whether SeqKit is available in [BioConda](http://bioconda.github.io): type rseqc in the search field.
+Here you can read [how to install an application for your own use with bioconda](https://docs.csc.fi/apps/bioconda/#2-installing-software-for-your-own-use-with-bioconda). 
+```bash
+ seqkit -h 
+ conda create -n my_biotools seqkit
+ source activate my_biotools
+ seqkit -h
+ conda deactivate
+```
+
 
 ## Using modules in a batch script
 
