@@ -34,7 +34,7 @@ or make sure the shebang line of the script is:
 💬 Sometimes the applications may require additional modules to run. These `perl modules`, should not be confused with the software modules in CSC computers.
 
 💬 You should check the installation instructions for each module. For
-libraries in CPAN, the easiest method is to use `cpanm`.
+libraries in CPAN, the easiest method is to use `cpanm`. You can check out [CPAN docs here.](https://metacpan.org/dist/App-cpanminus/view/bin/cpanm).
 
 #### In this example we add perl module JSON to our own environment
 
