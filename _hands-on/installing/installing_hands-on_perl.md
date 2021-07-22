@@ -72,8 +72,7 @@ perl -e 'use JSON;'
 💬 The installation only needs to be done once, but you need to make sure $PERL5LIB
 is set correctly each time you try to use this module.
 
-:::info
-There are three main ways to do it:
+💭 There are three main ways to do it (we used the second already):
 1. Inlude command line option -I (capital i) with the path on the command line:
 ```bash
 perl -I /projappl/project_12345/myperl ./my_app.pl
@@ -87,9 +86,6 @@ export PERL5LIB=/projappl/project_12345/myperl:${PERL5LIB}
     use lib '/projappl/project_12345/myperl';
     use My::Module;
 ```
-:::
-
-#FIXME: Might be that `:::info` does not work so then just take it away and figure out something else instead. Somehow to separate that that piece of information is extra.
 
 ## Bioperl
 If your code requires bioperl, we have a bioperl installation available.
