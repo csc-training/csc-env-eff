@@ -36,7 +36,7 @@ or make sure the shebang line of the script is:
 💬 You should check the installation instructions for each module. For
 libraries in CPAN, the easiest method is to use `cpanm`.
 
-#### In this example we add perl module JSON to our own environment.
+#### In this example we add perl module JSON to our own environment
 
 - We can check if JSON is already available:
 ```bash
@@ -68,6 +68,8 @@ export PERL5LIB="/projappl/Project_12345/local_perl/lib/perl5"
 perl -e 'use JSON;'
 ```
 - This time we do not get an error message indicating that JSON module is now usable.
+
+## Additional info
 
 💬 The installation only needs to be done once, but you need to make sure $PERL5LIB
 is set correctly each time you try to use this module.
