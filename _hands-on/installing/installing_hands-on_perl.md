@@ -44,11 +44,14 @@ perl -e 'use JSON;'
 ```
 - We get an error message indicating that it is not found, so we need to install it.
 
-🗯 By default `cpanm` tries to install to perl installation location, so we need to set the installation location. It needs to be directory where you have write access. It could be e.g. your projects /projappl directory. This can be done by setting a few environment variables:
+🗯 By default `cpanm` tries to install to perl installation location. You need to set the location to a 
+directory where you have write access instead. It could be e.g. your project's /projappl directory. 
+
+This can be done by setting a few environment variables:
 
 - Substitute the desired path for PERL_BASE and run the following:
 ```bash
-export PERL_BASE="/projappl/project_2004306/YOURUSERNAME/myperl"   # an example path
+export PERL_BASE="/projappl/project_12345/myperl"   # an example path
 export PERL_MM_OPT="INSTALL_BASE=$PERL_BASE"
 export PERL_MB_OPT="--install_base $PERL_BASE"
 export PERL5LIB="$PERL_BASE/lib/perl5"
@@ -61,7 +64,7 @@ cpanm JSON
 - To use it, we need to tell perl where to find it. In this case we set $PERL5LIB
 environment variable: 
 ```bash
-export PERL5LIB="/projappl/Project_12345/local_perl/lib/perl5"
+export PERL5LIB="/projappl/project_12345/myperl/lib/perl5"
 ```
 - We can now try it again:
 ```bash
@@ -71,26 +74,26 @@ perl -e 'use JSON;'
 
 ## Additional info
 
-💬 The installation only needs to be done once, but you need to make sure $PERL5LIB
-is set correctly each time you try to use this module.
+💬 The installation only needs to be done once, but you need to make sure perl knows where to find 
+the installed modules.
 
-💭 There are three main ways to do it (we used the second already):
+💭 There are three main ways to do this (we used the second already):
 1. Inlude command line option -I (capital i) with the path on the command line:
 ```bash
-perl -I /projappl/project_12345/myperl ./my_app.pl
+perl -I /projappl/project_12345/myperl/lib/perl5 ./my_app.pl
 ```
 2. Include the path in `$PERL5LIB` environment variable.
 ```bash
-export PERL5LIB=/projappl/project_12345/myperl:${PERL5LIB}
+export PERL5LIB=/projappl/project_12345/myperl/lib/perl5:${PERL5LIB}
 ```
 3. Iclude the path in the perl code with `use lib`
 ```bash
-    use lib '/projappl/project_12345/myperl';
+    use lib '/projappl/project_12345/myperl/lib/perl5';
     use My::Module;
 ```
 
 ## Bioperl
 If your code requires bioperl, we have a bioperl installation available.
 
-See our [biperl documentation](https://docs.csc.fi/apps/bioperl/) for details.
+See our [bioperl documentation](https://docs.csc.fi/apps/bioperl/) for details.
 
