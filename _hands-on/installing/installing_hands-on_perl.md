@@ -51,7 +51,7 @@ This can be done by setting a few environment variables:
 
 - Substitute the desired path for PERL_BASE and run the following:
 ```bash
-export PERL_BASE="/projappl/project_12345/myperl"   # an example path
+export PERL_BASE="/projappl/project_XXXXXX/YOURUSERNAME/myperl"   # an example path
 export PERL_MM_OPT="INSTALL_BASE=$PERL_BASE"
 export PERL_MB_OPT="--install_base $PERL_BASE"
 export PERL5LIB="$PERL_BASE/lib/perl5"
@@ -64,7 +64,7 @@ cpanm JSON
 - To use it, we need to tell perl where to find it. In this case we set $PERL5LIB
 environment variable: 
 ```bash
-export PERL5LIB="/projappl/project_12345/myperl/lib/perl5"
+export PERL5LIB="/projappl/project_XXXXXX/YOURUSERNAME/myperl/lib/perl5"
 ```
 - We can now try it again:
 ```bash
@@ -80,15 +80,15 @@ the installed modules.
 💭 There are three main ways to do this (we used the second already):
 1. Inlude command line option -I (capital i) with the path on the command line:
 ```bash
-perl -I /projappl/project_12345/myperl/lib/perl5 ./my_app.pl
+perl -I /projappl/project_XXXXXX/YOURUSERNAME/myperl/lib/perl5 ./my_app.pl
 ```
 2. Include the path in `$PERL5LIB` environment variable.
 ```bash
-export PERL5LIB=/projappl/project_12345/myperl/lib/perl5:${PERL5LIB}
+export PERL5LIB=/projappl/project_XXXXXX/YOURUSERNAME/myperl/lib/perl5:${PERL5LIB}
 ```
 3. Iclude the path in the perl code with `use lib`
 ```bash
-    use lib '/projappl/project_12345/myperl/lib/perl5';
+    use lib '/projappl/project_XXXXXX/YOURUSERNAME/myperl/lib/perl5';
     use My::Module;
 ```
 
