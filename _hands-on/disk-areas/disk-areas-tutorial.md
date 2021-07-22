@@ -83,3 +83,4 @@ mv Merged.fasta /scratch/project_xxx/$USER
 ```
 You have now successfully moved your data to scratch area and can start performing actual analysis using batch job scripts which you will learn in-depth in a different module.
 
+💡 Hint: You can use your folder in scratch for the rest of the tutorials. Save the path in alias or somewhere.
