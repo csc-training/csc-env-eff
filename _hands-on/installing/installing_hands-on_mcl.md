@@ -5,15 +5,11 @@ title: Tutorial - Installing a simple C code from source
 
 # Installing a simple C code from source
 
-In this example we install MCL Markov cluster algorithm program 
-to users own [projappl directory](https://docs.csc.fi/computing/disk/) in Puhti.
+💬 In this tutorial we install MCL Markov cluster algorithm program to users own [projappl directory](https://docs.csc.fi/computing/disk/) in Puhti.
 
-This software would also be available as installation packages (.deb, .rpm)
-for various Linux distributions, but these can not be used in Puhti. Instead we 
-install it from the source code.
+💭 This software would also be available as installation packages (.deb, .rpm) for various Linux distributions, but these can not be used in Puhti. Instead we install it from the source code.
 
-To follow the instructions, set up environment variable to point to your projects
-/projappl folder (substitute "project_12345" with your project name):
+- To follow the instructions, set up environment variable to point to your projects /projappl folder (substitute "project_12345" with your project name):
 
 ```bash
 export PROJAPPL=/projappl/project_12345

@@ -68,3 +68,30 @@ scp account@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.txt] [path-to-local-
 ```
 
 12. Look for the file in your personal computer and check that the contents match.
+
+## EXTRA: Open `html`-files in Puhti**  
+**Alternative 1: Firefox**  
+- Download a html-file to your folder in Puhti:
+```bash
+wget https://a3s.fi/mjaskeli-2004306-pub/index.html
+```
+- Load Bioconda-module which includes Firefox:
+```bash
+module load Bioconda
+```
+- The message says that you need to set the `PROJAPPL` environment variable.
+    - To do so, run command (you can check the XXXXXXX of your project(s) with command `csc-workspaces`):
+```bash
+export PROJAPPL=/projappl/project_XXXXXXX
+```
+- Re-run the ```module load Bioconda``` command:
+```bash
+module load bioconda
+```
+- Open the file with Firefox
+```bash
+firefox index.html
+```
+
+**Alternative 2: Allas**  
+- After configuring Allas there's a-commands which include publishing files to the internet. This is instructed in [Allas-tutorial](https://csc-training.github.io/csc-env-eff/hands-on/allas/tutorial_allas-file-transfer.html)
