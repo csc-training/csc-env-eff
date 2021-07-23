@@ -55,6 +55,9 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # Example serial batch job script for Puhti
 
+- A batch job is a shell script (bash) that consists of two parts:
+   - A resource request flagged with `#SBATCH` and the actual computing step(s)
+
 ```text
 #!/bin/bash -l
 #SBATCH --job-name=print_hostname
@@ -65,8 +68,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 srun echo "Hello $USER! You are on node $HOSTNAME"
 ```
-- A batch job is a shell script (bash) that consists of two parts:
-   - A resource request flagged with `#SBATCH` and the actual computing step(s)
+
 - The `--account` option is mandatory to tell which project should be billed.
 - The actual program is launched using the `srun` command
 - The content above could be copied into a file like `simple_serial.bash` and put into the queue with the command `sbatch simple_serial.bash`
@@ -74,12 +76,14 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 # Use an application specific batch script template
 
 <div class="column">
+
 - The [application list in docs](https://docs.csc.fi/apps/) contains example scripts for each software
 - Use these as the *starting point* for your own scripts
 - They have been tested and optimized (although for minimal resources) for *that* application
    - Consult the manual or other examples to adapt to your own needs
 </div>
 <div class="column">
+
 ![](img/apps-list.png "Applications list in docs.csc.fi"){width=90%}
 </div>
 
