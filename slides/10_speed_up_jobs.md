@@ -21,9 +21,11 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 Typically, large computers, like those at CSC, are not faster than others - they are just bigger. That is, for fast computation they utilize parallelism.
 Parallelism means that you may use, simply speaking, hundreds or thousands of ordainary computers simultaneously for the solution of a single problem.
 
-# Basic considerations
+# Basic considerations (1/2)
 - Spend a little time to investigate which of all available software would be the best solve the kind of problem you have. Experienced colleagues and servicedesk@csc.fi are good places to ask for guidance.
 - The software that has the capacity to solve your problem the fastest may, however, not always be the best. Issues like ease-of-use and compute-power/memory demands are also higly relevant. Quite often it is useful to start simple and gradually use more complex approaches if needed.
+
+# Basic considerations (2/2)
 - When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version https://docs.csc.fi/apps/, and spend some time getting familiar with the softwares users manual, if available.
 - If you cant find a suitable software, consider writing your own code.
 
