@@ -135,20 +135,17 @@ otherwise problematic:
   - Singularity: 1 file, total size 339 MB
 - Containers are not the solution for everything, but they do have their uses…
 
-# Building a new Singularity container (1/3)
-- Requires root access: Can not be done directly in e.g. Puhti
+# Building a new Singularity container (1/2)
+- ‼️ Requires root access: Can not be done directly in e.g. Puhti
 
 - 1. Build a basic container in sandbox mode (`--sandbox`)
     - Uses a folder structure instead of an image file
-    - Requires root access!
- 
-# Building a new Singularity container (2/3)
 - 2. Open a shell in the container and install software
   - Depending on base image system, package managers can be used to install 
     libraries and dependencies (`apt install` , `yum install` etc)
   - Installation as per software developer instructions
   
-# Building a new Singularity container (3/3)
+# Building a new Singularity container (2/2)
 - 3. Build a production image from the sandbox
 - 4. (optional) Make a definition file and build a production image from it
   - Mostly necesary if you wish to distribute your container wider
