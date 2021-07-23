@@ -1,29 +1,20 @@
 ---
 topic: singularity
-title: Tutorial - Running applications installed as containers 
+title: Tutorial - Running applications installed as containers (advanced)
 ---
 
 # Running applications installed as containers
 
-In this tutorial we get familiar with the basic usage of 
-software that has been installed as a container.
+💬 In this tutorial we get familiar with the basic usage of software that has been installed as a container.
 
-Some software on CSC supercomputers have been installed 
-as containers. In many cases we have tried to "hide" the 
-container behind wrapper scripts so that there is no change 
-in usage from the user perspective.
+💭 Some software on CSC supercomputers have been installed as containers. In many cases we have tried to "hide" the container behind wrapper scripts so that there is no change in usage from the user perspective.
 
-On some cases, however, this is not practical, and in these 
-cases there can be some differences to the standard usage as 
-described by the software documentation. Typically, this involves 
-prefixing the commands with `singularity_wrapper exec`.
-This will also typically be the case for software you install 
+💭 On some cases, however, this is not practical, and in these cases there can be some differences to the standard usage as described by the software documentation. Typically, this involves prefixing the commands with `singularity_wrapper exec`. This will also typically be the case for software you install 
 yourself as a container.
 
-See the CSC documentation for each application to check any 
-changes or considerations.
+‼️ See the CSC documentation for each application to check any changes or considerations.
 
-To run these exercises in Puhti, use `sinteractive`.
+- To run these exercises in Puhti, use `sinteractive`.
 ```bash
 sinteractive -i
 ```
