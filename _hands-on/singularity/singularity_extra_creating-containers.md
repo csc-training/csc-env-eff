@@ -1,6 +1,6 @@
 ---
 topic: singularity
-title: Exercise - Creating singularity containers (advanced)
+title: Exercise - Creating singularity containers
 ---
 
 # Creating singularity containers

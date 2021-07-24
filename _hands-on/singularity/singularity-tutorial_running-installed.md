@@ -1,6 +1,6 @@
 ---
 topic: singularity
-title: Tutorial - Running applications installed as containers (advanced)
+title: Tutorial - Running applications installed as containers
 ---
 
 # Running applications installed as containers
@@ -16,44 +16,33 @@ yourself as a container.
 
 - To run these exercises in Puhti, use `sinteractive`.
 ```bash
-sinteractive -i
+sinteractive --account project_XXXX   # Change the XXXX for the project number
 ```
 
 ## Example 1: A "hidden" installation
 
-One example of a container-based installation that has been "hidden" behind
-a wrapper script is R.
-
+- One example of a container-based installation that has been "hidden" behind a wrapper script is R:
 ```bash
 module load r-env-singularity
 Rscript --version
 ```
-As you can see, `Rscript` works like normal, and in most cases you don't 
-need to care that it is installed as container.
+- As you can see, `Rscript` works like normal, and in most cases you don't need to care that it is installed as container.
 
-You can see more details about using R in the [Docs page for r-env-singularity](https://docs.csc.fi/apps/r-env-singularity/).
+💭 You can see more details about using R in the [Docs page for r-env-singularity](https://docs.csc.fi/apps/r-env-singularity/).
 
-If you can't open sinteractive session due to high load in the course, you can try this
-in the login shell instead:
+💡 If you can't open `sinteractive` session due to high load in the course, you can try this in the login shell instead:
 ```bash
 module load cutadapt
 cutadapt -h
 ```
 ## Example 2: Installation requiring special commands
 
-`Zonation` is one example of a software that will reguire you to
-prefix command with "singularity_wrapper exec".
+- `Zonation` is one example of a software that will reguire you to prefix command with "singularity_wrapper exec".
 
-So instead of e.g. `zig4 --help`, you will need to use:
+- So instead of e.g. `zig4 --help`, you will need to use:
 ```bash
 module load zonation
 singularity_wrapper exec zig4 --help
 ```
-You can see more details about the software in the 
-[Docs page for Zonation](https://docs.csc.fi/apps/zonation).
-
-## More information
-
-There is a more [in-depth tutorial on using Singularity containers](https://csc-training.github.io/csc-env-eff/hands-on/singularity/singularity-tutorial.html) 
-you can go through after this.
+💭 You can see more details about the software in the [Docs page for Zonation](https://docs.csc.fi/apps/zonation).
 
