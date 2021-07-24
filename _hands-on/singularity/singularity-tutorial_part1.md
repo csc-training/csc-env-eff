@@ -40,6 +40,7 @@ singularity exec tutorial.sif cat /etc/*release
 
 💭 The tutorial container is based on Ubuntu 18.04. The host and the container use the same kernel, but the rest of the system can vary. That means a container can be based on a different Linux distribution than the host (as long as they are kernel-compatible), but can't run a totally different OS like Windows or macOS.
 
+#### Singularity
 💡 `Singularity exec` is the run method you will typically use in a batch job script.
 
 - Make a file called `test.sh`:
