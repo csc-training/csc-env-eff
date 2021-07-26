@@ -66,13 +66,10 @@ nano YourName-markdown-file.md
 10. Use `pwd` and copy the path of your current working directory
 
 11. Copy the text-file to your personal computer for example with scp:
-
 ‼️ NOTE: The following has to be typed in your personal computer's Terminal!
-
 ```bash
 scp YOURUSERNAME@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.md] [path-to-local-folder-in-your-PC]
 ```
-
 12. Look for the file in your personal computer and check that the contents match.
 
 ### EXTRA: Open `html`-files in Puhti
