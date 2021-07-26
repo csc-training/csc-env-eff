@@ -69,6 +69,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
    - Can you automate setting up, running and analysing your array jobs? 
       - Then you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
    - Can your software utilize GPUs? 
+      - [GPUs in batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs)
 
 # What is MPI? 
 - MPI (and OpenMP too!) are widely used standards for writing software that run in parallel.
