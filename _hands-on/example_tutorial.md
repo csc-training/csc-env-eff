@@ -7,6 +7,8 @@ title: Title that is shown in the rendered index.md
 
 💬 This document contains general styleguide for handson tutorials and exercises. 
 
+> The prerequisites: Sometimes there are many, but list if there's something essential but not obvious. 
+
 1. Use numbered list to describe actual steps that a student does
 ```bash
 echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification is necessary
