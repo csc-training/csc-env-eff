@@ -19,15 +19,6 @@ csc-projects
 csc-workspaces 
 ```
 2. Look through the output information about your directories and their current quotas.  
-💬 These directories can be briefly summerised as below:
-- User-specific directory (= Personal home folder)
-   - Your home directory `$HOME`
-   - The default directory when you login to Puhti/Mahti. 
-   - You can store configuration files and other minor personal data. 
-- Project-specific directories: 
-   - The project **scratch** and **projappl** directories. 
-   - Each project contains its **scratch** disk space where actual data analysis tasks are performed. **scratch** area is a temporary space.
-   - **Projappl** directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
 3. Visit your projects **scratch** directory and check out its contents:
 ```bash
 cd /scratch/project_XXXX/   # replace XXXX with your project number
@@ -39,6 +30,16 @@ cd /projappl/project_XXXX/   # replace XXXX with your project number
 ls
 ```
 
+💬 These directories can be briefly summerised as below:
+- User-specific directory (= Personal home folder)
+   - Your home directory `$HOME`
+   - The default directory when you login to Puhti/Mahti. 
+   - You can store configuration files and other minor personal data. 
+- Project-specific directories: 
+   - The project **scratch** and **projappl** directories. 
+   - Each project contains its **scratch** disk space where actual data analysis tasks are performed. **scratch** area is a temporary space.
+   - **Projappl** directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
+   
 ## Perform a light-weight pre-processing on data files using fast I/O local disks
 
 💬 You sometimes come across situations where you have to handle an uncommonly large number of smaller files that can cause heavy input/output load on supercomputing environment. 
