@@ -39,6 +39,13 @@ Parallelism means that you may use, simply speaking, hundreds or thousands of or
 - It is not only how your software is constructed and compiled that affect performance.
 - It can also be run in different ways
 
+# HPC parallel jobs
+
+- A parallel job distributes the calculation over several cores in order to achieve a shorter wall time (and/or a larger allocatable memory)   
+- [Examples of batch job scripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
+- [Examples of batch job scripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
+- **The best starting point:** [Software specific batch scripts in docs](https://docs.csc.fi/apps/)
+
 # Running in parallel 
 - A code is typically parallelized with MPI and/or OpenMP standards. They can be run in several different ways.  
 - Can you split your work into smaller, fully independent, bits and run them simultaneously? [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
