@@ -56,7 +56,7 @@ ssh yourcscusername@puhti.csc.fi
 
 1. If you're connecting to Puhti (or that Puhti login node) for the first time, SSH will ask you if you trust the authenticity of the host, e.g.:
 
-```bash
+```text
 The authenticity of host 'puhti-login1.csc.fi (86.50.164.166)' can't be established.
 ECDSA key fingerprint is SHA256:EXhadfadsfsaffasjhdlfjhasdlfkjhadsl.
 Are you sure you want to continue connecting (yes/no/[fingerprint])?
@@ -64,6 +64,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 2. the first time you connect, you need to accept, but the key should not change for the next login.
 3. Pay attention whether you logged in `login1` or `login2`.
 4. Once you've logged in you'll see a greeting starting something like this:
+
 ```
 Last login: Mon Dec 14 14:53:15 2020 from jabadabaduu.fi
 ┌─ Welcome ───────────────────────────────────────────────────────────────────┐
