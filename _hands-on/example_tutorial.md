@@ -52,7 +52,8 @@ echo $USER                              # Or use the environment variable
 1. Add images to the `/slides/img/`-folder
     - Or `/_hands-on/img/`-folder
 2. Provide the path like this:
-![terminal-icon](../slides/img/terminal_icon1.png)
+`![terminal-icon](../slides/img/terminal_icon1.png)`
+3. The image should show like this: ![terminal-icon](../slides/img/terminal_icon1.png)
 
 ## Providing job-files
 
