@@ -64,8 +64,10 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # Running in parallel 
 - A code is typically parallelized with MPI and/or OpenMP standards. They can be run in several different ways.  
-   - Can you split your work into smaller, fully independent, bits and run them simultaneously? [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
-   - Can you automate setting up, running and analysing your array jobs? The you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
+   - Can you split your work into smaller, fully independent, bits and run them simultaneously? 
+      - Check out [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
+   - Can you automate setting up, running and analysing your array jobs? 
+      - Then you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
    - Can your software utilize GPUs? 
 
 # What is MPI? 
