@@ -1,45 +1,12 @@
 ---
 topic: disk-areas
-title: Tutorial - Disk areas in CSC supercomputing environment
+title: Tutorial - Fast disk areas in CSC supercomputing environment
 ---
 
-# Disk areas in CSC supercomputing environment
+# Fast disk areas in CSC supercomputing environment
 
-> Upon completion of this tutorial, you will get familiar with:
-- Personal and project-specific disk areas and their quotas in CSC supercomputing environment
-- Ideal disk areas for large I/O operations (=reading and writing operations)
+> Upon completion of this tutorial, you will get familiar with ideal disk areas for large I/O operations (=reading and writing operations)
 
-## Identify your personal and project-specific directories in Puhti and Mahti supercomputers
-
-💬 Each user at CSC supercomputer (Puhti or Mahti) have access to different disk areas (or directories) to manage their data in supercomputers. The disk areas have their specific purposes. 
-
-1. Get an overview of your projects and directories by using the following commands in login node:
-```bash
-csc-projects
-csc-workspaces 
-```
-2. Look through the output information about your directories and their current quotas.  
-3. Visit your projects **scratch** directory and check out its contents:
-```bash
-cd /scratch/project_XXXX/   # replace XXXX with your project number
-ls
-```
-4. Visit your projects **projappl** directory and check out its contents:
-```bash
-cd /projappl/project_XXXX/   # replace XXXX with your project number
-ls
-```
-
-💬 These directories can be briefly summerised as below:
-- User-specific directory (= Personal home folder)
-   - Your home directory `$HOME`
-   - The default directory when you login to Puhti/Mahti. 
-   - You can store configuration files and other minor personal data. 
-- Project-specific directories: 
-   - The project **scratch** and **projappl** directories. 
-   - Each project contains its **scratch** disk space where actual data analysis tasks are performed. **scratch** area is a temporary space.
-   - **Projappl** directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
-   
 ## Perform a light-weight pre-processing on data files using fast I/O local disks
 
 💬 You sometimes come across situations where you have to handle an uncommonly large number of smaller files that can cause heavy input/output load on supercomputing environment. 
@@ -53,7 +20,7 @@ echo $TMPDIR
 
 💡 This local disk area in login nodes is meant for some light-weight preprocessing of data before you start actual analysis on **scratch** drive. 
 
-### Example: download a tar file containing thousands of small files and merge the files into one big file in the local storage disks
+### Download a tar file containing thousands of small files and merge the files into one big file in the local storage disks
 
 1. Download tar file from *Allas* object storage by typing:
 ```bash 
