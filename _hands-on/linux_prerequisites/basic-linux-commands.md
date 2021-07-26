@@ -45,7 +45,7 @@ ls -lth         # parameters are l for long format, t for sorting by time and h 
 ```bash
 less my-first-file.txt
 ```
-    - To exit the `less` preview of the file, hit 'q'. 
+    - To exit the `less` preview of the file, hit 'q'.  
 💭 Tip: Instead of `less` you can use `cat` which prints the content of the file(s) straight into command line. For long texts `less` is recommended.
 8. Make a copy of this file:
 ```bash
