@@ -1,5 +1,5 @@
 ---
-topic: disk-areas
+topic: disk-areas-old
 title: Advanced tutorial - Where to put files in CSC environment?
 ---
 
