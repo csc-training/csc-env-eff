@@ -9,6 +9,8 @@ title: Tutorial - Basic linux commands
 
 > ☝🏻 You should also have already [logged to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
 
+### Navigating folders
+
 1. Now that you have logged in Puhti, check in which folder you are in: type `pwd` and hit Enter.
 ```bash
 pwd
@@ -27,9 +29,12 @@ ls
 ```bash
 cd YourNameTestFolder       # replace YourName
 ```
+
+### Exploring files 
+
 5. Download a file into this new folder. Use the command `wget` for downloading from an URL:
 ```bash
-wget https://github.com/CSCfi/csc-env-eff/raw/master/hands-on/linux_prerequisites/my-first-file.sh
+wget https://github.com/CSCfi/csc-env-eff/raw/master/hands-on/linux_prerequisites/my-first-file.txt
 ```
 6. Check what kind of file did you get and what size it is. 
     - Use `ls` command with some extra parameters:
@@ -38,22 +43,20 @@ ls -lth         # parameters are l for long format, t for sorting by time and h 
 ```
 7. Use `less` command to check out what the file looks like:
 ```bash
-less my-first-file.sh
+less my-first-file.txt
 ```
     - To exit the `less` preview of the file, hit 'q'. 
-
 💭 Tip: Instead of `less` you can use `cat` which prints the content of the file(s) straight into command line. For long texts `less` is recommended.
-
 8. Make a copy of this file:
 ```bash
-cp my-first-file.sh YourName-first-file.sh  # replace YourName
+cp my-first-file.txt YourName-first-file.txt  # replace YourName
 ls -lth
-less YourName-first-file.sh                 # replace YourName
+less YourName-first-file.txt                 # replace YourName
 ```
 
 9. Remove the file we originally downloaded (leave your own copy). 
 ```bash
-rm my-first-file.sh
+rm my-first-file.txt
 ls
 ```
 
