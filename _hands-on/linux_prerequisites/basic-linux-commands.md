@@ -65,4 +65,6 @@ ls
 ## More information
 - Learn [how to edit that file](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-file-editing.html) in the next tutorial!
 
+💡 More information of a given command line `command`: type `man command` or `command --help` where `command` is replaced with the one that you need help with.
+
 💡 Pro-tip: if you remember *a part of a command* that you have used you can input it as `'string'` into command `history | grep 'string'` to see all your used commands that include the `'string'`.
