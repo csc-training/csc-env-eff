@@ -18,7 +18,7 @@ title: Tutorial - Log in Puhti with SSH
 
 1. Open a terminal and type:
 ```bash
-ssh yourcscusername@puhti.csc.fi
+ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
 ```
 2. Scroll down to [In Puhti](#in-puhti)
 
@@ -27,7 +27,7 @@ ssh yourcscusername@puhti.csc.fi
 💬 In macOS, you can use Terminal similarly as with Linux machines. 
 1. Open the Terminal application and type:
 ```bash
-ssh yourcscusername@puhti.csc.fi
+ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
 ```
 2. Scroll down to [In Puhti](#in-puhti)
 
@@ -85,7 +85,7 @@ Last login: Mon Dec 14 14:53:15 2020 from jabadabaduu.fi
 ...
 
 └─────────────────────────────────────────────────────────────────────────────┘
-[ yourcscusername@puhti-login1 ~]$
+[ YOURUSERNAME@puhti-login1 ~]$
 ```
 5. Now, you're ready to go. 
 
@@ -95,7 +95,7 @@ Last login: Mon Dec 14 14:53:15 2020 from jabadabaduu.fi
 #### In Linux/macOS
 1. Add X11-tunneling to your ssh-connection, by adding `-X` or `-Y` to your command like this:
 ```bash
-ssh -X yourcscusername@puhti.csc.fi
+ssh -X YOURUSERNAME@puhti.csc.fi     # replace YOURUSERNAME
 ```
 
 #### In Windows 

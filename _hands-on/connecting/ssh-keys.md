@@ -73,7 +73,7 @@ Host *
 ```
 7. Copy the SSH public key to Puhti by typing in Terminal
 ```bash
-ssh-copy-id YOURUSERNAME@puhti.csc.fi
+ssh-copy-id YOURUSERNAME@puhti.csc.fi    # replace YOURUSERNAME
 ```
 
 ☝🏻 Equivalent files for configuring profile in step 6.
