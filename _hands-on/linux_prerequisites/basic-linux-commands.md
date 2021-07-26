@@ -60,3 +60,5 @@ ls
 > Tip: If you don't want to have duplicate files you can use `mv` to 'move/rename' the file. Syntax is the same: `mv [path/source] [path/destination]`.
 
 Next, let's learn [how to edit that file](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-file-editing.html)!
+
+> Pro-tip: if you remember *a part of a command* that you have used you can input it as `'string'` into command `history | grep 'string'` to see all your used commands that include the `'string'`.
