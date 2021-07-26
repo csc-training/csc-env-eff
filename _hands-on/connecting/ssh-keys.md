@@ -6,8 +6,9 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
 # Creating and adding SSH-keys
 
 💬 SSH-keys improve security and the ease of use.
+- For example [launching Jupyter Notebook in Puhti and accessing it via your browser](https://docs.csc.fi/computing/running/interactive-usage/#example-running-a-jupyter-notebook-server-via-sinteractive) requires the use of SSH-keys.
 
-☝🏻 This tutorial assumes you've already logged in and have the prerequisites covered.
+> ☝🏻 This tutorial assumes you've already logged in and have the prerequisites covered.
 
 ## Windows10
 
@@ -49,11 +50,6 @@ ssh-keygen -t rsa -b 4096
 ssh-copy-id YOURUSERNAME@puhti.csc.fi   # replace YOURUSERNAME
 ```
 6. Connecting with SSH to Puhti should now proceed without the need to write your key passphrase
-
-### Optional step: launch Jupyter Notebook in Puhti
-7. Login to puhti and try launching e.g. 
-[Jupyter Notebook interactively and access it via your browser](https://docs.csc.fi/computing/running/interactive-usage/#example-running-a-jupyter-notebook-server-via-sinteractive)
-
 
 ## macOS
 
