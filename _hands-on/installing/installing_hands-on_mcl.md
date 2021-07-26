@@ -12,7 +12,7 @@ title: Tutorial - Installing a simple C code from source
 - To follow the instructions, set up environment variable to point to your projects /projappl folder (substitute "project_12345" with your project name):
 
 ```bash
-export PROJAPPL=/projappl/project_12345
+export PROJAPPL=/projappl/project_XXXX   # replace XXXX
 ```
 ## Obtaining source code
 - Move to your `$PROJAPPL` directory and create there a new directory called mcl + go there
