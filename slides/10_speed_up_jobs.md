@@ -18,39 +18,71 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # The purpose of large computers
 
-Typically, large computers, like those at CSC, are not faster than others - they are just bigger. That is, for fast computation they utilize parallelism.
-Parallelism means that you may use, simply speaking, hundreds or thousands of ordainary computers simultaneously for the solution of a single problem.
+- Typically large computers, like those at CSC, are not faster than others - they are just bigger.
+   - For fast computation they utilize parallelism.
+- Parallelism simplified:
+   - You use hundreds of ordinary computers simultaneously to solve a single problem.
 
-# Basic considerations (1/2)
-- Spend a little time to investigate which of all available software would be the best solve the kind of problem you have. Experienced colleagues and servicedesk@csc.fi are good places to ask for guidance.
-- The software that has the capacity to solve your problem the fastest may, however, not always be the best. Issues like ease-of-use and compute-power/memory demands are also higly relevant. Quite often it is useful to start simple and gradually use more complex approaches if needed.
+# First steps for fast jobs (1/2)
+- Spend a little time to investigate:
+   - Which of all the available software would be the best solve the kind of problem you have? 
+      - Ask experienced colleagues and servicedesk@csc.fi for guidance.
+- Consider:
+   - The software that is the fastest to solve your problem might not always be the best. 
+      - Issues like ease-of-use and compute-power/memory demands are also higly relevant. 
+   - Quite often it is useful to start simple and gradually use more complex approaches if needed.
 
-# Basic considerations (2/2)
-- When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version https://docs.csc.fi/apps/, and spend some time getting familiar with the softwares users manual, if available.
+# First steps for fast jobs (2/2)
+- When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version https://docs.csc.fi/apps/
+   - Spend some time getting familiar with the softwares users manual, if available.
 - If you cant find a suitable software, consider writing your own code.
 
-# Optimize the performance of your own code
-- If you have constructed your own code, compile it with optimizing compiler options. [Compiling Puhti](https://docs.csc.fi/computing/compiling-puhti/), [Compiling Mahti](https://docs.csc.fi/computing/compiling-mahti/)
-- Construct a small and quick test case and run it in the test queue [Queue options](https://docs.csc.fi/computing/running/batch-job-partitions/). Use the test case to optimize computations before starting massive ones.
-- Use profiling tools to find out how much time is spent in different parts of the code [Performance tools](https://docs.csc.fi/computing/performance/)
-- When the compute bottle-necks are identified try to figure out ways to improve the code. Again, servicedesk@csc.fi is a channel to ask for help. The more concrete the problem is descried, the better.
+# Optimize the performance of your own code (1/2)
+- If you have constructed your own code, compile it with optimizing compiler options. 
+   - Docs: [Compiling in Puhti](https://docs.csc.fi/computing/compiling-puhti/), [Compiling in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+- Construct a small and quick test case and run it in the test queue 
+   - Docs: [Queue options](https://docs.csc.fi/computing/running/batch-job-partitions/). 
+   - Use the test case to optimize computations before starting massive ones.
+
+# Optimize the performance of your own code (2/2)
+- Use profiling tools to find out how much time is spent in different parts of the code 
+   - Docs: [Performance tools](https://docs.csc.fi/computing/performance/)
+- When the computing bottle-necks are identified try to figure out ways to improve the code. 
+   - Again, servicedesk@csc.fi is a channel to ask for help. The more concrete the problem is described, the better.
+
 
 # Running your software
 - It is not only how your software is constructed and compiled that affect performance.
 - It can also be run in different ways
 
+# HPC parallel jobs
+
+- A parallel job distributes the calculation over several cores in order to achieve a shorter wall time (and/or a larger allocatable memory)   
+- [Examples of batch job scripts on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
+- [Examples of batch job scripts on Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
+- **The best starting point:** [Software specific batch scripts in docs](https://docs.csc.fi/apps/)
+
 # Running in parallel 
 - A code is typically parallelized with MPI and/or OpenMP standards. They can be run in several different ways.  
-- Can you split your work into smaller, fully independent, bits and run them simultaneously? [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
-- Can you automate setting up, running and analysing your array jobs? The you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
-- Can your software utilize GPUs? 
+   - Can you split your work into smaller, fully independent, bits and run them simultaneously? 
+      - Check out [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
+   - Can you automate setting up, running and analysing your array jobs? 
+      - Then you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
+   - Can your software utilize GPUs? 
+      - [GPUs in batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs)
 
-# What is OpenMP and what is MPI? 
-- MPI and OpenMP and widely used standards for writing software that run in parallel.
-- MPI or (Message Passing Interface) is a standard the utilize compute cores that do not share their memory, and therefore passes data-messages back and forth between them.
-- OpenMP or Open Multi-Processing is a standard that utilize compute cores that share memory, and therefore do not need to send messages betwwen each other. Basically OpenMP is easier for beginners, but problems quickly arise with so called 'race conditions'. This appears when different compute cores process and update the sama data without proper synchronization.
+# What is MPI? 
+- MPI (and OpenMP too!) are widely used standards for writing software that run in parallel.
+- MPI (Message Passing Interface) is a standard that utilize compute cores that do not share their memory
+   - It passes data-messages back and forth between the cores.
 
-# Self study materials for OpenMP and what is MPI
+# What is OpenMP? 
+- OpenMP (Open Multi-Processing) is a standard that utilize compute cores that share memory
+   - They do not need to send messages betwen each other. 
+- Basically OpenMP is easier for beginners, but problems quickly arise with so called 'race conditions'. 
+   - This appears when different compute cores process and update the same data without proper synchronization.
+
+# Self study materials for OpenMP and MPI
 - There are many tutorials available on the internet.
    - Look with simple searches for e.g. 'MPI tutorial'. 
 - Check the documented exercise material and model answers from the CSC course "Introduction to Parallel Programming"
@@ -59,7 +91,7 @@ Parallelism means that you may use, simply speaking, hundreds or thousands of or
 # Task farming - running multiple independent jobs simultaneously
 
 - Task farming means that you have a set of, more or less, similar jobs that can be run fully independently of each other.
-- Such jobs are most easily run as so called array-jobs. [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
+- Such jobs are most easily run as so called [array-jobs](https://docs.csc.fi/computing/running/array-jobs/).
    - Individual tasks should take at least 30 minutes or more - otherwise you're generating too much overhead
    - In this case, there might be a more efficient solution
 - If running your jobs become slightly more complex, with e.g. some minor dependencies, workflows can be used. 
