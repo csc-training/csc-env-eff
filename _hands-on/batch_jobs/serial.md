@@ -5,25 +5,33 @@ title: Tutorial - Serial batch jobs
 
 # Batch job tutorial - Serial jobs
 
-- In this tutorial we'll get familiar with the basic usage of the Slurm batch queue system at CSC
+> In this tutorial we'll get familiar with the basic usage of the Slurm batch queue system at CSC
 - The goal is to learn how to request resources that **match** the needs of a job  
-- A job consists of two parts: resource requests and the job step(s)
-- Examples are done on Puhti 
+
+💬 A batch job consists of two parts: resource requests and the job step(s)
+
+💬 Examples are done on Puhti 
 
 ## Serial jobs
 
-- For a program that can use only one core (cpu), one should request only one core from Slurm. 
-- The job doesn't benefit from additional cores, hence don't request more 
-- Excess reservation is wasted since it wouldn't be available to other users
-- Within the job (or allocation), the actual program is launched using the command `srun` 
-- If you use a software that is preinstalled at CSC, please [check its infopage](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
-- First go to the scratch folder. Your input (and output) must be on a disk that is accessible on the compute node:
+💬 A serial program can use only one core (cpu)
+    - One should request only one core from Slurm. 
+    - The job doesn't benefit from additional cores
+    - Excess reservation is wasted since it wouldn't be available to other users
 
+💬 Within the job (or allocation), the actual program is launched using the command `srun` 
+
+☝🏻 If you use a software that is preinstalled at CSC, please [check its infopage](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
+
+### Launching a serial job
+
+1. Go to the scratch folder. 
+    - Your input (and output) must be on a disk that is accessible on the compute node:
 ```bash
-cd /scratch/project_xxxx
+cd /scratch/project_XXXX         # replace XXXX
 ```
-Replace `project_xxx` with your computing projects (you can list them with `csc-projects`). Then create a file containing this: 
-
+- You can list your projects with `csc-projects`). 
+2. Create a file called `my_serial.bash` and copy the the following *batch script* there: 
 ```bash
 #!/bin/bash
 #SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
@@ -33,12 +41,14 @@ Replace `project_xxx` with your computing projects (you can list them with `csc-
 
 srun hostname                    # Run hostname-command in each task
 srun sleep 60                    # Run sleep-command in each task
-```
-
-- In the batch job example above we are requesting one core (`--ntasks=1`) for two minutes (`--time=00:02:00`) from the test queue (`--partition=test`)
-- We want to run the program `hostname`, that will print the name of the Puhti computing node that has been allocated for this particular job.
-- In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job
-- Copy the example above into a file called `my_serial.bash` and change the `project_xxx` to the project you actually want to use (e.g. with `nano`)
+```  
+💬 In the batch job example above we are requesting 
+    - one core (`--ntasks=1`) 
+    - for two minutes (`--time=00:02:00`) 
+    - from the test queue (`--partition=test`)  
+💬 We want to run the program `hostname`, that will print the name of the Puhti computing node that has been allocated for this particular job.
+- In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job  
+3. Change the `project_xxx` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
 ```bash
 sbatch my_serial.bash
