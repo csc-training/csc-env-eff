@@ -16,13 +16,13 @@ title: Advanced tutorial - Biosoftwares in Puhti
 
 1. See the [list of applications](https://docs.csc.fi/apps/) and look for suitable aligners. 
    - Can you find for example TopHat, STAR, Bowtie and BWA aligners in the list?
-   - Which module is needed to run these applications?
+   - Which module is needed to run these applications?  
 💡 The *biokit module* sets up a set of commonly used bioinformatics tools. 
 2. Let's check if HISAT2 aligner is also available:
 ```bash
 module spider hisat
 ```
-   - Is there some version of HISAT2 also available?
+   - Is there some version of HISAT2 also available?  
 ☝🏻 All softwares installed in CSCs super computers don't necessarily have their own manual page in the application list (yet): they might be new installations, or installed from request of a single research group etc. 
 3. Load the biokit module and see what is included.
 ```bash
