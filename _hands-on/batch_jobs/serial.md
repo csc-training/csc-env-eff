@@ -33,7 +33,7 @@ cd /scratch/project_XXXX         # replace XXXX
 ```
 - You can list your projects with `csc-projects`). 
 
-{:start="3"}
+{:start="2"}
 2. Create a file called `my_serial.bash` and copy the the following *batch script* there: 
 
 ```bash
@@ -46,8 +46,11 @@ cd /scratch/project_XXXX         # replace XXXX
 srun hostname                    # Run hostname-command in each task
 srun sleep 60                    # Run sleep-command in each task
 ```  
+
+{:start="3"}
 3. Change the `project_XXXX` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
+
 ```bash
 sbatch my_serial.bash
 squeue -u $USER
@@ -57,6 +60,7 @@ squeue -u $USER
 - one core (`--ntasks=1`) 
 - for two minutes (`--time=00:02:00`) 
 - from the test queue (`--partition=test`)  
+
 💬 We want to run the program `hostname`, that will print the name of the Puhti computing node that has been allocated for this particular job.  
 💬 In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job  
 

@@ -17,8 +17,8 @@ title: Tutorial - Parallel batch jobs
 💬 The aim of a parallel program is to solve a problem (job) faster and to tackle a larger problem that wouldn't fit into a single core
 
 💡 There are two major strategies to divide the computational burden over several cores:
-  - [OpenMP](https://e-learn.csc.fi/pluginfile.php/3007/mod_resource/content/1/09-OpenMP-intro.pdf) 
-  - [MPI](https://e-learn.csc.fi/pluginfile.php/2997/mod_resource/content/1/04-intro-to-mpi.pdf)
+- [OpenMP](https://e-learn.csc.fi/pluginfile.php/3007/mod_resource/content/1/09-OpenMP-intro.pdf) 
+- [MPI](https://e-learn.csc.fi/pluginfile.php/2997/mod_resource/content/1/04-intro-to-mpi.pdf)
 - Depending on the parallel program and the type of job, the optimal resource request is often difficult to decide.
 
 ### A simple OpenMP job
@@ -45,6 +45,8 @@ chmod +x hello_omp.x
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun hello_omp.x
 ```
+
+{:start="4"}
 4. Submit the job to the queue with the command:
 ```
 sbatch my_parallel_omp.bash
@@ -102,6 +104,8 @@ chmod +x hello_mpi.x
 
 srun hello_mpi.x
 ```
+
+{:start="4"}
 4. Submit the job to the queue with the command:
 ```bash
 sbatch my_parallel.bash
