@@ -38,7 +38,7 @@ find . -name 'individual.fasta*' | xargs cat  >> Merged.fasta
 find . -name 'individual.fasta*' | xargs rm
 ```
 
-☝🏻 If you are going to perform heavy-weight computing tasks on those larger number of smaller files, you have to use *local storage areas* in **compute nodes** instaad og login nodes
+☝🏻 If you are going to perform heavy-weight computing tasks on those larger number of smaller files, you have to use *local storage areas* in **compute nodes** instead of login nodes
 - The compute nodes are accessed either [interactively](https://docs.csc.fi/computing/running/interactive-usage/) or using [batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-puhti).
    - In the interactive jobs, use the following commands to find out a local storage area in that compute node (only in Puhti):
    ```bash
