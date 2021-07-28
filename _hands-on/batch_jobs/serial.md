@@ -27,6 +27,7 @@ title: Tutorial - Serial batch jobs
 
 1. Go to the scratch folder. 
     - Your input (and output) must be on a disk that is accessible on the compute node:
+    
 ```bash
 cd /scratch/project_XXXX         # replace XXXX
 ```
