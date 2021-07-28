@@ -34,7 +34,13 @@ cd /scratch/project_XXXX         # replace XXXX
 - You can list your projects with `csc-projects`). 
 
 {:start="2"}
-2. Create a file called `my_serial.bash` and copy the the following *batch script* there: 
+2. Create a file called `my_serial.bash` eg. with Nano:
+```bash
+nano my_serial.bash
+```
+
+{:start="3"}
+3. Copy the the following *batch script* there: 
 
 ```bash
 #!/bin/bash
@@ -47,7 +53,7 @@ srun hostname                    # Run hostname-command in each task
 srun sleep 60                    # Run sleep-command in each task
 ```  
 
-{:start="3"}
+{:start="4"}
 3. Change the `project_XXXX` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
 

@@ -5,7 +5,7 @@ title: Exercise - Retrieving data from bio data repositories (advanced)
 
 # Exercise: Retrieving data from bio repositories
 
-- These exercises cover retrieving data from various commonly used bio data repositories.
+> These exercises cover retrieving data from various commonly used bio data repositories.
 
 - We will do these exercises using the [sinteractive](https://docs.csc.fi/computing/running/interactive-usage/) command (substitute xxxx with correct project number):
 ```text

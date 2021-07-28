@@ -20,11 +20,14 @@ echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification i
 💡 It is recommended to structurize the content with second level headlines.
 
 2. A code block can contain multiple lines
+
 ```bash
 export SCRATCH=/scratch/project_XXXX    # Use XXXX for projectnumber
 mkdir YOURUSERNAME                      # Use YOURUSERNAME if student should use their own
 echo $USER                              # Or use the environment variable
 ```
+
+{:start:"3"}
 3. A step does not need to contain a code block, but instead make a point that student should notify
     - Further explanation can be provided with intended list element
 
