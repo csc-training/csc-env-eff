@@ -33,6 +33,7 @@ cd /scratch/project_XXXX         # replace XXXX
 ```
 - You can list your projects with `csc-projects`). 
 
+{:start="3"}
 2. Create a file called `my_serial.bash` and copy the the following *batch script* there: 
 
 ```bash
