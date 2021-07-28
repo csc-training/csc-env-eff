@@ -122,9 +122,9 @@ sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j XXXXXXXX    # re
 
 {:start:"3"}
 3. Re-run the failed subjobs:
-```bash
-#SBATCH --array=3,5    # Specify which ones to run
-```
+    ```bash
+    #SBATCH --array=3,5    # Specify which ones to run
+    ```
 4. Use `seff` and `sacct` to look at the jobs. How much memory and time did they use?
 
 ## More information
