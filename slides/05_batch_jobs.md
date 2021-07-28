@@ -41,7 +41,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
    - Over time (while the job queues) its priority increases and eventually it will run
    - Some partitions may have a lower priority (like longrun - use shorter if you can!)
 
-# Schema on how the batch job sheduler works
+# Schema on how the batch job scheduler works
 ![](./img/slurm-sketch.svg)
 
 # The batch job system in CSC's HPC environment 
@@ -166,9 +166,9 @@ Try to estimate the resources that are needed for _your_ job, in order to minimi
 
 # HPC GPU jobs 
 
-- A graphics processing unit (GPU, a video card), is capable of doing certain type of simlutaneous calculations very efficiently
-- In order to take advantage of this power, a computer program has to be reprogrammed to be adapt to how GPU's handles data   
-- CSC's gpu resources are relatively scarce and hence should be used with [particular care](https://docs.csc.fi/computing/overview/#gpu-nodes)
+- A graphics processing unit (GPU, a video card), is capable of doing certain type of simultaneous calculations very efficiently
+- In order to take advantage of this power, a computer program must be reprogrammed to adapt on how GPU's handles data   
+- CSC's GPU resources are relatively scarce and hence should be used with [particular care](https://docs.csc.fi/computing/overview/#gpu-nodes)
     - A GPU uses 60 times more billing units than a single CPU core - see above for performance requirements
 
 # Interactive jobs
