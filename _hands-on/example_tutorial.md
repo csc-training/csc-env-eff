@@ -65,18 +65,18 @@ echo $USER                              # Or use the environment variable
 💬 [Job-files](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#a-basic-batch-job-script) are scripts for SLURM-queueing system used in CSC supercomputers.
 
 1. Provide necessary job-files commented like this:
-```bash
-#!/bin/bash
-#SBATCH --job-name=test           # Name of the job visible in the queue.
-#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
-#SBATCH --partition=test          # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --time=00:01:00           # Maximum duration of the job. Max: depends of the partition. 
-#SBATCH --mem=1G                  # How much RAM is reserved for job per node.
-#SBATCH --ntasks=1                # Number of tasks. Max: depends on partition.
-#SBATCH --cpus-per-task=1         # How many processors work on one task. Max: Number of CPUs per node.
+    ```bash
+    #!/bin/bash
+    #SBATCH --job-name=test           # Name of the job visible in the queue.
+    #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
+    #SBATCH --partition=test          # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+    #SBATCH --time=00:01:00           # Maximum duration of the job. Max: depends of the partition. 
+    #SBATCH --mem=1G                  # How much RAM is reserved for job per node.
+    #SBATCH --ntasks=1                # Number of tasks. Max: depends on partition.
+    #SBATCH --cpus-per-task=1         # How many processors work on one task. Max: Number of CPUs per node.
 
-singularity exec tutorial.sif hello_world
-```
+    singularity exec tutorial.sif hello_world
+    ```
 
 💭 For more information on batch jobs, please see [CSC Docs pages](https://docs.csc.fi/computing/running/getting-started/).
 
@@ -89,3 +89,10 @@ singularity exec tutorial.sif hello_world
 💭 When searching the internet for instruction, pay attention that the instructions are for the same version of Singularity that you are using. There has been some command syntax changes etc. between the versions, so older instructions may not work with copy-paste.
 
 💡 Always a good idea to link [CSC documentation](https://docs.csc.fi/).
+
+### About Markdown
+
+📝 Ordered lists reset numbering if there's stuff in between.  
+Options:
+- Manyally override numbering if needed with {:start:"3"}
+- Indent code blocks and they appear "under" the list item and the numbering goes on nicely
