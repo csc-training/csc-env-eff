@@ -10,7 +10,7 @@ title: Tutorial - Serial batch jobs
 
 💬 A batch job consists of two parts: resource requests and the job step(s)
 
-💬 Examples are done on Puhti 
+☝🏻 Examples are done on Puhti 
 
 ## Serial jobs
 
@@ -21,7 +21,7 @@ title: Tutorial - Serial batch jobs
 
 💬 Within the job (or allocation), the actual program is launched using the command `srun` 
 
-☝🏻 If you use a software that is preinstalled at CSC, please [check its infopage](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
+☝🏻 If you use a software that is preinstalled at CSC, please [check its info-page](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
 
 ### Launching a serial job
 
@@ -32,6 +32,7 @@ cd /scratch/project_XXXX         # replace XXXX
 ```
 - You can list your projects with `csc-projects`). 
 2. Create a file called `my_serial.bash` and copy the the following *batch script* there: 
+
 ```bash
 #!/bin/bash
 #SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
