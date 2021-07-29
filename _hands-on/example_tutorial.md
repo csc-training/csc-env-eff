@@ -26,7 +26,7 @@ title: Title that is shown in the rendered index.md
     echo $USER                              # Or use the environment variable
     ```
 
-{:start:"3"}
+{:start="3"}
 3. A step does not need to contain a code block, but instead make a point that student should notify
     - Further explanation can be provided with intended list element
 
@@ -96,5 +96,5 @@ title: Title that is shown in the rendered index.md
 
 📝 Ordered lists reset numbering if there's stuff in between.  
 Options:
-- Manyally override numbering if needed with {:start:"3"}
+- Manyally override numbering if needed with {:start="3"}
 - Indent code blocks and they appear "under" the list item and the numbering goes on nicely

@@ -62,7 +62,7 @@ sacct -e
 /appl/soft/bio/course/sacct_exercise/test-a ${SLURM_ARRAY_TASK_ID}
 ```
 
-{:start:"2"}
+{:start="2"}
 2. Replace `project_XXXX` with your actual project name.
 3. Submit the job with command:
 ```bash
@@ -97,7 +97,7 @@ failed sub jobs.
     - Can you figure out why they failed?
     - How do they comapre to jobs that finished?
 
-{:start:"3"}
+{:start="3"}
 3. Use `seff` to look at individual sub jobs:
 ```bash
 seff XXXXXXXX_5             # replace XXXXXXX again
@@ -120,7 +120,7 @@ sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j XXXXXXXX    # re
 #SBATCH --mem=2000
 ```
 
-{:start:"3"}
+{:start="3"}
 3. Re-run the failed subjobs:
     ```bash
     #SBATCH --array=3,5    # Specify which ones to run

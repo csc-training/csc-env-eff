@@ -22,13 +22,13 @@ be simply downladed and run.
     ```
 
 ☝🏻 To make sure the applications uses the intended perl after loading a module you should either call it with perl:
-    ```bash
-    perl my_app.pl
-    ```
+```bash
+perl my_app.pl
+```
 or make sure the shebang line of the script is:
-    ```bash
-    #!/usr/bin/env perl
-    ```
+```bash
+#!/usr/bin/env perl
+```
 
 ## Installing Perl modules
 
@@ -48,10 +48,10 @@ libraries in CPAN, the easiest method is to use `cpanm`.
     - The error message indicates that it is not found, so you need to install it.
 
 🗯 By default `cpanm` tries to install to perl installation location.   
--You need to set the location to a directory where you have write access instead. It could be e.g. your project's /projappl directory. 
+- You need to set the location to a directory where you have write access instead. It could be e.g. your project's /projappl directory. 
 - This can be done by setting a few environment variables:
 
-{:start:"2"}
+{:start="2"}
 2. Substitute the desired path for PERL_BASE and run the following:
     ```bash
     export PERL_BASE="/projappl/project_XXXXXX/YOURUSERNAME/myperl"   # an example path
