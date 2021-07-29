@@ -16,21 +16,21 @@ title: Tutorial - Main disk areas in CSC supercomputing environment
 ## Identify your personal and project-specific directories in Puhti and Mahti supercomputers
 
 1. Get an overview of your projects and directories by using the following commands in login node:
-```bash
-csc-projects
-csc-workspaces 
-```
+   ```bash
+   csc-projects
+   csc-workspaces 
+   ```
 2. Look through the output information about your directories and their current quotas.  
 3. Visit your projects **scratch** directory and check out its contents:
-```bash
-cd /scratch/project_XXXX/   # replace XXXX with your project number
-ls
-```
+   ```bash
+   cd /scratch/project_XXXX/   # replace XXXX with your project number
+   ls
+   ```
 4. Visit your projects **projappl** directory and check out its contents:
-```bash
-cd /projappl/project_XXXX/   # replace XXXX with your project number
-ls
-```
+   ```bash
+   cd /projappl/project_XXXX/   # replace XXXX with your project number
+   ls
+   ```
 
 💬 These directories can be briefly summerised as below:
 - User-specific directory (= Personal home folder)
@@ -51,16 +51,16 @@ ls
 ☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but try still to avoid using *Allas* for data transfer between the supercomputers. 
 
 1. First login to Puhti supecomputer using *SSH*:
-```bash
-ssh YOURUSERNAME@puhti.csc.fi    # replace YOURUSERNAME
-```
+   ```bash
+   ssh YOURUSERNAME@puhti.csc.fi    # replace YOURUSERNAME
+   ```
 
 2. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
-```bash
-wget https://a3s.fi/CSC_training/shared_files.tar.gz
-tar -xavf shared_files.tar.gz
-cd shared_files
-```
+   ```bash
+   wget https://a3s.fi/CSC_training/shared_files.tar.gz
+   tar -xavf shared_files.tar.gz
+   cd shared_files
+   ```
 - Let's assume that 
    - file *Merged.fasta* is data file intended for computational use
    - file *ggplot2_3.3.3_Rprogramme.tar.gz* is a software tool needed for analysis. 
@@ -68,32 +68,32 @@ cd shared_files
 ### Move the files to Puhti scratch and projappl
 
 3. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
-```bash
-cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_XXXX/$USER   # replace XXXX
-```
+   ```bash
+   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_XXXX/$USER   # replace XXXX
+   ```
 4. Share *Merged.fasta* file in *scratch* directory
-```bash
-cp Merged.fasta /scratch/project_XXXX/$USER    # replace XXXX
-```
+   ```bash
+   cp Merged.fasta /scratch/project_XXXX/$USER    # replace XXXX
+   ```
 - All new files and directories are also fully accessible for other group members (including read, write and execution permissions). 
 
 5. Set read-only permissions for your group members for the file *Merged.fasta*:
-```bash
-cd /scratch/project_XXXX/$USER    # replace XXXX
-chmod -R g-w Merged.fasta
-```
+   ```bash
+   cd /scratch/project_XXXX/$USER    # replace XXXX
+   chmod -R g-w Merged.fasta
+   ```
 
 ### Sharing files from Puhti to Mahti
 
 1. Change to the folder where you have the example files
 2. Copy *Merged.fasta* file on puhti to **scratch** drive on Mahti as below:
-```bash
-rsync -P Merged.fasta YOURUSERNAME@mahti.csc.fi:/scratch/project_XXXX/$USER    # replace XXXX and YOURUSERNAME
-```
+   ```bash
+   rsync -P Merged.fasta YOURUSERNAME@mahti.csc.fi:/scratch/project_XXXX/$USER    # replace XXXX and YOURUSERNAME
+   ```
 3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file on puhti to **projappl** directory on Mahti as below:
-```bash
-rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURUSERNAME@mahti.csc.fi:/projappl/project_XXXX/$USER    # replace XXXX and YOURUSERNAME
-```
+   ```bash
+   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURUSERNAME@mahti.csc.fi:/projappl/project_XXXX/$USER    # replace XXXX and YOURUSERNAME
+   ```
 
 ## More information
 
@@ -101,8 +101,8 @@ rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURUSERNAME@mahti.csc.fi:/projappl/pro
 
 💡 It is sometimes needed to save the paths of project **scratch** or **projappl** directories in an environmental variable (until logout).
 - This can be done wiht a following command:
-```bash
-export PROJAPPL=/projappl/project_XXXX/   # replace XXXX with your project number
-export SCRATCH=/scratch/project_XXXX/   # replace XXXX with your project number
-```
+   ```bash
+   export PROJAPPL=/projappl/project_XXXX/   # replace XXXX with your project number
+   export SCRATCH=/scratch/project_XXXX/   # replace XXXX with your project number
+   ```
 
