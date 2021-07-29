@@ -37,7 +37,7 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
 
 ## Linux
 
-1. Open a terminal on your local machine
+1. Open a terminal on your **local machine**
 2. Create the SSH-key in Terminal by typing:
     ```bash
     ssh-keygen -t rsa -b 4096
@@ -53,7 +53,7 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
 
 ## macOS
 
-1. Open a terminal on your local machine
+1. Open a terminal on your **local machine**
 2. Create SSH key in Terminal by typing: 
     ```bash
     ssh-keygen -t rsa -b 4096
@@ -89,3 +89,7 @@ And with `zsh`-shell
 ## More information
 
 💭 More in-depth [step-by-step instructions in CSC docs.](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
+
+‼️ If you make changes to your environment (e.g. edit `.bashrc`) in CSC supercomputers, it is possible that there will be conflicts with CSC installed applications. 
+
+💭 If you have problems after making changes to your environment, it is possible to restore it to default state permanently or temporarily using the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/)

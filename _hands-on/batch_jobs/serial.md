@@ -26,11 +26,11 @@ title: Tutorial - Serial batch jobs
 ### Launching a serial job
 
 1. Go to the scratch folder. 
-    - Your input (and output) must be on a disk that is accessible on the compute node:
     ```bash
     cd /scratch/project_XXXX         # replace XXXX
     ```
-
+    - Now your input (and output) are on a disk that is accessible on the compute node.
+    
 💡 You can list your projects with `csc-projects`). 
 
 {:start="2"}
@@ -40,7 +40,7 @@ title: Tutorial - Serial batch jobs
     ```
 
 {:start="3"}
-3. Copy the the following *batch script* there: 
+3. Copy the the following **batch script** there: 
 
     ```bash
     #!/bin/bash
@@ -54,7 +54,7 @@ title: Tutorial - Serial batch jobs
     ```  
 
 {:start="4"}
-3. Change the `project_XXXX` to the project you actually want to use (e.g. with `nano`)
+4. Change the `project_XXXX` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
 
     ```bash
