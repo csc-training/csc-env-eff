@@ -23,15 +23,15 @@ title: Tutorial - Interactive batch jobs
 ### A simple interactive job 
 
 1. Start an interactive job using one core for ten minutes:
-```bash
-sinteractive --account myprojectname --time 00:10:00
-```
+    ```bash
+    sinteractive --account myprojectname --time 00:10:00
+    ```
 2. You should see that the command prompt (first thing in each row) has changed from `puhti-login1` (or `puhti-login2`) to e.g. `r07c51` which means a compute node.
 3. Once on the compute node, you can run commands directly from the command line without `srun`, e.g. launch the (default) Python interpreter:
-```bash
-module load python-env
-python3
-```
+    ```bash
+    module load python-env
+    python3
+    ```
 4. Quit the Python interpreter with `quit()`
 5. Quit the interactive batch job with `exit`.
 

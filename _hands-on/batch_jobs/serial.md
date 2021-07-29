@@ -27,40 +27,40 @@ title: Tutorial - Serial batch jobs
 
 1. Go to the scratch folder. 
     - Your input (and output) must be on a disk that is accessible on the compute node:
+    ```bash
+    cd /scratch/project_XXXX         # replace XXXX
+    ```
 
-```bash
-cd /scratch/project_XXXX         # replace XXXX
-```
-- You can list your projects with `csc-projects`). 
+💡 You can list your projects with `csc-projects`). 
 
 {:start="2"}
 2. Create a file called `my_serial.bash` eg. with Nano:
-```bash
-nano my_serial.bash
-```
+    ```bash
+    nano my_serial.bash
+    ```
 
 {:start="3"}
 3. Copy the the following *batch script* there: 
 
-```bash
-#!/bin/bash
-#SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
-#SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
-#SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+    #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
+    #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+    #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
 
-srun hostname                    # Run hostname-command in each task
-srun sleep 60                    # Run sleep-command in each task
-```  
+    srun hostname                    # Run hostname-command in each task
+    srun sleep 60                    # Run sleep-command in each task
+    ```  
 
 {:start="4"}
 3. Change the `project_XXXX` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
 
-```bash
-sbatch my_serial.bash
-squeue -u $USER
-``` 
+    ```bash
+    sbatch my_serial.bash
+    squeue -u $USER
+    ``` 
 
 💬 In the batch job example above we are requesting 
 - one core (`--ntasks=1`) 

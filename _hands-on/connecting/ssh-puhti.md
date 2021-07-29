@@ -17,18 +17,18 @@ title: Tutorial - Login to Puhti with SSH
 💬Laptops and workstations running Linux typically have SSH installed. 
 
 1. Open a terminal and type:
-```bash
-ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
-```
+    ```bash
+    ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
+    ```
 2. Scroll down to [In Puhti](#in-puhti)
 
 ## Connecting from macOS
 
 💬 In macOS, you can use Terminal similarly as with Linux machines. 
 1. Open the Terminal application and type:
-```bash
-ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
-```
+    ```bash
+    ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
+    ```
 2. Scroll down to [In Puhti](#in-puhti)
 
 ## Windows10
@@ -55,12 +55,11 @@ ssh YOURUSERNAME@puhti.csc.fi      # replace YOURUSERNAME
 ## In Puhti
 
 1. If you're connecting to Puhti (or that Puhti login node) for the first time, SSH will ask you if you trust the authenticity of the host, e.g.:
-
-```text
-The authenticity of host 'puhti-login1.csc.fi (86.50.164.166)' can't be established.
-ECDSA key fingerprint is SHA256:EXhadfadsfsaffasjhdlfjhasdlfkjhadsl.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-```
+    ```text
+    The authenticity of host 'puhti-login1.csc.fi (86.50.164.166)' can't be established.
+    ECDSA key fingerprint is SHA256:EXhadfadsfsaffasjhdlfjhasdlfkjhadsl.
+    Are you sure you want to continue connecting (yes/no/[fingerprint])?
+    ```
 2. the first time you connect, you need to accept, but the key should not change for the next login.
 3. Pay attention whether you logged in `login1` or `login2`.
 4. Once you've logged in you'll see a greeting starting something like this:
@@ -87,6 +86,8 @@ Last login: Mon Dec 14 14:53:15 2020 from jabadabaduu.fi
 └─────────────────────────────────────────────────────────────────────────────┘
 [ YOURUSERNAME@puhti-login1 ~]$
 ```
+
+{:start="5"}
 5. Now, you're ready to go. 
 
 ### Remote graphics
@@ -94,9 +95,9 @@ Last login: Mon Dec 14 14:53:15 2020 from jabadabaduu.fi
 
 #### In Linux/macOS
 1. Add X11-tunneling to your ssh-connection, by adding `-X` or `-Y` to your command like this:
-```bash
-ssh -X YOURUSERNAME@puhti.csc.fi     # replace YOURUSERNAME
-```
+    ```bash
+    ssh -X YOURUSERNAME@puhti.csc.fi     # replace YOURUSERNAME
+    ```
 
 #### In Windows 
 1. MobaXterm actually will tunnel the connection by default.

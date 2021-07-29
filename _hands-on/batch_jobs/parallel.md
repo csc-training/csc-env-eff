@@ -25,32 +25,32 @@ title: Tutorial - Parallel batch jobs
 💬 An OpenMP enabled program can take advantage of multiple cores that share the same memory on a **single node** 
 
 1. Dowload a simple OpenMP parallel program with the
-```
-wget https://a3s.fi/hello_omp.x/hello_omp.x
-```
+    ```
+    wget https://a3s.fi/hello_omp.x/hello_omp.x
+    ```
 2. Make it executable using the command:
-```bash
-chmod +x hello_omp.x
-``` 
+    ```bash
+    chmod +x hello_omp.x
+    ``` 
 3. Copy the following example into a file called `my_parallel_omp.bash` and change the `projet_XXXX` to the project you actually want to use:
 
-```bash
-#!/bin/bash
-#SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
-#SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
-#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
-#SBATCH --cpus-per-task=4        # How many processors work on one task. Max: Number of CPUs per node.
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+    #SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
+    #SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+    #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+    #SBATCH --cpus-per-task=4        # How many processors work on one task. Max: Number of CPUs per node.
 
-export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
-srun hello_omp.x
-```
+    export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
+    srun hello_omp.x
+    ```
 
 {:start="4"}
 4. Submit the job to the queue with the command:
-```
-sbatch my_parallel_omp.bash
-```
+    ```
+    sbatch my_parallel_omp.bash
+    ```
 
 💬 In the batch job example above we are requesting 
 - resources for one OpenMP job (--ntasks=1)
@@ -65,51 +65,51 @@ sbatch my_parallel_omp.bash
 💬 When finished, the output file `slurm-XXXXXXX.out` should contain the results printed from the four OpenMP threads 
 
 1. Check which files exist in the folder:
-```bash
-ls
-```
+    ```bash
+    ls
+    ```
 2. Check the output with:
-```bash
-cat slurm-XXXXXXX.out     # replace XXXXXXXX
-``` 
+    ```bash
+    cat slurm-XXXXXXX.out     # replace XXXXXXXX
+    ``` 
 3. The results should look something like this: 
-```bash
-cat slurm-5118404.out
-Hello from thread: 0
-Hello from thread: 3
-Hello from thread: 2
-Hello from thread: 1
-```
+    ```bash
+    cat slurm-5118404.out
+    Hello from thread: 0
+    Hello from thread: 3
+    Hello from thread: 2
+    Hello from thread: 1
+    ```
 
 ### A simple MPI job
 💬 A MPI enabled program can take advantage of resourses that are spread over multiple nodes.
 
 1. Dowload a simple MPI parallel program with the command 
-```bash
-wget https://a3s.fi/hello_mpi.x/hello_mpi.x
-```
+    ```bash
+    wget https://a3s.fi/hello_mpi.x/hello_mpi.x
+    ```
 2. Make it executable using the command 
-```bash
-chmod +x hello_mpi.x
-``` 
+    ```bash
+    chmod +x hello_mpi.x
+    ``` 
 3. Copy the example below into a file called `my_parallel.bash` and change the `project_XXXX` to the project you actually want to use
 
-```bash
-#!/bin/bash
-#SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
-#SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
-#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --nodes=2                # Number of computer nodes. Max: depends on partition.
-#SBATCH --ntasks-per-node=4      # How many tasks one node works on. Depends on max cores and memory of a node.
+    ```bash
+    #!/bin/bash
+    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+    #SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
+    #SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+    #SBATCH --nodes=2                # Number of computer nodes. Max: depends on partition.
+    #SBATCH --ntasks-per-node=4      # How many tasks one node works on. Depends on max cores and memory of a node.
 
-srun hello_mpi.x
-```
+    srun hello_mpi.x
+    ```
 
 {:start="4"}
 4. Submit the job to the queue with the command:
-```bash
-sbatch my_parallel.bash
-```
+    ```bash
+    sbatch my_parallel.bash
+    ```
 
 💬 In the batch job example above we are requesting 
 - resources from two nodes (`--nodes=2`)
@@ -122,20 +122,20 @@ sbatch my_parallel.bash
 💬 When finished, the output file `slurm-XXXXXXX.out` should contain the results obtained by the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
 
 1. Check The output with:
-```bash
-cat slurm-XXXXXXX.out    # replace XXXXXXXX
-```
+    ```bash
+    cat slurm-XXXXXXX.out    # replace XXXXXXXX
+    ```
 2. The output should look something like this:
-```bash
-Hello world from node r07c01.bullx, rank 0 out of 8 tasks
-Hello world from node r07c02.bullx, rank 5 out of 8 tasks
-Hello world from node r07c02.bullx, rank 7 out of 8 tasks
-Hello world from node r07c01.bullx, rank 2 out of 8 tasks
-Hello world from node r07c02.bullx, rank 4 out of 8 tasks
-Hello world from node r07c01.bullx, rank 3 out of 8 tasks
-Hello world from node r07c01.bullx, rank 1 out of 8 tasks
-Hello world from node r07c02.bullx, rank 6 out of 8 tasks
-```
+    ```bash
+    Hello world from node r07c01.bullx, rank 0 out of 8 tasks
+    Hello world from node r07c02.bullx, rank 5 out of 8 tasks
+    Hello world from node r07c02.bullx, rank 7 out of 8 tasks
+    Hello world from node r07c01.bullx, rank 2 out of 8 tasks
+    Hello world from node r07c02.bullx, rank 4 out of 8 tasks
+    Hello world from node r07c01.bullx, rank 3 out of 8 tasks
+    Hello world from node r07c01.bullx, rank 1 out of 8 tasks
+    Hello world from node r07c02.bullx, rank 6 out of 8 tasks
+    ```
 3. The output above verifies that the requested 8 tasks were distributed over two nodes (`r07c01.bullx, r07c02.bullx`), four tasks on each
 4. Check the efficiency of the job compared to the reserved resources by issuing the command `seff XXXXXXX` (replace `XXXXXXX` with the actual job ID number from the `slurm-XXXXXXX.out` file)
 

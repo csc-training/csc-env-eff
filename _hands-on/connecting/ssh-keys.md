@@ -39,42 +39,42 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
 
 1. Open a terminal on your local machine
 2. Create the SSH-key in Terminal by typing:
-```bash
-ssh-keygen -t rsa -b 4096
-```
+    ```bash
+    ssh-keygen -t rsa -b 4096
+    ```
 3. Accept the default name and location (or customize them if needed).
 4. Choose a secure passphrase for the SSH key. 
     - It should be at least 8 characters long and should contain numbers, letters and special characters.
 5. Copy the public key to Puhti:
-```bash
-ssh-copy-id YOURUSERNAME@puhti.csc.fi   # replace YOURUSERNAME
-```
+    ```bash
+    ssh-copy-id YOURUSERNAME@puhti.csc.fi   # replace YOURUSERNAME
+    ```
 6. Connecting with SSH to Puhti should now proceed without the need to write your key passphrase
 
 ## macOS
 
 1. Open a terminal on your local machine
 2. Create SSH key in Terminal by typing: 
-```bash
-ssh-keygen -t rsa -b 4096
-```
+    ```bash
+    ssh-keygen -t rsa -b 4096
+    ```
 3. Accept the default name and location (or customize them if needed).
 4. Choose a secure passphrase for the SSH key. 
     - It should be at least 8 characters long and should contain numbers, letters and special characters.
 5. Open `~/.ssh/config` and add the following rows into the file:
-```bash
-Host *
-    UseKeychain no
-    AddKeysToAgent yes
-```
+    ```bash
+    Host *
+        UseKeychain no
+        AddKeysToAgent yes
+    ```
 6. Open `~/.bash_profile` (or equivalent, see below ⬇️) and add the following row:
-```bash
-[[ -z ${SSH_AUTH_SOCK+x} ]] && eval "$(ssh-agent -s)"
-```
+    ```bash
+    [[ -z ${SSH_AUTH_SOCK+x} ]] && eval "$(ssh-agent -s)"
+    ```
 7. Copy the SSH public key to Puhti by typing in Terminal
-```bash
-ssh-copy-id YOURUSERNAME@puhti.csc.fi    # replace YOURUSERNAME
-```
+    ```bash
+    ssh-copy-id YOURUSERNAME@puhti.csc.fi    # replace YOURUSERNAME
+    ```
 
 ☝🏻 Equivalent files for configuring profile in step 6.
 - `~/.bashrc`

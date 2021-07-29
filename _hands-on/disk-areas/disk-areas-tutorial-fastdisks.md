@@ -14,29 +14,29 @@ title: Tutorial - Fast disk areas in CSC supercomputing environment
 💬 In order to facilitate such heavy I/O operations, CSC provides fast local disk areas in login and compute nodes.
 
 1. Identify fast local disk areas in login nodes with the following command:
-```bash
-echo $TMPDIR
-```
+   ```bash
+   echo $TMPDIR
+   ```
 
 💡 This local disk area in login nodes is meant for some light-weight preprocessing of data before you start actual analysis on **scratch** drive. 
 
 ### Download a tar file containing thousands of small files and merge the files into one big file in the local storage disks
 
 1. Download tar file from *Allas* object storage by typing:
-```bash 
-cd $TMPDIR           
-wget https://a3s.fi/CSC_training/Individual_files.tar.gz
-```
+   ```bash 
+   cd $TMPDIR           
+   wget https://a3s.fi/CSC_training/Individual_files.tar.gz
+   ```
 2. Unpack the downloaded tar file by typing:
-```bash
-tar -xavf Individual_files.tar.gz
-cd Individual_files
-```
+   ```bash
+   tar -xavf Individual_files.tar.gz
+   cd Individual_files
+   ```
 3. Merge all those small files into one file and remove all small files
-```bash
-find . -name 'individual.fasta*' | xargs cat  >> Merged.fasta
-find . -name 'individual.fasta*' | xargs rm
-```
+   ```bash
+   find . -name 'individual.fasta*' | xargs cat  >> Merged.fasta
+   find . -name 'individual.fasta*' | xargs rm
+   ```
 
 ☝🏻 If you are going to perform heavy-weight computing tasks on those larger number of smaller files, you have to use *local storage areas* in **compute nodes** instaad og login nodes
 - The compute nodes are accessed either [interactively](https://docs.csc.fi/computing/running/interactive-usage/) or using [batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-puhti).
@@ -54,13 +54,13 @@ find . -name 'individual.fasta*' | xargs rm
 💭 Remember: commands `csc-projects` and `csc-workspaces` reveal information of your projects. 
 
 1. Create your own folder (using environment variable $USER) into a project-specific directory on **scratch** area.
-```bash
-mkdir /scratch/project_XXXX/$USER   # replace XXXX
-```
+   ```bash
+   mkdir /scratch/project_XXXX/$USER   # replace XXXX
+   ```
 2. Move your pre-processed data from earlier step (i.e., Merged.fasta file):
-```bash
-mv Merged.fasta /scratch/project_xxx/$USER
-```
+   ```bash
+   mv Merged.fasta /scratch/project_xxx/$USER
+   ```
 3. You have now successfully moved your data to scratch area and can start performing actual analysis using batch job scripts 
 - More about batch jobs in a later tutorials.
 
@@ -70,8 +70,8 @@ mv Merged.fasta /scratch/project_xxx/$USER
 
 💡 It is sometimes needed to save the paths of project **scratch** or **projappl** directories in an environmental variable (until logout).
 - This can be done wiht a following command:
-```bash
-export PROJAPPL=/projappl/project_XXXX/   # replace XXXX with your project number
-export SCRATCH=/scratch/project_XXXX/   # replace XXXX with your project number
-```
+   ```bash
+   export PROJAPPL=/projappl/project_XXXX/   # replace XXXX with your project number
+   export SCRATCH=/scratch/project_XXXX/   # replace XXXX with your project number
+   ```
 
