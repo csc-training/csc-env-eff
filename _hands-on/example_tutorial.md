@@ -10,9 +10,9 @@ title: Title that is shown in the rendered index.md
 > The prerequisites/learning outcomes: Sometimes there are many, but list if there's something essential but not obvious. 
 
 1. Use numbered list to describe actual steps that a student does
-```bash
-echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification is necessary
-```
+    ```bash
+    echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification is necessary
+    ```
 ## Get started
 
 💬 This is the first phase of this tutorial eg. a preparation.  
@@ -20,16 +20,18 @@ echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification i
 💡 It is recommended to structurize the content with second level headlines.
 
 2. A code block can contain multiple lines
-
-```bash
-export SCRATCH=/scratch/project_XXXX    # Use XXXX for projectnumber
-mkdir YOURUSERNAME                      # Use YOURUSERNAME if student should use their own
-echo $USER                              # Or use the environment variable
-```
+    ```bash
+    export SCRATCH=/scratch/project_XXXX    # Use XXXX for projectnumber
+    mkdir YOURUSERNAME                      # Use YOURUSERNAME if student should use their own
+    echo $USER                              # Or use the environment variable
+    ```
 
 {:start:"3"}
 3. A step does not need to contain a code block, but instead make a point that student should notify
     - Further explanation can be provided with intended list element
+
+☝🏻 A list element cannot start with indented block
+- Meaning that it starts after regular text like this
 
 ### 1. Further structurizing
 1. Feel free to add more headlines if it supports the understandability of the content 

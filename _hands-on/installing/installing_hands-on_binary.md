@@ -6,11 +6,11 @@ title: Tutorial - Installing binary applictions
 # Installing binary applications
 
 💬 In some cases the software developers offer ready-made binary versions of their software. 
-    - If the binary version runs, you don't need to compile the software yourself.
+- If the binary version runs, you don't need to compile the software yourself.
 
 ☝🏻 It should be noted that ready binary versions are typically not optimized for CSC supercomputers.
-    - The difference in performance will depend on the code, and on how the application was compiled. 
-    - Often the difference is just a few percent, but in some cases it can be more substantial.
+- The difference in performance will depend on the code, and on how the application was compiled. 
+- Often the difference is just a few percent, but in some cases it can be more substantial.
 
 ‼️ Especially all MPI codes need to be compiled on the machine they will be run on to ensure correct operation.
 
@@ -24,20 +24,18 @@ title: Tutorial - Installing binary applictions
     - If version are offered by Linux distribution, try first the versions made for CentOs or RedHat if present. 
     - Sometimes you may have to try different versions to find one that works.
 3. Here is the link for the Linux version (accessed 19.07.21). Download the zip file by typing:
-```bash
-wget https://cnsgenomics.com/software/gcta/bin/gcta_1.93.2beta.zip
-```
+    ```bash
+    wget https://cnsgenomics.com/software/gcta/bin/gcta_1.93.2beta.zip
+    ```
 4. Open the zip file:
-```bash
-unzip gcta_1.93.2beta.zip
-```
+    ```bash
+    unzip gcta_1.93.2beta.zip
+    ```
 5. The software is now ready to use, but you will have to tell the computer where to find it. 
     - Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
     ```bash
     gcta64
     ```
-
-{:start:"6"}
 6. Try instead:
     ```bash
     gcta_1.93.2beta/gcta64
@@ -53,18 +51,18 @@ unzip gcta_1.93.2beta.zip
 💬 Instead of providing the path in the command line, you can also add the application to `$PATH`. 
 1. Change folder into `./gcta_1.93.2beta` if not there yet!
 2. To add the current directory to `$PATH`:
-```bash
-export PATH=$PWD:$PATH
-```
+    ```bash
+    export PATH=$PWD:$PATH
+    ```
 3. You should now be able to run the program from any directory with simply:
-```bash
-cd ..
-gcta64
-```
+    ```bash
+    cd ..
+    gcta64
+    ```
 4. To make the addition permanent, you can add the `export` command to your `$HOME/.bashrc`file. Instead of `$PWD` use the full path, something like:
-```bash
-export PATH=/projappl/project_12345/gcta_1.93.2beta:$PATH
-```
+    ```bash
+    export PATH=/projappl/project_12345/gcta_1.93.2beta:$PATH
+    ```
 
 ## Some notes: 
 💡 When adding paths to `$PATH`, always remember to include the current `$PATH`, or some of your normal shell commands etc. will stop working.
