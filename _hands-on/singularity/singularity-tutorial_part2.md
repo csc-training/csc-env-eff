@@ -16,9 +16,9 @@ title: Tutorial - Singularity introduction continued
 `--bind /path/in/host:/path/inside/container`.
 
 💭 Some remarks:  
-➖ The bind path does not need to exist inside the container – it is created if necessary. 
+➖ The bind path does not need to exist inside the container – it is created if necessary.  
 ➖ More than one bind pair can be specified.  
-➖ The option is available for all the run methods described in the previous tutorial.
+➖ The option is available for all the run methods described in the previous tutorial.  
 
 1. To run these exercises in Puhti, use `sinteractive`:
     ```bash
