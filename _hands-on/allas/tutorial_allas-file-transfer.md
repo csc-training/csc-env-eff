@@ -8,7 +8,7 @@ title: Tutorial - File transfer with Allas
 ## Accessing Allas via web-interface
 
 1. Open the view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
-2. Login with your csc user account.
+2. Login with your MyCSC user account.
 3. From the upper left corner, you find a project selection pop-up menu. 
    - If you have several projects available, select the training project `project_2004306`
 4. From the menu on left side of the interface, select: **Object Store -> Containers**
@@ -92,17 +92,6 @@ a-check --nc -b 2004306_YOURUSERNAME your-new-file-name   # replace name and you
 
 💬 With larger files it is feasible to omit parameter `--nc` and let the files be compressed.
 
-### Extra: publish a file to the internet
-💬 The a-tools include a basic tool for publishing files to the internet. You'll notice that the course slides use that method 🤓
-
-‼️ NOTE: Using this command makes your entire bucket to be public! Do not use it if you don't want that to happen..
-
-1. Select a file that has an appropriate content and publish it with command:
-```bash
-a-publish -b 2004306_YOURUSERNAME your-file-name   # replace name and your-file-name
-```
-2. The command outputs an URL. Copy it in your browser or send it to your friends 😎 
-
 ### Clean up
 1. Delete the local file from Puhti so save (so much) space
 ```bash
@@ -111,3 +100,26 @@ rm your-file-name             # replace your-file-name
 2. When you need your data you can download it from Allas
 
 💭 If you don't find your file but remember the name, try `a-find`. Use `a-find -h` for help.
+
+## Extra: publish a file to the internet
+💬 The a-tools include basic tools for publishing files to the internet. You'll notice that the course slides use one of those 🤓
+
+‼️ NOTE: Using these commands makes your entire bucket to be public! Do not engage if you don't want that to happen..
+
+### Option 1: `a-publish`
+
+1. Select a file that has an appropriate content and publish it with command:
+```bash
+a-publish -b 2004306_YOURUSERNAME your-file-name   # replace name and your-file-name
+```
+2. The command outputs an URL. Copy it in your browser or send it to your friends 😎 
+
+### Option 2: `a-flip`
+
+💬 `a-flip` is meant for files that need to be published only temporarily for example for one time share. 
+
+1. Select a file that has an appropriate content and publish it with command:
+```bash
+a-flip your-file-name         # replace your-file-name
+```
+2. The command outputs an URL. Copy it in your browser or send it to your friends 😎 
