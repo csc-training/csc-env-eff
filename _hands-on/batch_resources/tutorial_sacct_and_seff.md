@@ -28,7 +28,7 @@ title: Tutorial - sacct and seff, resources used
     ```bash
     sacct -l -j XXXXXXXX   # replace XXXXXXXX with a job ID
     ```
-5. Select only the interesting data with the `-o` option, for examaple to see job name, job ID, used memory, job finish state and elapsed wall clock time try:
+5. Select only the interesting data with the `-o` option, for example to see job name, job ID, used memory, job finish state and elapsed wall clock time try:
     ```bash
     sacct -o jobname,jobid,maxrss,state,elapsed -j XXXXXXXX    # replace XXXXXXXX
     ```
@@ -95,7 +95,7 @@ title: Tutorial - sacct and seff, resources used
 failed sub jobs.
 - Which sub jobs failed?
     - Can you figure out why they failed?
-    - How do they comapre to jobs that finished?
+    - How do they compare to jobs that finished?
 
 {:start="3"}
 3. Use `seff` to look at individual sub jobs:
@@ -108,7 +108,7 @@ failed sub jobs.
     sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j XXXXXXXX    # replace XXXXXXXX
     ```
 
-💭 Note that in this case we can not use the `-X` option, as we want to see memory usage for each step:
+💭 Note that in this case we can not use the `-X` option, as we want to see memory usage for each step.
 
 ## Readjusting the job-file
 
