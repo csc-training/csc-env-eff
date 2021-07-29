@@ -19,83 +19,91 @@ title: Tutorial - Basic file editing
 ### Processing text files
 
 1. Open the file with `nano`:
-```bash
-nano YourName-first-file.txt      # replace YourName
-```
+    ```bash
+    nano YourName-first-file.txt      # replace YourName
+    ```
 
 2. Edit the file. Type something there!
 
 3. Exit `nano` with (Ctrl + X), type Y to confirm saving and press enter to accept the filename.
 
 4. Check that the modifications are actually there:
-```bash
-less YourName-first-file.txt      # replace YourName
-```
-    - Exit from preview with `q`.
+    ```bash
+    less YourName-first-file.txt      # replace YourName
+    ```
+5. Exit from preview with `q`.
 
 ### Processing images and pdf files
 
-5. Download an image and a pdf:
-```bash
-wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/terminal_icon.png
-wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/schrodingerscat.pdf
-```
+1. Download an image and a pdf:
+    ```bash
+    wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/terminal_icon.png
+    wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/schrodingerscat.pdf
+    ```
 
-6. Open the image with:
-```bash
-eog terminal_icon.png
-```
-    - Close the preview window.
+2. Open the image with:
+    ```bash
+    eog terminal_icon.png
+    ```
+3.  Close the preview window.
 
-7. Open the pdf with:
-```bash
-evince schrodingerscat.pdf
-```
-    - Close the preview window with mouse or by pressing `Ctrl+C` when the Terminal-window is selected.
+4. Open the pdf with:
+    ```bash
+    evince schrodingerscat.pdf
+    ```
+5. Close the preview window with mouse or by pressing `Ctrl+C` when the Terminal-window is selected.
 
 ### Create text files
 
-8. You can also create files with `nano`. Try simply:
-```bash
-nano YourName-markdown-file.md
-```
+1. You can also create files with `nano`. Try simply:
+    ```bash
+    nano YourName-markdown-file.md
+    ```
 
-9. In the text-file: write something eg. instructions for others how to replicate your file-creation process, save and close.
+2. In the text-file: write something eg. instructions for others how to replicate your file-creation process, save and close.
     - May I interest you with the [basic Markdown guide](https://www.markdownguide.org/basic-syntax/)?
 
-10. Use `pwd` and copy the path of your current working directory
+3. Use `pwd` and copy the path of your current working directory
 
-11. Copy the text-file to your personal computer for example with scp:  
+4. Copy the text-file to your personal computer for example with scp:  
+
 ‼️ NOTE: The following has to be typed in your personal computer's Terminal!
-```bash
-scp YOURUSERNAME@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.md] [path-to-local-folder-in-your-PC]
-```
-12. Look for the file in your personal computer and check that the contents match.
+
+    ```bash
+    scp YOURUSERNAME@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.md] [path-to-local-folder-in-your-PC]
+    ```
+
+{:start="5"}
+5. Look for the file in your personal computer and check that the contents match.
 
 ### EXTRA: Open `html`-files in Puhti
 
 #### Alternative 1: Firefox**  
 1. Download a html-file to your folder in Puhti:
-```bash
-wget https://a3s.fi/mjaskeli-2004306-pub/index.html
-```
+    ```bash
+    wget https://a3s.fi/mjaskeli-2004306-pub/index.html
+    ```
 2. Load Bioconda-module which includes Firefox:
-```bash
-module load Bioconda
-```
-3. The message says that you need to set the `PROJAPPL` environment variable.
-    - To do so, run command (you can check the XXXXXXX of your project(s) with command `csc-workspaces`):
-```bash
-export PROJAPPL=/projappl/project_XXXXXXX
-```
+    ```bash
+    module load Bioconda
+    ```
+3. The message says that you need to set the `PROJAPPL` environment variable. 
+4. Check your project(s) name with command: 
+    ```bash
+    csc-workspaces
+    ```
+5. Set the `PROJAPPL` environment variable with command :
+    ```bash
+    export PROJAPPL=/projappl/project_XXXXXXX
+    ```
 4. Re-run the ```module load Bioconda``` command:
-```bash
-module load bioconda
-```
+    ```bash
+    module load bioconda
+    ```
 5. Open the file with Firefox
-```bash
-firefox index.html
-```
+    ```bash
+    firefox index.html
+    ```
 
 #### Alternative 2: Allas
 
