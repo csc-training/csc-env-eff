@@ -57,6 +57,7 @@ title: Tutorial - Parallel batch jobs
 - using four cores (`--cpus-per-task=4`)
 - for ten seconds (`--time=00:00:10`)
 - from the test queue (`--partition=test`)
+
 💬 We want to run the program `hello_omp.x`, that will be able to utilise four cores.  
 💭 The variable `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK` tells the program that it can use four cores.   
 🗯 Each of the four threads launced by `hello_omp.x` will print their own output.
@@ -115,6 +116,7 @@ title: Tutorial - Parallel batch jobs
 - resources from two nodes (`--nodes=2`)
 - four cores from each node (`--ntasks-per-node=4`)
 - for ten seconds (`--time=00:00:10`) from the test queue (`--partition=test`)
+
 💬 We want to run the program `hello_mpi.x`, that will, based on the resource request, start 8 simultaneous tasks.  
 💬 Each of the 8 tasks launced by `hello_mpi.x` will report on which node they got their resource. 
 
