@@ -26,7 +26,7 @@ export PROJAPPL=/projappl/project_XXXX   # replace XXXX to match the project nam
 
 ### Download distribution package
 
-{:start:"2"}
+{:start="2"}
 2. Download the distribution package:
     ```bash
     wget https://micans.org/mcl/src/mcl-latest.tar.gz
@@ -34,7 +34,7 @@ export PROJAPPL=/projappl/project_XXXX   # replace XXXX to match the project nam
 
 💬 In this case the installation package is a tar-archive file that has been compressed with gzip program. 
 
-{:start:"3"}
+{:start="3"}
 3. Unpack the file with command:
     ```bash
     tar -xvf mcl-latest.tar.gz
@@ -44,7 +44,7 @@ export PROJAPPL=/projappl/project_XXXX   # replace XXXX to match the project nam
 
 ### Alternative option: Get the sofware from Git
 
-{:start:"2"}
+{:start="2"}
 2. You can clone source code from Github. 
     ```bash
     git clone https://github.com/JohannesBuchner/mcl.git
@@ -67,7 +67,7 @@ export PROJAPPL=/projappl/project_XXXX   # replace XXXX to match the project nam
 
 💬 Installation packages contain often a short installation instructions. Typically this instruction file is called as INSTALL or README. 
 
-{:start:"3"}
+{:start="3"}
 3. Read the `INSTALL` file to find out how the installation should be done.
     ```bash
     less INSTALL
@@ -110,7 +110,7 @@ with different versions.
 
 💭 Typically the executables, i.e. the compiled programs that can be launched, are stored to a subdirectory called `bin`. 
 
-{:start:"5"}
+{:start="5"}
 5. Check what got installed  with:
     ```bash
     ls -l $PROJAPPL/mcl/version-14-137/bin
@@ -140,7 +140,7 @@ you get an error message `bash: mcl: command not found`.
 ‼️ Note that the first `PATH` word in the command above is without the dollar sign. Also note that we include the current `$PATH` in the end.
 - If we omitted it, the normal shell commands would stop working.
 
-{:start:"3"}
+{:start="3"}
 3. Now you can launch the program you have installed with simply:
     ```bash
     mcl --help
@@ -151,7 +151,7 @@ you get an error message `bash: mcl: command not found`.
 ☝🏻 Also in the batch job files you need to run the correct `export PATH` command above before executing the program you have installed yourself.
 
 💡 If you want to make the addition permanent, you can add the `export PATH` command to you `.bashrc` file in your home directory. 
--It should be noted, however, that making changes to the `.bashrc` can cause incompatibilities with CSC installed software.
+- It should be noted, however, that making changes to the `.bashrc` can cause incompatibilities with CSC installed software.
 
 💭 If you wish to revert your `.bashrc` (and your environment in general) back to default, you can use the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/).
 

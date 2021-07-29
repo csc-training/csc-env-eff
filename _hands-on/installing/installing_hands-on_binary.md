@@ -49,24 +49,27 @@ title: Tutorial - Installing binary applictions
     - The error message is just about missing arguments which is normal. 
 
 💬 Instead of providing the path in the command line, you can also add the application to `$PATH`. 
-1. Change folder into `./gcta_1.93.2beta` if not there yet!
-2. To add the current directory to `$PATH`:
+
+{:start="8"}
+8. Change folder into `./gcta_1.93.2beta` if not there yet!
+9. To add the current directory to `$PATH`:
     ```bash
     export PATH=$PWD:$PATH
     ```
-3. You should now be able to run the program from any directory with simply:
+10. You should now be able to run the program from any directory with simply:
     ```bash
     cd ..
     gcta64
-    ```
-4. To make the addition permanent, you can add the `export` command to your `$HOME/.bashrc`file. Instead of `$PWD` use the full path, something like:
-    ```bash
-    export PATH=/projappl/project_12345/gcta_1.93.2beta:$PATH
     ```
 
 ## Some notes: 
 💡 When adding paths to `$PATH`, always remember to include the current `$PATH`, or some of your normal shell commands etc. will stop working.
 
-☝🏻 If you make changes to your environment (e.g. edit `.bashrc`), it is possible that there will be conflicts with CSC installed applications.
+☝🏻 To make the addition permanent, you can add the `export` command to your `$HOME/.bashrc`file. Instead of `$PWD` use the full path, something like:
+    ```bash
+    export PATH=/projappl/project_12345/gcta_1.93.2beta:$PATH
+    ```
+
+‼️ If you make changes to your environment (e.g. edit `.bashrc`), it is possible that there will be conflicts with CSC installed applications.
 
 💭 If you have problems after making changes to your environment, it is possible to restore it to default state permanently or temporarily using the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/)

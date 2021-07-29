@@ -20,7 +20,7 @@ allas-conf -k
 
 ☝🏻 Note that if you mistype your password when using the `-k` option, you must use command **unset OS_PASSWORD** before you can try again.
 
-{:start:"2"}
+{:start="2"}
 2. Refresh the connection with command:
 ```bash
 allas-conf -k project_2004306      # Here you can still use that training bucket or change to your own instead
@@ -28,7 +28,7 @@ allas-conf -k project_2004306      # Here you can still use that training bucket
 
 ☝🏻 When OS_PASSWORD is set, the a-commands (a-put, a-get, a-list, a-delete) automatically refresh the Allas connection when commands are executed in batch job.
 
-{:start:"3"}
+{:start="3"}
 3. Choose a file from Allas. The file should have text in it.
 ```bash
 a-list 2004306_YOURUSERNAME   # replace name to match your training bucket/container name
@@ -56,7 +56,7 @@ wc -l your-file-name > your-file-name.num_rows     # File name
 a-put -b 2004306_YOURUSERNAME --nc your-file-name.num_rows # Bucket name / File name
 ```
 
-{:start:"6"}
+{:start="6"}
 6. Replace `2004306_YOURUSERNAME` to match your bucket/container name and `your-file-name` with the name of the file you have in Allas. 
 
 **Option 2: rclone**  
@@ -82,7 +82,7 @@ wc -l your-file-name > your-file-name.num_rows          # File name
 source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 rclone copy your-file-name.num_rows allas:2004306_YOURUSERNAME  # File name / Bucket name
 ```
-{:start:"6"}
+{:start="6"}
 6. Replace `2004306_YOURUSERNAME` to match your bucket/container name and `your-file-name` with the name of the file you have in Allas. 
 7. Submit the batch job with command:
 ```bash
