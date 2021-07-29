@@ -27,7 +27,7 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
 
 💬 There are three basic ways to run software in a Singularity container:
 
-### 1. Singularity exec
+### Singularity exec
 1. To execute a command inside the container, the command is `singularity exec`.
     ```bash
     singularity exec tutorial.sif hello_world
@@ -40,7 +40,7 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
     - The first command is run in the host. The second command is run inside the container.
 
 💭 The tutorial container is based on Ubuntu 18.04. The host and the container use the same kernel, but the rest of the system can vary. 
-    -That means a container can be based on a different Linux distribution than the host (as long as they are kernel-compatible), but can't run a totally different OS like Windows or macOS.
+- That means a container can be based on a different Linux distribution than the host (as long as they are kernel-compatible), but can't run a totally different OS like Windows or macOS.
 
 #### Singularity exec in batch jobs
 💡 `Singularity exec` is the run method you will typically use in a batch job script.
@@ -50,12 +50,11 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
     module load nano   # The computing node does not have nano by default
     nano test.sh
     ```
-2. Copy the following contents into the file. 
-    - Change "project_xxxx" to the correct project name.
+2. Copy the following contents into the file and change "project_XXXX" to the correct project name:
     ```bash
     #!/bin/bash
     #SBATCH --job-name=test           # Name of the job visible in the queue.
-    #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
+    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
     #SBATCH --partition=test          # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
     #SBATCH --time=00:01:00           # Maximum duration of the job. Max: depends of the partition. 
     #SBATCH --mem=1G                  # How much RAM is reserved for job per node.
@@ -71,7 +70,7 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
 
 💡 For more information on batch jobs, please see [CSC Docs pages](https://docs.csc.fi/computing/running/getting-started/).
 
-### 2. Singularity run
+### Singularity run
 💬 When containers are created, a standard action, called the `runscript` is defined. Depending on the container, it may simply print out a message, or it may launch a program or service inside the container. 
 
 💭 If you are using a container created by somebody else, you will need to check the documentation provided by the creator for details.
@@ -90,7 +89,7 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
     singularity inspect --runscript tutorial.sif
     ```
 
-### 3. Singularity shell
+### Singularity shell
 
 1. Open a shell inside the container. 
     ```bash
