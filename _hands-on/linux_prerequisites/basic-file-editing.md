@@ -13,7 +13,8 @@ title: Tutorial - Basic file editing
 
 > In the [previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-linux-commands.html) we downloaded a file called `my-first-file.txt`, made a copy of it (`YourName-first-file.txt`), and now we practise how to edit it!
 
-💬 These exercises are done with `nano` editor, but you can use your favorite editor too.  
+💬 These exercises are done with `nano` editor, but you can use your favorite editor too. 
+
 💡 Here's the [nano cheet sheat](https://www.nano-editor.org/dist/latest/cheatsheet.html) 
 
 ### Processing text files

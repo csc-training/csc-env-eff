@@ -13,6 +13,7 @@ title: Title that is shown in the rendered index.md
     ```bash
     echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification is necessary
     ```
+    - Try to get the code block indented nicely in hte rendered product
 ## Get started
 
 💬 This is the first phase of this tutorial eg. a preparation.  

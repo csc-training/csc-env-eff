@@ -28,24 +28,23 @@ title: Tutorial - Modules in Puhti
 2. Skim through the manual page, and see if the license allows you to use the software, and what is the module command that you need to run to be able to use Gromacs in Puhti.
 
 3. Back in the command line, check what versions are available for Gromacs in Puhti. 
-    - This might take a while, as the command searches through all the available modules. 
-    - The list can be long, you can go to next line with Enter, or stop viewing by typing ```q```).
     ```bash
     module spider gromacs
     ```
-
-4. Check if some versions can be loaded right away
-    - It has to be compatible with currently loaded modules:
+    - This might take a while, as the command searches through all the available modules. 
+    - The list can be long, you can go to next line with Enter, or stop viewing by typing ```q```).
+    
+4. Check if some versions can be loaded right away ie. are compatible with currently loaded modules:
     ```bash
     module avail gromacs
     ```
 
-5. Which version is loaded with the default command? Is it the newest version? 
+5. Which version is loaded with the default command? Is it the newest version? Try:
     ```bash
     module load gromacs-env
     ```
 
-6. Do you notice any changes in the output of ```module list``` compared to the first try? 
+6. Do you notice any changes in the output of ```module list``` compared to the first try? Try this again:
     ```bash
     module list
     ```  
