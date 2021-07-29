@@ -151,7 +151,8 @@ you get an error message `bash: mcl: command not found`.
 ☝🏻 Also in the batch job files you need to run the correct `export PATH` command above before executing the program you have installed yourself.
 
 💡 If you want to make the addition permanent, you can add the `export PATH` command to you `.bashrc` file in your home directory. 
-- It should be noted, however, that making changes to the `.bashrc` can cause incompatibilities with CSC installed software.
+
+‼️ Making changes to the `.bashrc` can cause incompatibilities with CSC installed software.
 
 💭 If you wish to revert your `.bashrc` (and your environment in general) back to default, you can use the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/).
 
