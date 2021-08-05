@@ -31,10 +31,18 @@ title: Tutorial - Start with the CSC-account and project
 1. Join a project
     - via invitation link
     - or if you are eligible to act as a Project Manager then go ahead and create a project
-2. Add Puhti and Allas as services to your project.
+
+## Add Puhti and Allas as services to your project.
+
+1. Login to [MyCSC](my.csc.fi)
+2. Click My Projects
+3. In the bottom right corner you see services section
+4. Select Puhti and Allas, approve the terms and conditions and click Add service
 
 
 ## More information
-[Docs: user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-[Docs: Project access to CSC services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
-[Docs: Project Manager](https://www.csc.fi/en/prerequisites-for-a-project-manager)
+💭 [Docs: user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+
+💭 [Docs: Project access to CSC services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
+
+💭 [Docs: Project Manager](https://www.csc.fi/en/prerequisites-for-a-project-manager)
