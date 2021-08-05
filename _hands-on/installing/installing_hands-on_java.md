@@ -9,7 +9,8 @@ title: Tutorial - Installing Java applictions
 - You just need to download the distribution package, typically a .jar file.
 
 💡 Compute nodes do not have default java installation, so you need to load a suitable java module. 
-- You can check the available modules with command:
+
+You can check the available modules with command:
 ```bash
     module spider java
 ```
@@ -24,37 +25,39 @@ title: Tutorial - Installing Java applictions
 ```bash
     export _JAVA_OPTIONS=-Djava.io.tmpdir=/path/to/tmp # Replace with actual path.
 ```
+
 ## Example: Installing ABRA2
 
 💬 In this example we install and run java application ABRA2.
 
 1. Download the software
-```bash
+    ```bash
     wget https://github.com/mozack/abra2/releases/download/v2.23/abra2-2.23.jar
-```
+    ```
 2. Load java module
-```bash
+    ```bash
     module load biojava
-```
- 💡 If you get error messages or warnings about java version, try loading another java module.
+    ```
+    💡 If you get error messages or warnings about java version, try loading another java module.
 
  3. Run the application
- ```bash
-     java -jar abra2-2.23.jar
- ```
- If you are not in the same directory as the .jar file, you need to include the path to the file, e.g.
-  ```bash
-     java -jar /projappl/project_XXXX/abra2/abra2-2.23.jar # Replace with actal path
- ```
+    ```bash
+    java -jar abra2-2.23.jar
+    ```
+    💡 If you are not in the same directory as the .jar file, you need to include the path to the file, e.g.
+    ```bash
+    java -jar /projappl/project_XXXX/abra2/abra2-2.23.jar # Replace with actal path
+    ```
 
- ## Example 2: Java application with shell wrapper script
+## Example 2: Java application with shell wrapper script
 
- 💬 Some java applications come with shell scripts that are used to launch them instead of calling java directly. You should see the documentation for each softaware for details.
+💬 Some java applications come with shell scripts that are used to launch them instead of calling java directly. You should see the documentation for each softaware for details.
 
- One example of such application:
-  ```bash
-    sinteractive --acount=project_xxxx # Replace with actual project name    
+One example of such application:
+    ```bash
+    sinteractive --account=project_XXXX # Replace XXXX to match actual project name    
     module load beast
     beast --help
- ```
- ☝🏻 BEAST will fail to run on the login nodes. Try running it using `sinteractive` instead.
+    ```
+
+☝🏻 BEAST will fail to run on the login nodes. Try running it using `sinteractive` instead.
