@@ -14,7 +14,7 @@ title: Tutorial - Login to Puhti with SSH
 
 ## Connecting from Linux
 
-💬Laptops and workstations running Linux typically have SSH installed. 
+💬 Laptops and workstations running Linux typically have SSH installed. 
 
 1. Open a terminal and type:
     ```bash
