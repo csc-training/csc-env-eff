@@ -24,12 +24,12 @@ title: Tutorial - Start with the CSC-account and project
 
 ## Project
 
-💬 To use CSC Supercomputers every account has to have a project which is used ie in resource management when using CSC supercomputers. 
+💬 To use CSC Supercomputers every account has to be a member in a project. Access to a supercomputer (service) and computing time are tied to projects. 
 
 💡 The default project called "Personal group of N.N." is not meant for submitting jobs
 
 1. Join a project
-    - via invitation link
+    - via invitation link (ask the Project Manager to invite you)
     - or if you are eligible to act as a Project Manager then go ahead and create a project
 
 ## Add Puhti and Allas as services to your project.
