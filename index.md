@@ -109,6 +109,7 @@ author: CSC Training
 {% endfor %}
 
 ## Information
+<p></p>
 
 <p>
   <div style="float: left; width: 50%;">
