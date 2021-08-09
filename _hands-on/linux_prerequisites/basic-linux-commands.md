@@ -36,7 +36,7 @@ title: Tutorial - Basic linux commands
 
 1. Download a file into this new folder. Use the command `wget` for downloading from an URL:
     ```bash
-    wget https://github.com/CSCfi/csc-env-eff/raw/master/hands-on/linux_prerequisites/my-first-file.txt
+    wget https://github.com/csc-training/csc-env-eff/raw/master/_hands-on/linux_prerequisites/my-first-file.txt
     ```
 2. Check what kind of file did you get and what size it is using `ls` command with some extra parameters:
     ```bash
