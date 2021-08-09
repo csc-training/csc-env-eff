@@ -108,6 +108,8 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
+## Information
+
 <p>
   <div style="float: left; width: 50%;">
    <img src="https://github.com/csc-training/csc-env-eff/blob/e58fdc356a7245d4bc0f6f074c2ee96e39fbd584/slides/img/EuroCC_Logo_invert.png" width=110 align=middle/>
