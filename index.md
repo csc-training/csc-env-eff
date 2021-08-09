@@ -126,5 +126,4 @@ author: CSC Training
     </p>
   </div>
 </p>
-<p>&nbsp</p>
 
