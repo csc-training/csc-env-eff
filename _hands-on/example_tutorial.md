@@ -11,7 +11,7 @@ title: Title that is shown in the rendered index.md
 
 1. Use numbered list to describe actual steps that a student does
     ```bash
-    echo 'project_XXXX/YOURUSERNAME'   # Use commented code whenever clarification is necessary
+    echo 'project_XXXX/YOURCSCUSERNAME'   # Use commented code whenever clarification is necessary
     ```
     - Try to get the code block indented nicely in hte rendered product
 ## Get started
@@ -23,7 +23,7 @@ title: Title that is shown in the rendered index.md
 2. A code block can contain multiple lines
     ```bash
     export SCRATCH=/scratch/project_XXXX    # Use XXXX for projectnumber
-    mkdir YOURUSERNAME                      # Use YOURUSERNAME if student should use their own
+    mkdir YOURCSCUSERNAME                      # Use YOURCSCUSERNAME if student should use their own
     echo $USER                              # Or use the environment variable
     ```
 

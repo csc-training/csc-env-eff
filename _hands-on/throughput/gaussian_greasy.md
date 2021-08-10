@@ -33,7 +33,7 @@ title: Advanced tutorial - Gaussian with GREASY
 
 1. Create and enter a suitable scratch directory on Puhti 
     ```bash
-    mkdir -p /scratch/project_XXXX/YOURUSERNAME/gaussian_greasy    # replace XXXX to match the project name and YOURUSERNAME to match – well – your user name...
+    mkdir -p /scratch/project_XXXX/YOURCSCUSERNAME/gaussian_greasy    # replace XXXX to match the project name and YOURCSCUSERNAME to match – well – your user name...
     cd /scratch/project_XXXX/gaussian_greasy 
     ```
 2. Download the 10 C<sub>6</sub>H<sub>12</sub> structures that have originally been obtained from [ChemSpider](https://www.chemspider.com/Search.aspx) 
