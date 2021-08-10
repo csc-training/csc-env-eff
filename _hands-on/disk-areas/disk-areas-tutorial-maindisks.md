@@ -52,7 +52,7 @@ title: Tutorial - Main disk areas in CSC supercomputing environment
 
 1. First login to Puhti supecomputer using *SSH*:
    ```bash
-   ssh YOURUSERNAME@puhti.csc.fi    # replace YOURUSERNAME
+   ssh YOURCSCUSERNAME@puhti.csc.fi    # replace YOURCSCUSERNAME
    ```
 
 2. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
@@ -88,11 +88,11 @@ title: Tutorial - Main disk areas in CSC supercomputing environment
 1. Change to the folder where you have the example files
 2. Copy *Merged.fasta* file on puhti to **scratch** drive on Mahti as below:
    ```bash
-   rsync -P Merged.fasta YOURUSERNAME@mahti.csc.fi:/scratch/project_XXXX/$USER    # replace XXXX and YOURUSERNAME
+   rsync -P Merged.fasta YOURCSCUSERNAME@mahti.csc.fi:/scratch/project_XXXX/$USER    # replace XXXX and YOURCSCUSERNAME
    ```
 3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file on puhti to **projappl** directory on Mahti as below:
    ```bash
-   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURUSERNAME@mahti.csc.fi:/projappl/project_XXXX/$USER    # replace XXXX and YOURUSERNAME
+   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURCSCUSERNAME@mahti.csc.fi:/projappl/project_XXXX/$USER    # replace XXXX and YOURCSCUSERNAME
    ```
 
 ## More information

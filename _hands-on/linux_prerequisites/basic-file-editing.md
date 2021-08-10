@@ -9,7 +9,7 @@ title: Tutorial - Basic file editing
 
 > You have also already [logged to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
 
-☝🏻 NOTE: For graphical output to work you need to log in with `ssh -X YOURUSERNAME@puhti.csc.fi`
+☝🏻 NOTE: For graphical output to work you need to log in with `ssh -X YOURCSCUSERNAME@puhti.csc.fi`
 
 > In the [previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-linux-commands.html) we downloaded a file called `my-first-file.txt`, made a copy of it (`YourName-first-file.txt`), and now we practise how to edit it!
 
@@ -71,7 +71,7 @@ title: Tutorial - Basic file editing
 ‼️ NOTE: The following has to be typed in your personal computer's Terminal!
 
     ```bash
-    scp YOURUSERNAME@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.md] [path-to-local-folder-in-your-PC]
+    scp YOURCSCUSERNAME@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.md] [path-to-local-folder-in-your-PC]
     ```
 
 {:start="5"}

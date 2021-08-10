@@ -27,7 +27,7 @@ title: Tutorial - Singularity introduction continued
 
 2. Try listing the contents of your project directory (substitute the correct path) from inside the container without `bind`:
     ```bash
-    export SCRATCH=/scratch/project_XXXX/YOURUSERNAME    # Replace XXXX and YOURUSERNAME
+    export SCRATCH=/scratch/project_XXXX/YOURCSCUSERNAME    # Replace XXXX and YOURCSCUSERNAME
     singularity exec tutorial.sif ls $SCRATCH
     ```
 3. The container can not see the host directory, so you will get a "No such file or directory" error.
