@@ -8,16 +8,22 @@ author: CSC Training
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
 <blockquote style="color: #0f0f0f; border: 2px solid #5c5c5c; padding: 10px; background-color: #cfcfcf;">
-* The material is organized by topics in increasing complexity
-    * Feel free to jump if you know the basics already
-* In each topic read the slides / watch the video first
-* Complete tutorial(s) to make sure you’ve got the steps right
-* Try out the exercises to verify your new skill
-* If you get stuck, consult [the docs](https://docs.csc.fi) linked to the topic slides
-* If the docs do not provide sufficient answer, please contact support by email [servicedesk@csc.fi](mailto:servicedesk@csc.fi) or by submitting (a question and feedback form)[https://research.csc.fi/support]
-* Press `ctrl/cmd` with click to open links to a new window or tab
-* Left-click on slides and you can then navigate them with arrow-keys
-    * Use the browser back-button or external link to return to main menu
+<ul>
+<li>The material is organized by topics in increasing complexity<ul>
+<li>Feel free to jump if you know the basics already</li>
+</ul>
+</li>
+<li>In each topic read the slides / watch the video first</li>
+<li>Complete tutorial(s) to make sure you’ve got the steps right</li>
+<li>Try out the exercises to verify your new skill</li>
+<li>If you get stuck, consult <a href="https://docs.csc.fi">the docs</a> linked to the topic slides</li>
+<li>If the docs do not provide sufficient answer, please contact support by email <a href="mailto:servicedesk@csc.fi">servicedesk@csc.fi</a> or by submitting (a question and feedback form)[<a href="https://research.csc.fi/support">https://research.csc.fi/support</a>]</li>
+<li>Press <code>ctrl/cmd</code> with click to open links to a new window or tab</li>
+<li>Left-click on slides and you can then navigate them with arrow-keys<ul>
+<li>Use the browser back-button or external link to return to main menu</li>
+</ul>
+</li>
+</ul>
 </blockquote>
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
