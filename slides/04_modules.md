@@ -52,7 +52,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 # Conda environments
 - [Conda](https://docs.conda.io/en/latest/) is a package management tool for distributing and installing software tools and their dependencies
 - Some applications in Puhti are installed and used as [Conda environments](https://docs.csc.fi/support/tutorials/conda/#what-is-conda)
-      - See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
+   - See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
       - `conda env list`: List the environments
       - `module load bioconda`: Load bioconda
       - `source activate rseqc`: Activate RSeQC application
