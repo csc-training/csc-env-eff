@@ -103,3 +103,8 @@ Last login: Mon Dec 14 14:53:15 2020 from jabadabaduu.fi
 1. MobaXterm actually will tunnel the connection by default.
 
 ☝🏻 For intensive remote graphics we recommend using [NoMachine](https://docs.csc.fi/apps/nomachine/).
+
+
+## More information
+
+💭 [Docs: Connecting](https://docs.csc.fi/computing/connecting/)
