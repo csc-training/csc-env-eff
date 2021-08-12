@@ -3,19 +3,22 @@ title: Using CSC HPC Environment Efficiently
 author: CSC Training
 ---
 
-# Material for Using CSC HPC Environment Efficiently -course
+# Material for _Using CSC HPC Environment Efficiently_ -course
 
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
+<blockquote style="color: #0f0f0f; border: 2px solid #5c5c5c; padding: 10px; background-color: #cfcfcf;">
 * The material is organized by topics in increasing complexity
     * Feel free to jump if you know the basics already
 * In each topic read the slides / watch the video first
-* Complete the tutorial to make sure you’ve got the steps right
+* Complete tutorial(s) to make sure you’ve got the steps right
 * Try out the exercises to verify your new skill
 * If you get stuck, consult [the docs](https://docs.csc.fi) linked to the topic slides
 * If the docs do not provide sufficient answer, please contact support by email [servicedesk@csc.fi](mailto:servicedesk@csc.fi) or by submitting (a question and feedback form)[https://research.csc.fi/support)
 * Press `ctrl/cmd` to open links to a new window or tab
 * Left-click on slides and you can then navigate them with arrow-keys
+    * Use the browser back-button or external link to return to main menu
+</blockquote>
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/02_logging_in.html)
