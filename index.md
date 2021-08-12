@@ -15,7 +15,7 @@ author: CSC Training
 * Try out the exercises to verify your new skill
 * If you get stuck, consult [the docs](https://docs.csc.fi) linked to the topic slides
 * If the docs do not provide sufficient answer, please contact support by email [servicedesk@csc.fi](mailto:servicedesk@csc.fi) or by submitting (a question and feedback form)[https://research.csc.fi/support]
-* Press `ctrl/cmd` to open links to a new window or tab
+* Press `ctrl/cmd` with click to open links to a new window or tab
 * Left-click on slides and you can then navigate them with arrow-keys
     * Use the browser back-button or external link to return to main menu
 </blockquote>
