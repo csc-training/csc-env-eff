@@ -1,7 +1,7 @@
 LECTURES= \
 00_study_tips.md \
-01_environment.md \
-02_logging_in.md \
+01_logging_in.md \
+02_environment.md \
 03_disk_areas.md \
 04_modules.md \
 05_batch_jobs.md \
@@ -10,7 +10,7 @@ LECTURES= \
 08_installing.md \
 09_singularity.md \
 10_speed_up_jobs.md \
-README.md
+csc-env.md
 # README.md creates the index for allas
 
 TITLE=Title.pdf
