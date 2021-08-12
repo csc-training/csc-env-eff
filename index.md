@@ -17,7 +17,7 @@ author: CSC Training
 * Left-click on slides and you can then navigate them with arrow-keys
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
-### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/02_logging_in.html)
+### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
 ### 1.2 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
@@ -31,7 +31,7 @@ author: CSC Training
 2. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
 
 ## 2. Introduction to HPC environment
-### 2.1 [Slides](https://a3s.fi/CSC_training/01_environment.html)
+### 2.1 [Slides](https://a3s.fi/CSC_training/02_environment.html)
 ### 2.2 [Video: CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
 
 ## 3. Disk areas
