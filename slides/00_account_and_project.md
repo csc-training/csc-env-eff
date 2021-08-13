@@ -28,16 +28,21 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # CSC Project
 
-- CSC-projektit -miksi niitä tarvitaan (käytön seuranta, laskenta-ajan jakaminen tasan)
-- A project has a [project manager](https://www.csc.fi/en/prerequisites-for-a-project-manager) and members
+- CSC Projects are used for managing access to CSC services and resources
+- Projects have their own disk quotas and billing unit quotas
+- Every project has a [project manager](https://www.csc.fi/en/prerequisites-for-a-project-manager) and members
     - The manager [applies for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/), takes care [about the project lifetime](https://docs.csc.fi/accounts/how-to-manage-your-project/) and [approves members](https://docs.csc.fi/accounts/how-to-add-members-to-project/) to the project
+- Every CSC user has a [personal project](https://docs.csc.fi/support/faq/how-to-find-information-about-projects/) which enables them to have access to CSC services
+    - The personal project is not meant for submitting jobs
 
-# Project lifetime
+# Project lifetime and management
 
 - niiden elinkaari 
 - tässä yhteydessä ehkä maininta kurssiprojektista ja sen väliaikaisuudesta sekä siitä personal projektista (jonka rooli on mulle vähän himmee...)
 - suljettujen projektien datat tullaan siivoamaan CSC:n tulevan linjauksen mukaisesti.
 - BoF material
+
+- [Project data handling](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
 
 # Billing units
 
