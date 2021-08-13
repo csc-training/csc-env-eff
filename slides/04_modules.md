@@ -56,7 +56,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
       - `conda env list`: List the environments
       - `module load bioconda`: Load bioconda
       - `source activate rseqc`: Activate RSeQC application
-- You can use Conda modules to install tools that are available in Conda repositories ()
+- You can use Conda modules to install tools that are available in Conda repositories.
 
       
   
