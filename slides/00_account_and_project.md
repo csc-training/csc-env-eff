@@ -29,7 +29,8 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 # CSC Project
 
 - CSC-projektit -miksi niitä tarvitaan (käytön seuranta, laskenta-ajan jakaminen tasan)
-- A project has a project manager and members
+- A project has a [project manager](https://www.csc.fi/en/prerequisites-for-a-project-manager) and members
+    - The manager [applies for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/), takes care [about the project lifetime](https://docs.csc.fi/accounts/how-to-manage-your-project/) and [approves members](https://docs.csc.fi/accounts/how-to-add-members-to-project/) to the project
 
 # Project lifetime
 
