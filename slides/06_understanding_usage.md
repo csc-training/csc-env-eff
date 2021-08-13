@@ -79,13 +79,10 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 - CPU time and storing files consume "Billing units" (BU)
 - BUs are a property of computing projects and can be applied via my.csc.fi
-   - Please acknowledge using CSC resources in your publications and
-     add them to the resource application!
-   - Academic usage has been paid by the Ministry of Education and Culture, and for them money won't be charged
-      - [Read more of free-of-use cases](https://research.csc.fi/pricing)
+   - Please acknowledge using CSC resources in your publications and add them to the resource application!
+   - Academic usage is one of the [free-of-use cases](https://research.csc.fi/pricing)
 - You can estimate [usage with the online billing calculator](https://research.csc.fi/pricing) 
-   - The calculator can also be used to estimate the value
-     of the resources
+   - The calculator can also be used to estimate the value of the resources
 
 # Billing units - also a currency to compare usage efficiency
 

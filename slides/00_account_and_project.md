@@ -21,7 +21,10 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # CSC Account
 
-- CSC-tunnari ja sen ylläpito (passun uusiminen kerta vuoteen)
+- CSC Account identifies you as a CSC user
+- With the accout you can join projects with other users
+- Check out the [tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/credentials.html) and the [documentation](https://docs.csc.fi/accounts/)
+- Remember to keep your account alive by setting the passphrase once a year
 
 # CSC Project
 
@@ -37,5 +40,8 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # Billing units
 
-- BU:t on yksikkö, niitä saa kyllä lisää, eikä sillai maksa akateemisille, mutta joku aina maksaa, ja tää halutaan näyttää 🙂
-- Billing unit calculator
+- CPU time and storing files consume "Billing units" (BU)
+- BUs are a property of computing projects and can be applied via my.csc.fi
+   - Academic usage has been paid by the Ministry of Education and Culture, and for them money won't be charged
+      - [Read more of free-of-use cases](https://research.csc.fi/pricing)
+- You can estimate [usage with the billing calculator](https://research.csc.fi/pricing) 
