@@ -1,6 +1,6 @@
 ---
 topic: Batch jobs
-title: Tutorial - Serial batch jobs
+title: Tutorial - Serial batch jobs (essential)
 ---
 
 # Batch job tutorial - Serial jobs

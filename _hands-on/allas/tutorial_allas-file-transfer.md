@@ -1,6 +1,6 @@
 ---
 topic: allas
-title: Tutorial - File transfer with Allas
+title: Tutorial - File transfer with Allas (essential)
 ---
 
 # Allas basic usage

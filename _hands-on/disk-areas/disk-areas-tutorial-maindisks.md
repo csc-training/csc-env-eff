@@ -1,6 +1,6 @@
 ---
 topic: disk-areas
-title: Tutorial - Main disk areas in CSC supercomputing environment
+title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 ---
 
 # Where to put files in CSC environment?

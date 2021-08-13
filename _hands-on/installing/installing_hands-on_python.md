@@ -1,6 +1,6 @@
 ---
 topic: installing
-title: Tutorial - Installing Python applications and libraries
+title: Tutorial - Installing Python applications and libraries (essential)
 ---
 
 # Python
