@@ -7,7 +7,7 @@ author: CSC Training
 
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
-<blockquote style="color: #0f0f0f; border: 2px solid #002f5f; padding: 10px; background-color: #bebdcc;">
+<blockquote style="color: #0f0f0f; border: 2px solid #002f5f; padding: 10px; background-color: #d0dced;">
 <ul>
 <li>The material is organized by topics in increasing complexity<ul>
 <li>Feel free to jump if you know the basics already</li>
