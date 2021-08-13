@@ -33,9 +33,9 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
    - Quite often it is useful to start simple and gradually use more complex approaches if needed.
 
 # First steps for fast jobs (2/2)
-- When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version [docs.csc.fi](https://docs.csc.fi/apps/)
+- When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version [docs.csc.fi/apps](https://docs.csc.fi/apps/)
    - Spend some time getting familiar with the software users manual, if available.
-- If you cant find a suitable software, consider writing your own code.
+- If you can't find a suitable software, consider writing your own code.
 
 # Optimize the performance of your own code (1/2)
 - If you have constructed your own code, compile it with optimizing compiler options. 
@@ -67,7 +67,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
    - Can you split your work into smaller, fully independent, bits and run them simultaneously? 
       - Check out [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
    - Can you automate setting up, running and analysing your array jobs? 
-      - Then you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
+      - Then you may want to use [workflows](https://docs.csc.fi/computing/running/throughput/)
    - Can your software utilize GPUs? 
       - [GPUs in batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs)
 
@@ -95,8 +95,8 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
    - Individual tasks should take at least 30 minutes or more - otherwise you're generating too much overhead
    - In this case, there is likely a more efficient solution
 - If running your jobs become slightly more complex, with _e.g._ some minor dependencies, workflows can be used. 
-   - Here's a [tutorial using gnu parallel](https://docs.csc.fi/support/tutorials/many/) 
-   - This is suited for very short individual jobs
+   - Some potential solutions are listed on CSCs [High throughput page](https://docs.csc.fi/computing/running/throughput/)
+   - There are naturally lots of choice: [FireWorks](https://materialsproject.github.io/fireworks/), [Snakemake](https://snakemake.github.io/), [Knime](https://www.knime.com/), [BioBB](http://mmb.irbbarcelona.org/biobb/), ...
 
 # Task farming 2.0
 
