@@ -66,12 +66,9 @@ title: Tutorial - Basic file editing
 
 3. Use `pwd` and copy the path of your current working directory
 
-4. Copy the text-file to your personal computer for example with scp:  
-
-‼️ NOTE: The following has to be typed in your personal computer's Terminal!
-
+4. Copy the text-file to your personal computer for example with scp – ‼️ NOTE: The following has to be typed in your personal computer's Terminal!
     ```bash
-    scp YOURCSCUSERNAME@puhti.csc.fi:[path-to-your-wrkdir+the-file-name.md] [path-to-local-folder-in-your-PC]
+    scp YOURCSCUSERNAME@puhti.csc.fi:<path-to-your-wrkdir+the-file-name.md> <path-to-local-folder-in-your-PC>
     ```
 
 {:start="5"}
