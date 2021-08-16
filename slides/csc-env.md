@@ -15,13 +15,14 @@ Navigate slides with arrow up/down.
                                                                                                                                         
 <div class="column">  
 * [00 Study tips](00_study_tips.html)
+* [00 Accounts and Projects](00_account_and_project.html)
 * [01 Logging in](01_logging_in.html)
 * [02 Environment](02_environment.html)
 * [03 Disk areas](03_disk_areas.html)
 * [04 Modules](04_modules.html)
-* [05 Batch jobs](05_batch_jobs.html)
 </div>
 <div class="column">  
+* [05 Batch jobs](05_batch_jobs.html)
 * [06 Understanding usage](06_understanding_usage.html)
 * [07 Using Allas](07_allas.html)
 * [08 Installing Software](08_installing.html)
