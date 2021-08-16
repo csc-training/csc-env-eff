@@ -27,8 +27,8 @@ author: CSC Training
 </blockquote>
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
-### 1.1 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
-### 1.2 [Slides: Accounts and Projects](https://a3s.fi/CSC_training/00_account_and_project.html)
+### 1.1 [Slides: Accounts and Projects](https://a3s.fi/CSC_training/00_account_and_project.html)
+### 1.2 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
 ### 1.3 [Video: Connecting to Puhti](https://a3s.fi/CSC_training/Video-Connecting.mp4)
 ### 1.4 Tutorials and exercises
 {% for hands-on in items %}
