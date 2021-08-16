@@ -34,6 +34,11 @@ all: $(PDFS)
 
 .PHONY: clean
 
+# Note, set up allas-conf first!
+intoAllas: $(HTMLS)
+
+	a-put -n --override -b CSC_training $(HTMLS)
+
 clean:
 	-/bin/rm -f $(HTMLS) $(PDFS) $(PRESS) $(HANDOUT) *~
 
