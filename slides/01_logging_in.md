@@ -42,21 +42,22 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 - [scp](https://docs.csc.fi/data/moving/scp/) and [rsync](https://docs.csc.fi/data/moving/rsync/) are powerful command line tools to copy files
    - scp works even in Windows Powershell (but rsync is missing)
-   - e.g. `scp filename cscusername@puhti.csc.fi:/scratch/project_xxxx`
-   - e.g. `rsync -r foldername cscusername@puhti.csc.fi:/scratch/project_xxxx`
-   - `rsync` is available in MobaXterm but it removes write permissions of copied files
+   - _e.g._ `scp filename cscusername@puhti.csc.fi:/scratch/project_xxxx`
+   - _e.g._ `rsync -r foldername cscusername@puhti.csc.fi:/scratch/project_xxxx`
+   - `rsync` is available in _MobaXterm_ but it removes write permissions of copied files
 - Sometimes a [GUI tool for transfering files](https://docs.csc.fi/data/moving/graphical_transfer/) is more convenient
-   - Nice tools are e.g. FileZilla and WinSCP 
+   - Nice tools are _e.g._ _FileZilla_ and _WinSCP_ 
    - Installing such tools may require Admin privileges
+   - _MobaXterm_ also has a file transfer GUI (TIP: first, set persistent home directory)
 
 # Advanced topic: Setting up SSH-keys
 
-- Using SSH-keys is easier and safer than using password with every login.
+- Using SSH-keys is easier and safer than using password with every login
 - SSH-keys can be easily used in Windows, Macs, Linux
 - Consult our [tutorials on how to set up SSH-keys for your account](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
 
 # Advanced topic: Developing scripts remotely
 
 - It's possible to use a local editor and push edited files easily into Puhti (or Rahti, ...) via ssh
-   - For example IDE like Visual Studio Code or a text editor like Notepad++
-- Follow these [detailed instructions to set it up](https://docs.csc.fi/support/tutorials/remote-dev/)
+   - For example, IDE-like _Visual Studio Code_ or a text editor like _Notepad++_
+- Follow these [detailed instructions to set them up](https://docs.csc.fi/support/tutorials/remote-dev/)
