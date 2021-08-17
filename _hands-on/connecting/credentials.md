@@ -32,12 +32,12 @@ title: Tutorial - Start with the CSC-account and project (essential)
     - via invitation link (ask the Project Manager to invite you)
     - or if you are eligible to act as a Project Manager then go ahead and create a project
 
-## Add Puhti and Allas as services to your project.
+## Add services to your project.
 
 1. Login to [MyCSC](my.csc.fi)
 2. Click My Projects
 3. In the bottom right corner you see services section
-4. Select Puhti and Allas, approve the terms and conditions and click Add service
+4. Select Puhti, Mahti and Allas, approve the terms and conditions and click Add service
 
 
 ## More information
