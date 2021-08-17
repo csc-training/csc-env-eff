@@ -74,9 +74,12 @@ title: Tutorial - Basic file editing
 {:start="5"}
 5. Look for the file in your personal computer and check that the contents match.
 
-### EXTRA: Open `html`-files in Puhti
+## More information
+💡 You can read more about `scp` and moving files from [CSC Docs: Copying files using scp](https://docs.csc.fi/data/moving/scp/)
 
-#### Alternative 1: Firefox**  
+## EXTRA: Open `html`-files in Puhti
+
+### Alternative 1: Firefox**  
 1. Download a html-file to your folder in Puhti:
     ```bash
     wget https://a3s.fi/mjaskeli-2004306-pub/index.html
@@ -103,6 +106,6 @@ title: Tutorial - Basic file editing
     firefox index.html
     ```
 
-#### Alternative 2: Allas
+### Alternative 2: Allas
 
 💬 After configuring Allas there's a-commands which include publishing files to the internet. This is instructed in [Allas-tutorial](https://csc-training.github.io/csc-env-eff/hands-on/allas/tutorial_allas-file-transfer.html)

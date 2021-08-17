@@ -30,10 +30,10 @@ All project members have equal access to the data in Puhti and Allas.
 
 # Allas – object storage: what it is for?
 
-*  Allas is a new storage service for all computing and cloud services
+*  Allas is a storage service for all computing and cloud services
 *  CEPH based object storage
 *  Meant for data during project lifetime
-*  Default quota 10 TB / Project.
+*  Default quota 10 TB / Project 
 *  Possible to upload data from personal laptops or organizational storage systems into Allas
 *  Clients available in Puhti and Mahti
 *  Data can also be shared via Internet
@@ -59,7 +59,7 @@ All project members have equal access to the data in Puhti and Allas.
 
 # Allas - storage 
 
-* An object is stored in multiple servers so a disk or server break does not cause data loss.
+* An object is stored in multiple servers so a disk or server break does not cause data loss
 * There is no backup i.e. if a file is deleted, it cannot be recovered
 * Data cannot be modified while it is in the object storage – data is immutable.
 * Rich set of data management features are to be built on top of it.
@@ -72,7 +72,7 @@ All project members have equal access to the data in Puhti and Allas.
 *  Project space can have multiple *buckets* ( up to 1000)
 *  There is only one level of hierarchy of buckets (no buckets within buckets)
 *  Data is stored as **objects** within a bucket
-*  Objects can contain any type of data (generally, object = file)
+*  Objects can contain any type of data (generally: object = file)
 </div>
 <div class="column">
 *  In Allas you can have 500 000 objects / bucket
@@ -83,7 +83,7 @@ All project members have equal access to the data in Puhti and Allas.
 
 # Allas supports two protocols
 
-*  S3  (used by: s3cmd)
+*  S3  (used by: s3cmd, rclone, a-tools)
 *  Swift (used by: swift, rclone, a-tools, cyberduck)  
 
 *   Authentication is different
@@ -135,7 +135,7 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 *  Developed for CSC server environment (Puhti, Mahti) but you can install the tools in other linux and mac machines too.
 *  Unlike rclone, a-tools do not overwrite and remove data without asking!
 *  Automatic packing and compression.
-*  Default bucket names based on directories of Puhti
+*  Default bucket names based on directories of Puhti and Mahti
 *  [a-commands instructions in Docs CSC](https://docs.csc.fi/#data/Allas/using_allas/a_commands/)
 
 
@@ -164,8 +164,28 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 
 # Things that users should consider 
 
-*   Should I store files as one object or as bigger chunks?
+*   Should I store each file as a separate object or should I collect it into bigger chunks?
 *   Should I use compression?
 *   Who can use the data: Projects and accession permissions?
 *   What will happen to my data later on?
 *   How to keep track of all the data I have in Allas?
+
+# Fairdata services
+
+*   [https://fairdata.fi](https://fairdata.fi) - Services to manage scientific data according to FAIR principles.
+*   Suitable for all static digital research material and related metadata
+*   Free of charge for users in Finnish higher education institutions and research institutes
+*   **[IDA](https://ida.fairdata.fi)** : storage for research data 
+*   **[Quvain](https://qvain.fairdata.fi/)** : Descibe you dataset and gent a persistent indentifier for it
+*   **[Etsin](https://etsin.fairdata.fi/)** : Discover datasets based on metadata
+
+# Sensitive data services
+
+*   [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) were launched on last June. 
+*   **SD Desktop** [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi) is a secure virtual desktop for processing data.
+*   Security is based on controlled access, controlled data inport and isolation from internet.
+*   You can import data only through **SD Connect** service. No direct data export.
+*   **SD Connect** [https://sd-connect.csc.fi](https://sd-connect.csc.fi) is based on Allas. 
+*   At the moment Allas and SD-Connect are in practice the same service.
+*   Allas can be used for sensitive data, only if it is properly encrypted. (SD-Connect procedure does that ).
+

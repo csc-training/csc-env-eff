@@ -5,7 +5,7 @@ title: Tutorial - Login to Puhti with SSH (essential)
 
 # Log in Puhti with ssh
 
-> ‼️ To begin make sure that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+> ‼️ To begin make sure that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/). After creating project and adding services, there's a small delay before one can login to Puhti.
 
 💬 The basic Command Line Interface in Unix-based systems is the Terminal. Find the Terminal from your computer:  
 ![terminal-icon](../../slides/img/terminal_icon1.png)
