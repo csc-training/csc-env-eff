@@ -47,6 +47,10 @@ title: Tutorial - File transfer with Allas (essential)
    module load allas
    allas-conf 
    ```
+
+💡 It might take a while with `module load allas`). 
+
+{:start="2"}
 2. If you have several Allas projects available, select the training project because you already created the container/bucket there.
 3. Study what you have in allas with commands:
    1. With a-commands:
