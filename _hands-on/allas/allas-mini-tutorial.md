@@ -71,6 +71,9 @@ Open connection to Allas.
 module load allas
 allas-conf 
 ```
+
+💡 It might take a while with `module load allas`). 
+
 If you have several Allas projects available, select the training project we are currently using.
 
 Study what you have in allas with commands

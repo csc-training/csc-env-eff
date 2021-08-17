@@ -12,9 +12,12 @@ title: Tutorial - File transfer with Allas (essential)
 3. From the upper left corner, you find a project selection pop-up menu. 
    - If you have several projects available, select the training project `project_2004306`
 4. From the menu on left side of the interface, select: **Object Store -> Containers**
-5. Create new container by pressing button: **➕Container**
-   - Keep the container _Not public_ and name it as *2004306_YOURCSCUSERNAME*.
-6. Find the newly-created container (also called as `bucket` in S3 protocol) and open it
+   💡 A "container" in cPouta WWW-interface is called a "bucket" in S3 protocol. 
+
+{:start="5"}
+5. Create new _bucket_ by pressing button: **➕Container**
+   - Keep the bucket _Not public_ and name it as *2004306_YOURCSCUSERNAME*.
+6. Find the newly-created bucket and open it
 7. Upload one file from your computer. Any file should do, but prefer a file that you can open in Puhti.
 
 💭 During the exercises, you can use this web-interface to get another view to the buckets and objects in Allas.
@@ -47,20 +50,24 @@ title: Tutorial - File transfer with Allas (essential)
    module load allas
    allas-conf 
    ```
-2. If you have several Allas projects available, select the training project because you already created the container/bucket there.
+
+💡 It might take a while with `module load allas`). 
+
+{:start="2"}
+2. If you have several Allas projects available, select the training project because you already created the bucket there.
 3. Study what you have in allas with commands:
    1. With a-commands:
       ```bash
       a-list
-      a-list 2004306_YOURCSCUSERNAME                 # Name should correspond to your new container/bucket
+      a-list 2004306_YOURCSCUSERNAME                 # Name should correspond to your new bucket
       a-info 2004306_YOURCSCUSERNAME/your-file-name  # replace name and your-file-name
       ```
    2. With r-tools
       ```bash
       rclone lsd allas:
-      rclone ls allas:2004306_YOURCSCUSERNAME                  # Name should correspond to your new container/bucket
-      rclone lsl allas:2004306_YOURCSCUSERNAME                 # Name should correspond to your new container/bucket
-      rclone lsf allas:2004306_YOURCSCUSERNAME                 # Name should correspond to your new container/bucket
+      rclone ls allas:2004306_YOURCSCUSERNAME                  # Name should correspond to your new bucket
+      rclone lsl allas:2004306_YOURCSCUSERNAME                 # Name should correspond to your new bucket
+      rclone lsf allas:2004306_YOURCSCUSERNAME                 # Name should correspond to your new bucket
       rclone cat allas:2004306_YOURCSCUSERNAME/your-file-name  # replace name and your-file-name
    ```
 4. Download the file you just uploaded to Allas from your local computer. You can do that in two ways: 
@@ -88,7 +95,7 @@ title: Tutorial - File transfer with Allas (essential)
    ```bash
    a-check --nc -b 2004306_YOURCSCUSERNAME your-new-file-name   # replace name and your-new-file-name
    ```
-8. Locate the files you just uploaded in Pouta web-interface.
+8. Locate the files you just uploaded in Pouta web-interface. Look for the bucket name
 
 💬 With larger files it is feasible to omit parameter `--nc` and let the files be compressed.
 

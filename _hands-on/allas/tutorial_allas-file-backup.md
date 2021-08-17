@@ -29,6 +29,10 @@ title: Tutorial - File backup with Allas
    module load allas
    allas-conf 
    ```
+
+💡 It might take a while with `module load allas`). 
+
+{:start="2"}
 2. If you have several Allas projects available, select the one where you have a bucket where you want the backup to be.
 3. Check how the backup-tool works with command:
    ```bash
