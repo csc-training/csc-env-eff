@@ -15,18 +15,22 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ## Identify your personal and project-specific directories in Puhti and Mahti supercomputers
 
-1. Get an overview of your projects and directories by using the following commands in login node:
+1. First login to Puhti supecomputer using *SSH*:
+   ```bash
+   ssh YOURCSCUSERNAME@puhti.csc.fi    # replace YOURCSCUSERNAME
+   ```
+2. Get an overview of your projects and directories by using the following commands in login node:
    ```bash
    csc-projects
    csc-workspaces 
    ```
-2. Look through the output information about your directories and their current quotas.  
-3. Visit your projects **scratch** directory and check out its contents:
+3. Look through the output information about your directories and their current quotas.  
+4. Visit your projects **scratch** directory and check out its contents:
    ```bash
    cd /scratch/project_XXXX/   # replace XXXX with your project number
    ls
    ```
-4. Visit your projects **projappl** directory and check out its contents:
+5. Visit your projects **projappl** directory and check out its contents:
    ```bash
    cd /projappl/project_XXXX/   # replace XXXX with your project number
    ls
@@ -48,14 +52,9 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ### Download the example files
 
-☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but try still to avoid using *Allas* for data transfer between the supercomputers. 
+☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but here try still to avoid using *Allas* for data transfer between the supercomputers. 
 
-1. First login to Puhti supecomputer using *SSH*:
-   ```bash
-   ssh YOURCSCUSERNAME@puhti.csc.fi    # replace YOURCSCUSERNAME
-   ```
-
-2. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
+1. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
    ```bash
    wget https://a3s.fi/CSC_training/shared_files.tar.gz
    tar -xavf shared_files.tar.gz
@@ -67,17 +66,17 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ### Move the files to Puhti scratch and projappl
 
-3. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
+2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
    ```bash
    cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_XXXX/$USER   # replace XXXX
    ```
-4. Share *Merged.fasta* file in *scratch* directory
+3. Share *Merged.fasta* file in *scratch* directory
    ```bash
    cp Merged.fasta /scratch/project_XXXX/$USER    # replace XXXX
    ```
 - All new files and directories are also fully accessible for other group members (including read, write and execution permissions). 
 
-5. Set read-only permissions for your group members for the file *Merged.fasta*:
+4. Set read-only permissions for your group members for the file *Merged.fasta*:
    ```bash
    cd /scratch/project_XXXX/$USER    # replace XXXX
    chmod -R g-w Merged.fasta
