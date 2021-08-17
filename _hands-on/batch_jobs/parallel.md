@@ -24,15 +24,24 @@ title: Tutorial - Parallel batch jobs
 ### A simple OpenMP job
 💬 An OpenMP enabled program can take advantage of multiple cores that share the same memory on a **single node** 
 
-1. Dowload a simple OpenMP parallel program with the
+1. Go to the scratch folder. 
+    ```bash
+    cd /scratch/project_XXXX         # replace XXXX
+    ```
+    - Now your input (and output) are on a disk that is accessible on the compute node.
+    
+💡 You can list your projects with `csc-projects`). 
+
+{:start="2"}
+2. Dowload a simple OpenMP parallel program with the
     ```
     wget https://a3s.fi/hello_omp.x/hello_omp.x
     ```
-2. Make it executable using the command:
+3. Make it executable using the command:
     ```bash
     chmod +x hello_omp.x
     ``` 
-3. Copy the following example into a file called `my_parallel_omp.bash` and change the `projet_XXXX` to the project you actually want to use:
+4. Copy the following example into a file called `my_parallel_omp.bash` and change the `projet_XXXX` to the project you actually want to use:
 
     ```bash
     #!/bin/bash
@@ -46,8 +55,8 @@ title: Tutorial - Parallel batch jobs
     srun hello_omp.x
     ```
 
-{:start="4"}
-4. Submit the job to the queue with the command:
+{:start="5"}
+5. Submit the job to the queue with the command:
     ```
     sbatch my_parallel_omp.bash
     ```

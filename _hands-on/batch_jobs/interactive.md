@@ -27,6 +27,9 @@ title: Tutorial - Interactive batch jobs
     ```bash
     sinteractive --account myprojectname --time 00:10:00
     ```
+💡 You can list your projects with `csc-projects`). 
+
+{:start="2"}
 2. You should see that the command prompt (first thing in each row) has changed from `puhti-login1` (or `puhti-login2`) to e.g. `r07c51` which means a compute node.
 3. Once on the compute node, you can run commands directly from the command line without `srun`, e.g. launch the (default) Python interpreter:
     ```bash
