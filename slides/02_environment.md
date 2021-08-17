@@ -41,24 +41,16 @@ Roughly you can think of
 ![](./img/cluster.svg){width=80%} 
 </div>
 
-# Planning jobs
-- What kind of recources can your application use?
+# Which supercomputer computer to use? 
+- What kind of recources can _your application_ use?
   - Can it use more than one core?
   - How much memory it will need?
-  - Can it use GPU?
-- See what kind of resources are available
+  - Can it use GPU or NVMe?
+  - What takes long (is the time limiting part) in your job?
+- See what kind of resources are _available_
+  - Is my code already installed?
+  - Max. runtime, partitions (queues), provisioning policy (Per core/per node/other)
   - Each system is different, so check the documentation
-- What takes long (is the time limiting part) in your job?
-
-# Things to check
-- What kind of nodes are available?
-  - Number of cores
-  - Size of memory
-  - Extra hardware, *e.g.* GPU, fast local storage
-- What partitions (queues) are available
-  - Job sizes, max run time, etc
-  - Provisioning policy
-      - Per core/per node/other
 
 # Available HPC resources
 
@@ -76,7 +68,7 @@ Roughly you can think of
 | Cores per node              | 40     | 128       |
 | Job size (min-max) cores    | 1-1040 | 128-25600 |
 | Memory per node (GiB)       | 192-1536 | 256     |
-| GPU cards                   | 120 x V100 | 96 x A100|
+| GPU cards (NVIDIA)          | 120 x V100 | 96 x A100|
 | Fast node local disk (NVMe) | 120   | (24 GPU nodes)  |
 
 In short: Mahti is for much larger parallel jobs, prepare to install and optimize your code.
