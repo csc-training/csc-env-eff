@@ -31,7 +31,7 @@ title: Tutorial - Allas in batch jobs
 {:start="3"}
 3. Choose a file from Allas. The file should have text in it.
    ```bash
-   a-list 2004306_YOURCSCUSERNAME   # replace name to match your training bucket/container name
+   a-list 2004306_YOURCSCUSERNAME   # replace name to match your training bucket name
    ```
 4. Create a new batch job script. First open a new text file with command:
    ```bash
@@ -57,7 +57,7 @@ title: Tutorial - Allas in batch jobs
    ```
 
 {:start="6"}
-6. Replace `2004306_YOURCSCUSERNAME` to match your bucket/container name and `your-file-name` with the name of the file you have in Allas. 
+6. Replace `2004306_YOURCSCUSERNAME` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
 
 **Option 2: rclone**  
 💭 If you use rclone or swift instead of the a-commands, you need to add _source allas_conf_ commands to your script. 
@@ -84,7 +84,7 @@ title: Tutorial - Allas in batch jobs
    ```
 
 {:start="6"}
-6. Replace `2004306_YOURCSCUSERNAME` to match your bucket/container name and `your-file-name` with the name of the file you have in Allas. 
+6. Replace `2004306_YOURCSCUSERNAME` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
 7. Submit the batch job with command:
    ```bash
    sbatch allas_xxxx.sh                   # This was your custom name

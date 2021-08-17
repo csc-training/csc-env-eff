@@ -104,6 +104,8 @@ Check how this looks like in the Pouta web interface. Open browser and go to: [h
 In Pouta interface, go to _object store_ section, list the buckets (which are here called as “Containers”).
 Locate your own _xxxx-genomes-rc_ directory and download one of the uploaded fasta files to your local computer.
 
+💡 You can read more about moving files from [CSC Docs: Copying files using scp](https://docs.csc.fi/data/moving/scp/) and [CSC Docs: Moving data with rclone](https://docs.csc.fi/support/faq/how-to-move-data-between-puhti-and-allas/#move-data-with-rclone)
+
 ### Upload case 2. a-put 
 
 Upload the pythium directory from Puhti to Allas using following commands
@@ -313,7 +315,7 @@ Then use allas-backup restore to download the data:
 ```bash
 allas-backup restore ID-string
 ls -l
-la -l pythium
+ls -l pythium
 ```
 
 
