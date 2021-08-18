@@ -52,20 +52,20 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
     ```
 2. Copy the following contents into the file and change "project_XXXX" to the correct project name:
     ```bash
-    #!/bin/bash
-    #SBATCH --job-name=test           # Name of the job visible in the queue.
-    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
-    #SBATCH --partition=test          # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-    #SBATCH --time=00:01:00           # Maximum duration of the job. Max: depends of the partition. 
-    #SBATCH --mem=1G                  # How much RAM is reserved for job per node.
-    #SBATCH --ntasks=1                # Number of tasks. Max: depends on partition.
-    #SBATCH --cpus-per-task=1         # How many processors work on one task. Max: Number of CPUs per node.
+   #!/bin/bash
+   #SBATCH --job-name=test           # Name of the job visible in the queue.
+   #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+   #SBATCH --partition=test          # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --time=00:01:00           # Maximum duration of the job. Max: depends of the partition. 
+   #SBATCH --mem=1G                  # How much RAM is reserved for job per node.
+   #SBATCH --ntasks=1                # Number of tasks. Max: depends on partition.
+   #SBATCH --cpus-per-task=1         # How many processors work on one task. Max: Number of CPUs per node.
 
-    singularity exec tutorial.sif hello_world
+   singularity exec tutorial.sif hello_world
     ```
 3. Submit the job to the queue with:
     ```bash
-    sbatch test.sh
+   sbatch test.sh
     ```
 
 💡 For more information on batch jobs, please see [CSC Docs pages](https://docs.csc.fi/computing/running/getting-started/).
