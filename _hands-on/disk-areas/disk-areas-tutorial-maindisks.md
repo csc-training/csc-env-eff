@@ -54,7 +54,15 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but here try still to avoid using *Allas* for data transfer between the supercomputers. 
 
-1. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
+1. Move to home folder with:
+   ```bash
+   cd
+   ```
+
+💡 If you know the files are large you should consider downloading them straight to **scratch**. 
+
+{:start="2"}
+2. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
    ```bash
    wget https://a3s.fi/CSC_training/shared_files.tar.gz
    tar -xavf shared_files.tar.gz
@@ -66,19 +74,24 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ### Move the files to Puhti scratch and projappl
 
-2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory (*NOTE*: create a new directory with your user name ($USER) under project_XXXX before copying files)
+1. Create folders with your username in your projects **scratch** and **projappl** directories in Puhti.
    ```bash
-   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_XXXX/$USER   # replace project_XXXX with course/your project)
+   mkdir /projappl/project_XXXX/$USER   # replace project_XXXX with course/your project
+   mkdir /scratch/project_XXXX/$USER    # replace project_XXXX with course/your project
+   ```
+2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
+   ```bash
+   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_XXXX/$USER/   # replace project_XXXX with course/your project
    ```
 3. Share *Merged.fasta* file in *scratch* directory
    ```bash
-   cp Merged.fasta /scratch/project_XXXX/$USER    # replace project_XXXX with course/your project
+   cp Merged.fasta /scratch/project_XXXX/$USER/    # replace project_XXXX with course/your project
    ```
 - All new files and directories are also fully accessible for other group members (including read, write and execution permissions). 
 
 4. Set read-only permissions for your group members for the file *Merged.fasta*:
    ```bash
-   cd /scratch/project_XXXX/$USER    # replace project_XXXX with course/your project
+   cd /scratch/project_XXXX/$USER/    # replace project_XXXX with course/your project
    chmod -R g-w Merged.fasta
    ```
 
@@ -87,11 +100,11 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 1. Change to the folder where you have the example files
 2. Copy *Merged.fasta* file on puhti to **scratch** drive on Mahti as below:
    ```bash
-   rsync -P Merged.fasta YOURCSCUSERNAME@mahti.csc.fi:/scratch/project_XXXX/$USER    # replace project_XXXX with course/your project
+   rsync -P Merged.fasta YOURCSCUSERNAME@mahti.csc.fi:/scratch/project_XXXX/$USER/    # replace project_XXXX with course/your project
    ```
 3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file on puhti to **projappl** directory on Mahti as below:
    ```bash
-   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURCSCUSERNAME@mahti.csc.fi:/projappl/project_XXXX/$USER    # replace project_XXXX with course/your project
+   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz YOURCSCUSERNAME@mahti.csc.fi:/projappl/project_XXXX/$USER/    # replace project_XXXX with course/your project
    ```
 
 ## More information
