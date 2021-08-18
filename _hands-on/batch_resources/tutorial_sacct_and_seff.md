@@ -46,21 +46,21 @@ title: Tutorial - sacct and seff, resources used  (essential)
 
 1. Create file `array.sh` and paste the following contents in to it.
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
-    #SBATCH --time=01:00:00          # Maximum duration of the job. Max: depends of the partition. 
-    #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-    #SBATCH --job-name=array_job     # Name of the job visible in the queue.
-    #SBATCH --output=out_%A_%a.txt   # Name of the output-file.
-    #SBATCH --error=err_%A_%a.txt    # Name of the error-file.
-    #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
-    #SBATCH --cpus-per-task=1        # How many processors work on one task. Max: Number of CPUs per node.
-    #SBATCH --mem=1000               # How much RAM is reserved for job per node. Unit: MiB
-    #SBATCH --array=1-6              # The indices of the array jobs.
-    
-    /appl/soft/bio/course/sacct_exercise/test-a ${SLURM_ARRAY_TASK_ID}
-    ```
+```bash
+#!/bin/bash
+#SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+#SBATCH --time=00:01:00          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --job-name=array_job     # Name of the job visible in the queue.
+#SBATCH --output=out_%A_%a.txt   # Name of the output-file.
+#SBATCH --error=err_%A_%a.txt    # Name of the error-file.
+#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+#SBATCH --cpus-per-task=1        # How many processors work on one task. Max: Number of CPUs per node.
+#SBATCH --mem=1000               # How much RAM is reserved for job per node. Unit: MiB
+#SBATCH --array=1-6              # The indices of the array jobs.
+
+/appl/soft/bio/course/sacct_exercise/test-a ${SLURM_ARRAY_TASK_ID}
+```
 
 {:start="2"}
 2. Replace `project_XXXX` with your actual project name.
