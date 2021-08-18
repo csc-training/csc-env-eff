@@ -1,6 +1,6 @@
 ---
 topic: installing
-title: Tutorial - Installing binary applictions
+title: Tutorial - Installing binary applictions (essential)
 ---
 
 # Installing binary applications
