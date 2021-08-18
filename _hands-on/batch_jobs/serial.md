@@ -43,15 +43,15 @@ title: Tutorial - Serial batch jobs (essential)
 {:start="3"}
 3. Copy the the following **batch script** there: 
 
-    ```bash
-    #!/bin/bash
-    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
-    #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
-    #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-    #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+   ```bash
+   #!/bin/bash
+   #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+   #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
+   #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
 
-    srun hostname                    # Run hostname-command in each task
-    srun sleep 60                    # Run sleep-command in each task
+   srun hostname                    # Run hostname-command in each task
+   srun sleep 60                    # Run sleep-command in each task
     ```  
 
 {:start="4"}
