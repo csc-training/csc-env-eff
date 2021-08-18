@@ -38,8 +38,9 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - The order in which the queued jobs start depends on their priority and available resources
 - At CSC the priority is configured to use "fair share"
    - The _initial_ priority of a job _decreases_ if the user has recently run lots of jobs
-   - Over time (while the job queues) its priority _increases_ and eventually it will run
-   - Some partitions may have a lower priority (like _longrun_ -- use shorter if you can!)
+   - Over time (while queueing) its priority _increases_ and eventually it will run
+   - Some queues have a lower priority (like _longrun_ -- use shorter if you can!)
+- See our main documentation on [Getting started with running jobs](https://docs.csc.fi/computing/running/getting-started/) section in docs.csc.fi
 
 # Schema on how the batch job scheduler works
 ![](./img/slurm-sketch.svg)
@@ -68,10 +69,10 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 srun echo "Hello $USER! You are on node $HOSTNAME"
 ```
-
-- The `--account` option is mandatory to tell which project should be billed
-- The actual _program_ is launched using the `srun` command
-- The content above could be copied into a file like `simple_serial.bash` and put into the queue with the command `sbatch simple_serial.bash`
+- The options have been described in [Create batch jobs for Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
+   - The `--account` option is mandatory to tell which project should be billed
+   - The actual _program_ is launched using the `srun` command
+   - The content above could be copied into a file like `simple_serial.bash` and put into the queue with the command `sbatch simple_serial.bash`
 
 # Use an application specific batch script template
 
@@ -104,7 +105,6 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - [The available batch job partitions](https://docs.csc.fi/computing/running/batch-job-partitions/) are listed in docs.csc.fi
 - In order to use the resources in an efficient way, it is important to estimate the request as accurately as possible
 - By avoiding an excessive "just-in-case" requests, the job will start earlier
-- Consult our [Getting started with the batch job system ](https://docs.csc.fi/computing/running/getting-started/) section in docs.csc.fi
 
 # Mapping your needs and the performance
 
