@@ -31,7 +31,8 @@ title: Tutorial - Serial batch jobs (essential)
     ```
     - Now your input (and output) are on a disk that is accessible on the compute node.
     
-💡 You can list your projects with `csc-projects`). 
+💡 You can list your projects with `csc-projects`).
+💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYSERNAME` (change MYUSERNAME) and then change there not to clutter thet scratch root of your project `cd MYUSERNAME`)
 
 {:start="2"}
 2. Create a file called `my_serial.bash` eg. with Nano:
