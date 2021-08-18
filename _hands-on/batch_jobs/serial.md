@@ -43,7 +43,7 @@ title: Tutorial - Serial batch jobs (essential)
 {:start="3"}
 3. Copy the the following **batch script** there: 
 
-    ```bash
+    ```
     #!/bin/bash
     #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
     #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
