@@ -58,7 +58,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
       - Too much memory requested?
       - Lots of caveats here
    - low GPU efficiency:
-      - Better use CPU instead?
+      - Better use CPU instead? Disk I/O?
 </div>
 <div class="column">
 ![](img/seff-output.png "Seff output"){width=90%}
@@ -68,17 +68,18 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 - Not all usage is captured by Slurm accounting
    - If CPU usage seems too low, look at the completion time
+   - Some applications also print out timing data on log files
    - Sometimes jobs run outside `srun` don't record properly
 - Job output can be tailored with `sacct`
    - `sacct -j SLURM_JOBID -o jobid,partition,state,elapsed,start,end`
-   - `sacct -S 2021-04-01` would show all jobs started after that date
+   - `sacct -S 2021-08-01` would show all jobs started after that date
    - Note: these are heavy operations for Slurm. **Don't** query
-     too long times.
+     too long times, or loop these commands in scripts
 
 # Billing units - also a currency to compare usage efficiency
 
 - CPU time and storing files consume "Billing units" (BU)
-- BUs are a property of computing projects and can be applied via my.csc.fi
+- BUs are a property of computing projects and can be applied via [my.csc.fi](https://my.csc.fi)
    - Please acknowledge using CSC resources in your publications and add them to the resource application!
    - Academic usage is one of the [free-of-use cases](https://research.csc.fi/pricing)
 - You can estimate [usage with the online billing calculator](https://research.csc.fi/pricing) 
@@ -86,23 +87,23 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # Billing units - also a currency to compare usage efficiency
 
-- Different resources have different rates:
-   - 1 core hour in Puhti equals 1 BU
-   - 1 GPU core hour in Puhti equals 60 BU
+- Different resources have different rates
+   - 1 CPU core hour in Puhti equals 1 BU
+   - 1 GPU card hour in Puhti equals 60 BU (+ allocated CPU cores)
    - 1 node hour in Mahti equals 100 BU
    - 1 GiB hour of Memory in Puhti equals 0.1 BU
    - 1 TiB year of _additional_ disk in Puhti (scratch, projappl) 50000 BU
       - Note: 1st TiB free, additional **quota** (not actual usage) is billed.
-   - 1 TiB hour in Allas equals 1 BU (i.e. 1 TB of data equals 8760 BU in a year.)
+   - 1 TiB hour in Allas equals 1 BU (i.e. 1 TiB of data equals 8760 BU in a year.)
       - Note: Billing is based on actual usage.
-
+   - [This and other service billing information in Docs]](https://docs.csc.fi/accounts/billing/)
 
 # Mapping your needs and the performance
 
 - Before starting any large-scale calculations it's a good practice to check how the software and your actual input performs
     - Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
     - If the program works in parallel, check that it benefits from the requested parallel resources 
-    - The recommended minimum speedup when you double the resources is 1.5x faster
+    - The recommended _minimum_ speedup when you double the resources is 1.5x faster
     - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
 
 # Reserving and optimizing batch job resources 
@@ -116,6 +117,19 @@ Try to estimate the resources that are needed for your job as accurately as poss
    - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
    - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
  
+# `seff` examples
+
+<div class="column">
+![](img/gpu-seff.png "seff output of a GPU job"){width=90%}
+</div>
+<div class="column">
+<small>
+Left: GPU usage ok! (for _this_ others ok, too)
+
+Bottom: CPU usage way too low, memory usage too high, job killed.
+</small>
+![](img/seff-oom.png "seff output when memory runs out"){width=90%}
+</div>
 
   
 
