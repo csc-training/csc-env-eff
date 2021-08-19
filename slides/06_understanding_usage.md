@@ -96,7 +96,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
       - Note: 1st TiB free, additional **quota** (not actual usage) is billed.
    - 1 TiB hour in Allas equals 1 BU (i.e. 1 TiB of data equals 8760 BU in a year.)
       - Note: Billing is based on actual usage.
-   - [This and other service billing information in Docs]](https://docs.csc.fi/accounts/billing/)
+   - [This and other service billing information in Docs](https://docs.csc.fi/accounts/billing/)
 
 # Mapping your needs and the performance
 
