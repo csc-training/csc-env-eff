@@ -8,10 +8,12 @@ title: Tutorial - File transfer with Allas (essential)
 ## Accessing Allas via web-interface
 
 1. Open the view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
-2. Login with your MyCSC user account.
+2. Login with your CSC user account.
 3. From the upper left corner, you find a project selection pop-up menu. 
-   - If you have several projects available, select the training project `project_2004306`
+   - If you have several projects available, select one, _e.g._ training project `project_2004306`
+   - Note!AIf you selected something else than `project_2004306`, please use it instead in all places below
 4. From the menu on left side of the interface, select: **Object Store -> Containers**
+
    💡 A "container" in cPouta WWW-interface is called a "bucket" in S3 protocol. 
 
 {:start="5"}
@@ -51,7 +53,7 @@ title: Tutorial - File transfer with Allas (essential)
    allas-conf 
    ```
 
-💡 It might take a while with `module load allas`). 
+💡 It might take a while with `module load allas`) 
 
 {:start="2"}
 2. If you have several Allas projects available, select the training project because you already created the bucket there.
@@ -109,9 +111,9 @@ title: Tutorial - File transfer with Allas (essential)
 💭 If you don't find your file but remember the name, try `a-find`. Use `a-find -h` for help.
 
 ## Extra: publish a file to the internet
-💬 The a-tools include basic tools for publishing files to the internet. You'll notice that the course slides use one of those 🤓
+💬 The a-commands include basic tools for publishing files to the internet. You'll notice that the course slides use one of those 🤓
 
-‼️ NOTE: Using these commands makes your entire bucket to be public! Do not engage if you don't want that to happen..
+‼️ NOTE: Using these commands makes your **entire bucket** to be public! Do not engage if you don't want that to happen. All files that you `a-put` there later, will also be accessible to the internet, since the _bucket_ is accessible.
 
 ### Option 1: `a-publish`
 
