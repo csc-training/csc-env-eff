@@ -8,10 +8,12 @@ title: Tutorial - File transfer with Allas (essential)
 ## Accessing Allas via web-interface
 
 1. Open the view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
-2. Login with your MyCSC user account.
+2. Login with your CSC user account.
 3. From the upper left corner, you find a project selection pop-up menu. 
-   - If you have several projects available, select the training project `project_2004306`
+   - If you have several projects available, select one, _e.g._ training project `project_2004306`
+   - Note!AIf you selected something else than `project_2004306`, please use it instead in all places below
 4. From the menu on left side of the interface, select: **Object Store -> Containers**
+
    💡 A "container" in cPouta WWW-interface is called a "bucket" in S3 protocol. 
 
 {:start="5"}
@@ -51,7 +53,7 @@ title: Tutorial - File transfer with Allas (essential)
    allas-conf 
    ```
 
-💡 It might take a while with `module load allas`). 
+💡 It might take a while with `module load allas`) 
 
 {:start="2"}
 2. If you have several Allas projects available, select the training project because you already created the bucket there.
@@ -93,7 +95,7 @@ title: Tutorial - File transfer with Allas (essential)
       ```
 7. Check that the file in Puhti indeed has a counterpart in Allas:
    ```bash
-   a-check --nc -b 2004306_YOURCSCUSERNAME your-new-file-name   # replace name and your-new-file-name
+   a-check --nc -b 2004306_YOURCSCUSERNAME/your-new-file-name   # replace name and your-new-file-name
    ```
 8. Locate the files you just uploaded in Pouta web-interface. Look for the bucket name
 
