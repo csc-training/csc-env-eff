@@ -3,7 +3,7 @@ theme: csc-2019
 lang: en
 ---
 
-# Getting most out of CSC computers {.title}
+# Not fast enough? How HPC can help. {.title}
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
@@ -19,23 +19,23 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 # The purpose of large computers
 
 - Typically large computers, like those at CSC, are not faster than others - they are just bigger.
-   - For fast computation they utilize parallelism.
+   - For fast computation they utilize parallelism (and typically have special disk and memory solutions, too)
 - Parallelism simplified:
    - You use hundreds of ordinary computers simultaneously to solve a single problem.
 
 # First steps for fast jobs (1/2)
 - Spend a little time to investigate:
    - Which of all the available software would be the best solve the kind of problem you have? 
-      - Ask experienced colleagues and servicedesk@csc.fi for guidance.
+      - Ask experienced colleagues and [servicedesk@csc.fi](mailto:servicedesk@csc.fi) for guidance.
 - Consider:
    - The software that is the fastest to solve your problem might not always be the best. 
-      - Issues like ease-of-use and compute-power/memory demands are also higly relevant. 
+      - Issues like ease-of-use and compute-power/memory demands are also highly relevant. 
    - Quite often it is useful to start simple and gradually use more complex approaches if needed.
 
 # First steps for fast jobs (2/2)
-- When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version https://docs.csc.fi/apps/
-   - Spend some time getting familiar with the softwares users manual, if available.
-- If you cant find a suitable software, consider writing your own code.
+- When you have found the software you want to use, check if it is available at CSC as a ready installed optimal version [docs.csc.fi/apps](https://docs.csc.fi/apps/)
+   - Spend some time getting familiar with the software users manual, if available.
+- If you can't find a suitable software, consider writing your own code.
 
 # Optimize the performance of your own code (1/2)
 - If you have constructed your own code, compile it with optimizing compiler options. 
@@ -48,7 +48,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - Use profiling tools to find out how much time is spent in different parts of the code 
    - Docs: [Performance tools](https://docs.csc.fi/computing/performance/)
 - When the computing bottle-necks are identified try to figure out ways to improve the code. 
-   - Again, servicedesk@csc.fi is a channel to ask for help. The more concrete the problem is described, the better.
+   - Again, [servicedesk@csc.fi](mailto:servicedesk@csc.fi) is a channel to ask for help. The more concrete the problem is described, the better.
 
 
 # Running your software
@@ -67,13 +67,13 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
    - Can you split your work into smaller, fully independent, bits and run them simultaneously? 
       - Check out [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
    - Can you automate setting up, running and analysing your array jobs? 
-      - Then you may want to use [workflows](https://docs.csc.fi/support/tutorials/many/)
+      - Then you may want to use [workflows](https://docs.csc.fi/computing/running/throughput/)
    - Can your software utilize GPUs? 
       - [GPUs in batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs)
 
 # What is MPI? 
 - MPI (and OpenMP too!) are widely used standards for writing software that run in parallel.
-- MPI (Message Passing Interface) is a standard that utilize compute cores that do not share their memory
+- MPI (Message Passing Interface) is a standard that utilizes compute cores that do not share their memory
    - It passes data-messages back and forth between the cores.
 
 # What is OpenMP? 
@@ -84,7 +84,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 
 # Self study materials for OpenMP and MPI
 - There are many tutorials available on the internet.
-   - Look with simple searches for e.g. 'MPI tutorial'. 
+   - Look with simple searches for _e.g._ 'MPI tutorial'. 
 - Check the documented exercise material and model answers from the CSC course "Introduction to Parallel Programming"
    - Available on GitHub [Parallel programming](https://github.com/csc-training/parallel-prog/). 
 
@@ -93,10 +93,10 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - Task farming means that you have a set of, more or less, similar jobs that can be run fully independently of each other.
 - Such jobs are most easily run as so called [array-jobs](https://docs.csc.fi/computing/running/array-jobs/).
    - Individual tasks should take at least 30 minutes or more - otherwise you're generating too much overhead
-   - In this case, there might be a more efficient solution
-- If running your jobs become slightly more complex, with e.g. some minor dependencies, workflows can be used. 
-   - Here's a [tutorial using gnu parallel](https://docs.csc.fi/support/tutorials/many/) 
-   - This is suited for very short individual jobs
+   - In this case, there is likely a more efficient solution
+- If running your jobs become slightly more complex, with _e.g._ some minor dependencies, workflows can be used. 
+   - Some potential solutions are listed on CSCs [High throughput page](https://docs.csc.fi/computing/running/throughput/)
+   - There are naturally lots of choice: [FireWorks](https://materialsproject.github.io/fireworks/), [Snakemake](https://snakemake.github.io/), [Knime](https://www.knime.com/), [BioBB](http://mmb.irbbarcelona.org/biobb/), ...
 
 # Task farming 2.0
 
@@ -104,12 +104,13 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - And on top of those with MPI to run several jobs in parallel.
    - In this setup you'd have three layers or parallelization array-MPI-OpenMP
    - Setting this up will take skill and time
+   - Always test your setup - a typo can result in a lot of lost resources
 
 # Things to consider in task farming
 
 - In a big allocation each computing core should have work to do
    - If the separate jobs are very different, some will end before the others, and some cores will idle - wasting resources
-   - A fix would be to use e.g. loops, to lump really small and numerous jobs into fewer and bigger ones.
+   - A fix would be to use _e.g._ loops, to lump really small and numerous jobs into fewer and bigger ones.
 - As always, try to estimate as exact as possible the amount of memory and the time it takes the separate runs to finish.
    - Consult e.g. this [biojob tutorial with examples](https://docs.csc.fi/support/tutorials/biojobs-on-puhti/)
 
