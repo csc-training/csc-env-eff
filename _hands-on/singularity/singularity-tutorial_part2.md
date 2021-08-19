@@ -87,8 +87,8 @@ singularity exec --bind $SCRATCH:/input tutorial.sif ls /input
     - The third command is also run  inside the container, but this time we omitted host environment variables, so we only see `$TEST2`.
 3. Note that any variables on command line are substituted by their values on the host:
     ```bash
-    singularity exec tutorial.sif echo $TEST2
     singularity exec tutorial.sif echo $TEST1
+    singularity exec tutorial.sif echo $TEST2
     ```
     - The first line prints the value set in the host
     - The second line will result in empty output because a variable called `$TEST2` has not been set on host. (It was `SINGULARITYENV_TEST2="value2"` remember?)
