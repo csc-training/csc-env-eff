@@ -14,9 +14,9 @@ application areas.
 
 ## Installing Python packages.
 
-💬 To install simple packages it is usually enough to use `pip`:
+💬 To install simple packages it is usually enough to use `pip` for example:
 ```bash
-pip install --user package_to_install
+pip install --user package_to_install   #  Or pip3 to make sure using python version 3
 ```
 
 ☝🏻 Remember to include `--user`. By default pip tries to install to the common Python installation location, and this will not work.
@@ -42,7 +42,7 @@ pip install --user package_to_install
     ```
 2. Install the missing library:
     ```bash
-    pip install --user coverage    # This may take a while - don't worry!
+    pip3 install --user coverage    # This may take a while - don't worry!
     ```
 3. Re-test if the library is available:
     ```bash
@@ -53,7 +53,7 @@ pip install --user package_to_install
 4. The library is installed in directory `$HOME/.local`
 
 5. To uninstall:
-```bash
-pip uninstall coverage
-```
+    ```bash
+    pip3 uninstall coverage
+    ```
 6. Type `y` to confirm
