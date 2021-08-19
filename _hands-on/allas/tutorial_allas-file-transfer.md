@@ -95,7 +95,7 @@ title: Tutorial - File transfer with Allas (essential)
       ```
 7. Check that the file in Puhti indeed has a counterpart in Allas:
    ```bash
-   a-check --nc -b 2004306_YOURCSCUSERNAME/your-new-file-name   # replace name and your-new-file-name
+   a-check --nc -b 2004306_YOURCSCUSERNAME your-new-file-name   # replace name and your-new-file-name
    ```
 8. Locate the files you just uploaded in Pouta web-interface. Look for the bucket name
 
@@ -111,9 +111,9 @@ title: Tutorial - File transfer with Allas (essential)
 💭 If you don't find your file but remember the name, try `a-find`. Use `a-find -h` for help.
 
 ## Extra: publish a file to the internet
-💬 The a-tools include basic tools for publishing files to the internet. You'll notice that the course slides use one of those 🤓
+💬 The a-commands include basic tools for publishing files to the internet. You'll notice that the course slides use one of those 🤓
 
-‼️ NOTE: Using these commands makes your entire bucket to be public! Do not engage if you don't want that to happen..
+‼️ NOTE: Using these commands makes your **entire bucket** to be public! Do not engage if you don't want that to happen. All files that you `a-put` there later, will also be accessible to the internet, since the _bucket_ is accessible.
 
 ### Option 1: `a-publish`
 
