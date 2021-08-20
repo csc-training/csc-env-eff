@@ -41,20 +41,20 @@ title: Tutorial - Allas in batch jobs
 
 **Option 1: a-commands**
 
-   ```bash
-   #!/bin/bash
-   #SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
-   #SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
-   #SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
-   #SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
-   #SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-   #SBATCH --output=allas_output_%j.txt   # Name of the output-file.
-   #SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
+```bash
+#!/bin/bash
+#SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
+#SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
+#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --output=allas_output_%j.txt   # Name of the output-file.
+#SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
 
-   a-get 2004306_YOURCSCUSERNAME/your-file-name                  # Bucket name / File name
-   wc -l your-file-name > your-file-name.num_rows     # File name
-   a-put -b 2004306_YOURCSCUSERNAME --nc your-file-name.num_rows # Bucket name / File name
-   ```
+a-get 2004306_YOURCSCUSERNAME/your-file-name                  # Bucket name / File name
+wc -l your-file-name > your-file-name.num_rows     # File name
+a-put -b 2004306_YOURCSCUSERNAME --nc your-file-name.num_rows # Bucket name / File name
+```
 
 {:start="6"}
 6. Replace `2004306_YOURCSCUSERNAME` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
@@ -62,26 +62,26 @@ title: Tutorial - Allas in batch jobs
 **Option 2: rclone**  
 💭 If you use rclone or swift instead of the a-commands, you need to add _source allas_conf_ commands to your script. 
 
-   ```bash
-   #!/bin/bash
-   #SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
-   #SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
-   #SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
-   #SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
-   #SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-   #SBATCH --output=allas_output_%j.txt   # Name of the output-file.
-   #SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
+```bash
+#!/bin/bash
+#SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
+#SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
+#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --output=allas_output_%j.txt   # Name of the output-file.
+#SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
 
-   #make sure connection to Allas is open
-   source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-   rclone copy allas:2004306_YOURCSCUSERNAME/your-file-name ./        # Bucket name / File name
+#make sure connection to Allas is open
+source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+rclone copy allas:2004306_YOURCSCUSERNAME/your-file-name ./        # Bucket name / File name
 
-   wc -l your-file-name > your-file-name.num_rows          # File name
+wc -l your-file-name > your-file-name.num_rows          # File name
 
-   #make sure connection to Allas is open
-   source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-   rclone copy your-file-name.num_rows allas:2004306_YOURCSCUSERNAME  # File name / Bucket name
-   ```
+#make sure connection to Allas is open
+source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+rclone copy your-file-name.num_rows allas:2004306_YOURCSCUSERNAME  # File name / Bucket name
+```
 
 {:start="6"}
 6. Replace `2004306_YOURCSCUSERNAME` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
