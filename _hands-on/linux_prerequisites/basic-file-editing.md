@@ -86,7 +86,7 @@ title: Tutorial - Basic file editing
     ```
 2. Load Bioconda-module which includes Firefox:
     ```bash
-    module load Bioconda
+    module load bioconda
     ```
 3. The message says that you need to set the `PROJAPPL` environment variable. 
 4. Check your project(s) name with command: 
