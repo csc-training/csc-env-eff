@@ -5,6 +5,8 @@ lang: en
 
 # Understanding resource usage in CSC's HPC environment {.title}
 
+This topic is about understanding the resource usage and how to optimise it.
+
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
 </div>
