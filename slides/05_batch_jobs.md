@@ -5,8 +5,6 @@ lang: en
 
 # The batch job system in CSC's HPC environment {.title}
 
-This topic is about batch jobs and hot to submot them to a supercomputer.
-
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
 </div>

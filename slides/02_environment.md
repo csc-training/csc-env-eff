@@ -5,8 +5,6 @@ lang: en
 
 # Brief introduction to HPC environments {.title}
 
-This topic is about High Performance Computing environments.
-
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
 </div>
