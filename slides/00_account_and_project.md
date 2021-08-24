@@ -5,7 +5,7 @@ lang: en
 
 # CSC Account and Project {.title}
 
-What are CSC accounts and projects for and how to manage them.
+This topic is about what CSC accounts and projects are for and how to manage them.
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)

@@ -4,6 +4,8 @@ lang: en
 ---
 # Study tips and problem solving {.title}
 
+How to use the material and hot to solve the common problems.
+
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
 </div>

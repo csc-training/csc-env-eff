@@ -5,7 +5,7 @@ lang: en
 
 # Connecting to CSC Computers {.title}
 
-In this section, you will learn how to login on CSC supercomputers with ssh and NoMachine.
+This topic is about how to login on CSC supercomputers with ssh and NoMachine.
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)

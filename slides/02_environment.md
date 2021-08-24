@@ -16,7 +16,8 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 </small>
 </div>
 
-# Some notes on vocabulary
+# Notes on vocabulary
+
 <div class="column">
 Roughly you can think of
 
@@ -29,6 +30,7 @@ Roughly you can think of
 </div>
 
 # Cluster systems
+
 <div class="column">
 - Login nodes are used to set up jobs (and to launch them)
 - Jobs are run in the compute nodes
@@ -42,6 +44,7 @@ Roughly you can think of
 </div>
 
 # Which supercomputer computer to use? 
+
 - What kind of recources can _your application_ use?
   - Can it use more than one core?
   - How much memory it will need?

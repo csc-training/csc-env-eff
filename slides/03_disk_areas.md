@@ -29,6 +29,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 ![](./img/disk-systems.svg){width=90%}
 
 # Main disk areas in Puhti/Mahti
+
 - Home directory (`$HOME`)
 - ProjAppl directory (`/projappl/project_name`)
 - Scratch directory (`/scratch/project_name`)
@@ -37,9 +38,9 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
     - Default quotas and more info on [disk areas section](https://docs.csc.fi/computing/disk/)
     - Files older than 90 days on `scratch` will be automatically removed
     - Scratch root is shared with your computing project
-    - No more `DONOTREMOVE`
 
 # Moving data between and to/from supercomputers
+
 - Puhti and Mahti have their own disk systems
 - Data can be moved between the supercomputers 
     - [directly with rsync](https://docs.csc.fi/data/moving/rsync/) 
@@ -47,6 +48,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - There are [many ways to transfer data to/from CSC and your local computer](https://docs.csc.fi/data/moving/)
 
 # Displaying current status of disk areas
+
 - use `csc-workspaces` command to display available projects and quotas 
 
 ![](./img/disk_status.png)
@@ -56,6 +58,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 ![](./img/disk-systems.svg){width=90%}
 
 # Additional fast local disk areas 
+
 - `$TMPDIR` on Login nodes
     - Each of the login nodes have 2900 GiB of fast local storage `$TMPDIR`
     - The local storage is meant for temporary storage and is cleaned frequently
@@ -65,6 +68,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
     - If your job reads or writes a lot of small files, using this can give 10x performance boost
 
 # What are the different disk areas for?
+
 - [Allas](https://docs.csc.fi/data/Allas/) - for data which is not actively used
 - [HOME](https://docs.csc.fi/computing/disk/#home-directory) - small, thus only for most important (small) files, personal access only
 - [scratch](https://docs.csc.fi/computing/disk/#scratch-directory) - main working area, can be used to share with project members
@@ -73,6 +77,7 @@ Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://cre
 - [NVMe](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) - fast IO in batch jobs
 
 # Some best practice tips
+
 - Don't put databases on Lustre (projappl, scratch, home) 
     - use other CSC services like [kaivos](https://docs.csc.fi/data/kaivos/overview/) or mongoDB in cPouta
 - Don't create a lot of files in one folder

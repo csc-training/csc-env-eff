@@ -18,7 +18,8 @@ TITLE=Title.pdf
 PRESS=csc-env-press.pdf
 HANDOUT=csc-env--handout.pdf
 
-PANDOC=$(HOME)/bin/pandoc.sif
+#PANDOC=$(HOME)/bin/pandoc.sif
+PANDOC=pandoc.sif   # Cases when pandoc is elsewhere and that folder is in PATH
 
 HTMLS:=$(patsubst %.md,%.html,$(LECTURES))
 PDFS:=$(patsubst %.md,%.pdf,$(LECTURES))
