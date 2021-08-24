@@ -11,9 +11,9 @@ In this section, you will learn how to manage different disk areas in HPC enviro
 </div>
 <div class="column">
 <small>
-All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors.
-This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 3.0
-Unported License, [http://creativecommons.org/licenses/by-nc-sa/3.0/](http://creativecommons.org/licenses/by-nc-sa/3.0/)
+All material (C) 2020-2021 by CSC -IT Center for Science Ltd.
+This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 4.0
+Unported License, [http://creativecommons.org/licenses/by-nc-sa/4.0/](http://creativecommons.org/licenses/by-nc-sa/4.0/)
 </small>
 </div>
 
