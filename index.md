@@ -133,11 +133,11 @@ author: CSC Training
     </p>
   </div>
   <div style="float: right; width: 50%;">
-    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png" width=200>
+    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png" width=180>
     <p><small>
-  All material (C) 2020-2021 by CSC -IT Center for Science Ltd. and the authors. <br />
-  This work is licensed under a <strong>Creative Commons Attribution-NonCommercial-ShareAlike</strong> 3.0 <br />
-  Unported License, <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/">http://creativecommons.org/licenses/by-nc-sa/3.0/</a>
+  All material (C) 2020-2021 by CSC -IT Center for Science Ltd.  <br />
+  This work is licensed under a <strong>Creative Commons Attribution-ShareAlike</strong> 3.0 <br />
+  Unported License, <a href="http://creativecommons.org/licenses/by-sa/4.0/">http://creativecommons.org/licenses/by-sa/4.0/</a>
       </small>
     </p>
   </div>
