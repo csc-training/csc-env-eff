@@ -17,7 +17,7 @@ author: CSC Training
 <li>Complete tutorial(s) to make sure you’ve got the steps right</li>
 <li>Try out the exercises to verify your new skill</li>
 <li>If you get stuck, consult <a href="https://docs.csc.fi">the docs</a> linked in the slides and the tutorials</li>
-<li>If the docs do not provide sufficient answer, please contact support by email <a href="mailto:servicedesk@csc.fi">servicedesk@csc.fi</a> or by submitting (a question and feedback form)[<a href="https://research.csc.fi/support">https://research.csc.fi/support</a>]</li>
+<li>If the docs do not provide sufficient answer, please contact support by email <a href="mailto:servicedesk@csc.fi">servicedesk@csc.fi</a> or by submitting (a question and feedback form) <a href="https://research.csc.fi/support">https://research.csc.fi/support</a></li>
 <li>Press <code>ctrl/cmd</code> with click to open links to a new window or tab</li>
 <li>Left-click on slides and you can then navigate them with arrow-keys<ul>
 <li>Use the browser back-button or external link to return to main menu</li>
