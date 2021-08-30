@@ -6,13 +6,13 @@ lang: en
 # Introduction to Singularity containers {.title}
 
 <div class="column">
-![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-nc-sa.png)
+![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
 </div>
 <div class="column">
 <small>
 All material (C) 2020-2021 by CSC -IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-NonCommercial-ShareAlike** 4.0
-Unported License, [http://creativecommons.org/licenses/by-nc-sa/4.0/](http://creativecommons.org/licenses/by-nc-sa/4.0/)
+Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
 </div>
 
