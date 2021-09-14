@@ -47,7 +47,7 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
     - It should be at least 8 characters long and should contain numbers, letters and special characters.
 5. Copy the public key to Puhti:
     ```bash
-    ssh-copy-id YOURCSCUSERNAME@puhti.csc.fi   # replace YOURCSCUSERNAME
+    ssh-copy-id yourcscusername@puhti.csc.fi   # replace yourcscusername
     ```
 6. Connecting with SSH to Puhti should now proceed without the need to write your key passphrase
 
@@ -73,7 +73,7 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
     ```
 7. Copy the SSH public key to Puhti by typing in Terminal
     ```bash
-    ssh-copy-id YOURCSCUSERNAME@puhti.csc.fi    # replace YOURCSCUSERNAME
+    ssh-copy-id yourcscusername@puhti.csc.fi    # replace yourcscusername
     ```
 
 ☝🏻 Equivalent files for configuring profile in step 6.

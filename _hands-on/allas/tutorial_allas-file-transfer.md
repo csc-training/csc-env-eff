@@ -18,7 +18,7 @@ title: Tutorial - File transfer with Allas (essential)
 
 {:start="5"}
 5. Create new _bucket_ by pressing button: **➕Container**
-   - Keep the bucket _Not public_ and name it as *2004306_YOURCSCUSERNAME*.
+   - Keep the bucket _Not public_ and name it as *2004306_yourcscusername*.
 6. Find the newly-created bucket and open it
 7. Upload one file from your computer. Any file should do, but prefer a file that you can open in Puhti.
 
@@ -41,8 +41,8 @@ title: Tutorial - File transfer with Allas (essential)
    ```
 4. Create your own sub-directory:
    ```bash
-   mkdir YOURCSCUSERNAME      # replace YOURCSCUSERNAME
-   cd YOURCSCUSERNAME
+   mkdir yourcscusername      # replace yourcscusername
+   cd yourcscusername
    ```
 
 ### Connecting to allas
@@ -61,41 +61,41 @@ title: Tutorial - File transfer with Allas (essential)
    1. With a-commands:
       ```bash
       a-list
-      a-list 2004306_YOURCSCUSERNAME                 # Name should correspond to your new bucket
-      a-info 2004306_YOURCSCUSERNAME/your-file-name  # replace name and your-file-name
+      a-list 2004306_yourcscusername                 # Name should correspond to your new bucket
+      a-info 2004306_yourcscusername/your-file-name  # replace name and your-file-name
       ```
    2. With r-tools
       ```bash
       rclone lsd allas:
-      rclone ls allas:2004306_YOURCSCUSERNAME                  # Name should correspond to your new bucket
-      rclone lsl allas:2004306_YOURCSCUSERNAME                 # Name should correspond to your new bucket
-      rclone lsf allas:2004306_YOURCSCUSERNAME                 # Name should correspond to your new bucket
-      rclone cat allas:2004306_YOURCSCUSERNAME/your-file-name  # replace name and your-file-name
+      rclone ls allas:2004306_yourcscusername                  # Name should correspond to your new bucket
+      rclone lsl allas:2004306_yourcscusername                 # Name should correspond to your new bucket
+      rclone lsf allas:2004306_yourcscusername                 # Name should correspond to your new bucket
+      rclone cat allas:2004306_yourcscusername/your-file-name  # replace name and your-file-name
    ```
 4. Download the file you just uploaded to Allas from your local computer. You can do that in two ways: 
    1. With a-commands:
       ```bash
-      a-get 2004306_YOURCSCUSERNAME/your-file-name     # replace name and your-file-name
+      a-get 2004306_yourcscusername/your-file-name     # replace name and your-file-name
       ```
    2. With r-tools
       ```bash
-      rclone copy allas:2004306_YOURCSCUSERNAME/your-file-name ./ # replace name and your-file-name
+      rclone copy allas:2004306_yourcscusername/your-file-name ./ # replace name and your-file-name
       ```
 5. Open/edit (+rename) the file so that you can distinguish it from the original
 6. Upload the file to Allas:
    1. With a-commands:
       ```bash
-      a-put --nc -b 2004306_YOURCSCUSERNAME your-new-file-name   # replace name and your-new-file-name
+      a-put --nc -b 2004306_yourcscusername your-new-file-name   # replace name and your-new-file-name
       ```
    💭 Use `a-put -h` to figure out the command parameters above.
 
    2. With r-tools
       ```bash
-      rclone copy your-new-file-name allas:2004306_YOURCSCUSERNAME/
+      rclone copy your-new-file-name allas:2004306_yourcscusername/
       ```
 7. Check that the file in Puhti indeed has a counterpart in Allas:
    ```bash
-   a-check --nc -b 2004306_YOURCSCUSERNAME your-new-file-name   # replace name and your-new-file-name
+   a-check --nc -b 2004306_yourcscusername your-new-file-name   # replace name and your-new-file-name
    ```
 8. Locate the files you just uploaded in Pouta web-interface. Look for the bucket name
 
@@ -119,7 +119,7 @@ title: Tutorial - File transfer with Allas (essential)
 
 1. Select a file that has an appropriate content and publish it with command:
    ```bash
-   a-publish -b 2004306_YOURCSCUSERNAME your-file-name   # replace name and your-file-name
+   a-publish -b 2004306_yourcscusername your-file-name   # replace name and your-file-name
    ```
 2. The command outputs an URL. Copy it in your browser or send it to your friends 😎 
 

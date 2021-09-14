@@ -55,11 +55,11 @@ title: Tutorial - Fast disk areas in CSC supercomputing environment
 
 1. Create your own folder (using environment variable $USER) into a project-specific directory on **scratch** area.
    ```bash
-   mkdir /scratch/project_XXXX/$USER   # replace XXXX
+   mkdir /scratch/project_xxxx/$USER   # replace xxxx
    ```
 2. Move your pre-processed data from earlier step (i.e., Merged.fasta file):
    ```bash
-   mv Merged.fasta /scratch/project_xxx/$USER
+   mv Merged.fasta /scratch/project_xxxx/$USER
    ```
 3. You have now successfully moved your data to scratch area and can start performing actual analysis using batch job scripts 
 - More about batch jobs in a later tutorials.
@@ -71,7 +71,7 @@ title: Tutorial - Fast disk areas in CSC supercomputing environment
 💡 It is sometimes needed to save the paths of project **scratch** or **projappl** directories in an environmental variable (until logout).
 - This can be done wiht a following command:
    ```bash
-   export PROJAPPL=/projappl/project_XXXX/   # replace XXXX with your project number
-   export SCRATCH=/scratch/project_XXXX/   # replace XXXX with your project number
+   export PROJAPPL=/projappl/project_xxxx/   # replace xxxx with your project number
+   export SCRATCH=/scratch/project_xxxx/   # replace xxxx with your project number
    ```
 

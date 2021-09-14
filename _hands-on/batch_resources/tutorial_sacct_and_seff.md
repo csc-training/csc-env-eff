@@ -22,15 +22,15 @@ title: Tutorial - sacct and seff, resources used  (essential)
     ```
 3. Look for a spesific job – ie. specify the job ID with the `-j` option:
     ```bash
-    sacct -j XXXXXXXX      # replace XXXXXXXX with a job ID
+    sacct -j slurmjobid      # replace slurmjobid with a job ID
     ```
 4. Check out all the available data for a job, try:
     ```bash
-    sacct -l -j XXXXXXXX   # replace XXXXXXXX with a job ID
+    sacct -l -j slurmjobid   # replace slurmjobid with a job ID
     ```
 5. Select only the interesting data with the `-o` option, for example to see job name, job ID, used memory, job finish state and elapsed wall clock time try:
     ```bash
-    sacct -o jobname,jobid,maxrss,state,elapsed -j XXXXXXXX    # replace XXXXXXXX
+    sacct -o jobname,jobid,maxrss,state,elapsed -j slurmjobid    # replace slurmjobid
     ```
 6. Check out the list of all available data fields with:
     ```bash
@@ -48,7 +48,7 @@ title: Tutorial - sacct and seff, resources used  (essential)
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
 #SBATCH --time=00:01:00          # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
 #SBATCH --job-name=array_job     # Name of the job visible in the queue.
@@ -63,7 +63,7 @@ title: Tutorial - sacct and seff, resources used  (essential)
 ```
 
 {:start="2"}
-2. Replace `project_XXXX` with your actual project name.
+2. Replace `project_xxxx` with your actual project name.
 3. Submit the job with command:
     ```bash
     sbatch array.sh
@@ -84,11 +84,11 @@ title: Tutorial - sacct and seff, resources used  (essential)
 
 1. When the job has finished (you can no longer see any of the sub jobs with `squeue`), you can use `sacct` to look at it:
     ```bash
-    sacct -j XXXXXXXX           # replace XXXXXXXX with job ID
+    sacct -j slurmjobid           # replace slurmjobid with job ID
     ```
 2. Get cleaner view by omitting the job steps:
     ```bash
-    sacct -X -j XXXXXXXX        # replace XXXXXXXX with job ID
+    sacct -X -j slurmjobid        # replace slurmjobid with job ID
     ```
 
 💬 `Sacct` is especially handy here, because it is easy to spot the 
@@ -100,12 +100,12 @@ failed sub jobs.
 {:start="3"}
 3. Use `seff` to look at individual sub jobs:
     ```bash
-    seff XXXXXXXX_5             # replace XXXXXXX again
+    seff slurmjobid_5             # replace slurmjobid again
     ```
 
 4. Try `sacct` with the `-o` option (discussed above). This time add fields `reqmem` (requested memory) and `timelimit` (requested time):
     ```bash
-    sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j XXXXXXXX    # replace XXXXXXXX
+    sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j slurmjobid    # replace slurmjobid
     ```
 
 💭 Note that in this case we can not use the `-X` option, as we want to see memory usage for each step.

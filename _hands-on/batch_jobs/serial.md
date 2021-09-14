@@ -27,7 +27,7 @@ title: Tutorial - Serial batch jobs (essential)
 
 1. Go to the scratch folder. 
     ```bash
-    cd /scratch/project_XXXX         # replace XXXX
+    cd /scratch/project_xxxx         # replace xxxx
     ```
     - Now your input (and output) are on a disk that is accessible on the compute node.
     
@@ -46,7 +46,7 @@ title: Tutorial - Serial batch jobs (essential)
 
    ```bash
    #!/bin/bash
-   #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+   #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
    #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
    #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
    #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
@@ -56,7 +56,7 @@ title: Tutorial - Serial batch jobs (essential)
     ```  
 
 {:start="4"}
-4. Change the `project_XXXX` to the project you actually want to use (e.g. with `nano`)
+4. Change the `project_xxxx` to the project you actually want to use (e.g. with `nano`)
 - Submit the job to the queue and then check the queue with the commands:
 
     ```bash
@@ -73,11 +73,11 @@ title: Tutorial - Serial batch jobs (essential)
 💬 In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job  
 
 #### Checking the output and the efficiency
-- By default the output is written into a file named `slurm-XXXXXXX.out` where `XXXXXXX` is the unique job ID
-- Check the efficiency of the job compared to the reserved resources by issuing the command `seff XXXXXXX` (replace `XXXXXXX` with the job ID number from the `slurm-XXXXXXX.out` file) 
+- By default the output is written into a file named `slurm-slurmjobid.out` where `slurmjobid` is the unique job ID
+- Check the efficiency of the job compared to the reserved resources by issuing the command `seff slurmjobid` (replace `slurmjobid` with the job ID number from the `slurm-slurmjobid.out` file) 
 
 💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`  
-🗯 A submitted job can be cancelled using the command `scancel XXXXXXX` 
+🗯 A submitted job can be cancelled using the command `scancel slurmjobid` 
 
 ## More information
 💡 [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC

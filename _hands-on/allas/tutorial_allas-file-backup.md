@@ -18,8 +18,8 @@ title: Tutorial - File backup with Allas
    ```
 4. Create your own sub-directory:
    ```bash
-   mkdir YOURCSCUSERNAME      # replace YOURCSCUSERNAME
-   cd YOURCSCUSERNAME
+   mkdir yourcscusername      # replace yourcscusername
+   cd yourcscusername
    ```
 
 ### Connecting to allas

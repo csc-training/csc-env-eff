@@ -29,14 +29,14 @@ During the exercises, you can use this interface to get another view to the buck
 
 **Linux/mac/MobaXterm**
 ```bash
-ssh XXXX@puhti.csc.fi   (replace XXXX with your csc user account)
+ssh youcscusername@puhti.csc.fi   (replace youcscusername with your csc user account)
 ```
 
 **Windows/PuTTY**
 
    **host:** puhti.csc.fi
  
-   **login as:** XXXX  (replace XXXX with your csc user account)
+   **login as:** youcscusername  (replace youcscusername with your csc user account)
 
 
 In Puhti check your environment with command:
@@ -49,13 +49,13 @@ cd /scratch/project_2004306  # note! replace the text here (and below) with your
 ```
 And create your own sub-directory, named after your training account (if this directory does not yet exist):
 ```bash
-mkdir XXXX 
+mkdir youcscusername 
 ```
-(replace XXXX with your user account)
+(replace youcscusername with your user account)
 
 move to the directory.
 ```bash
-cd XXXX
+cd youcscusername
 ```
 
 ## 2. Download data with curl
@@ -83,7 +83,7 @@ If you have several Allas projects available, select the training project we are
 
 ### Upload case 1.  rclone
 
-Upload the data from Puhti to Allas with `rclone`. Use the command below (replace XXXX with your user account):
+Upload the data from Puhti to Allas with `rclone`. Use the command below (replace youcscusername with your user account):
 ```bash
 rclone -P copyto pythium allas:xxxx-genomes-rc/
 ```
@@ -109,7 +109,7 @@ Locate your own _xxxx-genomes-rc_ directory and download one of the uploaded fas
 ### Upload case 2. a-put 
 
 Upload the pythium directory from Puhti to Allas using following commands
-(replace XXXX with your user account)
+(replace youcscusername with your user account)
 
 A-put case 1: Store everything in one object:
 ```bash
@@ -133,8 +133,8 @@ A-put case 3: Use your own bucket name
 
 A-put case 4: Upload files without compression.
 ```bash 
-a-put --nc  pythium/pythium_vexans/bwaindex/* -b XXXX_ap_vexans_bwa
-a-list XXXX_ap_vexans_bwa
+a-put --nc  pythium/pythium_vexans/bwaindex/* -b youcscusername_ap_vexans_bwa
+a-list youcscusername_ap_vexans_bwa
 ```
 Can you see the difference between the four _a-put_ commands above?
 
@@ -249,7 +249,7 @@ ls -l
 
 ## 2. Download with  a-get
 
-Return to your XXXX directory in Puhti scratch
+Return to your youcscusername directory in Puhti scratch
 ```bash
 cd ..
 ```
@@ -259,7 +259,7 @@ Check that you are in right place:
 pwd
 ```
 
-The _pwd_ command should print  /scratch/project_projnum/_XXXX_
+The _pwd_ command should print  /scratch/project_projnum/_youcscusername_
 
 Make a new directory 
 ``text

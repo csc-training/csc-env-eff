@@ -9,7 +9,7 @@ title: Exercise - Retrieving data from bio data repositories (advanced)
 
 - We will do these exercises using the [sinteractive](https://docs.csc.fi/computing/running/interactive-usage/) command (substitute xxxx with correct project number):
 ```text
-sinteractive --account project_xxxxx
+sinteractive --account project_xxxx
 ```
 - To use the applications in steps 2 and 3, we will need to load the biokit module:
 ```text

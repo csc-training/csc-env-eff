@@ -26,7 +26,7 @@ title: Tutorial - Parallel batch jobs
 
 1. Go to the scratch folder. 
     ```bash
-    cd /scratch/project_XXXX         # replace XXXX
+    cd /scratch/project_xxxx         # replace xxxx
     ```
     - Now your input (and output) are on a disk that is accessible on the compute node.
     
@@ -41,11 +41,11 @@ title: Tutorial - Parallel batch jobs
     ```bash
     chmod +x hello_omp.x
     ``` 
-4. Copy the following example into a file called `my_parallel_omp.bash` and change the `projet_XXXX` to the project you actually want to use:
+4. Copy the following example into a file called `my_parallel_omp.bash` and change the `project_xxxx` to the project you actually want to use:
 
     ```bash
     #!/bin/bash
-    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+    #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
     #SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
     #SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
     #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
@@ -72,7 +72,7 @@ title: Tutorial - Parallel batch jobs
 🗯 Each of the four threads launced by `hello_omp.x` will print their own output.
 
 #### Check the output
-💬 When finished, the output file `slurm-XXXXXXX.out` should contain the results printed from the four OpenMP threads 
+💬 When finished, the output file `slurm-slurmjobid.out` should contain the results printed from the four OpenMP threads 
 
 1. Check which files exist in the folder:
     ```bash
@@ -80,7 +80,7 @@ title: Tutorial - Parallel batch jobs
     ```
 2. Check the output with:
     ```bash
-    cat slurm-XXXXXXX.out     # replace XXXXXXXX
+    cat slurm-slurmjobid.out     # replace slurmjobid
     ``` 
 3. The results should look something like this: 
     ```bash
@@ -102,11 +102,11 @@ title: Tutorial - Parallel batch jobs
     ```bash
     chmod +x hello_mpi.x
     ``` 
-3. Copy the example below into a file called `my_parallel.bash` and change the `project_XXXX` to the project you actually want to use
+3. Copy the example below into a file called `my_parallel.bash` and change the `project_xxxx` to the project you actually want to use
 
     ```bash
     #!/bin/bash
-    #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+    #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
     #SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
     #SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
     #SBATCH --nodes=2                # Number of computer nodes. Max: depends on partition.
@@ -130,11 +130,11 @@ title: Tutorial - Parallel batch jobs
 💬 Each of the 8 tasks launced by `hello_mpi.x` will report on which node they got their resource. 
 
 #### Check the output and the efficiency
-💬 When finished, the output file `slurm-XXXXXXX.out` should contain the results obtained by the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
+💬 When finished, the output file `slurm-slurmjobid.out` should contain the results obtained by the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
 
 1. Check The output with:
     ```bash
-    cat slurm-XXXXXXX.out    # replace XXXXXXXX
+    cat slurm-slurmjobid.out    # replace slurmjobid
     ```
 2. The output should look something like this:
     ```bash
@@ -148,7 +148,7 @@ title: Tutorial - Parallel batch jobs
     Hello world from node r07c02.bullx, rank 6 out of 8 tasks
     ```
 3. The output above verifies that the requested 8 tasks were distributed over two nodes (`r07c01.bullx, r07c02.bullx`), four tasks on each
-4. Check the efficiency of the job compared to the reserved resources by issuing the command `seff XXXXXXX` (replace `XXXXXXX` with the actual job ID number from the `slurm-XXXXXXX.out` file)
+4. Check the efficiency of the job compared to the reserved resources by issuing the command `seff slurmjobid` (replace `slurmjobid` with the actual job ID number from the `slurm-slurmjobid.out` file)
 
 🗯 **Note!** This example asks 4 cores from each of the 2 nodes. Normally, this would not make sense, but it would be better to run all 8 cores in the same node (in Puhti one node has 40 cores). Typically, you want your resources (cores) to be spread on as few nodes as possible.
 
@@ -156,4 +156,4 @@ title: Tutorial - Parallel batch jobs
 💡 [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
 
 💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`  
-💭 A submitted job can be cancelled using the command `scancel XXXXXXX` 
+💭 A submitted job can be cancelled using the command `scancel slurmjobid` 

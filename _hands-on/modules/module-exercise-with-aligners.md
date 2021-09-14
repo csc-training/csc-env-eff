@@ -55,7 +55,7 @@ module load bioconda/3
 3. Check the name/number of your project(s) with command `csc-workspaces`)
 4. Set the PROJAPPL environment variable with command :
 ```bash
-export PROJAPPL=/projappl/project_XXXX    # replace the XXXX
+export PROJAPPL=/projappl/project_xxxx    # replace the xxxx
 ```
 5. Re-run the ```module load``` command and then check which applications are available in this bioconda environment:
 ```bash

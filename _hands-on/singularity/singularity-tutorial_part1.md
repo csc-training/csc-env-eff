@@ -9,7 +9,7 @@ title: Tutorial - Singularity introduction start (essential)
 
 1. To run these exercises in Puhti, use `sinteractive`.
 ```bash
-sinteractive --account project_XXXX   # Change the XXXX for the project number
+sinteractive --account project_xxxx   # Change the xxxx for the project number
 ```
 
 ## Getting started
@@ -50,11 +50,11 @@ sinteractive --account project_XXXX   # Change the XXXX for the project number
     module load nano   # The computing node does not have nano by default
     nano test.sh
     ```
-2. Copy the following contents into the file and change "project_XXXX" to the correct project name:
+2. Copy the following contents into the file and change "project_xxxx" to the correct project name:
     ```bash
    #!/bin/bash
    #SBATCH --job-name=test           # Name of the job visible in the queue.
-   #SBATCH --account=project_XXXX    # Choose the billing project. Has to be defined!
+   #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
    #SBATCH --partition=test          # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
    #SBATCH --time=00:01:00           # Maximum duration of the job. Max: depends of the partition. 
    #SBATCH --mem=1G                  # How much RAM is reserved for job per node.
