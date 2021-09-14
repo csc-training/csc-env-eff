@@ -12,7 +12,7 @@ title: Tutorial - Installing a simple C code from source
 ☝🏻 To follow the instructions, set up environment variable to point to your projects `/projappl` folder:
 
 ```bash
-export PROJAPPL=/projappl/project_XXXX   # replace XXXX to match the project name
+export PROJAPPL=/projappl/project_xxxx   # replace xxxx to match the project name
 ```
 
 ## Obtaining source code

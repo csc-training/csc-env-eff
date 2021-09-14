@@ -28,8 +28,8 @@ title: Advanced tutorial - How to get containers
 **Option 1.**  
 1. If you're running on a node with no local storage, you can use e.g. /scratch:
 ```bash
-export SINGULARITY_TMPDIR=/scratch/project_XXXX/YOURCSCUSERNAME      # Replace XXXX and YOURCSCUSERNAME
-export SINGULARITY_CACHEDIR=/scratch/project_XXXX/YOURCSCUSERNAME    # Replace XXXX and YOURCSCUSERNAME
+export SINGULARITY_TMPDIR=/scratch/project_xxxx/yourcscusername      # Replace xxxx and yourcscusername
+export SINGULARITY_CACHEDIR=/scratch/project_xxxx/yourcscusername    # Replace xxxx and yourcscusername
 ```
 
 **Option 2.**  

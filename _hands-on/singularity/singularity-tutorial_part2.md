@@ -22,12 +22,12 @@ title: Tutorial - Singularity introduction continued
 
 1. To run these exercises in Puhti, use `sinteractive`:
     ```bash
-    sinteractive --account project_XXXX   # Change the XXXX for the project number
+    sinteractive --account project_xxxx   # Change the xxxx for the project number
     ```
 
 2. Try listing the contents of your project directory (substitute the correct path) from inside the container without `bind`:
     ```bash
-    export SCRATCH=/scratch/project_XXXX/YOURCSCUSERNAME    # Replace XXXX and YOURCSCUSERNAME
+    export SCRATCH=/scratch/project_xxxx/yourcscusername    # Replace xxxx and yourcscusername
     singularity exec tutorial.sif ls $SCRATCH
     ```
 3. The container can not see the host directory, so you will get a "No such file or directory" error.

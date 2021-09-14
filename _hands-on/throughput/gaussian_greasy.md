@@ -33,8 +33,8 @@ title: Advanced tutorial - Gaussian with GREASY
 
 1. Create and enter a suitable scratch directory on Puhti 
     ```bash
-    mkdir -p /scratch/project_XXXX/YOURCSCUSERNAME/gaussian_greasy    # replace XXXX to match the project name and YOURCSCUSERNAME to match – well – your user name...
-    cd /scratch/project_XXXX/gaussian_greasy 
+    mkdir -p /scratch/project_xxxx/yourcscusername/gaussian_greasy    # replace xxxx to match the project name and yourcscusername to match – well – your user name...
+    cd /scratch/project_xxxx/gaussian_greasy 
     ```
 2. Download the 10 C<sub>6</sub>H<sub>12</sub> structures that have originally been obtained from [ChemSpider](https://www.chemspider.com/Search.aspx) 
     ```bash
@@ -111,10 +111,10 @@ done
 6. After the script is finished you should have a tasklist file `greasy_10.tasklist` that contains the Gaussian executing commands for the 10 `com` files on separate lines.
 7. Check out the tasklist with `more`, `less` or `cat`. The file should look like:
     ```bash
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/10737.com > output/10737/10737.log
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/10775.com > output/10775/10775.log
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/10776.com > output/10776/10776.log
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/11109.com > output/11109/11109.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/10737.com > output/10737/10737.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/10775.com > output/10775/10775.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/10776.com > output/10776/10776.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/11109.com > output/11109/11109.log
     ...and stuff
     ```
 
@@ -128,15 +128,15 @@ done
     ```
 2. Use the tool `sbatch-greasy` to start the the 10 Gaussian jobs:
     ```bash
-    sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account project_XXXX greasy_10.tasklist  # replace XXXX to match your project name
+    sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account project_xxxx greasy_10.tasklist  # replace xxxx to match your project name
     ```
 
 💬 The command submits the GREASY job using the newly generated GREASY tasklist `greasy_10.tasklist` and the following resource requests:
  - 4 cores **`--cores 4`** for each job (matches to the spesification in gaussian input files)
  - Computation time for two minutes **`--time 02:00`**
  - Computation on a single node **`--nodes 1`**
- - Billing project **`--account project_XXXX`** 
-    - If you don't remember to replace **`project_XXXX`** with the actual project name the prompt asks you to choose one
+ - Billing project **`--account project_xxxx`** 
+    - If you don't remember to replace **`project_xxxx`** with the actual project name the prompt asks you to choose one
 
 {:start="3"}
 3. A successful submission should report something like:
@@ -144,28 +144,28 @@ done
     Task list "greasy_10.tasklist" includes 10 tasks.
     The first two rows of the task list are:
 
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/10737.com > output/10737/10737.log
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/10775.com > output/10775/10775.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/10737.com > output/10737/10737.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/10775.com > output/10775/10775.log
 
     -------------------------------------------------------------------------
     Submitting GREASY job consisting of 10 tasks to 1 nodes.
     The job will run 10 tasks at the time each using 4 cores.
     The maximum runtime reseved to process all the tasks is 0 h 5 m.
 
-    Job submitted with ID xxxxxxx
+    Job submitted with ID slurmjobid
 
     You can monitor the progress of the task with command:
-    squeue -j xxxxxxx
+    squeue -j slurmjobid
 
     Once the job has started you can monitor the progress of the job with command:
-    tail -f greasy-xxxxxxx.log
+    tail -f greasy-slurmjobid.log
     ``` 
 
 ## Check the GREASY tasklist results
 
 1. Monitor the queue with
     ```bash
-    squeue -j xxxxxxx    # replace xxxxxxx with the job ID
+    squeue -j slurmjobid    # replace slurmjobid with the job ID
     ```
     - Or:
         ```bash
@@ -192,11 +192,11 @@ done
 6. The output should look like:
     ```bash
     # Greasy restart file generated at 2021-03-09 20:10:27
-    # Original task file: /scratch/project_XXXX/gaussian_greasy/greasy_10.tasklist
-    # Log file: /scratch/project_XXXX/gaussian_greasy/greasy-5162452.log
+    # Original task file: /scratch/project_xxxx/gaussian_greasy/greasy_10.tasklist
+    # Log file: /scratch/project_xxxx/gaussian_greasy/greasy-5162452.log
     # 
     # Warning: Task 10 failed
-    g16 < /scratch/project_XXXX/gaussian_greasy/C6H12_structures_10/7787.com > output/7787/7787.log
+    g16 < /scratch/project_xxxx/gaussian_greasy/C6H12_structures_10/7787.com > output/7787/7787.log
     # End of restart file
     ```
     - The error report shows that the job `7787.com` has failed!
@@ -227,7 +227,7 @@ sed -i "6s/^/7787/" C6H12_structures_10/7787.com
 ```
 12. Restart the job with the restart file created by GREASY:
     ```bash
-    sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account project_XXXX greasy_10.tasklist-undefined.rst  # replace XXXX to match your project name
+    sbatch-greasy --cores 4 --time 02:00 --nodes 1 --account project_xxxx greasy_10.tasklist-undefined.rst  # replace xxxx to match your project name
     ```
 13. When the GREASY job has finished check that the previously failed job has successfully finished 
 ```bash

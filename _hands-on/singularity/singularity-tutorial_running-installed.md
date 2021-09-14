@@ -18,7 +18,7 @@ title: Tutorial - Running applications installed as containers
 
 1. To run these exercises in Puhti, use `sinteractive`.
 ```bash
-sinteractive --account project_XXXX   # Change the XXXX for the project number
+sinteractive --account project_xxxx   # Change the xxxx for the project number
 ```
 
 ## Example 1: A "hidden" installation

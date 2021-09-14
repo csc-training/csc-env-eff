@@ -46,7 +46,7 @@ You can check the available modules with command:
     ```
     💡 If you are not in the same directory as the .jar file, you need to include the path to the file, e.g.
     ```bash
-    java -jar /projappl/project_XXXX/abra2/abra2-2.23.jar # Replace with actal path
+    java -jar /projappl/project_xxxx/abra2/abra2-2.23.jar # Replace with actal path
     ```
 
 ## Example 2: Java application with shell wrapper script
@@ -55,7 +55,7 @@ You can check the available modules with command:
 
 One example of such application:
     ```bash
-    sinteractive --account=project_XXXX # Replace XXXX to match actual project name    
+    sinteractive --account=project_xxxx # Replace xxxx to match actual project name    
     module load beast
     beast --help
     ```

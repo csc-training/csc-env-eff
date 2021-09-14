@@ -17,11 +17,11 @@ Below is a normal batch job that pulls docker image from DockerHub and converts 
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
 #SBATCH --time=01:00:00          # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-export SINGULARITY_TMPDIR=/scratch/project_xxx/$USER    # Use these folders instead of the default: $HOME
-export SINGULARITY_CACHEDIR=/scratch/project_xxx/$USER  # because at $HOME there's less space and you hate cleaning, don't you?
+export SINGULARITY_TMPDIR=/scratch/project_xxxx/$USER    # Use these folders instead of the default: $HOME
+export SINGULARITY_CACHEDIR=/scratch/project_xxxx/$USER  # because at $HOME there's less space and you hate cleaning, don't you?
 singularity pull --name trinity.simg  docker://trinityrnaseq/trinityrnaseq
 ```
 
@@ -51,7 +51,7 @@ sbatch batch_job.sh
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_xxx    # Choose the billing project. Has to be defined!
+#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
 #SBATCH --time=01:00:00          # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
 #SBATCH --gres=nvme:100          # Reservation of local NVMe storage. Unit: MiB
@@ -64,7 +64,7 @@ cd $LOCAL_SCRATCH
 #pwd
 #df -lh
 singularity pull --name trinity.simg docker://trinityrnaseq/trinityrnaseq
-mv trinity.simg /scratch/project_xxx/$USER/                                                            
+mv trinity.simg /scratch/project_xxxx/$USER/                                                            
 ```
 
 Below is the comparison of execution time for running the same job in LOCAL_SCRATCH *vs.* normal scratch.  

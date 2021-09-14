@@ -35,14 +35,14 @@ During the exercises, you can use this interface to get another view to the buck
 
 **Linux/Mac/MobaXterm on Windows**
 ```bash
-ssh XXXX@puhti.csc.fi   (replace XXXX with your csc user account)
+ssh youcscusername@puhti.csc.fi   (replace youcscusername with your csc user account)
 ```
 
 **Windows/PuTTY**
 
    **host:** puhti.csc.fi
  
-   **login as:** XXXX  (replace XXXX with your csc user account)
+   **login as:** youcscusername  (replace youcscusername with your csc user account)
 
 
 In Puhti check your environment with command:
@@ -55,13 +55,13 @@ cd /scratch/project_2004306# note! replace the text here (and below) with your p
 ```
 And create your own sub-directory, named after your training account (if this directory does not yet exist):
 ```bash
-mkdir XXXX 
+mkdir youcscusername 
 ```
-(replace XXXX with your user account)
+(replace youcscusername with your user account)
 
 move to the directory.
 ```bash
-cd XXXX
+cd youcscusername
 ```
 
 ## Using Allas
