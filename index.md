@@ -29,7 +29,7 @@ author: CSC Training
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Accounts and Projects](https://a3s.fi/CSC_training/00_account_and_project.html)
 ### 1.2 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
-### 1.3 [Video: Connecting to Puhti](https://a3s.fi/CSC_training/Video-Connecting.mp4)
+### 1.3 [Video: Connecting to Puhti](https://youtu.be/XnXFW1jYXTc)
 ### 1.4 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
@@ -86,7 +86,7 @@ author: CSC Training
 
 ## 7. Allas and where to keep your data
 ### 7.1 [Slides](https://a3s.fi/CSC_training/07_allas.html)
-### 7.2 [Video: Using Allas](https://a3s.fi/CSC_training/Video-Allas.mp4)
+### 7.2 [Video: Using Allas](https://youtu.be/q5PZot62kv8)
 ### 7.3 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'allas' %}
