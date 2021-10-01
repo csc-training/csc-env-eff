@@ -34,6 +34,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Other users cannot access you home directory
 - ProjAppl directory (`/projappl/project_name`)
     - Shared with project members
+    - Possible to limit access (`chmod g-rw`) in subfolders
 - Scratch directory (`/scratch/project_name`)
     - Shared with project members
     - Files older than 90 days will be automatically removed
