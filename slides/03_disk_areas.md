@@ -31,13 +31,16 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Main disk areas in Puhti/Mahti
 
 - Home directory (`$HOME`)
+    - Other users cannot access you home directory
 - ProjAppl directory (`/projappl/project_name`)
+    - Shared with project members
+    - Possible to limit access (`chmod g-rw`) in subfolders
+    - Possible to limit access (`chmod g-rw`) in subfolders
 - Scratch directory (`/scratch/project_name`)
+    - Shared with project members
+    - Files older than 90 days will be automatically removed
 - These directories reside on [Lustre parallel file system](https://docs.csc.fi/computing/lustre/)
-- Note that:
-    - Default quotas and more info on [disk areas section](https://docs.csc.fi/computing/disk/)
-    - Files older than 90 days on `scratch` will be automatically removed
-    - Scratch root is shared with your computing project
+- Default quotas and more info on [disk areas section](https://docs.csc.fi/computing/disk/)
 
 # Moving data between and to/from supercomputers
 
