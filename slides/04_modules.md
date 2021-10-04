@@ -51,14 +51,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Conda environments
 - [Conda](https://docs.conda.io/en/latest/) is a package management tool for distributing and installing software tools and their dependencies
-- Some applications in Puhti are installed and used as [Conda environments](https://docs.csc.fi/support/tutorials/conda/#what-is-conda)
-   - See for example: [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda)
-      - `conda env list`: List the environments
-      - `module load bioconda`: Load bioconda
-      - `source activate rseqc`: Activate RSeQC application
-- You can use Conda modules to install tools that are available in Conda repositories.
-
-      
+- Load for example [Bioconda](https://docs.csc.fi/apps/bioconda/) or [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda) module to use and install tools that are already available in [Conda environments](https://docs.csc.fi/support/tutorials/conda/#what-is-conda)
+   - `module load bioconda`: Load bioconda
+- Use the following commands to check available Conda environments and to activate one
+   - `conda env list`: List the environments
+   - `source activate rseqc`: Activate Conda env with RSeQC application
   
 # Customizing own environment
 - If you "always" use some modules, it is possible to add loading them to `.bashrc`, but **we do not recommend this**
