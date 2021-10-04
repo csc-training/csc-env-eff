@@ -43,7 +43,15 @@ Roughly you can think of
 ![](./img/cluster.svg){width=80%} 
 </div>
 
-# Which supercomputer computer to use? 
+# Available HPC resources
+
+- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general purpose supercomputer ☑️
+- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
+- [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (Iaas)
+- [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via okd (Paas)
+- [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
+
+# Which supercomputer to use? 
 
 - What kind of recources can _your application_ use?
   - Can it use more than one core?
@@ -54,14 +62,6 @@ Roughly you can think of
   - Is my code already installed?
   - Max. runtime, partitions (queues), provisioning policy (Per core/per node/other)
   - Each system is different, so check the documentation
-
-# Available HPC resources
-
-- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general purpose supercomputer ☑️
-- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
-- [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (Iaas)
-- [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via okd (Paas)
-- [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
 
 # Quick and dirty comparison of Puhti and Mahti
 
