@@ -28,12 +28,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Depending on the requested resources and load, the job may need to wait to get started
 - At CSC (and HPC systems in general) all heavy computing must be done via batch jobs (see [Usage policy](https://docs.csc.fi/computing/overview/#usage-policy))
 
-# What is a batch job system? 1/2
+# What is a batch job system?
 - A resource management system that keeps track of all batch jobs that use, or would like to use the computing resources
 - Aims to share the resources in an efficient and fair way
 - Optimizes resource usage by filling the compute node with most suitable jobs
 
-# What is a batch job system? 2/2
+# Queueing and fair share of resources
 - A job is queued and starts when the requested resources become available
 - The order in which the queued jobs start depends on their priority and available resources
 - At CSC the priority is configured to use "fair share"
