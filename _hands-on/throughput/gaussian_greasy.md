@@ -5,17 +5,17 @@ title: Advanced tutorial - Gaussian with GREASY
 
 # Using GREASY for running multiple Gaussian jobs on Puhti
 
-> This tutorial requires that 
+This tutorial requires that 
 - you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 - your account belongs to a project [that has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/). - your account belongs to the [Gaussian users group](https://docs.csc.fi/apps/gaussian/)
 
-> This tutorial is done on Puhti 
+This tutorial is done on Puhti 
 
 ## Overview
 
-💬 [GREASY](https://docs.csc.fi/computing/running/greasy/) metascheduler is a tool for task/job farming and running "embarrassingly parallel" jobs. 
+[GREASY](https://docs.csc.fi/computing/running/greasy/) metascheduler is a tool for task/job farming and running "embarrassingly parallel" jobs. 
 
-💬 As an example, we have several similar molecular structures and would like to know how they are energetically related to each other   
+ As an example, we have several similar molecular structures and would like to know how they are energetically related to each other   
 - The aim is to run Gaussian calculations on 10 different isomers corresponding to the C<sub>6</sub>H<sub>12</sub> molecular formula 
 - The computational effort of each of the 10 calculations is expected to be comparable
 
