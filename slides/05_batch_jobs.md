@@ -61,16 +61,16 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 ```text
 #!/bin/bash
-#SBATCH --job-name=print_hostname
-#SBATCH --time=00:01:00
-#SBATCH --partition=test
-#SBATCH --ntasks=1
-#SBATCH --account=project_20001234
+#SBATCH --job-name=print_hostname     # Defines the job name shown in the queue.
+#SBATCH --time=00:01:00               # Defines the max time the job can run.
+#SBATCH --partition=test              # Defines the queue in which to run the job.
+#SBATCH --ntasks=1                    # Defines the number of tasks.
+#SBATCH --cpus-per-task=1             # Number of cores is ntasks * cpus-per-task.
+#SBATCH --account=project_20001234    # Defines the billing project. Mandatory field.
 
 srun echo "Hello $USER! You are on node $HOSTNAME"
 ```
 - The options have been described in [Create batch jobs for Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/)
-   - The `--account` option is mandatory to tell which project should be billed
    - The actual _program_ is launched using the `srun` command
    - The content above could be copied into a file like `simple_serial.bash` and put into the queue with the command `sbatch simple_serial.bash`
 
