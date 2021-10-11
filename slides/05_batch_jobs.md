@@ -78,7 +78,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 
 <div class="column">
 
-- The [application list in docs](https://docs.csc.fi/apps/) contains example scripts for each software
+- The [application list in docs](https://docs.csc.fi/apps/) contains example scripts for some software
 - Use these as the *starting point* for your own scripts
 - They have been tested and optimized (although for minimal resources) for *that* application
    - Consult the manual or other examples to adapt to your own needs
