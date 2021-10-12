@@ -90,7 +90,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 
 # Submitting, cancelling and stats of batch jobs
 - The job script file is submitted with the command:
-   - `sbatch batch_job.bash`
+   - `sbatch example_job.sh`
 - List all your jobs that are queuing/running:
    - `squeue -u $USER`
 - Detailed info of a queuing/running job:
