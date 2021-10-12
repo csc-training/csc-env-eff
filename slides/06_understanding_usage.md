@@ -79,10 +79,20 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Billing units - also a currency to compare usage efficiency
 
 - CPU time and storing files consume "Billing units" (BU)
-- BUs are a property of computing projects and can be applied via [my.csc.fi](https://my.csc.fi)
-   - Please acknowledge using CSC resources in your publications and add them to the resource application!
-   - Academic usage is one of the [free-of-use cases](https://research.csc.fi/pricing)
-- You can estimate [usage with the online billing calculator](https://research.csc.fi/pricing) 
+- BUs are a property of computing projects not users
+- You can monitor the usage with command `csc-projects` in the command line
+      - For help/options, try `csc-projects -h` in Puhti commandline    
+- Each batch job is billed using a scheme that takes into account the requested (and thus allocated) resources
+   - Note that the billing is based on the actual (wall) _time_ a job has **used**, not the reserved maximum time, but for _memory_ the **reservation** is billed
+   - Can you think of why?
+
+# Applying for Billing units
+
+- Billing units can be also applied via [My Projects page in MyCSC](https://my.csc.fi/welcome)
+   - Please acknowledge using CSC resources in your publications
+   - Please also inform us about your work by adding your publications to the resource application!
+- Academic usage is one of the [free-of-use cases](https://research.csc.fi/pricing)
+- You can estimate [usage with the online billing calculator](https://research.csc.fi/billing-and-monitoring#buc) 
    - The calculator can also be used to estimate the value of the resources
 
 # Billing units - also a currency to compare usage efficiency
