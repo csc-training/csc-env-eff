@@ -106,27 +106,6 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - In order to use the resources in an efficient way, it is important to estimate the request as accurately as possible
 - By avoiding an excessive "just-in-case" requests, the job will start earlier
 
-# Mapping your needs and the performance
-
-- Before starting any large-scale calculations it's a good practice to _check_ how the software and your actual input performs
-    - Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
-    - If the program works in parallel check that it benefits from the requested parallel resources 
-    - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient
-    - (This topic will be covered in detail in the next lecture) 
-
-# Reserving and optimizing batch job resources 
-
-The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for _your_ job, in order to minimize **wasting** them 
-
-* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
-   - It's _worse_ to run with way too big requests (often) without knowing it
-- **Important resource requests that should be monitored are:**
-   - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
-   - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
-   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
-   - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
-
 # Different type of HPC jobs 1/2
 
 - Typically an HPC job can be classified as serial, parallel or gpu, depending on the main requested resource 

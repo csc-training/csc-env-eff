@@ -109,8 +109,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Reserving and optimizing batch job resources 
 
 The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for your job as accurately as possible, in order to minimize the **waste** 
+Try to estimate the resources that are needed for _your_ job, in order to minimize **wasting** them.
 
+* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
+   - It's _worse_ to run with way too big requests (often) without knowing it
 - Important resource requests that should be monitored are:
    - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
    - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
