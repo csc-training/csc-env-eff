@@ -106,40 +106,12 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - In order to use the resources in an efficient way, it is important to estimate the request as accurately as possible
 - By avoiding an excessive "just-in-case" requests, the job will start earlier
 
-# Mapping your needs and the performance
-
-- Before starting any large-scale calculations it's a good practice to _check_ how the software and your actual input performs
-    - Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
-    - If the program works in parallel check that it benefits from the requested parallel resources 
-    - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient
-    - (This topic will be covered in detail in the next lecture) 
-
-# Reserving and optimizing batch job resources 
-
-The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for _your_ job, in order to minimize **wasting** them 
-
-* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
-   - It's _worse_ to run with way too big requests (often) without knowing it
-- **Important resource requests that should be monitored are:**
-   - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
-   - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
-   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
-   - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
-
 # Different type of HPC jobs 1/2
 
-- Typically an HPC job can be classified as serial, parallel or gpu, depending on the main requested resource 
-- Each batch job is billed using a scheme that takes into account the requested (and thus allocated) resources
-   - Note that the billing is based on the actual (wall) _time_ a job has **used**, not the reserved maximum time, but for _memory_ the **reservation** is billed
-   - Can you think of why?
-- See the [Billing unit (BU) and price calculator at research.csc.fi](https://research.csc.fi/billing-and-monitoring#buc)
-- The billing is done per project
-
-# Different type of HPC jobs 2/2
-- Via the [My Projects page in MyCSC](https://my.csc.fi/welcome) you can monitor the BU consumption and apply for more billing units
-- `csc-projects` is a command line tool for showing the BU consumption per project
-   - For help/options, try `csc-projects -h` in Puhti commandline    
+- Typically an HPC job can be classified as serial, parallel or GPU, depending on the main requested resource 
+- The following slides will provide you with an overview of different job types
+- A serial job is the simplest type of job whereas parallel and GPU-jobs may require some advanced methods to fully utilise their capacity
+- If you use already installed software be sure to study if it needs resources for serial, parallel or GPU jobs
 
 # HPC serial jobs 1/2
 

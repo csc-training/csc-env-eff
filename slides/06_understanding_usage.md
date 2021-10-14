@@ -79,10 +79,20 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Billing units - also a currency to compare usage efficiency
 
 - CPU time and storing files consume "Billing units" (BU)
-- BUs are a property of computing projects and can be applied via [my.csc.fi](https://my.csc.fi)
-   - Please acknowledge using CSC resources in your publications and add them to the resource application!
-   - Academic usage is one of the [free-of-use cases](https://research.csc.fi/pricing)
-- You can estimate [usage with the online billing calculator](https://research.csc.fi/pricing) 
+- BUs are a property of computing projects not users
+- You can monitor the usage with command `csc-projects` in the command line
+      - For help/options, try `csc-projects -h` in Puhti commandline    
+- Each batch job is billed using a scheme that takes into account the requested (and thus allocated) resources
+   - Note that the billing is based on the actual (wall) _time_ a job has **used**, not the reserved maximum time, but for _memory_ the **reservation** is billed
+   - Can you think of why?
+
+# Applying for Billing units
+
+- Billing units can be also applied via [My Projects page in MyCSC](https://my.csc.fi/welcome)
+   - Please acknowledge using CSC resources in your publications
+   - Please also inform us about your work by adding your publications to the resource application!
+- Academic usage is one of the [free-of-use cases](https://research.csc.fi/pricing)
+- You can estimate [usage with the online billing calculator](https://research.csc.fi/billing-and-monitoring#buc) 
    - The calculator can also be used to estimate the value of the resources
 
 # Billing units - also a currency to compare usage efficiency
@@ -109,8 +119,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Reserving and optimizing batch job resources 
 
 The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for your job as accurately as possible, in order to minimize the **waste** 
+Try to estimate the resources that are needed for _your_ job, in order to minimize **wasting** them.
 
+* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
+   - It's _worse_ to run with way too big requests (often) without knowing it
 - Important resource requests that should be monitored are:
    - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
    - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
