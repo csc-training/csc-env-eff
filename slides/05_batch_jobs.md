@@ -113,7 +113,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - A serial job is the simplest type of job whereas parallel and GPU-jobs may require some advanced methods to fully utilise their capacity
 - If you use already installed software be sure to study if it needs resources for serial, parallel or GPU jobs
 
-# HPC serial jobs 1/2
+# HPC serial jobs
 
 - A serial software can only use one core, so don't reserve more!
 - Why could your serial job benefit from being executed using CSC's resources instead of on your own computer? 
@@ -125,7 +125,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
     - It was already installed
     - Memory and/or disk demands
 
-# HPC serial jobs 2/2
+# Running multiple serial jobs
 - You can utilize parallel resources for running multiple serial jobs at the same time
     - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/) 
     - [GREASY jobs](https://docs.csc.fi/computing/running/greasy/)
