@@ -76,7 +76,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Note: these are heavy operations for Slurm. **Don't** query
      too long times, or loop these commands in scripts
 
-# Billing units - also a currency to compare usage efficiency
+# Billing units
 
 - CPU time and storing files consume "Billing units" (BU)
 - BUs are a property of computing projects not users
