@@ -80,8 +80,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - CPU time and storing files consume "Billing units" (BU)
 - BUs are a property of computing projects not users
-- You can monitor the usage with command `csc-projects` in the command line
-      - For help/options, try `csc-projects -h` in Puhti commandline    
+- Monitor the BU usage with command `csc-projects` in the command line
+   - For help/options, try `csc-projects -h`
 - Each batch job is billed using a scheme that takes into account the requested (and thus allocated) resources
    - Note that the billing is based on the actual (wall) _time_ a job has **used**, not the reserved maximum time, but for _memory_ the **reservation** is billed
    - Can you think of why?
