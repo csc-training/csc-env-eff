@@ -40,7 +40,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Log in via NoMachine
 
 - NoMachine is a software that makes remote graphics easier, like using a graphical user interface (GUI)
-   - Note, [R Studio](https://docs.csc.fi/apps/r-env-singularity/) and [Jupyter Notebooks](https://docs.csc.fi/computing/running/interactive-usage/#example-running-a-jupyter-notebook-server-via-sinteractive) have a better way via client server approach
+   - Note that for example [R Studio](https://docs.csc.fi/apps/r-env-singularity/) and [Jupyter Notebooks](https://docs.csc.fi/computing/running/interactive-usage/#example-running-a-jupyter-notebook-server-via-sinteractive) can easily be run from the Puhti web interface (first slide).
 - NoMachine client must be installed locally on your computer first (This may require admin privileges).
 - [The client is used to connect to a server in Kajaani](https://docs.csc.fi/apps/nomachine/) and it provides faster graphical performance than X11-forwarding
 - Please first consult the [Instructions on how to install and to use NoMachine](https://docs.csc.fi/support/tutorials/nomachine-usage/)
@@ -51,11 +51,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - scp works even in Windows Powershell (but rsync is missing)
    - _e.g._ `scp filename cscusername@puhti.csc.fi:/scratch/project_xxxx`
    - _e.g._ `rsync -r foldername cscusername@puhti.csc.fi:/scratch/project_xxxx`
-   - `rsync` is available in _MobaXterm_ but it removes write permissions of copied files
+   - `rsync` exists in _MobaXterm_ but it removes write permissions of copied files
 - Sometimes a [GUI tool for transfering files](https://docs.csc.fi/data/moving/graphical_transfer/) is more convenient
-   - Nice tools are _e.g._ _FileZilla_ and _WinSCP_ 
-   - Installing such tools may require Admin privileges
+   - Nice tools are _e.g._ _FileZilla_ and _WinSCP_ (May require Admin privileges)
    - _MobaXterm_ also has a file transfer GUI (TIP: first, set persistent home directory)
+   - Puhti web interface can be used to move files
 
 # Advanced topic: Setting up SSH-keys
 
