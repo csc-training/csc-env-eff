@@ -3,7 +3,9 @@ theme: csc-2019
 lang: en
 ---
 
-# Understanding resource usage in CSC's HPC environment {.title}
+# Understanding resource usage {.title}
+
+This lecture helps you to optimize your resource usage in CSC's HPC environment.
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
@@ -18,16 +20,16 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Optimal usage in multiuser platforms
 
-- Resources that have been allocated to your job, are not available for others
-   - Request only resources you need
-   - Make sure you used the resources that were requested
+- The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
+- Resources allocated to your job are not available for others
+   - Request only resources you need and make sure you are actually using those resources
 - If you _can_ use more resources, should you?
    - There are multiple ways of parallelizing your workflow
       - Maybe several smaller jobs are better than one big?
       - Is there a more efficient code or algorithm?
       - Is the file I/O slowing you down? (lots of file operations)
    - Optimize usage considering single job wall time, overall used cpu time
-- This section helps you find out how much resources your job needs
+
 
 # One resource type will be a bottle neck
 
@@ -108,26 +110,25 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
       - Note: Billing is based on actual usage.
    - [This and other service billing information in Docs](https://docs.csc.fi/accounts/billing/)
 
-# Mapping your needs and the performance
+# Before starting large-scale calculations
 
-- Before starting any large-scale calculations it's a good practice to check how the software and your actual input performs
-    - Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
-    - If the program works in parallel, check that it benefits from the requested parallel resources 
-    - The recommended _minimum_ speedup when you double the resources is 1.5x faster
-    - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
+- Check how the software and your actual input performs
+    - Common job errors are caused by typos in the script
+- Use short runs in the queue `--partition=test` to check that the input works and that the resource requests are interpreted correctly
+- Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
+    - It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
+   - It's _worse_ to run with way too big requests (often) without knowing it!
 
 # Reserving and optimizing batch job resources 
 
-The computing resources are shared among hundreds of your colleagues, who all have different resource needs.
-Try to estimate the resources that are needed for _your_ job, in order to minimize **wasting** them.
+**Important resource requests that should be monitored with `seff` are:**
 
-* It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
-   - It's _worse_ to run with way too big requests (often) without knowing it
-- Important resource requests that should be monitored are:
-   - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
-   - [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
-   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
-   - [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
+- [Memory requirement](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
+- [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
+- [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
+- [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
+   - Parallel job must always benefit from the requested parallel resources 
+   - When you double the resources the job should run 1.5x faster
  
 # `seff` examples
 
