@@ -106,7 +106,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - In order to use the resources in an efficient way, it is important to estimate the request as accurately as possible
 - By avoiding an excessive "just-in-case" requests, the job will start earlier
 
-# Different type of HPC jobs 1/2
+# Different type of HPC jobs
 
 - Typically an HPC job can be classified as serial, parallel or GPU, depending on the main requested resource 
 - The following slides will provide you with an overview of different job types
