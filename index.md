@@ -23,15 +23,16 @@ author: CSC Training
 <li>Use the browser back-button or external link to return to main menu</li>
 </ul>
 </li>
+<li><a href="https://video.csc.fi/media/t/0_d7trmsru">A video about study tips</a></li>
 </ul>
 </blockquote>
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Accounts and Projects](https://a3s.fi/CSC_training/00_account_and_project.html)
-### 1.2 [Video: Accounts and Projects](https://dchsou11xk84p.cloudfront.net/index.php/extwidget/preview/partner_id/191/uiconf_id/23451205/entry_id/0_j5ezfw80/embed/dynamic)
+### 1.2 [Video: Accounts and Projects](https://video.csc.fi/media/t/0_j5ezfw80)
 ### 1.3 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
-### 1.4 [Video: Connecting to CSC Computers](https://dchsou11xk84p.cloudfront.net/index.php/extwidget/preview/partner_id/191/uiconf_id/23451205/entry_id/0_8fdqjuf9/embed/dynamic)
-### 1.5 [Video tutorial: Connecting to Puhti](https://dchsou11xk84p.cloudfront.net/index.php/extwidget/preview/partner_id/191/uiconf_id/23451205/entry_id/0_d0i4dk2j/embed/dynamic)
+### 1.4 [Video: Connecting to CSC Computers](https://video.csc.fi/media/t/0_8fdqjuf9)
+### 1.5 [Video tutorial: Connecting to Puhti](https://video.csc.fi/media/t/0_d0i4dk2j)
 ### 1.6 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'connecting' %}
@@ -46,7 +47,8 @@ author: CSC Training
 
 ## 2. Introduction to HPC environment
 ### 2.1 [Slides](https://a3s.fi/CSC_training/02_environment.html)
-### 2.2 [Video: CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
+### 2.2 [Video: HPC Environment](https://video.csc.fi/media/t/0_u1tvtzga)
+### 2.3 [Video: CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
 
 ## 3. Disk areas
 ### 3.1 [Slides](https://a3s.fi/CSC_training/03_disk_areas.html)
@@ -88,7 +90,7 @@ author: CSC Training
 
 ## 7. Allas and where to keep your data
 ### 7.1 [Slides](https://a3s.fi/CSC_training/07_allas.html)
-### 7.2 [Video: Using Allas](https://youtu.be/q5PZot62kv8)
+### 7.2 [Video: Using Allas](https://video.csc.fi/media/t/0_q04hc35j)
 ### 7.3 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'allas' %}
