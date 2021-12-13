@@ -3,7 +3,7 @@ theme: csc-2019
 lang: en
 ---
 
-# Module system {.title}
+# Modules and preinstalled software {.title}
 
 Module systems and how to use them in CSC supercomputers.
 Same information can be found in [the module section of our user guide at docs.csc.fi](https://docs.csc.fi/computing/modules/)
