@@ -24,11 +24,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Resources allocated to your job are not available for others
    - Request only resources you need and make sure you are actually using those resources
 - If you _can_ use more resources, should you?
-   - There are multiple ways of parallelizing your workflow
-      - Maybe several smaller jobs are better than one big?
-      - Is there a more efficient code or algorithm?
-      - Is the file I/O slowing you down? (lots of file operations)
-   - Optimize usage considering single job wall time, overall used cpu time
 
 
 # One resource type will be a bottle neck
@@ -118,6 +113,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Check the output from the `seff` command to ensure that the cpu and memory performances are sufficient 
     - It's OK if a job is (occasionally) killed due to too small resource requests: just adjust and rerun/restart.
    - It's _worse_ to run with way too big requests (often) without knowing it!
+
+# Parallelising the workflow
+
+- There are multiple ways of parallelizing your workflow
+   - Maybe several smaller jobs are better than one big?
+   - Is there a more efficient code or algorithm?
+   - Is the file I/O slowing you down? (lots of file operations)
+- Optimize usage considering single job wall time, overall used cpu time
+- [Docs: Tools for high throughput computing](https://docs.csc.fi/computing/running/throughput/)
 
 # Reserving and optimizing batch job resources 
 
