@@ -37,25 +37,37 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # How to use modules (1/2)
 
 - The syntax is simple: `module command module-name`
-    - For example: `module load gromacs-env`
-    - [List of most common commands](https://docs.csc.fi/computing/modules/#module-commands-table)
+   - For example: `module load gromacs-env`
+   - [List of most common commands](https://docs.csc.fi/computing/modules/#module-commands-table)
 - You can't just load all the modules because of the dependencies
 - If you try to load a module that is not available, you will get an error message saying so 
 
 # How to use modules (2/2)
- - These commands will help you figuring out the module situation:
-    - `module list`: See the list of modules loaded at the moment
-    - `module avail`: Modules available at the moment (due to depencies -hides modules that can't be loaded atm)
-     - `module spider name`: Search for an application in the list of all existing modules
-     - `module spider name/version`: Gives information on how to load the module (prerequisites etc).
 
-# Conda environments
+- These commands will help you figuring out the module situation:
+   - `module list`: See the list of modules loaded at the moment
+   - `module avail`: Modules available at the moment (due to depencies -hides modules that can't be loaded atm)
+   - `module spider name`: Search for an application in the list of all existing modules
+   - `module spider name/version`: Gives information on how to load the module (prerequisites etc).
+
+# Various kinds of modules
+
+- Some modules contain software that has a graphical user interface
+   - For example chemistry visualisation software [Molden](https://docs.csc.fi/apps/molden/)
+   - Use Puhti Web Interface or [other connection with GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
+- Some modules contain software that provide a command line interface
+   - For example [Allas object storage](https://docs.csc.fi/data/Allas/)
+- Some modules provie you with a collection of eg. Python or R packages
+   - For example [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda) or [Python Data](https://docs.csc.fi/apps/python-data/)
+
+# Conda environments and Python packages
 - [Conda](https://docs.conda.io/en/latest/) is a package management tool for distributing and installing software tools and their dependencies
-- Load for example [Bioconda](https://docs.csc.fi/apps/bioconda/) or [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda) module to use and install tools that are already available in [Conda environments](https://docs.csc.fi/support/tutorials/conda/#what-is-conda)
-   - `module load bioconda`: Load bioconda
-- Use the following commands to check available Conda environments and to activate one
-   - `conda env list`: List the environments
-   - `source activate rseqc`: Activate Conda env with RSeQC application
+- See [Conda best practices](https://docs.csc.fi/support/tutorials/conda/) in CSC HPC environment
+   - You can load one of the conda modules like [bioconda](https://docs.csc.fi/apps/bioconda/) to use tools that are already available in Conda environments
+   - Do not create own Conda environments - those should be run in a [container](https://docs.csc.fi/support/tutorials/singularity-scratch/).
+- [Python-related modules](https://docs.csc.fi/apps/python/) are listed in Docs CSC
+   - Together they contain the preinstalled Python packages
+   - Each module has its own documentation on usage
   
 # Customizing own environment
 - If you "always" use some modules, it is possible to add loading them to `.bashrc`, but **we do not recommend this**
