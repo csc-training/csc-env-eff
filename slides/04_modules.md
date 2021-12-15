@@ -56,7 +56,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - For example chemistry visualisation software [Molden](https://docs.csc.fi/apps/molden/)
    - Use [Puhti Web Interface](https://puhti.csc.fi) or [other connection with GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
 - Some modules contain software that provide a command line interface
-   - For example [Allas object storage](https://docs.csc.fi/data/Allas/)
+   - For example [zstd module](https://docs.csc.fi/support/tutorials/env-guide/packing-and-compression-tools/#zstandard-compression-tool)
 - Some modules provie you with a collection of eg. Python or R packages
    - For example [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda) or [Python Data](https://docs.csc.fi/apps/python-data/)
 
