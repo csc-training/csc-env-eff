@@ -44,7 +44,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # How to use modules (2/2)
 
-- These commands will help you figuring out the module situation:
+- These commands will help you navigating the module environment:
    - `module list`: See the list of modules loaded at the moment
    - `module avail`: Modules available at the moment (due to depencies - hides modules that can't be loaded atm)
    - `module spider name`: Search for an application in the list of all existing modules
