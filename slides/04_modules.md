@@ -46,7 +46,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - These commands will help you figuring out the module situation:
    - `module list`: See the list of modules loaded at the moment
-   - `module avail`: Modules available at the moment (due to depencies -hides modules that can't be loaded atm)
+   - `module avail`: Modules available at the moment (due to depencies - hides modules that can't be loaded atm)
    - `module spider name`: Search for an application in the list of all existing modules
    - `module spider name/version`: Gives information on how to load the module (prerequisites etc).
 
