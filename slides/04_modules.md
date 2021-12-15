@@ -54,7 +54,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Some modules contain software that has a graphical user interface
    - For example chemistry visualisation software [Molden](https://docs.csc.fi/apps/molden/)
-   - Use Puhti Web Interface or [other connection with GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
+   - Use [Puhti Web Interface](https://puhti.csc.fi) or [other connection with GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
 - Some modules contain software that provide a command line interface
    - For example [Allas object storage](https://docs.csc.fi/data/Allas/)
 - Some modules provie you with a collection of eg. Python or R packages
