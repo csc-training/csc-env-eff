@@ -39,7 +39,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - The syntax is simple: `module command module-name`
    - For example: `module load gromacs-env`
    - [List of most common commands](https://docs.csc.fi/computing/modules/#module-commands-table)
-- You can't just load all the modules because of the dependencies
+- You can't just load all the modules because of possible conflicting dependencies
 - If you try to load a module that is not available, you will get an error message saying so 
 
 # How to use modules (2/2)
