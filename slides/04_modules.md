@@ -25,22 +25,23 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - The solution for managing this situation: separate the applications in *modules*
 - *Environment modules* set up everything required by a particular application:
    -  Load libraries, adjust path, set environment variables 
-
-# Module system in CSC supercomputers
-
 - CSC uses [*Lmod*](https://lmod.readthedocs.io/en/latest/) environment modules, which are using *Lua* programming language
-- Some softwares/applications have their own module (e.g. `gromacs-env`), whereas some are combined in larger modules (e.g. `biokit`, `geoconda`), and some can be found in many different modules (e.g. `gdal`)
+
+# How to access preinstalled software in CSC supercomputers
 
 - You can check the available applications and their respective modules in the [Application list](https://docs.csc.fi/apps/)
-- These modules are used both in *interactive* and *batch jobs*
+   - Each application docs page should contain information on usage
+- You can use `module spider` to search for an application
+- Use the software by loading the module: `module load modulename`
 
 # How to use modules (1/2)
 
-- The syntax is simple: `module command module-name`
-   - For example: `module load gromacs-env`
+- The syntax is simple: `module command modulename`
+   - For example: `module spider gromacs-env`
    - [List of most common commands](https://docs.csc.fi/computing/modules/#module-commands-table)
+- These modules are used both in *interactive* and *batch jobs*
+   - Include `module purge` and `module load modulename` in your batch scripts to always get the same modules in consecutive batch jobs
 - You can't just load all the modules because of possible conflicting dependencies
-- If you try to load a module that is not available, you will get an error message saying so 
 
 # How to use modules (2/2)
 
@@ -49,6 +50,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - `module avail`: Modules available at the moment (due to depencies - hides modules that can't be loaded atm)
    - `module spider name`: Search for an application in the list of all existing modules
    - `module spider name/version`: Gives information on how to load the module (prerequisites etc).
+- If you try to load a module that is not available, you will get an error message saying so 
 
 # Various kinds of modules
 
@@ -57,17 +59,23 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Use [Puhti Web Interface](https://puhti.csc.fi) or [other connection with GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
 - Some modules contain software that provide a command line interface
    - For example [zstd module](https://docs.csc.fi/support/tutorials/env-guide/packing-and-compression-tools/#zstandard-compression-tool)
-- Some modules provie you with a collection of eg. Python or R packages
+
+- A module may contain only one software/application (e.g. `gromacs-env`), and some software can be found in many different modules (e.g. `gdal`)
+- Some modules provide you with a collection of softwares or eg. Python or R packages
    - For example [Bioconda](https://docs.csc.fi/apps/bioconda/), [Geoconda](https://docs.csc.fi/apps/geoconda/#using-geoconda) or [Python Data](https://docs.csc.fi/apps/python-data/)
 
-# Conda environments and Python packages
-- [Conda](https://docs.conda.io/en/latest/) is a package management tool for distributing and installing software tools and their dependencies
-- See [Conda best practices](https://docs.csc.fi/support/tutorials/conda/) in CSC HPC environment
-   - You can load one of the conda modules like [bioconda](https://docs.csc.fi/apps/bioconda/) to use tools that are already available in Conda environments
-   - Do not create own Conda environments - those should be run in a [container](https://docs.csc.fi/support/tutorials/singularity-scratch/).
-- [Python-related modules](https://docs.csc.fi/apps/python/) are listed in Docs CSC
-   - Together they contain the preinstalled Python packages
-   - Each module has its own documentation on usage
+# Conda, Python and R packages
+- Some preinstalled software are distributed using [Conda](https://docs.conda.io/en/latest/) package management tool
+   - See [Conda best practices](https://docs.csc.fi/support/tutorials/conda/) in CSC HPC environment
+   - Do not create own Conda environments - run those in a [container](https://docs.csc.fi/support/tutorials/singularity-scratch/)
+
+- Preinstalled Python packages are available in [Python-related modules](https://docs.csc.fi/apps/python/) 
+   - See the Docs CSC for packages you want and the usage details
+   - it is not possible to load multiple modules with Python packages at once
+   - Command `pip list` shows a [list of packages](https://pip.pypa.io/en/stable/cli/pip_list/) installed within the current environment
+
+- Instructions on [how to check installed R-libraries](https://docs.csc.fi/apps/r-env-singularity/#r-package-installations) in DocsCSC
+   - RStudio shows available packages in the sidebar
   
 # Customizing own environment
 - If you "always" use some modules, it is possible to add loading them to `.bashrc`, but **we do not recommend this**
