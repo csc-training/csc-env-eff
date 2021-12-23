@@ -99,10 +99,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - 1 GPU card hour in Puhti equals 60 BU (+ allocated CPU cores)
    - 1 node hour in Mahti equals 100 BU
    - 1 GiB hour of Memory in Puhti equals 0.1 BU
-   - 1 TiB year of _additional_ disk in Puhti (scratch, projappl) 50000 BU
-      - Note: 1st TiB free, additional **quota** (not actual usage) is billed.
-   - 1 TiB hour in Allas equals 1 BU (i.e. 1 TiB of data equals 8760 BU in a year.)
-      - Note: Billing is based on actual usage.
+   - 1st TiB of disk quota (scratch, projappl) is free
+      - Used excess quota is billed by 5 BU/TiBh. (5 Billing Units per hour)
+   - 1 used TiB hour in Allas equals 1 BU (i.e. 1 TiB of data equals 8760 BU in a year.)
    - [This and other service billing information in Docs](https://docs.csc.fi/accounts/billing/)
 
 # Before starting large-scale calculations
