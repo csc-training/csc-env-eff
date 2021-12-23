@@ -33,11 +33,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Each application docs page should contain information on usage
 - You can use `module spider` to search for an application
 - Use the software by loading the module: `module load modulename`
+   - For example: `module spider gromacs-env`
 
 # How to use modules (1/2)
 
-- The syntax is simple: `module command modulename`
-   - For example: `module spider gromacs-env`
+- The general syntax is simple: `module command modulename`   
    - [List of most common commands](https://docs.csc.fi/computing/modules/#module-commands-table)
 - These modules are used both in *interactive* and *batch jobs*
    - Include `module purge` and `module load modulename` in your batch scripts to always get the same modules in consecutive batch jobs
