@@ -35,7 +35,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Use the software by loading the module: `module load modulename`
    - For example: `module spider gromacs-env`
 
-# How to use modules (1/2)
+# How to use modules
 
 - The general syntax is simple: `module command modulename`   
    - [List of most common commands](https://docs.csc.fi/computing/modules/#module-commands-table)
@@ -43,7 +43,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Include `module purge` and `module load modulename` in your batch scripts to always get the same modules in consecutive batch jobs
 - You can't just load all the modules because of possible conflicting dependencies
 
-# How to use modules (2/2)
+# Useful commands for the module environment
 
 - These commands will help you navigating the module environment:
    - `module list`: See the list of modules loaded at the moment
@@ -71,7 +71,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Preinstalled Python packages are available in [Python-related modules](https://docs.csc.fi/apps/python/) 
    - See the Docs CSC for packages you want and the usage details
-   - it is not possible to load multiple modules with Python packages at once
+   - It is not possible to load multiple modules with Python packages at once
    - Command `pip list` shows a [list of packages](https://pip.pypa.io/en/stable/cli/pip_list/) installed within the current environment
 
 - Instructions on [how to check installed R-libraries](https://docs.csc.fi/apps/r-env-singularity/#r-package-installations) in DocsCSC
