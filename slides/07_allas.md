@@ -33,11 +33,11 @@ All project members have equal access to the data in Puhti and Allas.
 # Allas – object storage: what it is?
 
 - Allas is a storage service for all computing and cloud services
+- CEPH based object storage
 - Possible to upload data from personal laptops or organizational storage systems into Allas
 - Meant for data during project lifetime
 - Default quota 10 TB / Project 
 - Clients available in Puhti and Mahti
-- CEPH based object storage
 
 # Connections to Allas
 
