@@ -18,7 +18,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
-# How to get access to Allas
+# How to get access to Allas service
 
 Use [https://my.csc.fi](https://my.csc.fi) to 
 
@@ -30,23 +30,20 @@ Use [https://my.csc.fi](https://my.csc.fi) to
 
 All project members have equal access to the data in Puhti and Allas.
 
-# Allas – object storage: what it is for?
+# Allas – object storage: what it is?
 
 - Allas is a storage service for all computing and cloud services
-- CEPH based object storage
+- Possible to upload data from personal laptops or organizational storage systems into Allas
 - Meant for data during project lifetime
 - Default quota 10 TB / Project 
-- Possible to upload data from personal laptops or organizational storage systems into Allas
 - Clients available in Puhti and Mahti
-- Data can also be shared via Internet
+- CEPH based object storage
 
-# Allas – object storage: what it is for?
-
-<br>
+# Connections to Allas
 
 <div class="column">
 - Data can be moved to and from Allas directly without using Puhti or Mahti.
-- For computation the data has to be typically copied to a file system in some computer
+    - Usage through S3 and Swift APIs are supported
 - Data can be shared publicly to Internet, which is otherwise not easily possible at CSC.
 </div>
 <div class="column">
@@ -55,33 +52,38 @@ All project members have equal access to the data in Puhti and Allas.
 
 # Allas – object storage: what it is NOT
 
-- **Allas is not a file system** (even though many tools try to fool you to think so). It is just a place for a pile of static data objects.
-- **Allas is not a data management environment**. Tools for etc. search, metadata,version control and access management are minimal.
-- **Allas is not a back up service**. Project members can delete all the data with just one command.
+- **Allas is not a file system** (even though many tools try to fool you to think so). 
+    - It is just a place for a pile of static data objects.
+- **Allas is not a data management environment**. 
+    - Tools for etc. search, metadata,version control and access management are minimal.
+- **Allas is not a back up service**. 
+    - Project members can delete all the data with just one command.
 
-# Allas - storage 
+# Allas: File storing
 
-- An object is stored in multiple servers so a disk or server break does not cause data loss
+- An object is stored in multiple servers 
+    - A disk or server break does not cause data loss
 - There is no backup i.e. if a file is deleted, it cannot be recovered
-- Data cannot be modified while it is in the object storage – data is immutable.
-- Rich set of data management features are to be built on top of it.
-- Usage through S3 and Swift APIs are supported
+- Data cannot be modified while it is in the object storage
+    - For computation the data has to be typically copied to a file system in some computer
+- Some data management features are built on top of it.
 
-# Allas – object storage: terminology
+# Allas terminology
 
-<div class="column">
 - Storage space in Allas is provided per **CSC project**
-- Project space can have multiple *buckets* ( up to 1000)
-- There is only one level of hierarchy of buckets (no buckets within buckets)
+- Project space can have multiple **buckets** ( up to 1000)
+    - Some sources refer to *buckets* as *containers*
+        - Must not be confused with Docker/Singularity containers!
 - Data is stored as **objects** within a bucket
-- Objects can contain any type of data (generally: object = file)
-</div>
-<div class="column">
+    - Objects can contain any type of data (generally: object = file)
+    - Objects have metadata that can be enriched 
+
+# Allas rules
+
 - In Allas you can have 500 000 objects / bucket
 - Name of the bucket must be unique within Allas
-- Objects have metadata that can be enriched 
-- In reality, there is no hierarcical directory structure, although it sometimes looks like that.
-</div>
+- There is only one level of hierarchy of buckets (no buckets within buckets)
+- There is no hierarcical directory structure, although it sometimes looks like that.
 
 # Allas supports two protocols
 
@@ -155,18 +157,20 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 ➖ Each object has an additional _ameta object  
 </div>
 
-# Allas problems
+# Issues with Allas
 
 - 8 hour connection limit with swift
 - No way to check quota
 - Moving data inside Allas is not possible (swift)
-- No way to freeze data (use two projects if needed).
-- Different interfaces may work in diffrent ways
+- No way to freeze data 
+    - Use two projects if you need to prevent others editing your data
+- Different interfaces may work in different ways
 
 
 # Things that users should consider 
 
 - Should I store each file as a separate object or should I collect it into bigger chunks?
+    - In general: consider how you use tha data
 - Should I use compression?
 - Who can use the data: Projects and accession permissions?
 - What will happen to my data later on?
