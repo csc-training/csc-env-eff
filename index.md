@@ -62,7 +62,8 @@ author: CSC Training
 
 ## 4. Module system
 ### 4.1 [Slides](https://a3s.fi/CSC_training/04_modules.html)
-### 4.2 Tutorials and exercises
+### 4.2 [Video: Modules and preinstalled software](https://video.csc.fi/media/t/0_y57f260c)
+### 4.5 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'modules' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -71,7 +72,8 @@ author: CSC Training
 
 ## 5. Batch queue system and interactive use
 ### 5.1 [Slides](https://a3s.fi/CSC_training/05_batch_jobs.html)
-### 5.2 Tutorials and exercises
+### 5.2 [Video: Batch jobs](https://video.csc.fi/media/t/0_fagcet5x)
+### 5.3 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'Batch jobs' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -82,7 +84,8 @@ author: CSC Training
 
 ## 6. Batch job resource usage
 ### 6.1 [Slides](https://a3s.fi/CSC_training/06_understanding_usage.html)
-### 6.2 Tutorials and exercises
+### 6.2 [Video: Resources usage](https://video.csc.fi/media/t/0_bfbgk9zf)
+### 6.3 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'batch resources' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
