@@ -118,6 +118,7 @@ module load allas
 allas-conf
 ```
 - Study the manual and [Start using Allas with rclone or a-tools instructions](https://docs.csc.fi/data/Allas/)
+- The [material bank](https://csc-training.github.io/csc-env-eff/#7-allas-and-where-to-keep-your-data) includes hands-on tutorials and a tutorial video about Allas
 
 # Allas – rclone
 
