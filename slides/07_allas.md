@@ -93,10 +93,10 @@ All project members have equal access to the data in Puhti and Allas.
 - Authentication is different
     - S3: permanent key based authentication – nice, easy and unsecure
     - Swift: authentication based on temporary tokens – more secure, requires authentication every 8 hours
-        - Metadata is handled in different ways
-        - Over 5G files are managed in different ways
-- **Avoid cross-using Swift and S3 based objects!**
-
+- File handling is different        
+    - Metadata is handled in different ways
+    - Over 5G files are managed in different ways
+    - **Avoid cross-using Swift and S3 based objects!**
 
 # Allas Clients: read, write, delete
 
