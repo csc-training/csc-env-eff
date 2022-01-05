@@ -55,7 +55,7 @@ All project members have equal access to the data in Puhti and Allas.
 - **Allas is not a file system** (even though many tools try to fool you to think so). 
     - It is just a place for a pile of static data objects.
 - **Allas is not a data management environment**. 
-    - Tools for etc. search, metadata,version control and access management are minimal.
+    - Tools for etc. search, metadata, version control and access management are minimal.
 - **Allas is not a back up service**. 
     - Project members can delete all the data with just one command.
 
@@ -68,22 +68,22 @@ All project members have equal access to the data in Puhti and Allas.
     - For computation the data has to be typically copied to a file system in some computer
 - Some data management features are built on top of it.
 
-# Allas terminology
+# Allas buckets
 
 - Storage space in Allas is provided per **CSC project**
-- Project space can have multiple **buckets** ( up to 1000)
+- Project space can have multiple **buckets** (up to 1000)
     - Some sources refer to *buckets* as *containers*
         - Must not be confused with Docker/Singularity containers!
+- Name of the bucket must be unique within Allas
+
+# Allas objects
+
 - Data is stored as **objects** within a bucket
     - Objects can contain any type of data (generally: object = file)
     - Objects have metadata that can be enriched 
-
-# Allas rules
-
 - In Allas you can have 500 000 objects / bucket
-- Name of the bucket must be unique within Allas
 - There is only one level of hierarchy of buckets (no buckets within buckets)
-- There is no hierarcical directory structure, although it sometimes looks like that.
+    - There is no hierarcical directory structure, although it sometimes looks like that.
 
 # Allas supports two protocols
 
@@ -102,7 +102,7 @@ All project members have equal access to the data in Puhti and Allas.
 
 **Puhti, Mahti, Linux servers, Macs:**
 
-- rclone, swift, s3cdm, a-tools
+- rclone, swift, s3cmd, a-tools
 
 **Virtual machines, small servers:**
 
