@@ -170,7 +170,7 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 - Should I store each file as a separate object or should I collect it into bigger chunks?
     - In general: consider how you use tha data
 - Should I use compression?
-- Who can use the data: Projects and accession permissions?
+- Who can use the data: Projects and access rights?
 - What will happen to my data later on?
 - How to keep track of all the data I have in Allas?
 
