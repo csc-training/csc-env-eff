@@ -185,11 +185,12 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 
 # Sensitive data services
 
-- [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) were launched on last June. 
-- **SD Desktop** [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi) is a secure virtual desktop for processing data.
-     - Security is based on controlled access, controlled data import, and isolation from internet.
-     - Data import _only_ through **SD Connect** service. No direct data export.
-- **SD Connect** [https://sd-connect.csc.fi](https://sd-connect.csc.fi) is based on Allas. 
-- At the moment Allas and SD-Connect are in practice the same service.
-- Allas can be used for sensitive data, _only_ if it is properly encrypted. (SD-Connect procedure does that)
+- [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
+- **SD Desktop** [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi) is a secure virtual desktop
+     - Controlled access, 
+     - Data import _only_ through [**SD Connect**](https://sd-connect.csc.fi) service
+     - Isolation from internet
+     - No direct data export
+- Allas could be used for sensitive data, but _only_ if data is properly encrypted
+    - [**SD Connect**](https://sd-connect.csc.fi) procedure does the encryption
 
