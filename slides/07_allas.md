@@ -134,10 +134,10 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 
 - Rclone based scripts for using Allas in Puhti and Mahti
 - A-tools try to provide easy and safe way to use Allas for occasional Allas user users.
-- Developed for CSC server environment (Puhti, Mahti) but you can install the tools in other linux and mac machines too.
-- Unlike rclone, a-tools do not overwrite and remove data without asking!
-- Automatic packing and compression.
 - Default bucket names based on directories of Puhti and Mahti
+- Unlike rclone, a-tools do not overwrite and remove data without asking!
+- Developed for CSC server environment (Puhti, Mahti) but you can install the tools in other linux and mac machines too.
+- Automatic packing and compression.
 - [a-commands instructions in Docs CSC](https://docs.csc.fi/#data/Allas/using_allas/a_commands/)
 
 
@@ -151,7 +151,7 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 </div>
 <div class="column">
 ➖ Usage of objects, created by `a-put` can be complicated when other object storage tools are used  
-➖ Especially usage from windows is problematic  
+➖ Especially usage from Windows is problematic  
 ➖ Each object has an additional _ameta object  
 </div>
 
