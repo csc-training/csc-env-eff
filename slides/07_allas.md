@@ -98,7 +98,7 @@ All project members have equal access to the data in Puhti and Allas.
     - Over 5G files are managed in different ways
     - **Avoid cross-using Swift and S3 based objects!**
 
-# Allas Clients: read, write, delete
+# Allas Clients
 
 **Puhti, Mahti, Linux servers, Macs:**
 - rclone, swift, s3cmd, a-tools
