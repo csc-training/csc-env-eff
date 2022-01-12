@@ -100,14 +100,14 @@ All project members have equal access to the data in Puhti and Allas.
 
 # Allas Clients
 
-**Puhti, Mahti, Linux servers, Macs:**
-- rclone, swift, s3cmd, a-tools
+- **Puhti, Mahti, Linux servers, Macs:**
+    - rclone, swift, s3cmd, a-tools
 
-**Laptops (Windows, Mac):**
-- [Cyberduck](https://cyberduck.io/), [FileZilla(pro)](https://filezilla-project.org/), [Pouta-www interface](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
+- **Laptops (Windows, Mac):**
+    - [Cyberduck](https://cyberduck.io/), [FileZilla(pro)](https://filezilla-project.org/), [Pouta-www interface](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
 
-**Virtual machines, small servers:**
-- In addition to the tools above, you can use FUSE based virtual mounts
+- **Virtual machines, small servers:**
+    - In addition to the tools above, you can use FUSE based virtual mounts
 
 # Allas – first steps for Puhti 
 
