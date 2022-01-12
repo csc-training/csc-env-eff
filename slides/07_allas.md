@@ -83,7 +83,7 @@ All project members have equal access to the data in Puhti and Allas.
     - Objects have metadata that can be enriched 
 - In Allas you can have 500 000 objects / bucket
 - There is only one level of hierarchy of buckets (no buckets within buckets)
-    - There is no hierarcical directory structure, although it sometimes looks like that.
+    - There is no hierarchical directory structure, although it sometimes looks like that.
 
 # Allas supports two protocols
 
@@ -98,7 +98,7 @@ All project members have equal access to the data in Puhti and Allas.
     - Over 5G files are managed in different ways
     - **Avoid cross-using Swift and S3 based objects!**
 
-# Allas Clients: read, write, delete
+# Allas Clients
 
 - **Puhti, Mahti, Linux servers, Macs:**
     - rclone, swift, s3cmd, a-tools
@@ -133,9 +133,9 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 # Allas – a-tools
 
 - Rclone based scripts for using Allas in Puhti and Mahti
-- A-tools try to provide easy and safe way to use Allas for occasional Allas user users.
-- Default bucket names based on directories of Puhti and Mahti
-- Unlike rclone, a-tools do not overwrite and remove data without asking!
+- A-tools try to provide easy and safe way to use Allas for occasional Allas users.
+- Default bucket names are based on directories of Puhti and Mahti
+- Unlike `rclone`, a-tools do not overwrite and remove data without asking!
 - Developed for CSC server environment (Puhti, Mahti) but you can install the tools in other linux and mac machines too.
 - Automatic packing and compression.
 - [a-commands instructions in Docs CSC](https://docs.csc.fi/#data/Allas/using_allas/a_commands/)
@@ -167,8 +167,8 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 
 # Things that users should consider 
 
-- Should I store each file as a separate object or should I collect it into bigger chunks?
-    - In general: consider how you use tha data
+- Should I store each file as a separate object or should I collect them into bigger chunks?
+    - In general: consider how you use the data
 - Should I use compression?
 - Who can use the data: Projects and access rights?
 - What will happen to my data later on?
