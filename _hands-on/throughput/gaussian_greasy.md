@@ -9,7 +9,7 @@ title: Advanced tutorial - Gaussian with GREASY
 - you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 - your account belongs to a project [that has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/). - your account belongs to the [Gaussian users group](https://docs.csc.fi/apps/gaussian/)
 
-This tutorial is done on Puhti 
+> This tutorial is done on Puhti 
 
 ## Overview
 
