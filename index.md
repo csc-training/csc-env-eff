@@ -94,8 +94,9 @@ author: CSC Training
 
 ## 7. Allas and where to keep your data
 ### 7.1 [Slides](https://a3s.fi/CSC_training/07_allas.html)
-### 7.2 [Video: Using Allas](https://video.csc.fi/media/t/0_q04hc35j)
-### 7.3 Tutorials and exercises
+### 7.2 [Video: Allas Object Storage](https://video.csc.fi/media/t/0_fvn4jbh1)
+### 7.3 [Video: Using Allas](https://video.csc.fi/media/t/0_q04hc35j)
+### 7.4 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'allas' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
