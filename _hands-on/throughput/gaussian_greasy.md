@@ -13,7 +13,7 @@ title: Advanced tutorial - Gaussian with GREASY
 
 ## Overview
 
-[GREASY](https://docs.csc.fi/computing/running/greasy/) metascheduler is a tool for task/job farming and running "embarrassingly parallel" jobs. 
+💬 [GREASY](https://docs.csc.fi/computing/running/greasy/) metascheduler is a tool for task/job farming and running "embarrassingly parallel" jobs. 
 
  As an example, we have several similar molecular structures and would like to know how they are energetically related to each other   
 - The aim is to run Gaussian calculations on 10 different isomers corresponding to the C<sub>6</sub>H<sub>12</sub> molecular formula 
