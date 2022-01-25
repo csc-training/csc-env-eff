@@ -128,10 +128,11 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 # Running multiple serial jobs
 - You can utilize parallel resources for running multiple serial jobs at the same time
     - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/) 
-    - [GREASY jobs](https://docs.csc.fi/computing/running/greasy/)
-    - ... and lots of ther workflow tools or DIY scripts
-- Pure serial resources are only available in Puhti, but GREASY jobs can make serial jobs suitable for Mahti, too
-    - **But**, your workflow needs to fill (at least) one Mahti node and keep the CPUs busy for the job duration to be efficient use of resources
+    - [Other high throughput tools](https://docs.csc.fi/computing/running/throughput/)
+    - Lots of other workflow tools or DIY scripts
+- Pure serial resources are only available in Puhti
+    - Some tools can make a set of serial jobs suitable for Mahti
+    - **But**, the workflow needs to fill (at least) one Mahti node and keep the CPUs busy for the job duration
  
 # HPC parallel jobs
 
