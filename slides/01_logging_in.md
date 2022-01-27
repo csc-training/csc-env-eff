@@ -21,7 +21,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Log in via Puhti Web Interface
 
 - A simple way to log in to Puhti Supercomputer is via [https://puhti.csc.fi](https://puhti.csc.fi)
-   - NOTE: Puhti Web Interface is still beta-version in October 2021
+   - NOTE: Puhti Web Interface is still beta-version in January 2022
 - Use your CSC username and password
 - The web interface can eg. launch some applications and browse files
 - [More in-depth documentation in Docs CSC](https://docs.csc.fi/computing/webinterface/)
