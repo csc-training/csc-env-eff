@@ -73,8 +73,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Installing directly to system
 - Usually preferred way for software with few or no dependencies
-- See tutorials for each category for more detailed instructions
-  - [Installation tutorials](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
 
 # Installation methods: Containers
 
@@ -101,6 +99,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # More information 
 
+- See tutorials for each category for more detailed instructions
+  - [Installation tutorials](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
 - Check CSC Docs pages:
   - [Compiling applications in Puhti](https://docs.csc.fi/computing/compiling-puhti/)
   - [Compiling applications in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
