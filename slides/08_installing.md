@@ -49,33 +49,19 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Running these programs often requires loading a suitable module for the language
   - Loading modules also ensures the software behaves the same in the compute nodes
 
-# Interpreted languages (continued)
-
-- Some notes on code development/selection:
-  - Interpreted languages are often quite easy and efficient to program and therefore to get a result, but for very extensive computations they are rarely optimal (and can easily be very far from optimal). 
-  - An efficient code should be constructed so that heavy computations utilize libraries and/or subroutines written in High-Performance-Computing programming languages
-
 # High-Performance-Computing languages
 
 - Programming languages that need a compiler 
    - Typical examples are _e.g._ C, C++, and Fortran. 
-- These languages are not easy to program and for complicated tasks need quite a lot of experience and much work.
 - Most of the resource intensive software have been programmed with these
 - As a researcher, you typically _only_ need to compile them (unless already available) 
-
-# Basic requirements
-
-- You need a computer with a decent internet connection.
-- You need a CSC account and need to be [part of a project](https://research.csc.fi/accounts-and-projects)
-- You need to [log in to a CSC computer](https://docs.csc.fi/computing/connecting/)
-- You need to know, at least basic, Unix/Linux line commands 
-  - CSC's [Linux basics tutorial](https://docs.csc.fi/support/tutorials/env-guide/using-linux-in-command-line/)
-  - [Linux Command line quick reference / Cheat Sheet](https://docs.csc.fi/img/csc-quick-reference.pdf)
+  - Can sometimes be complicated
+  - If you run into problems, contact servicedesk@csc.fi
 
 # Some general notes
 
 - No `sudo` for normal users in CSC machines
-  - You can't use package managers (`apt` , `yum`, etc)
+  - You can't use package managers (`apt`, `yum`, etc)
   - You can't install in "standard" locations (/usr/bin, /usr/lib, etc)
     - Set installation directory to `/projappl` or similar (see software documentation for details)
 - Start by loading suitable compiler suite or language module
@@ -83,11 +69,26 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - New software is not automatically added to `$PATH`
   - Provide path when running or add to `$PATH`
 
-# Installing
+# Installation methods: Native installations
 
+- Installing directly to system
+- Usually preferred way for software with few or no dependencies
 - See tutorials for each category for more detailed instructions
   - [Installation tutorials](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
-- Applications may also be available as [containers](09_singularity.html), which can be used in CSC environment.
+
+# Installation methods: Containers
+
+- [Containers](09_singularity.html) are an easy method to install software and it's dependencies
+  - Especially if a ready container is available
+- Recommended especially for software with complex dependencies
+
+# Installation methods: Conda
+
+- Conda is a common installation system, but it is problematic on HPC systems
+  - Creates a huge number of files and leads to bad performance on Lustre fs
+  - Installations easily break when system changes
+- Containers are preferred
+  - It is possible to wrap Conda installations into a container. This alleviates some of the problems
 
 # Testing - it's important to test _first_
 
