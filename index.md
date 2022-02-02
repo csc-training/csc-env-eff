@@ -105,7 +105,8 @@ author: CSC Training
 
 ## 8. Installing your own software
 ### 8.1 [Slides](https://a3s.fi/CSC_training/08_installing.html)
-### 8.2 Tutorials and exercises
+### 8.2 [Video: Installing own software](https://video.csc.fi/media/t/0_anzwy1es)
+### 8.3 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'installing' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
@@ -114,7 +115,8 @@ author: CSC Training
 
 ## 9. Containers and Singularity
 ### 9.1 [Slides](https://a3s.fi/CSC_training/09_singularity.html)
-### 9.2 Tutorials and exercises
+### 9.2 [Video: Containers](https://video.csc.fi/media/t/0_0ws9ei53)
+### 9.3 Tutorials and exercises
 {% for hands-on in items %}
 {% if hands-on.topic == 'singularity' %}
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
