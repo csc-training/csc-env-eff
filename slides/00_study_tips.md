@@ -1,5 +1,5 @@
 ---
-theme: csc-2019
+theme: csc-eurocc-2019
 lang: en
 ---
 # Study tips and problem solving {.title}
