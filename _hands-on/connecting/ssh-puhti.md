@@ -3,16 +3,30 @@ topic: connecting
 title: Tutorial - Login to Puhti with SSH (essential)
 ---
 
-# Log in Puhti with ssh
+# Log in to Puhti
 
 > ‼️ To begin make sure that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/). After creating project and adding services, there's a small delay before one can login to Puhti.
+
+## Puhti Web Interface
+
+💬 Connecting to Puhti Web Interface is an easy way of accessing Puhti supercomputer.
+
+1. Open a web browser and address [https://www.puhti.csc.fi](https://www.puhti.csc.fi)
+
+2. Login with your CSC account
+
+3. You have connected to Puhti
+
+💡 From the top menus you can e.g. access your files and open some applications.
+
+## Connecting with SSH from the Command Line
 
 💬 The basic Command Line Interface in Unix-based systems is the Terminal. Find the Terminal from your computer:  
 ![terminal-icon](../../slides/img/terminal_icon1.png)
 
 💡 Different operating systems have a little bit different Command Line Interfaces and SSH-clients (programs that you can use for the connection with the supercomputers).
 
-## Connecting from Linux
+### Connecting from Linux
 
 💬 Laptops and workstations running Linux typically have SSH installed. 
 
@@ -22,7 +36,7 @@ title: Tutorial - Login to Puhti with SSH (essential)
     ```
 2. Scroll down to [In Puhti](#in-puhti)
 
-## Connecting from macOS
+### Connecting from macOS
 
 💬 In macOS, you can use Terminal similarly as with Linux machines. 
 1. Open the Terminal application and type:
@@ -31,7 +45,7 @@ title: Tutorial - Login to Puhti with SSH (essential)
     ```
 2. Scroll down to [In Puhti](#in-puhti)
 
-## Windows10
+### Connecting from Windows10
 
 💬 On Windows 10, you have different options:
 - You can use the *Windows Power Shell*
