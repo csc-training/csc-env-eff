@@ -18,7 +18,7 @@ title: Tutorial - Interactive batch jobs
 - For heavy interactive tasks one can request specific resources (time, memory, cores, disk). 
 
 💡 You can also use tools with graphical user interfaces in an interactive shell session. 
-- For such usage the [NoMachine](https://docs.csc.fi/support/tutorials/nomachine-usage/) remote desktop often provides an improved experience. 
+- For such usage the [Web Interface](https://www.puhti.csc.fi/) remote desktop often provides an improved experience. 
 - Check also [how to use RStudio and Jupyter Notebook in Puhti](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) 
 
 ### A simple interactive job 
