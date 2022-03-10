@@ -3,7 +3,7 @@ theme: csc-eurocc-2019
 lang: en
 ---
 
-# Using CSC HPC Environment Efficiently
+# CSC Computing Environment
 
 These slides are used e.g. in e-learn.csc.fi, docs.csc.fi and
 hopefully at Universities' own materials introducing high

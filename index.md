@@ -1,9 +1,9 @@
 ---
-title: Using CSC HPC Environment Efficiently
+title: CSC Computing Environment
 author: CSC Training
 ---
 
-# Material for _Using CSC HPC Environment Efficiently_ -course
+# Material for _CSC Computing Environment_ -course
 
 {% assign items = site.hands-on |  sort: "title" | reverse %}
 
