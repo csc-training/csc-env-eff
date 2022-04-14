@@ -117,6 +117,7 @@ setting in host `$SINGULARITYENV_variablename`.
 - Documentation in Docs:
   - [Running Singularity containers](https://docs.csc.fi/computing/containers/run-existing/)
   - [Creating Singularity containers](https://docs.csc.fi/computing/containers/creating/)
+  - [Using tykky to create Singularity containers](https://docs.csc.fi/computing/containers/tykky/)
 
 # Singularity containers as installation method
 - Singularity is a good option in cases where installation is
