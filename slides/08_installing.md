@@ -87,6 +87,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - Installations easily break when system changes
 - Containers are preferred
   - It is possible to wrap Conda installations into a container. This alleviates some of the problems
+  - CSC has created [a tool called `tykky`](https://docs.csc.fi/computing/containers/tykky/) which does this automatically
 
 # Testing - it's important to test _first_
 
