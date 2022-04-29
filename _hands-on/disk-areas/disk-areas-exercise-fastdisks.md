@@ -54,7 +54,7 @@ sbatch batch_job.sh
 #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
 #SBATCH --time=01:00:00          # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --gres=nvme:100          # Reservation of local NVMe storage. Unit: MiB
+#SBATCH --gres=nvme:100          # Reservation of local NVMe storage. Unit: GB
 
 export SINGULARITY_TMPDIR=$LOCAL_SCRATCH    # Set the local storage area to the environmental.. 
 export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH  # ..variable that Singularity understands.
