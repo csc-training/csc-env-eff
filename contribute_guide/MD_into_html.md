@@ -4,7 +4,7 @@
    - Initialize Allas with project_2001659 (see below, works only for CSC staff)
    - To get the container image use 
        - `a-get pandocTool/pandoc.sif` for regular CSC slide theme
-       - `a-get pandocTool/pandoc-eurocc.sif` for the new EuroCC slide theme
+       - `a-get pandocTool/pandoc-eurocc.sif` for the new EuroCC slide theme (contains also the old theme)
    - Give execute permissions `chmod u+x pandoc-eurocc.sif`
 
 > Alternatively: If you don't have Allas access use `wget https://a3s.fi/pandocTool/pandoc-eurocc.sif`
