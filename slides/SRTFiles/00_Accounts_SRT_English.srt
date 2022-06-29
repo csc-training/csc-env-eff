@@ -1,0 +1,167 @@
+1
+00:00:21,883 --> 00:00:27,283
+A CSC account is needed for using CSC supercomputers. 
+
+2
+00:00:29,500 --> 00:00:33,383
+To get started, please find the links to tutorial and the documentation 
+
+3
+00:00:33,416 --> 00:00:36,216
+that guide you with the account creation.
+
+4
+00:00:38,899 --> 00:00:42,266
+Keep the account valid by renewing the passphrase annually. 
+
+5
+00:00:42,383 --> 00:00:44,383
+You will get a reminder by email. 
+
+6
+00:00:46,566 --> 00:00:50,366
+Never share your account or the passphrase with anyone!
+
+7
+00:00:54,899 --> 00:00:59,516
+The resources at CSC are managed with projects.
+
+8
+00:01:00,616 --> 00:01:04,633
+Each project has a quota for disk space and cpu time.
+
+9
+00:01:05,799 --> 00:01:09,216
+Each project has a manager and members.
+
+10
+00:01:09,483 --> 00:01:14,500
+If you're working on the same topic then it makes sense to be in the same project.
+
+11
+00:01:15,433 --> 00:01:19,450
+Here's a link to the qualifications of a project manager.
+
+12
+00:01:21,549 --> 00:01:25,083
+Check here if you are eligible to act as a project manager.
+
+13
+00:01:27,966 --> 00:01:32,650
+In addition to CSC-projects there's something called a personal project.
+
+14
+00:01:32,650 --> 00:01:34,849
+That is a technical way to make sure
+
+15
+00:01:34,849 --> 00:01:37,266
+that nobody else accesses your home folder in Puhti. 
+
+16
+00:01:38,233 --> 00:01:42,066
+You are not supposed to use the personal project for anything. 
+
+17
+00:01:42,849 --> 00:01:46,266
+It is not meant for running batch jobs!
+
+18
+00:01:46,750 --> 00:01:50,799
+Please find more information on you projects in the documentation.
+
+19
+00:01:53,683 --> 00:01:57,700
+You can use this command to see what projects you have. 
+
+20
+00:01:58,233 --> 00:02:01,450
+It works on the command line on Puhti and Mahti.
+
+21
+00:02:04,916 --> 00:02:09,383
+The project manager can invite new members to the project.
+
+22
+00:02:11,916 --> 00:02:14,900
+These projects are intended not to last indefinitely 
+
+23
+00:02:14,900 --> 00:02:18,199
+and their lifetime has to be extended yearly.
+
+24
+00:02:19,699 --> 00:02:25,483
+If the project is no longer active the project will be closed and the data will be deleted.
+
+25
+00:02:25,616 --> 00:02:30,250
+There's a 90 day grace period during which you will get notified by email.
+
+26
+00:02:33,483 --> 00:02:37,616
+In Puhti you're not supposed to process any personal or sensitive data.
+
+27
+00:02:38,400 --> 00:02:42,066
+If your project needs to handle such data, please check out the documentation 
+
+28
+00:02:42,066 --> 00:02:46,050
+on how to manage the data in the MyCSC-service.
+
+29
+00:02:49,866 --> 00:02:53,483
+Running jobs and virtual machines or storing files 
+
+30
+00:02:53,483 --> 00:02:56,866
+consume something called Billing units.
+
+31
+00:02:58,566 --> 00:03:03,316
+These Billing units are a property of the CSC-projects.
+
+32
+00:03:03,383 --> 00:03:06,133
+More Billing units can be applied in MyCSC 
+
+33
+00:03:06,133 --> 00:03:09,666
+where you can manage your CSC-projects. 
+
+34
+00:03:11,616 --> 00:03:17,116
+Academic usage has already been paid for by the ministry of education and culture.
+
+35
+00:03:17,416 --> 00:03:23,183
+The free-of-charge use cases have been defined here in detail.
+
+36
+00:03:25,116 --> 00:03:28,533
+Remember to acknowledge CSC in your publications and 
+
+37
+00:03:28,533 --> 00:03:32,583
+list your publications also in your Billing unit application.
+
+38
+00:03:32,750 --> 00:03:36,616
+You can estimate the Billing unit consumption with the Billing unit calculator.
+
+39
+00:03:38,816 --> 00:03:42,633
+This was the projects and accounts review.
+
+40
+00:03:43,716 --> 00:03:47,400
+The tutorials about accounts and projects continue from here. 
+
+41
+00:03:47,449 --> 00:03:50,933
+They cover the basics with easy-to-follow examples. 
+
+42
+00:03:51,333 --> 00:03:53,383
+Check out the links in the description.

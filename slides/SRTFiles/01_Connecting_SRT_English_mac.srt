@@ -1,0 +1,207 @@
+1
+00:00:22,783 --> 00:00:28,583
+There is a new web interface that can be used to access Puhti directly from a web browser.
+
+2
+00:00:29,266 --> 00:00:34,366
+Note that the web interface is still a beta-version which means there might be further changes.
+
+3
+00:00:35,116 --> 00:00:38,683
+Use you CSC username to log in.
+
+4
+00:00:39,133 --> 00:00:43,883
+From there you can access your files in Puhti and launch some applications.
+
+5
+00:00:44,649 --> 00:00:48,700
+More in-depth documentation is available in Docs CSC
+
+6
+00:00:54,216 --> 00:01:01,633
+The usual way to log in to CSC supercomputers is using a secure shell (SSH). 
+
+7
+00:01:02,700 --> 00:01:06,849
+SSH can be opened in for example in the Command Line Interface. 
+
+8
+00:01:06,849 --> 00:01:10,383
+In Linux and Mac that is known as Terminal.
+
+9
+00:01:10,683 --> 00:01:14,799
+We recommend to get familiar with the basics of a Command Line Interface,
+
+10
+00:01:14,799 --> 00:01:20,133
+which is a little more spesific interface that lets you use the full power of a supercomputer.
+
+11
+00:01:21,516 --> 00:01:27,250
+We have documentation and an introductory tutorial on how to SSH to Puhti. 
+
+12
+00:01:27,466 --> 00:01:30,233
+The links are in the description.
+
+13
+00:01:31,033 --> 00:01:35,349
+Mac and Linux come with an SSH client in the Terminal by default. 
+
+14
+00:01:35,799 --> 00:01:39,599
+In Windows 10, there's something called the PowerShell. 
+
+15
+00:01:39,599 --> 00:01:44,000
+It can be used, but it might not be fully compatible with our set up. 
+
+16
+00:01:44,366 --> 00:01:49,383
+Therefore we recommend another software called MobaXTerm which is free to use.
+
+17
+00:01:50,083 --> 00:01:54,099
+Putty or CMDer can be used as well.
+
+18
+00:01:54,166 --> 00:01:57,716
+Installing these software may require admin privileges, 
+
+19
+00:01:57,716 --> 00:02:01,566
+so you might need your IT support to do this for you.
+
+20
+00:02:02,066 --> 00:02:07,750
+If you do plain SSH, by default it might not allow displaying remote graphics. 
+
+21
+00:02:08,166 --> 00:02:13,233
+On Linux or Mac you can just add a capital X or Y to your SSH command, 
+
+22
+00:02:13,233 --> 00:02:16,633
+and it will tunnel the remote graphics from Puhti. 
+
+23
+00:02:17,016 --> 00:02:20,233
+In Windows MobaXTerm has a way to do that, 
+
+24
+00:02:20,233 --> 00:02:23,366
+or then you would need to install some other tools. 
+
+25
+00:02:31,750 --> 00:02:35,500
+Sometimes you may edit files in your local computer and
+
+26
+00:02:35,500 --> 00:02:39,550
+want to copy the files to a supercomputer or vice versa.
+
+27
+00:02:39,616 --> 00:02:43,650
+You can use secure copy and RSync directly from the command line. 
+
+28
+00:02:47,916 --> 00:02:54,300
+The basic syntax is scp or RSync, then source path, then target path.
+
+29
+00:02:54,633 --> 00:03:01,733
+The path in another computer needs to include the domain and the username at that machine.
+
+30
+00:03:04,983 --> 00:03:08,483
+RSync is available in MobaXTerm which is one reason
+
+31
+00:03:08,483 --> 00:03:12,016
+we recommend MobaXTerm for Windows users. 
+
+32
+00:03:14,433 --> 00:03:20,333
+Sometimes a graphical user interface for transferring files is much more convenient.
+
+33
+00:03:20,849 --> 00:03:24,866
+For Windows FileZilla and WinSCP are good examples. 
+
+34
+00:03:24,966 --> 00:03:28,616
+Installing them might require admin privileges.
+
+35
+00:03:30,116 --> 00:03:34,283
+MobaXTerm also has a file transfer functionality. 
+
+36
+00:03:34,283 --> 00:03:40,166
+When downloading files they go by default to a home folder, which is in a weird place. 
+
+37
+00:03:40,250 --> 00:03:44,300
+The tip is to first choose this home directory from the Settings tab.
+
+38
+00:03:46,666 --> 00:03:52,883
+Also Puhti web interface can be used to move files between Puhti and a local computer.
+
+39
+00:04:00,300 --> 00:04:06,233
+SSH-keys are used for example in some RStudio or Jupyter Notebook workflows.
+
+40
+00:04:06,883 --> 00:04:11,800
+You don't need SSH-keys for logging in to CSC supercomputers, 
+
+41
+00:04:11,800 --> 00:04:15,483
+but they can make your workflows easier at some point. 
+
+42
+00:04:15,883 --> 00:04:19,233
+A tutorial covers the setup for SSH-keys.
+
+43
+00:04:19,233 --> 00:04:22,083
+The link is in the materials index page.
+
+44
+00:04:28,216 --> 00:04:32,233
+The default workflow for editing files is to open an editor on Puhti. 
+
+45
+00:04:32,433 --> 00:04:38,383
+With lot of files, for example when coding that is not so convenient.
+
+46
+00:04:38,833 --> 00:04:43,716
+For these purposes you can install a suitable editor like Visual Studio code
+
+47
+00:04:43,716 --> 00:04:47,800
+or configure Notepad++ so that they sync the files to Puhti. 
+
+48
+00:04:48,399 --> 00:04:52,199
+We have some detailed documentation in docs.csc.fi 
+
+49
+00:04:52,199 --> 00:04:55,283
+with instructions on how to set up such environment.
+
+50
+00:04:55,716 --> 00:05:00,600
+The tutorials about Accounts and Connecting continue from here.
+
+51
+00:05:00,600 --> 00:05:04,316
+They cover the basic use cases with easy-to-follow examples.
+
+52
+00:05:04,316 --> 00:05:06,350
+Check the links in the description!

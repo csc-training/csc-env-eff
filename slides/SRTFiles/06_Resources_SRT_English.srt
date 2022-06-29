@@ -1,0 +1,979 @@
+1
+00:00:23,883 --> 00:00:26,350
+Remember that there are many users doing their work on 
+
+2
+00:00:26,350 --> 00:00:29,149
+CSC supercomputers simultaneously?
+
+3
+00:00:30,083 --> 00:00:35,399
+To maximise the resource usage all users should know how much resources to request.
+
+4
+00:00:36,233 --> 00:00:38,500
+The rule number one is that you should not reserve 
+
+5
+00:00:38,500 --> 00:00:41,216
+more resources than your job actually needs. 
+
+6
+00:00:41,799 --> 00:00:44,933
+That will also minimize the queueing time.
+
+7
+00:00:46,416 --> 00:00:49,566
+When it seems your jobs start to need more resources, 
+
+8
+00:00:49,566 --> 00:00:52,133
+please justify your larger requests.
+
+9
+00:00:53,183 --> 00:00:55,366
+In the end it is up to you to decide that
+
+10
+00:00:55,366 --> 00:01:00,899
+does it make sense to spend five hours work to make the job run two hours faster? 
+
+11
+00:01:00,966 --> 00:01:06,299
+If you are going to repeat that job multiple times in the future, it really starts to pay off. 
+
+12
+00:01:06,883 --> 00:01:10,900
+This lecture aims to help you to optimise you resource requests.
+
+13
+00:01:16,650 --> 00:01:21,299
+The picture illustrates two opposite example cases of a job on a single node.
+
+14
+00:01:22,233 --> 00:01:26,033
+On the left there is a job that uses all the CPUs on that node, 
+
+15
+00:01:26,033 --> 00:01:28,566
+but it lefts most of the memory free.
+
+16
+00:01:29,349 --> 00:01:34,000
+On the right there is a job that uses only one core but then reserves all of the memory.
+
+17
+00:01:35,950 --> 00:01:40,000
+An average job needs a few cores and a fair amount of memory.
+
+18
+00:01:40,766 --> 00:01:45,500
+Usually one node is capable of hosting several jobs from different users.
+
+19
+00:01:46,316 --> 00:01:49,633
+At some point the resources of a single node are all in use and 
+
+20
+00:01:49,633 --> 00:01:53,533
+it can not host any additional jobs before some resources are freed.
+
+21
+00:01:56,900 --> 00:01:59,216
+Typically a node runs out of cores first 
+
+22
+00:01:59,216 --> 00:02:02,483
+which makes the remaining memory unavailable and wasted.
+
+23
+00:02:05,166 --> 00:02:08,733
+On the other hand if one one-core job uses all the memory, 
+
+24
+00:02:08,733 --> 00:02:12,866
+then all the other cores on that node remain idle and therefore wasted.
+
+25
+00:02:14,400 --> 00:02:17,816
+These both are extreme examples.
+
+26
+00:02:18,033 --> 00:02:22,883
+If your job actually uses such resources, it is fine to reserve those.
+
+27
+00:02:23,566 --> 00:02:27,599
+Remember to avoid reserving resources for "just in case".
+
+28
+00:02:28,083 --> 00:02:31,683
+That is considered as actually wasting resources.
+
+29
+00:02:38,000 --> 00:02:40,716
+And now to the billion billing unit question:
+
+30
+00:02:40,716 --> 00:02:44,366
+"how to find out how much resources my job actually used?"
+
+31
+00:02:46,099 --> 00:02:50,150
+Slurm accounting is a database where every job makes an entry.
+
+32
+00:02:50,616 --> 00:02:55,250
+The data can be queried with the command called seff followed by the job ID. 
+
+33
+00:02:55,933 --> 00:03:01,050
+You can see the job ID when you submit the job or with command squeue --me.
+
+34
+00:03:03,516 --> 00:03:07,800
+This command seff prints out first where the job was run, by who, 
+
+35
+00:03:07,800 --> 00:03:11,733
+if it completed or failed and how many node and cores were used. 
+
+36
+00:03:12,216 --> 00:03:16,250
+Then there are three different times included in the seff output.
+
+37
+00:03:16,900 --> 00:03:22,199
+CPU utilized tells the actual time the CPUs spent computing something.
+
+38
+00:03:23,016 --> 00:03:28,866
+CPU efficiency tells how much the CPUs were active of the total CPU walltime.
+
+39
+00:03:30,816 --> 00:03:33,966
+The job wall-clock time tells how long the computation took
+
+40
+00:03:33,966 --> 00:03:36,666
+between the actual job start and job finish
+
+41
+00:03:36,666 --> 00:03:39,566
+ - note that it does not include the queueing time.
+
+42
+00:03:41,266 --> 00:03:44,616
+Notice that in this example the core-walltime is about four times 
+
+43
+00:03:44,616 --> 00:03:48,349
+larger than job wall time, because four cores were used. 
+
+44
+00:03:50,650 --> 00:03:53,616
+Moving forward, there is the utilised memory and 
+
+45
+00:03:53,616 --> 00:03:57,400
+the memory efficiency which includes the total memory requested.
+
+46
+00:03:58,183 --> 00:04:02,166
+The rest is about the billing units consumed, which project was billed 
+
+47
+00:04:02,166 --> 00:04:05,599
+and how the billing units were spent on different resources.
+
+48
+00:04:06,433 --> 00:04:11,599
+Here you can also see if the job used NVMe disk or GPU resources.
+
+49
+00:04:14,633 --> 00:04:18,199
+Now the important parts to note on this seff output.
+
+50
+00:04:18,850 --> 00:04:23,383
+You should optimise for a high CPU efficiency and short enough wall time,
+
+51
+00:04:23,383 --> 00:04:26,649
+especially if you're running on on multiple cores. 
+
+52
+00:04:27,216 --> 00:04:30,149
+If you try to use too many cores to the limit where
+
+53
+00:04:30,149 --> 00:04:33,550
+the code would not scale anymore, the code would spend more time
+
+54
+00:04:33,550 --> 00:04:36,033
+communicating information between different cores and
+
+55
+00:04:36,033 --> 00:04:38,666
+less time actually computing something. 
+
+56
+00:04:39,449 --> 00:04:45,216
+So in that case, the wall time might drop a little bit, but the efficiency would go down.
+
+57
+00:04:47,649 --> 00:04:52,649
+If file I/O is slowing the code down that will show in lower CPU efficiency 
+
+58
+00:04:52,649 --> 00:04:55,350
+and you should consider using NVMe disk.
+
+59
+00:04:55,750 --> 00:04:58,933
+Also it is good practice to specify the amount of nodes in 
+
+60
+00:05:00,399 --> 00:05:05,550
+the parallel job resource request so that the job will not spread on too many nodes.
+
+61
+00:05:05,899 --> 00:05:09,649
+The data transfer between nodes is slower than within one node. 
+
+62
+00:05:09,916 --> 00:05:14,833
+If everyone fails to specify the amount of nodes, the SLURM system will spread 
+
+63
+00:05:14,833 --> 00:05:18,966
+parallel jobs across all nodes and there will be unnecessarily few full nodes available.
+
+64
+00:05:22,033 --> 00:05:25,916
+If the memory efficiency is a bit more tricky to evaluate.
+
+65
+00:05:26,649 --> 00:05:29,866
+The default memory request for one core is one gigabyte 
+
+66
+00:05:29,866 --> 00:05:32,783
+which is quite small but often sufficient amount. 
+
+67
+00:05:34,550 --> 00:05:38,750
+It is recommended to have some buffer on top of the assumed memory amount.
+
+68
+00:05:38,966 --> 00:05:43,199
+In this example we have 2.5 gigabytes of memory buffer.
+
+69
+00:05:43,433 --> 00:05:48,850
+Depending the size of your job the buffer could be for example from one to 10 GB.
+
+70
+00:05:49,816 --> 00:05:54,333
+The nodes in Puhti have at least 192 GB memory.
+
+71
+00:05:54,683 --> 00:05:59,399
+Still it is good to keep the buffer well below 50 gigabytes to avoid the situation
+
+72
+00:05:59,399 --> 00:06:02,449
+where node memory is full and the cores stay idle.
+
+73
+00:06:04,116 --> 00:06:08,783
+For GPU jobs low efficency implies that you should use CPUs instead and
+
+74
+00:06:08,783 --> 00:06:11,866
+make sure that the disk is not slowing you down. 
+
+75
+00:06:21,933 --> 00:06:25,966
+Sometimes seff does not capture all the usage statistics.
+
+76
+00:06:26,716 --> 00:06:30,649
+You might find that the CPU or memory usage is suspiciously low 
+
+77
+00:06:30,649 --> 00:06:32,649
+although the job performed well.
+
+78
+00:06:33,366 --> 00:06:35,883
+In that case you should compare the job wall time or
+
+79
+00:06:35,883 --> 00:06:39,050
+timing info from your program log files. 
+
+80
+00:06:39,300 --> 00:06:43,750
+You can correlate the elapsed time with how many cores or memory you're using.
+
+81
+00:06:46,449 --> 00:06:50,600
+It's recommended to use srun to launch programs in batch scripts.
+
+82
+00:06:50,850 --> 00:06:56,149
+In some cases it is not feasible, but then the seff output can be missing something.
+
+83
+00:06:58,716 --> 00:07:03,250
+In addition to seff, there is something called Slurm Accounting or sacct. 
+
+84
+00:07:03,500 --> 00:07:07,216
+You can use sacct to find details on the jobs.
+
+85
+00:07:07,649 --> 00:07:11,300
+You can also look for the job IDs of all jobs.
+
+86
+00:07:11,850 --> 00:07:16,399
+Please note that these are a little bit heavy operations on the Slurm database.
+
+87
+00:07:16,816 --> 00:07:20,750
+Do not query from the beginning of last year and never put these commands 
+
+88
+00:07:20,750 --> 00:07:22,550
+in scripts that you loop over.
+
+89
+00:07:28,899 --> 00:07:33,550
+Using resources like CPU and file storage consume billing units.
+
+90
+00:07:34,416 --> 00:07:37,433
+Billing is done per project which means that the computing time
+
+91
+00:07:37,433 --> 00:07:40,000
+and the quotas are properties of a project. 
+
+92
+00:07:40,366 --> 00:07:44,616
+A user can belong to many projects and choose which project will be billed.
+
+93
+00:07:44,800 --> 00:07:49,116
+All the users in a same project will use the same billing unit quota. 
+
+94
+00:07:49,899 --> 00:07:54,866
+Use the command CSC-projects to see your remaining billing units per project.
+
+95
+00:07:56,633 --> 00:08:00,100
+The billing scheme takes into account of the requested resources
+
+96
+00:08:00,100 --> 00:08:02,116
+and the time the resources are used.
+
+97
+00:08:02,516 --> 00:08:06,716
+The key here is to think how the reserved resources are unavailable to others.
+
+98
+00:08:08,766 --> 00:08:13,833
+If you reserve four cores and use only one, your project is billed for four cores,
+
+99
+00:08:13,833 --> 00:08:17,033
+because no one else can use those during that time.
+
+100
+00:08:17,833 --> 00:08:22,649
+On the other hand if you reserve an hour of time and the job runs only for 10 minutes, 
+
+101
+00:08:22,649 --> 00:08:26,666
+your project is billed for using resources for 10 minutes.
+
+102
+00:08:28,399 --> 00:08:32,533
+That means also that if your job stops immediately because of an error, 
+
+103
+00:08:32,533 --> 00:08:35,933
+only a really small amount of billing units are spent.
+
+104
+00:08:42,116 --> 00:08:46,166
+If you run out of billing units, you can apply for more. 
+
+105
+00:08:46,733 --> 00:08:51,583
+Go to MyCSC web page where you can monitor and apply for billing units.
+
+106
+00:08:52,283 --> 00:08:56,566
+There is a separate entry for each of the projects you are involved in. 
+
+107
+00:08:57,316 --> 00:09:00,266
+Please spread the knowledge about CSC if you have used 
+
+108
+00:09:00,266 --> 00:09:02,600
+CSC resources for your research.
+
+109
+00:09:03,566 --> 00:09:06,850
+Remember also inform us about all those Nature papers and
+
+110
+00:09:06,850 --> 00:09:10,283
+other publications where you have acknowledged CSC.
+
+111
+00:09:10,466 --> 00:09:14,666
+A convenient way of doing that is to mention them in the resource application.
+
+112
+00:09:14,783 --> 00:09:18,950
+That helps us to inform our funders about the resource usage.
+
+113
+00:09:20,816 --> 00:09:25,983
+You can check the Docs CSC if your research is considered as a free-to-use cases.
+
+114
+00:09:27,083 --> 00:09:29,966
+For example usage for universities has been paid
+
+115
+00:09:29,966 --> 00:09:32,683
+by the Ministry of Education and Culture.
+
+116
+00:09:32,683 --> 00:09:36,933
+The online billing unit calculator will help you to estimate how many billing units 
+
+117
+00:09:36,933 --> 00:09:41,283
+are needed for different types of jobs and how much that would cost in Euros.
+
+118
+00:09:49,016 --> 00:09:53,466
+Billing units can also be considered as a kind of measure of efficiency.
+
+119
+00:09:54,383 --> 00:09:59,566
+For example a one hour 40-core job is cheaper than one hour one-GPU job.
+
+120
+00:10:00,350 --> 00:10:04,366
+Of course that does not tell which of them gets more computation done
+
+121
+00:10:04,366 --> 00:10:07,016
+ - that is to be determined case-by-case.
+
+122
+00:10:08,616 --> 00:10:13,233
+Here is a more detailed of the cost of different resources in billing units. 
+
+123
+00:10:14,183 --> 00:10:18,233
+In Puhti one CPU core our equals one billing unit.
+
+124
+00:10:19,016 --> 00:10:22,466
+Then one GPU card hour equals 60 billing units,
+
+125
+00:10:22,466 --> 00:10:26,683
+plus all the CPUs that you need to allocate with the job as well. 
+
+126
+00:10:27,450 --> 00:10:33,049
+However, in Mahti, the the resources are allocated by nodes instead of cores.
+
+127
+00:10:33,716 --> 00:10:38,483
+Using one node for one hour in Mahti consumes 100 billing units. 
+
+128
+00:10:39,333 --> 00:10:43,500
+In Puhti you also neet to request some memory for your jobs.
+
+129
+00:10:43,616 --> 00:10:48,100
+One gibibyte hour of memory equals zero point one billing units. 
+
+130
+00:10:48,466 --> 00:10:51,516
+In Mahti you don't need to request memory because you get 
+
+131
+00:10:51,516 --> 00:10:54,299
+all memory in the requested node anyway. 
+
+132
+00:10:55,616 --> 00:11:01,233
+Regarding disk space in Scratch or projAppl, the first terabyte of quota is free. 
+
+133
+00:11:01,583 --> 00:11:03,433
+But if you need more space, 
+
+134
+00:11:03,433 --> 00:11:07,299
+you can apply for more by sending e-mail to a service desk.
+
+135
+00:11:08,533 --> 00:11:12,016
+The billing for the extra space is done based on the usage.
+
+136
+00:11:12,100 --> 00:11:17,166
+Excessing the first (free) terabyte costs 5 billing units per terabyte per hour.
+
+137
+00:11:17,549 --> 00:11:20,566
+It means you can use more space when you need some, 
+
+138
+00:11:20,566 --> 00:11:25,183
+but it is still a good idea to move your files elsewhere when you don't need them.
+
+139
+00:11:26,833 --> 00:11:31,983
+In Allas, the billing unit cost is based on how much data you actually have there.
+
+140
+00:11:32,083 --> 00:11:36,766
+One terabyte of data in Allas equals nine thousand billing units in a year
+
+141
+00:11:37,233 --> 00:11:40,899
+That favours a workflow where you move your data to Allas
+
+142
+00:11:40,899 --> 00:11:43,166
+when you are not actively using it.
+
+143
+00:11:43,716 --> 00:11:49,316
+There is a link to docs.csc.fi where billing scheme is explained in more detail.
+
+144
+00:11:49,450 --> 00:11:52,683
+There is a formula that you can use to calculate the total
+
+145
+00:11:52,683 --> 00:11:54,983
+billing unit consumption for a job.
+
+146
+00:11:55,450 --> 00:11:57,983
+The further links take you to the information about 
+
+147
+00:11:57,983 --> 00:12:00,933
+cloud resource billing and quantum simulator billing. 
+
+148
+00:12:10,733 --> 00:12:15,266
+The first thing to do with any new batch job script is to test that it works.
+
+149
+00:12:16,100 --> 00:12:21,149
+You don't want to queue for days just to see that your tiny typo made the job fail.
+
+150
+00:12:21,799 --> 00:12:27,266
+Shorter runs queue less so create a short test run and submit in the queue called "test".
+
+151
+00:12:28,033 --> 00:12:30,500
+That has usually really short queueing times and 
+
+152
+00:12:30,500 --> 00:12:33,133
+you will quickly see how your job performs. 
+
+153
+00:12:35,100 --> 00:12:40,133
+Examining the test job with seff tells you if it actually used the requested resources.
+
+154
+00:12:40,933 --> 00:12:46,016
+You can use the information to refine resource requests for similar kinds of jobs. 
+
+155
+00:12:46,799 --> 00:12:50,816
+If you run only one calculation it is not so important.
+
+156
+00:12:50,816 --> 00:12:55,250
+But that really pays off when you start to scale up your calculations.
+
+157
+00:12:56,299 --> 00:13:00,766
+If you request too little memory or too little time, the job will fail. 
+
+158
+00:13:00,816 --> 00:13:03,233
+This is normal and fine.
+
+159
+00:13:03,583 --> 00:13:07,216
+Usually the explanation is provided either by the queuing system
+
+160
+00:13:07,216 --> 00:13:09,299
+or somewhere in the log files. 
+
+161
+00:13:09,566 --> 00:13:13,583
+Then you can adjust the parameters and preferably restart the job. 
+
+162
+00:13:13,649 --> 00:13:17,683
+Or you can run a new batch job with the same batch script.
+
+163
+00:13:18,433 --> 00:13:22,366
+If you run jobs with so large requests that your jobs never fail, 
+
+164
+00:13:22,366 --> 00:13:26,049
+it leads to most of the resources left unused and wasted.
+
+165
+00:13:26,733 --> 00:13:30,216
+Also your jobs will be queueing more.
+
+166
+00:13:35,483 --> 00:13:41,350
+If you want to use parallel computation resources, you should consider the workflow.
+
+167
+00:13:42,183 --> 00:13:47,733
+For example, you could run multiple smaller simulations instead of one big simulation.
+
+168
+00:13:48,333 --> 00:13:53,133
+Or maybe use a completely different code or algorithm if that is more efficient. 
+
+169
+00:13:53,883 --> 00:13:57,416
+Typically the easy-to-use codes written by non-specialists
+
+170
+00:13:57,416 --> 00:14:00,383
+can do something well enough in a small scale. 
+
+171
+00:14:00,566 --> 00:14:03,233
+But when you move on to run in a large scale, 
+
+172
+00:14:03,233 --> 00:14:05,816
+you might need to switch to something more complicated 
+
+173
+00:14:05,816 --> 00:14:08,016
+that has much better performance. 
+
+174
+00:14:09,266 --> 00:14:14,049
+Remember your job can be slow just because it is reading or writing a lot of files. 
+
+175
+00:14:14,366 --> 00:14:17,366
+Then the solution is not adding CPUs but instead 
+
+176
+00:14:17,366 --> 00:14:20,733
+use the fast local storage available in some nodes.
+
+177
+00:14:23,049 --> 00:14:26,066
+When optimising and considering parallel resources 
+
+178
+00:14:26,066 --> 00:14:29,133
+you should think about wall time and CPU time.
+
+179
+00:14:29,933 --> 00:14:33,983
+Wall time means how long it takes before the job is finished. 
+
+180
+00:14:34,149 --> 00:14:37,433
+CPU time is what consumes billing units and
+
+181
+00:14:37,433 --> 00:14:40,833
+it multiplies with the amound of CPUs you use.
+
+182
+00:14:41,366 --> 00:14:44,516
+Adding more CPUs may reduce the wall time, 
+
+183
+00:14:44,516 --> 00:14:48,933
+but at some point it becomes quite expensive in terms of billing units. 
+
+184
+00:14:56,466 --> 00:15:00,799
+This summary slide also includes links to further documentation.
+
+185
+00:15:02,066 --> 00:15:06,766
+The most important things to monitor when you start doing some heavy computing are:
+
+186
+00:15:06,766 --> 00:15:09,866
+whether the job is using all of the memory,
+
+187
+00:15:09,866 --> 00:15:13,166
+whether the job is using disk efficiently,
+
+188
+00:15:13,166 --> 00:15:16,133
+whether it makes sense to use GPUs,
+
+189
+00:15:16,133 --> 00:15:19,950
+and whether adding more resources speeds up stuff.
+
+190
+00:15:21,049 --> 00:15:24,266
+With memory, it is recommended to always have some reserve 
+
+191
+00:15:24,266 --> 00:15:27,233
+as instructed in the slides about Slurm accounting.
+
+192
+00:15:29,183 --> 00:15:34,366
+Avoiding excessive disk workload means not to burden the Lustre parallel file system, 
+
+193
+00:15:34,366 --> 00:15:37,533
+but to use fast local storage if necessary. 
+
+194
+00:15:39,700 --> 00:15:43,583
+If your application can use GPUs, check that it also gains 
+
+195
+00:15:43,583 --> 00:15:47,733
+a real performance improvement compared to using CPUs.
+
+196
+00:15:48,350 --> 00:15:53,066
+The documentation includes a quite detailed GPU usage policy. 
+
+197
+00:15:53,933 --> 00:15:56,883
+The GPUs should be used on those applications where 
+
+198
+00:15:56,883 --> 00:15:59,416
+it speeds up running the jobs the most. 
+
+199
+00:16:00,250 --> 00:16:02,783
+In some cases - typically machine learning 
+
+200
+00:16:02,783 --> 00:16:06,683
+ - the speedup can be even 6-fold compared to CPUs. 
+
+201
+00:16:07,799 --> 00:16:12,000
+If the speedup is barely at the minimum level allowed by the usage policy, 
+
+202
+00:16:12,000 --> 00:16:15,966
+you may lose the gain if you need to queue for the resources.
+
+203
+00:16:18,683 --> 00:16:21,283
+For parallel jobs it is important to check that
+
+204
+00:16:21,283 --> 00:16:24,600
+adding more resources makes the job run faster. 
+
+205
+00:16:24,600 --> 00:16:27,700
+Otherwise it does not make sense to run in parallel. 
+
+206
+00:16:28,583 --> 00:16:32,166
+The kind of rule of thumb is that when you double the resources
+
+207
+00:16:32,166 --> 00:16:34,450
+ - for example from four cores to eight cores - 
+
+208
+00:16:34,450 --> 00:16:38,583
+the job should run at least one and a half times faster. 
+
+209
+00:16:39,850 --> 00:16:44,316
+The documentation covers instructions to how to perform a scaling test.
+
+210
+00:16:45,333 --> 00:16:48,283
+The idea is that you run a job first with two cores, 
+
+211
+00:16:48,283 --> 00:16:51,700
+then four and eight cores and monitor the performance. 
+
+212
+00:16:52,466 --> 00:16:56,350
+If the running time goes down - or the performance increases
+
+213
+00:16:56,350 --> 00:16:58,850
+ - then it is okay to add more resources. 
+
+214
+00:17:05,599 --> 00:17:09,650
+Here are two illustrative examples of seff results. 
+
+215
+00:17:09,950 --> 00:17:15,349
+The first example job has run for only two minutes until finished which is fairly short. 
+
+216
+00:17:16,116 --> 00:17:19,250
+The CPU efficiency is really low. 
+
+217
+00:17:19,783 --> 00:17:23,150
+Either the system is not logging CPU usage correctly 
+
+218
+00:17:23,150 --> 00:17:25,400
+or there is something wrong with this job. 
+
+219
+00:17:27,716 --> 00:17:32,833
+Memory efficiency is five percent out of five GB, which is also very low. 
+
+220
+00:17:33,733 --> 00:17:39,933
+On the other hand, this is a GPU job and the GPUs are used with 83% efficiency. 
+
+221
+00:17:40,716 --> 00:17:45,233
+So this job has been making really good use of the expensive resources. 
+
+222
+00:17:46,599 --> 00:17:52,266
+Apparently this application does not need the CPU, but keeps the GPU busy. 
+
+223
+00:17:52,916 --> 00:17:56,950
+There is four GPUs per one GPU node.
+
+224
+00:17:57,166 --> 00:18:01,650
+In this example the memory usage is well below one fourth of the available memory, 
+
+225
+00:18:01,650 --> 00:18:05,183
+which leaves sufficient memory for other GPUs.
+
+226
+00:18:07,183 --> 00:18:10,116
+Although 5% memory efficiency is low,
+
+227
+00:18:10,116 --> 00:18:14,366
+the remaining "buffer size" is only about 4 GB in this case.
+
+228
+00:18:14,933 --> 00:18:18,650
+So overall, the two small efficiencies here are fine, 
+
+229
+00:18:18,650 --> 00:18:22,549
+because of the well utilised expensive GPU resource.
+
+230
+00:18:23,299 --> 00:18:28,349
+Also the amount of not utilised CPU and memory resources is small.
+
+231
+00:18:34,216 --> 00:18:38,250
+The second example is a job that has actually failed.
+
+232
+00:18:38,599 --> 00:18:42,833
+The CPU efficiency is even smaller than with the previous example.
+
+233
+00:18:43,483 --> 00:18:47,150
+But, it has a problem in the memory efficiency.
+
+234
+00:18:47,549 --> 00:18:51,583
+It has used more than 100% of available memory. 
+
+235
+00:18:51,966 --> 00:18:55,683
+That is probably the reason why the job has failed. 
+
+236
+00:18:59,633 --> 00:19:03,483
+In this case the job error file might have a clear error message telling that 
+
+237
+00:19:03,483 --> 00:19:08,250
+the job was using too much memory and it was killed by the queueing system. 
+
+238
+00:19:10,233 --> 00:19:12,433
+That is not alarming as such - 
+
+239
+00:19:12,433 --> 00:19:16,066
+you might have been testing the optimal amount of resources and this happens.
+
+240
+00:19:18,916 --> 00:19:23,299
+However, the CPU efficiency here is also very small. 
+
+241
+00:19:23,500 --> 00:19:28,049
+It would be best to check that this job is actually doing what it is supposed to do. 
+
+242
+00:19:30,566 --> 00:19:33,950
+The tutorials about resource usage continue from here. 
+
+243
+00:19:33,950 --> 00:19:37,849
+They cover the basic use cases with easy-to-follow examples.
+
+244
+00:19:38,549 --> 00:19:42,233
+The documentation has more information about available resources
+
+245
+00:19:42,233 --> 00:19:46,083
+including technical details and example batch scripts.
