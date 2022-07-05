@@ -1,0 +1,839 @@
+1
+00:00:20,699 --> 00:00:25,750
+Why should we care for Singularity containers in HPC environments? 
+
+2
+00:00:26,283 --> 00:00:31,300
+In HPC centers applications are often installed as containers.
+
+3
+00:00:31,516 --> 00:00:34,549
+CSC makes no exception to that. 
+
+4
+00:00:35,066 --> 00:00:38,133
+There may be slight differences in how you use regular software 
+
+5
+00:00:38,133 --> 00:00:40,116
+and software in a container.
+
+6
+00:00:40,783 --> 00:00:43,666
+Check the documentation of that particular software 
+
+7
+00:00:43,666 --> 00:00:46,600
+to see whether it is installed as a container. 
+
+8
+00:00:46,950 --> 00:00:50,833
+Users also benefit from the use of containers.
+
+9
+00:00:51,183 --> 00:00:56,233
+They can install software easily – no need for HPC admins. 
+
+10
+00:00:56,516 --> 00:00:59,649
+If a container with desired software exists, 
+
+11
+00:00:59,649 --> 00:01:03,316
+users need only a single command to install it.
+
+12
+00:01:10,333 --> 00:01:14,966
+Let me tell you an example usecase where containers can solve the problem.
+
+13
+00:01:15,433 --> 00:01:20,883
+A scientific developer writes some code and wants to hand it over to a friend for testing. 
+
+14
+00:01:21,266 --> 00:01:26,766
+The friend tells the developer that the test code is not working in the test environments. 
+
+15
+00:01:27,183 --> 00:01:32,983
+Turns out the first test environment has slightly different versions of the used libraries. 
+
+16
+00:01:33,216 --> 00:01:37,400
+The second test environment has a different operating system. 
+
+17
+00:01:38,016 --> 00:01:41,049
+How to make sure that same code works on your computer 
+
+18
+00:01:41,049 --> 00:01:44,500
+and in HPC environment or cloud environment?
+
+19
+00:01:44,700 --> 00:01:48,416
+That is the challenge that containers are going to solve. 
+
+20
+00:01:48,583 --> 00:01:51,433
+Basically if something works on your computer, 
+
+21
+00:01:51,433 --> 00:01:55,666
+it should work anywhere regardless of the underlying host environment. 
+
+22
+00:01:57,633 --> 00:02:01,383
+A container packages everything needed to run the application 
+
+23
+00:02:01,383 --> 00:02:04,233
+ – that includes the code and all dependencies.
+
+24
+00:02:04,599 --> 00:02:08,400
+The container image can be run like a binary file.
+
+25
+00:02:08,900 --> 00:02:11,916
+There are many container platforms around.
+
+26
+00:02:11,916 --> 00:02:15,516
+The most popular container engine is probably Docker.
+
+27
+00:02:15,883 --> 00:02:22,666
+Singularity is very popular in HPC environments and it is used also in CSC environment. 
+
+28
+00:02:31,866 --> 00:02:36,883
+Both containers and virtual machines are solving this dependency issue.
+
+29
+00:02:37,166 --> 00:02:42,199
+The comparison here shows three ways of deploying your applications. 
+
+30
+00:02:42,233 --> 00:02:46,833
+First is the native application - i.e. you compile and launch it. 
+
+31
+00:02:47,216 --> 00:02:51,183
+Then it depends on your environment whether it works or not.
+
+32
+00:02:51,583 --> 00:02:55,066
+The second one is the virtual machine approach. 
+
+33
+00:02:55,500 --> 00:02:58,216
+Virtual machine applications are usually rendered 
+
+34
+00:02:58,216 --> 00:03:01,233
+through a special software called hypervisor.
+
+35
+00:03:01,733 --> 00:03:06,233
+Virtual machine includes OS and Kernel like a normal computer.
+
+36
+00:03:06,716 --> 00:03:11,750
+It basically is a virtual computer and there you can install everything from the scratch.
+
+37
+00:03:12,333 --> 00:03:15,566
+Another user can install the saved image of the system 
+
+38
+00:03:15,566 --> 00:03:18,150
+and use it with good compatibility.
+
+39
+00:03:19,466 --> 00:03:22,166
+Third option is the container approach, 
+
+40
+00:03:22,166 --> 00:03:25,216
+which is a bit more lightweight than a virtual machine. 
+
+41
+00:03:25,783 --> 00:03:31,283
+You just install the container engine, but not kernel or any operating system. 
+
+42
+00:03:31,766 --> 00:03:36,783
+So the key difference between virtual machines and containers is how they use kernel.
+
+43
+00:03:37,349 --> 00:03:40,000
+Containers share the kernel with the hardware, 
+
+44
+00:03:40,000 --> 00:03:43,033
+whereas virtual machines have their own kernel. 
+
+45
+00:03:43,449 --> 00:03:47,966
+From the user point of view: virtual machines boot the operating system 
+
+46
+00:03:47,966 --> 00:03:52,516
+which takes time, and containers can be loaded in milliseconds.
+
+47
+00:03:59,866 --> 00:04:02,916
+Virtual machines are useful if you need to run a different 
+
+48
+00:04:02,916 --> 00:04:05,500
+Operating System than your regular system. 
+
+49
+00:04:05,883 --> 00:04:10,416
+You may have MacOS or Linux and then you need some Windows software 
+
+50
+00:04:10,416 --> 00:04:15,083
+ - so you can install Windows into a virtual machine and run that on your Mac.
+
+51
+00:04:15,400 --> 00:04:18,350
+If you need to use Linux from another OS you can 
+
+52
+00:04:18,350 --> 00:04:21,333
+open an SSH-connection to Puhti or Mahti.
+
+53
+00:04:21,333 --> 00:04:23,633
+But that you probably knew already!
+
+54
+00:04:25,483 --> 00:04:30,516
+Containers can not run a different OS because the share the kernel with the host.
+
+55
+00:04:30,983 --> 00:04:35,449
+They can have their own libraries – and that is how they solve the dependency issue, 
+
+56
+00:04:35,449 --> 00:04:39,733
+which I described earlier with the example code test case, remember?
+
+57
+00:04:39,733 --> 00:04:40,566
+No?
+
+58
+00:04:41,899 --> 00:04:45,199
+Containers can have their Linux distribution
+
+59
+00:04:45,199 --> 00:04:48,933
+ – like Centos or Ubuntu – different than what the host has.
+
+60
+00:04:56,383 --> 00:05:02,316
+Containers are popular e.g. because they provide an easy way of distributing software.
+
+61
+00:05:02,766 --> 00:05:05,283
+They can be used like binary files, 
+
+62
+00:05:05,283 --> 00:05:08,500
+which means that once you have the container you just run it.
+
+63
+00:05:08,816 --> 00:05:14,683
+Including all the dependencies inside the containers makes it portable and compatible.
+
+64
+00:05:15,933 --> 00:05:19,316
+Singularity containers can be run as a normal user 
+
+65
+00:05:19,316 --> 00:05:22,716
+so they work nicely in HPC environments. 
+
+66
+00:05:23,133 --> 00:05:27,733
+In comparison, Docker containers are inconvenient in HPC systems
+
+67
+00:05:27,733 --> 00:05:30,733
+because they require root access to run.
+
+68
+00:05:30,933 --> 00:05:38,033
+Users do not have root access in multi-user IT environment, like HPC environments. 
+
+69
+00:05:39,366 --> 00:05:43,283
+In general all containers need root access when built.
+
+70
+00:05:43,883 --> 00:05:48,916
+For that you can use your local computer in which you probably have the root access. 
+
+71
+00:05:49,149 --> 00:05:53,566
+There you can install all the packages that you want inside the container.
+
+72
+00:05:54,199 --> 00:05:57,583
+Then you can copy the container into CSC enviroment
+
+73
+00:05:57,583 --> 00:06:00,066
+and run it there with normal user rights.
+
+74
+00:06:00,649 --> 00:06:04,250
+That provides a convenient way of transforming your code 
+
+75
+00:06:04,250 --> 00:06:08,566
+ – with all your custom libraries – to the supercomputer.
+
+76
+00:06:17,399 --> 00:06:22,449
+While sharing the kernel with the host, containers have their own environment.
+
+77
+00:06:22,783 --> 00:06:25,733
+That means they can have different Linux distribution
+
+78
+00:06:25,733 --> 00:06:28,600
+which can include different libraries.
+
+79
+00:06:28,800 --> 00:06:32,949
+Your code might require Centos while the host has Ubuntu, 
+
+80
+00:06:32,949 --> 00:06:35,616
+so you can have Centos in the container.
+
+81
+00:06:35,949 --> 00:06:42,533
+There might be some exeptions to that e.g. when working with GPUs or MPI libraries. 
+
+82
+00:06:42,866 --> 00:06:46,699
+Still in general containers solve many incompatibilities 
+
+83
+00:06:46,699 --> 00:06:50,516
+and are less likely to be effected by changes in the host system.
+
+84
+00:07:00,199 --> 00:07:03,316
+Containers ensure that your computational environment 
+
+85
+00:07:03,316 --> 00:07:06,083
+and your collaborators environment are the same.
+
+86
+00:07:06,750 --> 00:07:09,600
+You can save a whole analysis environment, 
+
+87
+00:07:09,600 --> 00:07:13,466
+which means e.g. all the libraries and their versions. 
+
+88
+00:07:15,449 --> 00:07:21,183
+That means you can easily share the environment with collaborators as a single file. 
+
+89
+00:07:26,733 --> 00:07:30,516
+Singularity is a container platform like Docker
+
+90
+00:07:30,983 --> 00:07:35,666
+Singularity containers can be run with a basic user level rights. 
+
+91
+00:07:36,066 --> 00:07:40,283
+Note that you cannot elevate your user privileges inside the container 
+
+92
+00:07:40,283 --> 00:07:43,399
+ - which is also good from administration point-of-view. 
+
+93
+00:07:45,116 --> 00:07:48,383
+Containers are faster to deploy than virtual machines 
+
+94
+00:07:48,383 --> 00:07:52,800
+because they only load the libraries, not a full operating system.
+
+95
+00:07:53,333 --> 00:07:56,466
+Singularity containers support MPI, 
+
+96
+00:07:56,466 --> 00:08:00,966
+but make sure to use compatible MPI libraries inside the container.
+
+97
+00:08:01,466 --> 00:08:04,600
+Here compatible means the hosts should have at least the version
+
+98
+00:08:04,600 --> 00:08:06,800
+which is available in the container. 
+
+99
+00:08:09,050 --> 00:08:14,783
+Singularity can use also a driver stack e.g. when using GPUs.
+
+100
+00:08:15,066 --> 00:08:19,516
+That means you don't need to install drivers inside the container, 
+
+101
+00:08:19,516 --> 00:08:24,383
+but the container can use the driver that is already available in the whole system.
+
+102
+00:08:24,533 --> 00:08:29,166
+Option --nv tells the container to use driver stack. 
+
+103
+00:08:29,600 --> 00:08:34,616
+There are a lot of Docker images around, because Docker is very popular.
+
+104
+00:08:36,633 --> 00:08:40,399
+You can convert Docker containers into Singularity containers 
+
+105
+00:08:40,399 --> 00:08:43,600
+and use that also in an HPC environment.
+
+106
+00:08:54,083 --> 00:08:58,783
+In general containers should be run as a batch job or an interactive job.
+
+107
+00:08:59,266 --> 00:09:04,799
+Singularity commands are available also in the login node – no need to load a module. 
+
+108
+00:09:05,250 --> 00:09:10,283
+Users can always bring their own containers and start using them right away. 
+
+109
+00:09:11,000 --> 00:09:15,583
+Some software in Puhti or Mahti are installed as containers.
+
+110
+00:09:15,950 --> 00:09:21,416
+Always check software information in DocsCSC for details on usage.
+
+111
+00:09:31,916 --> 00:09:36,566
+There is only three commands needed for running Singularity containers. 
+
+112
+00:09:37,033 --> 00:09:40,600
+The first one is: singularity exec with container name, 
+
+113
+00:09:40,600 --> 00:09:43,233
+and a command that you want to run in the container. 
+
+114
+00:09:43,616 --> 00:09:46,533
+It let's you to use same commands – that you use 
+
+115
+00:09:46,533 --> 00:09:49,383
+for your application – also with the container.
+
+116
+00:09:49,649 --> 00:09:54,266
+Command singularity run runs the default action of the container.
+
+117
+00:09:54,750 --> 00:09:58,299
+The default script is defined when building the container.
+
+118
+00:09:58,683 --> 00:10:02,049
+If you want to interactively work inside the container 
+
+119
+00:10:02,049 --> 00:10:05,450
+ – instead of the host command line – you can open a command line
+
+120
+00:10:05,450 --> 00:10:10,516
+inside the container with command: singularity shell and the container name.
+
+121
+00:10:10,933 --> 00:10:14,033
+Then you will be in a different file system environment, 
+
+122
+00:10:14,033 --> 00:10:16,783
+which is built inside the container.
+
+123
+00:10:22,850 --> 00:10:28,149
+The container file system includes the files that are put there when the container is built.
+
+124
+00:10:28,866 --> 00:10:33,533
+You can always go inside the container and check out the file system there. 
+
+125
+00:10:34,283 --> 00:10:36,816
+Usually containers are read only systems
+
+126
+00:10:36,816 --> 00:10:40,416
+which means you cannot change the files inside the container.
+
+127
+00:10:41,833 --> 00:10:46,483
+Often the container needs to access some files in the host computer.
+
+128
+00:10:46,933 --> 00:10:51,966
+To do that we can mount or bind host directories inside the container. 
+
+129
+00:10:52,316 --> 00:10:56,483
+Note that they are writable so file changes there are permanent. 
+
+130
+00:10:56,883 --> 00:11:01,333
+To mount a directory into a container use the flag --bind. 
+
+131
+00:11:02,766 --> 00:11:09,583
+If the target directory – in this example /data – does not exist, it is created automatically.
+
+132
+00:11:09,583 --> 00:11:15,399
+If you don't define the target directory it will use the host directory name by default. 
+
+133
+00:11:15,633 --> 00:11:19,566
+If you need to bind more than one host folders to a container, 
+
+134
+00:11:19,566 --> 00:11:23,033
+just write more folders after the bind flag.
+
+135
+00:11:29,649 --> 00:11:33,583
+Environment variables like HOME and USER get their values typically 
+
+136
+00:11:33,583 --> 00:11:37,233
+through some functionality built into the operating system.
+
+137
+00:11:37,633 --> 00:11:41,950
+Most environment variables are inherited by the containers.
+
+138
+00:11:42,383 --> 00:11:46,283
+HPC systems generally have many environmental variables 
+
+139
+00:11:46,283 --> 00:11:49,133
+and some of them might interfere with your container.
+
+140
+00:11:49,399 --> 00:11:54,049
+If you want to prevent the container inheriting all the environmental variables
+
+141
+00:11:54,049 --> 00:11:56,566
+you can use flag --cleanenv.
+
+142
+00:11:56,983 --> 00:12:00,066
+However, you can define environment variables
+
+143
+00:12:00,066 --> 00:12:02,549
+so that they are used only in the container.
+
+144
+00:12:03,033 --> 00:12:08,216
+Defining an environmental variable SINGULARITYENV_TEST in the host creates 
+
+145
+00:12:08,216 --> 00:12:12,133
+such a variable that it shows as test inside the container.
+
+146
+00:12:18,583 --> 00:12:22,549
+Already worrying too much about mounts and variables?
+
+147
+00:12:22,549 --> 00:12:24,250
+Fear not!
+
+148
+00:12:24,250 --> 00:12:28,799
+We at CSC provide you with a special wrapper for this singularity application. 
+
+149
+00:12:29,333 --> 00:12:34,000
+This singularity_wrapper takes care of common binds so you are able to see 
+
+150
+00:12:34,000 --> 00:12:38,100
+your home, scratch and projappl directories inside the container.
+
+151
+00:12:38,616 --> 00:12:41,283
+You can use singularity wrapper with command: 
+
+152
+00:12:41,283 --> 00:12:46,266
+singularity_wrapper exec image.sif program name --options
+
+153
+00:12:46,683 --> 00:12:50,000
+Here this image.sif is the container image file.
+
+154
+00:12:50,299 --> 00:12:55,933
+Most modules also set this singularity image as special environment variable.
+
+155
+00:12:56,316 --> 00:13:00,416
+Then you do not need to write the image name the wrapper command.
+
+156
+00:13:07,716 --> 00:13:11,316
+A lot of applications are written as Docker containers. 
+
+157
+00:13:11,649 --> 00:13:16,583
+I already mentioned that you can use the Docker containers in Singularity. 
+
+158
+00:13:16,583 --> 00:13:19,933
+The command singularity build and the docker address converts
+
+159
+00:13:19,983 --> 00:13:23,333
+a Docker container in to a Singularity container.
+
+160
+00:13:23,333 --> 00:13:27,883
+You can do that with basic user privileges - which is dope.
+
+161
+00:13:28,733 --> 00:13:31,916
+Let's take this PyTorch image as an example.
+
+162
+00:13:32,583 --> 00:13:37,616
+You can define the name for the new converted Singularity container by yourself.
+
+163
+00:13:38,250 --> 00:13:41,816
+But the name of the source Docker container has to match to the one
+
+164
+00:13:41,816 --> 00:13:44,299
+that exists in the original repository.
+
+165
+00:13:44,466 --> 00:13:46,566
+So have the address right.
+
+166
+00:13:47,716 --> 00:13:50,450
+Check the documentation about running containers and 
+
+167
+00:13:50,450 --> 00:13:54,483
+creating Singularity containers from DocsCSC.
+
+168
+00:14:02,299 --> 00:14:05,866
+It is quite clear already that Singularity containers provide 
+
+169
+00:14:05,866 --> 00:14:10,700
+a convenient installation method, especially in HPC environments.
+
+170
+00:14:11,066 --> 00:14:15,583
+If the software exists as a container, use that and you do not need to worry
+
+171
+00:14:15,583 --> 00:14:20,283
+about the dependencies, because they can get very complex sometimes.
+
+172
+00:14:20,666 --> 00:14:24,299
+Also some old versions of the dependency softwares may be
+
+173
+00:14:24,299 --> 00:14:26,833
+incompatible with the host environment.
+
+174
+00:14:27,216 --> 00:14:30,916
+For example with scientific publications it is important 
+
+175
+00:14:30,916 --> 00:14:34,683
+that you can reproduce the results even after a few years. 
+
+176
+00:14:34,983 --> 00:14:38,983
+Going back to same data analysis with same libraries and versions
+
+177
+00:14:38,983 --> 00:14:41,450
+after many years could get tricky. 
+
+178
+00:14:41,816 --> 00:14:45,100
+With containers you can ensure that you have the same image 
+
+179
+00:14:45,100 --> 00:14:47,666
+and running it leads to similar results. 
+
+180
+00:14:47,850 --> 00:14:52,899
+Consider using containers even though other methods were available.
+
+181
+00:15:00,383 --> 00:15:04,466
+Here is an example of a software that has three methods of installation 
+
+182
+00:15:04,466 --> 00:15:07,149
+in CSC computing environment.
+
+183
+00:15:07,750 --> 00:15:12,316
+The first one is the native application compiled from the source code.
+
+184
+00:15:12,816 --> 00:15:19,283
+When installed it consists of 47 files with total size of 1.9 MB. 
+
+185
+00:15:19,616 --> 00:15:24,100
+The second option in comparison is Conda which is quite easy to use.
+
+186
+00:15:24,750 --> 00:15:32,250
+Installing the same software with Conda results in 27000 files with total size of 1.1 GB. 
+
+187
+00:15:32,733 --> 00:15:38,233
+With so many files it hammers the Lustre file system and the whole Puhti slows down.
+
+188
+00:15:38,633 --> 00:15:43,649
+We have written a DocsCSC page telling why you should not use Conda.
+
+189
+00:15:43,983 --> 00:15:48,433
+Then the point of this comparison: Singularity container.
+
+190
+00:15:49,083 --> 00:15:55,983
+There you have only one file – the container image – with total size of 339 MB.
+
+191
+00:15:56,633 --> 00:16:01,649
+So containers may get quite big which may limit the usability sometimes.
+
+192
+00:16:01,983 --> 00:16:06,666
+But remember that the container has also the dependencies installed.
+
+193
+00:16:07,149 --> 00:16:11,299
+With only one file it is Lustre-friendly and user-friendly.
+
+194
+00:16:21,000 --> 00:16:24,399
+In case you don't find a container that you want to use, 
+
+195
+00:16:24,399 --> 00:16:26,533
+you might need to build your own.
+
+196
+00:16:26,866 --> 00:16:30,366
+It is a bit more involved process and requires root access 
+
+197
+00:16:30,366 --> 00:16:32,916
+so you need to use your own computer.
+
+198
+00:16:33,116 --> 00:16:37,000
+You can start the building with the sandbox mode - if you want.
+
+199
+00:16:37,583 --> 00:16:42,100
+Open a shell inside the container to do the software installations.
+
+200
+00:16:42,399 --> 00:16:45,583
+If the base system is Ubuntu, you can use apt
+
+201
+00:16:45,583 --> 00:16:50,149
+or then in CentOS use yum to install packages and dependencies.
+
+202
+00:16:50,466 --> 00:16:55,516
+Consult software developer documentation for spesific instructions.
+
+203
+00:17:02,450 --> 00:17:06,583
+You can build the production image using the sandbox version.
+
+204
+00:17:06,933 --> 00:17:12,533
+Another option is that you write a definition file which is kind of a recipe of the container.
+
+205
+00:17:12,966 --> 00:17:14,933
+Once you have the production image, 
+
+206
+00:17:14,933 --> 00:17:19,099
+you can transfer it to CSC environment and start working. 
+
+207
+00:17:21,866 --> 00:17:25,650
+The tutorials about containers continue from here. 
+
+208
+00:17:26,016 --> 00:17:30,233
+They cover the basic use cases with easy-to-follow examples.
+
+209
+00:17:30,683 --> 00:17:34,466
+Container documentation covers the introduction to containers 
+
+210
+00:17:34,466 --> 00:17:36,750
+including technical details.

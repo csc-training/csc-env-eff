@@ -1,0 +1,443 @@
+1
+00:00:23,649 --> 00:00:29,366
+CSC supercomputers have different disk areas that have their own specific purposes.
+
+2
+00:00:29,833 --> 00:00:33,216
+This lecture gives insight on where to keep your files 
+
+3
+00:00:33,216 --> 00:00:36,299
+and how to move the data between Mahti and Puhti. 
+
+4
+00:00:36,833 --> 00:00:39,733
+The disk ares have different quotas which means that 
+
+5
+00:00:39,733 --> 00:00:43,583
+users cannot just create files anywhere and forget them. 
+
+6
+00:00:44,366 --> 00:00:47,766
+The additional fast disk areas are for applications 
+
+7
+00:00:47,766 --> 00:00:50,899
+ that require lots of file input and output. 
+
+8
+00:00:54,700 --> 00:00:58,850
+Here is a visual layout of two supercomputers and the file storage.
+
+9
+00:01:00,266 --> 00:01:04,900
+The box on the left represents Puhti and the other on the right Mahti. 
+
+10
+00:01:05,516 --> 00:01:08,900
+Down below is a cylinder that represents Allas.
+
+11
+00:01:09,400 --> 00:01:12,283
+There are bidirectional arrows between these three objects 
+
+12
+00:01:12,283 --> 00:01:16,583
+illustrating that data can be transferred from each service to another.
+
+13
+00:01:17,299 --> 00:01:20,583
+Both supercomputers have their own Lustre filesystem 
+
+14
+00:01:20,583 --> 00:01:24,533
+that contain disk areas called home, projappl and scratch.
+
+15
+00:01:25,150 --> 00:01:30,183
+You can move files inside a supercomputer using commands mv and cp.
+
+16
+00:01:30,816 --> 00:01:35,849
+For file transfers between Puhti and Mahti you can use rsync or scp.
+
+17
+00:01:36,433 --> 00:01:40,916
+And for using Allas object storage there is a separate lecture and tutorial.
+
+18
+00:01:41,799 --> 00:01:47,183
+It is important to realize that if you have your files for example in Puhti scratch area 
+
+19
+00:01:47,183 --> 00:01:51,433
+they will not show anywhere in Mahti unless you manually copy them there. 
+
+20
+00:01:56,783 --> 00:02:01,450
+As pictured in the previous slide, the main disk areas in both Puhti and Mahti
+
+21
+00:02:01,450 --> 00:02:05,433
+are the user's home directory, scratch and projappl. 
+
+22
+00:02:05,883 --> 00:02:09,416
+The home directory is personal, but projappl and scratch are 
+
+23
+00:02:09,416 --> 00:02:13,233
+for the project's use and they are shared with your project members. 
+
+24
+00:02:13,400 --> 00:02:18,266
+In scratch disk area there will be an automatic file removal system. 
+
+25
+00:02:18,633 --> 00:02:22,383
+To keep your data and results safe move them for example to Allas
+
+26
+00:02:22,383 --> 00:02:24,650
+during the lifetime of your project.
+
+27
+00:02:25,566 --> 00:02:29,316
+These disk areas reside in the Lustre parallel file system 
+
+28
+00:02:29,316 --> 00:02:33,550
+which makes them visible in both the login nodes and the compute nodes. 
+
+29
+00:02:33,849 --> 00:02:36,933
+If you want to know how the Lustre file system works 
+
+30
+00:02:36,933 --> 00:02:40,783
+you can find the link to Lustre documentation in the slides. 
+
+31
+00:02:41,483 --> 00:02:46,083
+Lustre is good in handling lots of data at once, but not well suited for 
+
+32
+00:02:46,083 --> 00:02:49,983
+repeatedly searching and reading small chunks of files.
+
+33
+00:02:50,500 --> 00:02:56,516
+The documentation in docs.csc.fi covers also the default quotas for the disk areas.
+
+34
+00:02:56,516 --> 00:03:00,566
+There you can find more information about the default quotas.
+
+35
+00:03:01,516 --> 00:03:06,349
+For example in home directory you can not have more than 10 GiB of space
+
+36
+00:03:06,349 --> 00:03:09,949
+and you can only have less than hundred thousand files in there.
+
+37
+00:03:15,833 --> 00:03:19,866
+Puhti and Mahti do not share any disk space. 
+
+38
+00:03:19,900 --> 00:03:25,733
+You can copy your files to a different supercomputer using rsync or scp commands.
+
+39
+00:03:25,833 --> 00:03:30,783
+You can also put your data in Allas and download it from there to other supercomputers. 
+
+40
+00:03:31,733 --> 00:03:35,766
+You will learn more about Allas in the later presentations and tutorials.
+
+41
+00:03:41,666 --> 00:03:44,916
+You can check the status of the disk areas that you have 
+
+42
+00:03:44,916 --> 00:03:47,016
+with command csc-workspaces.
+
+43
+00:03:47,866 --> 00:03:53,283
+It prints a list of your disk areas with current capacity and the number of files used. 
+
+44
+00:03:54,000 --> 00:03:57,400
+Each project have their own projappl and scratch areas 
+
+45
+00:03:57,400 --> 00:03:59,866
+and they all will be printed out for you.
+
+46
+00:04:00,133 --> 00:04:03,433
+The first line is your own personal project.
+
+47
+00:04:03,849 --> 00:04:09,116
+In this example the user has 8 GB of files against 11 GB of quota, 
+
+48
+00:04:09,116 --> 00:04:13,849
+and 17000 files against the 100000 files that is allowed.
+
+49
+00:04:14,616 --> 00:04:18,183
+Be aware that you may reach this 100000 file limit 
+
+50
+00:04:18,183 --> 00:04:22,083
+if you install software with many files
+
+51
+00:04:22,250 --> 00:04:24,716
+Please pay attention to the disk usage, 
+
+52
+00:04:24,716 --> 00:04:28,566
+as well as the number of files that you are using in your disk areas.
+
+53
+00:04:28,566 --> 00:04:31,699
+Note that with this command you can also check the paths 
+
+54
+00:04:31,699 --> 00:04:34,866
+to your projappl and scratch areas.
+
+55
+00:04:39,350 --> 00:04:44,666
+Here is the visual layout of two supercomputers and their file storage again.
+
+56
+00:04:46,149 --> 00:04:51,433
+In addition to the main disk areas the supercomputers have fast local disk areas. 
+
+57
+00:04:52,233 --> 00:04:55,633
+These mean the temp directories in login nodes and 
+
+58
+00:04:55,633 --> 00:04:59,333
+then NVMe directories on some compute nodes in Puhti.
+
+59
+00:05:03,933 --> 00:05:06,633
+Remember that the Lustre filesystem is not good 
+
+60
+00:05:06,633 --> 00:05:09,583
+ in reading or writing a lot of small files? 
+
+61
+00:05:09,899 --> 00:05:13,566
+That is what the local fast disk areas are for.
+
+62
+00:05:14,033 --> 00:05:16,949
+In login nodes it is called temporary directory and 
+
+63
+00:05:16,949 --> 00:05:22,216
+you can access it from the login node with command cd $TMPDIR.
+
+64
+00:05:23,250 --> 00:05:27,116
+The temp directory is meant for preprocessing of your files. 
+
+65
+00:05:27,116 --> 00:05:30,750
+For example if you have too many files and you want to merge them.
+
+66
+00:05:31,683 --> 00:05:35,100
+Don't do any heavy computing in the login nodes. 
+
+67
+00:05:36,683 --> 00:05:40,133
+In some Puhti compute nodes the fast local disk areas
+
+68
+00:05:40,133 --> 00:05:43,316
+have NVMe-based disks i.e. SSD-disks. 
+
+69
+00:05:43,966 --> 00:05:48,000
+You can use them as part of an interactive job or a batch job. 
+
+70
+00:05:48,233 --> 00:05:52,416
+The environment variable used for accessing the NVMe-disks 
+
+71
+00:05:52,416 --> 00:05:55,416
+during a job is $LOCAL_SCRATCH. 
+
+72
+00:05:55,783 --> 00:06:00,399
+You must copy the data in and out the NVMe space during your batch job 
+
+73
+00:06:01,983 --> 00:06:06,233
+because the fast local disk areas are not part of the Lustre filesystem. 
+
+74
+00:06:07,066 --> 00:06:10,416
+Otherwise the data and results produced during the batch job
+
+75
+00:06:10,416 --> 00:06:13,733
+will not be accessible to you after the job has finished.
+
+76
+00:06:14,649 --> 00:06:20,833
+You should consider using the NVMe space if your job reads or writes lots of small files.
+
+77
+00:06:21,600 --> 00:06:26,366
+Depending on the amount of files you might get up to 10 times faster performance
+
+78
+00:06:26,366 --> 00:06:31,816
+if you use the local fast disk area compared to the Lustre filesystem.
+
+79
+00:06:36,550 --> 00:06:41,266
+This slide shows a summary of the disk areas and their specific usecases.
+
+80
+00:06:42,133 --> 00:06:47,399
+Allas is for storing data that is not used in any computational analysis at the moment.
+
+81
+00:06:48,166 --> 00:06:52,116
+Home directory is especially meant for storing your personal information 
+
+82
+00:06:52,116 --> 00:06:54,899
+and some scripts that you would like to use later. 
+
+83
+00:06:55,199 --> 00:06:58,600
+Other users cannot access your home folder.
+
+84
+00:06:59,600 --> 00:07:03,183
+In projappl users can store their scientific programs, 
+
+85
+00:07:03,183 --> 00:07:06,600
+binaries and packages with colleagues in the same project. 
+
+86
+00:07:07,216 --> 00:07:10,333
+The scratch area should be your main working space for your scientific work 
+
+87
+00:07:10,333 --> 00:07:14,033
+and it is also shared with project members. 
+
+88
+00:07:14,949 --> 00:07:18,366
+The temp directory in login node is used for compiling code
+
+89
+00:07:18,366 --> 00:07:21,383
+and fast file I/O in lightweight processing.
+
+90
+00:07:22,183 --> 00:07:24,750
+NVMe disks are used in heavy computing 
+
+91
+00:07:24,750 --> 00:07:28,699
+for fast file I/O in batch jobs or interactive jobs. 
+
+92
+00:07:34,133 --> 00:07:37,416
+Do not put any databases on the Lustre filesystem.
+
+93
+00:07:37,500 --> 00:07:39,666
+It is not good to have too many files and
+
+94
+00:07:39,666 --> 00:07:43,449
+Lustre is inefficient in reading small bits of a single file. 
+
+95
+00:07:44,100 --> 00:07:47,166
+For databases we recommend that you use our services 
+
+96
+00:07:47,166 --> 00:07:50,066
+like Kaivos and MongoDB in cPouta.
+
+97
+00:07:50,716 --> 00:07:53,666
+Don't create a lot of files in one folder,
+
+98
+00:07:53,666 --> 00:07:58,133
+or actually don't create overall a lot of files in Lustre filesystem. 
+
+99
+00:07:58,966 --> 00:08:02,149
+If that is needed you have to rethink the workflow. 
+
+100
+00:08:02,766 --> 00:08:06,550
+Please note that CSC does not backup your data. 
+
+101
+00:08:07,100 --> 00:08:09,000
+The disks are fault tolerant,
+
+102
+00:08:09,000 --> 00:08:13,383
+but that does not stop you or your colleaques accidentally deleting everything.
+
+103
+00:08:14,199 --> 00:08:19,216
+A pro-tip: modify the usage rights to files with chmod.
+
+104
+00:08:21,166 --> 00:08:26,300
+If your workflow requires reading or writing lot of files, use the fast local disks.
+
+105
+00:08:26,449 --> 00:08:29,316
+That will increase the performance for your computation, 
+
+106
+00:08:29,316 --> 00:08:32,600
+as well as decrease the load on Lustre filesystem. 
+
+107
+00:08:32,916 --> 00:08:36,883
+The documentation in docs.csc.fi contains best practice tips 
+
+108
+00:08:36,883 --> 00:08:39,666
+for performance when using Lustre.
+
+109
+00:08:40,149 --> 00:08:43,383
+The tutorials about disk areas continue from here. 
+
+110
+00:08:43,383 --> 00:08:47,316
+They cover the basic use cases with easy-to-follow examples.
+
+111
+00:08:48,016 --> 00:08:50,733
+Check the links in the description!

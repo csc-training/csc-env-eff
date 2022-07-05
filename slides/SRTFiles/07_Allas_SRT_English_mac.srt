@@ -1,0 +1,1327 @@
+1
+00:00:22,250 --> 00:00:26,933
+Allas is a CSC service and to use it you need to have a CSC user account 
+
+2
+00:00:26,933 --> 00:00:29,716
+which is a member in a CSC project.
+
+3
+00:00:30,250 --> 00:00:35,299
+And then just like for Puhti and Mahti, you apply for the Allas service. 
+
+4
+00:00:35,616 --> 00:00:41,116
+Allas is available for all project members after they accept the Allas terms of use.
+
+5
+00:00:41,783 --> 00:00:44,883
+Note that you can use Allas without Puhti or Mahti 
+
+6
+00:00:44,883 --> 00:00:48,233
+if you only want to store files for your project.
+
+7
+00:00:55,700 --> 00:01:01,066
+Allas is a general purpose storage system, where files are stored as objects.
+
+8
+00:01:01,733 --> 00:01:05,766
+It is developed at CSC to provide a long term data storage space
+
+9
+00:01:05,766 --> 00:01:08,283
+for computing and cloud services.
+
+10
+00:01:08,916 --> 00:01:13,950
+It is a CEPH-based data storage system - in case anyone asks.
+
+11
+00:01:14,166 --> 00:01:17,616
+Allas is accessible from the CSC computing environment 
+
+12
+00:01:17,616 --> 00:01:19,616
+and personal computers as well.
+
+13
+00:01:20,599 --> 00:01:24,799
+It is meant for storing your datasets during your project lifetime. 
+
+14
+00:01:27,116 --> 00:01:32,516
+The default Allas storage quota for one CSC project is 10 terabytes. 
+
+15
+00:01:33,133 --> 00:01:36,816
+If you need to have more quota and you have good reasons for that,
+
+16
+00:01:36,816 --> 00:01:38,583
+you can apply for more. 
+
+17
+00:01:39,166 --> 00:01:42,950
+For that you need to send email to the CSC servicedesk, 
+
+18
+00:01:42,950 --> 00:01:46,183
+but don't be shy to let us know if you really need the space. 
+
+19
+00:01:46,450 --> 00:01:52,216
+The biggest projects have several hundreds of terabytes of data stored in Allas. 
+
+20
+00:01:53,049 --> 00:01:58,116
+It is better to use Allas for storing large datasets rather than, for example, 
+
+21
+00:01:58,116 --> 00:02:02,633
+applying for more scratch space for just having some data available for you.
+
+22
+00:02:04,099 --> 00:02:07,650
+Puhti and Mahti have clients for accessing Allas, 
+
+23
+00:02:07,650 --> 00:02:11,416
+but Allas not in any way bound to other CSC services. 
+
+24
+00:02:12,083 --> 00:02:15,333
+You can upload data and use Allas directly from your PC 
+
+25
+00:02:15,333 --> 00:02:18,300
+or from your organization's own computing system. 
+
+26
+00:02:18,966 --> 00:02:24,016
+Just note that there you have to install yourself the clients that you use.
+
+27
+00:02:32,000 --> 00:02:36,500
+So Allas is in a sense a some kind of data hub of CSC. 
+
+28
+00:02:37,050 --> 00:02:41,433
+The illustration shows that you can access Allas from Puhti and Mahti.
+
+29
+00:02:41,666 --> 00:02:44,166
+Other examples are a weather measurement station
+
+30
+00:02:44,166 --> 00:02:47,316
+where the sensors send the data directly to Allas, 
+
+31
+00:02:47,316 --> 00:02:51,650
+an university computer server, a Virtual Machine in cPouta,
+
+32
+00:02:51,650 --> 00:02:55,216
+a personal computer, a mobile phone and a web page.
+
+33
+00:02:56,433 --> 00:03:01,449
+So it does not need to be CSC involved in the process of moving data.
+
+34
+00:03:01,683 --> 00:03:05,900
+As long as you are connected to internet, you can use Allas.
+
+35
+00:03:07,033 --> 00:03:11,133
+The usual workflow is to have the static dataset stored all the time in Allas 
+
+36
+00:03:11,133 --> 00:03:14,449
+and copy it to a computer to do some analyses.
+
+37
+00:03:15,050 --> 00:03:18,316
+And then put a new or another version of the dataset to Allas 
+
+38
+00:03:18,316 --> 00:03:20,650
+if it has been modified somehow. 
+
+39
+00:03:22,233 --> 00:03:25,616
+Files in Allas can be shared publicly to Internet.
+
+40
+00:03:26,400 --> 00:03:29,366
+For example these slides are stored in Allas.
+
+41
+00:03:30,083 --> 00:03:33,250
+Check the URL from the video description.
+
+42
+00:03:40,766 --> 00:03:43,599
+Allas is not a file system or disk. 
+
+43
+00:03:44,216 --> 00:03:48,516
+Many of the interfaces represent the data like it had some hierarchy 
+
+44
+00:03:48,516 --> 00:03:51,699
+ - directories, subdirectories and files - 
+
+45
+00:03:51,699 --> 00:03:55,633
+but in practice it is just a pile of static data objects.
+
+46
+00:03:56,133 --> 00:04:01,333
+You can add, read and delete objects, but you are not modifying any data there.
+
+47
+00:04:02,183 --> 00:04:04,283
+There is no real hierarchy 
+
+48
+00:04:04,283 --> 00:04:07,633
+ - it is just a place where you have some data blobs stored. 
+
+49
+00:04:08,933 --> 00:04:12,583
+Allas is also not a data management environment.
+
+50
+00:04:13,250 --> 00:04:15,166
+The tools for searching data, 
+
+51
+00:04:15,166 --> 00:04:18,850
+doing version controlling or metadata management are minimal. 
+
+52
+00:04:19,600 --> 00:04:22,600
+The basic Allas command line tools can handle maybe 
+
+53
+00:04:22,600 --> 00:04:25,000
+some hundreds of objects in Allas.
+
+54
+00:04:25,633 --> 00:04:30,149
+Workflows that automatically collect data to Allas and store it for a long time
+
+55
+00:04:30,149 --> 00:04:33,733
+will end up having hundreds of thousands of small files.
+
+56
+00:04:34,416 --> 00:04:39,000
+They will need some other tools to keep track of the data stored in Allas. 
+
+57
+00:04:39,416 --> 00:04:42,433
+You can store huge amounts of data to Allas,
+
+58
+00:04:42,433 --> 00:04:45,883
+but we recommend to set up some support service like a database
+
+59
+00:04:45,883 --> 00:04:50,199
+that tells you later on what data is where and how to access it from Allas. 
+
+60
+00:04:51,899 --> 00:04:55,266
+Also, Allas is not a back-up service.
+
+61
+00:04:56,149 --> 00:04:59,966
+If you ask where to have a copy of your important files in ProjAppl, 
+
+62
+00:04:59,966 --> 00:05:02,733
+we will suggest to make a copy to Allas.
+
+63
+00:05:03,449 --> 00:05:06,933
+Nevertheless we want to point out that it is not a full backup, 
+
+64
+00:05:06,933 --> 00:05:11,350
+because you or your colleagues can still accidentally delete the data from Allas. 
+
+65
+00:05:12,033 --> 00:05:16,666
+All the project members have equal rights to the project's data in Allas.
+
+66
+00:05:17,199 --> 00:05:21,033
+You have to make sure that your project members know how to use the service 
+
+67
+00:05:21,033 --> 00:05:24,000
+and agree on files that should not be deleted.
+
+68
+00:05:24,733 --> 00:05:28,149
+Note that all it takes is just one erratic command 
+
+69
+00:05:28,149 --> 00:05:31,733
+ - from you or your project members - and the data is lost.
+
+70
+00:05:32,300 --> 00:05:35,416
+Always keep important backups in a safe place
+
+71
+00:05:35,416 --> 00:05:38,666
+ - for example in a separate local hard drive.
+
+72
+00:05:40,199 --> 00:05:43,033
+Allas is not a final resting place of your data
+
+73
+00:05:43,033 --> 00:05:47,350
+ - the point is that you can have your data there while you are actively working with that data - 
+
+74
+00:05:47,350 --> 00:05:49,433
+which is sometimes several years. 
+
+75
+00:05:56,433 --> 00:05:59,399
+Technical-wise Allas is quite secure.
+
+76
+00:06:00,016 --> 00:06:03,300
+Data is stored into several servers in Allas. 
+
+77
+00:06:03,983 --> 00:06:07,616
+Individual disc or server breaks will not result to data losses 
+
+78
+00:06:07,616 --> 00:06:10,966
+because other discs or servers have another copies. 
+
+79
+00:06:11,649 --> 00:06:14,933
+Note that even these multiple copies of data do not help 
+
+80
+00:06:14,933 --> 00:06:17,683
+if the user deletes the file or object.
+
+81
+00:06:18,416 --> 00:06:22,433
+We at CSC cannot recover your deleted data from Allas.
+
+82
+00:06:24,199 --> 00:06:29,483
+Storing data as static objets means that they can not be modified while they are in Allas. 
+
+83
+00:06:30,233 --> 00:06:34,516
+If you want to edit a file you have to download it to some other environment,
+
+84
+00:06:34,516 --> 00:06:37,033
+for example to your local laptop. 
+
+85
+00:06:37,899 --> 00:06:42,199
+Then after you edit the document you can overwrite the file in Allas. 
+
+86
+00:06:43,716 --> 00:06:47,866
+You can use some data management and metadata features included in Allas, 
+
+87
+00:06:47,866 --> 00:06:50,300
+but they have somewhat limited features. 
+
+88
+00:06:58,283 --> 00:07:01,683
+Allas storage space is given for a CSC project
+
+89
+00:07:01,683 --> 00:07:04,216
+ - sometimes referred as Allas project. 
+
+90
+00:07:04,866 --> 00:07:09,233
+If your project has only one user then the data is accessible by you only, 
+
+91
+00:07:09,233 --> 00:07:11,033
+but that is rarely the case.
+
+92
+00:07:11,899 --> 00:07:16,116
+Each project can have up to 1000 of so-called buckets. 
+
+93
+00:07:16,833 --> 00:07:20,050
+A bucket is kind of a root directory in Allas.
+
+94
+00:07:20,883 --> 00:07:23,916
+Some interfaces may refer to buckets as containers,
+
+95
+00:07:23,949 --> 00:07:27,083
+but that confuses easily with Docker containers!
+
+96
+00:07:28,800 --> 00:07:32,683
+Each of the bucket names must be unique throughout all Allas. 
+
+97
+00:07:33,233 --> 00:07:36,183
+This is because the bucket names are used if you generate 
+
+98
+00:07:36,183 --> 00:07:38,266
+public URLs for your buckets. 
+
+99
+00:07:38,616 --> 00:07:42,683
+Therefore two projects cannot have the same bucket name in use. 
+
+100
+00:07:43,133 --> 00:07:46,583
+Keep this in mind when creating buckets and include for example 
+
+101
+00:07:46,583 --> 00:07:49,166
+your project number in the bucket name
+
+102
+00:07:49,483 --> 00:07:54,199
+Then you can be quite sure no one else has a bucket with the same name. 
+
+103
+00:07:54,483 --> 00:07:59,533
+If you try to use already used bucket name the system gives you an error message. 
+
+104
+00:08:06,866 --> 00:08:12,516
+Data is stored in a way that is called as an object, which is like a static blob of data.
+
+105
+00:08:13,300 --> 00:08:16,933
+In general you can think that one file is one object. 
+
+106
+00:08:17,699 --> 00:08:21,899
+That means that in a normal bucket an object name equals to a file name,
+
+107
+00:08:21,899 --> 00:08:26,433
+and you can pull the file to you environment by pointing the object name.
+
+108
+00:08:27,183 --> 00:08:32,483
+Then for example larger files might be automatically stored as several objects in Allas, 
+
+109
+00:08:32,483 --> 00:08:35,333
+but in practice you don't have to worry about that. 
+
+110
+00:08:36,100 --> 00:08:40,500
+Objects have metadata and users can add or edit their own metadata.
+
+111
+00:08:41,233 --> 00:08:44,433
+Each bucket can have half a million objects. 
+
+112
+00:08:44,750 --> 00:08:49,866
+It sure sounds a lot at first, but if you have an automatic data collection service, 
+
+113
+00:08:49,866 --> 00:08:52,616
+you may end up having these many files. 
+
+114
+00:08:53,450 --> 00:08:56,866
+We ask you not to have these many objects in your buckets, 
+
+115
+00:08:56,866 --> 00:08:59,516
+because it will make the system very slow. 
+
+116
+00:08:59,750 --> 00:09:04,133
+It is better to create more buckets and spread the files among those.
+
+117
+00:09:06,516 --> 00:09:11,266
+The one level of hierarchy means that there can be only objects inside buckets, 
+
+118
+00:09:11,266 --> 00:09:13,216
+not buckets inside buckets. 
+
+119
+00:09:13,533 --> 00:09:15,916
+You can have object names which look like 
+
+120
+00:09:15,916 --> 00:09:18,216
+that there is some directory structure there. 
+
+121
+00:09:18,216 --> 00:09:22,250
+For example if the object name is maindir/dataset/data 
+
+122
+00:09:22,250 --> 00:09:25,016
+where maindir and dataset are like pseudofolders.
+
+123
+00:09:25,666 --> 00:09:28,649
+Still there is no real directory structure there
+
+124
+00:09:28,649 --> 00:09:32,766
+ - instead it is a long object name with directory names and slashes. 
+
+125
+00:09:33,649 --> 00:09:37,983
+All in all you may think your project's Allas space as a home folder.
+
+126
+00:09:37,983 --> 00:09:42,366
+In the home folder you have up to 1000 folders that have files
+
+127
+00:09:42,366 --> 00:09:44,716
+ - but not real subdirectories. 
+
+128
+00:09:52,149 --> 00:09:55,366
+There are several tools to interface with Allas.
+
+129
+00:09:56,016 --> 00:10:01,450
+Those tools use either S3 or Swift protocol for uploading and downloading data. 
+
+130
+00:10:02,049 --> 00:10:07,066
+Both of them have their pros and cons, and you can use either one of them. 
+
+131
+00:10:08,683 --> 00:10:14,033
+For the end user the biggest difference between S3 and Swift is in the authentication. 
+
+132
+00:10:14,733 --> 00:10:19,049
+When you open the connection to Allas you have to authenticate first. 
+
+133
+00:10:19,383 --> 00:10:25,116
+S3 protocol creates a permanent key for accessing your project's data in Allas. 
+
+134
+00:10:25,549 --> 00:10:29,333
+These keys are always project specific and permanent.
+
+135
+00:10:29,333 --> 00:10:32,250
+The same can be used from any client to access 
+
+136
+00:10:32,250 --> 00:10:35,833
+the project's data in Allas until you delete the key from the system. 
+
+137
+00:10:35,833 --> 00:10:39,899
+It is convenient for a user, but also very unsecure. 
+
+138
+00:10:39,899 --> 00:10:44,566
+If anybody steals your key - which is just a two random character strings
+
+139
+00:10:44,566 --> 00:10:47,549
+ - they can access all the data in your project. 
+
+140
+00:10:47,549 --> 00:10:52,100
+It means they can also delete all the data and you won't even notice it. 
+
+141
+00:10:53,733 --> 00:10:57,516
+Swift protocol also has a random string used for authentication 
+
+142
+00:10:57,516 --> 00:10:59,283
+but it is a temporary token. 
+
+143
+00:11:00,049 --> 00:11:04,750
+The key is valid only for a limited time - currently eight hours. 
+
+144
+00:11:05,433 --> 00:11:09,066
+After eight hours, or if you close the terminal session, 
+
+145
+00:11:09,066 --> 00:11:12,383
+you need to generate new key with your CSC password.
+
+146
+00:11:13,166 --> 00:11:18,766
+It is perfectly fine to initiate a new connection already before eight hours have passed.
+
+147
+00:11:19,366 --> 00:11:23,850
+If somebody gets access to your Allas keys used by Swift protocol, 
+
+148
+00:11:23,866 --> 00:11:26,666
+they have only eight hours time to do something.
+
+149
+00:11:27,333 --> 00:11:30,383
+Then if someone gets your CSC password
+
+150
+00:11:30,383 --> 00:11:33,416
+ - well that is not good also for many other reasons.
+
+151
+00:11:35,366 --> 00:11:41,049
+In Puhti and Mahti environment we are preferring Swift for its safer authentication. 
+
+152
+00:11:42,633 --> 00:11:47,416
+The two protocols also manage metadata a little bit different way. 
+
+153
+00:11:47,983 --> 00:11:51,566
+And they handle large files also a little bit differently. 
+
+154
+00:11:52,283 --> 00:11:55,283
+Swift protocols split your data in smaller pieces
+
+155
+00:11:55,283 --> 00:11:58,466
+so that you can easily read only part of it if needed.
+
+156
+00:11:59,216 --> 00:12:02,883
+S3 instead stores everything in a one big object. 
+
+157
+00:12:03,516 --> 00:12:09,433
+Because of these differencies you should avoid cross-using Swift and S3 based objects. 
+
+158
+00:12:10,149 --> 00:12:14,083
+That means if you have uploaded the data to Allas with one protocol, 
+
+159
+00:12:14,083 --> 00:12:17,566
+it is better to also read it using the same protocol.
+
+160
+00:12:23,916 --> 00:12:28,933
+These Allas clients listed in this slide use either Swift or S3 protocol. 
+
+161
+00:12:29,049 --> 00:12:32,933
+Many of these tools can actually use both of the protocols. 
+
+162
+00:12:34,149 --> 00:12:38,100
+In Puhti and Mahti, we are mostly using command line clients
+
+163
+00:12:38,100 --> 00:12:42,283
+like rclone, swift, s3cmd and a-tools. 
+
+164
+00:12:42,916 --> 00:12:48,250
+In your local Mac or Linux computer you can also use the same tools in Terminal. 
+
+165
+00:12:48,933 --> 00:12:51,083
+In Windows and Mac you can use at least 
+
+166
+00:12:51,083 --> 00:12:56,483
+Cyberduck, FileZilla pro, Pouta web-interface or SD-Connect.
+
+167
+00:12:57,333 --> 00:13:00,016
+You can also use FUSE-based virtual mounts 
+
+168
+00:13:00,016 --> 00:13:03,366
+which makes one bucket in Allas to be shown as a directory.
+
+169
+00:13:04,133 --> 00:13:07,399
+That is handy especially in virtual machines.
+
+170
+00:13:07,783 --> 00:13:10,133
+It is also very prone for errors, 
+
+171
+00:13:10,133 --> 00:13:14,299
+and we suggest you use only the Read-Only mode with this kind of approach.
+
+172
+00:13:23,100 --> 00:13:27,166
+First you have to enable Allas service in my CSC. 
+
+173
+00:13:27,633 --> 00:13:31,166
+In Puhti or Mahti environment Allas is available as a module
+
+174
+00:13:31,166 --> 00:13:33,299
+which includes the Allas tools.
+
+175
+00:13:33,966 --> 00:13:37,950
+Load the Allas module with command module load allas. 
+
+176
+00:13:38,299 --> 00:13:43,649
+Then run the command allas-conf, which by default opens a swift-based connection.
+
+177
+00:13:44,316 --> 00:13:48,799
+The configuration process asks you to specify a project. 
+
+178
+00:13:49,266 --> 00:13:52,283
+The connection stays for eight hours and you can start 
+
+179
+00:13:52,283 --> 00:13:56,149
+to figure out what was the command to see your buckets and files.
+
+180
+00:13:56,850 --> 00:14:02,216
+Check out the material bank for tutorials and a hands-on Allas tutorial video.
+
+181
+00:14:11,166 --> 00:14:16,200
+A straight-forward command line interface that can be used with Allas is rclone.
+
+182
+00:14:16,966 --> 00:14:22,316
+It works fast and provides functions like move, copy, tree and cat.
+
+183
+00:14:23,000 --> 00:14:26,299
+You can install it to all operating systems.
+
+184
+00:14:26,916 --> 00:14:31,366
+Be mindful that rclone overrides and removes data without asking. 
+
+185
+00:14:32,016 --> 00:14:36,166
+That means you have to know which copy of your file is the newer version.
+
+186
+00:14:36,783 --> 00:14:41,783
+Rclone does not ask that do you want to override this new file with this older one 
+
+187
+00:14:41,783 --> 00:14:44,649
+ - it just copies what you write in the command.
+
+188
+00:14:45,149 --> 00:14:48,049
+And then if you have a very large sets of objects then 
+
+189
+00:14:48,049 --> 00:14:50,383
+it does not always function properly. 
+
+190
+00:14:51,183 --> 00:14:55,366
+We have found that rclone has difficulties to list for example datasets 
+
+191
+00:14:55,366 --> 00:14:58,649
+which have tens of thousands of objects in a one bucket.
+
+192
+00:14:59,549 --> 00:15:05,833
+By default at CSC rclone is configured to use swift, but S3 can be used as well.
+
+193
+00:15:12,766 --> 00:15:17,083
+We at CSC have created a wrapper around the native rclone.
+
+194
+00:15:17,799 --> 00:15:22,100
+The aim is to make the scripts more easy to use in Puhti and Mahti. 
+
+195
+00:15:22,783 --> 00:15:26,816
+For example it uses default bucket names so you don't have to. 
+
+196
+00:15:27,383 --> 00:15:29,683
+If you do not define a bucket name,
+
+197
+00:15:29,683 --> 00:15:34,616
+it checks that your data is coming from e.g. Scratch directory of Puhti
+
+198
+00:15:34,616 --> 00:15:38,566
+ - and it creates a Scratch bucket for your project and puts the data there.
+
+199
+00:15:39,316 --> 00:15:43,666
+A-tools also do ask before overwriting or removing data.
+
+200
+00:15:44,149 --> 00:15:49,783
+The basic use case is that you use data from Puhti or Mahti, make a copy to Allas, 
+
+201
+00:15:49,783 --> 00:15:53,583
+and later on download the data back to Puhti or Mahti. 
+
+202
+00:15:54,200 --> 00:15:59,000
+You can install these tools to other Linux and Mac machines as well. 
+
+203
+00:15:59,633 --> 00:16:04,683
+But keep in mind that a-tools are developed with CSC environment in mind.
+
+204
+00:16:05,216 --> 00:16:08,666
+For example it collects the directories in the one tar package and
+
+205
+00:16:08,666 --> 00:16:11,583
+does compression before uploading to Allas. 
+
+206
+00:16:12,250 --> 00:16:15,483
+If you want to then push the data out to some other service, 
+
+207
+00:16:15,483 --> 00:16:19,316
+it may require extra steps for uncompressing and unpacking the data 
+
+208
+00:16:19,316 --> 00:16:21,883
+before you can access the files. 
+
+209
+00:16:33,149 --> 00:16:36,700
+This is also a comparison of a-tools and rclone.
+
+210
+00:16:37,500 --> 00:16:43,100
+As stated in the previous slide, a-tools work nicely in the CSC environment.
+
+211
+00:16:43,950 --> 00:16:47,350
+It packages the data nicely and allows you to store and move it 
+
+212
+00:16:47,350 --> 00:16:50,066
+in a bigger chunks instead of file by file. 
+
+213
+00:16:50,950 --> 00:16:53,666
+The file size is reduced with compression,
+
+214
+00:16:53,666 --> 00:16:57,299
+so you can store more data consuming less billing units.
+
+215
+00:16:59,283 --> 00:17:02,983
+With a-tools you don't need to think about bucket names.
+
+216
+00:17:02,983 --> 00:17:08,099
+The default bucket names refer to Puhti and Mahti directory structures. 
+
+217
+00:17:08,883 --> 00:17:12,916
+A-tools also prevent you from accidentally overwriting your data. 
+
+218
+00:17:14,683 --> 00:17:17,950
+The downsides of a-tools are mainly related to the usage
+
+219
+00:17:17,950 --> 00:17:20,433
+in other that CSC environments.
+
+220
+00:17:21,233 --> 00:17:26,283
+Trying to read an object that is created with some other tool is usually complicated.
+
+221
+00:17:26,766 --> 00:17:31,783
+Objects created with a-tools have an additional ameta metadata object.
+
+222
+00:17:31,883 --> 00:17:36,083
+A-tools put them in your bucket in addition to the object itself.
+
+223
+00:17:44,483 --> 00:17:48,799
+Then some practical good-to-know issues concerning Allas in general. 
+
+224
+00:17:49,299 --> 00:17:53,083
+First of all is this eight hour connection limit with Swift. 
+
+225
+00:17:53,799 --> 00:17:57,133
+It usually is not an issue in normal interactive work, 
+
+226
+00:17:57,133 --> 00:18:00,150
+but in batch jobs you need to take that into account.
+
+227
+00:18:00,516 --> 00:18:05,933
+It might be that your batch job does not even start before the eight-hour limit has gone. 
+
+228
+00:18:06,233 --> 00:18:10,266
+In batch jobs you should configure Allas so that it stores your password
+
+229
+00:18:10,266 --> 00:18:12,783
+in an environment variable in the session.
+
+230
+00:18:13,150 --> 00:18:16,366
+Then the Allas connection can be refreshed by the batch job 
+
+231
+00:18:16,366 --> 00:18:19,950
+by using the password from the environmental variable.
+
+232
+00:18:20,200 --> 00:18:24,166
+Check the material bank for a tutorial on how to achieve this.
+
+233
+00:18:24,883 --> 00:18:27,450
+In Allas you cannot check the quota to see
+
+234
+00:18:27,450 --> 00:18:30,933
+the maximum amount of data you can have in Allas. 
+
+235
+00:18:31,033 --> 00:18:34,200
+If you increase your quota from the 10TB default 
+
+236
+00:18:34,200 --> 00:18:36,816
+there is no way to check the quota in Allas. 
+
+237
+00:18:36,866 --> 00:18:39,666
+You can check the emails from CSC telling that 
+
+238
+00:18:39,683 --> 00:18:42,950
+you have been granted 50 terabytes of quota. 
+
+239
+00:18:43,299 --> 00:18:48,866
+If you try to put there data that exceeds the quotas it will tell that object is too large.
+
+240
+00:18:49,266 --> 00:18:53,400
+Then you might guess that you have hit the size limit of the Allas area. 
+
+241
+00:18:55,299 --> 00:19:00,333
+Moving data inside Allas is not possible, at least with the swift protocol. 
+
+242
+00:19:00,833 --> 00:19:03,849
+If you want to move a dataset from one bucket to another
+
+243
+00:19:03,849 --> 00:19:07,566
+or from one project to another, in practice you have to download it to 
+
+244
+00:19:07,566 --> 00:19:12,083
+for example Puhti Scratch and then push it to the new location in Allas. 
+
+245
+00:19:12,799 --> 00:19:15,666
+That is of course more time consuming that it would be
+
+246
+00:19:15,666 --> 00:19:18,333
+to move the data only inside Allas.
+
+247
+00:19:20,049 --> 00:19:22,650
+Freezing the data means such a read-only mode 
+
+248
+00:19:22,650 --> 00:19:25,299
+that would prevent others modifying the data. 
+
+249
+00:19:26,099 --> 00:19:28,650
+To achieve that in Allas you could use a so-called 
+
+250
+00:19:28,650 --> 00:19:31,316
+'two project protocol' as a workaround. 
+
+251
+00:19:32,116 --> 00:19:35,183
+The first Allas project is the hosting project. 
+
+252
+00:19:35,183 --> 00:19:39,099
+The managers has full access rights to data under that project.
+
+253
+00:19:39,099 --> 00:19:42,716
+They can set up another project for the users of the data. 
+
+254
+00:19:42,916 --> 00:19:46,183
+The users don't belong to the data hosting project,
+
+255
+00:19:46,183 --> 00:19:48,733
+so they don't have full access to all the data.
+
+256
+00:19:49,049 --> 00:19:54,733
+The managers can grant access for a selected users to e.g. one single bucket.
+
+257
+00:19:54,833 --> 00:19:57,349
+This way you can have more secure way of 
+
+258
+00:19:57,349 --> 00:20:00,000
+sharing your data with your project members.
+
+259
+00:20:01,750 --> 00:20:06,900
+Another option is that you create a separate front server inside or outside Allas.
+
+260
+00:20:07,400 --> 00:20:11,966
+With the server you can control the access to data that you have in Allas. 
+
+261
+00:20:12,450 --> 00:20:16,233
+For example you can set up a NextCloud server in cPouta, 
+
+262
+00:20:16,233 --> 00:20:20,900
+and use that to share data to your external collaborators somewhere else.
+
+263
+00:20:23,333 --> 00:20:26,716
+It is a good idea to learn one Allas interface like a-tools and 
+
+264
+00:20:26,716 --> 00:20:29,216
+stick with that as much as possible.
+
+265
+00:20:29,866 --> 00:20:32,566
+If you need to use many different interfaces, 
+
+266
+00:20:32,566 --> 00:20:36,483
+keep in mind that they may work in a little bit different ways.
+
+267
+00:20:37,250 --> 00:20:42,283
+For example different CyberDuck versions show the data in a little bit different way. 
+
+268
+00:20:43,216 --> 00:20:47,766
+You may not always see the same buckets and objects there - even though you should
+
+269
+00:20:47,766 --> 00:20:51,516
+ - because the interfaces interpret the pseudofolders differently.
+
+270
+00:21:00,733 --> 00:21:03,633
+Whenever you plan to store something in Allas you should think 
+
+271
+00:21:03,633 --> 00:21:08,349
+whether to store individual files, or to collect them in larger chunks.
+
+272
+00:21:08,849 --> 00:21:11,683
+Think about how you will use the data.
+
+273
+00:21:12,133 --> 00:21:15,799
+If you use a set of scripts that consist of three files,
+
+274
+00:21:15,799 --> 00:21:18,866
+you should collect those files to a one tar package,
+
+275
+00:21:18,866 --> 00:21:21,666
+and upload the package as one object to Allas. 
+
+276
+00:21:21,916 --> 00:21:26,933
+Then you can download the files as one object which puts less stress to the system.
+
+277
+00:21:28,266 --> 00:21:31,983
+Consider also using compression for its benefits. 
+
+278
+00:21:32,599 --> 00:21:35,549
+It reduces the space needed to store the data, 
+
+279
+00:21:35,549 --> 00:21:39,616
+and it also reduces the time to move the data in and out of Allas. 
+
+280
+00:21:40,316 --> 00:21:45,333
+That is especially good thing if you have a slow or unstable internet connection.
+
+281
+00:21:45,566 --> 00:21:50,083
+Compression of course takes time, so it may not bring time efficiency 
+
+282
+00:21:50,083 --> 00:21:54,083
+when moving data between CSC supecomputers and Allas.
+
+283
+00:21:55,549 --> 00:21:59,049
+You should also think of who can use the data.
+
+284
+00:21:59,333 --> 00:22:03,333
+By default all project members have equal access to the data. 
+
+285
+00:22:03,583 --> 00:22:06,383
+Usually that is the ideal situation.
+
+286
+00:22:06,833 --> 00:22:12,033
+If not, then consider using two projects or another server to manage access.
+
+287
+00:22:14,666 --> 00:22:18,766
+Note that Allas is not the final resting place of your data. 
+
+288
+00:22:19,333 --> 00:22:22,533
+When you start a CSC project you should already consider 
+
+289
+00:22:22,533 --> 00:22:25,866
+what will happen to the project's data when the project ends.
+
+290
+00:22:26,616 --> 00:22:29,583
+Remember that the project lifetime has to be extended 
+
+291
+00:22:29,583 --> 00:22:32,133
+yearly if the project still continues.
+
+292
+00:22:32,916 --> 00:22:37,099
+After the project is finished you need to save everything in somewhere else, 
+
+293
+00:22:37,099 --> 00:22:40,483
+because everything will be removed from the CSC environment
+
+294
+00:22:40,483 --> 00:22:42,466
+ - which means from Allas as well.
+
+295
+00:22:44,049 --> 00:22:48,183
+In time you start to accumulate large amounts of data in Allas.
+
+296
+00:22:48,466 --> 00:22:52,349
+It will get difficult to keep track of all the data you have.
+
+297
+00:22:53,066 --> 00:22:56,866
+You should plan and make rules on how to store the data in the Allas project
+
+298
+00:22:56,866 --> 00:22:59,483
+already before starting to use Allas.
+
+299
+00:22:59,533 --> 00:23:03,983
+Especially if there is a whole group pushing files and datasets to Allas, 
+
+300
+00:23:03,983 --> 00:23:06,183
+it will get messy after a while.
+
+301
+00:23:14,316 --> 00:23:18,116
+A few words about other data services at CSC. 
+
+302
+00:23:18,833 --> 00:23:22,500
+Allas is not the only place where you can store data. 
+
+303
+00:23:23,166 --> 00:23:28,383
+The Fairdata services are more focused services developed with datasets in mind.
+
+304
+00:23:29,049 --> 00:23:33,066
+You can use them when you have a ready static data set that you want to
+
+305
+00:23:33,066 --> 00:23:37,583
+store for longer time, and make it available for other researchers as well. 
+
+306
+00:23:38,250 --> 00:23:41,916
+Fairdata services consist of three main services. 
+
+307
+00:23:42,549 --> 00:23:44,466
+IDA is the storage service, 
+
+308
+00:23:44,466 --> 00:23:48,316
+where you can do things like data freezing and backup copies. 
+
+309
+00:23:49,049 --> 00:23:52,616
+Linking to IDA there is Quvain for describing the data.
+
+310
+00:23:53,150 --> 00:23:56,599
+There are rich metadata features and a possibility to create 
+
+311
+00:23:56,599 --> 00:24:01,766
+a persistent identifier for your data, which you can use in your publications. 
+
+312
+00:24:02,450 --> 00:24:06,416
+Then there is the Etsin service, which allows external users to look for 
+
+313
+00:24:06,416 --> 00:24:09,616
+the datasets stored in IDA and described with Quvain. 
+
+314
+00:24:10,266 --> 00:24:14,250
+The datasets do not need to be accessible to everybody. 
+
+315
+00:24:15,000 --> 00:24:20,016
+People can see that the dataset they need is there in IDA, and who has access to it.
+
+316
+00:24:20,683 --> 00:24:25,716
+Then they can contact the manager to ask for access to use the dataset.
+
+317
+00:24:33,049 --> 00:24:37,283
+Sensitive data services at CSC are intended for working with datasets
+
+318
+00:24:37,283 --> 00:24:40,416
+that contain sensitive or secret material. 
+
+319
+00:24:41,133 --> 00:24:46,433
+In the core of the service is SD Desktop - Sensitive Data Virtual Desktop.
+
+320
+00:24:47,033 --> 00:24:51,016
+You can use that to work with sensitive data secure way. 
+
+321
+00:24:51,650 --> 00:24:56,466
+The data is imported to the system through interface called SD-Connect.
+
+322
+00:24:56,816 --> 00:24:59,233
+The fact that you cannot access internet
+
+323
+00:24:59,233 --> 00:25:02,799
+or pull out data from SD Desktop makes it more secure.
+
+324
+00:25:03,650 --> 00:25:07,650
+It is possible to have a collaboration project where you let your collaborators do
+
+325
+00:25:07,650 --> 00:25:12,250
+analyses with your data, but never get the data out of your control. 
+
+326
+00:25:12,849 --> 00:25:16,349
+In practice you can use Allas for storing sensitive data, 
+
+327
+00:25:16,349 --> 00:25:20,349
+but you have to always encrypt the data before you upload it to Allas.
+
+328
+00:25:20,916 --> 00:25:24,066
+SD-Connect does encryption automatically and in a way 
+
+329
+00:25:24,066 --> 00:25:26,983
+which is compatible with the SD-Desktop.
+
+330
+00:25:29,033 --> 00:25:32,299
+The tutorials about Allas continue from here. 
+
+331
+00:25:32,483 --> 00:25:36,500
+They cover the basic use cases with easy-to-follow examples.
+
+332
+00:25:36,650 --> 00:25:41,683
+Allas documentation covers the introduction to Allas and the technical details.
