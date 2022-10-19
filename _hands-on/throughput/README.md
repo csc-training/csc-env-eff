@@ -1,4 +1,4 @@
 # High throughput usage
 
 ## Tutorials
-* [Running gaussian jobs using greasy on Puhti](gaussian_greasy.md)
+* [Running Gaussian jobs using HyperQueue on Puhti](gaussian_hq.md)
