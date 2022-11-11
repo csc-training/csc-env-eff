@@ -18,7 +18,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
-
 # CSC Account
 
 - CSC Account identifies you as a CSC user
@@ -36,14 +35,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Every CSC user also has a _personal_ project which is only for technical purposes
     - The personal project is not meant for submitting jobs
     - All usage (e.g. batch jobs) needs to be done with CSC Projects (aka computing projects)
-    - [FAQ on how to find info your projects](https://docs.csc.fi/support/faq/how-to-find-information-about-projects/)
+    - [FAQ on how to find info on your projects](https://docs.csc.fi/support/faq/how-to-find-information-about-projects/)
 
 # Project lifetime and management
 
 - The manager [invites members](https://docs.csc.fi/accounts/how-to-add-members-to-project/) to the project
 - The project lifetime has to be [extended yearly](https://docs.csc.fi/accounts/how-to-manage-your-project/) if the project still continues
 - After the project is closed the data will be cleaned
-    - Members will be alerted by emails (see [Chapter 10. of General Terms of Use](https://research.csc.fi/general-terms-of-use))
+    - Members will be alerted by emails (see [Section 6.3. of General Terms of Use](https://research.csc.fi/general-terms-of-use))
 -  If your project processes personal data or sensitive data, see [personal data announcement](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
     - More information in [CSC's data policy](https://www.csc.fi/en/data-policy)
 
@@ -51,8 +50,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - CPU time and storing files consume "Billing units" (BU)
 - BUs are tied to CSC projects (not personal) and can be applied via [my.csc.fi](https://my.csc.fi)
-   - Academic usage has been paid for by the Ministry of Education and Culture, and for them money won't be charged
-      - [Read more of free-of-charge use cases](https://research.csc.fi/pricing)
-   - All members can [apply for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/)
+   - Academic usage has been paid for by the Ministry of Education and Culture and is thus free of charge
+      - [Read more on free-of-charge use cases](https://research.csc.fi/pricing)
+   - All members of a project can [apply for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/)
    - Remember to [acknowledge CSC](https://docs.csc.fi/support/faq/how-to-cite-csc/) in your publications and mention these in your BU application
-- You can estimate [usage with the billing calculator](https://research.csc.fi/pricing) 
+- You can estimate [usage with the billing unit calculator](https://research.csc.fi/pricing)

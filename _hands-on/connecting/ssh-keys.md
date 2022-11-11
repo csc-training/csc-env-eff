@@ -47,16 +47,16 @@ ssh-keygen -t rsa -b 4096
 
 {:start="3"}
 3. Accept the default name and location (or customize them if needed).
-2. Choose a secure passphrase for the SSH key.
+4. Choose a secure passphrase for the SSH key.
     - It should be at least 8 characters long and should contain numbers, letters and special characters.
-4. Copy the public key to Puhti (replace `cscusername` with your CSC username):
+5. Copy the public key to Puhti (replace `cscusername` with your CSC username):
 
 ```bash
 ssh-copy-id cscusername@puhti.csc.fi
 ```
 
-{:start="5"}
-5. Connecting with SSH to Puhti should now proceed without the need to write your key passphrase
+{:start="6"}
+6. Connecting with SSH to Puhti should now proceed without the need to write your key passphrase
 
 ## macOS
 
