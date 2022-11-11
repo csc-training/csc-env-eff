@@ -13,7 +13,7 @@ Same information can be found in [the module section of our user guide at docs.c
 </div>
 <div class="column">
 <small>
-All material (C) 2020-2021 by CSC -IT Center for Science Ltd.
+All material (C) 2020-2022 by CSC -IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-ShareAlike** 4.0
 Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
