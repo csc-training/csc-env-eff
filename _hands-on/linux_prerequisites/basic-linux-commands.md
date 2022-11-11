@@ -5,69 +5,92 @@ title: Tutorial - Basic linux commands
 
 # Basic Linux commands
 
-> ‼️ To begin make sure that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) and it is a member of a project that [has access to Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+> ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
-> ☝🏻 You should also have already [logged to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
+> ☝🏻 You should also have already [logged in to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
 
-### Navigating folders
+## Navigating folders
 
-1. Now that you have logged in Puhti, check in which folder you are in: type `pwd` and hit Enter.
-    ```bash
-    pwd
-    ```
+1. Now that you have logged in to Puhti, check which folder you are in by typing `pwd` and hitting Enter:
+
+```bash
+pwd
+```
+
+{:start="2"}
 2. Check if there are any files:
-    ```bash
-    ls
-    ```
+
+```bash
+ls
+```
+
+{:start="3"}
 3. Make a directory and see if it appears:
-    ```bash
-    mkdir YourNameTestFolder    # replace YourName
-    ls
-    ```
-4. Go to that folder. 
-    ```bash
-    cd YourNameTestFolder       # replace YourName
-    ```
 
-💡 Note, that if you just type `cd` and the first letter of the folder name,  then hit 'tab' key, the terminal completes the name. Handy!
-    
+```bash
+mkdir YourNameTestFolder    # replace YourName
+ls
+```
 
-### Exploring files 
+{:start="4"}
+4. Go to that folder.
 
-1. Download a file into this new folder. Use the command `wget` for downloading from an URL:
-    ```bash
-    wget https://github.com/csc-training/csc-env-eff/raw/master/_hands-on/linux_prerequisites/my-first-file.txt
-    ```
-2. Check what kind of file did you get and what size it is using `ls` command with some extra parameters:
-    ```bash
-    ls -lth         # parameters are l for long format, t for sorting by time and h for convenient size units. Anything that starts with a hashtag is a comment and is not executed
-    ```
-3. Use `less` command to check out what the file looks like:
-    ```bash
-    less my-first-file.txt
-    ```
-4. Exit `less` preview of the file, hit 'q'.  
+```bash
+cd YourNameTestFolder       # replace YourName
+```
 
-💡 Tip: Instead of `less` you can use `cat` which prints the content of the file(s) straight into command line. For long texts `less` is recommended.
+💡 Note: if you just type `cd` and the first letter of the folder name, then hit `tab` key, the terminal completes the name. Handy!
+
+## Exploring files
+
+1. Download a file into this new folder. Use the command `wget` for downloading from a URL:
+
+```bash
+wget https://github.com/csc-training/csc-env-eff/raw/master/_hands-on/linux_prerequisites/my-first-file.txt
+```
+
+{:start="2"}
+2. Check what kind of file you got and what size it is using the `ls` command with some extra options:
+
+```bash
+ls -lth         # options are l for long format, t for sorting by time and h for convenient size units. Anything that starts with a hashtag is a comment and is not executed
+```
+
+{:start="3"}
+3. Use the `less` command to check out what the file looks like:
+
+```bash
+less my-first-file.txt
+```
+
+{:start="4"}
+4. To exit the `less` preview of the file, hit `q`.
+
+💡 Tip: Instead of `less` you can use `cat` which prints the content of the file(s) straight into the command line. For long texts `less` is recommended.
 
 {:start="5"}
 5. Make a copy of this file:
-    ```bash
-    cp my-first-file.txt YourName-first-file.txt  # replace YourName
-    ls -lth
-    less YourName-first-file.txt                 # replace YourName
-    ```
-6. Remove the file we originally downloaded (leave your own copy). 
-    ```bash
-    rm my-first-file.txt
-    ls
-    ```
 
-💡 Tip: If you don't want to have duplicate files you can use `mv` to 'move/rename' the file. Syntax is the same: `mv [path/source] [path/destination]`.
+```bash
+cp my-first-file.txt YourName-first-file.txt    # replace YourName
+ls -lth
+less YourName-first-file.txt                    # replace YourName
+```
+
+{:start="6"}
+6. Remove the file we originally downloaded (leave your own copy).
+
+```bash
+rm my-first-file.txt
+ls
+```
+
+💡 Tip: If you don't want to have duplicate files you can use `mv` to 'move/rename' the file. Syntax is the same: `mv /path/to/source/oldname /path/to/destination/newname`.
 
 ## More information
+
 - Learn [how to edit that file](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-file-editing.html) in the next tutorial!
 
-💡 More information of a given command line `command`: type `man command` or `command --help` where `command` is replaced with the one that you need help with.
+💡 For more information of a given command line `command`: type `man command` or `command --help` where `command` is replaced with the one that you need help with.
 
-💡 Pro-tip: if you remember *a part of a command* that you have used you can input it as `'string'` into command `history | grep 'string'` to see all your used commands that include the `'string'`.
+💡 Tip: If you remember *a part of a command* that you have used recently you can search for it with the command `history | grep string`. This will show all your used commands that have included the string `string` (replace this with the pattern you are searching for).
