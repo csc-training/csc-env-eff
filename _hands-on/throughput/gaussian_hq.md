@@ -28,39 +28,42 @@ how they differ energetically
 
 ### The workflow of this exercise
 
-- Download 10 sample 3D molecular structures
-- Convert these structures to Gaussian format
-- Construct the corresponding Gaussian input files
-- Build a HyperQueue task list to run the jobs
-- Submit the the HyperQueue job
-- Detect and resubmit a failed job
-- Analyze the results
+1. Download 10 sample 3D molecular structures
+2. Convert these structures to Gaussian format
+3. Construct the corresponding Gaussian input files
+4. Build a HyperQueue task list to run the jobs
+5. Submit the the HyperQueue job
+6. Detect and resubmit a failed job
+7. Analyze the results
 
 ## Download 10 sample 3D molecular structures
 
-- Create and enter a suitable scratch directory on Puhti (replace `<id>` with your CSC
-  project number).
+1. Create and enter a suitable scratch directory on Puhti (replace `<id>` with your CSC
+   project number).
 
 ```bash
 mkdir -p /scratch/project_<id>/$USER/gaussian_hq
 cd /scratch/project_<id>/$USER/gaussian_hq
 ```
 
-- Download the 10 C<sub>6</sub>H<sub>12</sub> structures that have originally been obtained
-  from [ChemSpider](https://www.chemspider.com/Search.aspx).
+{:start="2"}
+2. Download the 10 C<sub>6</sub>H<sub>12</sub> structures that have originally been obtained
+   from [ChemSpider](https://www.chemspider.com/Search.aspx).
   
 ```bash
 wget https://a3s.fi/C6H12_structures_10/C6H12_structures_10.tgz
 ```
 
-- Unpack the archive.
+{:start="3"}
+3. Unpack the archive.
 
 ```bash
 tar -xzf C6H12_structures_10.tgz
 ```
 
-- Go to the directory containing the structure files that are in [.mol
-  format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html).
+{:start="4"}
+4. Go to the directory containing the structure files that are in [.mol
+   format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html).
 
 ```bash
 cd C6H12_structures_10
@@ -71,15 +74,16 @@ cd C6H12_structures_10
 💬 [Gaussian](https://docs.csc.fi/apps/gaussian/) is a program for molecular electronic
 structure calculations.
 
-- Use [OpenBabel](http://openbabel.org/wiki/Main_Page) to convert the structures to
-  Gaussian format.
+1. Use [OpenBabel](http://openbabel.org/wiki/Main_Page) to convert the structures to
+   Gaussian format.
 
 ```bash
 module load openbabel
 obabel *.mol -ocom -m
 ```
 
-- Now we have converted the 10 structures into `.com` format that is used by Gaussian.
+{:start="2"}
+2. Now we have converted the 10 structures into `.com` format that is used by Gaussian.
 
 ## Construct the corresponding Gaussian input files
 
@@ -87,20 +91,22 @@ obabel *.mol -ocom -m
 i.e. a hybrid density functional theory calculation using the B3LYP exchange-correlation
 functional and the cc-PVDZ basis set.
 
-- Add the `b3lyp/cc-pVDZ` keyword at the beginning of each `.com` file.
+1. Add the `b3lyp/cc-pVDZ` keyword at the beginning of each `.com` file.
 
 ```bash
 sed -i '1s/^/#b3lyp\/cc-pVDZ \n/' *.com
 ```
 
-- Set 4 cores per job by adding the flag `%NProcShared=4` to each input file.
+{:start="2"}
+2. Set 4 cores per job by adding the flag `%NProcShared=4` to each input file.
 
 ```bash
 sed -i '1s/^/%NProcShared=4\n/' *.com
 ```
 
-- Now you have 10 complete Gaussian input files corresponding to the original molecular
-  structures and the method of choice.
+{:start="3"}
+3. Now you have 10 complete Gaussian input files corresponding to the original molecular
+   structures and the method of choice.
 
 ## Build a task list to run the jobs as a HyperQueue task array
 
@@ -109,19 +115,21 @@ feasible to use bash scripting to create a suitable task list file for HyperQueu
 case the task list used to specify the task array will just contain the paths to each input
 file, so generating it is very simple.
 
-- Move back up to your main directory.
+1. Move back up to your main directory.
 
 ```bash
 cd ..
 ```
 
-- Create the task list and name it `tasklist.txt`.
+{:start="2"}
+2. Create the task list and name it `tasklist.txt`.
 
 ```bash
 ls ${PWD}/C6H12_structures_10/*.com > tasklist.txt
 ```
 
-- Check out the tasklist with `more`, `less` or `cat`. The file should look like:
+{:start="3"}
+3. Check out the tasklist with `more`, `less` or `cat`. The file should look like:
 
 ```bash
 /scratch/project_<id>/$USER/gaussian_hq/C6H12_structures_10/10737.com
@@ -136,16 +144,17 @@ ls ${PWD}/C6H12_structures_10/*.com > tasklist.txt
 HyperQueue packs the individual tasks within a single Slurm job step and is thus much
 more efficient, especially if there are a huge number of tasks.
 
-- Create a batch script `hq_array.sh` for initializing and running the HyperQueue job.
+1. Create a batch script `hq_array.sh` for initializing and running the HyperQueue job.
 
 ```bash
 nano hq_array.sh
 ```
 
-- Copy the example script below into the file (edit `<id>` with your CSC project number).
-  The inline comments attempt to explain what is going on in the file. For more details,
-  please consult [our HyperQueue documentation](https://docs.csc.fi/apps/hyperqueue/).
-  See also [the official documentation](https://it4innovations.github.io/hyperqueue/stable/).
+{:start="2"}
+2. Copy the example script below into the file (edit `<id>` with your CSC project number).
+   The inline comments attempt to explain what is going on in the file. For more details,
+   please consult [our HyperQueue documentation](https://docs.csc.fi/apps/hyperqueue/).
+   See also [the official documentation](https://it4innovations.github.io/hyperqueue/stable/).
 
 ```bash
 #!/bin/bash
@@ -204,7 +213,8 @@ hq worker stop all
 hq server stop
 ```
 
-- Close `nano` and save the file.
+{:start="3"}
+3. Close `nano` and save the file.
 
 💬 The batch script above starts the HyperQueue server and worker(s) and submits the
 task array with inputs read from the generated `tasklist.txt` file. The following
@@ -221,13 +231,15 @@ will be passed to a separate task, which can access the value of the line using 
 environment variable `$HQ_ENTRY`. This environment variable is used in the submitted
 `gaussian.sh` file wherein the actual Gaussian calculation is executed.
 
-- Create the `gaussian.sh` file.
+{:start="4"}
+4. Create the `gaussian.sh` file.
 
 ```bash
 nano gaussian.sh
 ```
 
-- Copy the script below into the file.
+{:start="5"}
+5. Copy the script below into the file.
 
 ```bash
 #!/bin/bash
@@ -239,13 +251,15 @@ echo "ASSIGNED TASK ID ${HQ_TASK_ID} TO INPUT ${input_base}" > output/${input_ba
 g16 < $HQ_ENTRY >> output/${input_base}/${input_base}.log
 ```
 
-- Close `nano` and save the file.
+{:start="6"}
+6. Close `nano` and save the file.
 
 💬 The `gaussian.sh` script creates a directory to which the output of the corresponding
 Gaussian calculation is directed. Moreover, before launching the actual calculation, each
 log file is prepended with the HyperQueue task ID and the ID of the input file for bookkeeping.
 
-- Finally, submit the HyperQueue task array job.
+{:start="7"}
+7. Finally, submit the HyperQueue task array job.
 
 ```bash
 sbatch hq_array.sh
@@ -253,7 +267,7 @@ sbatch hq_array.sh
 
 ## Check the HyperQueue task summary
 
-- Monitor the Slurm queue with (replace `<slurm jobid>` with the assigned Slurm job ID):
+1. Monitor the Slurm queue with (replace `<slurm jobid>` with the assigned Slurm job ID):
 
 ```bash
 squeue -j <slurm jobid>
@@ -263,14 +277,16 @@ squeue --me
 squeue -u $USER
 ```
 
-- When the HyperQueue job has finished, a summary of the status of each task is dumped into
-  the file `task_summary.txt`. Check the contents of this file.
+{:start="2"}
+2. When the HyperQueue job has finished, a summary of the status of each task is dumped into
+   the file `task_summary.txt`. Check the contents of this file.
 
 ```bash
 cat task_summary.txt
 ```
 
-- The final lines of the file should read:
+{:start="3"}
+3. The final lines of the file should read:
 
 ```bash
 |       9 | FAILED   | r17c04.bullx | Start: 18.10.2022 11:43:15 | Workdir: /scratch/project_2001659/rkronber/hyperqueue/gaussian | Error: Program terminated with exit code 1 |
@@ -279,21 +295,24 @@ cat task_summary.txt
 +---------+----------+--------------+----------------------------+----------------------------------------------------------------+--------------------------------------------+
 ```
 
-- This indicates that the calculation with ID 9 failed for some reason! Check which input
-  this corresponds to.
+{:start="4"}
+4. This indicates that the calculation with ID 9 failed for some reason! Check which input
+   this corresponds to.
   
 ```bash
 grep "ID 9" output/*/*
 ```
 
-- The output should reveal that the failed task ID 9 is associated with job 7787. Check
-  the log of the failed job with.
+{:start="5"}
+5. The output should reveal that the failed task ID 9 is associated with job 7787. Check
+   the log of the failed job with.
 
 ```bash
 tail output/7787/7787.log
 ```
 
-- The output should look like:
+{:start="6"}
+6. The output should look like:
 
 ```text
 Charge and Multiplicity card seems defective:
@@ -308,41 +327,45 @@ File lengths (MBytes):  RWF=      6 Int=      0 D2E=      0 Chk=      1 Scr=    
 
 ## Fix and resubmit a failed job
 
-- Check out the defective input file plus another input file for reference.
+1. Check out the defective input file plus another input file for reference.
 
 ```bash
 cat C6H12_structures_10/7*.com
 ```
 
-- The result shows two input files one after another. You should be able to spot
-  what is missing from the defective input file.
-
-- Correct the defective file by inserting the missing title "7787" at line 6.
+{:start="2"}
+2. The result shows two input files one after another. You should be able to spot
+   what is missing from the defective input file.
+3. Correct the defective file by inserting the missing title "7787" at line 6.
 
 ```bash
 sed -i "6s/^/7787/" C6H12_structures_10/7787.com
 ```
 
-- Rerun the job. You do not need HyperQueue as it is just a single job.
+{:start="4"}
+4. Rerun the job. You do not need HyperQueue as it is just a single job.
 
 ```bash
 module load gaussian
 srun -p interactive --ntasks=1 --cpus-per-task=4 --time=00:05:00 -A project_<id> g16 < C6H12_structures_10/7787.com > output/7787/7787.log
 ```
 
-- Once the job has finished ensure that it terminated normally.
+{:start="5"}
+5. Once the job has finished ensure that it terminated normally.
 
 ```bash
 tail output/7787/7787.log
 ```
 
-- Print a list of the `b3lyp/cc-pVDZ` energies for each of the 10 structures.
+{:start="6"}
+6. Print a list of the `b3lyp/cc-pVDZ` energies for each of the 10 structures.
 
 ```bash
 grep -rnw 'output/' -e 'E(RB3LYP)'
 ```
 
-- The output should look like:
+{:start="7"}
+7. The output should look like:
 
 ```bash
 output/12446/12446.log:265: SCF Done:  E(RB3LYP) =  -235.836869989     A.U. after   13 cycles
