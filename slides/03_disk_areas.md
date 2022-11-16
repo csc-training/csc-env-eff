@@ -3,8 +3,8 @@ theme: csc-eurocc-2019
 lang: en
 ---
 
-# Disk areas in CSC HPC environment {.title}
-In this section, you will learn how to manage different disk areas in HPC environment at CSC
+# Disk areas in CSC's HPC environment {.title}
+In this section, you will learn how to work in different disk areas in CSC's HPC environment
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
@@ -19,9 +19,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Overview of disk areas
 
-- Main disk areas and their specific uses in Puhti/Mahti
+- Main disk areas and their specific uses on Puhti and Mahti
 - Moving data between supercomputers
-- Understanding quotas (both usable space and number of files) for different disk areas
+- Understanding quotas (both usable space and number of files) of different disk areas
 - Additional fast disk areas
 
 # Disk and storage overview  
@@ -31,27 +31,27 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Main disk areas in Puhti/Mahti
 
 - Home directory (`$HOME`)
-    - Other users cannot access you home directory
+    - Other users cannot access your home directory
 - ProjAppl directory (`/projappl/project_name`)
     - Shared with project members
-    - Possible to limit access (`chmod g-rw`) in subfolders
+    - Possible to limit access (`chmod g-rw`) to subfolders
 - Scratch directory (`/scratch/project_name`)
     - Shared with project members
     - Files older than 90 days will be automatically removed
-- These directories reside on [Lustre parallel file system](https://docs.csc.fi/computing/lustre/)
-- Default quotas and more info on [disk areas section](https://docs.csc.fi/computing/disk/)
+- These directories reside on the [Lustre parallel file system](https://docs.csc.fi/computing/lustre/)
+- Default quotas and more info in [disk areas section of Docs CSC](https://docs.csc.fi/computing/disk/)
 
 # Moving data between and to/from supercomputers
 
-- Puhti and Mahti have their own disk systems
-- Data can be moved between the supercomputers 
-    - [directly with rsync](https://docs.csc.fi/data/moving/rsync/) 
+- Puhti and Mahti have separate file systems
+- Data can be moved between the supercomputers
+    - [directly with rsync](https://docs.csc.fi/data/moving/rsync/)
     - via [Allas object storage](https://docs.csc.fi/data/Allas/)
-- There are [many ways to transfer data to/from CSC and your local computer](https://docs.csc.fi/data/moving/)
+- There are [many ways to transfer data between CSC supercomputers and your local computer](https://docs.csc.fi/data/moving/)
 
 # Displaying current status of disk areas
 
-- use `csc-workspaces` command to display available projects and quotas 
+- Use the `csc-workspaces` command to show available projects and quotas
 
 ![](./img/disk_status.png)
 
@@ -61,29 +61,30 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Additional fast local disk areas 
 
-- `$TMPDIR` on Login nodes
-    - Each of the login nodes have 2900 GiB of fast local storage `$TMPDIR`
-    - The local storage is meant for temporary storage and is cleaned frequently
-- NVMe on part of compute nodes in Puhti
-    - Interactive batch job nodes, IO- and gpu-nodes have [local fast storage (NVMe)](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) as `$LOCAL_SCRATCH`
-    - You must copy data in and out during your batch job. NVMe is accessible only during your job allocation.
-    - If your job reads or writes a lot of small files, using this can give 10x performance boost
+- [`$TMPDIR` on login nodes](https://docs.csc.fi/computing/disk/#login-nodes)
+    - Each of the login nodes have 2900 GiB of fast local storage in `$TMPDIR`
+    - The local disk is meant for temporary storage (_e.g._ compiling software) and is cleaned frequently
+- [NVMe disks on a part of the compute nodes on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
+    - Interactive, IO- and GPU-nodes have fast local disks (NVMe) in `$LOCAL_SCRATCH`
+    - Also [GPU-nodes on Mahti](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs) have fast local storage available
+    - You must copy data to and from the fast disk during your batch job since the NVMe is accessible only during your job allocation
+    - If your job reads and/or writes a lot of small files, using this can give a huge performance boost!
 
 # What are the different disk areas for?
 
-- [Allas](https://docs.csc.fi/data/Allas/) - for data which is not actively used
-- [HOME](https://docs.csc.fi/computing/disk/#home-directory) - small, thus only for most important (small) files, personal access only
-- [scratch](https://docs.csc.fi/computing/disk/#scratch-directory) - main working area, can be used to share with project members
-- [projappl](https://docs.csc.fi/computing/disk/#projappl-directory) - not cleaned up, e.g. for shared binaries 
-- [Login node local tmp](https://docs.csc.fi/computing/disk/#login-nodes) - compiling, temporary, fast IO 
-- [NVMe](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) - fast IO in batch jobs
+- [Allas](https://docs.csc.fi/data/Allas/) -- for data which is not actively used
+- [`$HOME`](https://docs.csc.fi/computing/disk/#home-directory) -- small, only for most important (small) files, personal access only
+- [`/scratch`](https://docs.csc.fi/computing/disk/#scratch-directory) -- main working area, shared with project members, only for data in active use
+- [`/projappl`](https://docs.csc.fi/computing/disk/#projappl-directory) -- not cleaned up, _e.g._ for shared binaries
+- [Login node `$TMPDIR`](https://docs.csc.fi/computing/disk/#login-nodes) -- compiling, temporary storage, fast IO
+- [Compute node NVMe `$LOCAL_SCRATCH`](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) -- fast IO in batch jobs
 
-# Some best practice tips
+# Best practices
 
-- Don't put databases on Lustre (projappl, scratch, home) 
-    - use other CSC services like [kaivos](https://docs.csc.fi/data/kaivos/overview/) or mongoDB in cPouta
-- Don't create a lot of files in one folder
-- Don't create overall a lot of files (if you're creating tens of thousands of files, you should probably rethink the workflow)
-- Take backups of important files. Data on CSC disks is not backed up even if systems are fault tolerant.
-- When working with the large number of smaller files, consider using fast local disks
-- [Best practice performance tips for using Lustre](https://docs.csc.fi/computing/lustre/#best-practices)
+- None of the disk areas are automatically backed up by CSC, so make sure to perform regular backups to _e.g._ Allas
+- Don't run databases or Conda on Lustre (`/projappl`, `/scratch`, `$HOME`)
+    - Containerize Conda environments with [Tykky](https://docs.csc.fi/computing/containers/tykky/) and use other CSC services like [Kaivos](https://docs.csc.fi/data/kaivos/overview/) or [cPouta](https://docs.csc.fi/cloud/pouta/) for databases (Rahti also possible, but connecting from Puhti/Mahti is complicated)
+- Don't create a lot of files, especially within a single folder
+    - If you're creating 10 000+ files, you should probably rethink your workflow
+- Consider using fast local disks when working with many small files
+- [Lustre best practices](https://docs.csc.fi/computing/lustre/#best-practices) and [efficient IO in high-throughput workflows](https://docs.csc.fi/computing/running/throughput/#inputoutput-efficiency)
