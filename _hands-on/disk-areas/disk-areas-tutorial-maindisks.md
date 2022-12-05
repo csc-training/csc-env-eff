@@ -11,7 +11,7 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 💬 Each user at CSC supercomputer (Puhti or Mahti) have access to different disk areas (or directories) to manage their data in supercomputers. The disk areas have their specific purposes. 
 
-💬 Data files needed for computational analysis should be stored and shared in **scratch** directories and any software compilations and binaries should be shared in **proappl** directory.
+💬 Data files needed for computational analysis should be stored and shared in **scratch** directories and any software compilations and binaries should be shared in **proajppl** directory.
 
 ## Identify your personal and project-specific directories in Puhti and Mahti supercomputers
 
