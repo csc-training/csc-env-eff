@@ -75,24 +75,24 @@ Let's assume that
 
 ### Move the files to Puhti scratch and projappl
 
-1. Create folders with your name (e.g. your username) in your project directories in **scratch** and **projappl** in Puhti.
+1. Create folders with your username (using environment variable $USER) in your project directories in **scratch** and **projappl** in Puhti.
    ```bash
-   mkdir /projappl/project_xxxx/yourname   # replace xxxx with your project number and yourname (with a name of your choice)
-   mkdir /scratch/project_xxxx/yourname    # replace xxxx with your project number and yourname (with a name of your choice)
+   mkdir /projappl/project_xxxx/$USER   # replace xxxx with your project number
+   mkdir /scratch/project_xxxx/$USER    # replace xxxx with your project number
    ```
 2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
    ```bash
-   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/yourname/   # replace xxxx with your project number and yourname (with the name of your choice)
+   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/$USER/   # replace xxxx with your project number
    ```
 3. Share *Merged.fasta* file in *scratch* directory
    ```bash
-   cp Merged.fasta /scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
+   cp Merged.fasta /scratch/project_xxxx/$USER/    # replace xxxx with your project number
    ```
 - Note that all new files and directories are also fully accessible for other members of the project (including read, write and execution permissions). 
 
 4. Set read-only permissions for your project members for the file *Merged.fasta*:
    ```bash
-   cd /scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
+   cd /scratch/project_xxxx/$USER/    # replace xxxx with your project number
    chmod -R g-w Merged.fasta
    ```
 
@@ -101,11 +101,11 @@ Let's assume that
 1. Change to the folder where you have the example files
 2. Copy *Merged.fasta* file from Puhti to **scratch** drive on Mahti as below:
    ```bash
-   rsync -P Merged.fasta yourcscusername@mahti.csc.fi:/scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
+   rsync -P Merged.fasta yourcscusername@mahti.csc.fi:/scratch/project_xxxx/$USER/    # replace xxxx with your project number
    ```
 3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file from Puhti to **projappl** directory on Mahti as below:
    ```bash
-   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz yourcscusername@mahti.csc.fi:/projappl/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
+   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz yourcscusername@mahti.csc.fi:/projappl/project_xxxx/$USER/    # replace xxxx with your project number 
    ```
 
 ## More information
