@@ -75,24 +75,24 @@ Let's assume that
 
 ### Move the files to Puhti scratch and projappl
 
-1. Create folders (name them e.g. with your username) in your project directories in **scratch** and **projappl** in Puhti.
+1. Create folders that you name with your username in your project directories in **scratch** and **projappl** in Puhti.
    ```bash
-   mkdir /projappl/project_xxxx/username   # replace xxxx with your project number and username with your csc username
-   mkdir /scratch/project_xxxx/username    # replace xxxx with your project number and username with your csc username
+   mkdir /projappl/project_xxxx/yourcscusername   # replace xxxx with your project number and yourcscusername with your username
+   mkdir /scratch/project_xxxx/yourcscusername    # replace xxxx with your project number and yourcscusername with your username
    ```
 2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
    ```bash
-   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/username/   # replace xxxx with your project number and username with your csc username
+   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/yourcscusername/   # replace xxxx with your project number and yourcscusername with your username
    ```
 3. Share *Merged.fasta* file in *scratch* directory
    ```bash
-   cp Merged.fasta /scratch/project_xxxx/$USER/    # replace project_xxxx with course/your project
+   cp Merged.fasta /scratch/project_xxxx/yourcscusername/    # replace xxxx with your project number and yourcscusername with your username
    ```
-- All new files and directories are also fully accessible for other group members (including read, write and execution permissions). 
+- All new files and directories are also fully accessible for other members of the project (including read, write and execution permissions). 
 
 4. Set read-only permissions for your group members for the file *Merged.fasta*:
    ```bash
-   cd /scratch/project_xxxx/$USER/    # replace project_xxxx with course/your project
+   cd /scratch/project_xxxx/yourcscusername/    # replace xxxx with your project number and yourcscusername with your username
    chmod -R g-w Merged.fasta
    ```
 
