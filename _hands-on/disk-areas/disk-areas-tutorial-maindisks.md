@@ -52,7 +52,7 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ### Download the example files
 
-☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but keep in mind that one should avoid using Allas to do data transfer between two supercomputers.
+☝🏻 In this example you will *download* data from [*Allas*](https://docs.csc.fi/data/Allas/), but keep in mind that one should avoid using Allas to do data transfer between two supercomputers.
 
 1. Move to home folder with:
    ```bash
@@ -75,14 +75,14 @@ Let's assume that
 
 ### Move the files to Puhti scratch and projappl
 
-1. Create folders with your username in your projects **scratch** and **projappl** directories in Puhti.
+1. Create folders (name them e.g. with your username) in your project directories in **scratch** and **projappl** in Puhti.
    ```bash
-   mkdir /projappl/project_xxxx/$USER   # replace project_xxxx with course/your project
-   mkdir /scratch/project_xxxx/$USER    # replace project_xxxx with course/your project
+   mkdir /projappl/project_xxxx/username   # replace xxxx with your project number and username with your csc username
+   mkdir /scratch/project_xxxx/username    # replace xxxx with your project number and username with your csc username
    ```
 2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
    ```bash
-   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/$USER/   # replace project_xxxx with course/your project
+   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/username/   # replace xxxx with your project number and username with your csc username
    ```
 3. Share *Merged.fasta* file in *scratch* directory
    ```bash
