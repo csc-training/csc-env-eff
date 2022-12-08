@@ -13,7 +13,7 @@ Lustre-based project-specific directories, *scratch* and *projappl*, can store l
  
 ## Convert the following normal batch job script into the one that uses local scratch drive for faster computational tasks? 
 
-Below is a normal batch job that pulls docker image from DockerHub and converts into a singularity one that is compatible with working in HPC environments such as CSC Puhti and Mahti supercomputers. During the conversion process, several layers are retrieved, cached and then converted into a singularity file (.sif format)
+Below is a normal batch job that pulls docker image from DockerHub and converts it into a singularity one that is compatible with working in HPC environments such as CSC Puhti and Mahti supercomputers. During the conversion process, several layers are retrieved, cached and then converted into a singularity file (.sif format)
 
 ```bash
 #!/bin/bash
