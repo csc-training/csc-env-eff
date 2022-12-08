@@ -75,45 +75,44 @@ Let's assume that
 
 ### Move the files to Puhti scratch and projappl
 
-1. Create folders with your name in your project directories in **scratch** and **projappl** in Puhti.
+1. Create folders with your name (e.g. your username) in your project directories in **scratch** and **projappl** in Puhti.
    ```bash
-   mkdir /projappl/project_xxxx/yourname   # replace xxxx with your project number and yourname with e.g. your username
-   mkdir /scratch/project_xxxx/yourname    # replace xxxx with your project number and yourname with e.g. your username
+   mkdir /projappl/project_xxxx/yourname   # replace xxxx with your project number and yourname (with a name of your choice)
+   mkdir /scratch/project_xxxx/yourname    # replace xxxx with your project number and yourname (with a name of your choice)
    ```
 2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
    ```bash
-   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/yourname/   # replace xxxx with your project number and yourname e.g. with your username
+   cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/yourname/   # replace xxxx with your project number and yourname (with the name of your choice)
    ```
 3. Share *Merged.fasta* file in *scratch* directory
    ```bash
-   cp Merged.fasta /scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname e.g. with your username
+   cp Merged.fasta /scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
    ```
-- All new files and directories are also fully accessible for other members of the project (including read, write and execution permissions). 
+- Note that all new files and directories are also fully accessible for other members of the project (including read, write and execution permissions). 
 
-4. Set read-only permissions for your group members for the file *Merged.fasta*:
+4. Set read-only permissions for your project members for the file *Merged.fasta*:
    ```bash
-   cd /scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname e.g. with your username
+   cd /scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
    chmod -R g-w Merged.fasta
    ```
 
 ### Sharing files from Puhti to Mahti
 
 1. Change to the folder where you have the example files
-2. Copy *Merged.fasta* file on Puhti to **scratch** drive on Mahti as below:
+2. Copy *Merged.fasta* file from Puhti to **scratch** drive on Mahti as below:
    ```bash
-   rsync -P Merged.fasta yourcscusername@mahti.csc.fi:/scratch/project_xxxx/yourname/    # replace project_xxxx with course/your project
+   rsync -P Merged.fasta yourcscusername@mahti.csc.fi:/scratch/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
    ```
-3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file on puhti to **projappl** directory on Mahti as below:
+3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file from Puhti to **projappl** directory on Mahti as below:
    ```bash
-   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz yourcscusername@mahti.csc.fi:/projappl/project_xxxx/$USER/    # replace project_xxxx with course/your project
+   rsync -P ggplot2_3.3.3_Rprogramme.tar.gz yourcscusername@mahti.csc.fi:/projappl/project_xxxx/yourname/    # replace xxxx with your project number and yourname (with the name of your choice)
    ```
 
 ## More information
 
-💡 Hint: You can use your folder in scratch for the rest of the tutorials. Save the path in [alias](https://www.shell-tips.com/bash/alias/) (with `cd`or `echo`) or somewhere in your notes. 
+💡 Hint: You can use your folder in **scratch** for the rest of the tutorials. Save the path with [alias](https://www.shell-tips.com/bash/alias/) (with `cd`or `echo`) or somewhere in your notes. 
 
-💡 It is sometimes needed to save the paths of project **scratch** or **projappl** directories in an environmental variable (until logout).
-- This can be done wiht a following command:
+💡 It is sometimes needed to save the paths of the **scratch** or **projappl** directories in an environmental variable (until logout). This can be done wiht following command:
    ```bash
    export PROJAPPL=/projappl/project_xxxx/   # replace xxxx with your project number
    export SCRATCH=/scratch/project_xxxx/   # replace xxxx with your project number
