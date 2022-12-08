@@ -53,7 +53,7 @@ title: Tutorial - Fast disk areas in CSC supercomputing environment
 
 💭 Remember: commands `csc-projects` and `csc-workspaces` reveal information of your projects. 
 
-1. Create your own folder (using environment variable $USER) into a project-specific directory on **scratch** area.
+1. Create your own folder (using environment variable $USER) into a project-specific directory on **scratch** area (or skip this step if you already created the folder in previous tutorial). 
    ```bash
    mkdir /scratch/project_xxxx/$USER   # replace xxxx
    ```
@@ -68,8 +68,7 @@ title: Tutorial - Fast disk areas in CSC supercomputing environment
 
 💡 Hint: You can use your folder in scratch for the rest of the tutorials. Save the path in [alias](https://www.shell-tips.com/bash/alias/) (with `cd`or `echo`) or somewhere in your notes. 
 
-💡 It is sometimes needed to save the paths of project **scratch** or **projappl** directories in an environmental variable (until logout).
-- This can be done wiht a following command:
+💡 It is sometimes needed to save the paths of project **scratch** or **projappl** directories in an environmental variable (until logout). This can be done wiht a following command:
    ```bash
    export PROJAPPL=/projappl/project_xxxx/   # replace xxxx with your project number
    export SCRATCH=/scratch/project_xxxx/   # replace xxxx with your project number
