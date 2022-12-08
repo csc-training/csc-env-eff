@@ -23,7 +23,7 @@ Roughly you can think of
 
 - computer ~= node
 - processor ~= socket
-- core~= CPU
+- core ~= CPU
 </div>
 <div class="column">
 ![](./img/node.svg){width=60%} 
@@ -33,11 +33,11 @@ Roughly you can think of
 
 <div class="column">
 - Login nodes are used to set up jobs (and to launch them)
-- Jobs are run in the compute nodes
+- Jobs are run on the compute nodes
 - A batch job system (scheduler) is used to run and manage the jobs
-  - On CSC machines we use Slurm
+  - On CSC machines, we use Slurm
   - Other common systems include SGE and Torque/PBS
-  - Syntax is different, but basic operation is similar
+  - The syntax is different but basic operation is similar
 </div>
 <div class="column">
 ![](./img/cluster.svg){width=80%} 
@@ -45,9 +45,9 @@ Roughly you can think of
 
 # Available HPC resources
 
-- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general purpose supercomputer ☑️
-- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
-- [LUMI](https://docs.lumi-supercomputer.eu/hardware/) is a European pre-exascale supercomputer operated by CSC
+- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general-purpose supercomputer ☑️
+- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively-parallel flagship supercomputer
+- [LUMI](https://docs.lumi-supercomputer.eu/hardware/) is an European pre-exascale supercomputer operated by CSC
 - [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (IaaS)
 - [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via OKD (PaaS)
 - [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
@@ -57,11 +57,11 @@ Roughly you can think of
 - What kind of resources can _your application_ use?
   - Can it use more than one core?
   - How much memory will it need?
-  - Can it use GPU or NVMe?
-  - What takes long (is the time limiting part) in your job?
-- See what kind of resources are _available_
+  - Can it use a GPU or an NVMe?
+  - What takes long (i.e., the time-limiting part) in your job?
+- See what kind of resources are _available_?
   - Is my code already installed?
-  - Max. runtime, partitions (queues), provisioning policy (Per core/per node/other)
+  - Max runtime, partitions (queues), provisioning policy (Per core/per node/other)
   - Each system is different, so check the documentation
 
 # Quick and dirty comparison of Puhti, Mahti and LUMI
