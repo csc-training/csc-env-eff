@@ -89,4 +89,4 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - You can also write your own module files:
     1. Add them to your home directory (`$HOME/modulefiles`)
     2. Add this path to the module search path (`module use $HOME/modulefiles`)
-- To study existing module files, command `module show modulename` shows also the name of the module file
+- To see the parameters of a module file, use the command `module show modulename`
