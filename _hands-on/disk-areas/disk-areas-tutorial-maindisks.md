@@ -48,11 +48,11 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 
 ## Binary and data files to share
 
-💬 Data transfer between two supercomputers can be done with many tools including `rsync`. 
+💬 Data transfer between two supercomputers can be done e.g. with `rsync`. 
 
 ### Download the example files
 
-☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but here try still to avoid using *Allas* for data transfer between the supercomputers. 
+☝🏻 In this example you will download data from [*Allas*](https://docs.csc.fi/data/Allas/), but keep in mind that one should avoid using Allas to do data transfer between two supercomputers.
 
 1. Move to home folder with:
    ```bash
@@ -62,15 +62,16 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
 💡 If you know the files are large you should consider downloading them straight to **scratch**. 
 
 {:start="2"}
-2. Download example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from **allas** object storage
+2. Download the example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from Allas object storage
    ```bash
    wget https://a3s.fi/CSC_training/shared_files.tar.gz
    tar -xavf shared_files.tar.gz
    cd shared_files
    ```
-- Let's assume that 
-   - file *Merged.fasta* is data file intended for computational use
-   - file *ggplot2_3.3.3_Rprogramme.tar.gz* is a software tool needed for analysis. 
+
+- Let's assume that
+    - file *Merged.fasta* is data file intended for computational use
+    - file *ggplot2_3.3.3_Rprogramme.tar.gz* is a software tool needed for analysis. 
 
 ### Move the files to Puhti scratch and projappl
 
