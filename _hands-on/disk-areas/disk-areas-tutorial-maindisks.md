@@ -69,9 +69,9 @@ title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
    cd shared_files
    ```
 
-- Let's assume that
-    - file *Merged.fasta* is data file intended for computational use
-    - file *ggplot2_3.3.3_Rprogramme.tar.gz* is a software tool needed for analysis. 
+Let's assume that
+- file *Merged.fasta* is data file intended for computational use
+- file *ggplot2_3.3.3_Rprogramme.tar.gz* is a software tool needed for analysis. 
 
 ### Move the files to Puhti scratch and projappl
 
