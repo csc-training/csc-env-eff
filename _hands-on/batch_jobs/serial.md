@@ -36,7 +36,7 @@ title: Tutorial - Serial batch jobs (essential)
 💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYUSERNAME` (change MYUSERNAME) and then move there (`cd MYUSERNAME`) not to clutter thet scratch root of your project) 
 
 {:start="2"}
-2. Create a file called `my_serial.bash` eg. with Nano:
+2. Create a file called `my_serial.bash` e.g. with Nano text editor:
     ```bash
     nano my_serial.bash
     ```
@@ -55,9 +55,10 @@ title: Tutorial - Serial batch jobs (essential)
    srun sleep 60                    # Run sleep-command in each task
     ```  
 
+
+- Change the `project_xxxx` to the project you actually want to use
 {:start="4"}
-4. Change the `project_xxxx` to the project you actually want to use (e.g. with `nano`)
-- Submit the job to the queue and then check the queue with the commands:
+4. Submit the job to the queue and then check the queue with the commands:
 
     ```bash
     sbatch my_serial.bash
