@@ -49,7 +49,7 @@ title: Tutorial - Serial batch jobs (essential)
    #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
    #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
    #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-   #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+   #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition. For a serial job this should be set 1
 
    srun hostname                    # Run hostname-command in each task
    srun sleep 60                    # Run sleep-command in each task
@@ -70,7 +70,7 @@ title: Tutorial - Serial batch jobs (essential)
 - for two minutes (`--time=00:02:00`) 
 - from the test queue (`--partition=test`)  
 
-💬 We want to run the program `hostname`, that will print the name of the Puhti computing node that has been allocated for this particular job.  
+💬 We want to run the program `hostname` that will print the name of the Puhti compute node that has been allocated for this particular job
 💬 In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job  
 
 #### Checking the output and the efficiency
