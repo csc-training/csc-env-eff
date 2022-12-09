@@ -44,7 +44,7 @@ title: Tutorial - Serial batch jobs (essential)
 {:start="3"}
 3. Copy the the following **batch script** there: 
 
-   ```bash
+    ```bash
    #!/bin/bash
    #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
    #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
@@ -53,8 +53,7 @@ title: Tutorial - Serial batch jobs (essential)
 
    srun hostname                    # Run hostname-command in each task
    srun sleep 60                    # Run sleep-command in each task
-   
-        ```
+    ```
     - Change the `project_xxxx` to the project you actually want to use
 
 {:start="4"}
