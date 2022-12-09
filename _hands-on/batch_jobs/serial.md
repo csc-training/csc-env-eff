@@ -21,19 +21,19 @@ title: Tutorial - Serial batch jobs (essential)
 
 💬 Within the job (or allocation), the actual program is launched using the command `srun` 
 
-☝🏻 If you use a software that is preinstalled at CSC, please [check its info-page](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
+☝🏻 If you use a software that is preinstalled by CSC, please [check its info-page](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
 
 ### Launching a serial job
 
-1. Go to the scratch folder. 
+1. Go to the scratch folder:
     ```bash
     cd /scratch/project_xxxx         # replace xxxx
     ```
     - Now your input (and output) are on a disk that is accessible on the compute node.
     
-💡 You can list your projects with `csc-projects`).
+💡 You can list your projects with `csc-projects`
 
-💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYSERNAME` (change MYUSERNAME) and then change there not to clutter thet scratch root of your project `cd MYUSERNAME`)
+💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYUSERNAME` (change MYUSERNAME) and then move there (`cd MYUSERNAME`) not to clutter thet scratch root of your project) 
 
 {:start="2"}
 2. Create a file called `my_serial.bash` eg. with Nano:
