@@ -14,8 +14,8 @@ title: Tutorial - Serial batch jobs (essential)
 
 ## Serial jobs
 
-💬 A serial program can use only one core (cpu)
-    - One should request only one core from Slurm. 
+💬 A serial program can only use one core (cpu)
+    - One should request only one core from Slurm
     - The job doesn't benefit from additional cores
     - Excess reservation is wasted since it wouldn't be available to other users
 
