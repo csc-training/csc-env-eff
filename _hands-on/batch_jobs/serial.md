@@ -58,12 +58,12 @@ title: Tutorial - Serial batch jobs (essential)
    - Change the `project_xxxx` to the project you actually want to use
 
 {:start="4"}
-4. Submit the job to the queue and then check the queue with the commands:
+4. Submit the job to queue and then check the queue with the commands:
 
-    ```bash
+   ```bash
     sbatch my_serial.bash
     squeue -u $USER
-    ``` 
+   ``` 
 
 💬 In the batch job example above we are requesting 
 - one core (`--ntasks=1`) 
