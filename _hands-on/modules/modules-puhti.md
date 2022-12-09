@@ -77,17 +77,19 @@ title: Tutorial - Modules in Puhti (essential)
 
 💬 Using an older version of a module is usually possible
 
-💬 As an example you can try to use the "ancient" 2018 version of Gromacs. 
+💬 As an example you can try to use an old version of Gromacs from 2020. 
 
 1. The older versions do not have "environment module" (because the usage is not encouraged) so check with ```spider``` command which other modules are needed for the old version
     ```bash
-    module spider gromacs/2018.8
+    module spider gromacs/2020.5
     ```
 
 2. Load all of the required modules manually.
     ```bash
-    module load gcc/9.1.0  
-    module load hpcx-mpi/2.4.0
-    module load gromacs/2018.8
+    module load gcc/9.4.0  
+    module load openmpi/4.1.4
+    module load gromacs/2020.5
     module list
     ```
+    
+    
