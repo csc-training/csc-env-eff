@@ -53,10 +53,9 @@ title: Tutorial - Serial batch jobs (essential)
 
    srun hostname                    # Run hostname-command in each task
    srun sleep 60                    # Run sleep-command in each task
+   
         ```
     - Change the `project_xxxx` to the project you actually want to use
-
-
 
 {:start="4"}
 4. Submit the job to the queue and then check the queue with the commands:
