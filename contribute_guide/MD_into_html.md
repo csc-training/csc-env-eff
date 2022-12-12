@@ -10,6 +10,8 @@
 > Alternatively: If you don't have Allas access use `wget https://a3s.fi/pandocTool/pandoc-eurocc.sif`
 
 ## Copy the theme and other dependencies to local directory (in Puhti)
+> Note: The following recipe may not work smoothly following recent RHEL8 update. You can use the following command instead as a temporary fix:
+> ``` singularity exec -B $PWD pandoc-eurocc.sif /slidetools/convert.sh -s 01_my_lecture.md ```  (make sure to copy pandoc container to the directory where    you are working)
 
 1. Go the the same directory as the source md files (= your git root directory for csc-env-eff in Puhti) (If you haven't yet cloned the repository, do so: `git clone https://github.com/csc-training/csc-env-eff`). Note, this must be a subfolder in your `$HOME`.
 2. Run command 
