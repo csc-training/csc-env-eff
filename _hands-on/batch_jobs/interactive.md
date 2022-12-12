@@ -14,37 +14,41 @@ title: Tutorial - Interactive batch jobs
 
 ## Interactive jobs
 
-💬 In an interactive batch job, an interactive shell session is launced on a computing node. 
+💬 In an interactive batch job, an interactive shell session is launced on a compute node.
+
 - For heavy interactive tasks one can request specific resources (time, memory, cores, disk). 
 
-💡 You can also use tools with graphical user interfaces in an interactive shell session. 
+💡 You can also use tools with graphical user interfaces in an interactive shell session.
 - For such usage the [Web Interface](https://www.puhti.csc.fi/) remote desktop often provides an improved experience. 
 - Check also [how to use RStudio and Jupyter Notebook in Puhti](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) 
 
 ### A simple interactive job 
 
 1. Start an interactive job using one core for ten minutes:
-    ```bash
-    sinteractive --account myprojectname --time 00:10:00
-    ```
-💡 You can list your projects with `csc-projects`). 
+
+```bash
+sinteractive --account myprojectname --time 00:10:00         # replace myprojectname
+```
+
+💡 You can list your projects with `csc-projects`
 
 {:start="2"}
-2. You should see that the command prompt (first thing in each row) has changed from `puhti-login1` (or `puhti-login2`) to e.g. `r07c51` which means a compute node.
-3. Once on the compute node, you can run commands directly from the command line without `srun`, e.g. launch the (default) Python interpreter:
-    ```bash
-    module load python-env
-    python3
-    ```
-4. Quit the Python interpreter with `quit()`
-5. Quit the interactive batch job with `exit`.
+2. You should see that the command prompt (first thing on each row) has changed from e.g. `puhti-login11` to e.g. `r07c51` which means a compute node.
+
+3. Once on the compute node, you can run commands directly from the command line without `srun`. You can e.g. load a python-data module (e.g. for running RStudio or Jupyter Notebook interactively on Puhti):
+
+```bash
+module load python-data
+```
+
+4. Quit the interactive batch job with `exit`.
 
 💬 This way you can work interactively for extended period, using lots of memory without creating load on the login nodes, which is forbidden in [the Usage Policy](https://docs.csc.fi/computing/overview/#usage-policy).
 
 ‼️ Note, that above you asked only for 10 minutes of time. 
 - Once that is up, you will be automatically logged out from the compute node. 
 
-💡 From the command line prompt you can see whether you're in the compute node (e.g. `r07c51`) or back to the login node (e.g. `puhti-login2`). 
+💡 From the command line prompt you can see whether you're in the compute node (e.g. `r07c51`) or back to the login node (e.g. `puhti-login12`). 
 - Giving `exit` in the login node, will log you out from Puhti.
 
  
