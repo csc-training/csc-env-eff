@@ -26,44 +26,47 @@ title: Tutorial - Serial batch jobs (essential)
 ### Launching a serial job
 
 1. Go to the scratch folder:
-    ```bash
-    cd /scratch/project_xxxx         # replace xxxx
-    ```
-    - Now your input (and output) are on a disk that is accessible on the compute node.
+
+```bash
+cd /scratch/project_xxxx         # replace xxxx
+```
+
+- Now your input (and output) are on a disk that is accessible on the compute node.
     
 💡 You can list your projects with `csc-projects`
 
-💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYUSERNAME` (change MYUSERNAME) and then move there (`cd MYUSERNAME`) not to clutter thet scratch root of your project) 
+💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYUSERNAME` (change MYUSERNAME) and then move there (`cd MYUSERNAME`) to not clutter thet scratch root of your project) 
 
 {:start="2"}
 2. Create a file called `my_serial.bash` e.g. with Nano text editor:
-    ```bash
-    nano my_serial.bash
-    ```
+
+```bash
+nano my_serial.bash
+```
 
 {:start="3"}
 3. Copy the the following **batch script** there: 
 
-   ```bash
-   #!/bin/bash
-   #SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
-   #SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
-   #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-   #SBATCH --ntasks=1               # Number of tasks. Max: depends on partition. For a serial job this should be set 1
+```bash
+#!/bin/bash
+#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
+#SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition. For a serial job this should be set 1
 
-   srun hostname                    # Run hostname-command in each task
-   srun sleep 60                    # Run sleep-command in each task
-   ```
+srun hostname                    # Run hostname-command in each task
+srun sleep 60                    # Run sleep-command in each task
+```
    
-   - Change the `project_xxxx` to the project you actually want to use
+- Change the `project_xxxx` to the project you actually want to use
 
 {:start="4"}
 4. Submit the job to queue and then check the queue with the commands:
 
-   ```bash
-    sbatch my_serial.bash
-    squeue -u $USER
-   ``` 
+```bash
+sbatch my_serial.bash
+squeue -u $USER
+``` 
 
 💬 In the batch job example above we are requesting 
 - one core (`--ntasks=1`) 
@@ -71,6 +74,7 @@ title: Tutorial - Serial batch jobs (essential)
 - from the test queue (`--partition=test`)  
 
 💬 We want to run the program `hostname` that will print the name of the Puhti compute node that has been allocated for this particular job
+
 💬 In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job  
 
 #### Checking the output and the efficiency
