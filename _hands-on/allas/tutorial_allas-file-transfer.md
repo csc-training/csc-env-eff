@@ -7,7 +7,7 @@ title: Tutorial - File transfer with Allas (essential)
 
 ## Accessing Allas via web-interface
 
-1. Open the view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
+1. Open a view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
 2. Login with your CSC user account.
 3. From the upper left corner, you find a project selection pop-up menu. If you have several projects available, select one.
 4. From the menu on left side of the interface, select: **Object Store -> Containers**
@@ -57,7 +57,7 @@ module load allas
 allas-conf 
 ```
 
-💡 It might take a while with `module load allas`) 
+💡 It might take a while with `module load allas`
 
 {:start="2"}
 2. If you have several Allas projects available, select the same one where you just created a bucket using cPouta.
