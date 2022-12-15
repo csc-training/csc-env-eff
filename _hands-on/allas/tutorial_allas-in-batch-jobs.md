@@ -34,16 +34,16 @@ allas-conf -k project_xxxxxxx      # replace xxxxxxx
 3. Choose a file from Allas. The file should have text in it.
 
 ```bash
-a-list xxxxxxx_yourcscusername   # replace the name to match your bucket
+a-list xxxxxxx_yourcscusername   # replace xxxxxxx_yourcscusername to match your bucket
 ```
 
 4. Create a new batch job script. First open a new text file with command:
 
 ```bash
-nano allas_xxxx.sh    # replace xxxx with a custom name for your job
+nano allas_myjobname.sh    # replace myjobname with a custom name for your job
 ```
 
-5. Copy the batch job script from below to the text file you are editing.
+5. Copy the batch job script from below to the text file you are editing. 
 
 **Option 1: a-commands**
 
@@ -63,7 +63,7 @@ a-put -b xxxxxxx_yourcscusername your-file-name.num_rows # Bucket name / File na
 ```
 
 {:start="6"}
-6. Replace `xxxxxxx_yourcscusername` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
+6. In the script, replace `xxxxxxx_yourcscusername` to match your bucket name and `your-file-name` the name of the file you have in Allas. 
 
 **Option 2: rclone**  
 
@@ -91,12 +91,12 @@ rclone copy your-file-name.num_rows allas:xxxxxxx_yourcscusername  # File name /
 ```
 
 {:start="6"}
-6. Replace `xxxxxxx_yourcscusername` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
+6. Replace `xxxxxxx_yourcscusername` to match your bucket name and `your-file-name` the name of the file you have in Allas. 
 
 7. Submit the batch job with command:
 
 ```bash
-sbatch allas_xxxx.sh                   # This was the custom name you created earlier
+sbatch allas_myjobname.sh                   # This was the custom name you created earlier
 ```
 
 8. Monitor the progress of your batch job:
