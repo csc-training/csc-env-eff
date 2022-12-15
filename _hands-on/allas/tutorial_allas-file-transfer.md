@@ -9,8 +9,8 @@ title: Tutorial - File transfer with Allas (essential)
 
 1. Open a view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
 2. Login with your CSC user account.
-3. From the upper left corner, you find a project selection pop-up menu. If you have several projects available, select one.
-4. From the menu on left side of the interface, select: **Object Store -> Containers**
+3. From the upper left corner, you find a project selection pop-up menu. If you have several projects available, select one that you use in this exercise.
+4. From the menu on the left side of the interface, select: **Object Store -> Containers**
 
    💡 A "container" in cPouta WWW-interface is called a "bucket" in S3 protocol. 
 
@@ -38,7 +38,7 @@ csc-workspaces
 3. Switch to the scratch directory of your project:
 
 ```bash
-cd /scratch/project_xxxxxxx    # replace xxxxxxx with your project number (use the same project, where you just created a bucket)
+cd /scratch/project_xxxxxxx    # replace xxxxxxx with your project number
 ```
 
 4. Create your own sub-directory:
@@ -50,7 +50,7 @@ cd yourcscusername
 
 ### Connecting to allas
 
-1. Open connection to Allas wih these commands:
+1. Open connection to Allas with these commands:
 
 ```bash
 module load allas
@@ -68,7 +68,7 @@ allas-conf
 
 ```bash
 a-list
-a-list xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername so that it correspond to your new bucket
+a-list xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername so that it corresponds to your new bucket
 a-info xxxxxxx_yourcscusername/your-file-name  # replace xxxxxxx_yourcscusername and your-file-name
 ```
     
@@ -76,7 +76,7 @@ a-info xxxxxxx_yourcscusername/your-file-name  # replace xxxxxxx_yourcscusername
       
 ```bash
 rclone lsd allas:
-rclone ls allas:xxxxxxx_yourcscusername                  # replace xxxxxxx_yourcscusername so that it correspond to your new bucket
+rclone ls allas:xxxxxxx_yourcscusername                  # replace xxxxxxx_yourcscusername so that it corresponds to your new bucket
 rclone lsl allas:xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername
 rclone lsf allas:xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername
 rclone cat allas:xxxxxxx_yourcscusername/your-file-name  # replace xxxxxxx_yourcscusername and your-file-name
