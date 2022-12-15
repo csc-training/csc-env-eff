@@ -5,60 +5,64 @@ title: Advanced Tutorial - Using Allas (bio-data example)
 
 # Using Allas in CSC HPC environment
 
-Before the actual exercise, open the view to the Allas service in your browser using the cPouta WWW-interface.
+Before the actual exercise, open a view to the Allas service in your browser using the cPouta WWW-interface.
 
 Open: https://pouta.csc.fi
 
 And login with your account.
 
-From the upper left corner, you find a project selection pop-up menu. If you have several projects available, select the
-training project: **project_2004306**
+From the upper left corner, you find a project selection pop-up menu. If you have several projects available, choose one of them to use in this exercise. 
 
 Then from the menu in left side of the interface, select:
 
 **Object Store -> Containers**
 
-During the exercises, you can use this interface to get another view to the buckets and objects in Allas.
+During the exercises, you can use this web interface to get another view to the buckets and objects in Allas.
 
 > Note, that you need to **reload** the view in order to see the changes.
 
 
-## A. Log in Puhti and use scratch
+## A. Log in to Puhti
 
-1. Login to puhti.csc.fi and move to scratch:
+1. Login to puhti.csc.fi and move to your project scratch:
 
 **Linux/mac/MobaXterm**
+
 ```bash
-ssh youcscusername@puhti.csc.fi   (replace youcscusername with your csc user account)
+ssh yourcscusername@puhti.csc.fi   (replace yourcscusername with your csc user account)
 ```
 
 **Windows/PuTTY**
 
    **host:** puhti.csc.fi
  
-   **login as:** youcscusername  (replace youcscusername with your csc user account)
+   **login as:** yourcscusername  (replace yourcscusername with your csc user account)
 
 
 In Puhti check your environment with command:
+
 ```bash
 csc-workspaces
 ```
 Switch to the scratch directory of your project 
-```bash
-cd /scratch/project_2004306  # note! replace the text here (and below) with your project
-```
-And create your own sub-directory, named after your training account (if this directory does not yet exist):
-```bash
-mkdir youcscusername 
-```
-(replace youcscusername with your user account)
 
-move to the directory.
 ```bash
-cd youcscusername
+cd /scratch/project_xxxxxxx  # note! replace xxxxxxx here (and below) with your project
+```
+Create your own sub-directory, named after your training account (if this directory does not already exist):
+
+```bash
+mkdir yourcscusername      # replace yourcscusername with your user account
+```
+
+Move to the directory:
+
+```bash
+cd yourcscusername
 ```
 
 ## 2. Download data with curl
+
 Next download a dataset from internet and uncompress it. The dataset contains some pythiun genomes with related BWA indexes.
 
 ```bash
@@ -72,37 +76,41 @@ tree pythium
 ## Using Allas
 
 Open connection to Allas:
+
 ```bash
 module load allas
 allas-conf 
 ```
 
-💡 It might take a while with `module load allas`). 
+💡 It might take a while with `module load allas`. 
 
-If you have several Allas projects available, select the training project we are currently using.
+If you have several Allas projects available, select the same project as earlier.
 
 ### Upload case 1.  rclone
 
-Upload the data from Puhti to Allas with `rclone`. Use the command below (replace youcscusername with your user account):
+Upload the data from Puhti to Allas with `rclone`:
+
 ```bash
-rclone -P copyto pythium allas:xxxx-genomes-rc/
+rclone -P copyto pythium allas:xxxxxxx_yourcscusername/genomes-rc/     # replace xxxxxxx with your project number and yourcscusername with your user account
 ```
+
 How long did the data upload took?
 What was the transfer rate?
-How long would it take to transfer 100 GB with the same speed?
+How long would it take to transfer 100 GiB with the same speed?
 
 Then study what you have uploaded to Allas with commands: 
+
 ```bash
-rclone lsd allas:
-rclone ls allas:xxxx-genomes-rc/
-rclone lsl allas:xxxx-genomes-rc/
-rclone lsf allas:xxxx-genomes-rc/
+rclone lsd allas:                                    # use the same bucket as earlier, replacing xxxxxxx with your project number and yourcscusername with your user account
+rclone ls allas:xxxxxxx_yourcscusername/genomes-rc/
+rclone lsl allas:xxxxxxx_yourcscusername/genomes-rc/
+rclone lsf allas:xxxxxxx_yourcscusername/genomes-rc/
 ```
 
 Check how this looks like in the Pouta web interface. Open browser and go to: [https://pouta.csc.fi/](https://pouta.csc.fi/)
 
 In Pouta interface, go to _object store_ section, list the buckets (which are here called as “Containers”).
-Locate your own _xxxx-genomes-rc_ directory and download one of the uploaded fasta files to your local computer.
+Locate your own _xxxxxxx_yourcscusername_ bucket and download one of the uploaded fasta files to your local computer.
 
 💡 You can read more about moving files from [CSC Docs: Copying files using scp](https://docs.csc.fi/data/moving/scp/) and [CSC Docs: Moving data with rclone](https://docs.csc.fi/support/faq/how-to-move-data-between-puhti-and-allas/#move-data-with-rclone)
 
@@ -112,6 +120,7 @@ Upload the pythium directory from Puhti to Allas using following commands
 (replace youcscusername with your user account)
 
 A-put case 1: Store everything in one object:
+
 ```bash
  a-put pythium
  a-list
@@ -119,6 +128,7 @@ A-put case 1: Store everything in one object:
  a-info projectnumber-puhti-SCRATCH/xxxx/pythium.tar.zst
 ```
 A-put case 2: Each subdirectory (species) as one object:
+
 ```bash
  a-put pythium/*
  a-list 2004306-puhti-SCRATCH/trng_xxxx
@@ -132,6 +142,7 @@ A-put case 3: Use your own bucket name
 ```
 
 A-put case 4: Upload files without compression.
+
 ```bash 
 a-put --nc  pythium/pythium_vexans/bwaindex/* -b youcscusername_ap_vexans_bwa
 a-list youcscusername_ap_vexans_bwa
@@ -139,6 +150,7 @@ a-list youcscusername_ap_vexans_bwa
 Can you see the difference between the four _a-put_ commands above?
 
 Study the _xxxx-genomes-ap_ bucket with commands
+
 ```bash
 a-list xxxx-genomes-ap
 rclone ls allas:xxxx-genomes-ap
@@ -146,43 +158,53 @@ rclone ls allas:xxxx-genomes-ap
 Why the two commands above list different amount of objects?
 
 Try command:
+
 ```bash
 a-info xxxx-genomes-ap/pythium_vexans.tar.zst
 ```
 which is actually the same as:
+
 ```bash
 rclone cat allas:xxxx-genomes-ap/pythium_vexans.tar.zst_ameta
 ```
 
 Finally try command:
+
 ```bash
 a-flip pythium/pythium_vexans/pythium_vexans.fasta 
 ```
+
 Try opening the public link that a-flip produced, with your browser.
 
 
 ## Upload case 3. Allas-backup
+
 Run commands:
+
 ```test
 allas-backup -help
 allas-backup pythium
 allas-backup list
 ```
+
 What did these commands do for your data?
 
 ## Exit
 
 The data in pythium directory is now stored in many ways to Allas so we can remove the data from puhti and log out.
+
 ```bash
 rm -r pythium
 exit
 ```
+
 ## Downloading data from Allas to Puhti
 
 
 1. Login to puhti.csc.fi and move to scratch:
 
 Linux/mac/MobaXterm
+
 ```bash
 ssh xxxx@puhti.csc.fi   (replace xxxx with your user account )
 ```
