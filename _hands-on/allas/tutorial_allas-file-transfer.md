@@ -68,7 +68,7 @@ allas-conf
 
 ```bash
 a-list
-a-list xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername so that it corresponds to your new bucket
+a-list xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername to match your new bucket
 a-info xxxxxxx_yourcscusername/your-file-name  # replace xxxxxxx_yourcscusername and your-file-name
 ```
     
@@ -76,7 +76,7 @@ a-info xxxxxxx_yourcscusername/your-file-name  # replace xxxxxxx_yourcscusername
       
 ```bash
 rclone lsd allas:
-rclone ls allas:xxxxxxx_yourcscusername                  # replace xxxxxxx_yourcscusername so that it corresponds to your new bucket
+rclone ls allas:xxxxxxx_yourcscusername                  # replace xxxxxxx_yourcscusername to match your new bucket
 rclone lsl allas:xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername
 rclone lsf allas:xxxxxxx_yourcscusername                 # replace xxxxxxx_yourcscusername
 rclone cat allas:xxxxxxx_yourcscusername/your-file-name  # replace xxxxxxx_yourcscusername and your-file-name
