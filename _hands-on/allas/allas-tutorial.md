@@ -29,7 +29,7 @@ During the exercises, you can use this web interface to get another view to the 
 **Linux/mac/MobaXterm**
 
 ```bash
-ssh yourcscusername@puhti.csc.fi   (replace yourcscusername with your csc user account)
+ssh yourcscusername@puhti.csc.fi    # replace yourcscusername with your csc user account
 ```
 
 **Windows/PuTTY**
@@ -47,9 +47,9 @@ csc-workspaces
 Switch to the scratch directory of your project 
 
 ```bash
-cd /scratch/project_xxxxxxx  # note! replace xxxxxxx here (and below) with your project
+cd /scratch/project_xxxxxxx  # note! replace xxxxxxx here (and below) with your project number
 ```
-Create your own sub-directory, named after your training account (if this directory does not already exist):
+Create your own sub-directory, named with your user account (if this directory does not already exist):
 
 ```bash
 mkdir yourcscusername      # replace yourcscusername with your user account
@@ -63,7 +63,7 @@ cd yourcscusername
 
 ## 2. Download data with curl
 
-Next download a dataset from internet and uncompress it. The dataset contains some pythiun genomes with related BWA indexes.
+Next download the dataset from internet and uncompress it. The dataset contains some pythiun genomes with related BWA indexes.
 
 ```bash
 curl https://a3s.fi/course_12.11.2019/pythium.tgz > pythium.tgz
@@ -116,56 +116,53 @@ Locate your own _xxxxxxx_yourcscusername_ bucket and download one of the uploade
 
 ### Upload case 2. a-put 
 
-Upload the pythium directory from Puhti to Allas using following commands
-(replace youcscusername with your user account)
+Upload the pythium directory from Puhti to Allas using a-commands.
 
 A-put case 1: Store everything in one object:
 
 ```bash
- a-put pythium
- a-list
- a-list projectnumber-puhti-SCRATCH
- a-info projectnumber-puhti-SCRATCH/xxxx/pythium.tar.zst
+ a-put pythium      
+ a-list                       # replace xxxxxxx with your project number and yourcscusername with your user account
+ a-list xxxxxxx-puhti-SCRATCH
+ a-info xxxxxxx-puhti-SCRATCH/yourcscusername/pythium.tar
 ```
 A-put case 2: Each subdirectory (species) as one object:
 
 ```bash
  a-put pythium/*
- a-list 2004306-puhti-SCRATCH/trng_xxxx
+ a-list xxxxxxx-puhti-SCRATCH   # replace xxxxxxx with your project number and yourcscusername with your user account
  a-check pythium/*
- a-info 2004306-puhti SCRATCH/training027/pythium/pythium_vexans.tar.zst 
-```
-A-put case 3: Use your own bucket name
-```bash
- a-put pythium/* -b xxxx-genomes-ap
- a-list xxxx-genomes-ap
+ a-info xxxxxxx-puhti-SCRATCH/yourcscusername/pythium/pythium_vexans.tar
 ```
 
-A-put case 4: Upload files without compression.
-
-```bash 
-a-put --nc  pythium/pythium_vexans/bwaindex/* -b youcscusername_ap_vexans_bwa
-a-list youcscusername_ap_vexans_bwa
-```
-Can you see the difference between the four _a-put_ commands above?
-
-Study the _xxxx-genomes-ap_ bucket with commands
+A-put case 3: Use your own bucket name:
 
 ```bash
-a-list xxxx-genomes-ap
-rclone ls allas:xxxx-genomes-ap
+ a-put pythium/* -b xxxxxxx-yourcscusername-genomes-ap   # replace xxxxxxx with your project number and yourcscusername with your user account
+ a-list xxxxxxx-yourcscusername-genomes-ap
 ```
+
+Can you see the difference between the three _a-put_ commands above?
+
+Study the _xxxxxxx-yourcscusername-genomes-ap_ bucket with commands:
+
+```bash
+a-list xxxxxxx-yourcscusername-genomes-ap   # replace xxxxxxx with your project number and yourcscusername with your user account
+rclone ls allas:xxxxxxx-yourcscusername-genomes-ap 
+```
+
 Why the two commands above list different amount of objects?
 
 Try command:
 
 ```bash
-a-info xxxx-genomes-ap/pythium_vexans.tar.zst
+a-info xxxxxxx-yourcscusername-genomes-ap/pythium_vexans.tar  # replace xxxxxxx with your project number and yourcscusername with your user account
 ```
+
 which is actually the same as:
 
 ```bash
-rclone cat allas:xxxx-genomes-ap/pythium_vexans.tar.zst_ameta
+rclone cat allas:xxxxxxx-yourcscusername-genomes-ap/pythium_vexans.tar_ameta  # replace xxxxxxx with your project number and yourcscusername with your user account
 ```
 
 Finally try command:
