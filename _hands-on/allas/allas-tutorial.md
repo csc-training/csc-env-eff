@@ -11,9 +11,9 @@ Open: https://pouta.csc.fi
 
 And login with your account.
 
-From the upper left corner, you find a project selection pop-up menu. If you have several projects available, choose one of them to use in this exercise. 
+From the upper left corner, you find a project selection pop-up menu. If you have several projects available, choose one that you use in this exercise.
 
-Then from the menu in left side of the interface, select:
+Then from the menu on the left side of the interface, select:
 
 **Object Store -> Containers**
 
@@ -91,7 +91,7 @@ If you have several Allas projects available, select the same project as earlier
 Upload the data from Puhti to Allas with `rclone`:
 
 ```bash
-rclone -P copyto pythium allas:xxxxxxx_yourcscusername/genomes-rc/     # replace xxxxxxx with your project number and yourcscusername with your user account
+rclone -P copyto pythium allas:xxxxxxx-yourcscusername-genomes-rc/     # replace xxxxxxx with your project number and yourcscusername with your user account
 ```
 
 How long did the data upload took?
@@ -102,15 +102,15 @@ Then study what you have uploaded to Allas with commands:
 
 ```bash
 rclone lsd allas:                                    # use the same bucket as earlier, replacing xxxxxxx with your project number and yourcscusername with your user account
-rclone ls allas:xxxxxxx_yourcscusername/genomes-rc/
-rclone lsl allas:xxxxxxx_yourcscusername/genomes-rc/
-rclone lsf allas:xxxxxxx_yourcscusername/genomes-rc/
+rclone ls allas:xxxxxxx-yourcscusername-genomes-rc/
+rclone lsl allas:xxxxxxx-yourcscusername-genomes-rc/
+rclone lsf allas:xxxxxxx-yourcscusername-genomes-rc/
 ```
 
 Check how this looks like in the Pouta web interface. Open browser and go to: [https://pouta.csc.fi/](https://pouta.csc.fi/)
 
 In Pouta interface, go to _object store_ section, list the buckets (which are here called as “Containers”).
-Locate your own _xxxxxxx_yourcscusername_ bucket and download one of the uploaded fasta files to your local computer.
+Locate your own _xxxxxxx-yourcscusername-genomes-rc_ bucket and download one of the uploaded fasta files to your local computer.
 
 💡 You can read more about moving files from [CSC Docs: Copying files using scp](https://docs.csc.fi/data/moving/scp/) and [CSC Docs: Moving data with rclone](https://docs.csc.fi/support/faq/how-to-move-data-between-puhti-and-allas/#move-data-with-rclone)
 
@@ -203,36 +203,43 @@ exit
 Linux/mac/MobaXterm
 
 ```bash
-ssh xxxx@puhti.csc.fi   (replace xxxx with your user account )
+ssh yourcscusername@puhti.csc.fi   # replace yourcscusername
 ```
 
 Windows/PuTTY
 
    host: __puhti.csc.fi__
  
-   login as: _xxxx_  (replace xxxx with your CSC account )
+   login as: _yourcscusername_  (replace yourcscusername)
 
 In Puhti check you projects with command:
 
 ```bash
 csc-workspaces
 ```
-Go to your personal scratch directory of your project. 
+Go to your personal scratch directory of your project:
+
 ```bash
-cd /scratch/project_yourprojectnumber/xxxx
+cd /scratch/project_xxxxxxx/yourcscuseraccount   # replace xxxxxxx with your project number and yourcscusername with your user account
 ```
-Set up Allas connection
+
+Set up Allas connection:
+
 ```bash
 module load allas
 allas-conf 
 ```
-Then run commands
+
+Then run commands:
+
 ```bash
 a-list
 rclone lsd allas:
 
-a-list xxxx-genomes-ap
-rclone ls allas:xxxx-genomes-ap
+# here we use the same bucket that was created earlier:
+
+a-list xxxxxxx-yourcscusername-genomes-ap   # replace xxxxxxx with your project number and yourcscusername with your user account
+rclone ls allas:xxxxxxx-yourcscusername-genomes-ap
 
 a-find pythium_vexans.fasta
 a-find -a pythium_vexans.fasta
@@ -247,28 +254,33 @@ mkdir rclone_dir
 cd rclone_dir/
 ```
 ### example 1: copy everything
+
 ```bash 
 mkdir all
-rclone ls allas:xxxx-genomes-rc 
-rclone copyto -P allas:xxxx-genomes-rc all/
+rclone ls allas:xxxxxxx-yourcscusername-genomes-rc
+rclone copyto -P allas:xxxxxxx-yourcscusername-genomes-rc all/
 ls -l all
 ```
 
-### example 2:copy a set of objects
+### example 2: copy a set of objects
+
 ```bash
 mkdir vexans 
-rclone copyto allas:xxxx-genomes-rc/pythium_vexans vexans/
+rclone copyto allas:xxxxxxx-yourcscusername-genomes-rc/pythium_vexans vexans/
 ls -l vexans
 ```
+
 ### example 3: copy just one object
+
 ```bash
-rclone copyto allas:trng_xxxx-genomes-rc/pythium_vexans/pythium_vexans.fasta  ./vexans.fasta
+rclone copyto allas:xxxxxxx-yourcscusername-genomes-rc/pythium_vexans/pythium_vexans.fasta  ./vexans.fasta
 ls -l
 ```
 
 ## 2. Download with  a-get
 
-Return to your youcscusername directory in Puhti scratch
+Return to your _yourcscusername_ directory in Puhti scratch
+
 ```bash
 cd ..
 ```
@@ -278,61 +290,79 @@ Check that you are in right place:
 pwd
 ```
 
-The _pwd_ command should print  /scratch/project_projnum/_youcscusername_
+The _pwd_ command should print  /scratch/project_xxxxxxx/_yourcscusername_
 
-Make a new directory 
-``text
+Make a new directory:
+
+```text
 mkdir a_dir
 cd a_dir/
-``
+```
+
 create directory _all_ and go there: 
+
 ```bash
  mkdir all
  cd all
 ```
-list your default scratch bucket.
+
+list your default scratch bucket:
+
 ```bash
-a-list projectnumber-puhti-SCRATCH
-a-list projectnumber-puhti-SCRATCH/xxxx
+a-list xxxxxxx-puhti-SCRATCH             # replace xxxxxxx with your project number and yourcscusername with your user account
+a-list xxxxxxx-puhti-SCRATCH/yourcscusername
 ```
 
-Look for file pythium_vexans.fasta in Puhti SCRATCH  bucket:
+Look for file pythium_vexans.fasta in Puhti SCRATCH bucket:
+
 ```bash
-a-find pythium_vexans.fasta -b projectnumber-puhti-SCRATCH
+a-find pythium_vexans.fasta -b xxxxxxx-puhti-SCRATCH    # replace xxxxxxx with your project number
 ```
+
 download the full dataset with command:
+
 ```bash 
-a-get projectnumber-puhti-SCRATCH/trng_xxxx/pythium.tar.zst
+a-get xxxxxxx-puhti-SCRATCH/yourcscuseraccount/pythium.tar   # replace xxxxxxx with your project number and yourcscusername with your user account
 ```
+
 And check what you got:
+
 ```bash
 ls -l
 ls -R
 ```
+
 Now get just one genome dataset:
+
 ```
 cd ..
-a-get projectnumber-puhti-SCRATCH/xxxx/pythium/pythium_vexans.tar.zst
+a-get xxxxxxx-puhti-SCRATCH/yourcscuseraccount/pythium/pythium_vexans.tar   # replace xxxxxxx with your project number and yourcscusername with your user account
 ls -l pythium/
 ls -l pythium/pythium_vexans/
 ```
 
 
 ## 3. Downloading data from allas-backup
+
 Return to your main scratch directory and make a new directory:
+
 ```bash
 cd ..
 mkdir a_backup
 cd a_backup/
 ```
+
 Use the commands below, to find out the ID of the most recent version backup of your pythium directory:
+
 ```bash
 allas-backup list 
 allas-backup list | grep $USER
 ```
+
 Then use allas-backup restore to download the data:
+
 ```bash
-allas-backup restore ID-string
+allas-backup restore ID-string   # replace ID-string with the ID of your backup-file
 ls -l
 ls -l pythium
 ```
