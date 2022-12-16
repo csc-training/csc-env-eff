@@ -14,61 +14,99 @@ title: Tutorial - Installing binary applictions (essential)
 
 ‼️ Especially all MPI codes need to be compiled on the machine they will be run on to ensure correct operation.
 
+## Make the installation in your own folder in the projappl directory of your project
+
+1. Move to the projappl directory of your project:
+
+```bash
+cd /projappl/project_xxxx/   # replace xxxx with your project number
+```
+
+2. If not done already, create an own folder in the prject projappl directory:
+
+```bash
+mkdir $USER
+```
+
+3. Move to your folder:
+
+```bash
+cd $USER
+```
+
 ## Example: Installing GCTA software
 
 💬 In this example we install the binary release of GCTA software.
 
-1. Go to the [GCTA download page](https://cnsgenomics.com/software/gcta/#Download).
+1. Go to the [GCTA download page](https://yanglab.westlake.edu.cn/software/gcta/#Download).
+
 2. Identify the Linux version. 
     - If several Linux version are offered, try find one with "x86" in the name.
     - If version are offered by Linux distribution, try first the versions made for CentOs or RedHat if present. 
     - Sometimes you may have to try different versions to find one that works.
+
 3. Here is the link for the Linux version (accessed 19.07.21). Download the zip file by typing:
-    ```bash
-    wget https://cnsgenomics.com/software/gcta/bin/gcta_1.93.2beta.zip
-    ```
+
+```bash
+wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.1-linux-kernel-3-x86_64.zip
+```
+
 4. Open the zip file:
-    ```bash
-    unzip gcta_1.93.2beta.zip
-    ```
+
+```bash
+unzip gcta-1.94.1-linux-kernel-3-x86_64.zip
+```
+
 5. The software is now ready to use, but you will have to tell the computer where to find it. 
-    - Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
-    ```bash
-    gcta64
-    ```
+
+- Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
+
+```bash
+gcta-1.94.1
+```
+
 6. Try instead:
-    ```bash
-    gcta_1.93.2beta/gcta64
-    ```
-    - Or:
-    ```bash
-    cd gcta_1.93.2beta
-    ./gcta64
-    ```
+
+```bash
+gcta-1.94.1-linux-kernel-3-x86_64/gcta-1.94.1
+```
+
+- Or:
+
+```bash
+cd gcta-1.94.1-linux-kernel-3-x86_64
+./gcta-1.94.1
+```
+
 7. The result shows that the software runs.
     - The error message is just about missing arguments which is normal. 
 
 💬 Instead of providing the path in the command line, you can also add the application to `$PATH`. 
 
 {:start="8"}
-8. Change folder into `./gcta_1.93.2beta` if not there yet!
+8. Change folder into `./gcta-1.94.1-linux-kernel-3-x86_64` if not there yet!
+
 9. To add the current directory to `$PATH`:
-    ```bash
-    export PATH=$PWD:$PATH
-    ```
+
+```bash
+export PATH=$PWD:$PATH
+```
+
 10. You should now be able to run the program from any directory with simply:
-    ```bash
-    cd ..
-    gcta64
-    ```
+
+```bash
+cd ..
+gcta-1.94.1
+```
 
 ## Some notes: 
 💡 When adding paths to `$PATH`, always remember to include the current `$PATH`, or some of your normal shell commands etc. will stop working.
 
 ☝🏻 To make the addition permanent, you can add the `export` command to your `$HOME/.bashrc`file. Instead of `$PWD` use the full path, something like:
-    ```bash
-    export PATH=/projappl/project_12345/gcta_1.93.2beta:$PATH
-    ```
+
+```bash
+export PATH=/projappl/project_xxxx/$USER/gcta-1.94.1-linux-kernel-3-x86_64:$PATH   # replace xxxx with your project number
+```
 
 ‼️ If you make changes to your environment (e.g. edit `.bashrc`), it is possible that there will be conflicts with CSC installed applications.
 
