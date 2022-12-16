@@ -25,7 +25,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Containers
 - Containers are a way of packaging software and its dependencies (libraries, etc.)
-- Popular container engines include Docker, Apptainer (previously Singularity), Shifter
+- Popular container engines include Docker, Apptainer (previously called Singularity), Shifter
 - Apptainer is the most popular in HPC environments
 
 # Containers vs. Virtual Machines (1/2)
@@ -79,12 +79,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Running Apptainer containers: Basic syntax
 - Execute a command in the container
-  - `singularity exec [exec options...] <container> <command>`
+  - `apptainer exec [exec options...] <container> <command>`
 - Run the default action (runscript) of the container
   - Defined when the container is built
-  - `singularity run [run options...] <container>`
+  - `apptainer run [run options...] <container>`
 - Open a shell in the container
-  - `singularity shell [shell options...] <container>`
+  - `apptainer shell [shell options...] <container>`
 
 # File system
 - Containers have their own internal file system (FS)
@@ -103,21 +103,21 @@ necessary
 setting on the host `$SINGULARITYENV_variablename`.
   - E.g., to set `$TEST` in a container, set `$SINGUALRITYENV_TEST` on the host
 
-# singularity_wrapper
-- Running containers with `singularity_wrapper` takes care of the most common `--bind` commands
-  - `singularity_wrapper exec image.sif myprog <options>`
+# apptainer_wrapper
+- Running containers with `apptainer_wrapper` takes care of the most common `--bind` commands
+  - `apptainer_wrapper exec image.sif myprog <options>`
 - If the environment variable `$SING_IMAGE` is set with the path to the image, even the image file can be omitted
-  - `singularity_wrapper exec myprog <options>`
+  - `apptainer_wrapper exec myprog <options>`
 
 # Using Docker containers with Apptainer
-- You can build a Singularity container from a Docker container with normal user rights:
-  - `singularity build <image> docker://<address>:<tag>`
+- You can build an Apptainer container from a Docker container with normal user rights:
+  - `apptainer build <image> docker://<address>:<tag>`
 - For example:
-  - `singularity build pytorch_19.10-py3.sif docker://nvcr.io/nvidia/pytorch:19.10-py3`
+  - `apptainer build pytorch_19.10-py3.sif docker://nvcr.io/nvidia/pytorch:19.10-py3`
 - Documentation in Docs:
-  - [Running Singularity containers](https://docs.csc.fi/computing/containers/run-existing/)
-  - [Creating Singularity containers](https://docs.csc.fi/computing/containers/creating/)
-  - [Using tykky to create Singularity containers](https://docs.csc.fi/computing/containers/tykky/)
+  - [Running Apptainer containers](https://docs.csc.fi/computing/containers/run-existing/)
+  - [Creating Apptainer containers](https://docs.csc.fi/computing/containers/creating/)
+  - [Using tykky to create Apptainer containers](https://docs.csc.fi/computing/containers/tykky/)
 
 # Apptainer containers as an installation method
 - Apptainer is a good option in cases where the installation is
