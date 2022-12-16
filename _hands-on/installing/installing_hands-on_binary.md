@@ -22,7 +22,7 @@ title: Tutorial - Installing binary applictions (essential)
 cd /projappl/project_xxxx/   # replace xxxx with your project number
 ```
 
-2. If not done already, create an own folder in the prject projappl directory:
+2. If not done already, create an own folder in the project projappl directory:
 
 ```bash
 mkdir $USER
@@ -45,7 +45,7 @@ cd $USER
     - If version are offered by Linux distribution, try first the versions made for CentOs or RedHat if present. 
     - Sometimes you may have to try different versions to find one that works.
 
-3. Here is the link for the Linux version (accessed 19.07.21). Download the zip file by typing:
+3. Here is the link for the Linux version (accessed 16.12.22). Download the zip file by typing:
 
 ```bash
 wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.1-linux-kernel-3-x86_64.zip
