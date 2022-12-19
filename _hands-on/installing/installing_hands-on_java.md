@@ -76,9 +76,9 @@ java -jar /projappl/project_xxxx/$USER/abra2/abra2-2.24.jar   # replace xxxx and
 One example of such application:
 
 ```bash
-sinteractive --account=project_xxxx   # Replace xxxx to match your project number
+sinteractive --account project_xxxx   # Replace xxxx to match your project number
 module load beast
-beast --help
+beast -help
 ```
 
 ☝🏻 BEAST will fail to run on the login nodes. Try running it using `sinteractive` instead.
