@@ -21,7 +21,7 @@ mkdir dir-name                # replace dir-name
 unzip code-name.zip   # replace code-name.zip 
 ```
 
-- Follow any instructions on how to install. Usually the code comes with a `readme` or `how to install` file.
+- Follow any instructions on how to install. Usually the code comes with a `readme` or `install` file for directions how to install.
 
 ### Install scenario A1: the code comes with cmake
 
