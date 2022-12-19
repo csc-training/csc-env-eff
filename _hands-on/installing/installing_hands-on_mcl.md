@@ -104,19 +104,17 @@ Move in the file opened with `less` with up and down arrows, and exit with `q`.
 with different versions. 
 - If you still fail with the installation, ask help from the HelpDesk of CSC.
 
-1. To compile `mcl` we choose `gcc` environment.
+1. To compile `mcl` we choose `gcc` environment. (19th Dec 2022 the newest gcc/11.3.0 version on Puhti isn't compatible with the current latest version of MCL, but gcc/9.4.0 works.)
 
 ```bash
-module load gcc/11.3.0
+module load gcc/9.4.0
 ```
 
-2. In this case we wish to install the software to the `version-14-137` directory in your $PROJAPPL area. Thus you must use the following `./configure` command:
+2. In this case we wish to install the software to the `version-14-137` directory in your $PROJAPPL area, and thus you need to specify the location for the installation with the following command:
 
 ```bash
 ./configure --prefix=$PROJAPPL/$USER/mcl/version-14-137  # check that the path corresponds to the location of the installation directory
 ```
-
-!!! Error here in make and make install. WIP... 
 
 3. Compile and install the software with commands:
 
@@ -133,12 +131,13 @@ make install
 5. Check what got installed  with:
 
 ```bash
-ls -l $PROJAPPL/mcl/version-14-137/bin
+ls -l $PROJAPPL/$USER/mcl/version-14-137/bin
 ```
 
 ## Running the software
 
 💬 The software is now ready to run, but it is not in your `$PATH`. That means that if you try to run:
+
 ```bash
 mcl --help
 ```
@@ -147,24 +146,28 @@ you get an error message `bash: mcl: command not found`.
 💬 You need to tell the computer where to find that command. 
 
 1. Try running the software by broviding the path for the program, e.g.
-    ```bash
-    $PROJAPPL/mcl/version-14-137/bin/mcl --help
-    ```
+
+```bash
+$PROJAPPL/$USER/mcl/version-14-137/bin/mcl --help
+```
 
 2. Add the directory path of your executables to the `$PATH` environment variable. 
-    - In this case we add path `${PROJAPPL}/mcl/version-14-137/bin` to the `$PATH` variable. This is done with command:
-    ```bash
-    export PATH=${PROJAPPL}/mcl/version-14-137/bin:${PATH}  ### Remember to check that this path matches to your actual installation path!!!
-    ```
 
-‼️ Note that the first `PATH` word in the command above is without the dollar sign. Also note that we include the current `$PATH` in the end.
+- In this case we add path `$PROJAPPL/$USER/mcl/version-14-137/bin` to the `$PATH` variable. This is done with command:
+
+```bash
+export PATH=$PROJAPPL/$USER/mcl/version-14-137/bin:$PATH  ### Remember to check that this path matches to your actual installation path!!!
+```
+
+‼️ Note that the first `PATH` word in the command above is without a dollar sign. Also note that we include the current `$PATH` in the end.
 - If we omitted it, the normal shell commands would stop working.
 
 {:start="3"}
-3. Now you can launch the program you have installed with simply:
-    ```bash
-    mcl --help
-    ```
+3. Now you can launch the program you have installed anywhere with simply:
+
+```bash
+mcl --help
+```
 
 💬 Remember that also in the future, when you log in to CSC, the `PATH` variable must be set up before you can use mcl command without providing the path. 
 
@@ -179,9 +182,11 @@ you get an error message `bash: mcl: command not found`.
 ## Cleaning up
 
 1. If the software you have installed works correctly, you can remove the installation package and temporary directories that were used during the compilation. 
-    - In this case we could remove the `mcl-latest.tar.gz` file and the directory `mcl-14-137`:
-    ```bash
-    cd $PROJAPPL/mcl
-    rm mcl-latest.tar.gz
-    rm -rf mcl-14-137
-    ```
+
+- In this case we could remove the `mcl-latest.tar.gz` file and the directory `mcl-14-137`:
+
+```bash
+cd $PROJAPPL/$USER/mcl
+rm mcl-latest.tar.gz
+rm -rf mcl-14-137
+```
