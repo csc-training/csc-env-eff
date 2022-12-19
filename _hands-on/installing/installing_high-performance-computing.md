@@ -25,7 +25,7 @@ unzip code-name.zip   # replace code-name.zip
 
 ### Install scenario A1: the code comes with cmake
 
-- Load the module cmake with line command:
+- Load the module cmake:
 
 ```bash
 module load cmake
@@ -36,7 +36,7 @@ module load cmake
 module spider somename   # replace somename
 ```
 
-- You can also download and install the needed libraries.
+You can also download and install the needed libraries.
 
 - Create a `build` directory, and go to that directory:
 
@@ -45,17 +45,25 @@ mkdir build
 cd build
 ```
 
-- Run cmake
+- Run cmake with `cmake path-to-source-code`:
+
+```bash
+cmake .. 
+```
 
 - If you get error messages, try to fix the problems. If it becomes really messed up, remove all and start again from the .zip file.
 
-- Run `make` to compile the specific codes you want to use.
+- Run `make` to compile the specific codes you want to use:
+
+```bash
+make
+```
 
 - Ask help from servicedesk if you really get stuck (mail to: servicedesk@csc.fi)
 
 ### Install scenario A2: the code comes with a makefile
 
-- `Module load` or install separately any needed libraries. Check available modules with:
+- `Module load` or install separately any needed libraries. Check for availability as modules with:
 
 ```bash
 module spider somename   # replace somename
@@ -69,7 +77,7 @@ module load name-of-module   # replace name-of-module
 
 - Edit the `makefile` and replace the compile and link commands with proper ones for [Mahti](https://docs.csc.fi/computing/compiling-mahti/) or [Puhti]( https://docs.csc.fi/computing/compiling-puhti/)
 
-- Run the command `make`
+- Run the commands `make` (and `make install`)
 
 - Read the error messages and try to fix the possible issues
 
