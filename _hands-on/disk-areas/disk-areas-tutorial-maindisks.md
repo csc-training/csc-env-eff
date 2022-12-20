@@ -1,76 +1,80 @@
 ---
-topic: disk-areas
-title: Tutorial - Main disk areas in CSC supercomputing environment (essential)
+topic: Disk areas
+title: Tutorial - Main disk areas in CSC's computing environment (essential)
 ---
 
-# Where to put files in CSC environment?
+# Where to store files in CSC's computing environment?
 
-> In this tutorial you 
-   - Familiarise yourself with personal and project-specific disk areas and their quotas in Puhti and Mahti supercomputers. 
-   - See how to share your files such as programme packages and data files to other project members on Puhti as well as on Mahti.
+> In this tutorial you
+   - Familiarise yourself with personal and project-specific disk areas and their quotas on CSC supercomputers.
+   - Learn how to share your files, such as software installations and data, to other project members on CSC supercomputers.
 
-💬 Each user at CSC supercomputer (Puhti or Mahti) have access to different disk areas (or directories) to manage their data in supercomputers. The disk areas have their specific purposes. 
+💬 Each user of CSC supercomputers (Puhti and Mahti) have access to different disk areas (or directories) for managing their data. Each disk area has its own specific purpose.
 
-💬 Data files needed for computational analysis should be stored and shared in **scratch** directories and any software compilations and binaries should be shared in **proajppl** directory.
+💬 Active data files needed for computational simulations and analyses should be stored and shared in directories under `/scratch` while any software installations and binaries should be shared under the `/projappl` directory.
 
-## Identify your personal and project-specific directories in Puhti and Mahti supercomputers
+## Identify your personal and project-specific directories on Puhti and Mahti supercomputers
 
-1. First login to Puhti supecomputer using *SSH*:
+1. First login to Puhti using **SSH**:
   
 ```bash
-ssh yourcscusername@puhti.csc.fi    # replace yourcscusername
+ssh <username>@puhti.csc.fi    # replace <username> with your CSC username
 ```
 
-2. Get an overview of your projects and directories by using the following commands in login node:
+{:start="2"}
+2. Get an overview of your projects and directories by running the following commands on the login node:
 
 ```bash
 csc-projects
-csc-workspaces 
+csc-workspaces
 ```
 
-3. Look through the output information about your directories and their current quotas.  
+{:start="3"}
+3. Inspect the output information summarizing your directories and their current quotas.
+4. Visit your project's `/scratch` directory and list its contents:
 
-4. Visit your projects **scratch** directory and check out its contents:
-   
 ```bash
-cd /scratch/project_xxxx/   # replace xxxx with your project number
+cd /scratch/<project>/   # replace <project> with your CSC project, e.g. project_2001234
 ls
 ```
 
-5. Visit your projects **projappl** directory and check out its contents:
- 
+{:start="5"}
+5. Visit your project's `/projappl` directory and list its contents:
+
 ```bash
-cd /projappl/project_xxxx/   # replace xxxx with your project number
+cd /projappl/<project>/   # replace <project> with your CSC project, e.g. project_2001234
 ls
 ```
 
-💬 These directories can be briefly summerised as below:
-- User-specific directory (= Personal home folder)
-   - Your home directory `$HOME`
-   - The default directory when you login to Puhti/Mahti. 
-   - You can store configuration files and other minor personal data. 
-- Project-specific directories: 
-   - The project **scratch** and **projappl** directories. 
-   - Each project contains its **scratch** disk space where actual data analysis tasks are performed. **scratch** area is a temporary space.
-   - **Projappl** directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project. 
+💬 These directories can be briefly summarized as follows:
 
-## Binary and data files to share
+- User-specific directory (i.e. your personal home folder)
+   - Your home directory (path stored in environment variable `$HOME`)
+   - The default directory when you login to Puhti/Mahti
+   - You can store configuration files and other minor data for personal use
+- Project-specific directories:
+   - The project's `/scratch` and `/projappl` directories
+   - Each project has its own `/scratch` disk space where most computational tasks are performed. The `/scratch` area is a temporary space not intended for long-term data storage! Please move inactive data to e.g. [Allas](https://docs.csc.fi/data/Allas/).
+   - `/projappl` directory on the other hand is mainly for storing and sharing compiled applications and libraries etc. with other members of the project.
 
-💬 Data transfer between two supercomputers can be done e.g. with `rsync`. 
+## Sharing binaries and data files
+
+💬 Data transfer between two supercomputers can be done e.g. with `rsync`.
 
 ### Download the example files
 
-☝🏻 In this example you will *download* data from [*Allas*](https://docs.csc.fi/data/Allas/), but keep in mind that one should avoid using Allas to do data transfer between two supercomputers.
+☝🏻 In this example you will *download* data from [Allas](https://docs.csc.fi/data/Allas/) object storage, but keep in mind that one should avoid using Allas to do data transfer between Puhti and Mahti.
 
-1. Move to home folder with:
+1. Move to your home folder:
+
 ```bash
 cd
 ```
 
-💡 If you know the files are large you should consider downloading them straight to **scratch**. 
+💡 If you know the files are large, you should consider downloading them directly to `/scratch`.
 
 {:start="2"}
-2. Download the example programme package (i.e.,ggplot2_3.3.3_Rprogramme.tar.gz) and data file (i.e, Merged.fasta) from Allas object storage
+2. Download an example program package (`ggplot2_3.3.3_Rprogramme.tar.gz`) and a data file (`Merged.fasta`) from the Allas object storage
   
 ```bash
 wget https://a3s.fi/CSC_training/shared_files.tar.gz
@@ -79,63 +83,66 @@ cd shared_files
 ```
 
 Let's assume that
-- file *Merged.fasta* is data file intended for computational use
-- file *ggplot2_3.3.3_Rprogramme.tar.gz* is a software tool needed for analysis. 
 
-### Move the files to Puhti scratch and projappl
+- `Merged.fasta` is a data file intended for computational use
+- `ggplot2_3.3.3_Rprogramme.tar.gz` is a software tool needed for the analysis.
 
-1. Create folders with your username (using environment variable $USER) in your project directories in **scratch** and **projappl** in Puhti.
+### Move the files to Puhti `/scratch` and `/projappl`
 
-```bash
-mkdir /projappl/project_xxxx/$USER   # replace xxxx with your project number
-mkdir /scratch/project_xxxx/$USER    # replace xxxx with your project number
-```
-
-2. Share your *ggplot2_3.3.3_Rprogramme.tar.gz* file in *projappl* directory
+1. Create folders with your username (using environment variable `$USER`) in your project directories under `/scratch` and `/projappl` on Puhti.
 
 ```bash
-cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/project_xxxx/$USER/   # replace xxxx with your project number
+mkdir -p /projappl/<project>/$USER   # replace <project> with your CSC project, e.g. project_2001234
+mkdir -p /scratch/<project>/$USER    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-3. Share *Merged.fasta* file in *scratch* directory
+{:start="2"}
+2. Copy your `ggplot2_3.3.3_Rprogramme.tar.gz` file to the `/projappl` directory
 
 ```bash
-cp Merged.fasta /scratch/project_xxxx/$USER/    # replace xxxx with your project number
+cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/<project>/$USER/   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-- Note that all new files and directories are also fully accessible for other members of the project (including read, write and execution permissions). 
-
-4. Set read-only permissions for your project members for the file *Merged.fasta*:
+{:start="3"}
+3. Copy the `Merged.fasta` file to the `/scratch` directory
 
 ```bash
-cd /scratch/project_xxxx/$USER/    # replace xxxx with your project number
-chmod -R g-w Merged.fasta
+cp Merged.fasta /scratch/<project>/$USER/    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-### Sharing files from Puhti to Mahti
+- Note that all new files and directories are also fully accessible to other members of the project (including read and write permissions).
+
+{:start="4"}
+4. Set read-only permissions for your project members for the file `Merged.fasta`:
+
+```bash
+cd /scratch/<project>/$USER/    # replace <project> with your CSC project, e.g. project_2001234
+chmod g-w Merged.fasta          # g-w means that we "subtract" write permissions for users belong to our group (g), i.e. our project
+```
+
+### Copying files from Puhti to Mahti
 
 1. Change to the folder where you have the example files
-
-2. Copy *Merged.fasta* file from Puhti to **scratch** drive on Mahti as below:
+2. Copy `Merged.fasta` file from Puhti to the `/scratch` drive of Mahti:
 
 ```bash
-rsync -P Merged.fasta yourcscusername@mahti.csc.fi:/scratch/project_xxxx/$USER/    # replace xxxx with your project number
+rsync -P Merged.fasta <username>@mahti.csc.fi:/scratch/<project>/$USER/    # replace <username> with your CSC username and <project> with your CSC project, e.g. project_2001234
 ```
 
-3. Copy *ggplot2_3.3.3_Rprogramme.tar.gz* file from Puhti to **projappl** directory on Mahti as below:
+{:start="3"}
+3. Copy the `ggplot2_3.3.3_Rprogramme.tar.gz` file from Puhti to the `/projappl` directory on Mahti:
 
 ```bash
-rsync -P ggplot2_3.3.3_Rprogramme.tar.gz yourcscusername@mahti.csc.fi:/projappl/project_xxxx/$USER/    # replace xxxx with your project number 
+rsync -P ggplot2_3.3.3_Rprogramme.tar.gz <username>@mahti.csc.fi:/projappl/<project>/$USER/    # replace <username> with your CSC username and <project> with your CSC project, e.g. project_2001234
 ```
 
 ## More information
 
-💡 Hint: You can use your folder in **scratch** for the rest of the tutorials. Save the path with [alias](https://www.shell-tips.com/bash/alias/) (with `cd`or `echo`) or somewhere in your notes. 
+💡 Hint: You can use your folder under `/scratch` for the rest of the tutorials. You can save the path using an [alias](https://www.shell-tips.com/bash/alias/) (with `cd` or `echo`) or somewhere in your notes.
 
-💡 It is sometimes needed to save the paths of the **scratch** or **projappl** directories in an environmental variable (until logout). This can be done with a following command:
+💡 It is sometimes required to export the paths of the `/scratch` or `/projappl` directories in environmental variables (until logout). This can be done with the following commands:
 
 ```bash
-export PROJAPPL=/projappl/project_xxxx/   # replace xxxx with your project number
-export SCRATCH=/scratch/project_xxxx/   # replace xxxx with your project number
+export PROJAPPL=/projappl/<project>/   # replace <project> with your CSC project, e.g. project_2001234
+export SCRATCH=/scratch/<project>/   # replace <project> with your CSC project, e.g. project_2001234
 ```
-

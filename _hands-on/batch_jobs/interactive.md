@@ -14,45 +14,48 @@ title: Tutorial - Interactive batch jobs
 
 ## Interactive jobs
 
-💬 In an interactive batch job, an interactive shell session is launced on a compute node.
+💬 In an interactive batch job, an interactive shell session is launched on a compute node.
 
-- For heavy interactive tasks one can request specific resources (time, memory, cores, disk). 
+- For heavy interactive tasks one can request specific resources (time, memory, cores, disk).
 
 💡 You can also use tools with graphical user interfaces in an interactive shell session.
-- For such usage the [Web Interface](https://www.puhti.csc.fi/) remote desktop often provides an improved experience. 
-- Check also [how to use RStudio and Jupyter Notebook in Puhti](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) 
 
-### A simple interactive job 
+- For such usage the [Puhti web interface](https://www.puhti.csc.fi/) remote desktop often provides an improved experience.
+- Check also [how to use RStudio and Jupyter Notebooks in Puhti](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/)
+
+### A simple interactive job
 
 1. Start an interactive job using one core for ten minutes:
 
 ```bash
-sinteractive --account myprojectname --time 00:10:00         # replace myprojectname
+sinteractive --account <project> --time 00:10:00         # replace <project> with your CSC project, e.g. project_2001234
 ```
 
 💡 You can list your projects with `csc-projects`
 
 {:start="2"}
-2. You should see that the command prompt (first thing on each row) has changed from e.g. `puhti-login11` to e.g. `r07c51` which means a compute node.
-
-3. Once on the compute node, you can run commands directly from the command line without `srun`. You can e.g. load a python-data module (e.g. for running RStudio or Jupyter Notebook interactively on Puhti):
+2. You should see that the command prompt (initial text on each row on the command-line) has changed from e.g. `puhti-login11` to e.g. `r07c51` which refers to a compute node.
+3. Once on the compute node, you can run commands directly from the command-line without `srun`. You can e.g. load the `python-data` module (e.g. for running Python scripts interactively on Puhti):
 
 ```bash
 module load python-data
 ```
 
+{:start="4"}
 4. Quit the interactive batch job with `exit`.
 
-💬 This way you can work interactively for extended period, using lots of memory without creating load on the login nodes, which is forbidden in [the Usage Policy](https://docs.csc.fi/computing/overview/#usage-policy).
+💬 This way you can work interactively for an extended period, using e.g. lots of memory without creating load on the login nodes. Running heavy/long tasks on the login nodes is forbidden according to our [Usage Policy](https://docs.csc.fi/computing/usage-policy/).
 
-‼️ Note, that above you asked only for 10 minutes of time. 
-- Once that is up, you will be automatically logged out from the compute node. 
+‼️ Note that above you asked only for 10 minutes of time.
 
-💡 From the command line prompt you can see whether you're in the compute node (e.g. `r07c51`) or back to the login node (e.g. `puhti-login12`). 
-- Giving `exit` in the login node, will log you out from Puhti.
+- Once that is up, you will be automatically logged out from the compute node.
 
- 
-## More information 
-💡 Documetation at docs.csc.fi of [Interactive usage](https://docs.csc.fi/computing/running/interactive-usage/), for further information.
+💡 From the command-line prompt you can see whether you're on a compute node (e.g. `r07c51`) or on the login node (e.g. `puhti-login12`).
 
-💡 [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
+- Running `exit` on the login node will log you out from Puhti.
+
+## More information
+
+💡 Documentation at Docs CSC on [Interactive usage](https://docs.csc.fi/computing/running/interactive-usage/)
+
+💡 [FAQ on CSC batch jobs](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC

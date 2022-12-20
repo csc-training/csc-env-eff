@@ -6,59 +6,62 @@ title: Tutorial - Parallel batch jobs
 # Batch job tutorial - Parallel jobs
 
 > In this tutorial we'll get familiar with the basic usage of the Slurm batch queue system at CSC
-- The goal is to learn how to request resources that **match** the needs of a job  
+- The goal is to learn how to request resources that **match** the needs of a job
 
 💬 A batch job consists of two parts: resource requests and the job step(s)
 
-☝🏻 Examples are done on Puhti 
+☝🏻 Examples are done on Puhti
 
 ## Parallel jobs
 
 💬 A parallel program is capable of utilizing several cores and other resources simultaneously for the same job
 
-💬 The aim of a parallel program is to solve a problem (job) faster and to tackle a larger problem that wouldn't fit into a single core
+💬 The aim of a parallel program is to solve a problem (job) faster and to tackle larger problems that would be intractable to run on a single core
 
-💡 There are two major strategies to divide the computational burden over several cores:
-- [OpenMP](https://e-learn.csc.fi/pluginfile.php/3007/mod_resource/content/1/09-OpenMP-intro.pdf) 
+💡 There are two major approaches to dividing a computational burden over several cores:
+
+- [OpenMP](https://e-learn.csc.fi/pluginfile.php/3007/mod_resource/content/1/09-OpenMP-intro.pdf)
 - [MPI](https://e-learn.csc.fi/pluginfile.php/2997/mod_resource/content/1/04-intro-to-mpi.pdf)
-- Depending on the parallel program and the type of job, the optimal resource request is often difficult to decide
+- Depending on the parallel program and the type of job, the optimal resource request is often difficult to predict beforehand
+    - Always start small and scale up gradually! Don't run on 1000 cores unless you're sure your program can use each of them efficiently.
 
 ### A simple OpenMP job
 
-💬 An OpenMP enabled program can take advantage of multiple cores that share the same memory on a **single node** 
+💬 An OpenMP-enabled program can take advantage of multiple cores that share the same memory on a **single node**, a.k.a. _threads_
 
-1. Go to the scratch folder of your project and move to your personal folder in the project folder:
-    
+1. Go to your personal folder under the `/scratch` directory of your project:
+
 ```bash
-cd /scratch/project_xxxx         # replace xxxx
-cd $USER
+cd /scratch/<project>/$USER         # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-- Now your input (and output) are on a disk that is accessible on the compute node.
-    
-💡 You can list your projects with `csc-projects` 
+- Now your input (and output) will be on a shared disk that is accessible to the compute nodes.
+
+💡 You can list your projects with `csc-projects`
 
 {:start="2"}
-2. Dowload the simple OpenMP parallel program:
+2. Download a simple program parallelized with OpenMP:
 
-```
+```bash
 wget https://a3s.fi/hello_omp.x/hello_omp.x
 ```
 
+{:start="3"}
 3. Make it executable using the command:
 
 ```bash
 chmod +x hello_omp.x
 ```
 
-4. Copy the following example into a file called `my_parallel_omp.bash` and change the `project_xxxx` to the project you actually want to use:
+{:start="4"}
+4. Copy the following script into a file called `my_parallel_omp.bash` and change `<project>` to the CSC project you actually want to use:
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
-#SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
-#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition.
+#SBATCH --account=<project>      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:00:10          # Maximum duration of the job. Upper limit depends on partition. 
+#SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition.
 #SBATCH --cpus-per-task=4        # How many processors work on one task. Max: Number of CPUs per node.
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
@@ -68,25 +71,26 @@ srun hello_omp.x
 {:start="5"}
 5. Submit the job to the queue with the command:
 
-```
+```bash
 sbatch my_parallel_omp.bash
 ```
 
-💬 In the batch job example above we are requesting 
+💬 In the batch job example above we are requesting
+
 - resources for one OpenMP job (`--ntasks=1`)
-- using four cores (`--cpus-per-task=4`)
+- using four cores (threads) per task (`--cpus-per-task=4`)
 - for ten seconds (`--time=00:00:10`)
 - from the test queue (`--partition=test`)
 
-💬 We want to run the program `hello_omp.x`, that will be able to utilise four cores
+💬 We want to run the program `hello_omp.x` that will be able to utilize four cores
 
-💭 The variable `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK` tells the program that it can use four cores
+💭 Exporting the environment variable `OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK` will tell the program that it can use four threads
 
-🗯 Each of the four threads launced by `hello_omp.x` will print their own output
+🗯 Each of the four threads launched by `hello_omp.x` will print their own output
 
 #### Check the output
 
-💬 When finished, the output file `slurm-slurmjobid.out` should contain the results printed from the four OpenMP threads 
+💬 When finished, the output file `slurm-<jobid>.out` should contain the results printed from each of the four OpenMP threads
 
 1. Check which files exist in the folder:
 
@@ -94,13 +98,15 @@ sbatch my_parallel_omp.bash
 ls
 ```
 
+{:start="2"}
 2. Check the output with:
 
 ```bash
-cat slurm-slurmjobid.out     # replace slurmjobid
-``` 
+cat slurm-<jobid>.out     # replace <jobid> with the actual Slurm job ID
+```
 
-3. The results should look something like this: 
+{:start="3"}
+3. The results should look something like this:
 
 ```bash
 cat slurm-5118404.out
@@ -112,30 +118,31 @@ Hello from thread: 1
 
 ### A simple MPI job
 
-💬 An MPI enabled program can take advantage of resourses that are spread over multiple nodes
+💬 An MPI-enabled program can take advantage of resources that are spread over multiple compute nodes
 
-1. Dowload the simple MPI parallel program with the command:
+1. Download a simple program parallelized with MPI:
 
 ```bash
 wget https://a3s.fi/hello_mpi.x/hello_mpi.x
 ```
 
-2. Make it executable using the command 
+{:start="2"}
+2. Make it executable using the command:
 
 ```bash
 chmod +x hello_mpi.x
-``` 
+```
 
-3. Copy the example below into a file called `my_parallel.bash` and change the `project_xxxx` to the project you actually want to use
-
+{:start="3"}
+3. Copy the script below into a file called `my_parallel.bash` and change `<project>` to the CSC project you actually want to use:
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
-#SBATCH --time=00:00:10          # Maximum duration of the job. Max: depends of the partition. 
-#SBATCH --partition=test        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --nodes=2                # Number of computer nodes. Max: depends on partition.
-#SBATCH --ntasks-per-node=4      # How many tasks one node works on. Depends on max cores and memory of a node.
+#SBATCH --account=<project>      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:00:10          # Maximum duration of the job. Upper limit depends of the partition. 
+#SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --nodes=2                # Number of compute nodes. Upper limit depends on partition.
+#SBATCH --ntasks-per-node=4      # How many tasks to launch per node. Depends on the number of cores and memory on a node.
 
 srun hello_mpi.x
 ```
@@ -147,26 +154,28 @@ srun hello_mpi.x
 sbatch my_parallel.bash
 ```
 
-💬 In the batch job example above we are requesting 
+💬 In the batch job example above we are requesting
+
 - resources from two nodes (`--nodes=2`)
 - four cores from each node (`--ntasks-per-node=4`)
-- for ten seconds (`--time=00:00:10`) 
+- for ten seconds (`--time=00:00:10`)
 - from the test queue (`--partition=test`)
 
 💬 We want to run the program `hello_mpi.x` that will, based on the resource request, start 8 simultaneous tasks
 
-💬 Each of the 8 tasks launced by `hello_mpi.x` will report on which node they got their resource
+💬 Each of the 8 tasks launched by `hello_mpi.x` will report their number and on which node they ran
 
 #### Check the output and the efficiency
 
-💬 When finished, the output file `slurm-slurmjobid.out` will contain the results from the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
+💬 When finished, the output file `slurm-<jobid>.out` will contain the results from the `hello_mpi.x` program on how the 8 tasks were distributed over the two reserved nodes
 
-1. Check The output with:
+1. Check the output with:
 
 ```bash
-cat slurm-slurmjobid.out    # replace slurmjobid
+cat slurm-<jobid>.out    # replace <jobid> with the actual Slurm job ID
 ```
 
+{:start="2"}
 2. The output should look something like this:
 
 ```bash
@@ -180,16 +189,16 @@ Hello world from node r07c01.bullx, rank 1 out of 8 tasks
 Hello world from node r07c02.bullx, rank 6 out of 8 tasks
 ```
 
+{:start="3"}
 3. The output above verifies that the requested 8 tasks were distributed over two nodes (`r07c01.bullx, r07c02.bullx`), four tasks on each
+4. Check the efficiency of the job compared to the reserved resources by issuing the command `seff <jobid>` (replace `<jobid>` with the actual Slurm job ID)
 
-4. Check the efficiency of the job compared to the reserved resources by issuing the command `seff slurmjobid` (replace `slurmjobid` with the actual job ID number from the `slurm-slurmjobid.out` file)
-
-🗯 **Note!** This example asks 4 cores from each of the 2 nodes. Normally, this would not make sense, and instead it would be better to run all 8 cores in the same node (in Puhti one node has 40 cores). Typically, you want your resources (cores) to be spread on as few nodes as possible.
+🗯 **Note!** This example asks 4 cores from each of the 2 nodes. Normally, this would not make sense, and instead it would be better to run all 8 cores in the same node (in Puhti one node has 40 cores!). Typically, you want your resources (cores) to be spread on as few nodes as possible to avoid unnecessary communication between nodes.
 
 ## More information
-💡 [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
 
-💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`  
+💡 [FAQ on CSC batch jobs](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
 
-💭 A submitted job can be cancelled using the command `scancel slurmjobid` 
+💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`
 
+💭 A submitted job can be cancelled using the command `scancel <jobid>`

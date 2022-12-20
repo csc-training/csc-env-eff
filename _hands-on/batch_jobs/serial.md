@@ -6,83 +6,86 @@ title: Tutorial - Serial batch jobs (essential)
 # Batch job tutorial - Serial jobs
 
 > In this tutorial we'll get familiar with the basic usage of the Slurm batch queue system at CSC
-- The goal is to learn how to request resources that **match** the needs of a job  
+- The goal is to learn how to request resources that **match** the needs of a job
 
 💬 A batch job consists of two parts: resource requests and the job step(s)
 
-☝🏻 Examples are done on Puhti 
+☝🏻 Examples are done on Puhti
 
 ## Serial jobs
 
-💬 A serial program can only use one core (cpu)
-   - One should request only one core from Slurm
-   - The job doesn't benefit from additional cores
-   - Excess reservation is wasted since it wouldn't be available to other users
+💬 A serial program can only use one core (CPU)
 
-💬 Within the job (or allocation), the actual program is launched using the command `srun` 
+- One should request only a single core from Slurm
+- The job does not benefit from additional cores
+- Excess cores are wasted since they will not be available to other users
 
-☝🏻 If you use a software that is preinstalled by CSC, please [check its info-page](https://docs.csc.fi/apps/): it might have a batch job template with useful default settings
+💬 Within the job (or allocation), the actual program is launched using the command `srun`
+
+☝🏻 If you use a software that is pre-installed by CSC, please [check its documentation page](https://docs.csc.fi/apps/); it might have a batch job example with useful default settings.
 
 ### Launching a serial job
 
-1. Go to the scratch folder:
+1. Go to the `/scratch` directory of your project:
 
 ```bash
-cd /scratch/project_xxxx         # replace xxxx
+cd /scratch/<project>      # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-- Now your input (and output) are on a disk that is accessible on the compute node.
-    
+- Now your input (and output) will be on a shared disk that is accessible to the compute nodes.
+
 💡 You can list your projects with `csc-projects`
 
-💡 Note! If you're using a project with other members (like the course project), first make a subfolder for yourself (e.g. `mkdir MYUSERNAME` (change MYUSERNAME) and then move there (`cd MYUSERNAME`) to not clutter thet scratch root of your project) 
+💡 Note! If you're using a project with other members (like the course project), first make a subdirectory for yourself (e.g. `mkdir $USER` and then move there (`cd $USER`) to not clutter the `/scratch` root of your project)
 
 {:start="2"}
-2. Create a file called `my_serial.bash` e.g. with Nano text editor:
+2. Create a file called `my_serial.bash` e.g. with the `nano` text editor:
 
 ```bash
 nano my_serial.bash
 ```
 
 {:start="3"}
-3. Copy the the following **batch script** there: 
+3. Copy the following **batch script** there and change `<project>` to the CSC project you actually want to use:
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
-#SBATCH --time=00:02:00          # Maximum duration of the job. Max: depends of the partition. 
+#SBATCH --account=<project>      # Choose the billing project. Has to be defined!
+#SBATCH --time=00:02:00          # Maximum duration of the job. Upper limit depends on the partition. 
 #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --ntasks=1               # Number of tasks. Max: depends on partition. For a serial job this should be set 1
+#SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition. For a serial job this should be set 1!
 
-srun hostname                    # Run hostname-command in each task
-srun sleep 60                    # Run sleep-command in each task
+srun hostname                    # Run hostname-command
+srun sleep 60                    # Run sleep-command
 ```
-   
-- Change the `project_xxxx` to the project you actually want to use
 
 {:start="4"}
-4. Submit the job to queue and then check the queue with the commands:
+4. Submit the job to the batch queue and check its status with the commands:
 
 ```bash
 sbatch my_serial.bash
 squeue -u $USER
-``` 
+```
 
-💬 In the batch job example above we are requesting 
-- one core (`--ntasks=1`) 
-- for two minutes (`--time=00:02:00`) 
+💬 In the batch job example above we are requesting
+
+- one core (`--ntasks=1`)
+- for two minutes (`--time=00:02:00`)
 - from the test queue (`--partition=test`)  
 
 💬 We want to run the program `hostname` that will print the name of the Puhti compute node that has been allocated for this particular job
 
-💬 In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job  
+💬 In addition, we are running the `sleep` program to keep the job running for an additional 60 seconds, in order to have time to monitor the job
 
 #### Checking the output and the efficiency
-- By default the output is written into a file named `slurm-slurmjobid.out` where `slurmjobid` is the unique job ID
-- Check the efficiency of the job compared to the reserved resources by issuing the command `seff slurmjobid` (replace `slurmjobid` with the job ID number from the `slurm-slurmjobid.out` file) 
 
-💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`  
-🗯 A submitted job can be cancelled using the command `scancel slurmjobid` 
+- By default, the output is written to a file named `slurm-<jobid>.out` where `<jobid>` is a unique job ID assigned to the job by Slurm
+- Check the efficiency of the job compared to the reserved resources by issuing the command `seff <jobid>` (replace `<jobid>` with the actual Slurm job ID)
+
+💭 You can get a list of all your jobs that are running or queuing with the command `squeue -u $USER`
+
+🗯 A submitted job can be cancelled using the command `scancel <jobid>`
 
 ## More information
-💡 [FAQ on CSC batch jobs ](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
+
+💡 [FAQ on CSC batch jobs](https://docs.csc.fi/support/faq/#batch-jobs) in Docs CSC
