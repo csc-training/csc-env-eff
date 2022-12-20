@@ -128,8 +128,3 @@ tail AKYA02.fasta
 infoseq_summary  AKYA02.fasta
 ```
 
-- Then compare the cellulose synthase 3 sequences against the genome using BLAST
-
-```text
-pb tblastn -query cesy3.fasta -dbnuc AKYA02.fasta -out blast_result.txt
-```
