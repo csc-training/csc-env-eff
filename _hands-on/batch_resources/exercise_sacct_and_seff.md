@@ -23,10 +23,10 @@ Some tips:
   and applications).
 * With `man sacct` you can see what keywords to use to print
   out different fields stored in the database.
-* Once you have the data, print it out a file, so that you don't
+* Once you have the data, print it out in a file, so that you don't
   need to rerequest it from the Slurm database. Then work with
   the file. E.g. `sacct -S 2021-04-01 > output.txt` and then
-  use your favourite tools (`more` or `less`) to look at the 
+  use your favourite tools (e.g. `more` or `less`) to look at the 
   contents (and `grep`, `awk`, `python`, etc.)
 
 ## Look for patterns or anomalies
@@ -37,9 +37,9 @@ Some things to look for:
 * How long did the jobs take?
 * Did you request a suitable amount of time? 
 * Was the memory request appropriate?
-* Take a sample of some parallel jobs (based on the `sacct` output parameters you should be able to find representative jobs for each type, that you've been running recently) and use `seff` to look for the CPU Efficiency.
+* Take a sample of some parallel jobs (based on the `sacct` output parameters you should be able to find representative jobs for each type that you've been running recently) and use `seff` to look for the CPU Efficiency.
 * If you used GPU, did those jobs really use GPU? (Also shown with `seff`)
 
 Use this information to set the resource requests for similar new jobs.
-You can also look at [my.csc.fi](https://my.csc.fi] for previous (monthly)
+You can also look at [my.csc.fi](https://my.csc.fi) for previous (monthly)
 usage per project.
