@@ -66,6 +66,6 @@ export SINGULARITY_CACHEDIR=$LOCAL_SCRATCH
 
 💬 This tutorial is meant as a brief introduction to get you started.
 
-☝🏻 When searching the internet for instruction, pay attention that the instructions are for the same version of Singularity that you are using. There has been some command syntax changes etc. between the versions, so older instructions may not work with copy-paste.
+☝🏻 When searching the internet for instruction, note that the instructions are for the same version of Apptainer that you are using. There has been some command syntax changes, etc., between the versions, so older instructions may not work with copy-paste. Also note that Apptainer used to be called Singularity.
 
-💡 For authoritative instructions see [Singularity documentation](https://sylabs.io/docs/).
+💡 For more details, see [Apptainer documentation]([https://apptainer.org/docs/user/latest/](https://apptainer.org/docs/user/latest/)).
