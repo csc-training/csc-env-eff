@@ -1,5 +1,5 @@
 ---
-topic: Disk areas
+topic: disk-areas
 title: Tutorial - Main disk areas in CSC's computing environment (essential)
 ---
 
