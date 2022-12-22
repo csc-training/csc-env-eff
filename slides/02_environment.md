@@ -46,8 +46,8 @@ Roughly you can think of
 # Available HPC resources
 
 - [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general-purpose supercomputer ☑️
-- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively-parallel flagship supercomputer
-- [LUMI](https://docs.lumi-supercomputer.eu/hardware/) is an European pre-exascale supercomputer operated by CSC
+- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
+- [LUMI](https://docs.lumi-supercomputer.eu/hardware/) is a European pre-exascale supercomputer operated by CSC
 - [Pouta](https://docs.csc.fi/cloud/pouta/pouta-what-is/) provides cloud resources via OpenStack (IaaS)
 - [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via OKD (PaaS)
 - [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
