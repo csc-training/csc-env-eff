@@ -5,7 +5,7 @@ lang: en
 
 # Connecting to CSC Computers {.title}
 
-This topic is about how to login to CSC supercomputers.
+This topic is about how to login to the CSC supercomputers.
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
@@ -18,28 +18,27 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
-# Login via Puhti Web Interface
+# Login via the Puhti Web Interface
 
-- A simple way to login to the Puhti supercomputer is via [www.puhti.csc.fi](https://www.puhti.csc.fi)
-   - Note: the Puhti Web Interface service is still in beta stage in November 2022
+- A simple way to log in the Puhti supercomputer is via [www.puhti.csc.fi](https://www.puhti.csc.fi)
 - Use your CSC username and password
-- The web interface can be used _e.g._ to launch GUI applications and browse files
+- The web interface can be used, _e.g._, to launch GUI applications and browse files
 - [More in-depth documentation in Docs CSC](https://docs.csc.fi/computing/webinterface/)
 
 # Login with SSH
 
-- SSH is a terminal program that gives you access to the command line on the CSC supercomputer
+- SSH is a terminal program that gives you command-line access on the CSC supercomputer
 - It is a versatile main interface to a supercomputer
    - Laptop &harr; Toyota, Supercomputer &harr; F1. F1 needs a specialist interface.
-- Please read this page for an introduction on [how to login with ssh](https://docs.csc.fi/computing/connecting/)
-   - Mac and Linux come with ssh. On Windows Powershell can be used, but we recommend applications like MobaXterm, Putty, CMDer
+- Please read this page for an introduction on [how to log in with SSH](https://docs.csc.fi/computing/connecting/)
+   - Mac and Linux come with SSH. On Windows, Powershell can be used, but we recommend applications like MobaXterm, Putty, CMDer
    - Note the [prerequisites to be able to access Puhti](https://docs.csc.fi/support/faq/how-to-get-puhti-access/)
-- Plain ssh will not allow displaying remote graphics
+- Plain SSH will not allow displaying remote graphics
    - Puhti Web Interface is usually best option for this, but can be enabled also by tunneling (additional installations required on Windows, see link above)
 
-# Moving files between local computer and Puhti
+# Moving files between a local computer and Puhti
 
-- [`scp`](https://docs.csc.fi/data/moving/scp/) and [`rsync`](https://docs.csc.fi/data/moving/rsync/) are powerful command line tools to copy files
+- [`scp`](https://docs.csc.fi/data/moving/scp/) and [`rsync`](https://docs.csc.fi/data/moving/rsync/) are powerful command-line tools to copy files
    - `scp` works even in Windows Powershell (but `rsync` is missing)
    - _e.g._ `scp filename cscusername@puhti.csc.fi:/scratch/project_xxxx`
    - _e.g._ `rsync -r foldername cscusername@puhti.csc.fi:/scratch/project_xxxx`
@@ -49,14 +48,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - _MobaXterm_ also has a file transfer GUI (Tip: first, set persistent home directory)
    - Puhti Web Interface can also be used to move files
 
-# Advanced topic: Setting up SSH-keys
+# Advanced topic: Setting up SSH keys
 
-- Using SSH-keys is easier and safer than using password with every login
-- SSH-keys can be easily used in Windows, Mac, Linux
-- Consult our [tutorials on how to set up SSH-keys for your account](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
+- Using SSH keys is easier and safer than using a password with every login
+- SSH keys can be easily used in Windows, Mac, Linux
+- Consult our [tutorials on how to set up SSH keys for your account](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
 
 # Advanced topic: Developing scripts remotely
 
 - It's possible to use a local editor and push edited files easily into Puhti (or Rahti, ...) via ssh
-   - For example, IDE-like _Visual Studio Code_ or a text editor like _Notepad++_
+   - For example, an IDE like _Visual Studio Code_ or a text editor like _Notepad++_
 - Follow these [detailed instructions to set them up](https://docs.csc.fi/support/tutorials/remote-dev/)

@@ -18,8 +18,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # The purpose of large computers
 
-- Typically large computers, like those at CSC, are not that much faster than others -- they are just bigger
-   - For fast computation they utilize parallelism (and typically have special disk, memory and network solutions, too)
+- Typically, large computers like those at CSC are not much faster than personal ones -- they are simply bigger
+   - For fast computation, they utilize parallelism (and typically have special disk, memory and network solutions, too)
 - Parallelism simplified:
    - You use hundreds of ordinary computers simultaneously to solve a single problem
 
@@ -31,7 +31,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Consider:
    - The software that solves your problem fastest might not always be the best
       - Issues like ease-of-use and compute-power/memory/disk demands are also highly relevant
-   - Quite often it is useful to start simple and gradually use more complex approaches if needed
+   - Quite often, it is useful to start simple and gradually use more complex approaches if needed
 
 # First steps for fast jobs (2/2)
 
@@ -39,8 +39,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Spend some time getting familiar with the software user manual, if available
 - If you need to install a software package yourself and it happens to be distributed through Conda, [you need to containerize it](https://docs.csc.fi/computing/usage-policy/#conda-installations)
    - Conda environments installed directly on the parallel file system are highly inefficient due to the large number of files they contain
-   - Containerizing greatly speeds up performance at start up and can be done easily with the [Tykky wrapper](https://docs.csc.fi/computing/containers/tykky/)
-- If you can't find a suitable software, consider writing your own code
+   - Containerizing greatly speeds up performance at startup and can be done easily with the [Tykky wrapper](https://docs.csc.fi/computing/containers/tykky/)
+- If you can't find suitable software, consider writing your own code
 
 # Optimize the performance of your own code (1/2)
 
@@ -61,7 +61,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Running your software
 
 - It is not only how your software is constructed and compiled that affects performance
-- It can also be run in different ways
+- It may also be run in different ways
 
 # HPC parallel jobs
 
@@ -72,8 +72,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Running in parallel
 
-- Parallel programs are typically parallelized with MPI and/or OpenMP standards, which can be run in several different ways
-   - Can you split your work into smaller, fully independent, bits and run them simultaneously?
+- Parallel programs are typically parallelized with the MPI and/or OpenMP standards, which can be run in different ways
+   - Can you split your work into smaller, fully independent bits and run them simultaneously?
       - Check out [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) or [Slurm array jobs](https://docs.csc.fi/computing/running/array-jobs/)
    - Can you automate setting up, running and analyzing your array jobs?
       - Then you may want to use [high-throughput workflows](https://docs.csc.fi/computing/running/throughput/)
@@ -83,7 +83,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # What is MPI?
 
-- MPI (and OpenMP too) are widely used standards for writing software that run in parallel.
+- MPI (and OpenMP) are widely used standards for writing software that runs in parallel.
 - MPI (Message Passing Interface) is a standard that utilizes parallel _processes_ that do not share memory
    - To exchange information, processes pass data messages back and forth between the cores
 - MPI is required when running on multiple nodes
@@ -122,15 +122,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Task farming can be combined with _e.g._ OpenMP to accelerate sub-jobs
   - [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) is the best option for sub-node task scheduling (non-MPI)
 - Finally, MPI can be used to run several jobs in parallel
-   - With array jobs you'd have three levels of parallelism: array--MPI--OpenMP
+   - With array jobs, you can have three levels of parallelism: array--MPI--OpenMP
    - Setting this up will take skill and time. Always test your setup before scaling -- a typo can result in a lot of lost resources!
 
 # Things to consider in task farming
 
-- In a big allocation each computing core should have work to do
+- In a big allocation, each computing core should have work to do
    - If the separate tasks are very different, some will end before the others, leaving some cores idle &rarr; waste of resources
    - A fix would be to use _e.g._ loops to lump really small and numerous jobs into fewer and bigger ones.
-- As always, try to estimate as exactly as possible the required memory and the time it takes for the separate tasks to finish.
+- As always, try to estimate as accurately as possible the required memory and the time it takes for the separate tasks to finish.
    - Consult _e.g._ this [biojob tutorial with examples](https://docs.csc.fi/support/tutorials/biojobs-on-puhti/)
 
 # GPUs can speed up jobs
@@ -139,7 +139,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - They can be used for science, but are often really tricky to program
    - Only a small set of algorithms can use the full power of GPUs
 - Check the manual if the software can utilize GPUs
-   - If you process lots of data, make sure you [use disk efficiently](https://docs.csc.fi/support/tutorials/ml-data/#using-the-shared-file-system-efficiently)
+   - If you process lots of data, make sure you [use the disk efficiently](https://docs.csc.fi/support/tutorials/ml-data/#using-the-shared-file-system-efficiently)
 - Do not try to use GPUs, unless you know what you are doing
    - If you're unsure, consult [how to check if your batch job used GPU](https://docs.csc.fi/support/tutorials/gpu-ml/#gpu-utilization)
    - The [CSC usage policy](https://docs.csc.fi/computing/usage-policy/#gpu-nodes) limits GPU usage to where it is most efficient
@@ -158,11 +158,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Well-known boosters are:
     - Enchanced sampling methods in molecular dynamics (_vs._ plain brute force MD)
     - Bayesian Optimization Structure Search ([BOSS](https://pypi.org/project/aalto-boss/), potential energy mapping)
+    - Pre-optimize molecular geometries with a small basis 
     - When starting a new project, begin with small/fast tests before scaling up
       - Don't submit large jobs before you know the results are really what you are looking for
     - When using separate runs to scan a parameter space, start with a coarse scan, and improve resolution where needed
       - Be mindful of the number of jobs/job steps and pack your jobs into bigger ones through smart task farming
-    - Try to use or implement checkpoints/restarts in your software, and _always check results in between restarts_
+    - Try to use or implement checkpoints/restarts in your software, and _always check results in-between restarts_
 
 # Tricks of the trade 3/4
 
@@ -175,11 +176,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Tricks of the trade 4/4
 
 - If possible, running the same job on a laptop may be useful for comparison
-- Avoid unnecessary reads and writes of data and containerize Conda environments to improve IO-performance
+- Avoid unnecessary reads and writes of data and containerize Conda environments to improve I/O performance
     - Read and write in big chunks and avoid reading/writing lots of small files
        - If unavoidable, use [fast local NVMe disk](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks), not Lustre (_i.e._ `/scratch`)
 - Don't run too short jobs to minimize queuing and scheduling overhead
     - There's a time overhead in setting up a batch job, aim for >30 minute jobs
     - Don't run too many/short _job steps_ -- they will bloat Slurm accounting
-- Don't run too long jobs without restart option
-    - Increased risk of something going wrong, resulting in lost time/results
+- Don't run too long jobs without a restart option
+    - Increased risk of something going wrong, resulting in a loss of time/results

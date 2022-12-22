@@ -60,7 +60,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - amount of memory
     - other resources like GPUs, local disk, _etc._
 
-# Example serial batch job script for Puhti
+# An example serial batch job script for Puhti
 
 - A batch script is a shell script (bash) that consists of two sections:
    - Resource requests flagged with `#SBATCH` and the actual computing step(s)
@@ -89,6 +89,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - Use these as the *starting point* for your own scripts
 - They have been tested and optimized (although for minimal resources) for _that_ application
    - Consult the official manual or other examples to adapt to your own needs
+   - Ask for advice and help: servicedesk@csc.fi
 
 </div>
 
@@ -120,16 +121,16 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 
 - Typically, an HPC job can be classified as serial, parallel or GPU, depending on the main requested resources
 - The following slides will present an overview of different job types
-- A serial job is the simplest type of job, whereas parallel and GPU-jobs require advanced software and programming methods to fully utilise their capacity
+- A serial job is the simplest type of job, whereas parallel and GPU jobs require advanced software and programming methods to fully utilise their capacity
    - Note that GPU-jobs are in principle also parallel, but they run on different hardware (GPUs instead of CPUs) and are programmed differently
 - If you use pre-installed applications, please ensure what kind of resources they need to run efficiently (serial, parallel or GPU)
 
 # HPC serial jobs
 
 - A serial software can only use a single core, so don't reserve more!
-- Why would your serial job benefit from being run using CSC's resources instead of on your own computer?
+- Why could your serial job benefit from being run using CSC's resources instead of on your own computer?
     - Part of a larger workflow (high-throughput computing)
-    - Avoid data transfer between CSC and your own computer
+    - Avoid data transfer between the supercomputers and your own computer
     - Data sharing among other project members
     - CSC's software licensing
     - Pre-installed software

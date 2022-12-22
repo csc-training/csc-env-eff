@@ -13,25 +13,25 @@ author: CSC Training
 <li>Feel free to jump if you know the basics already</li>
 </ul>
 </li>
-<li>In each topic read the slides / watch the video first</li>
-<li>Complete tutorial(s) to make sure you’ve got the steps right</li>
-<li>Try out the exercises to verify your new skill</li>
+<li>In each topic, first read the slides / watch the video </li>
+<li>Complete the tutorial(s) to make sure you’ve got the steps right</li>
+<li>Try out the exercises to verify your new skills </li>
 <li>If you get stuck, consult <a href="https://docs.csc.fi">Docs CSC</a> linked in the slides and the tutorials</li>
-<li>If the documentation does not provide sufficient answer, please contact support by email <a href="mailto:servicedesk@csc.fi">servicedesk@csc.fi</a> or by submitting (a question and feedback form) <a href="https://research.csc.fi/support">https://research.csc.fi/support</a></li>
-<li>Press <code>ctrl/cmd</code> with click to open links to a new window or tab</li>
-<li>Left-click on slides and you can then navigate them with arrow-keys<ul>
-<li>Use the browser back-button or external link to return to main menu</li>
+<li>If the documentation does not provide sufficient answer, please contact support by email <a href="mailto:servicedesk@csc.fi">servicedesk@csc.fi</a> or by submitting a question and a feedback form <a href="https://research.csc.fi/support">https://research.csc.fi/support</a></li>
+<li>Press and hold <code>ctrl/cmd</code> and click to open links to a new window or tab</li>
+<li>Left-click on the slides, so that you can navigate them with the arrow keys<ul>
+<li>Use the browser Back button, the <code>Backspace</code> button on your keyboard or an external link to return to the main menu</li>
 </ul>
 </li>
-<li><a href="https://video.csc.fi/media/t/0_d7trmsru">A video about study tips</a></li>
+<li><a href="https://video.csc.fi/media/t/0_d7trmsru">A video with study tips</a></li>
 </ul>
 </blockquote>
 
 ## 1. Prerequisites (Accounts, Connecting, Basics of CLI)
 ### 1.1 [Slides: Accounts and Projects](https://a3s.fi/CSC_training/00_account_and_project.html)
 ### 1.2 [Video: Accounts and Projects](https://video.csc.fi/media/t/0_j5ezfw80)
-### 1.3 [Slides: Connecting to CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
-### 1.4 [Video: Connecting to CSC Computers](https://video.csc.fi/media/t/0_8fdqjuf9)
+### 1.3 [Slides: Connecting to the CSC Computers](https://a3s.fi/CSC_training/01_logging_in.html)
+### 1.4 [Video: Connecting to the CSC Computers](https://video.csc.fi/media/t/0_8fdqjuf9)
 ### 1.5 [Video tutorial: Connecting to Puhti](https://video.csc.fi/media/t/0_d0i4dk2j)
 ### 1.6 Tutorials and exercises
 {% for hands-on in items %}
@@ -42,12 +42,12 @@ author: CSC Training
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
-2. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via ssh-tunnel and browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh-keys (see above) but is the recommended way to use these interactive tools.
+2. [Advanced tutorial - Run R studio/Jupyter Notebook on Puhti via an ssh tunnel and a browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) This requires ssh keys (see above), and it is the recommended way to use these interactive tools.
 
-## 2. Introduction to HPC environment
+## 2. Introduction to an HPC environment
 ### 2.1 [Slides](https://a3s.fi/CSC_training/02_environment.html)
 ### 2.2 [Video: HPC Environment](https://video.csc.fi/media/t/0_u1tvtzga)
-### 2.3 [Video: CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
+### 2.3 [Video: The CSC Datacenter in Kajaani](https://www.youtube.com/watch?v=HeqN0h391wg)
 
 ## 3. Disk areas
 ### 3.1 [Slides](https://a3s.fi/CSC_training/03_disk_areas.html)
@@ -78,7 +78,7 @@ author: CSC Training
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
-1. [Exercise - Serial, array and parallel jobs with R + contours calculation from DEM with raster package (GIS) ](https://github.com/csc-training/geocomputing/tree/master/R/puhti)
+1. [Exercise - Serial, array and parallel jobs with R + contours calculation from DEM with a raster package (GIS) ](https://github.com/csc-training/geocomputing/tree/master/R/puhti)
 1. [Exercise - Serial, array and parallel jobs with Python + NDVI calculation rasterio package (GIS) ](https://github.com/csc-training/geocomputing/tree/master/python/puhti)
 
 ## 6. Batch job resource usage
@@ -112,7 +112,7 @@ author: CSC Training
 {% endif %}
 {% endfor %}
 
-## 9. Containers and Singularity
+## 9. Containers and Apptainer/Singularity
 ### 9.1 [Slides](https://a3s.fi/CSC_training/09_singularity.html)
 ### 9.2 [Video: Containers](https://video.csc.fi/media/t/0_0ws9ei53)
 ### 9.3 Tutorials and exercises
