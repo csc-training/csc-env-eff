@@ -22,7 +22,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Main disk areas and their specific uses on Puhti and Mahti
 - Moving data between supercomputers
 - Understanding quotas (available space and number of files) of different disk areas
-- Additional fast-disk areas
+- Additional fast disk areas
 
 # Disk and storage overview  
 
@@ -62,7 +62,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Additional fast local disk areas 
 
 - [`$TMPDIR` on login nodes](https://docs.csc.fi/computing/disk/#login-nodes)
-    - Each of the login nodes has 2900 GiB of fast local storage in `$TMPDIR`
+    - Each of the login nodes have 2900 GiB of fast local storage in `$TMPDIR`
     - The local disk is meant for temporary storage (_e.g._ compiling software) and is cleaned frequently
 - [NVMe disks on some compute nodes on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
     - Interactive, I/O and GPU nodes have fast local disks (NVMe) in `$LOCAL_SCRATCH`
