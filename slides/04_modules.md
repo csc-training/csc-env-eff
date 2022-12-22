@@ -54,7 +54,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Various kinds of modules
 
-- Some modules contain software that has a graphical user interface
+- Some modules contain software that have a graphical user interface
    - For example, the chemistry visualization software [Molden](https://docs.csc.fi/apps/molden/)
    - Use the [Puhti web interface](https://puhti.csc.fi) or [another method to open the GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
 - Some modules contain software that provides a command-line interface
