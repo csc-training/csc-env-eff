@@ -13,7 +13,7 @@ title: Tutorial - Singularity introduction continued
 - To do this, you must bind a writable directory on host file system to the internal file system of the container. 
 
 💡 This is done with command line argument `--bind` (or `-B`). The basic syntax is 
-`--bind /path/in/host:/path/inside/container`.
+`--bind /path/inside/host:/path/inside/container`.
 
 💭 Some remarks:  
 ➖ The bind path does not need to exist inside the container – it is created if necessary.  
@@ -33,11 +33,11 @@ title: Tutorial - Singularity introduction continued
 3. The container cannot see the host directory, so you will get a "No such file or directory" error.
 4. Now try binding the host directory `/scratch` to the directory `/scratch` inside the container:
     ```bash
-    singularity exec --bind $SCRATCH:/scratch tutorial.sif ls /scratch
+    apptainer exec --bind $SCRATCH:/scratch tutorial.sif ls /scratch
     ```
     - Or:
     ```bash
-    singularity exec --bind /scratch:/scratch tutorial.sif ls $SCRATCH
+    apptainer exec --bind /scratch:/scratch tutorial.sif ls $SCRATCH
     ```
 5. This time, the host directory is linked to to the container directory, and the command shows what the container sees inside `/scratch`.
 
@@ -74,7 +74,7 @@ apptainer exec --bind $SCRATCH:/input tutorial.sif ls /input
 1. Set some test variables:
     ```bash
     export TEST1="value1"
-    export SINGULARITYENV_TEST2="value2"
+    export APPTAINERENV_TEST2="value2"
     ```
 2. Compare the outputs of:
     ```bash
@@ -83,7 +83,7 @@ apptainer exec --bind $SCRATCH:/input tutorial.sif ls /input
     apptainer exec --cleanenv tutorial.sif env | grep TEST
     ```
     - The first command is run on the host, and we see `$TEST1` and `$SINGULARITYENV_TEST2`. 
-    - The second command is run in the container and we see `$TEST1` (inherited from host) and `$TEST2` (specifically set inside the container by setting `$SINGULARITYENV_TEST2` on the host). 
+    - The second command is run in the container and we see `$TEST1` (inherited from host) and `$TEST2` (specifically set inside the container by setting `$APPTAINERENV_TEST2` on the host). 
     - The third command is also run  inside the container, but this time we omitted host environment variables, so we only see `$TEST2`.
 3. Note that any command-line variables on the host are substituted by their values when passed to the container:
     ```bash
@@ -107,7 +107,7 @@ apptainer exec --bind $SCRATCH:/input tutorial.sif ls /input
     ```
 3. Or you could add it to `$PATH` inside the container:
     ```bash
-    export SINGULARITYENV_PREPEND_PATH=/found/me
+    export APPTAINERENV_PREPEND_PATH=/found/me
     apptainer exec tutorial.sif hello2
     ```
 
