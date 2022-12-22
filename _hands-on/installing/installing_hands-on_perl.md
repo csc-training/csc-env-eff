@@ -5,13 +5,13 @@ title: Tutorial - Installing Perl applictions and libraries
 
 # Perl
 
-💬 Perl scripts and applications do not need installation. They can be simply downloaded and ran.
+💬 Perl scripts and applications do not need installation. They can be simply downloaded and run.
 
 💬 To run Perl applications, it usually best to first load a Perl module.
 
-☝🏻 A system Perl installation is available (without modules), but it is very barebones and is missing many commonly used libraries.
+☝🏻 A system Perl installation is available (without a module), but it is very barebones and is missing many commonly used libraries.
 
-1. To check available versions, use:
+1. To check available module versions, use:
 
 ```bash
 module spider perl
@@ -24,7 +24,7 @@ module spider perl
 module load perl
 ```
 
-☝🏻 To ensure scripts use the intended Perl version after loading a module you should either call the script with perl:
+☝🏻 To ensure scripts use the intended Perl version after loading a module you should either call the script with `perl`:
 
 ```bash
 perl my_app.pl
@@ -60,7 +60,7 @@ perl -e 'use JSON;'
 🗯 By default, `cpanm` tries to install new modules to the Perl installation path, which will not work.
 
 - You need to set the location to a directory where you have write access. It could be e.g. your project's `/projappl` directory.
-- This is accomplished by setting a few environment variables:
+- This is accomplished by setting a few environment variables.
 
 {:start="2"}
 2. Replace the desired path for `PERL_BASE` and run the following:
