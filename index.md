@@ -146,8 +146,7 @@ author: CSC Training
     <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png" width=180>
     <p><small>
   All material (c) 2020-2023 by CSC -IT Center for Science Ltd.  <br />
-  This work is licensed under a <strong>Creative Commons Attribution-ShareAlike</strong> 4.0 Unported License, <br />
-  <a href="http://creativecommons.org/licenses/by-sa/4.0/">http://creativecommons.org/licenses/by-sa/4.0/</a>
+  This work is licensed under a <strong>Creative Commons Attribution-ShareAlike</strong> 4.0 Unported License, <a href="http://creativecommons.org/licenses/by-sa/4.0/">http://creativecommons.org/licenses/by-sa/4.0/</a>
       </small>
     </p>
   </div>
