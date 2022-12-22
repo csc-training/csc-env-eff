@@ -20,152 +20,147 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # How to get access to Allas service
 
-Use [https://my.csc.fi](https://my.csc.fi) to 
+- Use [https://my.csc.fi](https://my.csc.fi) to
+    1. Create a CSC account (log in with Haka/Virtu)
+        - If Haka/Virtu is not an option, contact <servicedesk@csc.fi>
+    2. Set up a project at CSC (Principal Investigator)
+    3. Apply for Puhti and Allas services, quota and billing units for your project
+    4. Add other registered users to your project
+    5. Members have to register and accept the terms of use in [My CSC](https://my.csc.fi)
+- All project members have equal access to the data in Allas and Puhti (`/scratch` and `/projappl` disks)
 
-1. Register to CSC (HAKA)
-2. Set up a project at CSC (Principal Investigator)
-3. Apply for Puhti and Allas service, quota and billing units for your project
-4. Add other registered users to your project
-5. Members have to register and accept the terms of usage in [https://my.csc.fi](https://my.csc.fi)
+# The Allas object storage: what is it?
 
-All project members have equal access to the data in Puhti and Allas.
-
-# Allas – object storage: what is it?
-
-- Allas is a storage service for all computing and cloud services
-- CEPH based object storage
+- Allas is a storage service for all CSC computing and cloud services
+- CEPH-based object storage
 - Possible to upload data from personal laptops or organizational storage systems into Allas
-- Meant for data during project lifetime
-- Default quota 10 TB per project 
-- Clients available in Puhti and Mahti
+- Meant for data storage during project lifetime
+- Default quota is 10 TB per project
+- Clients available on Puhti and Mahti
 
 # Connections to Allas
 
 <div class="column">
-- Data can be moved to and from Allas directly without using Puhti or Mahti.
+- Data can be moved to and from Allas directly without using Puhti or Mahti
     - Usage through S3 and Swift APIs are supported
-- Data can be shared publicly to the Internet, which is otherwise not easily possible at CSC.
+- Data can be shared publicly to the Internet, which is otherwise not easily possible at CSC
 </div>
 <div class="column">
-!["Allas"](img/allas.png "Allas"){width=90%}
+![](img/allas.png "Allas"){width=90%}
 </div>
 
-# Allas – object storage: what it is NOT
+# The Allas object storage: what it is NOT
 
-- **Allas is not a file system** (even though many tools try to fool you to think so). 
-    - It is just a place for a pile of static data objects.
-- **Allas is not a data management environment**. 
-    - Tools for search, metadata, version control and access management are minimal.
-- **Allas is not a back up service**. 
-    - Project members can delete all the data with just one command.
+- **Allas is not a file system** (even though many tools try to fool you to think so)
+    - It is just a place for static data objects
+- **Allas is not a data management environment**
+    - Tools for search, metadata, version control and access management are minimal
+- **Allas is not a back up service**
+    - Project members can delete all the data with just one command
 
-# Allas: Storing files
+# Storing files in Allas
 
-- An object is stored in multiple servers 
-    - A disk or server break does not cause data loss
-- There is no backup, i.e., if a file is deleted, it cannot be recovered
-- Data cannot be modified while it is in the object storage
+- An object is stored on multiple servers
+    - A disk or server failure does not cause data loss
+- There is no backup, i.e. if a file is accidentally deleted, it cannot be recovered
+- Data cannot be modified in the object storage
     - For computation, the data has to be typically copied to a file system on some computer
-- Some data management features are built on top of it.
+- Some data management features are built on top of Allas
 
 # Allas buckets
 
 - Storage space in Allas is provided per **CSC project**
-- Project space can have multiple **buckets** (up to 1000)
+- The project space can have multiple **buckets** (up to 1000)
     - Some sources refer to *buckets* as *containers*
-        - Must not be confused with Docker/Singularity containers!
+        - Must not be confused with Docker/Apptainer containers!
 - The name of the bucket must be unique within Allas
 
 # Allas objects
 
 - Data is stored as **objects** within a bucket
-    - Objects can contain any type of data (generally: object = file)
-    - Objects have metadata that can be enriched 
-- In Allas, you can have 500 000 objects / bucket
+    - Objects can contain any type of data (generally, object == file)
+    - Objects have metadata that can be enriched
+- In Allas, you can have 500 000 objects per bucket
 - There is only one level of hierarchy of buckets (no buckets within buckets)
-    - There is no hierarchical directory structure, although it sometimes looks like that.
+    - There is no hierarchical directory structure, although it sometimes looks like that
 
 # Allas supports two protocols
 
-- S3  (used by: s3cmd, rclone, a-tools)
-- Swift (used by: swift, rclone, a-tools, cyberduck)  
-
+- S3 (used by `s3cmd`, `rclone`, `a-tools`)
+- Swift (used by `swift`, `rclone`, `a-tools`, `cyberduck`)  
 - Authentication is different
-    - S3: permanent key-based authentication – nice, easy and unsecure
-    - Swift: authentication based on temporary tokens – more secure, requires authentication every 8 hours
-- File handling is different        
+    - S3: permanent key-based authentication -- nice, easy and unsecure
+    - Swift: authentication based on temporary tokens -- more secure, requires authentication every 8 hours
+- File handling is different
     - Metadata is handled in different ways
-    - Over 5G files are managed in different ways
-    - **Avoid cross-using Swift and S3 based objects!**
+    - Files larger than 5 GB are managed in different ways
+    - **Avoid cross-using Swift and S3-based objects!**
 
 # Allas Clients
 
-- **Puhti, Mahti, Linux servers, Macs:**
-    - rclone, swift, s3cmd, a-tools
-
+- **Puhti, Mahti, Linux servers, Mac:**
+    - `rclone`, `swift`, `s3cmd`, `a-tools`
 - **Laptops (Windows, Mac):**
-    - [Cyberduck](https://cyberduck.io/), [FileZilla(pro)](https://filezilla-project.org/), [Pouta-www interface](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
-
+    - [Cyberduck](https://cyberduck.io/), [FileZilla (pro)](https://filezilla-project.org/), [Pouta web interface](https://docs.csc.fi/cloud/pouta/launch-vm-from-web-gui/)
 - **Virtual machines, small servers:**
     - In addition to the tools above, you can use FUSE-based virtual mounts
 
-# Allas – first steps 
+# Allas -- first steps
 
-- Use [https://my.csc.fi](https://my.csc.fi) to apply Allas access for your project – Allas is not automatically available
-- In Puhti and Mahti, setup connection to Allas with commands:
+- Use [My CSC](https://my.csc.fi) to apply for Allas access for your project -- Allas is not automatically available
+- In Puhti/Mahti, setup connection to Allas with the commands:
+
 ```bash
 module load allas
 allas-conf
 ```
-- Study the manual and [Start using Allas with rclone or a-tools instructions](https://docs.csc.fi/data/Allas/)
-- The [material bank](https://csc-training.github.io/csc-env-eff/#7-allas-and-where-to-keep-your-data) includes hands-on tutorials and a tutorial video about Allas
 
-# Allas – rclone
+- Study the manual and [start using Allas with `rclone` or `a-tools`](https://docs.csc.fi/data/Allas/)
+- This [course](https://csc-training.github.io/csc-env-eff/#7-allas-and-where-to-keep-your-data) includes also hands-on tutorials and a tutorial video about Allas
+
+# Allas -- `rclone`
 
 - Straightforward power-user tool with a wide range of features
-- Fast and effective
+- Fast and efficient
 - Available for Linux, Mac and Windows
 - Overwrites and removes data without asking!
-- The default configuration at CSC uses swift-protocol but S3 can be used, too
-Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas/using_allas/rclone/)
+- The default configuration at CSC uses `swift`-protocol, but S3 can also be used
+- Use with care: [`rclone` instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/rclone/)
 
+# Allas -- `a-tools`
 
-# Allas – a-tools
+- `rclone`-based scripts for using Allas in Puhti and Mahti
+- `a-tools` provide an easy and safe way to use Allas for occasional Allas users
+- Default bucket names are based on directories on Puhti/Mahti
+- Unlike `rclone`, `a-tools` does not overwrite or remove data without asking!
+- Developed for the CSC supercomputer, but you can install the tools in other Linux and Mac machines as well
+- Automatic packing (compression can be enabled as well if needed)
+- [a-commands instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
 
-- Rclone-based scripts for using Allas in Puhti and Mahti
-- a-tools try to provide easy and safe way to use Allas for occasional Allas users
-- Default bucket names are based on directories of Puhti and Mahti
-- Unlike `rclone`, a-tools do not overwrite or remove data without asking!
-- Developed for the CSC server environment (Puhti, Mahti) but you can install the tools in other Linux and Mac machines, as well
-- Automatic packing and compression
-- [a-commands instructions in Docs CSC](https://docs.csc.fi/#data/Allas/using_allas/a_commands/)
-
-
-# A-put/a-get: pros and cons
+# `a-put`/`a-get`: pros and cons
 
 <div class="column">
 ➕ Saving data as a tar package preserves time stamps, access settings, and internal links of the directory  
-➕ `zstdmt` compression reduces size  
-➕ The default bucket name and the metadata reflect the directory structure on Puhti and Mahti  
-➕ Checks to prevent overwriting data accidentally  
+➕ Optional `zstdmt` compression reduces size  
+➕ The default bucket name and the metadata reflect the directory structure on Puhti/Mahti  
+➕ Checks to prevent overwriting data accidentally
 </div>
 <div class="column">
-➖ Usage of objects, created by `a-put` can be complicated when other object storage tools are used  
-➖ Especially usage from Windows is problematic  
-➖ Each object has an additional _ameta object  
+➖ Usage of objects created by `a-put` can be complicated when other object storage tools are used  
+➖ Usage from Windows is problematic  
+➖ Each object has an additional `_ameta` object
 </div>
 
 # Issues with Allas
 
-- 8-hour connection limit with swift
+- 8-hour connection limit with `swift`
 - No way to check quota
-- Moving data inside Allas is not possible (swift)
-- No way to freeze data 
+- Moving data inside Allas is not possible (`swift`)
+- No way to freeze data
     - Use two projects if you need to prevent others from editing your data
 - Different interfaces may work in different ways
 
-
-# Things that users should consider 
+# Questions that users should consider
 
 - Should I store each file as a separate object or should I collect them into bigger chunks?
     - In general: consider how you use the data
@@ -176,21 +171,20 @@ Use with care: [rclone instructions in Docs CSC](https://docs.csc.fi/#data/Allas
 
 # Fairdata services
 
-- [https://fairdata.fi](https://fairdata.fi) - Services to manage scientific data according to FAIR principles.
+- [https://www.fairdata.fi](https://www.fairdata.fi) -- Services to manage scientific data according to FAIR principles
 - Suitable for all static digital research material and related metadata
 - Free of charge for users in Finnish higher education institutions and research institutes
-- **[IDA](https://ida.fairdata.fi)** : storage for research data 
-- **[Quvain](https://qvain.fairdata.fi/)** : Describe you dataset and get a persistent indentifier for it
-- **[Etsin](https://etsin.fairdata.fi/)** : Discover datasets based on metadata
+- **[IDA](https://ida.fairdata.fi):** storage for research data
+- **[Qvain](https://qvain.fairdata.fi/):** Describe you dataset and get a persistent indentifier for it
+- **[Etsin](https://etsin.fairdata.fi/):** Discover datasets based on metadata
 
 # Sensitive data services
 
 - [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
 - **SD Desktop** [https://sd-desktop.csc.fi](https://sd-desktop.csc.fi) is a secure virtual desktop
      - Controlled access
-     - Data import _only_ through the [**SD Connect**](https://sd-connect.csc.fi) service
-     - Isolation from the internet
+     - Data importing _only_ through the [**SD Connect**](https://sd-connect.csc.fi) service
+     - Isolation from the Internet
      - No direct data export
-- Allas could be used for sensitive data, but _only_ if data is properly encrypted
+- Allas could be used for sensitive data, but _only_ if the data is properly encrypted
     - The [**SD Connect**](https://sd-connect.csc.fi) procedure does the encryption
-
