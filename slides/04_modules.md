@@ -57,14 +57,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Some modules contain software that have a graphical user interface
    - For example, the chemistry visualization software [Molden](https://docs.csc.fi/apps/molden/)
    - Use the [Puhti web interface](https://puhti.csc.fi) or [another method to open the GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
-- Some modules contain software that provides a command-line interface
+- Some modules contain software that provide a command-line interface
    - For example, the [zstd module](https://docs.csc.fi/support/tutorials/env-guide/packing-and-compression-tools/#zstandard-compression-tool)
 - A module might contain only one program (*e.g.* `gromacs-env`), while some provide a collection of applications or *e.g.* Python or R packages
    - For example, [Geoconda](https://docs.csc.fi/apps/geoconda/) and [Python Data](https://docs.csc.fi/apps/python-data/)
 
 # Conda, Python and R packages
 
-- Some pre-installed software is distributed through the [Conda](https://docs.conda.io/en/latest/) package management tool
+- Some pre-installed software are distributed through the [Conda](https://docs.conda.io/en/latest/) package management tool
    - Do not install Conda environments directly on the Lustre parallel file system, [containerize](https://docs.csc.fi/support/tutorials/singularity-scratch/) them instead using *e.g.* [Tykky](https://docs.csc.fi/computing/containers/tykky/)
    - See the [usage policy](https://docs.csc.fi/computing/usage-policy/#conda-installations) for further details
 - Pre-installed Python packages are available in [Python-related modules](https://docs.csc.fi/apps/python/)
