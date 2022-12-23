@@ -3,78 +3,84 @@ topic: allas
 title: Tutorial - File backup with Allas
 ---
 
-# Backuping files to Allas from Puhti
+# Backing up files to Allas from Puhti
 
-### Preparations (if not done already)
+## Preparations (if not done already)
 
-1. Login to puhti.csc.fi
-
-2. In Puhti check your environment with command:
+1. Login to `puhti.csc.fi`
+2. In Puhti, check your environment with the command:
 
 ```bash
 csc-workspaces
 ```
 
-3. Switch to the scratch directory of your project 
+{:start="3"}
+3. Switch to the `/scratch` directory of your project
 
 ```bash
-cd /scratch/project_xxxx    # replace xxxx 
+cd /scratch/<project>    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-4. Create your own sub-directory:
+{:start="4"}
+4. Create your own subdirectory named as your username (tip! your username is automatically stored in the environment variable `$USER`):
 
 ```bash
-mkdir yourcscusername      # replace yourcscusername
-cd yourcscusername
+mkdir -p $USER
+cd $USER
 ```
 
-### Connecting to allas
+## Connecting to Allas
 
-1. Open connection to Allas wih these commands:
+1. Open a connection to Allas wih these commands:
 
 ```bash
 module load allas
 allas-conf 
 ```
 
-💡 It might take a while with `module load allas`. 
+💡 It might take a while to run `module load allas`.
 
 {:start="2"}
-2. If you have several Allas projects available, select the one where you have a bucket where you want the backup to be.
-
-3. Check how the backup-tool works with command:
+2. If you have several projects with the Allas service available, select the one where you want to perform the backup.
+3. Check how the `allas-backup` tool works with the command:
 
 ```bash
 allas-backup -h
 ```
 
-4. Create the backup with command:
+{:start="4"}
+4. Create a backup snapshot with the command:
 
 ```bash
-allas-backup your-file-name      # replace your-file-name
+allas-backup <filename>    # replace <filename> with the name of the file that you want to backup
 ```
 
+{:start="5"}
 5. Check what snapshots the backup contains:
 
 ```bash
 allas-backup list
 allas-backup list | grep $USER
 ```
-   - Make note of the `snapshot_id` in the first column!
 
+- Make note of the snapshot `ID` in the first column!
+
+{:start="6"}
 6. Check what files your backup contains:
 
 ```bash
 allas-backup files <snapshot_id>      # replace the <snapshot_id>
 ```
 
-7. Restore the files from your backup:
+{:start="7"}
+7. Restore the files from your backup to Puhti:
 
 ```bash
 allas-backup restore <snapshot_id>      # replace the <snapshot_id>
 ```
 
-8. If you want to delete your backup use command:
+{:start="8"}
+8. If you want to delete your backup, use command:
 
 ```bash
 allas-backup delete <snapshot_id>      # replace the <snapshot_id>
