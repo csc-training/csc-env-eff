@@ -5,188 +5,196 @@ title: Tutorial - Installing a simple C code from source
 
 # Installing a simple C code from source
 
-💬 In this tutorial we install MCL Markov cluster algorithm program to users own [projappl directory](https://docs.csc.fi/computing/disk/) in Puhti.
+💬 In this tutorial we will install the MCL Markov cluster algorithm program to the [`/projappl` directory](https://docs.csc.fi/computing/disk/) of the user on Puhti.
 
-💭 This software would also be available as installation packages (.deb, .rpm) for various Linux distributions, but these can not be used in Puhti. Instead we install it from the source code.
+💭 This software is also available as an installation package (.deb, .rpm) for various Linux distributions, but these can not be used on Puhti. Instead, we install it from the source code.
 
-☝🏻 To follow the instructions, set up environment variable to point to your projects `/projappl` folder:
+☝🏻 To follow the instructions, first set an environment variable pointing to your project's `/projappl` directory:
 
 ```bash
-export PROJAPPL=/projappl/project_xxxx   # replace xxxx to match the project name
+export PROJAPPL=/projappl/<project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-## Obtaining source code
+## Obtaining the source code
 
-1. Move to your `$PROJAPPL` directory, and to your own directory (`$USER`) in it, and create there a new directory called mcl + go there:
+1. Create your own directory under `$PROJAPPL` (if not done already) and move there. Then, create and move to a new directory for the installation:
 
 ```bash
-cd $PROJAPPL
-mkdir $USER  # If not done already
-cd $USER
+mkdir -p $PROJAPPL/$USER
+cd $PROJAPPL/$USER
 mkdir mcl
 cd mcl
 ```
 
-### Download distribution package
+### Downloading a distribution package
 
-{:start="2"}
-2. Download the distribution package:
+1. Download the distribution package:
 
 ```bash
 wget https://micans.org/mcl/src/mcl-latest.tar.gz
 ```
 
-💬 In this case the installation package is a tar-archive file that has been compressed with gzip program. 
+💬 In this case the installation package is a tar-archive file that has been compressed with gzip program.
 
-{:start="3"}
-3. Unpack the file with command:
+{:start="2"}
+2. Unpack the file with the command:
 
 ```bash
 tar -xvf mcl-latest.tar.gz
 ```
 
-💬 After unpacking, the `ls -l` command shows that a new directory called `mcl-14-137` has been created. This directory contains the actual installation files and documentation of the software. 
+💬 After unpacking, the `ls` command shows that a new directory called `mcl-14-137` has been created. This directory contains the actual installation files and documentation of the software.
 
-### Alternative option: Get the sofware from Git
+### Alternative option: Get the software from GitHub
 
-{:start="4"}
-4. You can clone source code from Github:
+1. Clone source code from Github:
 
 ```bash
 git clone https://github.com/JohannesBuchner/mcl.git
 ```
 
-💬 After cloning, the `ls -l` command shows that a new directory called `mcl` has been created. This directory contains the actual installation files and documentation of the software. 
+💬 After cloning, the `ls` command shows that a new directory called `mcl` has been created. This directory contains the actual installation files and documentation of the software.
 
 ## Preparing to install
 
-1. Create a new empty directory called `version-14-137` inside the mcl directory. 
-    - This vill be the actual installation directory.
+1. Create a new directory called `version-14-137` under the mcl directory for the actual installation.
 
 ```bash
 mkdir version-14-137
 ```
 
-2. Go to the `mcl-14-137` (or `mcl` if using git-version) directory and study its content:
+{:start="2"}
+2. Move to the `mcl-14-137` (or `mcl` if cloning from git) directory and study its contents:
 
 ```bash
 cd mcl-14-137
-ls -l
+ls
 ```
 
-💬 Installation packages contain often short installation instructions. Typically this instruction file is called INSTALL or README. 
+💬 Installation packages often contain short installation instructions. Typically, this instructions file is called INSTALL or README.
 
 {:start="3"}
-3. Read the `INSTALL` file to find out how the installation should be done.
+3. Read the `INSTALL` file to learn how the installation should be done.
 
 ```bash
 less INSTALL
 ```
-Move in the file opened with `less` with up and down arrows, and exit with `q`. 
+
+💡 Move in the file opened with `less` with up and down arrows, and exit with `q`.
 
 ## Installation
 
 💬 Many open source software tools are installed using the following three steps:
-1. Building up the so called Makefile with a `./configure` command.
-2. Running `make` command that compiles the source code according to the instructions in Makefile
-3. Installing the compiled executables with command `make install`
 
-💭 Normally the installation packages assume that the user has permissions to install the software to the locations where the standard linux commands and programs normally get installed. 
-- However, at CSC this is not the case. You can install software only to your own disk areas. 
-- Often you can use option `--prefix=/path/` to tell to the configure command, where to the program should be installed. 
+1. Configuring a so called Makefile with a `./configure` command.
+2. Running the `make` command that compiles the source code according to the instructions in Makefile
+3. Installing the compiled executables with the command `make install`
 
-💭 The `./configure` command checks that all the compilers and libraries that the software needs, are available. 
-- It is not uncommon that `./configure` reports about missing libraries or incorrect compilation options. 
-- In those cases, you can check if the missing library or program can be taken in use with the module system. 
+💭 Normally, installation packages assume that the user has the required permissions to install the software to the locations where Linux binaries and libraries normally get installed.
 
-🗯 CSC environment has several compiler and program versions available.     
-- In some cases you may for example need to use a certain C-compiler or python version in order to install the software. Try
-with different versions. 
-- If you still fail with the installation, ask help from the HelpDesk of CSC.
+- However, at CSC this is not the case. You can install software only to your own (or project's) disk areas.
+- Often you can use the option `--prefix=<path>` to tell to the `configure` script where the program should be installed (replacing `<path>` with the actual path).
 
-1. To compile `mcl` we choose `gcc` environment. (19th Dec 2022 the newest gcc/11.3.0 version on Puhti isn't compatible with the current latest version of MCL, but gcc/9.4.0 works.)
+💭 The `./configure` command checks that all compilers and libraries that the software needs are available.
+
+- It is not uncommon that `./configure` reports about missing libraries or incorrect compilation options.
+- In such cases you should check if the missing library or program could be made available by loading a suitable module.
+
+🗯 The CSC computing environment has several compiler versions and HPC libraries available.
+
+- In some cases you may, for example, need to use a specific C compiler or Python version in order to install a software. Read the compilation instructions carefully and try different versions if needed.
+- If the compilation still fails, don't hesitate to ask for help from the [CSC Service Desk](https://docs.csc.fi/support/contact/).
+
+1. To compile `mcl`, load the GNU C compiler (`gcc`) version 9.4.0:
 
 ```bash
 module load gcc/9.4.0
 ```
 
-2. In this case we wish to install the software to the `version-14-137` directory in your $PROJAPPL area, and thus you need to specify the location for the installation with the following command:
+{:start="2"}
+2. In this case we wish to install the software under the `version-14-137` directory in your `$PROJAPPL` area. Thus, you need to specify the custom location for the installation using the `--prefix` option:
 
 ```bash
-./configure --prefix=$PROJAPPL/$USER/mcl/version-14-137  # check that the path corresponds to the location of the installation directory
+./configure --prefix=$PROJAPPL/$USER/mcl/version-14-137   # double check that the path is correct
 ```
 
-3. Compile and install the software with commands:
+{:start="3"}
+3. Compile and install the software with the commands:
 
 ```bash
 make
 make install
 ```
 
-4. If `make` and `make install` commands don't give any error messages, you have successfully installed your software. 
+☝🏻 If you intend to compile software packages larger than the rather small MCL example used here, please use the fast local disk (`$TMPDIR`) to avoid stressing the parallel file system. Compiling complex applications typically cause a lot of I/O load.
 
-💭 Typically the executables, i.e. the compiled programs that can be launched, are stored to a subdirectory called `bin`. 
+{:start="4"}
+4. If the `make` and `make install` commands don't give any error messages, you have successfully installed your software!
+
+💭 Typically, the executables/binaries, i.e. the compiled programs that can be launched, are stored in a subdirectory called `bin`.
 
 {:start="5"}
-5. Check what got installed  with:
+5. Check what binaries were installed with:
 
 ```bash
-ls -l $PROJAPPL/$USER/mcl/version-14-137/bin
+ls $PROJAPPL/$USER/mcl/version-14-137/bin
 ```
 
 ## Running the software
 
-💬 The software is now ready to run, but it is not in your `$PATH`. That means that if you try to run:
+💬 Although the software is now ready to be run, it is not automatically added to your `$PATH`. This means that running:
 
 ```bash
 mcl --help
 ```
-you get an error message `bash: mcl: command not found`.
 
-💬 You need to tell the computer where to find that command. 
+will give an error message `bash: mcl: command not found`.
 
-1. Try running the software by broviding the path for the program, e.g.
+💬 You need to tell the computer where to find that command.
+
+1. Try running the software by providing the full path to the binary, i.e.
 
 ```bash
 $PROJAPPL/$USER/mcl/version-14-137/bin/mcl --help
 ```
 
-2. Add the directory path of your executables to the `$PATH` environment variable. 
-
-- In this case we add path `$PROJAPPL/$USER/mcl/version-14-137/bin` to the `$PATH` variable. This is done with command:
+{:start="2"}
+2. Add the path of the MCL executables to your `$PATH` environment variable. This is done with the command:
 
 ```bash
-export PATH=$PROJAPPL/$USER/mcl/version-14-137/bin:$PATH  ### Remember to check that this path matches to your actual installation path!!!
+export PATH=$PROJAPPL/$USER/mcl/version-14-137/bin:$PATH   # double check that this path matches your actual installation path
 ```
 
-‼️ Note that the first `PATH` word in the command above is without a dollar sign. Also note that we include the current `$PATH` in the end.
-- If we omitted it, the normal shell commands would stop working.
+‼️ When running `export`, note that the variable we are defining (first `PATH`) should *not* have a dollar sign. Also, note that we include the current `$PATH` at the end (*with* a dollar sign).
+
+- If we omit the current path the normal shell commands will stop working.
 
 {:start="3"}
-3. Now you can launch the program you have installed anywhere with simply:
+3. Now you can launch the program you have installed from anywhere with simply:
 
 ```bash
 mcl --help
 ```
 
-💬 Remember that also in the future, when you log in to CSC, the `PATH` variable must be set up before you can use mcl command without providing the path. 
+💬 Remember that the `PATH` variable must be set each time you login to the supercomputer before you can run the `mcl` command without providing the full path.
 
-☝🏻 Also in the batch job files you need to run the correct `export PATH` command above before executing the program you have installed yourself.
+☝🏻 You need to run the correct `export PATH=...` command also in batch job files before launching self-installed programs without the full path.
 
-💡 If you want to make the addition permanent, you can add the `export PATH` command to you `.bashrc` file in your home directory. 
+💡 If you want to make the addition automatically, add the `export PATH=...` command to your `.bashrc` file in your `$HOME` directory.
 
-‼️ Making changes to the `.bashrc` can cause incompatibilities with CSC installed software.
+‼️ Making changes to the `.bashrc` file may cause incompatibilities with software installed by CSC.
 
-💭 If you wish to revert your `.bashrc` (and your environment in general) back to default, you can use the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/).
+💭 If you wish to revert your `.bashrc` file (and your environment in general) back to default, you can use the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/).
+
+💡 Note that loading modules installed by CSC will automatically modify your `$PATH` as needed, so no exports are typically required if you only run pre-installed applications.
 
 ## Cleaning up
 
-1. If the software you have installed works correctly, you can remove the installation package and temporary directories that were used during the compilation. 
-
-- In this case we could remove the `mcl-latest.tar.gz` file and the directory `mcl-14-137`:
+- If the software you have installed works correctly, you can remove the installation package and temporary directories that were used during the compilation.
+- In this case we can remove the `mcl-latest.tar.gz` package and the whole `mcl-14-137` directory:
 
 ```bash
 cd $PROJAPPL/$USER/mcl
 rm mcl-latest.tar.gz
-rm -rf mcl-14-137
+rm -r mcl-14-137
 ```

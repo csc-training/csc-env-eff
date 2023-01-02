@@ -1,93 +1,99 @@
 ---
 topic: installing
-title: Exercise - Installing own C, C++, or Fortran
+title: Exercise - Installing own C, C++, or Fortran programs
 ---
 
-# installing, making and making your own C, C++, or Fortran program in the CSC environment
+# Installing and developing your own C, C++, or Fortran program in the CSC computing environment
 
-## scenario A: you have a code already, you want to install it and run it.
+## Case A: you have the source code, you want to install and run it
 
-- Create a proper directory for your code (the recommended location is in the projappl directory of your project):
-
-```bash
-cd /projappl/project_xxxx/    # replace xxxx
-mkdir dir-name                # replace dir-name
-```
-
-- You need the source files for the code. Download them from e.g. GitHub, or use e.g. [scp](https://docs.csc.fi/data/moving/scp/) to upload e.g. a .zip file to your directory 
-- If your code is compressed with zip, unzip your code:
+1. Create a directory for your code. The recommended location is under the `/projappl` directory of your project:
 
 ```bash
-unzip code-name.zip   # replace code-name.zip 
+cd /projappl/<project>    # replace <project> with your CSC project, e.g. project_2001234
+mkdir myprog
 ```
 
-- Follow any instructions on how to install. Usually the code comes with a `readme` or `install` file for directions how to install.
+{:start="2"}
+2. You need the source files of the code. Depending on the software, you can typically download them from e.g. GitHub. If you have the source code on your own computer, use e.g. [`scp`](https://docs.csc.fi/data/moving/scp/) to upload the data to the supercomputer
+3. If the source files are distributed as a zip file, use unzip to decompress:
 
-### Install scenario A1: the code comes with cmake
+```bash
+unzip filename.zip    # modify the filename accordingly
+```
 
-- Load the module cmake:
+{:start="4"}
+4. Read and follow any instructions on how to install. Usually, the code comes with a `README` or `INSTALL` file outlining the installation procedure.
+
+### Scenario A1: The code uses `cmake`
+
+1. Load the `cmake` module:
 
 ```bash
 module load cmake
 ```
-- Load also any other e.g. libraries that the code needs. Check if these can be found as available modules with: 
+
+{:start="2"}
+2. Download and install external libraries that the code might need. Always check first if these can be found as pre-installed modules (the most common ones are available):
 
 ```bash
-module spider somename   # replace somename
+module spider <modulename>   # replace <modulename>, e.g. fftw
 ```
 
-You can also download and install the needed libraries.
-
-- Create a `build` directory, and go to that directory:
+{:start="3"}
+3. Create and move to a `build` directory in the root of the source code:
 
 ```bash
 mkdir build
 cd build
 ```
 
-- Run cmake with `cmake path-to-source-code`:
+{:start="4"}
+4. Run `cmake` with `cmake /path/to/source/code`:
 
 ```bash
-cmake .. 
+cmake ..
 ```
 
-- If you get error messages, try to fix the problems. If it becomes really messed up, remove all and start again from the .zip file.
-
-- Run `make` to compile the specific codes you want to use:
+{:start="5"}
+5. If you get errors, try to fix the problems. Sometimes it might be easiest to remove everything and start from the beginning, i.e. the `.zip` file
+6. After `cmake`, run `make` to compile the specific applications you want to use:
 
 ```bash
 make
 ```
 
-- Ask help from servicedesk if you really get stuck (mail to: servicedesk@csc.fi)
+{:start="7"}
+7. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck
 
-### Install scenario A2: the code comes with a makefile
+### Scenario A2: The code comes with a Makefile
 
-- `Module load` or install separately any needed libraries. Check for availability as modules with:
-
-```bash
-module spider somename   # replace somename
-```
-
-- Load the module with: 
+1. `module load` or install separately all required libraries. Check for availability of modules with:
 
 ```bash
-module load name-of-module   # replace name-of-module
+module spider <modulename>    # replace <modulename>, e.g. fftw
 ```
 
-- Edit the `makefile` and replace the compile and link commands with proper ones for [Mahti](https://docs.csc.fi/computing/compiling-mahti/) or [Puhti]( https://docs.csc.fi/computing/compiling-puhti/)
+{:start="2"}
+2. Load the library module with:
 
-- Run the commands `make` (and `make install`)
+```bash
+module load <modulename>/<version>   # replace <modulename>/<version>, e.g. fftw/3.3.10-mpi
+```
 
-- Read the error messages and try to fix the possible issues
+{:start="3"}
+3. Edit the `Makefile` manually or by running `./configure` to replace compile and link commands with proper ones for [Mahti](https://docs.csc.fi/computing/compiling-mahti/) or [Puhti](https://docs.csc.fi/computing/compiling-puhti/)
+4. Run the command `make` to compile and `make install` to install. Custom installation location is typically specified with the `--prefix` option of the `configure` script
+5. Read any error messages and try to fix the possible issues
+6. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck
 
-- Ask help from servicedesk if not successfull (mail to: servicedesk@csc.fi)
+## Case B: You want to write your own code
 
-## Scenario B: you want to write your own code
- - You need [an editor](https://docs.csc.fi/support/tutorials/env-guide/text-and-image-processing/)
- - Launch an editor and write the code
- - Compile your code [on Puhti](https://docs.csc.fi/computing/compiling-puhti/), and [on Mahti](https://docs.csc.fi/computing/compiling-mahti/)
- - Fix bugs until compiler accepts code
- 
+1. You need [an editor](https://docs.csc.fi/support/tutorials/env-guide/text-and-image-processing/)
+2. Launch an editor and write the code. If not developing locally, consider using the [Puhti web interface](https://www.puhti.csc.fi) and e.g. [VSCode](https://docs.csc.fi/computing/webinterface/vscode/)
+3. Compile your code [on Puhti](https://docs.csc.fi/computing/compiling-puhti/) or [on Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+4. Fix bugs until compiler accepts code
+
 ## Exercise
- - Write your own simple code, compile it if necessary and run it.
+
+- Write your own simple C/C++/Fortran code, compile it and run it.

@@ -1,113 +1,119 @@
 ---
 topic: installing
-title: Tutorial - Installing binary applictions (essential)
+title: Tutorial - Installing binary applications (essential)
 ---
 
 # Installing binary applications
 
-💬 In some cases the software developers offer ready-made binary versions of their software. 
+💬 In some cases software developers offer ready-made binary versions of their software.
+
 - If the binary version runs, you don't need to compile the software yourself.
 
 ☝🏻 It should be noted that ready binary versions are typically not optimized for CSC supercomputers.
-- The difference in performance will depend on the code, and on how the application was compiled. 
+
+- The performance difference will depend on the code and on how the application was compiled.
 - Often the difference is just a few percent, but in some cases it can be more substantial.
 
 ‼️ Especially all MPI codes need to be compiled on the machine they will be run on to ensure correct operation.
 
-## Make the installation in your own folder in the projappl directory of your project
+## Make the installation in your own folder in the `/projappl` directory of your project
 
-1. Move to the projappl directory of your project:
-
-```bash
-cd /projappl/project_xxxx/   # replace xxxx with your project number
-```
-
-2. If not done already, create an own folder in the project projappl directory:
+1. Move to the `/projappl` directory of your project:
 
 ```bash
-mkdir $USER
+cd /projappl/<project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
+{:start="2"}
+2. If not done already, create your own folder under your project's `/projappl` directory:
+
+```bash
+mkdir -p $USER
+```
+
+{:start="3"}
 3. Move to your folder:
 
 ```bash
 cd $USER
 ```
 
-## Example: Installing GCTA software
+## Example: Installing the GCTA software
 
-💬 In this example we install the binary release of GCTA software.
+💬 In this example we'll install the binary release of the GCTA software.
 
 1. Go to the [GCTA download page](https://yanglab.westlake.edu.cn/software/gcta/#Download).
-
-2. Identify the Linux version. 
-    - If several Linux version are offered, try find one with "x86" in the name.
-    - If version are offered by Linux distribution, try first the versions made for CentOs or RedHat if present. 
+2. Identify the Linux version.
+    - If several Linux versions are offered, try to find one with "x86" in the name.
+    - If versions are offered by Linux distribution, try first the versions made for CentOS or RedHat if present.
     - Sometimes you may have to try different versions to find one that works.
-
-3. Here is the link for the Linux version (accessed 16.12.22). Download the zip file by typing:
+3. Here is the link for the Linux version (accessed 2022-12-16). Download the zip file by running:
 
 ```bash
 wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.1-linux-kernel-3-x86_64.zip
 ```
 
-4. Open the zip file:
+{:start="4"}
+4. Unzip the file:
 
 ```bash
 unzip gcta-1.94.1-linux-kernel-3-x86_64.zip
 ```
 
-5. The software is now ready to use, but you will have to tell the computer where to find it. 
-
-- Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
+{:start="5"}
+5. The software is now ready to use, but you will have to tell the computer where to find it.
+6. Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
 
 ```bash
 gcta-1.94.1
 ```
 
-6. Try instead:
+{:start="7"}
+7. Try instead:
 
 ```bash
 gcta-1.94.1-linux-kernel-3-x86_64/gcta-1.94.1
 ```
 
-- Or:
+{:start="8"}
+8. Or:
 
 ```bash
 cd gcta-1.94.1-linux-kernel-3-x86_64
 ./gcta-1.94.1
 ```
 
-7. The result shows that the software runs.
-    - The error message is just about missing arguments which is normal. 
+{:start="9"}
+9. The result shows that the software runs.
+    - The error message is just about missing arguments which is normal.
 
-💬 Instead of providing the path in the command line, you can also add the application to `$PATH`. 
+💬 Instead of providing the full path in the command line, you can also add the application to your `$PATH`.
 
-{:start="8"}
-8. Change folder into `./gcta-1.94.1-linux-kernel-3-x86_64` if not there yet!
-
-9. To add the current directory to `$PATH`:
+{:start="10"}
+10. Move to `./gcta-1.94.1-linux-kernel-3-x86_64` if not there yet.
+11. Add the current working directory to `$PATH`:
 
 ```bash
 export PATH=$PWD:$PATH
 ```
 
-10. You should now be able to run the program from any directory with simply:
+{:start="12"}
+12.  You can now run the program from any directory simply with:
 
 ```bash
-cd ..
 gcta-1.94.1
 ```
 
-## Some notes: 
-💡 When adding paths to `$PATH`, always remember to include the current `$PATH`, or some of your normal shell commands etc. will stop working.
+## Some notes
 
-☝🏻 To make the addition permanent, you can add the `export` command to your `$HOME/.bashrc`file. Instead of `$PWD` use the full path, something like:
+💡 When adding paths to `$PATH`, always remember to append the current `$PATH`, otherwise some of your normal shell commands etc. will stop working.
+
+☝🏻 To add paths automatically, you can add the `export` command to your `$HOME/.bashrc` file. Instead of `$PWD`, use the full path:
 
 ```bash
-export PATH=/projappl/project_xxxx/$USER/gcta-1.94.1-linux-kernel-3-x86_64:$PATH   # replace xxxx with your project number
+export PATH=/projappl/<project>/$USER/gcta-1.94.1-linux-kernel-3-x86_64:$PATH   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-‼️ If you make changes to your environment (e.g. edit `.bashrc`), it is possible that there will be conflicts with CSC installed applications.
+‼️ If you make changes to your environment (e.g. edit `.bashrc`), it is possible that there will be conflicts with applications pre-installed by CSC.
 
-💭 If you have problems after making changes to your environment, it is possible to restore it to default state permanently or temporarily using the [csc-env command](https://docs.csc.fi/support/tutorials/using_csc_env/)
+💭 If you encounter problems after modifying your environment, it is possible to restore it to the default state permanently or temporarily using the [`csc-env` command](https://docs.csc.fi/support/tutorials/using_csc_env/).

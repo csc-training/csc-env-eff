@@ -1,18 +1,20 @@
 ---
 topic: installing
-title: Tutorial - Installing R applictions and libraries
+title: Tutorial - Installing R applications and libraries
 ---
 
 # R
 
-💬 Puhti has currently one version of R available as module (19 Dec 2022).
+💬 A pre-installed R environment is available on Puhti.
 
-1. To check available versions, use:
+1. To check available module versions, run:
 
 ```bash
 module spider r-env
 ```
 
-💬 It is also possible to install your own R packages.
+💬 It is also possible to [install your own R packages](https://docs.csc.fi/apps/r-env/#r-package-installations).
 
-💡 See the [r-env](https://docs.csc.fi/apps/r-env/) documentation for instructions.
+- However, check first if what you need is already available in `r-env`. The module contains more than 1300 R packages!
+
+💡 See the [r-env documentation](https://docs.csc.fi/apps/r-env/) for further instructions.

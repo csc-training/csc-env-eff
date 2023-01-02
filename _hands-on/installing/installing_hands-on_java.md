@@ -1,84 +1,87 @@
 ---
 topic: installing
-title: Tutorial - Installing Java applictions
+title: Tutorial - Installing Java applications
 ---
 
 # Installing Java applications (on Puhti)
 
-💬 Java applications do not typically require special installation. 
+💬 Java applications do not typically require special installation.
 
-- You just need to download the distribution package, typically a .jar file.
+- You just need to download the distribution package, typically a `.jar` file.
 
-💡 Compute nodes do not have default java installation, so you need to load a suitable java module. 
+💡 Compute nodes do not have a default Java installation, so you need to load a suitable Java module.
 
-You can check the available modules with command:
+You can check the available modules with the command:
 
 ```bash
 module spider java
 ```
 
-💬 Despite their name, modules named `biojava` are just normal java installations, and can be used with any software, not just bio applications.
+💬 Despite their name, modules named `biojava` are just normal Java installations, which can be used with any software, not just bio applications.
 
-☝🏻 Some java applications fail to run on the login nodes. Try running them using `sinteractive` instead. 
+☝🏻 Some java applications fail to run on the login nodes. Try running them using `sinteractive` instead.
 
-‼️ Naturally no compute heavy tasks should be run on the login nodes.
+‼️ Naturally, computationally heavy tasks should never be run on the login nodes.
 
-💡 The compute nodes have very limited /tmp space. If you have to set the temporary file location for a Java application, you can use:
+💡 The compute nodes have very limited `/tmp` space. If you have to set the temporary file location for a Java application, you can use:
 
 ```bash
-export _JAVA_OPTIONS=-Djava.io.tmpdir=/path/to/tmp   # Replace with actual path.
+export _JAVA_OPTIONS=-Djava.io.tmpdir=/path/to/tmp   # replace with the actual path 
 ```
 
 ## Example: Installing ABRA2
 
-💬 In this example we install and run java application ABRA2.
+💬 In this example we'll install and run the Java application ABRA2.
 
-1. Move to the projappl-directory of your project, create a personal folder (if not done already) and move there, and create (and move to) a new directory for the installation:
+1. Create a personal folder (if not done already) under your project's `/projappl` directory and move there. Then create (and move to) a new directory for the installation:
 
 ```bash
-cd /projappl/project_xxxx/   # replace xxxx
-mkdir $USER
+cd /projappl/<project>   # replace <project> with your CSC project, e.g. project_2001234
+mkdir -p $USER
 cd $USER
 mkdir abra2
 cd abra2
 ```
 
+{:start="2"}
 2. Download the software:
 
 ```bash
 wget https://github.com/mozack/abra2/releases/download/v2.24/abra2-2.24.jar
 ```
 
-3. Load java module:
+{:start="3"}
+3. Load a Java module:
 
 ```bash
 module load biojava
 ```
 
-💡 If you get error messages or warnings about java version, try loading another java module.
+💡 If you get error messages or warnings about the Java version, try loading another Java module.
 
+{:start="4"}
 4. Run the application:
 
 ```bash
 java -jar abra2-2.24.jar
 ```
 
-💡 If you are not in the same directory as the .jar file, you need to include the path to the file, e.g.
+💡 If you are not in the same directory as the .jar file, you need to include the full path to the file, e.g.
 
 ```bash
-java -jar /projappl/project_xxxx/$USER/abra2/abra2-2.24.jar   # replace xxxx and check that the path corresponds to the actual path
+java -jar /projappl/<project>/$USER/abra2/abra2-2.24.jar   # replace <project> with your CSC project, e.g. project_2001234, and ensure that the path corresponds to the true path
 ```
 
-## Example 2: Java application with shell wrapper script
+## Example 2: Java application with a shell wrapper script
 
-💬 Some java applications come with shell scripts that are used to launch them instead of calling java directly. You should see the documentation for each softaware for details.
+💬 Some Java applications come with shell scripts that are used to launch them instead of calling Java directly. See the documentation of each software for details.
 
-One example of such application:
+💡 One example of such an application is BEAST:
 
 ```bash
-sinteractive --account project_xxxx   # Replace xxxx to match your project number
+sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
 module load beast
 beast -help
 ```
 
-☝🏻 BEAST will fail to run on the login nodes. Try running it using `sinteractive` instead.
+☝🏻 BEAST will fail to run on the login nodes. Try running it in an interactive session instead (using `sinteractive`).
