@@ -23,7 +23,7 @@ module list
 
 ## More module commands with Gromacs-module as an example 
 
-💬 Let's imagine that you want to do some molecular dynamics simulations with [Gromacs](http://www.gromacs.org/About_Gromacs) application. 
+💬 Let's imagine that you want to do some molecular dynamics simulations with [Gromacs](https://www.gromacs.org/about.html) application. 
 - Always a good idea to start by checking [the application list at Docs](https://docs.csc.fi/apps/) to see whether this application is installed at Puhti, and how to use it. 
 
 1. Check out the [Gromacs guide page](https://docs.csc.fi/apps/gromacs/) 
