@@ -1,9 +1,9 @@
 ---
 topic: singularity
-title: Exercise - Creating Apptainer (formerly singularity) containers
+title: Exercise - Creating Apptainer (formerly singularity) Containers
 ---
 
-# Creating Apptainer containers
+# Creating Apptainer Containers
 
 This is an extra exercise. It can not be run in Puhti. You will need  access
 to a computer or a virtual machine where you have sudo rights and that has
