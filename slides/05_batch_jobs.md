@@ -89,7 +89,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - Use these as the *starting point* for your own scripts
 - They have been tested and optimized (although for minimal resources) for _that_ application
    - Consult the official manual or other examples to adapt to your own needs
-   - Ask for advice and help: servicedesk@csc.fi
+   - Ask for support: <servicedesk@csc.fi>
 
 </div>
 
