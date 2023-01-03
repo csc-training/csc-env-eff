@@ -70,7 +70,7 @@ sinteractive --account project_xxxx   # Change the xxxx for the project number
 
 💡 For more information on batch jobs, please see [CSC Docs pages](https://docs.csc.fi/computing/running/getting-started/).
 
-### Apptainer runs
+### Apptainer run
 💬 When containers are created, a standard action, called the `runscript` is defined. Depending on the container, it may simply print out a message, or it may launch a program or service inside the container. 
 
 💭 If you are using a container created by somebody else, you will need to check the documentation provided by the creator for details.
@@ -95,7 +95,7 @@ sinteractive --account project_xxxx   # Change the xxxx for the project number
     ```bash
     apptainer shell tutorial.sif
     ```
-2. You can see the command prompt change to `apptainer>`. You can now run any software inside the container interactively:
+2. You can see the command prompt change to `Apptainer>`. You can now run any software inside the container interactively:
     ```bash
     hello_world
     ```
