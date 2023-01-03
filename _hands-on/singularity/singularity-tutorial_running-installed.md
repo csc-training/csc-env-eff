@@ -11,7 +11,7 @@ title: Tutorial - Running applications installed as containers
 - In many cases we have tried to "hide" the container behind wrapper scripts so that there is no change in the usage from the user perspective.
 
 💭 Sometimes, however, this is not practical, and in these cases, there can be some differences compared to the standard usage as described in the software documentation. 
-- Typically, this involves prefixing the commands with `apptainer_exec`. 
+- Please see CSC documentation for each software for details
 - This will also typically be the case for software you install yourself as a container.
 
 ‼️  See the CSC documentation for each application to check any changes or considerations.
