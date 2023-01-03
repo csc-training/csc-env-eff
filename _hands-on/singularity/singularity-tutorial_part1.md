@@ -20,7 +20,7 @@ sinteractive --account project_xxxx   # Change the xxxx for the project number
     wget  https://a3s.fi/saren-2001659-pub/tutorial.sif
     ls -lh tutorial.sif
     ```
-3. As you can see, the container is a single file. In this case, the container is very bare-bones, and thus quite small, about 50 MB. 
+3. The file we downloaded is a container image. It contains all the software and data of the container in a single file. In this case, the container is very bare-bones, and thus quite small, about 50 MB. 
     - Actual application containers are typically larger, since they also contain the software installation, and may in some cases include some reference data, etc.
 
 ## Basic usage
