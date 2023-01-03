@@ -21,7 +21,7 @@ title: Tutorial - Running applications installed as containers
 sinteractive --account project_xxxx   # Change the xxxx for the project number
 ```
 
-## Example 1: A "hidden" installation
+## Example : A "hidden" installation
 
 {:start="2"}
 2. One example of a container-based installation that has been "hidden" behind a wrapper script is R:
@@ -38,17 +38,4 @@ sinteractive --account project_xxxx   # Change the xxxx for the project number
 module load cutadapt
 cutadapt -h
 ```
-
-## Example 2: Installation requiring special commands
-
-💬 `Zonation` is one example of software that will require you to add a prefix command with "apptainer_exec".
-
-{:start="2"}
-2. So instead of, e.g., `zig4 --help`, you will need to use:
-    ```bash
-    module load zonation
-    apptainer_wrapper exec zig4 --help
-    ```
-
-💭 You can see more details about the software in the [Docs page for Zonation](https://docs.csc.fi/apps/zonation).
 
