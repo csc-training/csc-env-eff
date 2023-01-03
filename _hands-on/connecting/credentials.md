@@ -1,6 +1,6 @@
 ---
 topic: connecting
-title: Tutorial - Getting a CSC account and project (essential)
+title: Tutorial - Start with getting a CSC account and project (essential)
 ---
 
 # Get a CSC account and a project
