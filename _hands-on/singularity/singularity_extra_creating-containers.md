@@ -1,26 +1,26 @@
 ---
 topic: singularity
-title: Exercise - Creating singularity containers
+title: Exercise - Creating Apptainer (formerly singularity) Containers
 ---
 
-# Creating singularity containers
+# Creating Apptainer Containers
 
 This is an extra exercise. It can not be run in Puhti. You will need  access
 to a computer or a virtual machine where you have sudo rights and that has
-Singularity 3.x installed.
+Apptainer (v1.1.x) installed.
 
-In this tutorial we create a Singularity container, and install the same software
+In this tutorial we create a Apptainer container, and install the same software
 as we installed in the tutorial 
 [Installing a simple C code from source](..\installing\installing_hands-on_c.md).
 You can see that tutorial for more information on the installation
 commands.
 
-In this tutorial we only cover the basics. Detailed instructions can be found
-in the [Singularity manual](https://sylabs.io/guides/3.7/user-guide).
+In this tutorial we only cover apptainer basics. Detailed instructions can be found
+in the [Apptainer manual](https://apptainer.org/docs/user/latest/quick_start.html).
 
 ## Sandbox mode
 
-One way to create a Singularity container is to do it in so-called sandbox
+One way to create an apptainer container is to do it in so-called sandbox
 mode. Instead of an image file, we create a directory structure
 representing the file system of the container. 
 
@@ -43,7 +43,7 @@ Include: yum
 ```
 We then use that definition file to build the container:
 ```bash
-sudo singularity build --sandbox mcl centos.def
+sudo apptainer build --sandbox mcl centos.def
 ```
 Note that instead of an image file, we created a directory called `mcl`. If
 you need to include some reference files etc, you can copy them to correct subfolder.
@@ -51,9 +51,9 @@ you need to include some reference files etc, you can copy them to correct subfo
 We can then open a shell in the container. We need the container file system 
 to be writable, so we include option `--writable`:
 ```bash
-sudo singularity shell --writable mcl
+sudo apptainer shell --writable mcl
 ```
-The command prompt should now be `singularity>`
+The command prompt should now be `Apptainer>`
 
 If there is a need to make the container as small as possible, we should only
 install the dependencies we need. Usually the size is not that critical, so we may
@@ -105,7 +105,7 @@ rm -rf mcl-*
 ```
 We can also add a runscript:
 ```bash
-echo 'exec /bin/bash "$@"' >> /singularity
+echo 'exec /bin/bash "$@"' >> /apptainer
 ```
 We can now exit the container:
 ```bash
@@ -115,11 +115,11 @@ In order to run the container without sudo rights we need to build
 a production image from the sandbox:
 
 ```bash
-sudo singularity build  mcl.sif mcl
+sudo apptainer build  mcl.sif mcl
 ```
 We can now test it. Note that we no longer need `sudo`:
 ```bash
-singularity exec mcl.sif mcl --version
+apptainer exec mcl.sif mcl --version
 ```
 
 ## Definition file
@@ -159,8 +159,8 @@ If you need to include any files in the container they go to `%files`.
 Runscript goes to `%runscript`.
 
 There are also other sections available as necessary. More information can be found in the
-[Definition file chapter](https://sylabs.io/guides/3.7/user-guide/definition_files.html#)
-of the Singularity manual
+[Definition file chapter](https://apptainer.org/docs/user/latest/definition_files.html)
+of the Apptainer manual
 
 The final definition file will look like this:
 ```text
