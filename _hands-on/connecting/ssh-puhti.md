@@ -1,28 +1,28 @@
 ---
 topic: connecting
-title: Tutorial - Login to Puhti with browser or SSH (essential)
+title: Tutorial - Login to Puhti with a browser or SSH (essential)
 ---
 
 # Log in to Puhti
 
 > ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/). Note that there's a small delay before one can login to Puhti after creating a new project and adding services.
 
-## Puhti Web Interface
+## Puhti web interface
 
-💬 Connecting via the Puhti Web Interface is an easy way to access the Puhti supercomputer.
+💬 Connecting via the Puhti web interface is an easy way to access the Puhti supercomputer.
 
-1. Open a web browser and go to [www.puhti.csc.fi](https://www.puhti.csc.fi)
+1. Open a web browser and go to <https://www.puhti.csc.fi>
 2. Login with your CSC account
-3. You have connected to Puhti
+3. You have now connected to Puhti!
 
-💡 From the top menus you can e.g. access your files and open some applications.
+💡 From the top menus you can *e.g.* access your files and open some applications or a command-line interface
 
-## Connecting with SSH from the Command Line
+## Connecting with SSH from the command-line
 
 💬 The basic Command Line Interface (CLI) in Unix-based systems is the Terminal. Find the Terminal on your computer:  
 ![terminal-icon](../../slides/img/terminal_icon1.png)
 
-💡 Different operating systems have slightly different CLIs and SSH-clients (programs that you can use for connecting to the supercomputers).
+💡 Different operating systems have slightly different CLIs and SSH-clients (programs that you can use to connect to the supercomputers).
 
 ### Connecting from Linux
 
@@ -50,18 +50,19 @@ ssh cscusername@puhti.csc.fi
 {:start="2"}
 2. Scroll down to [In Puhti](#in-puhti)
 
-### Connecting from Windows10
+### Connecting from Windows
 
-💬 On Windows 10, you have different options:
+💬 On Windows you have different options:
 
+- You can use the [Puhti web interface](https://www.puhti.csc.fi) to connect with your browser ([see above](#puhti-web-interface))
 - You can use the *Windows Power Shell*
 - You can [download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - You can [download and install MobaXterm](https://mobaxterm.mobatek.net/download.html).
 
-‼️ In this tutorial, we assume you use MobaXterm. [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
+‼️ The following steps assume you use MobaXterm. [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
 
-1. Launch MobaXterm from the applications list (opens from the windows logo) or search for it in the bottom bar search box.
-2. Click "SSH" icon at top left corner.
+1. Launch MobaXterm from the applications list (opens from the Windows logo), or search for it in the bottom bar search box.
+2. Click the "SSH" icon in the top left corner.
 3. In the Basic SSH settings section Remote host field write "puhti.csc.fi"
 4. Tick the "specify username" box and in the box write your CSC username (leave port in the default setting 22).
 5. Click "OK" at the bottom.
@@ -114,21 +115,21 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 ### Remote graphics
 
-💬 By default remote graphics may not work. Try the following if you want to use any graphical tools in Puhti.
+💬 Remote graphics may not work by default. Try the [Puhti web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications. Another option is to enable X11-tunneling as follows.
 
-#### In Linux/macOS
+#### On Linux/macOS
 
-1. Add X11-tunneling to your ssh-connection by adding `-X` or `-Y` to your command like this (replace `cscusername` with your CSC username):
+1. Add X11-tunneling to your SSH connection by adding `-X` or `-Y` to your `ssh` command like this (replace `cscusername` with your CSC username):
 
 ```bash
 ssh -X cscusername@puhti.csc.fi
 ```
 
-#### In Windows
+#### On Windows
 
 1. MobaXterm will actually tunnel the connection by default.
 
-☝🏻 For intensive remote graphics we recommend using the [Web Interface](https://www.puhti.csc.fi/).
+☝🏻 For intensive remote graphics we recommend using the [Puhti web interface](https://www.puhti.csc.fi/).
 
 ## More information
 
