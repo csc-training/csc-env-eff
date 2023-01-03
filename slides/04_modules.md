@@ -13,7 +13,7 @@ The same information can be found in [the module section of Docs CSC](https://do
 </div>
 <div class="column">
 <small>
-All materials (C) 2020-2023 by CSC - IT Center for Science Ltd.
+All materials (c) 2020-2023 by CSC – IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-ShareAlike** 4.0
 Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
