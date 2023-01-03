@@ -89,7 +89,7 @@ sinteractive --account project_xxxx   # Change the xxxx for the project number
     apptainer inspect --runscript tutorial.sif
     ```
 
-### Singularity shell
+### Apptainer shell
 
 1. Open a shell inside the container. 
     ```bash
