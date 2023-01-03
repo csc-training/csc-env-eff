@@ -7,9 +7,9 @@ title: Tutorial - Basic file editing
 
 > ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
-> ☝🏻 You should also have already [logged in to Puhti with ssh](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
+> ☝🏻 You should also have already [logged in to Puhti with SSH](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
 
-> ☝🏻 Note: For graphical output to work you need to log in with `ssh -X cscusername@puhti.csc.fi`
+> ☝🏻 Note: For graphical output to work you need to log in with `ssh -X cscusername@puhti.csc.fi`. Another option is to use a remote desktop via the Puhti web interface, although this tutorial assumes you are working with SSH and X11-tunneling.
 
 In the [previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-linux-commands.html) we downloaded a file called `my-first-file.txt`, made a copy of it named `YourName-first-file.txt`, and now we practice how to edit it!
 
@@ -76,10 +76,12 @@ nano YourName-markdown-file.md
 2. In the text file, write something (*e.g.* instructions for others how to replicate your file creation process), then save and close.
     - May I interest you with the [basic Markdown guide](https://www.markdownguide.org/basic-syntax/)?
 3. Use `pwd` and copy the path of your current working directory
-4. Copy the text file to your personal computer for example with `scp` ‼️ Note: The following has to be typed in your personal computer's terminal:
+4. Copy the text file to your personal computer for example with `scp`
+
+‼️ Note: The following has to be typed in your personal computer's terminal (not Puhti):
 
 ```bash
-scp cscusername@puhti.csc.fi:/path/to/your/workdir/filename.md /path/to/local/folder
+scp cscusername@puhti.csc.fi:/path/to/your/filename.md /path/to/local/folder
 ```
 
 {:start="5"}
@@ -89,4 +91,4 @@ scp cscusername@puhti.csc.fi:/path/to/your/workdir/filename.md /path/to/local/fo
 
 💡 You can read more about `scp` and moving files from [Docs CSC: Copying files using scp](https://docs.csc.fi/data/moving/scp/)
 
-💬 One way to display `html` files on Puhti is to go through the Allas object storage service. After configuring Allas there's a-commands which enable publishing files on the internet. This is instructed in the [Allas-tutorial](https://csc-training.github.io/csc-env-eff/hands-on/allas/tutorial_allas-file-transfer.html).
+💬 One way to display `html` files on Puhti is to go through the Allas object storage service. After configuring Allas there's `a-commands` which enable publishing files on the internet. This is instructed in the [Allas tutorial](https://csc-training.github.io/csc-env-eff/hands-on/allas/tutorial_allas-file-transfer.html).

@@ -3,9 +3,9 @@ theme: csc-eurocc-2019
 lang: en
 ---
 
-# CSC Account and Project {.title}
+# CSC Accounts and Projects {.title}
 
-This topic is about what CSC accounts and projects are for and how to manage them.
+This topic explains what CSC accounts and projects are and how to manage them.
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
@@ -18,24 +18,24 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
-# CSC Account
+# CSC account
 
 - A CSC account identifies you as a CSC user
-- With the accout, you can join projects and access resources
+- With the account, you can join projects and access resources
 - Check out the [tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/credentials.html) and the [documentation](https://docs.csc.fi/accounts/)
-- Remember to keep your account alive by setting the password once a year
+- Remember to keep your account alive by changing your password once a year
 - Never share your account or send the password to anyone
 
-# CSC Project
+# CSC project
 
-- CSC Projects are used for managing access to CSC services and resources
+- CSC projects are used for managing access to CSC services and resources
 - Each project has its own disk quotas and billing unit quota
 - Every project has a project manager and members
     - [Prerequisites and responsibilities of a project manager](https://www.csc.fi/en/prerequisites-for-a-project-manager)
 - Every CSC user also has a _personal_ project which is only for technical purposes
     - The personal project is not meant for submitting jobs
-    - All usage (e.g., batch jobs) needs to be done with CSC Projects (aka computing projects)
-    - [FAQ on how to find info on your projects](https://docs.csc.fi/support/faq/how-to-find-information-about-projects/)
+    - All usage (e.g. batch jobs) needs to be done with CSC projects (a.k.a. computing projects)
+    - [FAQ on how to find info about your projects](https://docs.csc.fi/support/faq/how-to-find-information-about-projects/)
 
 # Project lifetime and management
 
@@ -49,9 +49,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Billing units
 
 - CPU time and storing files consume "Billing units" (BU)
-- BUs are tied to CSC projects (not personal) and can be applied via [my.csc.fi](https://my.csc.fi)
+- BUs are tied to CSC projects (not personal) and can be applied via <https://my.csc.fi>
    - Academic usage has been paid for by the Ministry of Education and Culture and is thus free of charge
-      - [Read more on free-of-charge use cases](https://research.csc.fi/pricing)
+      - [Read more about free-of-charge use cases](https://research.csc.fi/pricing)
+      - [Read more about our solutions for business](https://www.csc.fi/solutions-for-business)
    - All members of a project can [apply for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/)
    - Remember to [acknowledge CSC](https://docs.csc.fi/support/faq/how-to-cite-csc/) in your publications and mention these in your BU application
-- You can estimate [the usage with the billing unit calculator](https://research.csc.fi/pricing)
+- You can estimate [usage with the billing unit calculator](https://research.csc.fi/pricing)

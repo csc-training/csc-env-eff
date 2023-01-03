@@ -3,7 +3,7 @@ theme: csc-eurocc-2019
 lang: en
 ---
 
-# Connecting to CSC Computers {.title}
+# Connecting to CSC Supercomputers {.title}
 
 This topic is about how to login to the CSC supercomputers.
 
@@ -18,11 +18,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
-# Login via the Puhti Web Interface
+# Login via the Puhti web interface
 
-- A simple way to log in the Puhti supercomputer is via [www.puhti.csc.fi](https://www.puhti.csc.fi)
+- A simple way to login to the Puhti supercomputer is via <https://www.puhti.csc.fi>
 - Use your CSC username and password
-- The web interface can be used, _e.g._, to launch GUI applications and browse files
+- The web interface can be used, _e.g._, to launch GUI applications, browse files or open a command-line shell
+   - The latter is useful if your computer does not have an SSH client, but you need command-line access to the supercomputer
 - [More in-depth documentation in Docs CSC](https://docs.csc.fi/computing/webinterface/)
 
 # Login with SSH
@@ -31,10 +32,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - It is a versatile main interface to a supercomputer
    - Laptop &harr; Toyota, Supercomputer &harr; F1. F1 needs a specialist interface.
 - Please read this page for an introduction on [how to log in with SSH](https://docs.csc.fi/computing/connecting/)
-   - Mac and Linux come with SSH. On Windows, Powershell can be used, but we recommend applications like MobaXterm, Putty, CMDer
+   - Mac and Linux have SSH. On Windows, Powershell can be used, but we recommend the Puhti web interface, or clients like MobaXterm or PuTTY
    - Note the [prerequisites to be able to access Puhti](https://docs.csc.fi/support/faq/how-to-get-puhti-access/)
 - Plain SSH will not allow displaying remote graphics
-   - Puhti Web Interface is usually best option for this, but can be enabled also by tunneling (additional installations required on Windows, see link above)
+   - Puhti web interface is often best for this, but can be enabled also by X11-tunneling (additional installations required on Windows, see link above)
 
 # Moving files between a local computer and Puhti
 
@@ -46,7 +47,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Sometimes a [GUI tool for transferring files](https://docs.csc.fi/data/moving/graphical_transfer/) is more convenient
    - Nice tools are _e.g._ _FileZilla_ and _WinSCP_ (may require admin privileges)
    - _MobaXterm_ also has a file transfer GUI (Tip: first, set persistent home directory)
-   - Puhti Web Interface can also be used to move files
+   - Puhti web interface can also be used to upload/download files
 
 # Advanced topic: Setting up SSH keys
 
@@ -56,6 +57,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Advanced topic: Developing scripts remotely
 
-- It's possible to use a local editor and push edited files easily into Puhti (or Rahti, ...) via ssh
+- It's possible to use a local editor and push edited files easily into Puhti (or Rahti, ...) via SSH
    - For example, an IDE like _Visual Studio Code_ or a text editor like _Notepad++_
 - Follow these [detailed instructions to set them up](https://docs.csc.fi/support/tutorials/remote-dev/)
+- Note that [Visual Studio Code](https://docs.csc.fi/computing/webinterface/vscode/) and [Jupyter Notebooks](https://docs.csc.fi/computing/webinterface/jupyter/) are also available through the Puhti web interface
