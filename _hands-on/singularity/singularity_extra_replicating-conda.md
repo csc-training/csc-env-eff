@@ -7,7 +7,7 @@ title: Exercise - Replicating a Conda environment
 
 This is an extra exercise. It can not be run in Puhti. You will need  access
 to a computer or a virtual machine where you have sudo rights and that has
-Singularity 3.x installed.
+Apptainer installed.
 
 ## Conda
 Conda is a useful tool for installing software with complex dependencies. 
@@ -72,8 +72,8 @@ From: continuumio/miniconda3
 
 %post
     ENV_NAME=$(head -1 environment.yml | cut -d' ' -f2)
-    echo ". /opt/conda/etc/profile.d/conda.sh" >> $SINGULARITY_ENVIRONMENT
-    echo "conda activate $ENV_NAME" >> $SINGULARITY_ENVIRONMENT
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> $APPTAINER_ENVIRONMENT
+    echo "conda activate $ENV_NAME" >> $APPTAINER_ENVIRONMENT
 
     . /opt/conda/etc/profile.d/conda.sh
     conda env create -f environment.yml -p /opt/conda/envs/$ENV_NAME
