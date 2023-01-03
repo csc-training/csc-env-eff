@@ -108,6 +108,6 @@ sinteractive --account project_xxxx   # Change the xxxx for the project number
 
 💬 This tutorial is meant as a brief introduction to get you started.
 
-☝🏻 When searching the internet for instruction, note that the instructions are for the same version of Apptainer that you are using. There has been some command syntax changes, etc., between the versions, so older instructions may not work with copy-paste. Also note that Apptainer used to be called Singularity. 
+☝🏻 When searching the internet for instruction, note that the instructions are for the same version of Apptainer that you are using. There has been some command syntax changes, etc., between the versions, so older instructions may not work with copy-paste. Also note that Apptainer is formerly known as Singularity. 
 
 💡 For more details, see [Apptainer documentation]([https://apptainer.org/docs/user/latest/](https://apptainer.org/docs/user/latest/)).
