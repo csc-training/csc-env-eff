@@ -24,7 +24,7 @@ Some tips:
   it from the Slurm accounting database. For example,
 
 ```bash
-`sacct -S 2022-11-01 > sacct_output.txt`
+sacct -S 2022-11-01 > sacct_output.txt
 ```
 
 * Work with this file using your favorite tools (e.g. `more` or `less`) to look
@@ -41,7 +41,7 @@ Some things to look for:
 * Take a sample of some parallel jobs (based on the `sacct` output parameters
   you should be able to find representative jobs for each type that you've been
   running recently) and use `seff` to look for the CPU Efficiency.
-* If you used GPUs, did those jobs really use the GPU resource efficiently? (also shown with `seff`)
+* If you requested GPU resources, did those jobs really use the GPUs efficiently? (also shown with `seff`)
 
 Use this information to set the resource requests for similar new jobs. You can
 also look in [My CSC](https://my.csc.fi) for previous (monthly) usage per project.
