@@ -85,14 +85,15 @@ esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 3 [PROT]" | ef
 
 ### Extra exercise for fast ones
 
-1. Align the cellulose synthase 3 set with `mafft`
+{:start="9"}
+9. Align the cellulose synthase 3 set with `mafft`
 
 ```bash
 mafft cesy3.fasta > cesy3_aln.fasta
 ```
 
-{:start="2"}
-2. Study the results:
+{:start="10"}
+10. Study the results:
 
 ```bash
 infoalign cesy3_aln.fasta
@@ -118,7 +119,8 @@ ls
 
 ### Extra exercise for fast ones
 
-1. Study the downloaded file:
+{:start="3"}
+3. Study the downloaded file:
 
 ```bash
 head -20 AKYA02.fasta
