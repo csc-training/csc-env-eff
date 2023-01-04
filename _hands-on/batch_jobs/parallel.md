@@ -10,7 +10,7 @@ title: Tutorial - Parallel batch jobs
 
 💬 A batch job consists of two parts: resource requests and the job step(s)
 
-☝🏻 Examples are done on Puhti
+☝🏻 Examples are done on Puhti. If using the web interface, open a login node shell.
 
 ## Parallel jobs
 

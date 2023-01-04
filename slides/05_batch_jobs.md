@@ -172,3 +172,5 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - If you have a heavier job that still requires interaction
     - Request resources from the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/) using the `sinteractive` command
     - This will open an interactive shell where you can perform your computations directly on a compute node instead of the login node
+- Interactive jobs and GUIs can also be launched in the [Puhti web interface](https://www.puhti.csc.fi)
+    - Jupyter notebooks, RStudio, TensorBoard, MATLAB, VSCode, ...
