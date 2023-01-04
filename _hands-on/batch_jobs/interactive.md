@@ -10,7 +10,9 @@ title: Tutorial - Interactive batch jobs
 
 💬 A job consists of two parts: resource requests and the job step(s)
 
-☝🏻 Examples are done on Puhti
+☝🏻 Examples are done on Puhti. If using the web interface, you can either open a login node shell and follow the steps below or, even better, open a compute node shell directly and skip to step 3.
+
+💡 The benefit of running an interactive session through the Puhti web interface is that the shell is *persistent*, i.e. the session will stay open and any programs started there will keep running even if you would happen to lose internet connection or close the browser tab.
 
 ## Interactive jobs
 

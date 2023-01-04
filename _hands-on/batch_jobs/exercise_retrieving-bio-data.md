@@ -3,128 +3,129 @@ topic: Batch jobs
 title: Exercise - Retrieving data from bio data repositories (advanced)
 ---
 
-# Exercise: Retrieving data from bio repositories
+# Exercise: Retrieving data from bio data repositories
 
-> These exercises cover retrieving data from various commonly used bio data repositories.
+> This exercise covers retrieving data from various commonly used bio data repositories.
 
-- We will do these exercises using the [sinteractive](https://docs.csc.fi/computing/running/interactive-usage/) command:
+1. We will do these exercises in an interactive session launched using the [sinteractive](https://docs.csc.fi/computing/running/interactive-usage/) command:
 
-```text
-sinteractive --account project_xxxx   # replace xxxx with your project number
+```bash
+sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-- To use the applications in steps 2 and 3, we will need to load the biokit module:
+{:start="2"}
+2. Alternatively, open a compute node shell through the [Puhti web interface](https://www.puhti.csc.fi).
+3. To access the applications in parts 2 and 3, we will need to load the `biokit` module:
 
-```text
+```bash
 module load biokit
 ```
 
-- Move to `/scratch` directory area of your project (unless there already):
+{:start="4"}
+4. Create a directory for yourself under the `/scratch` directory of your project and move there:
 
-```text
-cd /scratch/project_xxxx   # replace xxxx with your project number
+```bash
+mkdir -p /scratch/<project>/$USER   # replace <project> with your CSC project, e.g. project_2001234
+cd /scratch/<project>/$USER         # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-- Create a directory for yourself and move to it (unless there already):
+💭 Everyone in a project shares the same `/scratch` directory, so it is a good idea to use subdirectories for each user and task to avoid accidentally deleting or overwriting others' files.
 
-```text
-mkdir $USER
-cd $USER
-```
+🗯 In normal usage it may be a good idea to use the `chmod` command to alter file access rights so that only you have write access to your own subfolder, but please do not do this if you are using a CSC course project, as it will make clean-up after the course harder.
 
-💭 Everyone in a project shares the same `/scratch` directory, so
-it is a good idea to use subdirectories for each user and task, so 
-you won't accidentally delete or overwrite each others files.
+💡 You can find more information about this on the [Disk areas page in Docs CSC](https://docs.csc.fi/computing/disk/).
 
-🗯 In normal usage it may be a good idea to even use `chmod` command 
-to alter file access rights so that only you have write access to
-your own subfolder, but please do not do this if you are using a CSC course project,
-as it would make clean-up after the course harder.
+## 1. Downloading data with `curl`
 
-- You can find more information about this in [Disk areas](https://docs.csc.fi/computing/disk/)
-page in the Docs.
+1. `curl` and `wget` are general tools to download data from an URL.
+2. Download a dataset from internet using `curl` and uncompress it. The dataset contains some *Pythium* genomes with related BWA indexes.
 
-## 1. Downloading data with curl
-
-- `curl` and `wget` are general tools to download data from an URL.
-
-- Download a dataset from internet using `curl` and uncompress it. The dataset contains some *Pythium* genomes with related BWA indexes.
-
-```text
+```bash
 curl https://a3s.fi/course_12.11.2019/pythium.tgz > pythium.tgz
-ls -ltr
+ls
 tar -zxvf pythium.tgz  
-ls -ltr
+ls
 ```
 
 ## 2. Downloading data with NCBI edirect
 
-- Create directory `cellulose_synthase` and move to this new directory:
+1. Create directory `cellulose_synthase` and move to this new directory:
 
-```text
+```bash
 mkdir cellulose_synthase
 cd cellulose_synthase
 ```
 
-- Next we use [NCBI edirect tool](https://docs.csc.fi/apps/edirect/) to retrieve some data.
+{:start="2"}
+2. Next we use the [NCBI edirect tool](https://docs.csc.fi/apps/edirect/) to retrieve some data.
+3. Check how many proteins are found in the NCBI protein database for *Pythium* species (`count` row in the results):
 
-- Check how many proteins are found the NCBI protein databanks for *Pythium* species (`count` row in the results):
-
-```text
+```bash
 esearch -db protein -query "Pythium [ORGN]" 
 ```
-- Then check the number of proteins: **cellulose synthase 1**, **cellulose synthase 2** and **cellulose synthase 3** that are found for *Pythium* species.
 
-- For cellulose synthase 1 this can be done with:
+{:start="4"}
+4. Check the number of proteins for **cellulose synthase 1**, **cellulose synthase 2** and **cellulose synthase 3** that are found for *Pythium* species.
+5. For cellulose synthase 1 this can be done with:
 
-```text
+```bash
 esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 1 [PROT]"
 ```
 
-- Do the same for the other proteins.
+{:start="6"}
+6. Do the same for the other proteins.
+7. Retrieve the cellulose synthase 3 sequences in Fasta format
 
-- Retrive the cellulose synthase 3 sequenses in Fasta format
-
-```text
+```bash
 esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 3 [PROT]" | efetch -format fasta > cesy3.fasta
 ```
 
-- Then run `esearch` command that tells how many **cellulose synthase 3** sequences there are in total in the NCBI protein database?
+{:start="8"}
+8. Run the `esearch` command that tells how many **cellulose synthase 3** sequences there are in total in the NCBI protein database?
 
-### Extra exercises for the fast ones: Align the cellulose synthase 3 set with mafft
+### Extra exercise for fast ones
 
-```text
+1. Align the cellulose synthase 3 set with `mafft`
+
+```bash
 mafft cesy3.fasta > cesy3_aln.fasta
 ```
 
-- And study the results:
+{:start="2"}
+2. Study the results:
 
-```text
+```bash
 infoalign cesy3_aln.fasta
 showalign cesy3_aln.fasta
 ```
 
 ## 3. Downloading with enaDataGet
 
-- Check the options of enaDataGet with command:
+1. Check the options of `enaDataGet` with command:
 
-```text
+```bash
 enaDataGet -h
 ```
 
-- Download a file (Pythium iwayamai genome assembly)
+{:start="2"}
+2. Download a file (Pythium iwayamai genome assembly)
 
-```text
+```bash
 enaDataGet AKYA02000000 -f fasta
 gunzip AKYA02.fasta.gz 
-ls -ltr
+ls
 ```
 
-### Extra exercise for the fast ones: study the downloaded file:
+### Extra exercise for fast ones
 
-```text
+1. Study the downloaded file:
+
+```bash
 head -20 AKYA02.fasta
 tail AKYA02.fasta
-infoseq_summary  AKYA02.fasta
+infoseq_summary AKYA02.fasta
 ```
 
+## 4. Finishing up
+
+1. Close the interactive session when you are done by typing `exit`.
