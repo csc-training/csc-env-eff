@@ -30,7 +30,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # How to access pre-installed software on CSC supercomputers
 
 - You can check the available applications and their respective modules in the [application list](https://docs.csc.fi/apps/)
-   - Each application page in the CSC Docs contains information on basic usage
+   - Each application page in Docs CSC contains information on basic usage
 - You can use `module spider` to search for an application
 - Use the software by loading the module: `module load modulename`
    - For example: `module load gromacs-env`
@@ -68,7 +68,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Do not install Conda environments directly on the Lustre parallel file system, [containerize](https://docs.csc.fi/support/tutorials/singularity-scratch/) them instead using *e.g.* [Tykky](https://docs.csc.fi/computing/containers/tykky/)
    - See the [usage policy](https://docs.csc.fi/computing/usage-policy/#conda-installations) for further details
 - Pre-installed Python packages are available in [Python-related modules](https://docs.csc.fi/apps/python/)
-   - Check the CSC Docs for the available packages and usage instructions 
+   - Check Docs CSC for the available packages and usage instructions 
    - It is not possible to load multiple modules with Python packages at once
    - `pip list` shows a [list of packages](https://pip.pypa.io/en/stable/cli/pip_list/) installed in the current environment
 - Instructions on [how to check installed R libraries](https://docs.csc.fi/apps/r-env/#r-package-installations)
