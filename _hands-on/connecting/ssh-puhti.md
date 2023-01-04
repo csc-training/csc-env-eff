@@ -12,10 +12,13 @@ title: Tutorial - Login to Puhti with a browser or SSH (essential)
 💬 Connecting via the Puhti web interface is an easy way to access the Puhti supercomputer.
 
 1. Open a web browser and go to <https://www.puhti.csc.fi>
-2. Login with your CSC account
+2. Login with your CSC account (or Haka/Virtu)
 3. You have now connected to Puhti!
 
-💡 From the top menus you can *e.g.* access your files and open some applications or a command-line interface
+💭 The Puhti web interface landing page looks like this:  
+![Puhti web interface](../../slides/img/ood.png)
+
+💡 From the pinned apps and top menus you can *e.g.* access your files and open some applications or a command-line interface.
 
 ## Connecting with SSH from the command-line
 
