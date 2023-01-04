@@ -6,9 +6,9 @@ title: Advanced tutorial - Biosoftware in Puhti
 # Biosoftware in Puhti
 
 > In this tutorial you will learn:
-- About the biokit module
-- How to look for applications
-- About the bioconda environment
+- About the `biokit` module
+- How to search for applications
+- How to install Bioconda packages
 
 💬 Let's imagine that we have some sequencing data that we wish to align to a reference genome and check the quality of the alignment.
 
@@ -37,9 +37,9 @@ module load biokit
 module list
 ```
 
-- Was HISAT2 available in the `biokit` environment?
+- Was HISAT2 also available in the `biokit` module?
 
-## Bioconda environment
+## RSeQC
 
 💬 Let's imagine you just did a successful aligning of the sequence data.
 
@@ -60,7 +60,7 @@ module spider rseqc
 bam_stat.py -h
 ```
 
-## Extra: Bioconda
+## Extra: Installing packages from Bioconda
 
 Bioconda is a popular Conda channel for bioinformatics software. It provides an easy method to install thousands of software packages related to biomedical research. Conda environments are, however, problematic on supercomputers with parallel file systems since they create too many files. The solution is to use containerized environments.
 
@@ -74,7 +74,7 @@ module spider metabat2
 
 {:start="2"}
 2. Check whether MetaBAT2 is available in [Bioconda](http://bioconda.github.io) (type metabat2 in the search field):
-3. All packages in Bioconda have a ready-made Docker container image available. While those images could be pulled and used directly, CSC's Tykky container wrapper provides an easy method to install them so that they are usable without any special container commands.
+3. All packages in Bioconda have a ready-made Docker container image available. While those images could be pulled and used directly, CSC's [Tykky container wrapper](https://docs.csc.fi/computing/containers/tykky/) provides an easy method to install them so that they are usable without any special container commands.
 4. On the [Bioconda page](http://bioconda.github.io/recipes/metabat2/README.html) find the command to use Docker (don't run it). In this case:
 
 ```bash
