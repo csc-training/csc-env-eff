@@ -37,6 +37,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Meant for data storage during project lifetime
 - Default quota is 10 TB per project
 - Clients available on Puhti and Mahti
+   - See Docs CSC for instructions on [accessing Allas from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
 
 # Connections to Allas
 
@@ -133,7 +134,7 @@ allas-conf
 - `a-tools` provide an easy and safe way to use Allas for occasional Allas users
 - Default bucket names are based on directories on Puhti/Mahti
 - Unlike `rclone`, `a-tools` does not overwrite or remove data without asking!
-- Developed for the CSC supercomputer, but you can install the tools in other Linux and Mac machines as well
+- Developed for the CSC supercomputers, but you can install the tools in other Linux and Mac machines as well
 - Automatic packing (compression can be enabled as well if needed)
 - [a-commands instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
 

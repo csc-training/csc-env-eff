@@ -7,7 +7,7 @@ title: Tutorial - File backup with Allas
 
 ## Preparations (if not done already)
 
-1. Login to `puhti.csc.fi`
+1. Login to `puhti.csc.fi` (open a login node shell if using the web interface)
 2. In Puhti, check your environment with the command:
 
 ```bash
