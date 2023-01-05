@@ -42,7 +42,7 @@ title: Advanced tutorial - Using SSH keys to authenticate connection
 2. Create the SSH-key in the terminal by typing:
 
 ```bash
-ssh-keygen -t rsa -b 4096
+ssh-keygen -o -a 100 -t ed25519
 ```
 
 {:start="3"}
@@ -64,7 +64,7 @@ ssh-copy-id cscusername@puhti.csc.fi
 2. Create the SSH key in the terminal by typing:
 
 ```bash
-ssh-keygen -t rsa -b 4096
+ssh-keygen -o -a 100 -t ed25519
 ```
 
 {:start="3"}
@@ -107,7 +107,7 @@ And with `zsh`-shell
 
 ## More information
 
-💭 More in-depth [step-by-step instructions in CSC docs.](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
+💭 More in-depth [step-by-step instructions in Docs CSC](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys).
 
 ‼️ If you make changes to your environment (e.g. edit `.bashrc`) in CSC supercomputers, it is possible that there will be conflicts with applications installed by CSC.
 
