@@ -3,132 +3,171 @@ topic: allas
 title: Tutorial - File transfer with Allas (essential)
 ---
 
-# Allas basic usage
+# Basic usage of Allas
 
-## Accessing Allas via web-interface
+## Accessing Allas via the cPouta web interface
 
-1. Open the view to the Allas service in your browser using the cPouta WWW-interface: [https://pouta.csc.fi](https://pouta.csc.fi)
-2. Login with your CSC user account.
-3. From the upper left corner, you find a project selection pop-up menu. 
-   - If you have several projects available, select one, _e.g._ training project `project_2004306`
-   - Note!AIf you selected something else than `project_2004306`, please use it instead in all places below
-4. From the menu on left side of the interface, select: **Object Store -> Containers**
+1. Open a view to the Allas service in your browser using the cPouta web interface: <https://pouta.csc.fi>
+2. Login with your CSC user account
+3. From the upper left corner, you'll find a project selection pop-up menu
+   - If you have several projects available, select one that you want use in this exercise
+4. From the menu on the left side of the interface, select `Object Store > Containers`
 
-   💡 A "container" in cPouta WWW-interface is called a "bucket" in S3 protocol. 
+💡 A "container" in the cPouta web interface is called a "bucket" within the S3 protocol. Don't confuse this with Docker/Apptainer containers.
 
 {:start="5"}
-5. Create new _bucket_ by pressing button: **➕Container**
-   - Keep the bucket _Not public_ and name it as *2004306_yourcscusername*.
-6. Find the newly-created bucket and open it
-7. Upload one file from your computer. Any file should do, but prefer a file that you can open in Puhti.
+5. Create a new _bucket_ by pressing the button: **➕ Container**
+   - Keep the bucket _Not public_ and name it as `<project number>_<username>`, in which `<project number>` is the number of your project (e.g. 2001234) and `<username>` is your CSC username
+6. Find the newly created bucket and open it
+7. Upload one file from your computer (any file should do, but prefer a file that you can open in Puhti, e.g. a text file)
 
-💭 During the exercises, you can use this web-interface to get another view to the buckets and objects in Allas.
+💭 During the exercises, you can use this web interface to get another view to the buckets and objects in Allas.
 
-☝🏻 Note, that you need to **reload** the view in order to see the changes.
+☝🏻 Note, that you need to **reload** the view in order to see any recent changes.
 
 ## Accessing Allas from Puhti
 
 ### Preparations (if not done already)
 
-1. Login to puhti.csc.fi
-2. In Puhti check your environment with command:
-   ```bash
-   csc-workspaces
-   ```
-3. Switch to the scratch directory of your project 
-   ```bash
-   cd /scratch/project_2004306    # NOTE: Here you can use also your project
-   ```
-4. Create your own sub-directory:
-   ```bash
-   mkdir yourcscusername      # replace yourcscusername
-   cd yourcscusername
-   ```
+1. Login to `puhti.csc.fi`
+2. In Puhti, check your environment with the command
 
-### Connecting to allas
+```bash
+csc-workspaces
+```
 
-1. Open connection to Allas wih these commands:
-   ```bash
-   module load allas
-   allas-conf 
-   ```
+{:start="3"}
+3. Move to the scratch directory of your project:
 
-💡 It might take a while with `module load allas`) 
+```bash
+cd /scratch/<project>   # replace <project> with your CSC project, e.g. project_2001234
+```
+
+{:start="4"}
+4. Create your own subdirectory named as your username (tip! your username is automatically stored in the environment variable `$USER`):
+
+```bash
+mkdir -p $USER
+cd $USER
+```
+
+### Connecting to Allas
+
+1. Open a connection to Allas with these commands:
+
+```bash
+module load allas
+allas-conf 
+```
+
+💡 It might take a while to run `module load allas`
 
 {:start="2"}
-2. If you have several Allas projects available, select the training project because you already created the bucket there.
-3. Study what you have in allas with commands:
-   1. With a-commands:
-      ```bash
-      a-list
-      a-list 2004306_yourcscusername                 # Name should correspond to your new bucket
-      a-info 2004306_yourcscusername/your-file-name  # replace name and your-file-name
-      ```
-   2. With r-tools
-      ```bash
-      rclone lsd allas:
-      rclone ls allas:2004306_yourcscusername                  # Name should correspond to your new bucket
-      rclone lsl allas:2004306_yourcscusername                 # Name should correspond to your new bucket
-      rclone lsf allas:2004306_yourcscusername                 # Name should correspond to your new bucket
-      rclone cat allas:2004306_yourcscusername/your-file-name  # replace name and your-file-name
-   ```
-4. Download the file you just uploaded to Allas from your local computer. You can do that in two ways: 
-   1. With a-commands:
-      ```bash
-      a-get 2004306_yourcscusername/your-file-name     # replace name and your-file-name
-      ```
-   2. With r-tools
-      ```bash
-      rclone copy allas:2004306_yourcscusername/your-file-name ./ # replace name and your-file-name
-      ```
-5. Open/edit (+rename) the file so that you can distinguish it from the original
-6. Upload the file to Allas:
-   1. With a-commands:
-      ```bash
-      a-put --nc -b 2004306_yourcscusername your-new-file-name   # replace name and your-new-file-name
-      ```
-   💭 Use `a-put -h` to figure out the command parameters above.
+2. If you have several projects with access to Allas available, select the one where you just created a bucket using the cPouta web interface
+3. Study what you have in Allas with [`a-commands`](https://docs.csc.fi/data/Allas/using_allas/a_commands/) and with [rclone](https://docs.csc.fi/data/Allas/using_allas/rclone/):
 
-   2. With r-tools
-      ```bash
-      rclone copy your-new-file-name allas:2004306_yourcscusername/
-      ```
+- With `a-commands`:
+
+```bash
+a-list
+a-list <project_number>_$USER             # replace <project number> with your CSC project number, e.g. 2001234
+a-info <project_number>_$USER/<filename>  # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+```
+
+- With `rclone`:
+
+```bash
+rclone lsd allas:
+rclone ls allas:<project number>_$USER
+rclone lsl allas:<project number>_$USER
+rclone lsf allas:<project number>_$USER
+rclone cat allas:<project number>_$USER/<filename>
+```
+
+{:start="4"}
+4. Download to Puhti the file that you just uploaded from your local computer to Allas. This can be done in two ways:
+
+- With `a-commands`:
+
+```bash
+a-get <project number>_$USER/<filename>     # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+```
+
+- With `rclone`:
+
+```bash
+rclone copy allas:<project number>_$USER/<filename> ./    # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+```
+
+{:start="5"}
+5. Open, edit and rename the file so that you can distinguish it from the original one
+6. Upload the new file to Allas:
+
+- With `a-commands`:
+
+```bash
+a-put -b <project number>_$USER <newfilename>   # replace <project number> and <newfilename> accordingly
+```
+
+💭 Try running `a-put -h` to understand the command-line switch above and to find more information on options.
+
+💬 With larger files it is good to include the option `-c` to enable `zstdmt` compression of the files.
+
+- With `rclone`:
+
+```bash
+rclone copy <newfilename> allas:<project number>_$USER/   # replace <newfilename> and <project number> accordingly
+```
+
+{:start="7"}
 7. Check that the file in Puhti indeed has a counterpart in Allas:
-   ```bash
-   a-check --nc -b 2004306_yourcscusername your-new-file-name   # replace name and your-new-file-name
-   ```
-8. Locate the files you just uploaded in Pouta web-interface. Look for the bucket name
 
-💬 With larger files it is feasible to omit parameter `--nc` and let the files be compressed.
+```bash
+a-check -b <project number>_$USER <newfilename>   # replace <project number> and <newfilename>
+```
+
+{:start="8"}
+8. Locate the files you just uploaded to Allas in the cPouta web interface (search for the bucket name)
 
 ### Clean up
-1. Delete the local file from Puhti so save (so much) space
-   ```bash
-   rm your-file-name             # replace your-file-name
-   ```
-2. When you need your data you can download it from Allas
 
-💭 If you don't find your file but remember the name, try `a-find`. Use `a-find -h` for help.
+1. Delete the local file from Puhti:
+
+```bash
+rm <filename>             # replace <filename>
+```
+
+{:start="2"}
+2. Whenever you need your data again, you can download it from Allas
+
+💭 If you can't find your file but remember the name, try `a-find`. Use `a-find -h` for help.
 
 ## Extra: publish a file to the internet
-💬 The a-commands include basic tools for publishing files to the internet. You'll notice that the course slides use one of those 🤓
 
-‼️ NOTE: Using these commands makes your **entire bucket** to be public! Do not engage if you don't want that to happen. All files that you `a-put` there later, will also be accessible to the internet, since the _bucket_ is accessible.
+💬 The `a-commands` include basic tools for publishing files to the internet. You might notice that the course slides use one of these! 🤓
+
+‼️ Note: Using these commands makes your **entire bucket** public! Do not engage if you don't want that to happen. All files that you `a-put` in the bucket later will also be accessible from internet, since the _bucket_ is accessible.
 
 ### Option 1: `a-publish`
 
-1. Select a file that has an appropriate content and publish it with command:
-   ```bash
-   a-publish -b 2004306_yourcscusername your-file-name   # replace name and your-file-name
-   ```
-2. The command outputs an URL. Copy it in your browser or send it to your friends 😎 
+1. Select a file that has an appropriate content and publish it with the command:
+
+```bash
+a-publish -b <project number>_$USER <filename>   # replace <project number> and <filename>
+```
+
+{:start="2"}
+2. The command outputs a URL (public link). Copy it to your browser or send it to your friends 😎
 
 ### Option 2: `a-flip`
 
-💬 `a-flip` is meant for files that need to be published only temporarily for example for one time share. 
+💬 `a-flip` is meant for files that need to be published only temporarily, for example for a one-time share.
 
-1. Select a file that has an appropriate content and publish it with command:
-   ```bash
-   a-flip your-file-name         # replace your-file-name
-   ```
-2. The command outputs an URL. Copy it in your browser or send it to your friends 😎 
+1. Select a file that has an appropriate content and publish it with the command:
+
+```bash
+a-flip <filename>         # replace <filename>
+```
+
+{:start="2"}
+2. The command outputs an URL (public link). Copy it to your browser or send it to your friends 😎

@@ -1,12 +1,12 @@
 ---
-topic: Disk areas
+topic: disk-areas
 title: Tutorial - Main disk areas in CSC's computing environment (essential)
 ---
 
 # Where to store files in CSC's computing environment?
 
 > In this tutorial you
-   - Familiarise yourself with personal and project-specific disk areas and their quotas on CSC supercomputers.
+   - Familiarize yourself with personal and project-specific disk areas and their quotas on CSC supercomputers.
    - Learn how to share your files, such as software installations and data, to other project members on CSC supercomputers.
 
 💬 Each user of CSC supercomputers (Puhti and Mahti) have access to different disk areas (or directories) for managing their data. Each disk area has its own specific purpose.
@@ -15,10 +15,10 @@ title: Tutorial - Main disk areas in CSC's computing environment (essential)
 
 ## Identify your personal and project-specific directories on Puhti and Mahti supercomputers
 
-1. First login to Puhti using **SSH**:
+1. First login to Puhti using SSH (or by opening a login node shell in the [Puhti web interface](https://www.puhti.csc.fi)):
   
 ```bash
-ssh <username>@puhti.csc.fi    # replace <username> with your CSC username
+ssh <username>@puhti.csc.fi    # replace <username> with your CSC username, e.g. myname@puhti.csc.fi
 ```
 
 {:start="2"}

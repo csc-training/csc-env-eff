@@ -1,5 +1,5 @@
 ---
-topic: Disk areas
+topic: disk-areas
 title: Tutorial - Fast disk areas in CSC's computing environment
 ---
 

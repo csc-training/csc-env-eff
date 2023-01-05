@@ -4,14 +4,14 @@ lang: en
 ---
 
 # Disk areas in CSC's HPC environment {.title}
-In this section, you will learn how to work in different disk areas in the CSC's HPC environment
+In this section, you will learn how to work in different disk areas in CSC's HPC environment
 
 <div class="column">
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/png/by-sa.png)
 </div>
 <div class="column">
 <small>
-All materials (C) 2020-2023 by CSC - IT Center for Science Ltd.
+All materials (c) 2020-2023 by CSC – IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-ShareAlike** 4.0
 Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
@@ -53,7 +53,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Use the `csc-workspaces` command to show available projects and quotas
 
-![](./img/disk_status.png)
+![](./img/disk_status.png){width=50%}
 
 # Disk and storage overview (revisited) 
 

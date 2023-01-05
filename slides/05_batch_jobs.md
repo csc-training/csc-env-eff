@@ -10,7 +10,7 @@ lang: en
 </div>
 <div class="column">
 <small>
-All materials (c) 2020-2023 by CSC - IT Center for Science Ltd.
+All materials (c) 2020-2023 by CSC – IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-ShareAlike** 4.0
 Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
@@ -89,7 +89,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - Use these as the *starting point* for your own scripts
 - They have been tested and optimized (although for minimal resources) for _that_ application
    - Consult the official manual or other examples to adapt to your own needs
-   - Ask for advice and help: servicedesk@csc.fi
+   - Ask for support: <servicedesk@csc.fi>
 
 </div>
 
@@ -172,3 +172,5 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - If you have a heavier job that still requires interaction
     - Request resources from the [interactive partition](https://docs.csc.fi/computing/running/interactive-usage/) using the `sinteractive` command
     - This will open an interactive shell where you can perform your computations directly on a compute node instead of the login node
+- Interactive jobs and GUIs can also be launched in the [Puhti web interface](https://www.puhti.csc.fi)
+    - Jupyter notebooks, RStudio, TensorBoard, MATLAB, VSCode, ...

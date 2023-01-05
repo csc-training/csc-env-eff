@@ -1,13 +1,13 @@
 ---
 topic: connecting
-title: Advanced tutorial - Use SSH-keys to authenticate connection
+title: Advanced tutorial - Using SSH keys to authenticate connection
 ---
 
-# Creating and adding SSH-keys
+# Creating and adding SSH keys
 
-💬 SSH-keys improve security and ease of use.
+💬 SSH keys improve security and ease of use.
 
-- For example, [launching Jupyter Notebook in Puhti and accessing it via your browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) requires the use of SSH-keys.
+- For example, [launching Jupyter Notebook in Puhti and accessing it via your browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) requires the use of SSH keys.
 
 > ☝🏻 This tutorial assumes you've already logged in and have the prerequisites covered.
 
@@ -17,7 +17,7 @@ title: Advanced tutorial - Use SSH-keys to authenticate connection
 
 ‼️ In this tutorial, we assume you use MobaXterm. [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
 
-### Create SSH-keys
+### Create SSH keys
 
 💬 The MobaXterm terminal has many Linux command line tools available, *e.g.* the ones to set up ssh keys:
 

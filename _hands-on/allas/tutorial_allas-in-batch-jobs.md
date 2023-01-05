@@ -7,91 +7,111 @@ title: Tutorial - Allas in batch jobs
 
 ## Preparations
 
-💬 The allas-conf command opens an Allas connection that is valid for eight hours. 
-   - In the case of interactive usage this eight-hour limit is not problematic as allas-conf can be executed again to extend the validity of the connection.
-   - In the case of batch jobs, the situation is different, as it may take more than eight hours before the job even starts. 
+💬 The `allas-conf` command opens an Allas connection that is valid for eight hours.
 
-1. To be able to use Allas in a batch job, run `allas-conf` again with option **-k**:
-   ```bash
-   allas-conf -k 
-   ```
-   - Here the option -k indicates that the password will be stored in the environment variable `$OS_PASSWORD`. 
-      - With this variable defined, you no longer need to define the password when you re-execute `allas-conf` with the `-k` option and the Allas project name. 
+- In case of interactive usage, this eight-hour limit is not problematic as `allas-conf` can be executed again to extend the validity of the connection.
+- In case of batch jobs, the situation is different, as it may take more than eight hours before the job even starts.
 
-☝🏻 Note that if you mistype your password when using the `-k` option, you must use command **unset OS_PASSWORD** before you can try again.
+1. To be able to use Allas in a batch job, run `allas-conf` again with the option `-k`:
+
+```bash
+allas-conf -k 
+```
+
+- Here, the option `-k` indicates that the password will be stored in an environment variable `$OS_PASSWORD`.
+   - With this variable defined, you no longer need to input your password when you re-execute `allas-conf` with the `-k` option and the Allas project name.
+
+☝🏻 Note that if you mistype your password when using the `-k` option, you must use command `unset OS_PASSWORD` before you can try again.
 
 {:start="2"}
-2. Refresh the connection with command:
-   ```bash
-   allas-conf -k project_2004306      # Here you can still use that training bucket or change to your own instead
-   ```
+2. Refresh the connection with the command:
 
-☝🏻 When OS_PASSWORD is set, the a-commands (a-put, a-get, a-list, a-delete) automatically refresh the Allas connection when commands are executed in batch job.
+```bash
+allas-conf -k <project>    # replace <project> with your CSC project, e.g. project_2001234
+```
+
+☝🏻 When `$OS_PASSWORD` is set, the `a-commands` (`a-put`, `a-get`, `a-list`, `a-delete`) automatically refresh the Allas connection when the commands are executed in a batch job.
 
 {:start="3"}
 3. Choose a file from Allas. The file should have text in it.
-   ```bash
-   a-list 2004306_yourcscusername   # replace name to match your training bucket name
-   ```
-4. Create a new batch job script. First open a new text file with command:
-   ```bash
-   nano allas_xxxx.sh    # replace xxxx with custom name
-   ```
-5. Copy the batch job script from below to the text file you are editing.
 
-**Option 1: a-commands**
+```bash
+a-list <project number>_$USER   # replace <project number> with your CSC project number, e.g. 2001234, to match the bucket you created earlier
+```
+
+{:start="4"}
+4. Create a new batch job script. First open a new text file with the command:
+
+```bash
+nano allas_<myjobname>.sh    # replace <myjobname> with a custom name for your job
+```
+
+{:start="5"}
+5. Copy the batch job script below to the text file you are editing:
+
+- Option 1: `a-commands`
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
-#SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
+#SBATCH --account=<project>            # Choose the billing project. Has to be defined!
 #SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
-#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, $
 #SBATCH --output=allas_output_%j.txt   # Name of the output-file.
 #SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
 
-a-get 2004306_yourcscusername/your-file-name                  # Bucket name / File name
-wc -l your-file-name > your-file-name.num_rows     # File name
-a-put -b 2004306_yourcscusername --nc your-file-name.num_rows # Bucket name / File name
+bucketname=<project number>_$USER      # Replace with your bucket name, e.g. 2001234_username
+filename=<filename>                    # Replace with your file name
+
+a-get $bucketname/$filename            # Bucket name / file name
+wc -l $filename > $filename.num_rows   # file name
+a-put -b $bucketname $filename.num_rows
 ```
 
 {:start="6"}
-6. Replace `2004306_yourcscusername` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
+6. In the script, replace `<project number>_$USER` to match your bucket name and `<filename>` to the name of the file you have in Allas. Remember to also define your billing project (`--account`).
 
-**Option 2: rclone**  
-💭 If you use rclone or swift instead of the a-commands, you need to add _source allas_conf_ commands to your script. 
+- Option 2: `rclone`  
+
+💭 If you use `rclone` or `swift` instead of the `a-commands`, you need to add `source allas_conf` commands to your script.
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=my_allas_job        # Name of the job visible in the queue.
-#SBATCH --account=project_2004306      # Choose the billing project. Has to be defined!
+#SBATCH --account=<project>            # Choose the billing project. Has to be defined!
 #SBATCH --time=00:05:00                # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --mem-per-cpu=1G               # How much RAM is reserved for one processor.
-#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+#SBATCH --partition=test               # Job queues: test, interactive, small, large, longrun, hugemem, $
 #SBATCH --output=allas_output_%j.txt   # Name of the output-file.
 #SBATCH --error=allas_errors_%j.txt    # Name of the error-file.
 
-#make sure connection to Allas is open
-source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-rclone copy allas:2004306_yourcscusername/your-file-name ./        # Bucket name / File name
+bucketname=<project number>_$USER      # Replace with your bucket name, e.g. 2001234_username
+filename=<filename>                    # Replace with your file name
 
-wc -l your-file-name > your-file-name.num_rows          # File name
+# Make sure the connection to Allas is open
+source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+rclone copy allas:$bucketname/$filename ./
 
-#make sure connection to Allas is open
-source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-rclone copy your-file-name.num_rows allas:2004306_yourcscusername  # File name / Bucket name
+wc -l $filename > $filename.num_rows
+
+# Make sure the connection to Allas is open
+source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+rclone copy $filename.num_rows allas:$bucketname
 ```
 
 {:start="6"}
-6. Replace `2004306_yourcscusername` to match your bucket name and `your-file-name` with the name of the file you have in Allas. 
-7. Submit the batch job with command:
-   ```bash
-   sbatch allas_xxxx.sh                   # This was your custom name
-   ```
+6. Replace `<project number>_$USER` to match your bucket name and `<filename>` to the name of the file you have in Allas. Remember to also define your billing project (`--account`).
+7. Submit the batch job with the command:
+
+```bash
+sbatch allas_<myjobname>.sh
+```
+
+{:start="8"}
 8. Monitor the progress of your batch job:
-   ```bash
-   squeue -u $USER
-   sacct -u $USER
-   a-list 2004306_yourcscusername            # Bucket name
-   ```
+
+```bash
+squeue -u $USER
+a-list <project number>_$USER    # replace <project number> with your CSC project number, e.g. 2001234, to match your bucket
+```

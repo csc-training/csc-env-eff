@@ -1,65 +1,72 @@
 ---
 topic: batch resources
-title: Tutorial - sacct and seff, resources used  (essential)
+title: Tutorial - sacct and seff, resource usage (essential)
 ---
-# Using sacct and seff to look at finished jobs
 
-💬 In this tutorial we look at commands `seff` and `sacct`.
+# Using `sacct` and `seff` to understand resource usage of finished jobs
 
-💭 `Seff` shows detailed data on used resources in an easy-to-read format, but can only show one job at a time.
+💬 In this tutorial we look at the `seff` and `sacct` commands.
 
-💭 `Sacct` is useful when you want to look at a listing of jobs, but by default it only shows minimal data.
+💭 `seff` shows detailed data on used resources in an easy-to-read format, but can only show one job at a time.
+
+💭 `sacct` is useful when you want to look at a listing of jobs, but by default it only shows minimal data.
 
 ## Get details about batch jobs
 
-1. Try `sacct` which by default shows the jobs you have run on current date (_i.e._ since last midnight):
+1. Try `sacct` which by default shows the jobs you have run on the current date (_i.e._ since last midnight):
 
 ```bash
 sacct
 ```
 
-2. Try specify the start time of listing with the `-S` option:
+{:start="2"}
+2. Try specifying the start time of the listing using the `-S` option. Don't query too long time intervals, since this causes significant load on the system (max. queryable interval is three months).
 
 ```bash
 sacct -S YYYY-MM-DD    # replace YYYY-MM-DD
 ```
 
-3. Look for a spesific job – ie. specify the job ID with the `-j` option:
+{:start="3"}
+3. Look for a specific job – _i.e._ specify the job ID using the `-j` option:
 
 ```bash
-sacct -j slurmjobid      # replace slurmjobid with a job ID
+sacct -j <slurmjobid>    # replace <slurmjobid> with a valid job ID 
 ```
 
-4. Check out all the available data for a job, try:
+{:start="4"}
+4. To print out all the available data for a job, try:
 
 ```bash
-sacct -l -j slurmjobid   # replace slurmjobid with a job ID
+sacct -l -j <slurmjobid>    # replace <slurmjobid> with a valid job ID
 ```
 
-5. Select only the interesting data with the `-o` option, for example to see job name, job ID, used memory, job finish state and elapsed wall clock time try:
+{:start="5"}
+5. Select only the interesting data using the `-o` option. For example, to see job name, job ID, used memory, job state and elapsed wall-clock time, try:
 
 ```bash
-sacct -o jobname,jobid,maxrss,state,elapsed -j slurmjobid    # replace slurmjobid
+sacct -o jobname,jobid,maxrss,state,elapsed -j <slurmjobid>   # replace <slurmjobid> with a valid job ID
 ```
 
+{:start="6"}
 6. Check out the list of all available data fields with:
 
 ```bash
 sacct -e
 ```
 
-‼️ NOTE: running `sacct` is heavy on the batch job system
+‼️ Note, running `sacct` is heavy on the batch queue system.
+
 - You should not, for example, write scripts that run it repeatedly.
 
 ## Running a test job
 
 💬 Run a simple array job to practice using `seff` and `sacct`.
 
-1. Create file `array.sh` and paste the following contents in to it.
+1. Create a file named `array.sh` and paste the following contents in it.
 
 ```bash
 #!/bin/bash
-#SBATCH --account=project_xxxx    # Choose the billing project. Has to be defined!
+#SBATCH --account=<project>      # Choose the billing project. Has to be defined!
 #SBATCH --time=00:01:00          # Maximum duration of the job. Max: depends of the partition. 
 #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
 #SBATCH --job-name=array_job     # Name of the job visible in the queue.
@@ -74,23 +81,23 @@ sacct -e
 ```
 
 {:start="2"}
-2. Replace `project_xxxx` with your actual project name.
-
-3. Submit the job with command:
+2. Replace `<project>` with your actual project name, e.g. `project_2001234`
+3. Submit the job with the command:
 
 ```bash
 sbatch array.sh
 ```
 
+{:start="4"}
 4. You will see a message like:
 
 ```bash
 Submitted batch job 123456
 ```
 
-5. Make note of the actual job id.
-
-6. Follow the progress of the job with command:
+{:start="5"}
+5. Make note of the Slurm job ID.
+6. Follow the progress of the job with the command:
 
 ```bash
 squeue -u $USER
@@ -100,43 +107,45 @@ squeue -u $USER
 
 ## Examining the finished job
 
-1. When the job has finished (you can no longer see any of the sub jobs with `squeue`), you can use `sacct` to look at it:
+1. When the job has finished (you can no longer see any of the sub jobs with `squeue`), you can use `sacct` to study it:
 
 ```bash
-sacct -j slurmjobid           # replace slurmjobid with job ID
+sacct -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
 ```
 
-2. Get cleaner view by omitting the job steps:
+{:start="2"}
+2. Get a cleaner view by omitting the job steps:
 
 ```bash
-sacct -X -j slurmjobid        # replace slurmjobid with job ID
+sacct -X -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
 ```
 
-💬 `Sacct` is especially handy here, because it is easy to spot the 
-failed sub jobs.
+💬 `sacct` is especially handy here, because it is easy to spot the failed sub jobs.
+
 - Which sub jobs failed?
     - Can you figure out why they failed?
     - How do they compare to jobs that finished?
 
 {:start="3"}
-3. Use `seff` to look at individual sub jobs:
+3. Use `seff` to look at individual sub jobs, e.g.:
 
 ```bash
-seff slurmjobid_5             # replace slurmjobid again
+seff <slurmjobid>_5    # replace <slurmjobid> with the actual job ID
 ```
 
-4. Try `sacct` with the `-o` option (discussed above). This time add fields `reqmem` (requested memory) and `timelimit` (requested time):
+{:start="4"}
+4. Try `sacct` with the `-o` option (discussed above). This time add the fields `reqmem` (requested memory) and `timelimit` (requested time):
 
 ```bash
-sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j slurmjobid    # replace slurmjobid
+sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
 ```
 
-💭 Note that in this case we can not use the `-X` option, as we want to see memory usage for each step.
+💭 Note that in this case we can not use the `-X` option as we want to see the memory usage for each step.
 
-## Readjusting the job-file
+## Adjusting the job-file
 
 1. Look at the error messages produced by the failed jobs.
-2. When you know which subjobs failed and why, adjust the resource requests as necessary
+2. When you know which sub jobs failed and why, adjust the resource requests as necessary.
 
 - Change time and memory reservations:
 
@@ -146,14 +155,15 @@ sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j slurmjobid    # 
 ```
 
 {:start="3"}
-3. Re-run the failed subjobs:
+3. Re-run the failed sub jobs:
 
 ```bash
 #SBATCH --array=3,5    # Specify which ones to run
 ```
 
+{:start="4"}
 4. Use `seff` and `sacct` to look at the jobs. How much memory and time did they use?
 
 ## More information
 
-💡 You can read more about [array jobs](https://docs.csc.fi/computing/running/array-jobs) and [seff and sacct](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/) in CSC Docs.
+💡 You can read more about [array jobs](https://docs.csc.fi/computing/running/array-jobs) and [seff and sacct](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/) in Docs CSC.
