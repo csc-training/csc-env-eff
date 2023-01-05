@@ -54,6 +54,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Using SSH keys is easier and safer than using a password with every login
 - SSH keys can be easily used in Windows, Mac, Linux
 - Consult our [tutorials on how to set up SSH keys for your account](https://docs.csc.fi/computing/connecting/#setting-up-ssh-keys)
+   - [Logging in to LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) requires setting up an SSH key pair and registering the public key in [My CSC](https:/my.csc.fi)
 
 # Advanced topic: Developing scripts remotely
 

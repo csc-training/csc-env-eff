@@ -44,7 +44,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - The _initial_ priority of a job _decreases_ if the user has recently run lots of jobs
    - Over time (while queueing) its priority _increases_ and eventually it will run
    - Some queues have a lower priority (e.g. _longrun_ -- use shorter if you can!)
-- See our main documentation (Docs CSC) for more information on [Getting started with running batch jobs](https://docs.csc.fi/computing/running/getting-started/)
+- See our documentation for more information on [Getting started with running batch jobs on Puhti/Mahti](https://docs.csc.fi/computing/running/getting-started/) and [LUMI](https://docs.lumi-supercomputer.eu/runjobs/).
 
 # Schema of how the batch job scheduler works
 
@@ -59,6 +59,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - number of cores
     - amount of memory
     - other resources like GPUs, local disk, _etc._
+- Getting started with Slurm batch jobs on [Puhti/Mahti](https://docs.csc.fi/computing/running/getting-started/) and [LUMI](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/)
 
 # An example serial batch job script for Puhti
 
@@ -114,6 +115,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 # Available batch job partitions
 
 - [The available batch job partitions](https://docs.csc.fi/computing/running/batch-job-partitions/) are listed in Docs CSC
+   - The Slurm partitions available on LUMI are detailed in the [LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/partitions/).
 - In order to use the resources efficiently, it is important to estimate the resource request as accurately as possible
 - By avoiding excessive "just-in-case" requests, the job will start earlier
 
@@ -152,8 +154,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
    - The total computational problem is divided into subtasks, which are processed by each core in parallel
 - There are two major parallelization standards: [OpenMP](https://en.wikipedia.org/wiki/OpenMP) and [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)
    - Note, depending on the parallellization scheme there is a slight difference between _how_ the resource reservation is done
-- Batch job scripts for Puhti: [how to create](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/) and [examples](https://docs.csc.fi/computing/running/example-job-scripts-puhti/)
-- Batch job scripts for Mahti: [how to create](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/) and [examples](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)
+- Batch job scripts for Puhti ([how to create](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/) and [examples](https://docs.csc.fi/computing/running/example-job-scripts-puhti/)), Mahti ([how to create](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/) and [examples](https://docs.csc.fi/computing/running/example-job-scripts-mahti/)) and LUMI ([quickstart](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/slurm-quickstart/), [CPU](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/) and [GPU examples](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/))
 - **The best starting point:** [Software specific batch scripts in Docs CSC](https://docs.csc.fi/apps/)
 
 # HPC GPU jobs
