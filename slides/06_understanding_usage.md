@@ -23,7 +23,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - The computing resources are shared among hundreds of your colleagues, who all have different resource needs
 - Resources allocated to your job are not available for others to use
    - Important to request only the resources you need and ensure that the resources are used efficiently
-- If you _can_ use more resources, should you?
+- Even if you _can_ use more resources, should you?
 
 # One resource type will be a bottleneck
 
@@ -126,14 +126,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Reserving and optimizing batch job resources
 
-**Important resource requests that should be monitored with `seff` are:**
-
-- [Memory requirements](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
-- [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
-- [GPU efficiency](https://docs.csc.fi/computing/overview/#gpu-nodes)
-- [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
-   - Parallel jobs must always benefit from all requested resources
-   - When you double the number of cores, the job should run _at least_ 1.5x faster
+- **Important resource requests that should be monitored with `seff` are:**
+   - [Memory requirements](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
+   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
+   - [GPU efficiency](https://docs.csc.fi/computing/usage-policy/#gpu-nodes)
+   - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
+      - Parallel jobs must always benefit from all requested resources
+      - When you double the number of cores, the job should run _at least_ 1.5x faster
 
 # `seff` examples
 

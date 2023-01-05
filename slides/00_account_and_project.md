@@ -45,6 +45,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Members will be alerted by emails (see [Section 6.3. of General Terms of Use](https://research.csc.fi/general-terms-of-use))
 -  If your project processes personal data or sensitive data, see [personal data announcement](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
     - More information in [CSC's data policy](https://www.csc.fi/en/data-policy)
+    - Note that LUMI projects are not allowed to handle personal data currently
 
 # Billing units
 

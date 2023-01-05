@@ -20,6 +20,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Overview of disk areas
 
 - Main disk areas and their specific uses on Puhti and Mahti
+   - [See here for information about the disk areas on LUMI](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/storing-data/)
 - Moving data between supercomputers
 - Understanding quotas (available space and number of files) of different disk areas
 - Additional fast disk areas
