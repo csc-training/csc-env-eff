@@ -17,14 +17,14 @@ title: Advanced Tutorial - Using Allas (bio-data example)
 
 ## 1. Login to Puhti
 
-1. Login to Puhti:
+1. Login to Puhti (open a login node shell if using the web interface):
 
 ```bash
 ssh <username>@puhti.csc.fi    # replace <username> with your CSC username
 ```
 
 {:start="2"}
-2. In Puhti check your environment with command:
+2. In Puhti, check your environment with the command:
 
 ```bash
 csc-workspaces

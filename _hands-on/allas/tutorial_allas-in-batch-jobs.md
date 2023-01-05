@@ -12,7 +12,7 @@ title: Tutorial - Allas in batch jobs
 - In case of interactive usage, this eight-hour limit is not problematic as `allas-conf` can be executed again to extend the validity of the connection.
 - In case of batch jobs, the situation is different, as it may take more than eight hours before the job even starts.
 
-1. To be able to use Allas in a batch job, run `allas-conf` again with the option `-k`:
+1. To be able to use Allas in a batch job, run `allas-conf` again with the `-k` option:
 
 ```bash
 allas-conf -k 
@@ -21,7 +21,7 @@ allas-conf -k
 - Here, the option `-k` indicates that the password will be stored in an environment variable `$OS_PASSWORD`.
    - With this variable defined, you no longer need to input your password when you re-execute `allas-conf` with the `-k` option and the Allas project name.
 
-☝🏻 Note that if you mistype your password when using the `-k` option, you must use command `unset OS_PASSWORD` before you can try again.
+☝🏻 Note that if you mistype your password when using the `-k` option, you must use the command `unset OS_PASSWORD` before you can try again.
 
 {:start="2"}
 2. Refresh the connection with the command:
