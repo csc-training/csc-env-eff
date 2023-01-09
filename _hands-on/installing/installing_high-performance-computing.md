@@ -10,13 +10,12 @@ title: Exercise - Installing own C, C++, or Fortran programs
 1. Create a directory for your code. The recommended location is under the `/projappl` directory of your project:
 
 ```bash
-cd /projappl/<project>    # replace <project> with your CSC project, e.g. project_2001234
-mkdir myprog
+mkdir -p /projappl/<project>/myprog    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
 {:start="2"}
-2. You need the source files of the code. Depending on the software, you can typically download them from e.g. GitHub. If you have the source code on your own computer, use e.g. [`scp`](https://docs.csc.fi/data/moving/scp/) to upload the data to the supercomputer
-3. If the source files are distributed as a zip file, use unzip to decompress:
+2. You need the source files of the code. Depending on the software, you can typically download them from e.g. GitHub. If you have the source code on your own computer, use e.g. [`scp`](https://docs.csc.fi/data/moving/scp/) to upload the data to the supercomputer.
+3. If the source files are distributed as a zip file, use `unzip` to decompress:
 
 ```bash
 unzip filename.zip    # modify the filename accordingly
@@ -24,6 +23,7 @@ unzip filename.zip    # modify the filename accordingly
 
 {:start="4"}
 4. Read and follow any instructions on how to install. Usually, the code comes with a `README` or `INSTALL` file outlining the installation procedure.
+5. When compiling, consider using the fast local disk on the login nodes (`$TMPDIR`) to move I/O load away from the parallel file system.
 
 ### Scenario A1: The code uses `cmake`
 
@@ -56,7 +56,7 @@ cmake ..
 ```
 
 {:start="5"}
-5. If you get errors, try to fix the problems. Sometimes it might be easiest to remove everything and start from the beginning, i.e. the `.zip` file
+5. If you get errors, try to fix the problems. Sometimes it might be easiest to remove everything and start from the beginning, i.e. by unzipping the `.zip` file.
 6. After `cmake`, run `make` to compile the specific applications you want to use:
 
 ```bash
@@ -64,7 +64,7 @@ make
 ```
 
 {:start="7"}
-7. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck
+7. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck.
 
 ### Scenario A2: The code comes with a Makefile
 
@@ -75,24 +75,32 @@ module spider <modulename>    # replace <modulename>, e.g. fftw
 ```
 
 {:start="2"}
-2. Load the library module with:
+2. Load the library modules with:
 
 ```bash
 module load <modulename>/<version>   # replace <modulename>/<version>, e.g. fftw/3.3.10-mpi
 ```
 
 {:start="3"}
-3. Edit the `Makefile` manually or by running `./configure` to replace compile and link commands with proper ones for [Mahti](https://docs.csc.fi/computing/compiling-mahti/) or [Puhti](https://docs.csc.fi/computing/compiling-puhti/)
-4. Run the command `make` to compile and `make install` to install. Custom installation location is typically specified with the `--prefix` option of the `configure` script
-5. Read any error messages and try to fix the possible issues
-6. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck
+3. Edit the `Makefile` manually or by running `./configure` to replace compile and link commands with proper ones for [Mahti](https://docs.csc.fi/computing/compiling-mahti/) or [Puhti](https://docs.csc.fi/computing/compiling-puhti/).
+4. Run the command `make` to compile and `make install` to install. Custom installation location is typically specified with the `--prefix` option of the `configure` script.
+
+```bash
+./configure --prefix=/projappl/<project>/myprog    # replace <project> with your CSC project, e.g. project_2001234 
+make
+make install
+```
+
+{:start="5"}
+5. Read any error messages and try to fix the possible issues.
+6. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck.
 
 ## Case B: You want to write your own code
 
-1. You need [an editor](https://docs.csc.fi/support/tutorials/env-guide/text-and-image-processing/)
-2. Launch an editor and write the code. If not developing locally, consider using the [Puhti web interface](https://www.puhti.csc.fi) and e.g. [VSCode](https://docs.csc.fi/computing/webinterface/vscode/)
-3. Compile your code [on Puhti](https://docs.csc.fi/computing/compiling-puhti/) or [on Mahti](https://docs.csc.fi/computing/compiling-mahti/)
-4. Fix bugs until compiler accepts code
+1. You need [an editor](https://docs.csc.fi/support/tutorials/env-guide/text-and-image-processing/).
+2. Launch an editor and write the code. If not developing locally, consider using the [Puhti web interface](https://www.puhti.csc.fi) and e.g. [VSCode](https://docs.csc.fi/computing/webinterface/vscode/).
+3. Compile your code [on Puhti](https://docs.csc.fi/computing/compiling-puhti/) or [on Mahti](https://docs.csc.fi/computing/compiling-mahti/).
+4. Fix bugs until compiler accepts code.
 
 ## Exercise
 

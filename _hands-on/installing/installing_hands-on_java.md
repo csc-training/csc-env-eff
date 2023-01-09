@@ -19,7 +19,7 @@ module spider java
 
 💬 Despite their name, modules named `biojava` are just normal Java installations, which can be used with any software, not just bio applications.
 
-☝🏻 Some java applications fail to run on the login nodes. Try running them using `sinteractive` instead.
+☝🏻 Some java applications fail to run on the login nodes. Try running them using `sinteractive` instead (or by opening a compute node shell in the [Puhti web interface](https://www.puhti.csc.fi)).
 
 ‼️ Naturally, computationally heavy tasks should never be run on the login nodes.
 
@@ -84,4 +84,4 @@ module load beast
 beast -help
 ```
 
-☝🏻 BEAST will fail to run on the login nodes. Try running it in an interactive session instead (using `sinteractive`).
+☝🏻 BEAST will fail to run on the login nodes. Try running it in an interactive session instead (using `sinteractive` or a compute node shell in the [Puhti web interface](https://www.puhti.csc.fi)).
