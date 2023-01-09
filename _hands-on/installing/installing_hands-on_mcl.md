@@ -7,7 +7,7 @@ title: Tutorial - Installing a simple C code from source
 
 💬 In this tutorial we will install the MCL Markov cluster algorithm program to the [`/projappl` directory](https://docs.csc.fi/computing/disk/) of the user on Puhti.
 
-💭 This software is also available as an installation package (.deb, .rpm) for various Linux distributions, but these can not be used on Puhti. Instead, we install it from the source code.
+💭 This software is also available as an installation package (`.deb`, `.rpm`) for various Linux distributions, but these can not be used on Puhti. Instead, we install it from the source code.
 
 ☝🏻 To follow the instructions, first set an environment variable pointing to your project's `/projappl` directory:
 

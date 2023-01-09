@@ -128,6 +128,6 @@ export PATH="/projappl/<project>/$USER/tykky-env/bin:$PATH"    # replace <projec
 
 💡 Adding this to your `$PATH` allows you to call Python and all other executables installed by Conda in the same way as you had activated a non-containerized Conda environment.
 
-💭 The above Conda installation creates more than 40k files if installed directly on the parallel file system. Containerizing the environment with Tykky decreases this to less than 200, thus avoiding Lustre performance issues.
+💭 The above Conda installation would create more than 40k files if installed directly on the parallel file system. Containerizing the environment with Tykky decreases this to less than 200, thus avoiding Lustre performance issues.
 
 💬 To modify an existing Tykky-based Conda environment you can use the `update` keyword of `conda-containerize` together with the `--post-install` option to specify a bash script with commands to run to update the installation. [See more details in Docs CSC](https://docs.csc.fi/computing/containers/tykky/).

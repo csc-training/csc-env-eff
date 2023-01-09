@@ -22,6 +22,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - It is possible for users to install software on the CSC supercomputers
 - If you don't know how or run into problems while trying, contact <servicedesk@csc.fi>
+  - For LUMI-related queries, [contact the LUMI User Support Team](https://lumi-supercomputer.eu/user-support/need-help/)
 
 # Code categories
 
@@ -52,9 +53,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # High-performance computing languages
 
 - Programming languages that need to be compiled
-   - Typical examples are _e.g._ C, C++, and Fortran
-- Most resource-intensive software has been programmed with them
-- As a researcher, you typically _only_ need to compile (not program) a software (unless available pre-installed by CSC)
+   - Typical examples are _e.g._ C, C++ and Fortran
+- Most resource-intensive software have been programmed using these
+- As a researcher, you typically _only_ need to compile a software (unless available pre-installed)
   - Can sometimes be complicated
   - If you run into problems, contact <servicedesk@csc.fi>
 
@@ -62,13 +63,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - No `sudo` available for users on the CSC supercomputers
   - You can't use package managers (`apt`, `yum`, etc.)
-  - You can't install in "standard" locations (/usr/bin, /usr/lib, etc.)
-    - Set the installation directory to `/projappl` or similar (see the documentation for details)
+  - You can't install into "standard" locations (`/usr/bin`, `/usr/lib`, etc.)
+    - Set the installation directory to `/projappl` or similar
 - Start by loading a suitable compiler suite or language module
-  - Many commonly used HPC libraries (e.g. OpenMPI, ScaLAPACK, FFTW) are available as modules (search with `module spider`)
+  - Many commonly used [HPC libraries](https://docs.csc.fi/computing/hpc-libraries/) (e.g. OpenMPI, ScaLAPACK, FFTW) are available as modules (search with `module spider`)
+- Compile on the fast local disk (`$TMPDIR`) to move I/O load away from the parallel file system
 - New software is not automatically added to `$PATH`
-  - Provide the full path when running or add it to `$PATH`
-    - `export PATH=/path/to/my/cool/software:$PATH`
+  - Provide the full path or add with: `export PATH=/path/to/my/software:$PATH`
 
 # Installation methods: Native installations
 
@@ -77,7 +78,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Installation methods: Containers
 
-- [Containers](09_singularity.html) are an efficient method to install a software and its dependencies
+- [Containerization](09_singularity.html) is an efficient method to install software and their dependencies
   - Very easy if a ready-made container is available
 - Recommended particularly for software with complex dependencies
 
@@ -107,5 +108,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - [Compiling applications in Puhti](https://docs.csc.fi/computing/compiling-puhti/)
   - [Compiling applications in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
   - [High-performance libraries](https://docs.csc.fi/computing/hpc-libraries/)
+  - [Software installation on LUMI](https://docs.lumi-supercomputer.eu/software/)
 - Lots of information online
   - Try searching for any error messages you come across
