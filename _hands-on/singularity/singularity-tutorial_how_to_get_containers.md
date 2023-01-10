@@ -7,7 +7,7 @@ title: Advanced tutorial - How to get containers
 
 💬 Building containers from scratch requires root privileges, so it can not be done on Puhti.
 
-- Instead, you will have to import a ready image file (or use [Tykky](https://docs.csc.fi/computing/containers/tykky/) if containerizing a Conda/pip environment). There are various option to do this.
+- Instead, you will have to import a ready image file (or use [Tykky](https://docs.csc.fi/computing/containers/tykky/) if containerizing a Conda/pip environment). There are various options to do this.
 
 ## 1. Run or pull an existing Singularity container from a repository
 

@@ -115,7 +115,7 @@ chmod u+x tutorial.sif
 apptainer inspect --runscript tutorial.sif
 ```
 
-### Apptainer shell
+### Apptainer `shell`
 
 1. Open a shell inside the container:
 
