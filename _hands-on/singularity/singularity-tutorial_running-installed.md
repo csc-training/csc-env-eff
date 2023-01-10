@@ -1,41 +1,46 @@
 ---
 topic: singularity
-title: Tutorial - Running applications installed as containers
+title: Tutorial - Running containerized applications
 ---
 
-# Running applications installed as containers
+# Running containerized applications
 
-💬 In this tutorial we get familiar with the basic usage of software that has been installed as a container.
+💬 In this tutorial we will get familiar with the basic usage of containerized software.
 
-💭 Some of the software on the CSC supercomputers has been installed as containers. 
-- In many cases we have tried to "hide" the container behind wrapper scripts so that there is no change in the usage from the user perspective.
+💭 Some software on CSC supercomputers have been installed as containers.
 
-💭 Sometimes, however, this is not practical, and in these cases, there can be some differences compared to the standard usage as described in the software documentation. 
-- Please see CSC documentation for each software for details
-- This will also typically be the case for software you install yourself as a container.
+- Usually, we try to make the containers as transparent as possible using wrapper scripts. This way, there should be little to no change in usage from the users' perspective.
 
-‼️  See the CSC documentation for each application to check any changes or considerations.
+💭 Sometimes, however, this is impractical and there might be slight differences compared to the standard usage as described in the documentation.
 
-1. To run these exercises in Puhti, use `sinteractive`.
+- Typically, this will also be the case for software you containerize yourself. You can, however, use [Tykky](https://docs.csc.fi/computing/containers/tykky/) to create wrapper scripts to facilitate use of containers.
+
+‼️ Please see the software documentation in [Docs CSC](https://docs.csc.fi/apps/) for details and other considerations.
+
+1. To run these exercises on Puhti, use `sinteractive` or open a compute node shell in the [Puhti web interface](https://www.puhti.csc.fi)
+
 ```bash
-sinteractive --account project_xxxx   # Change the xxxx for the project number
+sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-## Example : A "hidden" installation
+## Example: A "hidden" installation
 
 {:start="2"}
-2. One example of a container-based installation that has been "hidden" behind a wrapper script is R:
-    ```bash
-    module load r-env-singularity
-    Rscript --version
-    ```
-3. As you can see, `Rscript` works like normal, and in most cases you don't need to care that it is installed as container.
+2. An example of a container-based installation that has been "hidden" behind a wrapper script is R:
 
-💭 You can see more details about using R in the [Docs page for r-env](https://docs.csc.fi/apps/r-env/).
+```bash
+module load r-env
+Rscript --version
+```
 
-💡 If you can't open `sinteractive` session due to high load in the course, you can try this example in the login shell instead:
+{:start="3"}
+3. As you can see, `Rscript` works as expected and in most cases you don't need to care about the fact that it is installed as a container.
+
+💭 You can find more details about using R in the [Docs CSC page of the `r-env` module](https://docs.csc.fi/apps/r-env/).
+
+💡 If you're unable to open an interactive session due to high load during the course, you can try this example in a login shell instead:
+
 ```bash
 module load cutadapt
 cutadapt -h
 ```
-
