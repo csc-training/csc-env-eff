@@ -38,24 +38,24 @@ how they differ energetically
 
 ## Download 10 sample 3D molecular structures
 
-1. Create and enter a suitable scratch directory on Puhti (replace `<id>` with your CSC
-   project number).
+1. Create and enter a suitable scratch directory on Puhti (replace `<project>` with your CSC
+   project, e.g. `project_2001234`):
 
 ```bash
-mkdir -p /scratch/project_<id>/$USER/gaussian_hq
-cd /scratch/project_<id>/$USER/gaussian_hq
+mkdir -p /scratch/<project>/$USER/gaussian_hq
+cd /scratch/<project>/$USER/gaussian_hq
 ```
 
 {:start="2"}
 2. Download the 10 C<sub>6</sub>H<sub>12</sub> structures that have originally been obtained
-   from [ChemSpider](https://www.chemspider.com/Search.aspx).
+   from [ChemSpider](https://www.chemspider.com/Search.aspx):
   
 ```bash
 wget https://a3s.fi/C6H12_structures_10/C6H12_structures_10.tgz
 ```
 
 {:start="3"}
-3. Unpack the archive.
+3. Unpack the archive:
 
 ```bash
 tar -xzf C6H12_structures_10.tgz
@@ -63,7 +63,7 @@ tar -xzf C6H12_structures_10.tgz
 
 {:start="4"}
 4. Go to the directory containing the structure files that are in [.mol
-   format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html).
+   format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html):
 
 ```bash
 cd C6H12_structures_10
@@ -75,7 +75,7 @@ cd C6H12_structures_10
 structure calculations.
 
 1. Use [OpenBabel](http://openbabel.org/wiki/Main_Page) to convert the structures to
-   Gaussian format.
+   Gaussian format:
 
 ```bash
 module load openbabel
@@ -91,14 +91,14 @@ obabel *.mol -ocom -m
 i.e. a hybrid density functional theory calculation using the B3LYP exchange-correlation
 functional and the cc-PVDZ basis set.
 
-1. Add the `b3lyp/cc-pVDZ` keyword at the beginning of each `.com` file.
+1. Add the `b3lyp/cc-pVDZ` keyword at the beginning of each `.com` file:
 
 ```bash
 sed -i '1s/^/#b3lyp\/cc-pVDZ \n/' *.com
 ```
 
 {:start="2"}
-2. Set 4 cores per job by adding the flag `%NProcShared=4` to each input file.
+2. Set 4 cores per job by adding the flag `%NProcShared=4` to each input file:
 
 ```bash
 sed -i '1s/^/%NProcShared=4\n/' *.com
@@ -115,26 +115,26 @@ feasible to use bash scripting to create a suitable task list file for HyperQueu
 case the task list used to specify the task array will just contain the paths to each input
 file, so generating it is very simple.
 
-1. Move back up to your main directory.
+1. Move back up to your main directory:
 
 ```bash
 cd ..
 ```
 
 {:start="2"}
-2. Create the task list and name it `tasklist.txt`.
+2. Create the task list and name it `tasklist.txt`:
 
 ```bash
 ls ${PWD}/C6H12_structures_10/*.com > tasklist.txt
 ```
 
 {:start="3"}
-3. Check out the tasklist with `more`, `less` or `cat`. The file should look like:
+3. Check out the task list with `more`, `less` or `cat`. The file should look like:
 
 ```bash
-/scratch/project_<id>/$USER/gaussian_hq/C6H12_structures_10/10737.com
-/scratch/project_<id>/$USER/gaussian_hq/C6H12_structures_10/10775.com
-/scratch/project_<id>/$USER/gaussian_hq/C6H12_structures_10/10776.com
+/scratch/<project>/$USER/gaussian_hq/C6H12_structures_10/10737.com
+/scratch/<project>/$USER/gaussian_hq/C6H12_structures_10/10775.com
+/scratch/<project>/$USER/gaussian_hq/C6H12_structures_10/10776.com
 ...and so on
 ```
 
@@ -144,71 +144,55 @@ ls ${PWD}/C6H12_structures_10/*.com > tasklist.txt
 HyperQueue packs the individual tasks within a single Slurm job step and is thus much
 more efficient, especially if there are a huge number of tasks.
 
-1. Create a batch script `hq_array.sh` for initializing and running the HyperQueue job.
+1. Create a batch script `hq_array.sh` for initializing and running the HyperQueue job:
 
 ```bash
 nano hq_array.sh
 ```
 
 {:start="2"}
-2. Copy the example script below into the file (edit `<id>` with your CSC project number).
-   The inline comments attempt to explain what is going on in the file. For more details,
-   please consult [our HyperQueue documentation](https://docs.csc.fi/apps/hyperqueue/).
+2. Copy the example script below into the file (replace `<project>` with your CSC project, e.g.
+   `project_2001234`). The inline comments attempt to explain what is going on in the file. For
+   more details, please consult [our HyperQueue documentation](https://docs.csc.fi/apps/hyperqueue/).
    See also [the official documentation](https://it4innovations.github.io/hyperqueue/stable/).
 
 ```bash
 #!/bin/bash
 #SBATCH --partition=small
-#SBATCH --account=project_<id>
+#SBATCH --account=<project>
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=40
 #SBATCH --time=00:05:00
 
-export SLURM_EXACT=1
-
 # Load the required HyperQueue and Gaussian modules
 module load hyperqueue gaussian
 
 # Set the directory where the HyperQueue server will run
-export HQ_SERVER_DIR=$PWD/hq-server-$SLURM_JOB_ID
-mkdir -p "$HQ_SERVER_DIR"
+export HQ_SERVER_DIR=${PWD}/hq-server-${SLURM_JOB_ID}
+mkdir -p "${HQ_SERVER_DIR}"
 
-# Start the server and wait until it has started
-echo "STARTING HQ SERVER, log in $HQ_SERVER_DIR/HQ.log"
-echo "===================="
-hq server start &>> "$HQ_SERVER_DIR/HQ.log" &
-until hq job list &>/dev/null ; do sleep 1 ; done
+# Start the server and wait until it is ready
+hq server start &
+timeout 5 bash -c 'until hq job list &>/dev/null ; do sleep 1 ; done' || {
+    >&2 echo "Starting HyperQueue server failed."
+    exit 1
+}
 
-# Start the HyperQueue workers (1 per node) and wait until they have started
-echo "STARTING HQ WORKERS ON $SLURM_NNODES nodes"
-echo "===================="
-srun --cpu-bind=none --mpi=none hq worker start --cpus=$SLURM_CPUS_PER_TASK &>> "$HQ_SERVER_DIR/HQ.log" &
-
-until [[ $num_up -eq $SLURM_NNODES ]]; do
-    num_up=$(hq worker list 2>/dev/null | grep -c RUNNING)
-    echo "WAITING FOR WORKERS TO START ( $num_up / $SLURM_NNODES )"
-    sleep 1
-done
+# Start workers and wait until they are ready
+srun --exact --cpu-bind=none --mpi=none \
+     hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
+timeout 10 hq worker wait "${SLURM_NTASKS}" || {
+    >&2 echo "Starting HyperQueue workers failed."
+    exit 1
+}
 
 # Submit the HyperQueue task array and wait until all jobs have finished
 hq submit --cpus 4 --each-line tasklist.txt --stdout=none --stderr=none gaussian.sh
+hq job wait all
 
-while hq job list --all | grep -q "RUNNING\|PENDING"; do
-    echo "WAITING FOR JOBS TO FINISH"
-    # Adjust the timing here if you get to much output in the Slurm log file
-    # Now set to 30 seconds
-    sleep 30
-done
-
-# Print a summary of the tasks and shut down the workers and server
+# Print a summary of the tasks and shut down the workers and the server
 hq task list 1 > task_summary.txt
-
-echo "===================="
-echo "DONE"
-echo "===================="
-echo "SHUTTING DOWN HYPERQUEUE"
-echo "===================="
 hq worker stop all
 hq server stop
 ```
@@ -224,7 +208,7 @@ resources are requested:
   Gaussian input file and the `hq submit --cpus 4` command)
 - Computing time for five minutes, `--time=00:05:00`
 - Computation on a single node `--nodes=1` using a single rank `--ntasks-per-node=1`
-- Billing project `--account project_<id>` (replace `<id>` accordingly)
+- Billing project `--account <project>` (replace `<project>` accordingly)
 
 💬 By using the `hq submit --each-line` flag, each line from the `tasklist.txt` file
 will be passed to a separate task, which can access the value of the line using the
@@ -232,14 +216,14 @@ environment variable `$HQ_ENTRY`. This environment variable is used in the submi
 `gaussian.sh` file wherein the actual Gaussian calculation is executed.
 
 {:start="4"}
-4. Create the `gaussian.sh` file.
+4. Create the `gaussian.sh` file:
 
 ```bash
 nano gaussian.sh
 ```
 
 {:start="5"}
-5. Copy the script below into the file.
+5. Copy the script below into the file:
 
 ```bash
 #!/bin/bash
@@ -259,7 +243,7 @@ Gaussian calculation is directed. Moreover, before launching the actual calculat
 log file is prepended with the HyperQueue task ID and the ID of the input file for bookkeeping.
 
 {:start="7"}
-7. Finally, submit the HyperQueue task array job.
+7. Finally, submit the HyperQueue task array job:
 
 ```bash
 sbatch hq_array.sh
@@ -267,10 +251,10 @@ sbatch hq_array.sh
 
 ## Check the HyperQueue task summary
 
-1. Monitor the Slurm queue with (replace `<slurm jobid>` with the assigned Slurm job ID):
+1. Monitor the Slurm queue with (replace `<slurmjobid>` with the assigned Slurm job ID):
 
 ```bash
-squeue -j <slurm jobid>
+squeue -j <slurmjobid>
 # or
 squeue --me
 # or
@@ -279,7 +263,7 @@ squeue -u $USER
 
 {:start="2"}
 2. When the HyperQueue job has finished, a summary of the status of each task is dumped into
-   the file `task_summary.txt`. Check the contents of this file.
+   the file `task_summary.txt`. Check the contents of this file:
 
 ```bash
 cat task_summary.txt
@@ -297,7 +281,7 @@ cat task_summary.txt
 
 {:start="4"}
 4. This indicates that the calculation with ID 9 failed for some reason! Check which input
-   this corresponds to.
+   this corresponds to:
   
 ```bash
 grep "ID 9" output/*/*
@@ -305,7 +289,7 @@ grep "ID 9" output/*/*
 
 {:start="5"}
 5. The output should reveal that the failed task ID 9 is associated with job 7787. Check
-   the log of the failed job with.
+   the log of the failed job with:
 
 ```bash
 tail output/7787/7787.log
@@ -327,7 +311,7 @@ File lengths (MBytes):  RWF=      6 Int=      0 D2E=      0 Chk=      1 Scr=    
 
 ## Fix and resubmit a failed job
 
-1. Check out the defective input file plus another input file for reference.
+1. Check out the defective input file plus another input file for reference:
 
 ```bash
 cat C6H12_structures_10/7*.com
@@ -336,29 +320,29 @@ cat C6H12_structures_10/7*.com
 {:start="2"}
 2. The result shows two input files one after another. You should be able to spot
    what is missing from the defective input file.
-3. Correct the defective file by inserting the missing title "7787" at line 6.
+3. Correct the defective file by inserting the missing title "7787" at line 6:
 
 ```bash
 sed -i "6s/^/7787/" C6H12_structures_10/7787.com
 ```
 
 {:start="4"}
-4. Rerun the job. You do not need HyperQueue as it is just a single job.
+4. Rerun the job. You do not need HyperQueue as it is just a single job:
 
 ```bash
 module load gaussian
-srun -p interactive --ntasks=1 --cpus-per-task=4 --time=00:05:00 -A project_<id> g16 < C6H12_structures_10/7787.com > output/7787/7787.log
+srun -p interactive --ntasks=1 --cpus-per-task=4 --time=00:05:00 -A <project> g16 < C6H12_structures_10/7787.com > output/7787/7787.log
 ```
 
 {:start="5"}
-5. Once the job has finished ensure that it terminated normally.
+5. Once the job has finished ensure that it terminated normally:
 
 ```bash
 tail output/7787/7787.log
 ```
 
 {:start="6"}
-6. Print a list of the `b3lyp/cc-pVDZ` energies for each of the 10 structures.
+6. Print a list of the `b3lyp/cc-pVDZ` energies for each of the 10 structures:
 
 ```bash
 grep -rnw 'output/' -e 'E(RB3LYP)'
@@ -379,3 +363,8 @@ output/12201/12201.log:246: SCF Done:  E(RB3LYP) =  -235.823223660     A.U. afte
 output/7787/7787.log:246: SCF Done:  E(RB3LYP) =  -235.882771348     A.U. after   10 cycles
 output/11109/11109.log:265: SCF Done:  E(RB3LYP) =  -235.823585171     A.U. after   12 cycles
 ```
+
+💡 Running a task array using HyperQueue as outlined above is an efficient approach to running many
+similar (non-MPI parallel, independent) tasks. The same result can, however, be accomplished even
+more easily by using the [`sbatch-hq` wrapper script](https://docs.csc.fi/apps/hyperqueue/#sbatch-hq),
+which takes care of setting up the HyperQueue batch script for you. See more details in Docs CSC.
