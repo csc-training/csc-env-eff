@@ -30,16 +30,16 @@ title: Tutorial - Start with getting a CSC account and project (essential)
 
 1. Join a project
     - via invitation link (ask the Project Manager to invite you)
-    - or if you are eligible to act as a Project Manager then go ahead and create a project
+    - or if you are [eligible to act as a Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager) then go ahead and create a project
 
 ## Add services to your project
 
-1. Login to [MyCSC](my.csc.fi)
+💡 The Project Manager [must have applied for the services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/#project-manager) for the project first. Here, you accept the _Terms of Use_ and activate them.
+
+1. Login to [MyCSC](https://my.csc.fi)
 2. Click My Projects and select a project
 3. In the bottom right corner you see the services section
-4. Select Puhti, (Mahti) and Allas, approve the terms and conditions and click Add service 
-
-Note, that the project manager needs to [apply for access for the services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/#project-manager) before you as a user can add them to the project.
+4. Select Puhti, (Mahti) and Allas, approve the terms and conditions and click Add service
 
 ## More information
 
