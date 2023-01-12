@@ -115,6 +115,13 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 {:start="5"}
 5. Now, you're ready to go.
+6. Let's do our first small task in Puhti: let's check that we have a project and access to Allas service! 
+```bash
+csc-projects
+module load allas
+allas-conf
+```
+7.  First command `csc-projects` lists your projects. Second command `module load allas` loads the Allas tools in your use. Third command `allas-conf` sets up the connection to Allas: it will ask for your CSC password, and then you need to select which project you want to use (by typing the number of the project, for example `2`). If you don't see a project here, please return to [CSC account and project](credentials.md) tutorial and see that you have a project with access to Allas service. Please note, that it can take up to 1h after accepting the terms of use before the service is in use.
 
 ### Remote graphics
 
