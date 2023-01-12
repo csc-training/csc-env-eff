@@ -5,7 +5,7 @@ title: Tutorial - sacct and seff, resource usage (essential)
 
 # Using `sacct` and `seff` to understand resource usage of finished jobs
 
-💬 In this tutorial we look at the `seff` and `sacct` commands.
+💬 In this tutorial we look at the `seff` and `sacct` commands. The tutorial should be done on Puhti.
 
 💭 `seff` shows detailed data on used resources in an easy-to-read format, but can only show one job at a time.
 
@@ -27,7 +27,7 @@ sacct -S YYYY-MM-DD    # replace YYYY-MM-DD
 ```
 
 {:start="3"}
-3. Look for a specific job – _i.e._ specify the job ID using the `-j` option:
+3. Look for a specific job – _i.e._ specify the job ID using the `-j` option (if you can't think of one, you can use `14883506`):
 
 ```bash
 sacct -j <slurmjobid>    # replace <slurmjobid> with a valid job ID 
@@ -61,6 +61,8 @@ sacct -e
 ## Running a test job
 
 💬 Run a simple array job to practice using `seff` and `sacct`.
+
+☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `14885076` (it is the same job).
 
 1. Create a file named `array.sh` and paste the following contents in it.
 
@@ -146,6 +148,8 @@ sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j <slurmjobid>    
 
 1. Look at the error messages produced by the failed jobs.
 2. When you know which sub jobs failed and why, adjust the resource requests as necessary.
+
+☝🏻 If you have limited time, you can skip to step 4 and use the job ID `14885122` (it is the same job with adjusted resource requests).
 
 - Change time and memory reservations:
 
