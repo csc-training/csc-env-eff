@@ -149,7 +149,7 @@ sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j <slurmjobid>    
 1. Look at the error messages produced by the failed jobs.
 2. When you know which sub jobs failed and why, adjust the resource requests as necessary.
 
-☝🏻 If you have limited time, you can skip to step 4 and use the job ID `14885122` (it is the same job with adjusted time and memory requests).
+☝🏻 If you have limited time, you can skip to step 4 and use the job ID `14885122` (it is the same job with adjusted resource requests).
 
 - Change time and memory reservations:
 
