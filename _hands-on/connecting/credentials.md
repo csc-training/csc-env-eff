@@ -39,6 +39,8 @@ title: Tutorial - Start with getting a CSC account and project (essential)
 3. In the bottom right corner you see the services section
 4. Select Puhti, Mahti and Allas, approve the terms and conditions and click Add service
 
+Note, that the project manager needs to [apply for access for the services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/#project-manager) before you as a user can add them to the project.
+
 ## More information
 
 💭 [Docs: user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
