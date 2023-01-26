@@ -24,7 +24,7 @@ another format.
 - The files represent SMILES strings (a line notation encoding the two-dimensional
   structure of a molecule) which we want to convert into a three-dimensional coordinate
   format
-- The computational cost of each of the 4000+ conversions is expected to be comparable
+- The computational cost of each of the conversions is expected to be comparable
 - Since the workflow involves many small files, we will utilize the fast local disk to
   avoid stressing the parallel file system
 
@@ -47,7 +47,7 @@ cd /scratch/<project>/$USER/hq-example
 ```
 
 {:start="2"}
-2. Download the 4000+ input files that represent small molecules from the
+2. Download the input files representing small molecules initially obtained from the
    [ChEMBL database](https://chembl.gitbook.io/chembl-interface-documentation/downloads):
   
 ```bash
@@ -57,13 +57,13 @@ wget https://a3s.fi/CSC_training/smiles.tar.gz
 ## Create a HyperQueue batch script
 
 💬 We will use [Open Babel](https://docs.csc.fi/apps/openbabel/) to convert the SMILES
-strings to a three-dimensional `.sdf` coordinate format.
+strings into a three-dimensional `.sdf` coordinate format.
 
 ☝🏻 Multiple files can be converted using the batch conversion mode of Open Babel. For
 4000+ files this would, however, take more than an hour. Similarly, submitting each
 conversion as a separate Slurm job is also a bad idea since each conversion takes
-just a few seconds. A large number of short jobs risks degrading the performance
-of the scheduler for all users.
+just a few seconds. A large number of short jobs may degrade the performance of the
+scheduler for all users.
 
 💡 [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) is a program that allows us to
 schedule sub-node tasks *within* a Slurm allocation. One can think of HyperQueue as a
