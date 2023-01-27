@@ -32,8 +32,7 @@ another format.
 
 1. Download the input files from Allas
 2. Decompress the files to `$LOCAL_SCRATCH`
-3. Use Open Babel to convert each `.smi` file to a three-dimensional `.sdf` molecular
-   file format
+3. Convert each `.smi` file to a three-dimensional `.sdf` molecular file format
 4. Archive and compress the output files and move them back to `/scratch`
 
 ## Download the input files
@@ -131,3 +130,19 @@ sbatch hq.sh
 {:start="4"}
 4. After the job has finished (should take a couple of minutes), you should notice that a
    file `sdf.tar.gz` containing the output files has appeared in your working directory.
+
+💡 Tip: If you want to monitor the progress of your HyperQueue jobs/tasks, just export
+the location of the HyperQueue server an use the `hq` commands (see the [official
+documentation for details](https://it4innovations.github.io/hyperqueue/stable/jobs/jobs/)).
+
+```bash
+export HQ_SERVER_DIR=/path/to/hq/server
+hq job progress <hqjobid>
+hq job list
+hq task list <hqjobid>
+hq job info <hqjobid>
+hq task info <hqjobid> <hqtaskid>
+```
+
+💬 You could also run one of these commands in your batch script before shutting down the
+server to get a report of how your jobs/tasks completed and spot possible failures.
