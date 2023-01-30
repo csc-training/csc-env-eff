@@ -63,7 +63,7 @@ tar -xzf C7O2H10.tar.gz
 ```
 
 {:start="4"}
-4. Go to the directory containing the structure files that are in [.mol
+4. Go to the directory containing the structure files that are in [`.mol`
    format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html):
 
 ```bash
@@ -88,8 +88,8 @@ obabel *.mol -ocom -m
 
 ## Construct the corresponding Gaussian input files
 
-💬 In this example we want to do do a `b3lyp/cc-pVDZ` calculation on these structures,
-i.e. a hybrid density functional theory calculation using the B3LYP exchange-correlation
+💬 In this example we want to do a `b3lyp/cc-pVDZ` calculation on these structures, i.e.
+a hybrid density functional theory calculation using the B3LYP exchange-correlation
 functional and the cc-PVDZ basis set.
 
 1. Add the `b3lyp/cc-pVDZ` keyword at the beginning of each `.com` file:
