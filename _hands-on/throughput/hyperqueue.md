@@ -74,12 +74,11 @@ embarrassing parallelism without overloading Slurm by looping `srun` or `sbatch`
 ```bash
 #!/bin/bash
 #SBATCH --partition=small
-#SBATCH --account=<project>
+#SBATCH --account=<project>    # replace <project> with your CSC project, e.g. project_2001234
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=40
 #SBATCH --time=00:10:00
-#SBATCH --mem=1G
 #SBATCH --gres=nvme:1
 
 module load hyperqueue openbabel
@@ -96,11 +95,11 @@ until hq job list &>/dev/null ; do sleep 1 ; done
 srun --exact --cpu-bind=none --mpi=none hq worker start --cpus=${SLURM_CPUS_PER_TASK} &
 hq worker wait "${SLURM_NTASKS}"
 
-# Extract the SMILES strings (one string per .smi file) to the local disk and cd there
+# Extract the input files to the local disk and cd there
 tar -xf smiles.tar.gz -C $LOCAL_SCRATCH
 cd $LOCAL_SCRATCH/smiles
 
-# Use Open Babel for the 3D conversion, each as a separate HyperQueue job
+# Submit each Open Babel conversion as a separate HyperQueue job
 for f in *.smi ; do
     hq submit --stdout=none --stderr=none obabel $f -O ${f%.*}.sdf --gen3d best &
 done
@@ -121,6 +120,13 @@ cp sdf.tar.gz $SLURM_SUBMIT_DIR
    which executes commands that the client submitted to the server
     - This is in principle what Slurm also does, only difference is that you
       need to start the server and workers yourself
+    - In this example, one full Puhti node is reserved for processing the files,
+      meaning that 40 conversion commands will be running in parallel
+
+☝🏻 Ideally, the number of sub-tasks should be larger than the amount that can fit
+running on the reserved resources simultaneously to avoid too short Slurm jobs.
+
+{:start="3"}
 3. Submit the script with:
 
 ```bash
@@ -128,8 +134,8 @@ sbatch hq.sh
 ```
 
 {:start="4"}
-4. After the job has finished (should take a couple of minutes), you should notice that a
-   file `sdf.tar.gz` containing the output files has appeared in your working directory.
+4. After a couple of minutes, you should notice that a file `sdf.tar.gz` containing
+   the output files has appeared in your working directory.
 
 💡 Tip: If you want to monitor the progress of your HyperQueue jobs/tasks, just export
 the location of the HyperQueue server an use the `hq` commands (see the [official
@@ -137,12 +143,13 @@ documentation for details](https://it4innovations.github.io/hyperqueue/stable/jo
 
 ```bash
 export HQ_SERVER_DIR=/path/to/hq/server
-hq job progress <hqjobid>
 hq job list
-hq task list <hqjobid>
 hq job info <hqjobid>
+hq job progress <hqjobid>
+hq task list <hqjobid>
 hq task info <hqjobid> <hqtaskid>
 ```
 
-💬 You could also run one of these commands in your batch script before shutting down the
-server to get a report of how your jobs/tasks completed and spot possible failures.
+💬 To get a report of how your jobs/tasks completed and spot possible failures,
+you could also run one of these commands in your batch script and redirect the
+output to a file before shutting down the server.
