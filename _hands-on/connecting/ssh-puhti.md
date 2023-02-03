@@ -140,23 +140,21 @@ allas-conf
 ssh -X cscusername@puhti.csc.fi
 ```
 
-Note that on Mac you need to have an X server running, for example [XQuartz](http://xquartz.org). You also need to set in your .bashrc
+Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`
 
 `export DISPLAY=:0`
 
 #### On Windows
 
 1. MobaXterm will actually tunnel the connection by default.
-2. WSL and PuTTY require that an X server be installed and running. One of the options is [Xming](https://sourceforge.net/projects/xming/).
-3. If you are using WSL, you need to set this variable in your .bashrc:
+2. WSL and PuTTY require that an X server is installed and running. One of the options is [Xming](http://www.straightrunning.com/XmingNotes/).
+3. If you are using WSL, you need to set either of the environment variables below in your `.bashrc` (depends on the version of WSL you are running):
 
-`export DISPLAY=:0`
-
-or
-
-`export DISPLAY=:0.0`
-
-One or the other works depending on the version of WSL that you are running. 
+```bash
+export DISPLAY=:0
+# or
+export DISPLAY=:0.0
+```
 
 ☝🏻 For intensive remote graphics we recommend using the [Puhti web interface](https://www.puhti.csc.fi/).
 
