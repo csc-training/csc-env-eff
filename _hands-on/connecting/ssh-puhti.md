@@ -142,7 +142,9 @@ ssh -X cscusername@puhti.csc.fi
 
 Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`
 
-`export DISPLAY=:0`
+```bash
+export DISPLAY=:0
+```
 
 #### On Windows
 
