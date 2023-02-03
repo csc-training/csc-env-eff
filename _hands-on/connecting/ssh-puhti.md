@@ -150,7 +150,8 @@ export DISPLAY=:0
 
 1. MobaXterm will actually tunnel the connection by default.
 2. WSL and PuTTY require that an X server is installed and running. One of the options is [Xming](http://www.straightrunning.com/XmingNotes/).
-3. If you are using WSL, you need to set either of the environment variables below in your `.bashrc` (depends on the version of WSL you are running):
+3. In PuTTY, X11 forwarding is enabled in the connection settings: `Connection -> SSH -> X11: Enable X11 forwarding`.
+4. If you are using WSL, you need to set either of the environment variables below in your `.bashrc` (depends on the version of WSL you are running):
 
 ```bash
 export DISPLAY=:0
