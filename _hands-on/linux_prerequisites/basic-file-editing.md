@@ -5,11 +5,11 @@ title: Tutorial - Basic file editing
 
 # Basic file editing
 
-> ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+> ‼️ To begin, make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 > ☝🏻 You should also have already [logged in to Puhti with SSH](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html).
 
-> ☝🏻 Note: For graphical output to work you need to log in with `ssh -X cscusername@puhti.csc.fi`. Another option is to use a remote desktop via the Puhti web interface, although this tutorial assumes you are working with SSH and X11-tunneling.
+> ☝🏻 Note: For graphical output to work you need to log in with `ssh -X cscusername@puhti.csc.fi`. On Windows/macOS you also need to have an X server installed and running. [See details in the previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html#remote-graphics). Another option is to use the Puhti web interface.
 
 In the [previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/linux_prerequisites/basic-linux-commands.html) we downloaded a file called `my-first-file.txt`, made a copy of it named `YourName-first-file.txt`, and now we practice how to edit it!
 
@@ -39,6 +39,8 @@ less YourName-first-file.txt      # replace YourName
 
 ## Processing images and pdf files
 
+☝🏻 Note! In case you are using the Puhti web interface, you need to open the files below from the file browser.
+
 1. Download an image and a pdf:
 
 ```bash
@@ -47,7 +49,7 @@ wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/schroding
 ```
 
 {:start="2"}
-2. Open the image with:
+2. Open the image with `eog` or using the file browser of the Puhti web interface.
 
 ```bash
 eog terminal_icon.png
@@ -55,7 +57,7 @@ eog terminal_icon.png
 
 {:start="3"}
 3. Close the preview window.
-4. Open the pdf with:
+4. Open the pdf with `evince` or using the file browser of the Puhti web interface.
 
 ```bash
 evince schrodingerscat.pdf
