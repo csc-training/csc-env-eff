@@ -22,14 +22,16 @@ title: Tutorial - Login to Puhti with a browser or SSH (essential)
 
 ## Connecting with SSH from the command-line
 
-💬 The basic Command Line Interface (CLI) in Unix-based systems is the Terminal. Find the Terminal on your computer:  
-![terminal-icon](../../slides/img/terminal_icon1.png)
+💬 The basic Command Line Interface (CLI) in Unix-based systems is the Terminal. 
 
 💡 Different operating systems have slightly different CLIs and SSH-clients (programs that you can use to connect to the supercomputers).
 
 ### Connecting from Linux
 
-💬 Laptops and workstations running Linux typically have SSH installed:
+💬 Laptops and workstations running Linux typically have SSH installed.
+
+Find the Terminal on your computer:  
+![terminal-icon](../../slides/img/terminal_icon1.png)
 
 1. Open a terminal and type (replace `cscusername` with your CSC username):
 
@@ -61,6 +63,7 @@ ssh cscusername@puhti.csc.fi
 - You can use the *Windows Power Shell*
 - You can [download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
 - You can [download and install MobaXterm](https://mobaxterm.mobatek.net/download.html).
+- You can set up the Windows Subsystem for Linux which creates an independent virtual Linux installation that can see all the files on your Windows computer. [Instruction for WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 ‼️ The following steps assume you use MobaXterm. [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
 
@@ -137,9 +140,23 @@ allas-conf
 ssh -X cscusername@puhti.csc.fi
 ```
 
+Note that on Mac you need to have an X server running, for example [XQuartz](http://xquartz.org). You also need to set in your .bashrc
+
+`export DISPLAY=:0`
+
 #### On Windows
 
 1. MobaXterm will actually tunnel the connection by default.
+2. WSL and PuTTY require that an X server be installed and running. One of the options is [Xming](https://sourceforge.net/projects/xming/).
+3. If you are using WSL, you need to set this variable in your .bashrc:
+
+`export DISPLAY=:0`
+
+or
+
+`export DISPLAY=:0.0`
+
+One or the other works depending on the version of WSL that you are running. 
 
 ☝🏻 For intensive remote graphics we recommend using the [Puhti web interface](https://www.puhti.csc.fi/).
 
