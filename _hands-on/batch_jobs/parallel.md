@@ -25,6 +25,8 @@ title: Tutorial - Parallel batch jobs
 - Depending on the parallel program and the type of job, the optimal resource request is often difficult to predict beforehand
     - Always start small and scale up gradually! Don't run on 1000 cores unless you're sure your program can use each of them efficiently.
 
+☝🏻 Note! You need to have an MPI module loaded when running parallel batch jobs. If you get an error saying `error while loading shared libraries: libmpi.so.40: cannot open shared object file: No such file or directory`, try `module load StdEnv` to load the default environment (or load a specific MPI module, e.g. `openmpi`).
+
 ### A simple OpenMP job
 
 💬 An OpenMP-enabled program can take advantage of multiple cores that share the same memory on a **single node**, a.k.a. _threads_
