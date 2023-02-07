@@ -115,3 +115,11 @@ module list
 ```
 
 ☝🏻 It is generally best to use the latest versions since they typically are more performant than old ones and may have useful new features.
+
+💭 You can also find the available version by typing the command until the module name and then press TAB twice:
+
+```bash
+$ module load gromacs # and here double-press TAB
+gromacs                gromacs/2021.5         gromacs/2022.2         gromacs/2022.4         gromacs-env/2020       gromacs-env/2021-gpu   gromacs-env/2022-gpu
+gromacs/2021.4-plumed  gromacs/2021.6         gromacs/2022.3         gromacs-env            gromacs-env/2021       gromacs-env/2022 
+```
