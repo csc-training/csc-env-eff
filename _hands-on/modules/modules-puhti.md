@@ -42,10 +42,21 @@ module spider gromacs
 💬 The list can be quite long. You can go to the next line with Enter, or stop viewing by typing `q`).
 
 {:start="5"}
-5. Check if some versions can be loaded directly *i.e.* are compatible with your currently loaded module environment:
+5. Check if some versions can be loaded directly, *i.e.* are compatible with your currently loaded module environment:
 
 ```bash
 module avail gromacs
+```
+
+💡 Tip: Another quick way to list the available versions is by typing the load command until the module name and then hit `TAB` twice:
+
+```bash
+$ module load gromacs # and here double press TAB
+gromacs                gromacs/2022.3         gromacs-env/2021-gpu
+gromacs/2021.4-plumed  gromacs/2022.4         gromacs-env/2022
+gromacs/2021.5         gromacs-env            gromacs-env/2022-gpu
+gromacs/2021.6         gromacs-env/2020       
+gromacs/2022.2         gromacs-env/2021
 ```
 
 {:start="6"}
@@ -115,11 +126,3 @@ module list
 ```
 
 ☝🏻 It is generally best to use the latest versions since they typically are more performant than old ones and may have useful new features.
-
-💭 You can also find the available version by typing the command until the module name and then press TAB twice:
-
-```bash
-$ module load gromacs # and here double-press TAB
-gromacs                gromacs/2021.5         gromacs/2022.2         gromacs/2022.4         gromacs-env/2020       gromacs-env/2021-gpu   gromacs-env/2022-gpu
-gromacs/2021.4-plumed  gromacs/2021.6         gromacs/2022.3         gromacs-env            gromacs-env/2021       gromacs-env/2022 
-```
