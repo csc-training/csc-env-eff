@@ -122,8 +122,6 @@ Hello from thread: 1
 
 💬 An MPI-enabled program can take advantage of resources that are spread over multiple compute nodes
 
-
-
 1. Download a simple program parallelized with MPI:
 
 ```bash
