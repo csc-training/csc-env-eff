@@ -38,7 +38,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Possible to limit access (`chmod g-rw`) to subfolders
 - Scratch directory (`/scratch/project_name`)
     - Shared with project members
-    - Files older than 90 days will be automatically removed
+    - Files older than 180 days will be automatically removed
 - These directories reside on the [Lustre parallel file system](https://docs.csc.fi/computing/lustre/)
 - Default quotas and more info in [disk areas section of Docs CSC](https://docs.csc.fi/computing/disk/)
 
