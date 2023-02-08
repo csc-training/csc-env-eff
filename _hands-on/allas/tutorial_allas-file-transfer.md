@@ -171,3 +171,5 @@ a-flip <filename>         # replace <filename>
 
 {:start="2"}
 2. The command outputs an URL (public link). Copy it to your browser or send it to your friends 😎
+
+‼️ Note: `a-flip` takes just the file name, not the bucket name like many of the previous commands.
