@@ -150,6 +150,12 @@ hq task list <hqjobid>
 hq task info <hqjobid> <hqtaskid>
 ```
 
+☝🏻 Remember to load the hyperqueue module before running the commands above from 
+the terminal, otherwise you will get an error message that the command hq is not found. 
+
+☝🏻 Also note that these commands are available only after your job starts running. 
+
 💬 To get a report of how your jobs/tasks completed and spot possible failures,
 you could also run one of these commands in your batch script and redirect the
 output to a file before shutting down the server.
+
