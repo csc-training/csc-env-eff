@@ -79,6 +79,8 @@ pip3 uninstall coverage
 {:start="6"}
 6. Type `y` to confirm.
 
+☝🏻 Note, if the package you installed also contains executable files these may not work. This is because the Python modules provided by CSC are containerized and the user-installed binaries will refer to an inaccessible Python path inside the container. For workaround instructions, see our [Python documentation](https://docs.csc.fi/apps/python/#installing-python-packages-to-existing-modules) or install your own environment from scratch inside a container as outlined in the following example.
+
 ## Example: Containerizing a Conda environment with Tykky
 
 💬 Let's create a containerized Conda environment using the Tykky wrapper.
