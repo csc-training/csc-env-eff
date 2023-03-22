@@ -15,7 +15,8 @@ module spider r-env
 
 2.  There are several ways to use R in `r-env` on Puhti:
 
--   Interactive jobs on a compute node, using either the R console or RStudio
+-   Interactive jobs on a compute node, using either the R console or RStudio\
+    💡 The easiest way to launch RStudio is to use the Puhti web interface at [www.puhti.csc.fi](https://www.puhti.csc.fi/)
 -   Non-interactive batch jobs
 -   Interactively on the login node, using the R console (**only** for moving data, checking package availability, installing packages)
 
