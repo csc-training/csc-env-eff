@@ -143,6 +143,7 @@ the location of the HyperQueue server an use the `hq` commands (see the [officia
 documentation for details](https://it4innovations.github.io/hyperqueue/stable/jobs/jobs/)).
 
 ```bash
+module load hyperqueue
 export HQ_SERVER_DIR=/path/to/hq/server
 hq job list
 hq job info <hqjobid>
