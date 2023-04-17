@@ -75,7 +75,6 @@ embarrassing parallelism without overloading Slurm by looping `srun` or `sbatch`
 #!/bin/bash
 #SBATCH --partition=small
 #SBATCH --account=<project>                   # replace <project> with your CSC project, e.g. project_2001234
-#SBATCH --reservation=april-fourteen-course   # this flag is only valid on the live course on 14.4.2023 10-12
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=40
