@@ -32,6 +32,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - You can check the available applications and their respective modules in the [application list](https://docs.csc.fi/apps/)
    - Each application page in Docs CSC contains information on basic usage
 - You can use `module spider` to search for an application
+  - On LUMI you need to first run `module use /appl/local/csc/modulefiles` to see modules installed by CSC
 - Use the software by loading the module: `module load modulename`
    - For example: `module load gromacs-env`
 
@@ -55,11 +56,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Various kinds of modules
 
 - Some modules contain software that have a graphical user interface
-   - For example, the chemistry visualization software [Molden](https://docs.csc.fi/apps/molden/)
-   - Use the [Puhti web interface](https://puhti.csc.fi) or [another method to open the GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
-- Some modules contain software that provide a command-line interface
-   - For example, the [zstd module](https://docs.csc.fi/support/tutorials/env-guide/packing-and-compression-tools/#zstandard-compression-tool)
-- A module might contain only one program (*e.g.* `gromacs-env`), while some provide a collection of applications or *e.g.* Python or R packages
+   - For example, the chemistry visualization software [VMD](https://docs.csc.fi/apps/vmd/)
+   - Use the [Puhti/Mahti web interface](https://puhti.csc.fi) or [another method to open the GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
+- Some modules contain software that only provide a command-line interface
+   - For example, the [OpenBabel module](https://docs.csc.fi/apps/openbabel/)
+- A module might contain only one program (*e.g.* `gromacs-env`), while some provide a collection of applications (*e.g.* Python or R packages)
    - For example, [Geoconda](https://docs.csc.fi/apps/geoconda/) and [Python Data](https://docs.csc.fi/apps/python-data/)
 
 # Conda, Python and R packages
