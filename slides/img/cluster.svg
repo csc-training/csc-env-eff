@@ -106,7 +106,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084"
@@ -131,7 +131,7 @@
                    id="tspan6011-1"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -157,7 +157,7 @@
                    id="tspan6011-14"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -183,7 +183,7 @@
                    id="tspan6011-9"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -209,7 +209,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-5"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-4"
@@ -234,7 +234,7 @@
                    id="tspan6011-1-1"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -260,7 +260,7 @@
                    id="tspan6011-14-2"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -286,7 +286,7 @@
                    id="tspan6011-9-8"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -312,7 +312,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-7"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-7"
@@ -337,7 +337,7 @@
                    id="tspan6011-1-0"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -363,7 +363,7 @@
                    id="tspan6011-14-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -389,7 +389,7 @@
                    id="tspan6011-9-3"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -403,7 +403,7 @@
              y="162.69707"
              x="68.913345"
              id="tspan6223"
-             sodipodi:role="line">Socket</tspan></text>
+             sodipodi:role="line">CPU</tspan></text>
         <rect
            y="200.09137"
            x="50.688274"
@@ -433,7 +433,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-4"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-6"
@@ -458,7 +458,7 @@
                    id="tspan6011-1-10"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -484,7 +484,7 @@
                    id="tspan6011-14-73"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -510,7 +510,7 @@
                    id="tspan6011-9-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -536,7 +536,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-5-2"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-4-7"
@@ -561,7 +561,7 @@
                    id="tspan6011-1-1-8"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -587,7 +587,7 @@
                    id="tspan6011-14-2-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -613,7 +613,7 @@
                    id="tspan6011-9-8-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -639,7 +639,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-7-6"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-7-6"
@@ -664,7 +664,7 @@
                    id="tspan6011-1-0-9"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -690,7 +690,7 @@
                    id="tspan6011-14-7-9"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -716,7 +716,7 @@
                    id="tspan6011-9-3-3"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -730,7 +730,7 @@
              y="204.58891"
              x="69.447884"
              id="tspan6223-8"
-             sodipodi:role="line">Socket</tspan></text>
+             sodipodi:role="line">CPU</tspan></text>
         <rect
            y="158.01985"
            x="106.5069"
@@ -823,7 +823,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-93"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-1"
@@ -848,7 +848,7 @@
                    id="tspan6011-1-5"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -874,7 +874,7 @@
                    id="tspan6011-14-9"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -900,7 +900,7 @@
                    id="tspan6011-9-6"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -926,7 +926,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-5-3"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-4-8"
@@ -951,7 +951,7 @@
                    id="tspan6011-1-1-5"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -977,7 +977,7 @@
                    id="tspan6011-14-2-6"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1003,7 +1003,7 @@
                    id="tspan6011-9-8-8"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -1029,7 +1029,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-7-0"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-7-0"
@@ -1054,7 +1054,7 @@
                    id="tspan6011-1-0-4"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1080,7 +1080,7 @@
                    id="tspan6011-14-7-4"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1106,7 +1106,7 @@
                    id="tspan6011-9-3-2"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -1120,7 +1120,7 @@
              y="162.69707"
              x="68.913345"
              id="tspan6223-2"
-             sodipodi:role="line">Socket</tspan></text>
+             sodipodi:role="line">CPU</tspan></text>
         <rect
            y="200.09137"
            x="50.688274"
@@ -1150,7 +1150,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-4-5"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-6-8"
@@ -1175,7 +1175,7 @@
                    id="tspan6011-1-10-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1201,7 +1201,7 @@
                    id="tspan6011-14-73-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1227,7 +1227,7 @@
                    id="tspan6011-9-7-3"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -1253,7 +1253,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-5-2-9"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-4-7-3"
@@ -1278,7 +1278,7 @@
                    id="tspan6011-1-1-8-5"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1304,7 +1304,7 @@
                    id="tspan6011-14-2-7-2"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1330,7 +1330,7 @@
                    id="tspan6011-9-8-7-7"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -1356,7 +1356,7 @@
                  y="125.74503"
                  x="57.898563"
                  id="tspan6011-7-6-0"
-                 sodipodi:role="line">CPU</tspan></text>
+                 sodipodi:role="line">core</tspan></text>
           </g>
           <g
              id="g6084-7-6-7"
@@ -1381,7 +1381,7 @@
                    id="tspan6011-1-0-9-5"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1407,7 +1407,7 @@
                    id="tspan6011-14-7-9-3"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
           <g
@@ -1433,7 +1433,7 @@
                    id="tspan6011-9-3-3-1"
                    x="57.898563"
                    y="125.74503"
-                   style="stroke-width:0.264583">CPU</tspan></text>
+                   style="stroke-width:0.264583">core</tspan></text>
             </g>
           </g>
         </g>
@@ -1447,7 +1447,7 @@
              y="204.58891"
              x="69.447884"
              id="tspan6223-8-9"
-             sodipodi:role="line">Socket</tspan></text>
+             sodipodi:role="line">CPU</tspan></text>
         <rect
            y="158.01985"
            x="106.5069"
@@ -1892,7 +1892,7 @@
                  id="tspan6011-93-2"
                  x="57.898563"
                  y="125.74503"
-                 style="stroke-width:0.264583">CPU</tspan></text>
+                 style="stroke-width:0.264583">core</tspan></text>
           </g>
           <g
              transform="translate(-4.7625022,0.66816913)"
@@ -1917,7 +1917,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-1-5-3"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -1943,7 +1943,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-14-9-4"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -1969,7 +1969,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-9-6-0"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
         </g>
@@ -1995,7 +1995,7 @@
                  id="tspan6011-5-3-9"
                  x="57.898563"
                  y="125.74503"
-                 style="stroke-width:0.264583">CPU</tspan></text>
+                 style="stroke-width:0.264583">core</tspan></text>
           </g>
           <g
              transform="translate(-4.7625022,0.66816913)"
@@ -2020,7 +2020,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-1-1-5-9"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2046,7 +2046,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-14-2-6-5"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2072,7 +2072,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-9-8-8-1"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
         </g>
@@ -2098,7 +2098,7 @@
                  id="tspan6011-7-0-7"
                  x="57.898563"
                  y="125.74503"
-                 style="stroke-width:0.264583">CPU</tspan></text>
+                 style="stroke-width:0.264583">core</tspan></text>
           </g>
           <g
              transform="translate(-4.7625022,0.66816913)"
@@ -2123,7 +2123,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-1-0-4-4"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2149,7 +2149,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-14-7-4-2"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2175,7 +2175,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-9-3-2-8"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
         </g>
@@ -2189,7 +2189,7 @@
              id="tspan6223-2-0"
              x="68.913345"
              y="162.69707"
-             style="stroke-width:0.264583">Socket</tspan></text>
+             style="stroke-width:0.264583">CPU</tspan></text>
         <rect
            style="fill:#95dbff;fill-opacity:1;stroke:#000000;stroke-width:0.290993;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect6007-0-6-1"
@@ -2219,7 +2219,7 @@
                  id="tspan6011-4-5-1"
                  x="57.898563"
                  y="125.74503"
-                 style="stroke-width:0.264583">CPU</tspan></text>
+                 style="stroke-width:0.264583">core</tspan></text>
           </g>
           <g
              transform="translate(-4.7625022,0.66816913)"
@@ -2244,7 +2244,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-1-10-7-1"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2270,7 +2270,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-14-73-7-2"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2296,7 +2296,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-9-7-3-7"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
         </g>
@@ -2322,7 +2322,7 @@
                  id="tspan6011-5-2-9-5"
                  x="57.898563"
                  y="125.74503"
-                 style="stroke-width:0.264583">CPU</tspan></text>
+                 style="stroke-width:0.264583">core</tspan></text>
           </g>
           <g
              transform="translate(-4.7625022,0.66816913)"
@@ -2347,7 +2347,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-1-1-8-5-6"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2373,7 +2373,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-14-2-7-2-9"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2399,7 +2399,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-9-8-7-7-8"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
         </g>
@@ -2425,7 +2425,7 @@
                  id="tspan6011-7-6-0-7"
                  x="57.898563"
                  y="125.74503"
-                 style="stroke-width:0.264583">CPU</tspan></text>
+                 style="stroke-width:0.264583">core</tspan></text>
           </g>
           <g
              transform="translate(-4.7625022,0.66816913)"
@@ -2450,7 +2450,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-1-0-9-5-3"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2476,7 +2476,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-14-7-9-3-2"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
           <g
@@ -2502,7 +2502,7 @@
                    y="125.74503"
                    x="57.898563"
                    id="tspan6011-9-3-3-1-2"
-                   sodipodi:role="line">CPU</tspan></text>
+                   sodipodi:role="line">core</tspan></text>
             </g>
           </g>
         </g>
@@ -2516,7 +2516,7 @@
              id="tspan6223-8-9-4"
              x="69.447884"
              y="204.58891"
-             style="stroke-width:0.264583">Socket</tspan></text>
+             style="stroke-width:0.264583">CPU</tspan></text>
         <rect
            style="fill:#00b86f;fill-opacity:1;stroke:#000000;stroke-width:0.2;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
            id="rect6428-8-7"

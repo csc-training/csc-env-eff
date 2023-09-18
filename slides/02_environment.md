@@ -19,11 +19,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Notes on vocabulary
 
 <div class="column">
-Roughly you can think of
+- You can roughly think that one **node** is a single computer
+- A node on a supercomputer contains:
+  - One or more central processing units (**CPUs**) with many **cores**
+  - Shared **memory**
+- Some nodes may also have:
+  - **Local storage**
+  - Graphics processing units (**GPUs**)
 
-- computer ~= node
-- processor ~= socket
-- core ~= CPU
 </div>
 <div class="column">
 ![](./img/node.svg){width=60%} 
@@ -73,7 +76,7 @@ Roughly you can think of
 | Job size (min-max cores)    | 1-1040 | 128-25600 | 1-65536
 | Memory per node (GiB)       | 192-1536 | 256     | 256-1024
 | GPU cards          | 320 (V100) | 96 (A100) | 10240 (MI250X)
-| Fast local disks (NVMe) | 106 CPU, 80 GPU   | 24 GPU  | -
+| Fast local disks (NVMe) | 106 CPU, 80 GPU   | 24 GPU  | 8 CPU, 8 GPU
 
 <small>
 In short: Mahti is for large parallel jobs, prepare to install and optimize your code. Still, one Puhti *node* is 10x your laptop. LUMI is like Mahti + massive AMD GPU capacity
