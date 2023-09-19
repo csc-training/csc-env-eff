@@ -21,6 +21,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # The one-slide lecture
 
 - It is possible for users to install software on the CSC supercomputers
+  - [Docs CSC page about installing own software](https://docs.csc.fi/computing/installing/)
 - If you don't know how or run into problems while trying, contact <servicedesk@csc.fi>
   - For LUMI-related queries, [contact the LUMI User Support Team](https://lumi-supercomputer.eu/user-support/need-help/)
 
@@ -67,9 +68,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Set the installation directory to `/projappl` or similar
 - Start by loading a suitable compiler suite or language module
   - Many commonly used [HPC libraries](https://docs.csc.fi/computing/hpc-libraries/) (e.g. OpenMPI, ScaLAPACK, FFTW) are available as modules (search with `module spider`)
-- Compile on the fast local disk (`$TMPDIR`) to move I/O load away from the parallel file system
+- Compile on the fast local disk (`$TMPDIR`) to avoid stressing Lustre
 - New software is not automatically added to `$PATH`
-  - Provide the full path or add with: `export PATH=/path/to/my/software:$PATH`
+  - Include the full path or add with `export PATH="/path/to/my/sw:$PATH"`
 
 # Installation methods: Native installations
 
@@ -93,8 +94,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Testing -- it's important to test _first_
 
-- Construct a [batch job script](05_batch_jobs.html)
-- Make a short and simple test run
+- Construct a [batch job script](05_batch_jobs.html) for a short and simple test run
   - Use known example/benchmark data provided, e.g., by the code developer (if you did not develop the code yourself)
   - Run a tutorial provided with the software
 - Run your test in the `test` queue or in an [interactive session](https://docs.csc.fi/computing/running/interactive-usage/) directly from the command-line
@@ -105,8 +105,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - See the tutorials for each category for more detailed instructions
   - [Installation tutorials](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software)
 - Check the Docs CSC pages:
-  - [Compiling applications in Puhti](https://docs.csc.fi/computing/compiling-puhti/)
-  - [Compiling applications in Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+  - [Installation overview](https://docs.csc.fi/computing/installing/)
+  - Compiling applications in [Puhti](https://docs.csc.fi/computing/compiling-puhti/) and [Mahti](https://docs.csc.fi/computing/compiling-mahti/)
   - [High-performance libraries](https://docs.csc.fi/computing/hpc-libraries/)
   - [Software installation on LUMI](https://docs.lumi-supercomputer.eu/software/)
 - Lots of information online
