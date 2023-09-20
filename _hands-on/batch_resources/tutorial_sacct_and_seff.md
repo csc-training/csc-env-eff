@@ -62,7 +62,7 @@ sacct -e
 
 💬 Run a simple array job to practice using `seff` and `sacct`.
 
-☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `14885076` (it is the same job).
+☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `18648826` (it is the same job).
 
 1. Create a file named `array.sh` and paste the following contents in it.
 
