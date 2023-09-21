@@ -36,16 +36,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # First steps for fast jobs (2/2)
 
 - When you've found the software you want to use, check if it is available at CSC as a [pre-installed optimized version](https://docs.csc.fi/apps/)
-   - Spend some time getting familiar with the software user manual, if available
-- If you need to install a software package yourself and it happens to be distributed through Conda, [you need to containerize it](https://docs.csc.fi/computing/usage-policy/#conda-installations)
-   - Conda environments installed directly on the parallel file system are highly inefficient due to the large number of files they contain
+   - Familiarize yourself with the software manual, if available
+- If you need to install a software package distributed through Conda, [you need to containerize it](https://docs.csc.fi/computing/usage-policy/#conda-installations)
    - Containerizing greatly speeds up performance at startup and can be done easily with the [Tykky wrapper](https://docs.csc.fi/computing/containers/tykky/)
 - If you can't find suitable software, consider writing your own code
 
 # Optimize the performance of your own code (1/2)
 
 - If you have written your own code, compile it with optimizing compiler options
-   - Docs CSC: [Compiling on Puhti](https://docs.csc.fi/computing/compiling-puhti/), [Compiling on Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+   - Docs CSC: compiling on [Puhti](https://docs.csc.fi/computing/compiling-puhti/) and [Mahti](https://docs.csc.fi/computing/compiling-mahti/)
    - [Compiling on LUMI](https://docs.lumi-supercomputer.eu/development/)
 - Construct a small and quick test case and run it in the test queue
    - Docs CSC: [Queue options](https://docs.csc.fi/computing/running/batch-job-partitions/)
@@ -76,26 +75,26 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Running in parallel
 
-- Parallel programs are typically parallelized with the MPI and/or OpenMP standards, which can be run in different ways
-   - Can you split your work into smaller, fully independent bits and run them simultaneously?
-      - Check out [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) or [Slurm array jobs](https://docs.csc.fi/computing/running/array-jobs/)
-   - Can you automate setting up, running and analyzing your array jobs?
-      - Then you may want to use [high-throughput workflows](https://docs.csc.fi/computing/running/throughput/)
-   - Can your software utilize GPUs?
-      - [GPUs in Puhti batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#gpus)
-      - [GPUs in Mahti batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs)
-      - [GPUs in LUMI batch jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
+- Parallel programs are typically parallelized with the MPI and/or OpenMP standards
+- Further parallelization possible if you can split your whole workflow into smaller independent tasks and run them simultaneously
+   - [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) or [Slurm array jobs](https://docs.csc.fi/computing/running/array-jobs/)
+   - More details about high-throughput computing and workflow automation in [Docs CSC](https://docs.csc.fi/computing/running/throughput/)
+- Can your software utilize GPUs?
+   - [GPUs in Puhti batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#gpus)
+   - [GPUs in Mahti batch jobs](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs)
+   - [GPUs in LUMI batch jobs](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
 
 # What is MPI?
 
-- MPI (and OpenMP) are widely used standards for writing software that runs in parallel
-- MPI (Message Passing Interface) is a standard that utilizes parallel _processes_ that do not share memory
+- MPI (Message Passing Interface) is a widely used standard for writing software that runs in parallel
+- MPI utilizes parallel **processes** that _do not share memory_
    - To exchange information, processes pass data messages back and forth between the cores
+   - Communication can be a performance bottleneck
 - MPI is required when running on multiple nodes
 
 # What is OpenMP?
 
-- OpenMP (Open Multi-Processing) is a standard that utilizes compute cores that share memory, also known as _threads_
+- OpenMP (Open Multi-Processing) is a standard that utilizes compute cores that share memory, i.e. **threads**
    - They do not need to send messages between each other
 - OpenMP is easier for beginners, but problems quickly arise with so-called _race conditions_
    - This appears when different compute cores process and update the same data without proper synchronization
@@ -103,7 +102,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Self study materials for OpenMP and MPI
 
-- There are many tutorials available on the internet
+- There are many tutorials available online
    - Look with simple searches for _e.g._ "MPI tutorial"
 - Check the documented exercise material and model answers from the CSC course "Introduction to Parallel Programming"
    - Available on [GitHub](https://github.com/csc-training/parallel-prog/)
@@ -112,29 +111,29 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Task farming -- running multiple independent jobs simultaneously
 
 - Task farming == running many similar independent jobs simultaneously
-- If subtasks are few in number (~100), an easy solution is [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
-   - Individual tasks should last at least 30 minutes or more. If not, you're generating too much overhead &rarr; consider another solution
-   - Array jobs create _job steps_. If there are thousands of tasks Slurm will get overloaded &rarr; consider another solution
+- If subtasks are few (<100), an easy solution is [array jobs](https://docs.csc.fi/computing/running/array-jobs/)
+   - Individual tasks should run >30 minutes. Otherwise, you're generating too much overhead &rarr; consider another solution
+   - Array jobs create _job steps_ and for 1000s of tasks Slurm database will get overloaded &rarr; consider another solution
 - If running your jobs gets more complex, requiring _e.g._ dependencies between subtasks, workflow tools can be used
    - Guidelines and solutions are suggested in [Docs CSC](https://docs.csc.fi/computing/running/throughput/)
    - Many options: [FireWorks](https://docs.csc.fi/computing/running/fireworks/), [Nextflow](https://docs.csc.fi/support/tutorials/nextflow-puhti/), [Snakemake](https://snakemake.github.io/), [Knime](https://www.knime.com/), [BioBB](http://mmb.irbbarcelona.org/biobb/), ...
 
 # Task farming 2.0
 
-- Before opting for an external workflow manager, check if the code you run has built-in high-throughput capabilities
-  - Many chemistry software ([CP2K](https://docs.csc.fi/apps/cp2k/#high-throughput-computing-with-cp2k), [GROMACS](https://docs.csc.fi/apps/gromacs/#high-throughput-computing-with-gromacs), [LAMMPS](https://docs.csc.fi/apps/lammps/#high-throughput-computing-with-lammps), _etc._) provide methods for efficient task farming
+- Before opting for a workflow manager, check if the code you run has built-in high-throughput features
+  - Many chemistry software ([CP2K](https://docs.csc.fi/apps/cp2k/#high-throughput-computing-with-cp2k), [GROMACS](https://docs.csc.fi/apps/gromacs/#high-throughput-computing-with-gromacs), [Amber](https://docs.csc.fi/apps/amber/#high-throughput-computing-with-amber), _etc._) provide methods for efficient task farming
   - Also [Python](https://docs.csc.fi/apps/python/#python-parallel-jobs) and [R](https://docs.csc.fi/support/tutorials/parallel-r/), if you write your own code
 - Task farming can be combined with _e.g._ OpenMP to accelerate sub-jobs
   - [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) is the best option for sub-node task scheduling (non-MPI)
 - Finally, MPI can be used to run several jobs in parallel
-   - Three levels of parallelism with array jobs: array--MPI--OpenMP
-   - Setting this up will take skill and time. Always test your setup before scaling -- a typo can result in a lot of wasted resources!
+   - Three levels of parallelism, requires skill and time to set up
+   - Always test before scaling up -- a small mistake can result in lots of wasted resources!
 
 # Things to consider in task farming
 
 - In a big allocation, each computing core should have work to do
-   - If the separate tasks are very different, some will end before the others, leaving some cores idle &rarr; waste of resources
-   - A fix would be to use _e.g._ loops to lump really small and numerous jobs into fewer and bigger ones
+   - If the separate tasks are different, some might finish before the others, leaving some cores idle &rarr; waste of resources
+   - Try combining small and numerous jobs into fewer and bigger ones
 - As always, try to estimate as accurately as possible the required memory and the time it takes for the separate tasks to finish
    - Consult _e.g._ this [bio job tutorial with examples](https://docs.csc.fi/support/tutorials/biojobs-on-puhti/)
 
@@ -142,26 +141,24 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - GPUs, or Graphics Processing Units, are extremely powerful processors developed for graphics and gaming
 - They can be used for science, but are often challenging to program
-   - Only a small set of algorithms can use the full power of GPUs
-- Check the manual if the software can utilize GPUs
-   - If you process lots of data, make sure you [use the disk efficiently](https://docs.csc.fi/support/tutorials/ml-data/#using-the-shared-file-system-efficiently)
-- Do not try to use GPUs, unless you know what you are doing
-   - If you're unsure, consult [how to check if your batch job used GPU](https://docs.csc.fi/support/tutorials/gpu-ml/#gpu-utilization)
+   - Not all algorithms can use the full power of GPUs
+- Check the manual if the software can utilize GPUs, don't use GPUs if you're unsure
+   - Consult [how to check if your batch job used GPU](https://docs.csc.fi/support/tutorials/gpu-ml/#gpu-utilization)
    - The [CSC usage policy](https://docs.csc.fi/computing/usage-policy/#gpu-nodes) limits GPU usage to where it is most efficient
+   - Also, if you process lots of data, make sure you [use the disk efficiently](https://docs.csc.fi/support/tutorials/ml-data/#using-the-shared-file-system-efficiently)
 - Does your code run on AMD GPUs? [LUMI](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) has a massive GPU capacity!
 
 # Tricks of the trade 1/4
 
-- Although it is reasonable to try to achieve best performance by using the fastest computers available, it is far from the only important issue
+- Although it is reasonable to try to achieve best performance by using the fastest computers available, it is not the only important issue
 - Different codes may give very different performance for a given use case
     - Compare the options you have in [CSC's software selection](https://docs.csc.fi/apps/)
 - Before launching massive simulations, look for the most efficient algorithms to get the job done
-    - (examples on the next slide)
 
 # Tricks of the trade 2/4
 
 - Well-known boosters are:
-    - Enhanced sampling methods in molecular dynamics _vs._ brute force MD
+    - Enhanced sampling methods _vs._ brute force molecular dynamics
     - Machine learning methods
       - _E.g._ Bayesian optimization structure search ([BOSS](https://cest-group.gitlab.io/boss/), potential energy maps)
     - Start with coarser models and gradually increase precision (if needed)
@@ -178,14 +175,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Helps to clarify what you still need to compute, what computations would be redundant and what data you need to store
 - Reserving more memory and/or more compute cores does not necessary equal faster computations
     - Check with `seff`, `sacct` and from software-specific log files if the memory was used and whether the job ran faster
-- Testing for optimal setup regarding compute cores and memory is good practice before performing massive computations
+    - Testing for optimal amount of cores and memory is advised before performing massive computations
 
 # Tricks of the trade 4/4
 
 - If possible, running the same job on a laptop may be useful for comparison
 - Avoid unnecessary reads and writes of data and containerize Conda environments to improve I/O performance
     - Read and write in big chunks and avoid reading/writing lots of small files
-       - If unavoidable, use [fast local NVMe disk](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks), not Lustre (_i.e._ `/scratch`)
+       - If unavoidable, use [fast local NVMe disk](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks), not Lustre (i.e. `/scratch`)
 - Don't run too short jobs to minimize queuing and scheduling overhead
     - There's a time overhead in setting up a batch job, aim for >30 minute jobs
     - Don't run too many/short _job steps_ -- they will bloat Slurm accounting
