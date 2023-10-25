@@ -19,8 +19,8 @@ author: CSC Training
 <li>If you get stuck, consult <a href="https://docs.csc.fi">Docs CSC</a> linked in the slides and the tutorials</li>
 <li>If the documentation does not provide a sufficient answer, please contact support by email <a href="mailto:servicedesk@csc.fi">servicedesk@csc.fi</a> or by filling in the contact form at <a href="https://research.csc.fi/support">https://research.csc.fi/support</a></li>
 <li>Press and hold <code>ctrl/cmd</code> and click to open links in a new window or tab</li>
-<li>Left-click the slides to enable navigation with the arrow keys<ul>
-<li>Click the home icon on any slide to return to the course home page</li>
+<li>Left-click the slides to enable navigation with the arrow keys (or use the arrows in the bottom right corner on each slide)<ul>
+<li>Click the home icon in the bottom right corner on any slide to return to the course home page</li>
 </ul>
 </li>
 <li><a href="https://video.csc.fi/media/t/0_d7trmsru">A video with study tips</a></li>
