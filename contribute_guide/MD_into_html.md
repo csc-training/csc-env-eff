@@ -3,28 +3,27 @@
 ## Copy the Singularity tool image to Puhti. (*e.g.* in `$HOME/bin` which is used in the examples below)
    - Initialize Allas with project_2001659 (see below, works only for CSC staff)
    - To get the container image use 
-       - `a-get pandocTool/pandoc.sif` for regular CSC slide theme
-       - `a-get pandocTool/pandoc-eurocc.sif` for the new EuroCC slide theme (contains also the old theme)
-   - Give execute permissions `chmod u+x pandoc-eurocc.sif`
+       - `a-get pandocTool/pandoc-env-eff.sif` for the EuroCC slide theme with navigation icons (contains also the old theme)
+   - Give execute permissions `chmod u+x pandoc-env-eff.sif`
 
-> Alternatively: If you don't have Allas access use `wget https://a3s.fi/pandocTool/pandoc-eurocc.sif`
+> Alternatively: If you don't have Allas access use `wget https://a3s.fi/pandocTool/pandoc-env-eff.sif`
 
 ## Copy the theme and other dependencies to local directory (in Puhti)
-> Note: The following recipe may not work smoothly following recent RHEL8 update. You can use the following command instead as a temporary fix to generate   html files: ``` singularity exec -B $PWD pandoc-eurocc.sif /slidetools/convert.sh -s 01_my_lecture.md ```  (make sure to copy pandoc container to the       directory where    you are working)
+> Note: The following recipe may not work smoothly following recent RHEL8 update. You can use the following command instead as a temporary fix to generate   html files: ``` singularity exec -B $PWD pandoc-env-eff.sif /slidetools/convert.sh -s 01_my_lecture.md ```  (make sure to copy pandoc container to the       directory where    you are working)
 
 1. Go the the same directory as the source md files (= your git root directory for csc-env-eff in Puhti) (If you haven't yet cloned the repository, do so: `git clone https://github.com/csc-training/csc-env-eff`). Note, this must be a subfolder in your `$HOME`.
 2. Run command 
    ```bash
-   singularity exec $HOME/bin/pandoc-eurocc.sif /bin/sh -c "cp -r /slidetools/* ."
+   singularity exec $HOME/bin/pandoc-env-eff.sif /bin/sh -c "cp -r /slidetools/* ."
    ```
 3. Now you can transform the md files to html faster and without font 
-   embedding using simple command 
+   embedding using simple command (include `-t csc-eurocc-2019` to use the correct theme)
    ```bash
-   $HOME/bin/pandoc-eurocc.sif 01_my_lecture.md
+   $HOME/bin/pandoc-env-eff.sif -t csc-eurocc-2019 01_my_lecture.md
    ```
 4. To create a self contained html *slide* page add `-s` *i.e.* instead
    ```bash
-   $HOME/bin/pandoc-eurocc.sif -s 01_my_lecture.md
+   $HOME/bin/pandoc-env-eff.sif -s -t csc-eurocc-2019 01_my_lecture.md
    ```
 5. To create the whole site add your page to the top of the Makefile (located in: csc-env-eff/slides/Makefile) list and run `make`
 
