@@ -23,7 +23,7 @@ resources efficiently.
 a parallel program with a varying number of cores and observing how it speeds
 up.
 
-## Download the sample parallel program
+## Download a sample parallel program
 
 1. Create and enter a suitable scratch directory on Puhti (replace `<project>`
    with your CSC project, e.g. `project_2001234`):
@@ -34,11 +34,19 @@ cd /scratch/<project>/$USER/scaling-test
 ```
 
 {:start="2"}
-1. Download a small program that computes the Mandelbrot set (a 2D fractal
-   image) in parallel using OpenMP threading.
-  
+2. Download a small program that computes the
+   [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set) (a 2D fractal
+   image) in parallel using OpenMP threading:
+ 
 ```bash
 wget https://a3s.fi/CSC_training/mandelbrot.x
+```
+
+{:start="3"}
+3. Edit the access permissions of the file to allow execution:
+
+```bash
+chmod +x mandelbrot.x
 ```
 
 ## Create a parallel batch job script
@@ -83,14 +91,15 @@ cat slurm-<jobid>.out   # Replace <jobid> with the actual Slurm job id
    `--cpus-per-task` in the `job.sh` script and then resubmitting the job.
 
 💭 Did the computation become faster? If so, is the scaling ideal, i.e. does
-doubling the thread count also make it twice as fast? If not, can you think
-of any reasons why?
+doubling the thread count also make it run twice as fast? If not, can you think
+of any reasons that might limit the scalability? (Hint: Does all threads have
+equal amount of work to do?)
 
 ☝🏻 To ensure efficient use of resources, a good rule of thumb is that when
-you double the number of used cores the job should become at least 1.5 times
+you double the number of used cores the job should become *at least* 1.5 times
 faster. If this is not the case, request fewer cores.
 
 💡 Bonus! The example program produces a nice image of the Mandelbrot fractal.
 You can view it with command `eog mandelbrot.png` (requires that you've enabled
-X11 forwarding by connecting to Puhti with `ssh -X`) or by opening it using
-the Puhti web interface file browser.
+X11 forwarding by connecting to Puhti with `ssh -X`), or by opening it from
+the [Puhti web interface](https://www.puhti.csc.fi) file browser.
