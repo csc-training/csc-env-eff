@@ -57,7 +57,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Some modules contain software that have a graphical user interface
    - For example, the chemistry visualization software [VMD](https://docs.csc.fi/apps/vmd/)
-   - Use the [Puhti/Mahti web interface](https://puhti.csc.fi) or [another method to open the GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
+   - Use the [Puhti](https://www.puhti.csc.fi) or [Mahti web interface](https://www.mahti.csc.fi), or [another method to open the GUI](https://docs.csc.fi/computing/connecting/#using-graphical-applications)
 - Some modules contain software that only provide a command-line interface
    - For example, the [OpenBabel module](https://docs.csc.fi/apps/openbabel/)
 - A module might contain only one program (*e.g.* `gromacs-env`), while some provide a collection of applications (*e.g.* Python or R packages)

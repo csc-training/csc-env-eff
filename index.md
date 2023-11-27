@@ -42,7 +42,6 @@ author: CSC Training
 1. [{{ hands-on.title }}]({{ hands-on.url | relative_url }})
 {% endif %}
 {% endfor %}
-1. [Advanced tutorial - Run RStudio/Jupyter Notebooks on Puhti using SSH tunneling](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/). Requires setting up SSH keys. An easier (and the recommended) option is to use the [Puhti web interface](https://docs.csc.fi/computing/webinterface/).
 
 ## 2. Introduction to the HPC environment
 ### 2.1 [Slides](https://a3s.fi/CSC_training/02_environment.html)
