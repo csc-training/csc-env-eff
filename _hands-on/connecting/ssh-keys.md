@@ -7,8 +7,6 @@ title: Advanced tutorial - Using SSH keys to authenticate connection
 
 💬 SSH keys improve security and ease of use.
 
-- For example, [launching Jupyter Notebook in Puhti and accessing it via your browser](https://docs.csc.fi/support/tutorials/rstudio-or-jupyter-notebooks/) requires the use of SSH keys.
-
 > ☝🏻 This tutorial assumes you've already logged in and have the prerequisites covered.
 
 ## Windows 10
