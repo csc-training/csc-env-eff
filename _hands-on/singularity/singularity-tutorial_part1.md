@@ -42,8 +42,8 @@ apptainer exec tutorial.sif hello_world
 2. Compare the outputs of the following commands:
 
 ```bash
-cat /etc/*release
-apptainer exec tutorial.sif cat /etc/*release
+grep "^NAME" /etc/os-release
+apptainer exec tutorial.sif grep "^NAME" /etc/os-release
 ```
 
 - The first command is run on the host, the second command is run inside the container.
