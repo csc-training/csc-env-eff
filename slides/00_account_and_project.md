@@ -56,4 +56,4 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
       - [Read more about our solutions for business](https://www.csc.fi/solutions-for-business)
    - All members of a project can [apply for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/)
    - Remember to [acknowledge CSC](https://docs.csc.fi/support/faq/how-to-cite-csc/) in your publications and mention these in your BU application
-- You can estimate [usage with the billing unit calculator](https://research.csc.fi/pricing)
+- You can estimate [usage with the billing unit calculator](https://research.csc.fi/billing-units)
