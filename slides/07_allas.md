@@ -18,6 +18,25 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
+# The Allas object storage: what is it?
+
+- Allas is a storage service for all CSC computing and cloud services
+- CEPH-based object storage
+- Possible to upload data from personal laptops or organizational storage systems into Allas
+- Meant for data storage during project lifetime
+- Default quota is 10 TB per project
+- Clients available on Puhti and Mahti
+   - See Docs CSC for instructions on [accessing Allas from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
+ 
+# The Allas object storage: what it is NOT
+
+- **Allas is not a file system** (even though many tools try to fool you to think so)
+    - It is just a place for static data objects
+- **Allas is not a data management environment**
+    - Tools for search, metadata, version control and access management are minimal
+- **Allas is not a back up service**
+    - Project members can delete all the data with just one command
+
 # How to get access to Allas service
 
 - Use [https://my.csc.fi](https://my.csc.fi) to
@@ -29,16 +48,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     5. Members have to register and accept the terms of use in [My CSC](https://my.csc.fi)
 - All project members have equal access to the data in Allas and Puhti (`/scratch` and `/projappl` disks)
 
-# The Allas object storage: what is it?
-
-- Allas is a storage service for all CSC computing and cloud services
-- CEPH-based object storage
-- Possible to upload data from personal laptops or organizational storage systems into Allas
-- Meant for data storage during project lifetime
-- Default quota is 10 TB per project
-- Clients available on Puhti and Mahti
-   - See Docs CSC for instructions on [accessing Allas from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
-
 # Connections to Allas
 
 <div class="column">
@@ -49,15 +58,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 <div class="column">
 ![](img/allas.png "Allas"){width=90%}
 </div>
-
-# The Allas object storage: what it is NOT
-
-- **Allas is not a file system** (even though many tools try to fool you to think so)
-    - It is just a place for static data objects
-- **Allas is not a data management environment**
-    - Tools for search, metadata, version control and access management are minimal
-- **Allas is not a back up service**
-    - Project members can delete all the data with just one command
 
 # Storing files in Allas
 
