@@ -18,37 +18,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
-# How to get access to Allas service
-
-- Use [https://my.csc.fi](https://my.csc.fi) to
-    1. Create a CSC account (log in with Haka/Virtu)
-        - If Haka/Virtu is not an option, contact <servicedesk@csc.fi>
-    2. Set up a project at CSC (Principal Investigator)
-    3. Apply for Puhti and Allas services, quota and billing units for your project
-    4. Add other registered users to your project
-    5. Members have to register and accept the terms of use in [My CSC](https://my.csc.fi)
-- All project members have equal access to the data in Allas and Puhti (`/scratch` and `/projappl` disks)
-
 # The Allas object storage: what is it?
 
 - Allas is a storage service for all CSC computing and cloud services
-- CEPH-based object storage
 - Possible to upload data from personal laptops or organizational storage systems into Allas
 - Meant for data storage during project lifetime
 - Default quota is 10 TB per project
 - Clients available on Puhti and Mahti
    - See Docs CSC for instructions on [accessing Allas from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
-
-# Connections to Allas
-
-<div class="column">
-- Data can be moved to and from Allas directly without using Puhti or Mahti
-    - Usage through S3 and Swift APIs are supported
-- Data can be shared publicly to the Internet, which is otherwise not easily possible at CSC
-</div>
-<div class="column">
-![](img/allas.png "Allas"){width=90%}
-</div>
 
 # The Allas object storage: what it is NOT
 
@@ -58,6 +35,17 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Tools for search, metadata, version control and access management are minimal
 - **Allas is not a back up service**
     - Project members can delete all the data with just one command
+
+# How to get access to Allas service (Demonstration?)
+
+- Use [https://my.csc.fi](https://my.csc.fi) to
+    1. Create a CSC account (log in with Haka/Virtu)
+        - If Haka/Virtu is not an option, contact <servicedesk@csc.fi>
+    2. Set up a project at CSC (Principal Investigator)
+    3. Apply for Puhti and Allas services, quota and billing units for your project
+    4. Add other registered users to your project
+    5. Members have to register and accept the terms of use in [My CSC](https://my.csc.fi)
+- All project members have equal access to the data in Allas and Puhti (`/scratch` and `/projappl` disks)
 
 # Storing files in Allas
 
@@ -89,13 +77,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - S3 (used by `s3cmd`, `rclone`, `a-tools`)
 - Swift (used by `swift`, `rclone`, `a-tools`, `cyberduck`)  
-- Authentication is different
-    - S3: permanent key-based authentication -- nice, easy and unsecure
-    - Swift: authentication based on temporary tokens -- more secure, requires authentication every 8 hours
-- File handling is different
-    - Metadata is handled in different ways
-    - Files larger than 5 GB are managed in different ways
-    - **Avoid cross-using Swift and S3-based objects!**
+- Authentication and file handling is different for the protocols
+- **Avoid cross-using Swift and S3-based objects!**
 
 # Allas Clients
 
@@ -137,20 +120,7 @@ allas-conf
 - Developed for the CSC supercomputers, but you can install the tools in other Linux and Mac machines as well
 - Automatic packing (compression can be enabled as well if needed)
 - [a-commands instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
-
-# `a-put`/`a-get`: pros and cons
-
-<div class="column">
-➕ Saving data as a tar package preserves time stamps, access settings, and internal links of the directory  
-➕ Optional `zstdmt` compression reduces size  
-➕ The default bucket name and the metadata reflect the directory structure on Puhti/Mahti  
-➕ Checks to prevent overwriting data accidentally
-</div>
-<div class="column">
-➖ Usage of objects created by `a-put` can be complicated when other object storage tools are used  
-➖ Usage from Windows is problematic  
-➖ Each object has an additional `_ameta` object
-</div>
+  
 
 # Issues with Allas
 
