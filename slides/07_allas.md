@@ -108,12 +108,10 @@ allas-conf
 - Fast and efficient
 - Available for Linux, Mac and Windows
 - Overwrites and removes data without asking!
-- The default configuration at CSC uses `swift`-protocol, but S3 can also be used
 - Use with care: [`rclone` instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/rclone/)
 
 # Allas -- `a-tools`
 
-- `rclone`-based scripts for using Allas in Puhti and Mahti
 - `a-tools` provide an easy and safe way to use Allas for occasional Allas users
 - Default bucket names are based on directories on Puhti/Mahti
 - Unlike `rclone`, `a-tools` does not overwrite or remove data without asking!
