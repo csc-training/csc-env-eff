@@ -1,0 +1,155 @@
+---
+layout: default
+title: Apptainer tutorial 2
+parent: 9. Containers and Apptainer
+grand_parent: Part 2
+nav_order: 3
+has_children: false
+has_toc: false
+permalink: /hands-on/singularity/singularity-tutorial_part2.html
+---
+
+# Apptainer tutorial, part 2
+
+## Using files
+
+💬 Apptainer containers have their own internal file system that is separated from the host file system.
+
+- The internal file system is always read-only when the container is run with normal user privileges.
+
+💭 In most real use cases you might want to access the host file system to read and write files.
+
+- To do this, you must bind a writable directory on the host file system to the internal file system of the container.
+
+💡 This is done using the command line argument `--bind` (or `-B`). The basic syntax is `--bind /path/inside/host:/path/inside/container`.
+
+💭 Some remarks:  
+➖ The bind path does not need to exist inside the container – it is created if necessary.  
+➖ More than one bind pair can be specified.  
+➖ The option is available for all run methods described in the previous tutorial.  
+
+1. To run these exercises on Puhti, use `sinteractive` or open a compute node shell in the [Puhti web interface](https://www.puhti.csc.fi):
+
+```bash
+sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
+```
+
+{:start="2"}
+2. Try listing the contents of your project directory (edit the path as needed) from inside the container without `--bind`:
+
+```bash
+export SCRATCH=/scratch/<project>/$USER    # replace <project> with your CSC project, e.g. project_2001234
+apptainer exec tutorial.sif ls $SCRATCH
+```
+
+{:start="3"}
+3. The container cannot see the host directory, so you will get a `No such file or directory` error.
+4. Try binding the host directory `/scratch` to the directory `/scratch` inside the container:
+
+```bash
+apptainer exec --bind $SCRATCH:/scratch tutorial.sif ls /scratch
+# or
+apptainer exec --bind /scratch:/scratch tutorial.sif ls $SCRATCH
+```
+
+{:start="5"}
+5. This time, the host directory is linked to the container directory and the command shows what the container sees inside `/scratch`.
+
+💡 You can use `--bind` to set the container, for example, to find input data or configuration files from a certain directory.
+
+{:start="6"}
+6. Bind the host directory specified in `$SCRATCH` to a directory called `/input`:
+
+```bash
+apptainer exec --bind $SCRATCH:/input tutorial.sif ls /input
+```
+
+### Using the `apptainer_wrapper`
+
+1. If you use the wrapper script `apptainer_wrapper`, it will automatically take care of the most common bind use cases.
+2. You just need to set a `$SING_IMAGE` environment variable to point to the correct Apptainer image file:
+
+```bash
+export SING_IMAGE=$PWD/tutorial.sif
+apptainer_wrapper exec ls $SCRATCH
+```
+
+💡 Note that the image file name is not needed in the `apptainer_wrapper` command since `$SING_IMAGE` is set.
+
+‼️ Since some modules set `$SING_IMAGE` when loaded, it is a good idea to start with `module purge` to make sure the correct image is used if you plan to use `apptainer_wrapper`.
+
+## Environment variables
+
+💬 Some software may require environment variables to be set, e.g., to point to some reference data or a configuration file.
+
+💬 Most environment variables set on the host are inherited by the container.
+
+☝🏻 Sometimes this may be undesired, in which case the command line option `--cleanenv` can be used to prevent the host environment from being inherited by the container.
+
+💬 To set an environment variable specifically inside the container, you can set an environment variable `$APPTAINERENV_XXX` (where `XXX` is the variable name) on the host before invoking the container.
+
+1. Set some test variables:
+
+```bash
+export TEST1="value1"
+export APPTAINERENV_TEST2="value2"
+```
+
+{:start="2"}
+2. Compare the outputs of:
+
+```bash
+env | grep TEST
+apptainer exec tutorial.sif env | grep TEST
+apptainer exec --cleanenv tutorial.sif env | grep TEST
+```
+
+- The first command is run on the host and we see `$TEST1` and `$APPTAINERENV_TEST2`.
+- The second command is run inside the container and we see `$TEST1` (inherited from the host) and `$TEST2` (specifically set inside the container by setting `$APPTAINERENV_TEST2` on the host).
+- The third command is also run inside the container, but this time we omitted the host environment variables so we only see `$TEST2`.
+
+{:start="3"}
+3. Note that any command-line variables on the host are substituted by their values when passed to the container:
+
+```bash
+apptainer exec tutorial.sif echo $TEST1
+apptainer exec tutorial.sif echo $TEST2
+```
+
+- The first line prints the value set on the host.
+- The second line results in an empty output because a variable called `$TEST2` has not been set on host. It was `APPTAINERENV_TEST2="value2"`, remember?
+
+## Exploring containers
+
+💬 Our test container includes the program `hello2`, but it has not been added to the `$PATH` variable.
+
+1. One way to find it is to try running `find` inside the container:
+
+```bash
+apptainer exec tutorial.sif find / -type f -name "hello2" 2>/dev/null
+```
+
+{:start="2"}
+2. You can now run it by providing the full path:
+
+```bash
+apptainer exec tutorial.sif /found/me/hello2
+```
+
+{:start="3"}
+3. Or you could add it to `$PATH` inside the container:
+
+```bash
+export APPTAINERENV_PREPEND_PATH=/found/me
+apptainer exec tutorial.sif hello2
+```
+
+💡 If you can't locate the desired binary with `find`, you can always use `apptainer shell` to explore the container.
+
+## More information
+
+💬 This tutorial is meant as a brief introduction to get you started.
+
+☝🏻 When searching online for instructions, pay attention that the instructions are for the same version of Apptainer as you are using. There has been some command syntax changes etc. between versions so older instructions may not work as copy/paste. Also note that Apptainer is formerly known as Singularity.
+
+💡 For more detailed instructions, see the [Apptainer documentation](https://apptainer.org/docs/user/latest/).
