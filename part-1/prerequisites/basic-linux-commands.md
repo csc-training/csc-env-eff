@@ -50,7 +50,7 @@ cd YourNameTestFolder       # replace YourName
 1. Download a file into this new folder. Use the command `wget` for downloading from a URL:
 
 ```bash
-wget https://github.com/csc-training/csc-env-eff/raw/master/_hands-on/linux_prerequisites/my-first-file.txt
+wget https://raw.githubusercontent.com/csc-training/csc-env-eff/master/part-1/prerequisites/my-first-file.txt
 ```
 
 {:style="counter-reset:step-counter 1"}

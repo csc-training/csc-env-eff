@@ -53,15 +53,15 @@ title: Title that is shown in the rendered index.md
 | 🗯    | Emphasise the message a bit |
 | 💡    | Valuable information, ideas or suggestions |
 | ☝🏻    | Notice or a side-note |
-| ‼️    | Very important notice. Failing to comply with this will result in error of some kind |
+| ‼️     | Very important notice. Failing to comply with this will result in error of some kind |
 
 ## Usage of images
 
-1. Add images to the `/slides/img/`-folder
-    - Or `/_hands-on/img/`-folder
+1. Add images to the `/_slides/img/`-folder
+    - Or in the respective section folders under `/part-1` and `/part-2`
 2. Provide the path like this:
-`![terminal-icon](../slides/img/terminal_icon1.png)`
-3. The image should show like this: ![terminal-icon](../slides/img/terminal_icon1.png)
+`![terminal-icon](../_slides/img/terminal_icon1.png)`
+1. The image should show like this: ![terminal-icon](../_slides/img/terminal_icon1.png)
 
 ## Providing job-files
 

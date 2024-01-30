@@ -1,7 +1,7 @@
 # Content and formatting instructions
 
 ## General help
- - For tutorials and exercises please see [this Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/) and [this Markdown example tutorial](../_hands-on/example_tutorial.md)
+ - For tutorials and exercises please see [this Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/) and [this Markdown example tutorial](example_tutorial.md)
  - For Slides, [see this syntax guide](https://github.com/csc-training/slide-template/blob/master/docs/syntax-guide.md)
    and [this Markdown example slide set](../slides/example.md)
  - Please use the csc-eurocc-2019 theme
