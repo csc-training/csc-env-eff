@@ -48,8 +48,8 @@ less YourName-first-file.txt      # replace YourName
 1. Download an image and a pdf:
 
 ```bash
-wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/terminal_icon.png
-wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/schrodingerscat.pdf
+wget https://raw.githubusercontent.com/csc-training/csc-env-eff/master/_slides/img/terminal_icon.png
+wget https://raw.githubusercontent.com/csc-training/csc-env-eff/master/_slides/img/schrodingerscat.pdf
 ```
 
 {:style="counter-reset:step-counter 1"}

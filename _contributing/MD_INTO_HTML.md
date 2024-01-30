@@ -25,7 +25,7 @@
    ```bash
    $HOME/bin/pandoc-env-eff.sif -s -t csc-eurocc-2019 01_my_lecture.md
    ```
-5. To create the whole site add your page to the top of the Makefile (located in: csc-env-eff/slides/Makefile) list and run `make`
+5. To create the whole site add your page to the top of the Makefile (located in: csc-env-eff/_slides/Makefile) list and run `make`
 
 > Note, don't publish the theme and slidefactory accessory files, just the html (and related images etc.)!
 > Note, `a-publish` will not _overwrite_ files in Allas, so you'll need to `a-put --override` or delete the file in Allas first.

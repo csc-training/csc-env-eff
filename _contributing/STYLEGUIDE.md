@@ -3,7 +3,7 @@
 ## General help
  - For tutorials and exercises please see [this Markdown syntax guide](https://www.markdownguide.org/tools/mkdocs/) and [this Markdown example tutorial](example_tutorial.md)
  - For Slides, [see this syntax guide](https://github.com/csc-training/slide-template/blob/master/docs/syntax-guide.md)
-   and [this Markdown example slide set](../slides/example.md)
+   and [this Markdown example slide set](../_slides/example.md)
  - Please use the csc-eurocc-2019 theme
  - When in doubt, check how other pages are formatted
 
@@ -26,7 +26,7 @@
       - Avoid using only color to signal some meaning
 
 ## Images, linked documents
- - Put all slides images in `slides/img` folder (tutorials/exercise folders can have their own img/)
+ - Put all slides images in `_slides/img` folder (tutorials/exercise folders can have their own img/)
  - Put large files in Allas (write access with project 2001659) bucket **csc-env-files**,
  e.g.  [https://a3s.fi/csc-env-files/README.md](https://a3s.fi/csc-env-files/README.md)
       - new files easy to share with `a-publish your-file.tgz -b csc-env-files`
