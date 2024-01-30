@@ -16,7 +16,7 @@ permalink: /hands-on/connecting/credentials.html
 
 💬 Every user needs a project and user account for using CSC services.
 
-1. Go to [MyCSC](my.csc.fi)
+1. Go to [MyCSC](https://my.csc.fi)
 2. Click Log in or Get started.
 3. Click Virtu or Haka depending on which federation your home organization is a member of.
     - If your home organization doesn't provide Haka or Virtu, please see [how to contact us to register](https://docs.csc.fi/accounts/how-to-create-new-user-account/#getting-an-account-without-haka-or-virtu).

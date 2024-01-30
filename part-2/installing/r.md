@@ -85,7 +85,7 @@ Finished! The R package is now ready to be loaded and used. Try loading `beepr` 
 .libPaths(c("/projappl/<project>/project_rpackages_<rversion>", .libPaths())) 
 ```
 
-💡 Instead of installing a missing package for your own project, you can ask for a module-wide installation for all users by contacting [servicedesk\@csc.fi](servicedesk@csc.fi)
+💡 Instead of installing a missing package for your own project, you can ask for a module-wide installation for all users by contacting [CSC Service Desk](mailto:servicedesk@csc.fi)
 
 #### More information
 

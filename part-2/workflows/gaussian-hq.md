@@ -70,7 +70,7 @@ tar -xzf C7O2H10.tar.gz
 
 {:style="counter-reset:step-counter 3"}
 4. Go to the directory containing the structure files that are in [`.mol`
-   format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html):
+   format](https://openbabel.org/docs/FileFormats/MDL_MOL_format.html):
 
 ```bash
 cd C7O2H10
