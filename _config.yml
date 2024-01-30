@@ -4,6 +4,8 @@ theme: just-the-docs
 
 url: https://csc-training.github.io/csc-env-eff
 baseurl: ""
+plugins:
+  - jekyll-sitemap
 
 aux_links:
   View on GitHub: https://github.com/csc-training/csc-env-eff
@@ -21,3 +23,13 @@ gh_edit_link_text: "Edit this page on GitHub"
 gh_edit_repository: "https://github.com/csc-training/csc-env-eff"
 gh_edit_branch: "master"
 gh_edit_view_mode: "edit"
+
+collections:
+  slides:
+    output: true
+
+just-the-docs:
+  collections:
+    slides:
+      nav_exclude: true
+      search_exclude: true

@@ -20,7 +20,7 @@ permalink: /hands-on/connecting/ssh-puhti.html
 3. You have now connected to Puhti!
 
 💭 The Puhti web interface landing page looks like this:  
-![Puhti web interface](../../slides/img/ood.png)
+![Puhti web interface](../../_slides/img/ood.png)
 
 💡 From the pinned apps and top menus you can *e.g.* access your files and open some applications or a command-line interface.
 
@@ -35,7 +35,7 @@ permalink: /hands-on/connecting/ssh-puhti.html
 💬 Laptops and workstations running Linux typically have SSH installed.
 
 Find the Terminal on your computer:  
-![terminal-icon](../../slides/img/terminal_icon1.png)
+![terminal-icon](../../_slides/img/terminal_icon1.png)
 
 1. Open a terminal and type (replace `cscusername` with your CSC username):
 
@@ -81,7 +81,7 @@ ssh cscusername@puhti.csc.fi
 💡 The next time you want to login to Puhti, just select it from the "session" menu on the left.
 
 💭 The MobaXterm window looks like this:  
-![terminal-icon](../../slides/img/mobaxterm-login.png)
+![terminal-icon](../../_slides/img/mobaxterm-login.png)
 
 ## In Puhti
 
