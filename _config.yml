@@ -5,9 +5,6 @@ theme: just-the-docs
 url: https://csc-training.github.io/csc-env-eff
 baseurl: ""
 
-plugins:
-  - jekyll-sitemap
-
 aux_links:
   View on GitHub: https://github.com/csc-training/csc-env-eff
 

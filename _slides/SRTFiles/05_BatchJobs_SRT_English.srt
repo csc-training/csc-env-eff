@@ -1,0 +1,991 @@
+1
+00:00:23,000 --> 00:00:25,566
+On a laptop when you run something, 
+
+2
+00:00:25,566 --> 00:00:29,149
+you double click an icon and the program starts to run.
+
+3
+00:00:29,633 --> 00:00:33,316
+Modern computers can run multiple tasks at the same time,
+
+4
+00:00:33,316 --> 00:00:38,566
+but with too many simultaneous tasks you start to run out of memory or CPU power, 
+
+5
+00:00:38,566 --> 00:00:41,083
+which slows down the computer. 
+
+6
+00:00:41,433 --> 00:00:45,600
+In the HPC environment really many people are using that same computer 
+
+7
+00:00:45,600 --> 00:00:48,616
+and they all need different amounts of resources.
+
+8
+00:00:48,933 --> 00:00:54,333
+It is not possible to let everyone start their programs and run them in real time.
+
+9
+00:00:54,899 --> 00:00:58,816
+A batch job tells the batch job scheduler the resource requirements: 
+
+10
+00:00:58,816 --> 00:01:02,899
+how much resources should be available for that particular job.
+
+11
+00:01:06,466 --> 00:01:09,849
+In addition to the resource request a batch job includes 
+
+12
+00:01:09,849 --> 00:01:12,650
+some script that does the actual computing. 
+
+13
+00:01:13,099 --> 00:01:17,500
+To ensure that there's sufficient computing power available for all users,
+
+14
+00:01:17,500 --> 00:01:19,883
+the batch jobs are sent to a queue. 
+
+15
+00:01:20,366 --> 00:01:24,866
+Depending on what kind of resources you requested and on the load on the system, 
+
+16
+00:01:24,866 --> 00:01:28,750
+the job may need to queue for some time before it starts.
+
+17
+00:01:28,950 --> 00:01:33,233
+On HPC systems all heavy computing needs to be done by a batch job 
+
+18
+00:01:33,233 --> 00:01:36,633
+so that they get executed on the compute nodes.
+
+19
+00:01:39,733 --> 00:01:43,383
+The usage policy in docs.csc.fi says that the login nodes are 
+
+20
+00:01:43,383 --> 00:01:46,200
+not meant for long or heavy processes.
+
+21
+00:01:46,633 --> 00:01:51,166
+Instead the login nodes are used for compiling, managing batch jobs, 
+
+22
+00:01:51,166 --> 00:01:55,566
+moving data, light pre- and postprocessing.
+
+23
+00:02:01,283 --> 00:02:06,066
+A batch job system handles the batch jobs submitted to the supercomputer.
+
+24
+00:02:06,716 --> 00:02:11,366
+It keeps track on what resources exist, which requests have been made, 
+
+25
+00:02:11,366 --> 00:02:16,099
+to which jobs allocate resources and how to run those jobs with the given resources. 
+
+26
+00:02:16,800 --> 00:02:20,383
+The aim is to use the resources as efficiently as possible, 
+
+27
+00:02:20,383 --> 00:02:22,983
+but also share them in a fair way.
+
+28
+00:02:23,666 --> 00:02:26,349
+For example when a job needs a lot of memory, 
+
+29
+00:02:26,349 --> 00:02:29,533
+then it is allocated to a node where this memory is available.
+
+30
+00:02:29,683 --> 00:02:33,666
+Then if an other job does not need that much memory, it gets allocated so 
+
+31
+00:02:33,666 --> 00:02:38,349
+that the more demanding jobs can run where they have enough resources. 
+
+32
+00:02:44,316 --> 00:02:48,566
+The fair way of allocating resources is not the first come first served, 
+
+33
+00:02:48,566 --> 00:02:53,616
+but instead somehow that everyone gets resources, at least at some point.
+
+34
+00:02:54,099 --> 00:02:59,000
+Obviously a job cannot start before the requested resources are available. 
+
+35
+00:02:59,433 --> 00:03:04,483
+Each job has a "priority" which is used to determine the order of starting jobs.
+
+36
+00:03:05,033 --> 00:03:10,166
+The "fair share" configuration has the following rules of defining the priority.
+
+37
+00:03:10,949 --> 00:03:14,966
+When you submit a job it gets an initial priority. 
+
+38
+00:03:15,000 --> 00:03:19,816
+This initial priority decreases if you have recently run a lot of jobs. 
+
+39
+00:03:20,466 --> 00:03:24,866
+That makes it possible to first run some small test and get the results fast 
+
+40
+00:03:24,866 --> 00:03:28,266
+before submitting a large set of calculations.
+
+41
+00:03:29,099 --> 00:03:33,400
+Once a job is in queue its priority increases over time.
+
+42
+00:03:33,516 --> 00:03:38,133
+At some point it will have high enough priority and it will be its turn next. 
+
+43
+00:03:38,716 --> 00:03:42,766
+The priority depends also on which queue the job is submitted.
+
+44
+00:03:42,933 --> 00:03:45,483
+For example longrun has lower priority 
+
+45
+00:03:45,483 --> 00:03:48,449
+to discourage people to run in this unless necessary. 
+
+46
+00:03:48,716 --> 00:03:52,599
+If you do not want to queue so much for longrun resources, 
+
+47
+00:03:52,599 --> 00:03:57,750
+then consider refining your job so that you can use the standard three day queues.
+
+48
+00:03:58,233 --> 00:04:04,150
+The documentation at docs.csc.fi has a guide for getting started with running jobs.
+
+49
+00:04:11,300 --> 00:04:15,316
+Here is an illustration on what the batch job scheduler is doing. 
+
+50
+00:04:15,883 --> 00:04:19,916
+The batch jobs are pictured here as two dimensional rectangles. 
+
+51
+00:04:20,683 --> 00:04:24,166
+The horisontal dimension represents the number of CPUs 
+
+52
+00:04:24,166 --> 00:04:26,733
+and the vertical dimension represents time.
+
+53
+00:04:27,399 --> 00:04:30,983
+For example this tall but thin rectangle would correspond 
+
+54
+00:04:30,983 --> 00:04:34,250
+to a fairly long job which is using just one core.
+
+55
+00:04:34,666 --> 00:04:39,316
+Then this short but wide rectangle would be a shorter job using many cores.
+
+56
+00:04:42,500 --> 00:04:45,783
+The batch job system sees these kind of job requests and 
+
+57
+00:04:45,783 --> 00:04:49,166
+then it knows about the resources that the compute nodes have. 
+
+58
+00:04:49,899 --> 00:04:54,016
+The aim of the batch job scheduler is to keep all the supercomputer resources 
+
+59
+00:04:54,016 --> 00:04:56,166
+busy with computing all of the time. 
+
+60
+00:04:57,066 --> 00:04:59,983
+That happens by allocating the jobs to the cores 
+
+61
+00:04:59,983 --> 00:05:02,433
+in a way that there is as little gaps as possible.
+
+62
+00:05:02,566 --> 00:05:06,616
+It is like playing Tetris but with a variable size pieces.
+
+63
+00:05:07,583 --> 00:05:10,566
+But if the scheduler filled each gap with small jobs, 
+
+64
+00:05:10,566 --> 00:05:14,033
+there would never be enough resources free for larger jobs.
+
+65
+00:05:14,466 --> 00:05:20,016
+The increasing job priority enables that everybody gets resources at some point.
+
+66
+00:05:22,266 --> 00:05:27,149
+There are more resources than just CPUs that the scheduler has to take into account.
+
+67
+00:05:27,533 --> 00:05:32,100
+As an example here is this small one-core job that is colored in orange.
+
+68
+00:05:32,366 --> 00:05:37,449
+That job requires a lot of memory and it is using all the memory that is left in this node.
+
+69
+00:05:37,833 --> 00:05:43,233
+That renders the node unavailable for new jobs to run because there's no memory left. 
+
+70
+00:05:43,783 --> 00:05:47,533
+It means that these other cores in that node will be idle. 
+
+71
+00:05:47,850 --> 00:05:52,316
+And if this job really needs and uses this memory, this is totally fine. 
+
+72
+00:05:52,433 --> 00:05:58,366
+That is what memory is for, and one will run out before the other - memory, or cores.
+
+73
+00:05:58,516 --> 00:06:01,583
+But, if the job does not need that much memory, 
+
+74
+00:06:01,583 --> 00:06:05,333
+then these cores will be unavailable for everyone for no reason.
+
+75
+00:06:05,583 --> 00:06:08,666
+Therefore everyone will be queuing more.
+
+76
+00:06:08,949 --> 00:06:12,316
+The lecture 6 will cover how to use the resources  effectively and 
+
+77
+00:06:12,316 --> 00:06:15,916
+I hope this example shows you the importance of that topic.
+
+78
+00:06:24,266 --> 00:06:28,300
+The batch job system used at CSC is called Slurm.
+
+79
+00:06:28,949 --> 00:06:32,283
+If you ever again wonder why you must use this Slurm, 
+
+80
+00:06:32,283 --> 00:06:35,783
+you remember that it is for sharing the awesome supercomputer resources 
+
+81
+00:06:35,783 --> 00:06:37,783
+in a fair and efficient way.
+
+82
+00:06:38,300 --> 00:06:42,316
+Some resources that you can ask from Slurm are listed here.
+
+83
+00:06:42,983 --> 00:06:47,350
+Computing time means how long should the resources be allocated to you. 
+
+84
+00:06:47,750 --> 00:06:52,250
+Number of cores and the amount of memory are the basic resources needed. 
+
+85
+00:06:52,800 --> 00:06:56,350
+Then there are a bit more special resources like GPUs 
+
+86
+00:06:56,350 --> 00:07:00,600
+or the NVMe disks for fast file input and output.
+
+87
+00:07:07,699 --> 00:07:11,533
+There is this example script in the slides that you as a starting point
+
+88
+00:07:11,533 --> 00:07:13,816
+when creating your first batch job.
+
+89
+00:07:14,533 --> 00:07:18,583
+This one uses only one core so it is a serial job.
+
+90
+00:07:19,600 --> 00:07:24,866
+Consider a batch job as an ordinary shell script, like what you use with bash.
+
+91
+00:07:25,000 --> 00:07:30,533
+Therefore it also starts with the line #!/bin/bash.
+
+92
+00:07:30,816 --> 00:07:35,083
+The difference to bash scripts is that the first part of the batch job contains 
+
+93
+00:07:35,083 --> 00:07:38,149
+the resource requests flagged with #SBATCH.
+
+94
+00:07:38,750 --> 00:07:41,666
+Remember that hashtag is a comment symbol in bash, 
+
+95
+00:07:41,666 --> 00:07:46,183
+so lines starting with #SBATCH do nothing as a bash script. 
+
+96
+00:07:46,850 --> 00:07:50,883
+Instead the queuing system understands those flags there.
+
+97
+00:07:52,500 --> 00:07:55,433
+The first one is called jobname and in this example 
+
+98
+00:07:55,433 --> 00:07:57,966
+we provide it with a value print-hostname. 
+
+99
+00:07:58,866 --> 00:08:03,916
+The following flags define the requested time and the partition in which to run the job.
+
+100
+00:08:04,833 --> 00:08:08,649
+Together the number of tasks and the number of CPUs per task
+
+101
+00:08:08,649 --> 00:08:11,466
+define the number of cores needed for the job.
+
+102
+00:08:12,100 --> 00:08:16,666
+The last flag defines the billing project, which is very important.
+
+103
+00:08:17,500 --> 00:08:22,083
+If you don't specify a project that you have access to, you will get an error. 
+
+104
+00:08:23,399 --> 00:08:25,850
+Then if you make some other mistake here,
+
+105
+00:08:25,850 --> 00:08:29,516
+typically the error message will give you an idea how to proceed. 
+
+106
+00:08:30,066 --> 00:08:34,383
+If you omit any of the flags it will use some reasonable default values, 
+
+107
+00:08:34,383 --> 00:08:37,250
+except of course with the account-flag.
+
+108
+00:08:38,766 --> 00:08:43,483
+Then the actual commands or computing steps come after the resource requests.
+
+109
+00:08:44,266 --> 00:08:47,833
+In general they are scripted as in any batch script. 
+
+110
+00:08:48,250 --> 00:08:52,700
+Some commands or variables are spesific to CSC computing environment 
+
+111
+00:08:52,700 --> 00:08:56,716
+and we try to provide you with best materials to get used to those.
+
+112
+00:08:57,299 --> 00:09:01,316
+Here this command srun tells the Slurm system to run a command.
+
+113
+00:09:01,850 --> 00:09:05,883
+Using srun makes the resource usage reports more accurate.
+
+114
+00:09:06,816 --> 00:09:11,683
+This echo-command is basic bash command and it prints out the following string. 
+
+115
+00:09:12,266 --> 00:09:17,016
+In this example the string contains some useful environmental parameters.
+
+116
+00:09:18,783 --> 00:09:22,266
+To use this script you can copy-paste it into a textfile 
+
+117
+00:09:22,266 --> 00:09:25,350
+named for example simple_serial.bash.
+
+118
+00:09:25,916 --> 00:09:29,649
+If you run it straight in Terminal it would be run on the login node.
+
+119
+00:09:29,799 --> 00:09:32,183
+Never run these in the login node!
+
+120
+00:09:32,283 --> 00:09:34,866
+The right way to run this kind of script is with 
+
+121
+00:09:34,866 --> 00:09:37,649
+command sbatch and then the name of the script.
+
+122
+00:09:37,866 --> 00:09:43,283
+The documentation covers the definitions and options of the SBATCH-flags
+
+123
+00:09:50,450 --> 00:09:54,583
+Whenever you start to use a new application in CSC supercomputers 
+
+124
+00:09:54,583 --> 00:09:58,700
+you should first consult the documentation at docs.csc.fi.
+
+125
+00:09:59,183 --> 00:10:01,966
+There you might also find a batch script template 
+
+126
+00:10:01,966 --> 00:10:04,850
+that gives you a starting point with the application. 
+
+127
+00:10:05,683 --> 00:10:08,633
+The templates have some default values for the resources 
+
+128
+00:10:08,633 --> 00:10:11,850
+so you may try those and edit them to suit your needs. 
+
+129
+00:10:12,700 --> 00:10:17,549
+Of course you will need to change the actual inputs and such in the computation step. 
+
+130
+00:10:18,533 --> 00:10:22,433
+In general it is better to start with these application spesific templates 
+
+131
+00:10:22,433 --> 00:10:24,350
+than with a generic template. 
+
+132
+00:10:25,266 --> 00:10:30,683
+In any case, you will need to edit your batch job so that it will match your use case.
+
+133
+00:10:38,450 --> 00:10:42,483
+These are the most important commands for using the queueing system. 
+
+134
+00:10:43,016 --> 00:10:48,549
+Submit the batch job with command sbatch example_job.sh.
+
+135
+00:10:49,200 --> 00:10:53,583
+Find all your jobs that are queuing or running with squeue -u $USER. 
+
+136
+00:10:53,866 --> 00:10:59,133
+Pay attention to the job-ID, because that is needed for other commands such as
+
+137
+00:10:59,133 --> 00:11:03,466
+getting info on a job with scontrol show job and the job-ID.
+
+138
+00:11:04,266 --> 00:11:09,700
+If you want to cancel a submitted job you can use scancel and the job-ID.
+
+139
+00:11:10,750 --> 00:11:14,766
+The last command in this list is seff and the job-ID.
+
+140
+00:11:15,033 --> 00:11:18,899
+That can be used to monitor the resources that the job used.
+
+141
+00:11:19,100 --> 00:11:21,266
+The point is to check whether your resource request 
+
+142
+00:11:21,266 --> 00:11:23,633
+ actually matches what the job used. 
+
+143
+00:11:30,616 --> 00:11:36,750
+The partitions, or job queues, have different properties that are listed in docs.csc.fi.
+
+144
+00:11:37,516 --> 00:11:41,383
+The purpose of having these different job queues is that the jobs can have 
+
+145
+00:11:41,383 --> 00:11:45,983
+very different needs for example in terms of memory and computing time.
+
+146
+00:11:46,666 --> 00:11:49,483
+So estimate your resource request with thought, 
+
+147
+00:11:49,483 --> 00:11:52,883
+and choose to which partition suits your job the best.
+
+148
+00:11:53,533 --> 00:11:58,649
+It is really bad practice just to ask so much resources that it will always be enough.
+
+149
+00:11:58,783 --> 00:12:03,533
+So please put some effort to study how much resources your jobs actually need. 
+
+150
+00:12:04,200 --> 00:12:08,299
+You will also benefit there because your job is likely to start a little bit earlier 
+
+151
+00:12:08,299 --> 00:12:12,066
+and there will be more resources for everyone using the supercomputer.
+
+152
+00:12:16,799 --> 00:12:21,750
+The available partitions are listed here in the docs.csc.fi.
+
+153
+00:12:21,833 --> 00:12:25,883
+Check the link to the instructions in the partition name.
+
+154
+00:12:26,166 --> 00:12:30,866
+The columns in the partition spreadsheet list for example the limits on run time, 
+
+155
+00:12:30,866 --> 00:12:36,149
+maximum number of tasks and nodes and also the maximum memory available per job. 
+
+156
+00:12:36,666 --> 00:12:39,833
+Please notice that there are a lot of these medium sized nodes 
+
+157
+00:12:39,833 --> 00:12:41,350
+available in some queues.
+
+158
+00:12:41,516 --> 00:12:46,033
+Thus if you can specify your job such that it fits in the medium sized node,
+
+159
+00:12:46,033 --> 00:12:48,883
+then there are a lot of these resources available. 
+
+160
+00:12:51,000 --> 00:12:54,816
+The jobs that require more time or more memory and therefore need to use 
+
+161
+00:12:54,816 --> 00:12:58,916
+hugemem or longrun will probably be queuing longer. 
+
+162
+00:12:59,316 --> 00:13:02,850
+It is perfectly fine to ask for a lot of memory. 
+
+163
+00:13:03,016 --> 00:13:05,799
+This is why we have these big memory nodes. 
+
+164
+00:13:05,883 --> 00:13:09,416
+But if you don't need that much, then you might want to consider asking
+
+165
+00:13:09,416 --> 00:13:12,600
+for resources that are faster and easier to provide.
+
+166
+00:13:19,216 --> 00:13:24,166
+One way to categorize jobs is if it uses one or multiple cores.
+
+167
+00:13:24,516 --> 00:13:28,166
+Also a job can be interactive or non-interactive.
+
+168
+00:13:28,383 --> 00:13:32,133
+Different types of jobs are explained in the following slides.
+
+169
+00:13:33,049 --> 00:13:37,783
+Serial jobs are the simplest type of jobs and thus a great starting point.
+
+170
+00:13:38,383 --> 00:13:41,600
+It is important to know the basics of different job types 
+
+171
+00:13:41,600 --> 00:13:44,299
+also when using already installed software
+
+172
+00:13:44,316 --> 00:13:48,100
+ - You need to know which resources to request when you start the job.
+
+173
+00:13:53,733 --> 00:13:59,066
+One-core jobs are serial, because the core has to process the tasks one after another.
+
+174
+00:13:59,433 --> 00:14:03,783
+Please note that you must not request more than one core for a serial job, 
+
+175
+00:14:03,783 --> 00:14:06,866
+because the job cannot utilise those extra cores.
+
+176
+00:14:07,666 --> 00:14:10,450
+That can be seen in a resource scaling test:
+
+177
+00:14:10,716 --> 00:14:14,983
+No matter how many cores you allocate the job does not get any faster.
+
+178
+00:14:16,799 --> 00:14:19,783
+You could run many serial jobs in your laptop.
+
+179
+00:14:19,850 --> 00:14:24,433
+There are still reasons to run serial jobs in CSC supercomputers.
+
+180
+00:14:25,616 --> 00:14:29,833
+A serial jobs can be part of a larger user-defined workflow. 
+
+181
+00:14:30,633 --> 00:14:35,033
+The job might produce some results that you want to analyse with a supercomputer, 
+
+182
+00:14:35,033 --> 00:14:39,100
+or you want to share the results with your other CSC-project members.
+
+183
+00:14:39,983 --> 00:14:42,983
+You know already that there are many preinstalled software 
+
+184
+00:14:42,983 --> 00:14:45,566
+available in the CSC environment. 
+
+185
+00:14:45,683 --> 00:14:48,733
+You don't need to install the programs or they might even 
+
+186
+00:14:48,733 --> 00:14:51,250
+have a license that we have already paid for. 
+
+187
+00:14:52,100 --> 00:14:56,733
+Also serial jobs can have some big demands on memory or fast disk. 
+
+188
+00:14:56,783 --> 00:15:01,583
+This is why we have Puhti huge memory nodes and the local NVMe disks.
+
+189
+00:15:09,183 --> 00:15:13,033
+You can combine individual serial jobs to create a workflow 
+
+190
+00:15:13,033 --> 00:15:15,716
+that can utilise parallel resources.
+
+191
+00:15:16,549 --> 00:15:20,966
+Here is two documented ways of running multiple jobs at the same time.
+
+192
+00:15:21,883 --> 00:15:26,766
+Array jobs mean simply that you submit multiple jobs with a simple command.
+
+193
+00:15:27,083 --> 00:15:31,316
+Other high throughput workflow tools are documented in DocsCSC. 
+
+194
+00:15:31,716 --> 00:15:35,633
+Of course, there are hundreds of other workflow tools that somehow
+
+195
+00:15:35,633 --> 00:15:39,149
+combine multiple single jobs into a bigger workflow. 
+
+196
+00:15:39,966 --> 00:15:44,416
+If your individual job is a serial job, then you should run it in Puhti. 
+
+197
+00:15:45,399 --> 00:15:51,133
+Some workflow tools make it possible to run multiple serial jobs also in Mahti. 
+
+198
+00:15:51,983 --> 00:15:56,116
+In that case all the jobs combined should fill at least one Mahti node,
+
+199
+00:15:56,116 --> 00:15:59,399
+which means 128 cores and they should keep it busy 
+
+200
+00:15:59,399 --> 00:16:01,633
+for the duration of the whole allocation. 
+
+201
+00:16:02,649 --> 00:16:05,883
+This is a bit advanced way of running jobs so we recommend
+
+202
+00:16:05,883 --> 00:16:09,000
+to start by running serial jobs in Puhti.
+
+203
+00:16:15,950 --> 00:16:19,966
+A parallel job distributes the calculation over several cores. 
+
+204
+00:16:20,950 --> 00:16:24,983
+That means it can use many cores for the same task simultaneously. 
+
+205
+00:16:25,433 --> 00:16:28,016
+On the other hand you can also use the memory of 
+
+206
+00:16:28,016 --> 00:16:31,549
+multiple nodes at the same time if your job requires it. 
+
+207
+00:16:32,600 --> 00:16:37,766
+There are two major schemes for parallelising jobs: openMP and MPI.
+
+208
+00:16:38,683 --> 00:16:43,583
+If you run a pre-installed code then you don't need to worry about the details of these. 
+
+209
+00:16:44,433 --> 00:16:48,416
+Jobs parallelised with openMP can run only within one node, 
+
+210
+00:16:48,416 --> 00:16:52,850
+whereas MPI jobs can technically be spread over multiple nodes.
+
+211
+00:16:53,066 --> 00:16:57,083
+In certain cases, you can even combine those two. 
+
+212
+00:16:57,966 --> 00:17:03,500
+The important thing is that the job resource request is different for openMP and MPI. 
+
+213
+00:17:04,383 --> 00:17:07,299
+There are instructions and example batch scripts for both 
+
+214
+00:17:07,299 --> 00:17:10,799
+Puhti and Mahti available in docs.csc.fi.
+
+215
+00:17:11,466 --> 00:17:15,750
+Use them if there is no software specific batch script template available.
+
+216
+00:17:24,116 --> 00:17:27,083
+A GPU is a graphics processing unit. 
+
+217
+00:17:27,083 --> 00:17:30,516
+They are developed for very efficient parallel processing, 
+
+218
+00:17:30,516 --> 00:17:33,299
+because graphics processing requires that.
+
+219
+00:17:33,383 --> 00:17:37,966
+Hence they can also run certain kinds of HPC jobs very efficiently, 
+
+220
+00:17:37,966 --> 00:17:40,433
+for example machine learning jobs. 
+
+221
+00:17:41,383 --> 00:17:44,316
+To use GPUs a code has to be rewritten, 
+
+222
+00:17:44,316 --> 00:17:48,716
+compiled and linked to the libraries that can use GPU processors. 
+
+223
+00:17:49,500 --> 00:17:54,333
+GPU cards are also a bit more expensive than regular CPU cards. 
+
+224
+00:17:55,200 --> 00:17:59,183
+Therefore, one hour on GPU core spends 60 times more 
+
+225
+00:17:59,183 --> 00:18:01,983
+billing units than on a single CPU core. 
+
+226
+00:18:02,966 --> 00:18:07,483
+That means a full CPU node is a lot cheaper than one GPU core. 
+
+227
+00:18:10,083 --> 00:18:15,416
+On Puhti you should reserve one to 10 CPU cores for each reserved GPU core, 
+
+228
+00:18:15,416 --> 00:18:20,983
+because each Puhti GPU node has four GPU cards and 40 CPU cores. 
+
+229
+00:18:22,049 --> 00:18:25,816
+This means that in practice using GPU cores requires more than 
+
+230
+00:18:25,816 --> 00:18:29,500
+60 times the billing units than to use a CPU core.
+
+231
+00:18:30,500 --> 00:18:35,583
+Please keep in mind that if you allocate more than 10 CPU cores for one GPU, 
+
+232
+00:18:35,583 --> 00:18:40,700
+the node may run out of CPUs which renders the GPUs unavailable.
+
+233
+00:18:49,133 --> 00:18:52,783
+As you login to a supercomputer you get the command line interface 
+
+234
+00:18:52,783 --> 00:18:56,166
+that enables you to execute commands in the supercomputer.
+
+235
+00:18:56,450 --> 00:18:59,900
+Please remember that straight after login you are on a login node, 
+
+236
+00:18:59,900 --> 00:19:02,450
+which can not be used for any computing!
+
+237
+00:19:03,366 --> 00:19:07,416
+So if you want to use the powerful computational resources and to interact 
+
+238
+00:19:07,416 --> 00:19:10,750
+with your code, you can use the interactive jobs.
+
+239
+00:19:11,750 --> 00:19:15,466
+Those run on the interactive partition which has compute nodes. 
+
+240
+00:19:16,266 --> 00:19:19,716
+There you can execute commands as if it was your local laptop, 
+
+241
+00:19:19,716 --> 00:19:21,683
+albeit a more powerful one. 
+
+242
+00:19:22,000 --> 00:19:25,433
+Once you are there you don't need to go through the queuing system.
+
+243
+00:19:25,533 --> 00:19:29,466
+For example a Jupyter notebook is something that you need to interact with 
+
+244
+00:19:29,466 --> 00:19:32,849
+but you also might need some heavy computing resources.
+
+245
+00:19:35,099 --> 00:19:38,650
+The tutorials about batch jobs continue from here. 
+
+246
+00:19:38,816 --> 00:19:42,733
+They cover the basic use cases with easy-to-follow examples.
+
+247
+00:19:42,900 --> 00:19:45,849
+Remember that the batch job documentation includes some 
+
+248
+00:19:45,849 --> 00:19:49,400
+example batch scripts that you can start experimenting.

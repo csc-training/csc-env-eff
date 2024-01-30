@@ -18,6 +18,6 @@ has_toc: false
 1. [Essential tutorial - Serial batch jobs]({{ site.baseurl }}{% link part-1/batch-jobs/serial.md %})
 2. [Tutorial - Parallel batch jobs]({{ site.baseurl }}{% link part-1/batch-jobs/parallel.md %})
 3. [Tutorial - Interactive batch jobs]({{ site.baseurl }}{% link part-1/batch-jobs/interactive.md %})
-4. [Exercise - Retrieving data from bio data repositories]({{ site.baseurl }}{% link part-1/batch-jobs/exercise_retrieving-bio-data.md %})
+4. [Exercise - Retrieving data from bio data repositories]({{ site.baseurl }}{% link part-1/batch-jobs/bio-data.md %})
 5. [Exercise - Serial, array and parallel jobs with R + contours calculation from DEM with a raster package (GIS)](https://github.com/csc-training/geocomputing/tree/master/R/puhti)
 6. [Exercise - Serial, array and parallel jobs with Python + NDVI calculation rasterio package (GIS)](https://github.com/csc-training/geocomputing/tree/master/python/puhti)

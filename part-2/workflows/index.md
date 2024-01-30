@@ -15,4 +15,4 @@ has_toc: false
 
 1. [Tutorial - Performing a simple scaling test]({{ site.baseurl }}{% link part-2/workflows/scaling.md %})
 2. [Tutorial - Processing many files with HyperQueue]({{ site.baseurl }}{% link part-2/workflows/hyperqueue.md %})
-3. [Advanced tutorial - Running Gaussian with `sbatch-hq`]({{ site.baseurl }}{% link part-2/workflows/gaussian_hq.md %})
+3. [Advanced tutorial - Running Gaussian with `sbatch-hq`]({{ site.baseurl }}{% link part-2/workflows/gaussian-hq.md %})

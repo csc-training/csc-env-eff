@@ -1,0 +1,20 @@
+[[slnc 1000]] First title 
+
+[[slnc 1000]]If you want the voiceover to say something about the cover slide you should write it down here.
+
+[[slnc 1000]] 1st Slide title
+
+[[slnc 1000]]If you want the voiceover to say something about the first slide you should write it down here.
+
+[[slnc 1000]] 2nd Slide title
+
+[[slnc 1000]]So this is the explanation part whih is read by the voiceover.
+
+[[slnc 1000]]The sentences should be fairly short and on point.
+
+[[slnc 1000]]The captions look better with short one-line sentences, but if you have longer you need to split them in the video editor.
+
+[[slnc 1000]] Difference between captions and voiceover texts
+
+[[slnc 1000]]The script uses tags to distinguish between caption and voiceover content.
+

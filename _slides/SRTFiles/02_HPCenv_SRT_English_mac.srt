@@ -1,0 +1,359 @@
+1
+00:00:22,666 --> 00:00:26,199
+We assume that a laptop computer is a familiar thing to you, 
+
+2
+00:00:26,199 --> 00:00:29,350
+so this comparison shows how the components of a laptop 
+
+3
+00:00:29,350 --> 00:00:33,083
+and a supercomputer roughly relate to each other. 
+
+4
+00:00:34,066 --> 00:00:38,116
+So your laptop would be something similar to one node in a cluster. 
+
+5
+00:00:38,766 --> 00:00:43,766
+A cluster is a collection of nodes that are linked together with fast connections.
+
+6
+00:00:43,950 --> 00:00:50,100
+That collection of nodes is what makes a supercomputer so super in terms of computing power.
+
+7
+00:00:50,583 --> 00:00:56,500
+Your laptop has a processor and the equivalent of that in a supercomputer is called a socket. 
+
+8
+00:00:56,783 --> 00:01:00,799
+A socket or a processor has CPU's or cores.
+
+9
+00:01:01,133 --> 00:01:04,633
+Terms CPU and core are used interchangeably. 
+
+10
+00:01:04,633 --> 00:01:07,349
+Very often it's just the core. 
+
+11
+00:01:07,349 --> 00:01:11,366
+Sometimes it's a CPU core and so on. 
+
+12
+00:01:11,783 --> 00:01:17,200
+Simply put you can think a supercomputer as a set of computers that are connected together. 
+
+13
+00:01:17,516 --> 00:01:20,900
+Each of the nodes have their own memory.
+
+14
+00:01:21,066 --> 00:01:25,816
+Some nodes have also local storage which is useful in certain workflows. 
+
+15
+00:01:29,583 --> 00:01:35,966
+Typically a computing cluster contains a storage system, login nodes and compute nodes. 
+
+16
+00:01:36,233 --> 00:01:41,733
+The supercomputer uses the login nodes for connecting with the outside world.
+
+17
+00:01:42,083 --> 00:01:48,366
+They are like fat laptops that enable users for example to browse their files in the supercomputer.
+
+18
+00:01:48,633 --> 00:01:54,033
+Running heavy computations on login nodes is against the CSC usage policy.
+
+19
+00:01:56,833 --> 00:02:02,733
+Then there is a central storage system where users can have their codes and relevant files.
+
+20
+00:02:05,133 --> 00:02:09,733
+The essence of the supercomputer are of course the compute nodes.
+
+21
+00:02:09,833 --> 00:02:13,216
+You are not supposed to log in in those, but they are dedicated 
+
+22
+00:02:13,216 --> 00:02:16,550
+for actually running the jobs and doing the heavy computing.
+
+23
+00:02:17,216 --> 00:02:21,266
+Accessing the compute nodes is done through a batch job system.
+
+24
+00:02:23,116 --> 00:02:28,150
+On CSC machines we use batch job scheduler called Slurm. 
+
+25
+00:02:28,633 --> 00:02:35,599
+There are other schedulers for example SGE, Torque or PBS, and they all do the same function. 
+
+26
+00:02:36,250 --> 00:02:39,233
+The syntax between those is a little bit different.
+
+27
+00:02:39,233 --> 00:02:42,900
+If you copy-paste a batch script from the internet you have to adapt it 
+
+28
+00:02:42,900 --> 00:02:45,516
+to the supercomputer you are using.
+
+29
+00:02:45,750 --> 00:02:50,883
+Also a different Slurm cluster may use a little bit different syntax than ours. 
+
+30
+00:02:55,650 --> 00:02:59,849
+CSC provides these HPC resources for customers. 
+
+31
+00:03:00,000 --> 00:03:04,050
+Try the links in the slides to open corresponding documentation. 
+
+32
+00:03:05,050 --> 00:03:08,300
+Puhti is the general purpose supercomputer.
+
+33
+00:03:08,483 --> 00:03:14,383
+It has the most pre-installed applications and it can run both serial and parallel jobs. 
+
+34
+00:03:14,933 --> 00:03:18,199
+Mahti is a massively parallel supercomputer. 
+
+35
+00:03:19,050 --> 00:03:23,066
+Later in 2021 Lumi will come available with even more resources or parallel computation. 
+
+36
+00:03:25,949 --> 00:03:29,983
+Pouta is a cloud resource infrastructure-as-a-service.
+
+37
+00:03:30,616 --> 00:03:34,666
+There you set up virtual machines and operate them so you get root access for your system. 
+
+38
+00:03:36,316 --> 00:03:40,333
+Rahti is a little bit similar system but everything you run there should be deployed as containers.
+
+39
+00:03:42,433 --> 00:03:44,833
+Allas is for storing data. 
+
+40
+00:03:44,900 --> 00:03:49,116
+It is managed by CSC and designed for large amounts of data. 
+
+41
+00:03:50,099 --> 00:03:53,533
+One of the reasons of using HPC is that you may have so much data 
+
+42
+00:03:53,533 --> 00:03:56,300
+that you cannot keep it in your own laptop.
+
+43
+00:04:02,416 --> 00:04:06,449
+This is an open-ended question and the answer depends on your needs.
+
+44
+00:04:07,183 --> 00:04:11,233
+You should figure out what kind of resources your application can use. 
+
+45
+00:04:12,266 --> 00:04:16,949
+Some software can use only one core which makes them serial programs. 
+
+46
+00:04:17,166 --> 00:04:19,250
+They should run in Puhti.
+
+47
+00:04:19,866 --> 00:04:25,733
+Parallel progrms can use more than one core, which is what Mahti and Lumi are designed for. 
+
+48
+00:04:26,716 --> 00:04:29,399
+Other factors to consider are the memory requirement 
+
+49
+00:04:29,399 --> 00:04:34,050
+and if the application can benefit from GPU's or fast local disk. 
+
+50
+00:04:34,833 --> 00:04:38,233
+Every job has a limiting stage in the workflow.
+
+51
+00:04:38,483 --> 00:04:43,083
+Identifying that may give insight to choosing a suitable supercomputer.
+
+52
+00:04:43,316 --> 00:04:48,983
+We recommend you to find out answers to these questions by investigating your application. 
+
+53
+00:04:49,933 --> 00:04:53,966
+Then you can see which resources are available in the different supercomputers. 
+
+54
+00:04:54,550 --> 00:04:57,383
+If the code that you want to use is already installed,
+
+55
+00:04:57,383 --> 00:05:00,566
+then probably there are also instructions on usage. 
+
+56
+00:05:00,566 --> 00:05:03,433
+Then you can get started immediately with running the code
+
+57
+00:05:03,433 --> 00:05:06,050
+rather than installing and learning how it works. 
+
+58
+00:05:06,833 --> 00:05:09,516
+Different machines or different partitions have 
+
+59
+00:05:09,516 --> 00:05:12,883
+different maximum run times or provisioning policies.
+
+60
+00:05:13,083 --> 00:05:17,100
+Some let you apply for a single core or then full nodes and so on.
+
+61
+00:05:17,966 --> 00:05:21,250
+We recommend always to check the documentation. 
+
+62
+00:05:22,000 --> 00:05:26,666
+Feel free to contact us if the documentation does not provide you with answers. 
+
+63
+00:05:33,133 --> 00:05:38,050
+Together Puhti and Mahti provide users with extensive HPC resources. 
+
+64
+00:05:38,283 --> 00:05:42,316
+This comparison gives a quick overview that helps to decide which one to use.
+
+65
+00:05:43,850 --> 00:05:46,649
+Puhti is more general use supercomputer
+
+66
+00:05:46,649 --> 00:05:50,916
+and it also has a lot more applications preinstalled than Mahti.
+
+67
+00:05:51,683 --> 00:05:55,699
+The links in the slides take you to the lists of the installed applications. 
+
+68
+00:05:56,266 --> 00:06:00,300
+Of course, you can also install your own applications if you want. 
+
+69
+00:06:01,466 --> 00:06:04,050
+The sizes of the nodes are quite different.
+
+70
+00:06:04,333 --> 00:06:10,199
+In Puhti the each node has 40 cores or CPU's and in Mahti it has 128. 
+
+71
+00:06:10,899 --> 00:06:17,399
+The job size - so how many CPU cores one job can use - starts from one in Puhti.
+
+72
+00:06:17,399 --> 00:06:21,449
+That means you can run both serial or parallel jobs there. 
+
+73
+00:06:22,683 --> 00:06:25,600
+In Mahti the resources are allocated by nodes, 
+
+74
+00:06:25,600 --> 00:06:29,083
+so the minimum amount that you can get is one full node. 
+
+75
+00:06:29,316 --> 00:06:31,616
+That means your job should be able to use 
+
+76
+00:06:31,616 --> 00:06:34,600
+at least one hundred and twenty eight cores in parallel.
+
+77
+00:06:34,633 --> 00:06:39,750
+This is what Mahti is really meant for - to run this massively parallel jobs. 
+
+78
+00:06:41,350 --> 00:06:46,500
+If your job needs a lot of memory, then we have these huge memory nodes in Puhti. 
+
+79
+00:06:46,699 --> 00:06:51,166
+Certain kind of applications will run a lot faster with a lot of memory. 
+
+80
+00:06:52,399 --> 00:06:58,916
+In Mahti, there's a lot less memory per core available, but that is enough for most applications. 
+
+81
+00:06:59,216 --> 00:07:03,883
+In comparison your laptop has propably 8 or 16 gigs of RAM.
+
+82
+00:07:06,566 --> 00:07:09,899
+Both machines have Nvidia GPU cards. 
+
+83
+00:07:09,899 --> 00:07:13,949
+These are extremely good for a certain machine learning jobs. 
+
+84
+00:07:14,466 --> 00:07:20,300
+Later we will cover whether it makes sense to use GPUs or should you use CPUs instead. 
+
+85
+00:07:21,783 --> 00:07:25,766
+In Puhti we have 120 nodes with fast local disk. On Mahti only the GPU nodes have this local disk. 
+
+86
+00:07:26,183 --> 00:07:30,000
+In Puhti we have 120 nodes with fast local disk. On Mahti only the GPU nodes have this local disk. 
+
+87
+00:07:30,949 --> 00:07:34,850
+To summarize: Puhti is a general purpose supercomputer.
+
+88
+00:07:34,899 --> 00:07:41,366
+One node in Puhti is around 10 times faster than your laptop, and there are many of those nodes.
+
+89
+00:07:41,949 --> 00:07:44,600
+Mahti is for large parallel jobs.
+
+90
+00:07:44,600 --> 00:07:49,516
+But if you want to use that, then be prepared to install and optimize your code. 

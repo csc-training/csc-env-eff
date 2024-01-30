@@ -1,0 +1,451 @@
+1
+00:00:21,783 --> 00:00:27,116
+The take home message is that you can install software on CSC supercomputers. 
+
+2
+00:00:27,683 --> 00:00:32,700
+There might be an application that is not already installed on Puhti or Mahti.
+
+3
+00:00:33,299 --> 00:00:35,866
+Or you might have implemented a program yourself,
+
+4
+00:00:35,866 --> 00:00:37,683
+and you want to use that in Puhti.
+
+5
+00:00:38,116 --> 00:00:43,166
+This lecture gives an overview of different types of software and installation methods.
+
+6
+00:00:43,950 --> 00:00:50,700
+Remember that you can always contact servicedesk@csc.fi for guidance.
+
+7
+00:00:51,116 --> 00:00:55,033
+Especially if the program you are trying to install is very complicated 
+
+8
+00:00:55,033 --> 00:00:58,416
+or requires compiling it from a source code. 
+
+9
+00:01:05,633 --> 00:01:10,166
+The most important thing to begin with is to read the software documentation. 
+
+10
+00:01:10,866 --> 00:01:13,616
+How the software is installed depends a lot on 
+
+11
+00:01:13,616 --> 00:01:16,516
+what type of code you are trying to install. 
+
+12
+00:01:16,883 --> 00:01:21,966
+It might be just a Python package, or then it is a large parallel program.
+
+13
+00:01:22,616 --> 00:01:26,400
+Note that in general simple copy and paste examples from the internet
+
+14
+00:01:26,400 --> 00:01:29,483
+do not work in an HPC environment. 
+
+15
+00:01:29,900 --> 00:01:34,166
+Before you invest a lot of effort and time into trying to install something, 
+
+16
+00:01:34,166 --> 00:01:38,483
+it is a better option to check out the CSC application list.
+
+17
+00:01:38,833 --> 00:01:42,933
+Also remember that with command module spider you can see software available
+
+18
+00:01:42,933 --> 00:01:46,333
+in CSC supercomputing environment.
+
+19
+00:01:46,849 --> 00:01:49,616
+It may well be that there is some other program
+
+20
+00:01:49,633 --> 00:01:53,583
+ – similar to the one you would like to use – already installed.
+
+21
+00:02:01,133 --> 00:02:07,533
+If your application is a single binary file you can try to run it on the CSC supercomputer. 
+
+22
+00:02:08,050 --> 00:02:13,199
+Usually these binaries may not be suitable or efficient in HPC environments. 
+
+23
+00:02:13,816 --> 00:02:17,383
+If they are compiled on a laptop they are optimized for a laptop
+
+24
+00:02:17,383 --> 00:02:19,733
+and not for a supercomputer. 
+
+25
+00:02:20,183 --> 00:02:25,550
+Especially if your program is massively parallelized – like MPI codes which run on 
+
+26
+00:02:25,550 --> 00:02:29,966
+multiple nodes – it must be recompiled for the best performance. 
+
+27
+00:02:30,583 --> 00:02:35,616
+Binary file might be the only option if the source code is not available.
+
+28
+00:02:35,866 --> 00:02:41,066
+They might work fine if the program has been compiled on an identical HPC system,
+
+29
+00:02:41,066 --> 00:02:44,300
+or if it is a very simple program that runs for example 
+
+30
+00:02:44,300 --> 00:02:47,349
+lightweight serial or threaded processes.
+
+31
+00:02:56,699 --> 00:03:00,099
+Different kind of programs can be categorised based on 
+
+32
+00:03:00,099 --> 00:03:02,633
+the used programming languages. 
+
+33
+00:03:03,116 --> 00:03:07,683
+The highest level of programming languages are the interpreted languages.
+
+34
+00:03:08,300 --> 00:03:14,166
+For example Python, Java, and R, are all interpreted coding languages.
+
+35
+00:03:14,800 --> 00:03:17,916
+The main advantage of those is that they are easy to program 
+
+36
+00:03:17,916 --> 00:03:20,383
+and they do not need to be compiled.
+
+37
+00:03:21,083 --> 00:03:22,833
+If performance is an issue, 
+
+38
+00:03:22,833 --> 00:03:27,866
+for example Python can be compiled to a faster C-code using cython.
+
+39
+00:03:28,449 --> 00:03:32,266
+Programming and running programs based on interpreted languages 
+
+40
+00:03:32,266 --> 00:03:36,933
+usually require loading specific modules on the CSC supercomputers.
+
+41
+00:03:37,583 --> 00:03:40,733
+For example Python module enables access 
+
+42
+00:03:40,733 --> 00:03:43,599
+to some of the most important Python libraries. 
+
+43
+00:03:44,449 --> 00:03:49,483
+It also ensures that the software behaves the same on all the compute nodes. 
+
+44
+00:03:50,966 --> 00:03:54,849
+If the computational problem you are dealing with is very complicated, 
+
+45
+00:03:54,849 --> 00:03:58,199
+then interpreted languages are usually not the best option, 
+
+46
+00:03:58,199 --> 00:04:01,900
+because they are not efficient for numerically heavy tasks. 
+
+47
+00:04:02,550 --> 00:04:07,449
+To do heavy tasks somewhat efficiently with interpreted languages make sure you
+
+48
+00:04:07,449 --> 00:04:12,033
+utilize libraries to perform some of the most demanding computational tasks.
+
+49
+00:04:12,633 --> 00:04:15,866
+There might be high performance computing libraries, 
+
+50
+00:04:15,866 --> 00:04:21,166
+or libraries that have been written using HPC programming languages. 
+
+51
+00:04:28,683 --> 00:04:31,800
+These programming languages do not run as such, 
+
+52
+00:04:31,800 --> 00:04:35,766
+but when they are compiled and run, they have great performance.
+
+53
+00:04:36,350 --> 00:04:43,016
+Examples of HPC languages are C, C++, and FORTRAN. 
+
+54
+00:04:43,600 --> 00:04:49,050
+It requires some experience to write efficient codes with HPC languages.
+
+55
+00:04:49,649 --> 00:04:53,983
+They are not so easy to program and the syntax might not be so simple. 
+
+56
+00:04:55,483 --> 00:04:59,050
+Most of very resource intensive scientific applications 
+
+57
+00:04:59,050 --> 00:05:02,583
+have been programmed using HPC languages, because they are good
+
+58
+00:05:02,583 --> 00:05:06,583
+in heavy number crunching, linear algebra and such tasks.
+
+59
+00:05:08,616 --> 00:05:11,983
+If someone – a person involved with method development – 
+
+60
+00:05:11,983 --> 00:05:14,083
+has already implemented the program, 
+
+61
+00:05:14,083 --> 00:05:17,333
+then researchers need only to compile the code.
+
+62
+00:05:18,183 --> 00:05:23,199
+If you consider compiling complicated, contact servicedesk.
+
+63
+00:05:30,516 --> 00:05:33,183
+There are some things to keep in mind when installing
+
+64
+00:05:33,183 --> 00:05:36,583
+custom software on the CSC supercomputers.
+
+65
+00:05:37,233 --> 00:05:41,016
+It is not the same as installing something on your own computer. 
+
+66
+00:05:41,683 --> 00:05:45,833
+For example you can not use sudo for getting root privileges.
+
+67
+00:05:46,550 --> 00:05:50,333
+Also you can not use package managers like apt or yum.
+
+68
+00:05:51,066 --> 00:05:54,883
+Then you don't have permissions to install into default locations.
+
+69
+00:05:55,649 --> 00:05:58,850
+Instead custom installations should go to the PROJAPPL
+
+70
+00:05:58,850 --> 00:06:01,250
+directory - where you have write access. 
+
+71
+00:06:02,816 --> 00:06:05,500
+When you start to compile your application,
+
+72
+00:06:05,500 --> 00:06:09,583
+you should first load required compiler suites or language modules. 
+
+73
+00:06:10,100 --> 00:06:15,116
+When you install custom software, it is not automatically added to the PATH.
+
+74
+00:06:15,733 --> 00:06:18,383
+That means you can't run the program from anywhere
+
+75
+00:06:18,383 --> 00:06:21,366
+without providing the path to the binary file.
+
+76
+00:06:31,199 --> 00:06:36,250
+If you install software directly to the system it is called native installation.
+
+77
+00:06:36,699 --> 00:06:41,466
+That would be for example the binary file that you have compiled and run.
+
+78
+00:06:42,050 --> 00:06:47,083
+It is a good way of installing if the program does not have many dependencies.
+
+79
+00:06:55,699 --> 00:06:59,466
+Applications can also be available as containers.
+
+80
+00:07:00,183 --> 00:07:05,199
+Containers provide a convenient way of installing software and its dependencies.
+
+81
+00:07:05,816 --> 00:07:08,850
+There are many containers available in public.
+
+82
+00:07:09,483 --> 00:07:14,533
+Please consider using containers even if other installation methods were available.
+
+83
+00:07:15,000 --> 00:07:19,333
+See the container lecture and the documentation for more information.
+
+84
+00:07:28,416 --> 00:07:33,166
+Conda is a package manager used especially for many Python packages.
+
+85
+00:07:33,800 --> 00:07:39,816
+It is very popular, but unfortunately it is also problematic in HPC systems.
+
+86
+00:07:40,333 --> 00:07:43,483
+A Conda environment contains a huge number of files 
+
+87
+00:07:43,483 --> 00:07:46,566
+which really slows down Lustre file system.
+
+88
+00:07:47,000 --> 00:07:51,383
+They are also difficult to maintain because of many dependencies.
+
+89
+00:07:52,033 --> 00:07:54,850
+Containers are a preferred installation method, 
+
+90
+00:07:54,850 --> 00:07:57,949
+because they package everything in a single file.
+
+91
+00:07:58,416 --> 00:08:04,366
+Also Conda installations can be put into a container and used in HPC environment.
+
+92
+00:08:13,899 --> 00:08:18,350
+Check out the batch job lecture for details on submitting batch jobs.
+
+93
+00:08:19,083 --> 00:08:21,949
+Test the software with short batch jobs.
+
+94
+00:08:22,666 --> 00:08:26,466
+It you submit a long and heavy job with no knowledge of how it works,
+
+95
+00:08:26,466 --> 00:08:28,666
+you are wasting time and resources
+
+96
+00:08:28,666 --> 00:08:32,133
+ – not only yours but other users and admins as well.
+
+97
+00:08:32,866 --> 00:08:36,283
+Try to reproduce some results that you know beforehand.
+
+98
+00:08:37,016 --> 00:08:40,600
+That way you can deduce if the program works as intended.
+
+99
+00:08:41,350 --> 00:08:45,066
+Some software might have a tutorial that you can run.
+
+100
+00:08:45,716 --> 00:08:50,383
+Run your tests e.g. in the test queue or in an interactive session.
+
+101
+00:08:50,916 --> 00:08:56,450
+Check also the efficiency of the code by comparing it to your previous compilations. 
+
+102
+00:08:56,450 --> 00:09:01,466
+In other words, be sure to benchmark your new software. 
+
+103
+00:09:08,766 --> 00:09:13,799
+The tutorials about installing software have some easy-to-follow examples.
+
+104
+00:09:14,299 --> 00:09:18,816
+Be sure to check out the documentation in DocsCSC pages.
+
+105
+00:09:19,333 --> 00:09:23,866
+There is information on how to compile applications in Puhti or Mahti, 
+
+106
+00:09:23,866 --> 00:09:27,149
+and how to use different HPC libraries. 
+
+107
+00:09:27,616 --> 00:09:31,466
+There is also guidelines for loading different compilers. 
+
+108
+00:09:32,116 --> 00:09:36,833
+For example whether to compile using an Intel or GNU compiler, what kind of
+
+109
+00:09:36,833 --> 00:09:43,083
+optimization flags you can use, or how to link different HPC libraries to your codes. 
+
+110
+00:09:43,616 --> 00:09:47,516
+There is of course a lot of information available online. 
+
+111
+00:09:48,016 --> 00:09:51,200
+If you get some errors or problems in the compilation, 
+
+112
+00:09:51,200 --> 00:09:54,566
+copy paste the error messages and Google for some tips. 
+
+113
+00:09:55,166 --> 00:09:59,700
+Also be sure to contact the servicedesk in case of any issues. 

@@ -17,4 +17,4 @@ has_toc: false
 ## 4.2 Tutorials and exercises
 
 1. [Essential tutorial - Modules in Puhti]({{ site.baseurl }}{% link part-1/modules/modules-puhti.md %})
-2. [Advanced tutorial - Biosoftware in Puhti]({{ site.baseurl }}{% link part-1/modules/module-exercise-with-aligners.md %})
+2. [Advanced tutorial - Biosoftware in Puhti]({{ site.baseurl }}{% link part-1/modules/modules-bio.md %})

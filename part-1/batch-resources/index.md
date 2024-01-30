@@ -15,5 +15,5 @@ has_toc: false
 
 ## 6.3 Tutorials and exercises
 
-1. [Essential tutorial - Understanding resource usage with `sacct` and `seff`]({{ site.baseurl }}{% link part-1/batch-resources/tutorial_sacct_and_seff.md %})
-2. [Exercise - Find your past job resource usage]({{ site.baseurl }}{% link part-1/batch-resources/exercise_sacct_and_seff.md %})
+1. [Essential tutorial - Understanding resource usage with `sacct` and `seff`]({{ site.baseurl }}{% link part-1/batch-resources/tutorial-sacct-seff.md %})
+2. [Exercise - Find your past job resource usage]({{ site.baseurl }}{% link part-1/batch-resources/exercise-sacct-seff.md %})

@@ -51,7 +51,7 @@ conda env export > environment.yml
 You can try with one of your own environments, or download an example to use for this exercise:
 
 ```bash
-wget https://raw.githubusercontent.com/CSCfi/csc-env-eff/master/data/environment.yml
+wget https://a3s.fi/CSC_training/environment.yml
 ```
 
 In addition to the `environment.yml` file, you will need an Apptainer definition file. Create a file called `conda_environment.def` with the following content (copy/paste).
