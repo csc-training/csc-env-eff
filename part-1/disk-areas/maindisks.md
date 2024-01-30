@@ -27,7 +27,7 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-maindisks.html
 ssh <username>@puhti.csc.fi    # replace <username> with your CSC username, e.g. myname@puhti.csc.fi
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Get an overview of your projects and directories by running the following commands on the login node:
 
 ```bash
@@ -35,7 +35,7 @@ csc-projects
 csc-workspaces
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Inspect the output information summarizing your directories and their current quotas.
 4. Visit your project's `/scratch` directory and list its contents:
 
@@ -44,7 +44,7 @@ cd /scratch/<project>/   # replace <project> with your CSC project, e.g. project
 ls
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Visit your project's `/projappl` directory and list its contents:
 
 ```bash
@@ -79,7 +79,7 @@ cd
 
 💡 If you know the files are large, you should consider downloading them directly to `/scratch`.
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download an example program package (`ggplot2_3.3.3_Rprogramme.tar.gz`) and a data file (`Merged.fasta`) from the Allas object storage
   
 ```bash
@@ -102,14 +102,14 @@ mkdir -p /projappl/<project>/$USER   # replace <project> with your CSC project, 
 mkdir -p /scratch/<project>/$USER    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Copy your `ggplot2_3.3.3_Rprogramme.tar.gz` file to the `/projappl` directory
 
 ```bash
 cp ggplot2_3.3.3_Rprogramme.tar.gz  /projappl/<project>/$USER/   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Copy the `Merged.fasta` file to the `/scratch` directory
 
 ```bash
@@ -118,7 +118,7 @@ cp Merged.fasta /scratch/<project>/$USER/    # replace <project> with your CSC p
 
 - Note that all new files and directories are also fully accessible to other members of the project (including read and write permissions).
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Set read-only permissions for your project members for the file `Merged.fasta`:
 
 ```bash
@@ -135,7 +135,7 @@ chmod g-w Merged.fasta          # g-w means that we "subtract" write permissions
 rsync -P Merged.fasta <username>@mahti.csc.fi:/scratch/<project>/$USER/    # replace <username> with your CSC username and <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Copy the `ggplot2_3.3.3_Rprogramme.tar.gz` file from Puhti to the `/projappl` directory on Mahti:
 
 ```bash

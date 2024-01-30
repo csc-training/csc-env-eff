@@ -51,7 +51,7 @@ mkdir -p /scratch/<project>/$USER/hq-example
 cd /scratch/<project>/$USER/hq-example
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download the input files representing small molecules initially obtained from the
    [ChEMBL database](https://chembl.gitbook.io/chembl-interface-documentation/downloads):
   
@@ -120,7 +120,7 @@ tar -czf sdf.tar.gz *.sdf
 cp sdf.tar.gz $SLURM_SUBMIT_DIR
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. As explained by the comments in the script above, HyperQueue works on a
    worker-server-client basis, i.e. a worker is started on each compute node
    which executes commands that the client submitted to the server
@@ -132,14 +132,14 @@ cp sdf.tar.gz $SLURM_SUBMIT_DIR
 ☝🏻 Ideally, the number of sub-tasks should be larger than the amount that can fit
 running on the reserved resources simultaneously to avoid too short Slurm jobs.
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Submit the script with:
 
 ```bash
 sbatch hq.sh
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. After a couple of minutes, you should notice that a file `sdf.tar.gz` containing
    the output files has appeared in your working directory.
 

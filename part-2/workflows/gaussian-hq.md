@@ -53,7 +53,7 @@ mkdir -p /scratch/<project>/$USER/gaussian-hq
 cd /scratch/<project>/$USER/gaussian-hq
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download the 200 C<sub>7</sub>O<sub>2</sub>H<sub>10</sub> structures that have originally
    been obtained from the [QM9 dataset](https://doi.org/10.6084/m9.figshare.c.978904.v5):
   
@@ -61,14 +61,14 @@ cd /scratch/<project>/$USER/gaussian-hq
 wget https://a3s.fi/CSC_training/C7O2H10.tar.gz
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Unpack the archive:
 
 ```bash
 tar -xzf C7O2H10.tar.gz
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Go to the directory containing the structure files that are in [`.mol`
    format](https://openbabel.org/docs/dev/FileFormats/MDL_MOL_format.html):
 
@@ -89,7 +89,7 @@ module load openbabel
 obabel *.mol -ocom -m
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Now we have converted the 200 structures into `.com` format that is used by Gaussian.
 
 ## Construct the corresponding Gaussian input files
@@ -104,14 +104,14 @@ functional and the cc-PVDZ basis set.
 sed -i '1s/^/#b3lyp\/cc-pVDZ \n/' *.com
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Set 4 cores per job by adding the flag `%NProcShared=4` to each input file:
 
 ```bash
 sed -i '1s/^/%NProcShared=4\n/' *.com
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Now you have 200 complete Gaussian input files corresponding to the original molecular
    structures and the method of choice.
 
@@ -126,14 +126,14 @@ feasible to use bash scripting to create a suitable task list file for HyperQueu
 cd ..
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Create the task list and name it `commandlist`:
 
 ```bash
 for f in ${PWD}/C7O2H10/*.com; do echo "g16 < $f >> output/$(basename ${f%.*}).log" >> commandlist; done
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Inspect the task list with `more`, `less` or `cat`. The file should look like:
 
 ```bash
@@ -143,7 +143,7 @@ g16 < /scratch/<project>/$USER/gaussian-hq/C7O2H10/dsC7O2H10nsd_0003.com >> outp
 ...
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Notice that the output will be directed into a directory called `output`. Create this directory:
 
 ```bash
@@ -192,7 +192,7 @@ squeue --me
 squeue -u $USER
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. This does, however, not provide you information about the progress of the individual
    sub-tasks. To monitor these, export the location of the HyperQueue server and use the
    `hq` commands:
@@ -202,7 +202,7 @@ export HQ_SERVER_DIR=$PWD/hq-server-<slurmjobid>   # replace <slurmjobid> with t
 hq job info 1
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Once the workflow has finished (should take a bit more than 10 minutes), print a
    list of the `b3lyp/cc-pVDZ` energies for each of the 200 structures sorted by energy
    (most stable structure first):
@@ -211,7 +211,7 @@ hq job info 1
 grep -r "E(RB3LYP)" output | sort -k6 -n -o energies.txt
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Using `head energies.txt`, the output should look like:
 
 ```bash

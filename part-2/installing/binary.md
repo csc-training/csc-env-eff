@@ -30,14 +30,14 @@ permalink: /hands-on/installing/installing_hands-on_binary.html
 cd /projappl/<project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. If not done already, create your own folder under your project's `/projappl` directory:
 
 ```bash
 mkdir -p $USER
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Move to your folder:
 
 ```bash
@@ -59,14 +59,14 @@ cd $USER
 wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.1-linux-kernel-3-x86_64.zip
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Unzip the file:
 
 ```bash
 unzip gcta-1.94.1-linux-kernel-3-x86_64.zip
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. The software is now ready to use, but you will have to tell the computer where to find it.
 6. Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
 
@@ -74,14 +74,14 @@ unzip gcta-1.94.1-linux-kernel-3-x86_64.zip
 gcta-1.94.1
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Try instead:
 
 ```bash
 gcta-1.94.1-linux-kernel-3-x86_64/gcta-1.94.1
 ```
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Or:
 
 ```bash
@@ -89,13 +89,13 @@ cd gcta-1.94.1-linux-kernel-3-x86_64
 ./gcta-1.94.1
 ```
 
-{:start="9"}
+{:style="counter-reset:step-counter 8"}
 9. The result shows that the software runs.
     - The error message is just about missing arguments which is normal.
 
 💬 Instead of providing the full path in the command line, you can also add the application to your `$PATH`.
 
-{:start="10"}
+{:style="counter-reset:step-counter 9"}
 10. Move to `./gcta-1.94.1-linux-kernel-3-x86_64` if not there yet.
 11. Add the current working directory to `$PATH`:
 
@@ -103,7 +103,7 @@ cd gcta-1.94.1-linux-kernel-3-x86_64
 export PATH=$PWD:$PATH
 ```
 
-{:start="12"}
+{:style="counter-reset:step-counter 11"}
 12.  You can now run the program from any directory simply with:
 
 ```bash

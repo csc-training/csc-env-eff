@@ -25,7 +25,7 @@ apptainer run shub://vsoch/hello-world:latest
 
 - This can, however, lead to a batch job failing if there are network problems.
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Usually it is better to pull the container first and then use the image file:
 
 ```bash
@@ -58,14 +58,14 @@ export APPTAINER_TMPDIR=$LOCAL_SCRATCH
 export APPTAINER_CACHEDIR=$LOCAL_SCRATCH
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Avoid some unnecessary warnings by unsetting a certain environment variable:
 
 ```bash
 unset XDG_RUNTIME_DIR
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. You can now run `singularity build`:
 
 ```bash
@@ -84,7 +84,7 @@ apptainer build alpine.sif docker://library/alpine:latest
 apptainer --version
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. After creating an image file, you can transfer it to Puhti.
 
 ## More information

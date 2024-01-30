@@ -21,7 +21,7 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
 💡 A "container" in the cPouta web interface is called a "bucket" within the S3 protocol. Don't confuse this with Docker/Apptainer containers.
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Create a new _bucket_ by pressing the button: **➕ Container**
    - Keep the bucket _Not public_ and name it as `<project number>_<username>`, in which `<project number>` is the number of your project (e.g. 2001234) and `<username>` is your CSC username
 6. Find the newly created bucket and open it
@@ -42,14 +42,14 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 csc-workspaces
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Move to the scratch directory of your project:
 
 ```bash
 cd /scratch/<project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Create your own subdirectory named as your username (tip! your username is automatically stored in the environment variable `$USER`):
 
 ```bash
@@ -68,7 +68,7 @@ allas-conf
 
 💡 It might take a while to run `module load allas`
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. If you have several projects with access to Allas available, select the one where you just created a bucket using the cPouta web interface
 3. Study what you have in Allas with [`a-commands`](https://docs.csc.fi/data/Allas/using_allas/a_commands/) and with [rclone](https://docs.csc.fi/data/Allas/using_allas/rclone/):
 
@@ -90,7 +90,7 @@ rclone lsf allas:<project number>_$USER
 rclone cat allas:<project number>_$USER/<filename>
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Download to Puhti the file that you just uploaded from your local computer to Allas. This can be done in two ways:
 
 - With `a-commands`:
@@ -105,7 +105,7 @@ a-get <project number>_$USER/<filename>     # replace <project number> with your
 rclone copy allas:<project number>_$USER/<filename> ./    # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Open, edit and rename the file so that you can distinguish it from the original one
 6. Upload the new file to Allas:
 
@@ -125,14 +125,14 @@ a-put -b <project number>_$USER <newfilename>   # replace <project number> and <
 rclone copy <newfilename> allas:<project number>_$USER/   # replace <newfilename> and <project number> accordingly
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Check that the file in Puhti indeed has a counterpart in Allas:
 
 ```bash
 a-check -b <project number>_$USER <newfilename>   # replace <project number> and <newfilename>
 ```
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Locate the files you just uploaded to Allas in the cPouta web interface (search for the bucket name)
 
 ### Clean up
@@ -143,7 +143,7 @@ a-check -b <project number>_$USER <newfilename>   # replace <project number> and
 rm <filename>             # replace <filename>
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Whenever you need your data again, you can download it from Allas
 
 💭 If you can't find your file but remember the name, try `a-find`. Use `a-find -h` for help.
@@ -162,7 +162,7 @@ rm <filename>             # replace <filename>
 a-publish -b <project number>_$USER <filename>   # replace <project number> and <filename>
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. The command outputs a URL (public link). Copy it to your browser or send it to your friends 😎
 
 ### Option 2: `a-flip`
@@ -175,7 +175,7 @@ a-publish -b <project number>_$USER <filename>   # replace <project number> and 
 a-flip <filename>         # replace <filename>
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. The command outputs an URL (public link). Copy it to your browser or send it to your friends 😎
 
 ‼️ Note: `a-flip` takes just the file name, not the bucket name like many of the previous commands.

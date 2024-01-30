@@ -18,7 +18,7 @@ permalink: /hands-on/batch_jobs/exercise_retrieving-bio-data.html
 sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Alternatively, open a compute node shell through the [Puhti web interface](https://www.puhti.csc.fi).
 3. To access the applications in parts 2 and 3, we will need to load the `biokit` module:
 
@@ -26,7 +26,7 @@ sinteractive --account <project>   # replace <project> with your CSC project, e.
 module load biokit
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Create a directory for yourself under the `/scratch` directory of your project and move there:
 
 ```bash
@@ -61,7 +61,7 @@ mkdir cellulose_synthase
 cd cellulose_synthase
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Next we use the [NCBI edirect tool](https://docs.csc.fi/apps/edirect/) to retrieve some data.
 3. Check how many proteins are found in the NCBI protein database for *Pythium* species (`count` row in the results):
 
@@ -69,7 +69,7 @@ cd cellulose_synthase
 esearch -db protein -query "Pythium [ORGN]" 
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Check the number of proteins for **cellulose synthase 1**, **cellulose synthase 2** and **cellulose synthase 3** that are found for *Pythium* species.
 5. For cellulose synthase 1 this can be done with:
 
@@ -77,7 +77,7 @@ esearch -db protein -query "Pythium [ORGN]"
 esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 1 [PROT]"
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Do the same for the other proteins.
 7. Retrieve the cellulose synthase 3 sequences in Fasta format
 
@@ -85,19 +85,19 @@ esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 1 [PROT]"
 esearch -db protein -query "Pythium [ORGN] AND cellulose synthase 3 [PROT]" | efetch -format fasta > cesy3.fasta
 ```
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Run the `esearch` command that tells how many **cellulose synthase 3** sequences there are in total in the NCBI protein database?
 
 ### Extra exercise for fast ones
 
-{:start="9"}
+{:style="counter-reset:step-counter 8"}
 9. Align the cellulose synthase 3 set with `mafft`
 
 ```bash
 mafft cesy3.fasta > cesy3_aln.fasta
 ```
 
-{:start="10"}
+{:style="counter-reset:step-counter 9"}
 10. Study the results:
 
 ```bash
@@ -113,7 +113,7 @@ showalign cesy3_aln.fasta
 enaDataGet -h
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download a file (Pythium iwayamai genome assembly)
 
 ```bash
@@ -124,7 +124,7 @@ ls
 
 ### Extra exercise for fast ones
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Study the downloaded file:
 
 ```bash

@@ -28,7 +28,7 @@ wget  https://a3s.fi/saren-2001659-pub/tutorial.sif
 ls -lh tutorial.sif
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. The file we downloaded is a container image. It contains all the software and data of the container in a single file. In this case, the container is very bare-bones and thus quite small, about 50 MB.
     - Actual application containers are typically larger since they also contain the software installation and may in some cases include reference data, etc.
 
@@ -44,7 +44,7 @@ ls -lh tutorial.sif
 apptainer exec tutorial.sif hello_world
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Compare the outputs of the following commands:
 
 ```bash
@@ -69,7 +69,7 @@ module load nano    # The compute nodes do not have nano available by default
 nano test.sh
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Copy the following contents into the file and replace `<project>` with your actual CSC project, e.g. `project_2001234`:
 
 ```bash
@@ -85,7 +85,7 @@ nano test.sh
 apptainer exec tutorial.sif hello_world
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Submit the job to the queue with:
 
 ```bash
@@ -106,7 +106,7 @@ sbatch test.sh
 apptainer run tutorial.sif
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Give the container image execute rights so that you can run it directly:
 
 ```bash
@@ -114,7 +114,7 @@ chmod u+x tutorial.sif
 ./tutorial.sif
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. You can see the actual script with the command:
 
 ```bash
@@ -129,14 +129,14 @@ apptainer inspect --runscript tutorial.sif
 apptainer shell tutorial.sif
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Notice that the command prompt changed. You can now run any software inside the container interactively:
 
 ```bash
 hello_world
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Exit the container with:
 
 ```bash

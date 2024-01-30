@@ -31,7 +31,7 @@ sinteractive --account <project>   # replace <project> with your CSC project, e.
 
 ## Example: A "hidden" installation
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. An example of a container-based installation that has been "hidden" behind a wrapper script is R:
 
 ```bash
@@ -39,7 +39,7 @@ module load r-env
 Rscript --version
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. As you can see, `Rscript` works as expected and in most cases you don't need to care about the fact that it is installed as a container.
 
 💭 You can find more details about using R in the [Docs CSC page of the `r-env` module](https://docs.csc.fi/apps/r-env/).

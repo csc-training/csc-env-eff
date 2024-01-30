@@ -41,7 +41,7 @@ sinteractive --account <project> --time 00:10:00         # replace <project> wit
 
 💡 You can list your projects with `csc-projects`
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. You should see that the command prompt (initial text on each row on the command-line) has changed from e.g. `puhti-login11` to e.g. `r07c51` which refers to a compute node.
 3. Once on the compute node, you can run commands directly from the command-line without `srun`. You can e.g. load the `python-data` module (e.g. for running Python scripts interactively on Puhti):
 
@@ -49,7 +49,7 @@ sinteractive --account <project> --time 00:10:00         # replace <project> wit
 module load python-data
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Quit the interactive batch job with `exit`.
 
 💬 This way you can work interactively for an extended period, using e.g. lots of memory without creating load on the login nodes. Running heavy/long tasks on the login nodes is forbidden according to our [Usage Policy](https://docs.csc.fi/computing/usage-policy/).

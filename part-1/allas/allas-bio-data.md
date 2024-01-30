@@ -30,28 +30,28 @@ permalink: /hands-on/allas/allas-tutorial.html
 ssh <username>@puhti.csc.fi    # replace <username> with your CSC username
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. In Puhti, check your environment with the command:
 
 ```bash
 csc-workspaces
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Move to the `/scratch` directory of your project
 
 ```bash
 cd /scratch/<project>  # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Create your own subdirectory named with your username:
 
 ```bash
 mkdir -p $USER
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Move to the directory:
 
 ```bash
@@ -78,7 +78,7 @@ module load allas
 allas-conf 
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. If you have several Allas projects available, select the same project as earlier
 
 ### Upload case 1: `rclone`
@@ -93,7 +93,7 @@ rclone -P copyto pythium allas:$USER-genomes-rc/
 - What was the transfer rate?
 - How long would it take to transfer 100 GiB assuming the same speed?
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Study what you have uploaded to Allas with the commands:
 
 ```bash
@@ -103,7 +103,7 @@ rclone lsl allas:$USER-genomes-rc/
 rclone lsf allas:$USER-genomes-rc/
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Check how this looks like in the Pouta web interface. Open a browser and go to <https://pouta.csc.fi/>
 4. In the Pouta web interface, go to the _Object Store_ section and list the buckets (which are called here _Containers_)
 5. Locate your own `$USER-genomes-rc` bucket and download one of the uploaded fasta files to your local computer
@@ -122,7 +122,7 @@ a-list <project number>-puhti-SCRATCH
 a-info <project number>-puhti-SCRATCH/$USER/pythium.tar
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Case 2: Each subdirectory (species) as a separate object (replace `<project number>` with your CSC project number, e.g. 2001234):
 
 ```bash
@@ -132,7 +132,7 @@ a-check pythium/*
 a-info <project number>-puhti-SCRATCH/$USER/pythium/pythium_vexans.tar
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Case 3: Use a custom bucket name (replace `<project number>` with your project number, e.g. 2001234):
 
 ```bash
@@ -140,7 +140,7 @@ a-put pythium/* -b <project number>-$USER-genomes-ap
 a-list <project number>-$USER-genomes-ap
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Can you see the difference between the three `a-put` commands above?
 6. Study the `<project number>-$USER-genomes-ap` bucket with commands:
 
@@ -149,7 +149,7 @@ a-list <project number>-$USER-genomes-ap
 rclone ls allas:<project number>-$USER-genomes-ap 
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Why do the two commands above list a different amount of objects?
 8. Try the command (replace `<project number>` with your project number, e.g. 2001234):
 
@@ -157,21 +157,21 @@ rclone ls allas:<project number>-$USER-genomes-ap
 a-info <project number>-$USER-genomes-ap/pythium_vexans.tar
 ```
 
-{:start="9"}
+{:style="counter-reset:step-counter 8"}
 9. This command is actually the same as:
 
 ```bash
 rclone cat allas:<project number>-$USER-genomes-ap/pythium_vexans.tar_ameta
 ```
 
-{:start="10"}
+{:style="counter-reset:step-counter 9"}
 10. Finally, try the command:
 
 ```bash
 a-flip pythium/pythium_vexans/pythium_vexans.fasta 
 ```
 
-{:start="11"}
+{:style="counter-reset:step-counter 10"}
 11. Try opening the public link that `a-flip` produced with your browser
 
 ### Upload case 3: `allas-backup`
@@ -184,7 +184,7 @@ allas-backup pythium
 allas-backup list
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. What did these commands do to your data?
 
 ## 4. Exit
@@ -205,14 +205,14 @@ ssh <username>@puhti.csc.fi   # replace <username> with your CSC username
 cd /scratch/<project>/$USER   # replace `<project>` with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. In Puhti, check you projects with the command:
 
 ```bash
 csc-workspaces
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Set up the Allas connection:
 
 ```bash
@@ -220,7 +220,7 @@ module load allas
 allas-conf 
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Then run the commands (we will use the same bucket that was created earlier):
 
 ```bash
@@ -233,7 +233,7 @@ a-find pythium_vexans.fasta
 a-find -a pythium_vexans.fasta
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Next, download the data in different ways:
 
 ### 1. Download with `rclone`
@@ -252,7 +252,7 @@ rclone copyto -P allas:<project number>-$USER-genomes-ap all/
 ls all
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Copy a set of objects:
 
 ```bash
@@ -261,7 +261,7 @@ rclone copyto allas:$USER-genomes-rc/pythium_vexans vexans/
 ls vexans
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Copy just one object:
 
 ```bash
@@ -278,7 +278,7 @@ cd ..
 pwd
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Make a new directory:
 
 ```bash
@@ -286,7 +286,7 @@ mkdir a_dir
 cd a_dir/
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Create a directory `all` and move there:
 
 ```bash
@@ -294,7 +294,7 @@ mkdir all
 cd all
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. List your default `SCRATCH` bucket (replace `<project number>` with your project number, e.g. 2001234):
 
 ```bash
@@ -302,21 +302,21 @@ a-list <project number>-puhti-SCRATCH
 a-list <project number>-puhti-SCRATCH/$USER
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Look for the file `pythium_vexans.fasta` in your Puhti `SCRATCH` bucket:
 
 ```bash
 a-find pythium_vexans.fasta -b <project number>-puhti-SCRATCH    # replace <project number> with your project number, e.g. 2001234
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Download the full dataset with command:
 
 ```bash
 a-get <project number>-puhti-SCRATCH/$USER/pythium.tar   # replace <project number> with your project number, e.g. 2001234
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Check what you got:
 
 ```bash
@@ -324,7 +324,7 @@ ls -l
 ls -R
 ```
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Now, download just a single genome dataset:
 
 ```bash
@@ -344,7 +344,7 @@ mkdir a_backup
 cd a_backup/
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Use the commands below to find out the ID of the most recent backup version of your pythium directory:
 
 ```bash
@@ -352,7 +352,7 @@ allas-backup list
 allas-backup list | grep $USER
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Use `allas-backup restore` to download the data:
 
 ```bash

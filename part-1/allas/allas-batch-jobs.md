@@ -30,7 +30,7 @@ allas-conf -k
 
 ☝🏻 Note that if you mistype your password when using the `-k` option, you must use the command `unset OS_PASSWORD` before you can try again.
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Refresh the connection with the command:
 
 ```bash
@@ -39,21 +39,21 @@ allas-conf -k <project>    # replace <project> with your CSC project, e.g. proje
 
 ☝🏻 When `$OS_PASSWORD` is set, the `a-commands` (`a-put`, `a-get`, `a-list`, `a-delete`) automatically refresh the Allas connection when the commands are executed in a batch job.
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Choose a file from Allas. The file should have text in it.
 
 ```bash
 a-list <project number>_$USER   # replace <project number> with your CSC project number, e.g. 2001234, to match the bucket you created earlier
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Create a new batch job script. First open a new text file with the command:
 
 ```bash
 nano allas_<myjobname>.sh    # replace <myjobname> with a custom name for your job
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Copy the batch job script below to the text file you are editing:
 
 - Option 1: `a-commands`
@@ -76,7 +76,7 @@ wc -l $filename > $filename.num_rows   # file name
 a-put -b $bucketname $filename.num_rows
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. In the script, replace `<project number>_$USER` to match your bucket name and `<filename>` to the name of the file you have in Allas. Remember to also define your billing project (`--account`).
 
 - Option 2: `rclone`  
@@ -107,7 +107,7 @@ source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
 rclone copy $filename.num_rows allas:$bucketname
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Replace `<project number>_$USER` to match your bucket name and `<filename>` to the name of the file you have in Allas. Remember to also define your billing project (`--account`).
 7. Submit the batch job with the command:
 
@@ -115,7 +115,7 @@ rclone copy $filename.num_rows allas:$bucketname
 sbatch allas_<myjobname>.sh
 ```
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Monitor the progress of your batch job:
 
 ```bash

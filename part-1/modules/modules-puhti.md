@@ -19,7 +19,7 @@ permalink: /hands-on/modules/modules-puhti.html
 ssh <username>@puhti.csc.fi    # replace <username> with your CSC username, e.g. myname@puhti.csc.fi
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Try a `module` command! Check out which modules are loaded as default as you login to Puhti:
 
 ```bash
@@ -45,7 +45,7 @@ module spider gromacs
 
 💬 The list can be quite long. You can go to the next line with Enter, or stop viewing by typing `q`).
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Check if some versions can be loaded directly, *i.e.* are compatible with your currently loaded module environment:
 
 ```bash
@@ -63,14 +63,14 @@ gromacs/2021.6         gromacs-env/2020
 gromacs/2022.2         gromacs-env/2021
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Which version is loaded with the default command? Is it the newest version? Try:
 
 ```bash
 module load gromacs
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Do you notice any changes in the output of `module list` compared to the first try? Try this again:
 
 ```bash
@@ -82,7 +82,7 @@ module list
 - The default version is typically the latest **stable** version of the program.
 - It is recommended to also provide the version in the module load command, as the default version may change.
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Let's try loading the 2021.6 version specifically:
 
 ```bash
@@ -90,7 +90,7 @@ module load gromacs/2021.6
 module list
 ```
 
-{:start="9"}
+{:style="counter-reset:step-counter 8"}
 9. If you want to do something else in the same session, it is usually best to reset the module environment to the default settings. This can be done by first removing all loaded modules and then loading the default environment:
 
 ```bash
@@ -118,7 +118,7 @@ module list             # List the loaded modules
 module spider gromacs/2020.5
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Load all of the required modules manually before loading `gromacs/2020.5`
 
 ```bash

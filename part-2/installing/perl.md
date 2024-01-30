@@ -23,7 +23,7 @@ permalink: /hands-on/installing/installing_hands-on_perl.html
 module spider perl
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. The current default version is `5.34.1` and can be loaded with:
 
 ```bash
@@ -68,7 +68,7 @@ perl -e 'use JSON;'
 - You need to set the location to a directory where you have write access. It could be e.g. your project's `/projappl` directory.
 - This is accomplished by setting a few environment variables.
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Replace the desired path for `PERL_BASE` and run the following:
 
 ```bash
@@ -78,21 +78,21 @@ export PERL_MB_OPT="--install_base $PERL_BASE"
 export PERL5LIB="$PERL_BASE/lib/perl5"
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. You can now install the module. In this case, it is in CPAN, so you can use `cpanm`:
 
 ```bash
 cpanm JSON
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. To use the module, you need to tell Perl where to find it. In this case, you can set the `$PERL5LIB` environment variable (already done above):
 
 ```bash
 export PERL5LIB="/projappl/<project>/$USER/myperl/lib/perl5"    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. You can now try again:
 
 ```bash

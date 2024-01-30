@@ -44,14 +44,14 @@ cd /scratch/<project>      # replace <project> with your CSC project, e.g. proje
 
 💡 Note! If you're using a project with other members (like the course project), first make a subdirectory for yourself (e.g. `mkdir $USER` and then move there (`cd $USER`) to not clutter the `/scratch` root of your project)
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Create a file called `my_serial.bash` e.g. with the `nano` text editor:
 
 ```bash
 nano my_serial.bash
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Copy the following **batch script** there and change `<project>` to the CSC project you actually want to use:
 
 ```bash
@@ -65,7 +65,7 @@ srun hostname                    # Run hostname-command
 srun sleep 60                    # Run sleep-command
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Submit the job to the batch queue and check its status with the commands:
 
 ```bash

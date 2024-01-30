@@ -42,7 +42,7 @@ wget https://micans.org/mcl/src/mcl-latest.tar.gz
 
 💬 In this case the installation package is a tar-archive file that has been compressed with gzip program.
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Unpack the file with the command:
 
 ```bash
@@ -69,7 +69,7 @@ git clone https://github.com/JohannesBuchner/mcl.git
 mkdir version-14-137
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Move to the `mcl-14-137` (or `mcl` if cloning from git) directory and study its contents:
 
 ```bash
@@ -79,7 +79,7 @@ ls
 
 💬 Installation packages often contain short installation instructions. Typically, this instructions file is called INSTALL or README.
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Read the `INSTALL` file to learn how the installation should be done.
 
 ```bash
@@ -117,14 +117,14 @@ less INSTALL
 module load gcc/9.4.0
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. In this case we wish to install the software under the `version-14-137` directory in your `$PROJAPPL` area. Thus, you need to specify the custom location for the installation using the `--prefix` option:
 
 ```bash
 ./configure --prefix=$PROJAPPL/$USER/mcl/version-14-137   # double check that the path is correct
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Compile and install the software with the commands:
 
 ```bash
@@ -134,12 +134,12 @@ make install
 
 ☝🏻 If you intend to compile software packages larger than the rather small MCL example used here, please use the fast local disk (`$TMPDIR`) to avoid stressing the parallel file system. Compiling complex applications typically cause a lot of I/O load.
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. If the `make` and `make install` commands don't give any error messages, you have successfully installed your software!
 
 💭 Typically, the executables/binaries, i.e. the compiled programs that can be launched, are stored in a subdirectory called `bin`.
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Check what binaries were installed with:
 
 ```bash
@@ -164,7 +164,7 @@ will give an error message `bash: mcl: command not found`.
 $PROJAPPL/$USER/mcl/version-14-137/bin/mcl --help
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Add the path of the MCL executables to your `$PATH` environment variable. This is done with the command:
 
 ```bash
@@ -175,7 +175,7 @@ export PATH=$PROJAPPL/$USER/mcl/version-14-137/bin:$PATH   # double check that t
 
 - If we omit the current path the normal shell commands will stop working.
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Now you can launch the program you have installed from anywhere with simply:
 
 ```bash

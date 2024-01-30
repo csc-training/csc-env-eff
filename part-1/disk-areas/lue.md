@@ -25,14 +25,14 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-lue.html
 module load lue
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Check out the different available options with:
 
 ```bash
 lue --help
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. See how much data you have in your `$HOME` directory (i.e. `/users/$USER`):
 
 ```bash
@@ -41,7 +41,7 @@ lue $HOME
 
 💡 You can also try some other directory e.g. in your project's `/scratch`. However, **don't run the tool on the whole project folder** (e.g. `/scratch/project_2001234`), but choose instead a smaller subdirectory where you think you might have a lot of files or data. Some operations can be both slow and heavy on the file system! By default, the tool will only fetch size data for 30 mins before quitting. Alternatively, you can [limit the runtime of the tool as instructed in Docs CSC](https://docs.csc.fi/support/tutorials/lue/#limiting-the-runtime).
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. The first lines of the output should look like:
 
 ```text
@@ -53,7 +53,7 @@ path, total size, in dir size, % of total, % of dir
 ...
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. You can see the total number of files in the directory on the second line after `Processed files` and a breakdown of the subdirectory sizes in the following table. How many files do you have in total in your `$HOME`? Which directory is the largest in size?
 6. Rerun `lue` with the `--count` flag to display the number of files in each directory instead of the size. Which directory in `$HOME` contains most files?
 

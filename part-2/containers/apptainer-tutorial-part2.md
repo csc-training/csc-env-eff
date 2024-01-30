@@ -34,7 +34,7 @@ permalink: /hands-on/singularity/singularity-tutorial_part2.html
 sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Try listing the contents of your project directory (edit the path as needed) from inside the container without `--bind`:
 
 ```bash
@@ -42,7 +42,7 @@ export SCRATCH=/scratch/<project>/$USER    # replace <project> with your CSC pro
 apptainer exec tutorial.sif ls $SCRATCH
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. The container cannot see the host directory, so you will get a `No such file or directory` error.
 4. Try binding the host directory `/scratch` to the directory `/scratch` inside the container:
 
@@ -52,12 +52,12 @@ apptainer exec --bind $SCRATCH:/scratch tutorial.sif ls /scratch
 apptainer exec --bind /scratch:/scratch tutorial.sif ls $SCRATCH
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. This time, the host directory is linked to the container directory and the command shows what the container sees inside `/scratch`.
 
 💡 You can use `--bind` to set the container, for example, to find input data or configuration files from a certain directory.
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Bind the host directory specified in `$SCRATCH` to a directory called `/input`:
 
 ```bash
@@ -95,7 +95,7 @@ export TEST1="value1"
 export APPTAINERENV_TEST2="value2"
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Compare the outputs of:
 
 ```bash
@@ -108,7 +108,7 @@ apptainer exec --cleanenv tutorial.sif env | grep TEST
 - The second command is run inside the container and we see `$TEST1` (inherited from the host) and `$TEST2` (specifically set inside the container by setting `$APPTAINERENV_TEST2` on the host).
 - The third command is also run inside the container, but this time we omitted the host environment variables so we only see `$TEST2`.
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Note that any command-line variables on the host are substituted by their values when passed to the container:
 
 ```bash
@@ -129,14 +129,14 @@ apptainer exec tutorial.sif echo $TEST2
 apptainer exec tutorial.sif find / -type f -name "hello2" 2>/dev/null
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. You can now run it by providing the full path:
 
 ```bash
 apptainer exec tutorial.sif /found/me/hello2
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Or you could add it to `$PATH` inside the container:
 
 ```bash

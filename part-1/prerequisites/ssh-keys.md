@@ -47,7 +47,7 @@ permalink: /hands-on/connecting/ssh-keys.html
 ssh-keygen -o -a 100 -t ed25519
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Accept the default name and location (or customize them if needed).
 4. Choose a secure passphrase for the SSH key.
     - It should be at least 8 characters long and should contain numbers, letters and special characters.
@@ -57,7 +57,7 @@ ssh-keygen -o -a 100 -t ed25519
 ssh-copy-id cscusername@puhti.csc.fi
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Connecting with SSH to Puhti should now proceed without the need to write your key passphrase
 
 ## macOS
@@ -69,7 +69,7 @@ ssh-copy-id cscusername@puhti.csc.fi
 ssh-keygen -o -a 100 -t ed25519
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Accept the default name and location (or customize them if needed).
 4. Choose a secure passphrase for the SSH key.
     - It should be at least 8 characters long and should contain numbers, letters and special characters.
@@ -81,14 +81,14 @@ Host *
     AddKeysToAgent yes
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Open `~/.bash_profile` (or equivalent, see below ⬇️) and add the following line:
 
 ```bash
 [[ -z ${SSH_AUTH_SOCK+x} ]] && eval "$(ssh-agent -s)"
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Copy the SSH public key to Puhti by typing in the terminal (replace `cscusername` with your CSC username):
 
 ```bash

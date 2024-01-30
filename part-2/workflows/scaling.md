@@ -39,7 +39,7 @@ mkdir -p /scratch/<project>/$USER/scaling-test
 cd /scratch/<project>/$USER/scaling-test
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download a small program that computes the
    [Mandelbrot set](https://en.wikipedia.org/wiki/Mandelbrot_set) (a 2D fractal
    image) in parallel using OpenMP threading:
@@ -48,7 +48,7 @@ cd /scratch/<project>/$USER/scaling-test
 wget https://a3s.fi/CSC_training/mandelbrot.x
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Edit the access permissions of the file to allow execution:
 
 ```bash
@@ -74,7 +74,7 @@ thread counts; 1, 2, 4, 8 and 16.
 srun mandelbrot.x
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Replace `--cpus-per-task=<N>` in the script with `--cpus-per-task=1` in
    order to run the program using one thread per task.
 3. Submit the script with:
@@ -83,7 +83,7 @@ srun mandelbrot.x
 sbatch job.sh
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. After a few moments, an output file `slurm-<jobid>.out` will appear in the
    current directory. View its contents once the job has finished (takes about
    one minute):
@@ -92,7 +92,7 @@ sbatch job.sh
 cat slurm-<jobid>.out   # Replace <jobid> with the actual Slurm job id
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Repeat the above steps for the thread counts 2, 4, 8 and 16 by editing
    `--cpus-per-task` in the `job.sh` script and then resubmitting the job.
 

@@ -24,7 +24,7 @@ permalink: /hands-on/modules/module-exercise-with-aligners.html
 
 💡 The *biokit module* loads a set of commonly used bioinformatics tools.
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Let's check if the HISAT2 aligner is also available:
 
 ```bash
@@ -33,7 +33,7 @@ module spider hisat2
 
 ☝🏻 All software installed on CSC's supercomputers don't necessarily have their own documentation page in the application list (yet). They might be new installations or installed by request of a single research group etc.
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Load the `biokit` module and see what is included:
 
 ```bash
@@ -57,7 +57,7 @@ module list
 module spider rseqc
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Load the module and try to run one of the RSeQC commands (open the help for [`bam_stat.py`](http://rseqc.sourceforge.net/#bam-stat-py)):
 
 ```bash
@@ -76,7 +76,7 @@ Bioconda is a popular Conda channel for bioinformatics software. It provides an 
 module spider metabat2
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Check whether MetaBAT2 is available in [Bioconda](http://bioconda.github.io) (type metabat2 in the search field):
 3. All packages in Bioconda have a ready-made Docker container image available. While those images could be pulled and used directly, CSC's [Tykky container wrapper](https://docs.csc.fi/computing/containers/tykky/) provides an easy method to install them so that they are usable without any special container commands.
 4. On the [Bioconda page](http://bioconda.github.io/recipes/metabat2/README.html) find the command to use Docker (don't run it). In this case:
@@ -85,28 +85,28 @@ module spider metabat2
 docker pull quay.io/biocontainers/metabat2:<tag>
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. From the command we need the Docker address:
 
 ```bash
 quay.io/biocontainers/metabat2
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. And from the [tags page](https://quay.io/repository/biocontainers/metabat2?tab=tags) the desired version. In this case we choose the latest (secure) version:
 
 ```bash
 2.15--h986a166_1
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Combine the address and tag to form the Docker URL:
 
 ```bash
 docker://quay.io/biocontainers/metabat2:2.15--h986a166_1
 ```
 
-{:start="8"}
+{:style="counter-reset:step-counter 7"}
 8. Clean your environment and load the Tykky container wrapper
 
 ```bash
@@ -114,14 +114,14 @@ module purge
 module load tykky
 ```
 
-{:start="9"}
+{:style="counter-reset:step-counter 8"}
 9. Create a directory for the installation under your project's `/projappl` directory:
 
 ```bash
 mkdir -p /projappl/<project>/$USER/metabat-2.15    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="10"}
+{:style="counter-reset:step-counter 9"}
 10. Wrap the container with:
 
 ```bash
@@ -134,14 +134,14 @@ wrap-container -w /usr/local/bin docker://quay.io/biocontainers/metabat2:2.15--h
 
 💡 After the installations finishes, the executables of the program will be in the directory `metabat-2.15/bin`. Note that these are not the actual binaries, but rather wrapper scripts for the executables *inside the container*. You can, however, use them as if they were the actual commands.
 
-{:start="11"}
+{:style="counter-reset:step-counter 10"}
 11. Add the `bin` directory to your `$PATH` as suggested by Tykky. This is analogous to activating the Conda environment in case of a direct Conda installation and allows you to execute commands from anywhere (without providing the full path to the binaries):
 
 ```bash
 export PATH="/projappl/<project>/$USER/metabat-2.15/bin:$PATH"    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="12"}
+{:style="counter-reset:step-counter 11"}
 12. Try opening the help for the `metabat` command:
 
 ```bash

@@ -52,14 +52,14 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'coverage'
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Install the missing library:
 
 ```bash
 pip3 install --user coverage    # This may take a while - don't worry!
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Re-test if the library is available:
 
 ```bash
@@ -68,21 +68,21 @@ python -c "import coverage"
 
 💡 This time there's no error message, indicating that the import was successful.
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. User libraries are installed by default under `$HOME/.local`. To change the installation folder:
 
 ```bash
 export PYTHONUSERBASE=/path/to/your/preferred/installdir
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. To uninstall:
 
 ```bash
 pip3 uninstall coverage
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Type `y` to confirm.
 
 ☝🏻 Note, if the package you installed also contains executable files these may not work. This is because the Python modules provided by CSC are containerized and the user-installed binaries will refer to an inaccessible Python path inside the container. For workaround instructions, see our [Python documentation](https://docs.csc.fi/apps/python/#installing-python-packages-to-existing-modules) or install your own environment from scratch inside a container as outlined in the following example.
@@ -97,7 +97,7 @@ pip3 uninstall coverage
 mkdir -p /projappl/<project>/$USER/tykky-env    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Create an `env.yml` environment file defining the packages to be installed. Using for example `nano`, copy/paste the following contents to the file:
 
 ```yaml
@@ -110,7 +110,7 @@ dependencies:
   - nglview
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Purge your current module environment and load the Tykky module:
 
 ```bash
@@ -118,7 +118,7 @@ module purge
 module load tykky
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Create and containerize the Conda environment using the `conda-containerize` command:
 
 ```bash
@@ -127,7 +127,7 @@ conda-containerize new --prefix /projappl/<project>/$USER/tykky-env env.yml    #
 
 ☝🏻 This process can take several minutes so be patient.
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. As instructed by Tykky, add the path to the installation `bin` directory to your `$PATH`:
 
 ```bash

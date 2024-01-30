@@ -25,35 +25,35 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
 sacct
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Try specifying the start time of the listing using the `-S` option. Don't query too long time intervals, since this causes significant load on the system (max. queryable interval is three months).
 
 ```bash
 sacct -S YYYY-MM-DD    # replace YYYY-MM-DD
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Look for a specific job – _i.e._ specify the job ID using the `-j` option (if you can't think of one, you can use `18622472`):
 
 ```bash
 sacct -j <slurmjobid>    # replace <slurmjobid> with a valid job ID 
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. To print out all the available data for a job, try:
 
 ```bash
 sacct -l -j <slurmjobid>    # replace <slurmjobid> with a valid job ID
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Select only the interesting data using the `-o` option. For example, to see job name, job ID, used memory, job state and elapsed wall-clock time, try:
 
 ```bash
 sacct -o jobname,jobid,maxrss,state,elapsed -j <slurmjobid>   # replace <slurmjobid> with a valid job ID
 ```
 
-{:start="6"}
+{:style="counter-reset:step-counter 5"}
 6. Check out the list of all available data fields with:
 
 ```bash
@@ -88,7 +88,7 @@ sacct -e
 /appl/soft/bio/course/sacct_exercise/test-a ${SLURM_ARRAY_TASK_ID}
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Replace `<project>` with your actual project name, e.g. `project_2001234`
 3. Submit the job with the command:
 
@@ -96,14 +96,14 @@ sacct -e
 sbatch array.sh
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. You will see a message like:
 
 ```bash
 Submitted batch job 123456
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Make note of the Slurm job ID.
 6. Follow the progress of the job with the command:
 
@@ -121,7 +121,7 @@ squeue -u $USER
 sacct -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Get a cleaner view by omitting the job steps:
 
 ```bash
@@ -134,14 +134,14 @@ sacct -X -j <slurmjobid>    # replace <slurmjobid> with the actual job ID
     - Can you figure out why they failed?
     - How do they compare to jobs that finished?
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Use `seff` to look at individual sub jobs, e.g.:
 
 ```bash
 seff <slurmjobid>_5    # replace <slurmjobid> with the actual job ID
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Try `sacct` with the `-o` option (discussed above). This time add the fields `reqmem` (requested memory) and `timelimit` (requested time):
 
 ```bash
@@ -164,14 +164,14 @@ sacct -o jobname,jobid,reqmem,maxrss,timelimit,elapsed,state -j <slurmjobid>    
 #SBATCH --mem=2000
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Re-run the failed sub jobs:
 
 ```bash
 #SBATCH --array=3,5    # Specify which ones to run
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Use `seff` and `sacct` to look at the jobs. How much memory and time did they use?
 
 ## More information

@@ -49,14 +49,14 @@ mkdir abra2
 cd abra2
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download the software:
 
 ```bash
 wget https://github.com/mozack/abra2/releases/download/v2.24/abra2-2.24.jar
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Load a Java module:
 
 ```bash
@@ -65,7 +65,7 @@ module load biojava
 
 💡 If you get error messages or warnings about the Java version, try loading another Java module.
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Run the application:
 
 ```bash

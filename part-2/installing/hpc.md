@@ -19,7 +19,7 @@ permalink: /hands-on/installing/installing_hands-on_hpc.html
 mkdir -p /projappl/<project>/myprog    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. You need the source files of the code. Depending on the software, you can typically download them from e.g. GitHub. If you have the source code on your own computer, use e.g. [`scp`](https://docs.csc.fi/data/moving/scp/) to upload the data to the supercomputer.
 3. If the source files are distributed as a zip file, use `unzip` to decompress:
 
@@ -27,7 +27,7 @@ mkdir -p /projappl/<project>/myprog    # replace <project> with your CSC project
 unzip filename.zip    # modify the filename accordingly
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Read and follow any instructions on how to install. Usually, the code comes with a `README` or `INSTALL` file outlining the installation procedure.
 5. When compiling, consider using the fast local disk on the login nodes (`$TMPDIR`) to move I/O load away from the parallel file system.
 
@@ -39,14 +39,14 @@ unzip filename.zip    # modify the filename accordingly
 module load cmake
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download and install external libraries that the code might need. Always check first if these can be found as pre-installed modules (the most common ones are available):
 
 ```bash
 module spider <modulename>   # replace <modulename>, e.g. fftw
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Create and move to a `build` directory in the root of the source code:
 
 ```bash
@@ -54,14 +54,14 @@ mkdir build
 cd build
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Run `cmake` with `cmake /path/to/source/code`:
 
 ```bash
 cmake ..
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. If you get errors, try to fix the problems. Sometimes it might be easiest to remove everything and start from the beginning, i.e. by unzipping the `.zip` file.
 6. After `cmake`, run `make` to compile the specific applications you want to use:
 
@@ -69,7 +69,7 @@ cmake ..
 make
 ```
 
-{:start="7"}
+{:style="counter-reset:step-counter 6"}
 7. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck.
 
 ### Scenario A2: The code comes with a Makefile
@@ -80,14 +80,14 @@ make
 module spider <modulename>    # replace <modulename>, e.g. fftw
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Load the library modules with:
 
 ```bash
 module load <modulename>/<version>   # replace <modulename>/<version>, e.g. fftw/3.3.10-mpi
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Edit the `Makefile` manually or by running `./configure` to replace compile and link commands with proper ones for [Mahti](https://docs.csc.fi/computing/compiling-mahti/) or [Puhti](https://docs.csc.fi/computing/compiling-puhti/).
 4. Run the command `make` to compile and `make install` to install. Custom installation location is typically specified with the `--prefix` option of the `configure` script.
 
@@ -97,7 +97,7 @@ make
 make install
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Read any error messages and try to fix the possible issues.
 6. Ask help from [CSC Service Desk](https://docs.csc.fi/support/contact/) if you get stuck.
 

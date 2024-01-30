@@ -29,7 +29,7 @@ In the [previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/l
 nano YourName-first-file.txt      # replace YourName
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Edit the file. Type something there!
 3. Exit `nano` with `Ctrl+X`, type `Y` to confirm saving and press enter to accept the filename.
 4. Check that the modifications are actually there:
@@ -38,7 +38,7 @@ nano YourName-first-file.txt      # replace YourName
 less YourName-first-file.txt      # replace YourName
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Exit the preview with `q`.
 
 ## Processing images and pdf files
@@ -52,14 +52,14 @@ wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/terminal_
 wget https://github.com/csc-training/csc-env-eff/raw/master/slides/img/schrodingerscat.pdf
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Open the image with `eog` or using the file browser of the Puhti web interface.
 
 ```bash
 eog terminal_icon.png
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Close the preview window.
 4. Open the pdf with `evince` or using the file browser of the Puhti web interface.
 
@@ -67,7 +67,7 @@ eog terminal_icon.png
 evince schrodingerscat.pdf
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Close the preview window with your mouse or by pressing `Ctrl+C` when the Terminal window is selected.
 
 ## Create text files
@@ -78,7 +78,7 @@ evince schrodingerscat.pdf
 nano YourName-markdown-file.md
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. In the text file, write something (*e.g.* instructions for others how to replicate your file creation process), then save and close.
     - May I interest you with the [basic Markdown guide](https://www.markdownguide.org/basic-syntax/)?
 3. Use `pwd` and copy the path of your current working directory
@@ -90,7 +90,7 @@ nano YourName-markdown-file.md
 scp cscusername@puhti.csc.fi:/path/to/your/filename.md /path/to/local/folder
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Look for the file on your personal computer and check that the contents match.
 
 ## More information

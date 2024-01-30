@@ -47,21 +47,21 @@ cd /scratch/<project>/$USER         # replace <project> with your CSC project, e
 
 💡 You can list your projects with `csc-projects`
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Download a simple program parallelized with OpenMP:
 
 ```bash
 wget https://a3s.fi/hello_omp.x/hello_omp.x
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Make it executable using the command:
 
 ```bash
 chmod +x hello_omp.x
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Copy the following script into a file called `my_parallel_omp.bash` and change `<project>` to the CSC project you actually want to use:
 
 ```bash
@@ -76,7 +76,7 @@ export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 srun hello_omp.x
 ```
 
-{:start="5"}
+{:style="counter-reset:step-counter 4"}
 5. Submit the job to the queue with the command:
 
 ```bash
@@ -106,14 +106,14 @@ sbatch my_parallel_omp.bash
 ls
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Check the output with:
 
 ```bash
 cat slurm-<jobid>.out     # replace <jobid> with the actual Slurm job ID
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. The results should look something like this:
 
 ```bash
@@ -134,14 +134,14 @@ Hello from thread: 1
 wget https://a3s.fi/hello_mpi.x/hello_mpi.x
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. Make it executable using the command:
 
 ```bash
 chmod +x hello_mpi.x
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. Copy the script below into a file called `my_parallel.bash` and change `<project>` to the CSC project you actually want to use:
 
 ```bash
@@ -155,7 +155,7 @@ chmod +x hello_mpi.x
 srun hello_mpi.x
 ```
 
-{:start="4"}
+{:style="counter-reset:step-counter 3"}
 4. Submit the job to queue with the command:
 
 ```bash
@@ -183,7 +183,7 @@ sbatch my_parallel.bash
 cat slurm-<jobid>.out    # replace <jobid> with the actual Slurm job ID
 ```
 
-{:start="2"}
+{:style="counter-reset:step-counter 1"}
 2. The output should look something like this:
 
 ```bash
@@ -197,7 +197,7 @@ Hello world from node r07c01.bullx, rank 1 out of 8 tasks
 Hello world from node r07c02.bullx, rank 6 out of 8 tasks
 ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. The output above verifies that the requested 8 tasks were distributed over two nodes (`r07c01.bullx, r07c02.bullx`), four tasks on each
 4. Check the efficiency of the job compared to the reserved resources by issuing the command `seff <jobid>` (replace `<jobid>` with the actual Slurm job ID)
 
