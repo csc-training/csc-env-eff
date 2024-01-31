@@ -68,7 +68,7 @@ bam_stat.py -h
 
 Bioconda is a popular Conda channel for bioinformatics software. It provides an easy method to install thousands of software packages related to biomedical research. Conda environments are, however, problematic on supercomputers with parallel file systems since they create too many files. The solution is to use containerized environments.
 
-☝🏻 Installing software and containers will be discussed more in sections [8](https://csc-training.github.io/csc-env-eff/#8-installing-your-own-software) and [9](https://csc-training.github.io/csc-env-eff/#9-containers-and-apptainersingularity). Feel free to return to this tutorial later.
+☝🏻 Installing software and containers will be discussed more in sections [8](https://csc-training.github.io/csc-env-eff/part-2/installing/) and [9](https://csc-training.github.io/csc-env-eff/part-2/containers/). Feel free to return to this tutorial later.
 
 1. Look for the MetaBAT2 application like we did above with RSeQC:
 
