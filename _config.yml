@@ -1,15 +1,35 @@
 title: CSC Computing Environment
+description: Materials for the CSC Computing Environment -course
+theme: just-the-docs
 
+url: https://csc-training.github.io/csc-env-eff
+baseurl: ""
 plugins:
   - jekyll-sitemap
 
-collections:
-   hands-on:
-        output: true
+aux_links:
+  View on GitHub: https://github.com/csc-training/csc-env-eff
 
-defaults:
-  -
-    scope:
-      path: "_hands-on"
-    values:
-      layout: "default"
+favicon_ico: "/assets/images/logo.png"
+
+# Footer content
+back_to_top: true
+back_to_top_text: "Back to top"
+
+footer_content: "Copyright &copy; 2020-2024 CSC – IT Center for Science Ltd. This work is licensed under a <a href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>. This project has received funding from the European High-Performance Computing Joint Undertaking (EuroHPC JU) under grant agreements No 951732 and 101101903."
+
+gh_edit_link: true
+gh_edit_link_text: "Edit this page on GitHub"
+gh_edit_repository: "https://github.com/csc-training/csc-env-eff"
+gh_edit_branch: "master"
+gh_edit_view_mode: "edit"
+
+collections:
+  slides:
+    output: true
+
+just-the-docs:
+  collections:
+    slides:
+      nav_exclude: true
+      search_exclude: true
