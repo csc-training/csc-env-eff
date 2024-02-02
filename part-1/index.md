@@ -3,7 +3,6 @@ layout: default
 title: Part 1
 nav_order: 2
 has_children: true
-permalink: /part-1
 ---
 
 # Part 1 -- Basics
