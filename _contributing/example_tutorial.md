@@ -1,11 +1,15 @@
 ---
-topic: Put here the topic name that is found in ohter tutorials in the same folder
-title: Title that is shown in the rendered index.md
+layout: default
+title: Title that is shown in the navigation and breadcrumbs
+parent: Parent page
+grand_parent: Grand parent page
+nav_order: Order in navigation
+permalink: /set/permanent/link/if/needed.html
 ---
 
 # Descriptive Headline
 
-💬 This document contains general styleguide for handson tutorials and exercises. 
+💬 This document contains general style guide for hands-on tutorials and exercises. 
 
 > The prerequisites/learning outcomes: Sometimes there are many, but list if there's something essential but not obvious. 
 
@@ -13,28 +17,30 @@ title: Title that is shown in the rendered index.md
     ```bash
     echo 'project_xxxx/yourcscusername'   # Use commented code whenever clarification is necessary
     ```
-    - Try to get the code block indented nicely in hte rendered product
+    - Try to get the code block indented nicely in the rendered product
+
 ## Get started
 
-💬 This is the first phase of this tutorial eg. a preparation.  
+💬 This is the first phase of this tutorial e.g. a preparation.  
 
-💡 It is recommended to structurize the content with second level headlines.
+💡 It is recommended to structure the content with second level headlines.
 
 2. A code block can contain multiple lines
     ```bash
     export SCRATCH=/scratch/project_xxxx    # Use xxxx for projectnumber
-    mkdir yourcscusername                      # Use yourcscusername if student should use their own
+    mkdir yourcscusername                   # Use yourcscusername if student should use their own
     echo $USER                              # Or use the environment variable
     ```
 
-{:start="3"}
+{:style="counter-reset:step-counter 2"}
 3. A step does not need to contain a code block, but instead make a point that student should notify
-    - Further explanation can be provided with intended list element
+    - Further explanation can be provided with indented list element
 
 ☝🏻 A list element cannot start with indented block
 - Meaning that it starts after regular text like this
 
-### 1. Further structurizing
+### 1. Further structuring
+
 1. Feel free to add more headlines if it supports the understandability of the content 
 2. The goal is to reduce the effort in following the material
 
@@ -42,7 +48,7 @@ title: Title that is shown in the rendered index.md
 
 💡 The emojis are meant to structure text and to improve its readability. 
 
-1. Look for the symbols-option for your computer
+1. Look for the symbols-option from your computer
     - Usually the emojis are there.
 2. Copy the existing emojis if you don't find them anywhere else
 
@@ -63,9 +69,9 @@ title: Title that is shown in the rendered index.md
 `![terminal-icon](../_slides/img/terminal_icon1.png)`
 1. The image should show like this: ![terminal-icon](../_slides/img/terminal_icon1.png)
 
-## Providing job-files
+## Providing batch job files
 
-💬 [Job-files](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#a-basic-batch-job-script) are scripts for SLURM-queueing system used in CSC supercomputers.
+💬 [Batch job files](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#a-basic-batch-job-script) are scripts for Slurm queueing system used in CSC supercomputers.
 
 1. Provide necessary job-files commented like this:
     ```bash
@@ -78,24 +84,24 @@ title: Title that is shown in the rendered index.md
     #SBATCH --ntasks=1                # Number of tasks. Max: depends on partition.
     #SBATCH --cpus-per-task=1         # How many processors work on one task. Max: Number of CPUs per node.
 
-    singularity exec tutorial.sif hello_world
+    apptainer exec tutorial.sif hello_world
     ```
 
-💭 For more information on batch jobs, please see [CSC Docs pages](https://docs.csc.fi/computing/running/getting-started/).
+💭 For more information on batch jobs, please see [Docs CSC pages](https://docs.csc.fi/computing/running/getting-started/).
 
 ## More information
 
-💡 It is a good practice to provide more information on topic but it is not mandatory.
+💡 It is a good practice to provide more information on topics, but it is not mandatory.
 
 💬 This tutorial is meant as a brief introduction to get you started.
 
-💭 When searching the internet for instruction, pay attention that the instructions are for the same version of Singularity that you are using. There has been some command syntax changes etc. between the versions, so older instructions may not work with copy-paste.
+💭 When searching the internet for instructions, pay attention that the instructions are for the same version of Apptainer that you are using. There have been some command syntax changes etc. between the versions, so older instructions may not work with copy-paste.
 
-💡 Always a good idea to link [CSC documentation](https://docs.csc.fi/).
+💡 Always a good idea to link to [Docs CSC](https://docs.csc.fi/).
 
 ### About Markdown
 
 📝 Ordered lists reset numbering if there's stuff in between.  
 Options:
-- Manyally override numbering if needed with {:start="3"}
-- Indent code blocks and they appear "under" the list item and the numbering goes on nicely
+- Manually reset counter if needed with {:style="counter-reset:step-counter 2"}
+- Indent code blocks, and make sure they appear directly "under" the list item, and the numbering goes on nicely
