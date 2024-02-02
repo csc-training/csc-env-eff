@@ -3,7 +3,6 @@ layout: default
 title: 1. Prerequisites
 parent: Part 1
 nav_order: 1
-permalink: /part-1/prerequisites
 has_children: true
 has_toc: false
 ---
