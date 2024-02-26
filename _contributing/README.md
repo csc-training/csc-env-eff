@@ -10,4 +10,5 @@ material.
 - [General guidelines and workflow for contributing](CONTRIBUTING.md)
 - [General style guide for slides and other content](STYLEGUIDE.md)
 - [Instructions how to turn Markdown into standalone HTML](MD_INTO_HTML.md)
+- [How to preview the website locally](PREVIEW.md)
 - [Example tutorial page](example_tutorial.md)
