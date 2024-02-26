@@ -6,9 +6,8 @@
 [csc-training](https://github.com/csc-training) GitHub organization.
 
 The rest of this document describes the workflow in GitHub. See the
-[style guide](STYLEGUIDE.md) for content and formatting instructions.
-
-[See here for how to preview the content locally](PREVIEW.md).
+[style guide](STYLEGUIDE.md) for content and formatting instructions,
+and [this page](PREVIEW.md) for how to preview the content locally.
 
 ## For the impatient (note: this will differ for CSC Staff and non-staff)
 
@@ -42,7 +41,7 @@ create a pull request.
 - Create a pull request for your work to be added to master
     - Assign a reviewer if you want.
         - **Tip:** If editing slides, add a link to the HTML-page
-          ([see instructions for publishing slides in Allas](MD_INTO_HTML.md/#publish-html-files-in-allas)).
+          ([see instructions for converting MD to HTML and publishing slides in Allas](MD_INTO_HTML.md)).
     - Write meaningful commit messages, so it's easier for reviewers to do
       their job.
     - Communicate! Use 'WIP' (= Work In Progress) in your PR title if you don't
