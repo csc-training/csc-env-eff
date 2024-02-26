@@ -5,9 +5,10 @@
 **CSC staff:** Before starting, ask to be added to the
 [csc-training](https://github.com/csc-training) GitHub organization.
 
-The rest of this document describes the workflow in GitHub as well as
-instructions for previewing and deploying the documentation. See the
+The rest of this document describes the workflow in GitHub. See the
 [style guide](STYLEGUIDE.md) for content and formatting instructions.
+
+[See here for how to preview the content locally](PREVIEW.md).
 
 ## For the impatient (note: this will differ for CSC Staff and non-staff)
 
