@@ -1,17 +1,17 @@
 ---
 layout: default
-title: 10. How to speed up jobs
+title: 11. Scaling up HPC workflows
 parent: Part 2
-nav_order: 3
+nav_order: 4
 has_children: true
 has_toc: false
 ---
 
-# 10. How to speed up jobs
+# 11. Scaling up HPC workflows
 
-## [10.1 Slides](https://a3s.fi/CSC_training/10_speed_up_jobs.html)
+## [11.1 Slides](https://a3s.fi/CSC_training/10_speed_up_jobs.html)
 
-## 10.2 Tutorials and exercises
+## 11.2 Tutorials and exercises
 
 1. [Tutorial - Performing a simple scaling test]({{ site.baseurl }}{% link part-2/workflows/scaling.md %})
 2. [Tutorial - Processing many files with HyperQueue]({{ site.baseurl }}{% link part-2/workflows/hyperqueue.md %})
