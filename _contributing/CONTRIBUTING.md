@@ -2,13 +2,8 @@
 
 ## Starting as a writer
 
-CSC staff: do these two things _first_:
-
-1. Join the GitHub organization [csc-training](https://github.com/csc-training)
-   by sending email to <mailto:vcs-support@csc.fi>.
-2. Then [join CSC employees team](https://github.com/orgs/CSCfi/teams/employees/members).
-   Membership gives you permissions to edit the source files that build the
-   content (wait for a confirmation email).
+**CSC staff:** Before starting, ask to be added to the
+[csc-training](https://github.com/csc-training) GitHub organization.
 
 The rest of this document describes the workflow in GitHub as well as
 instructions for previewing and deploying the documentation. See the
@@ -16,12 +11,15 @@ instructions for previewing and deploying the documentation. See the
 
 ## For the impatient (note: this will differ for CSC Staff and non-staff)
 
-Once you've completed the steps above:
+Once you've joined the csc-training organization:
 
 * (Sign in to GitHub) and edit the content.
 * Scroll down to commit changes, create a new branch (don't push directly to
   master) and then make a pull request (PR).
 * Assign a reviewer or merge yourself if it's just a small thing.
+
+Users who are not a member of the csc-training organization should
+create pull requests from a fork of the repo.
 
 ## Making changes using pull requests
 
@@ -36,8 +34,8 @@ create a pull request.
 
 #### Writer:
 
-- Create your own branch from master (or work in an already existing branch, if
-  agreed).
+- Create your own branch (or fork) from master (or work in an already existing branch,
+  if agreed).
 - Create/bring there the content you want to work with. Pay attention to file
   naming! Avoid overly complicated/long filenames.
 - Create a pull request for your work to be added to master
