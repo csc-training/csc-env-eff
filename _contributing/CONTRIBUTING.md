@@ -26,9 +26,8 @@ create pull requests from a fork of the repo.
 The csc-env-eff repository uses 'master' as the default branch. You can make
 changes using the web GUI, command-line or desktop application.
 
-The master branch is not protected. You can make changes to it directly,
-**but please don't**. Instead, make a "feature branch" for your change and then
-create a pull request.
+The master branch is protected. You cannot make changes to it directly.
+Instead, make a "feature branch" for your change and then create a pull request.
 
 ### Overview
 
