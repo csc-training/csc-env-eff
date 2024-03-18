@@ -1,2 +1,0 @@
-# Compiler options : Performance optimization
-
