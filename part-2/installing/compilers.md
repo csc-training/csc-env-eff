@@ -9,22 +9,45 @@ has_toc: false
 permalink: /hands-on/installing/compiler_options.html
 ---
 
-# Optimizing code performance through profiling
+# Code performance based on compiler options
 
-1. Create a directory for your code. The recommended location is under the `/projappl` directory of your project:
-
-```bash
-mkdir -p /projappl/<project>/myprog    # replace <project> with your CSC project, e.g. project_2001234
-```
-
-{:style="counter-reset:step-counter 1"}
-2. You need the source files of the code. Depending on the software, you can typically download them from e.g. GitHub. If you have the source code on your own computer, use e.g. [`scp`](https://docs.csc.fi/data/moving/scp/) to upload the data to the supercomputer.
-3. If the source files are distributed as a zip file, use `unzip` to decompress:
+1. Create a directory for the code. The recommended location is under the `/projappl` directory of your project:
 
 ```bash
-unzip filename.zip    # modify the filename accordingly
+mkdir -p /projappl/<project>/laplacian    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-{:style="counter-reset:step-counter 3"}
-4. Read and follow any instructions on how to install. Usually, the code comes with a `README` or `INSTALL` file outlining the installation procedure.
-5. When compiling, consider using the fast local disk on the login nodes (`$TMPDIR`) to move I/O load away from the parallel file system.
+2. Download the code from GitHub.
+
+```bash
+wget https://raw.githubusercontent.com/csc-training/node-level-optimization/master/math/solution/laplacian.cpp
+```
+
+3. Compile the code using gcc:
+**Note: `-fopenmp` flag is needed for compiling the code. Do not forget to add it**
+
+- a. No compiler flags
+
+```bash
+gcc -fopenmp laplacian.cpp -o laplacian_no_opt -ftime-report &> lap_no_opt.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian &>> lap_no_opt.log
+```
+
+- b. flag `O2`
+
+```bash
+gcc -fopenmp -O2 laplacian.cpp -o laplacian_opt_O2 -ftime-report &> lap_opt_O2.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian &>> lap_opt_O2.log
+```
+
+- c. flag `O3`
+
+```bash
+gcc -fopenmp -O3 laplacian.cpp -o laplacian_opt_O3 -ftime-report &> lap_opt_O3.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian &>> lap_opt_O3.log
+```
+
+
