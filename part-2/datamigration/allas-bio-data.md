@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Using Allas with bio data
-parent: 7. Managing Large Datasets and I/O
+parent: 8. Managing Large Datasets and I/O
 grand_parent: Part 2
 nav_order: 2
 has_children: false
