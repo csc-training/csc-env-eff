@@ -1,12 +1,12 @@
 ---
 layout: default
 title: Using Allas with bio data
-parent: 7. Allas
-grand_parent: Part 1
-nav_order: 4
+parent: 7. Managing Large Datasets and I/O
+grand_parent: Part 2
+nav_order: 2
 has_children: false
 has_toc: false
-permalink: /hands-on/allas/allas-tutorial.html
+permalink: /hands-on/datamigration/allas-tutorial.html
 ---
 
 
