@@ -39,7 +39,11 @@ wget https://raw.githubusercontent.com/csc-training/node-level-optimization/mast
 
 2. Compile the code using gcc and the following options:
    
-**Note: `-fopenmp` flag is needed for compiling the code. Do not forget to add it**
+**Note:** 
+
+**(a) `-fopenmp` flag is needed for compiling the code. Do not forget to add it**
+      
+**(b)  compare how the RAM usage during compilation (GGC) and time taken for execution (during `srun`) varies with the option choice**
 
 - No compiler flags
 
@@ -101,7 +105,11 @@ wget https://raw.githubusercontent.com/csc-training/node-level-optimization/mast
 
 2. Compile the code using gfortran and the following options:
    
-**Note: `-fopenmp` flag is needed for compiling the code. Do not forget to add it**
+**Note:** 
+
+**(a) `-fopenmp` flag is needed for compiling the code. Do not forget to add it**
+      
+**(b)  compare how the RAM usage during compilation (GGC) and time taken for execution (during `srun`) varies with the option choice**
 
 - No compiler flags
 
