@@ -41,12 +41,15 @@ wget https://raw.githubusercontent.com/csc-training/node-level-optimization/mast
    
 **Note:** 
 
-**(a) `-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
-      
-**(b)  compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.**
+**`-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
 
-**(c)  compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.**
+### Exercise 
 
+1. Compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.
+
+2. Compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.
+
+#### Options
 
 - No compiler flags
 
@@ -111,13 +114,15 @@ wget https://raw.githubusercontent.com/csc-training/node-level-optimization/mast
    
 **Note:** 
 
-**(a) `-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
-      
-**(b)  compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.**
+**`-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
 
-**(c)  compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.**
+### Exercise 
 
+1. Compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.
 
+2. Compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.
+
+#### Options
 
 - No compiler flags
 
