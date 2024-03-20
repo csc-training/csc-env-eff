@@ -89,3 +89,64 @@ gcc -fopenmp -Ofast laplacian.cpp -o laplacian_opt_Ofast -ftime-report &> lap_op
 srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Ofast &>> lap_opt_Ofast.log
 ```
 
+## Fortran
+
+1. Migrate to the `fortran` subdirectory and download the code from GitHub.
+
+```bash
+cd /projappl/<project>/laplacian/fortran
+
+wget https://raw.githubusercontent.com/csc-training/node-level-optimization/master/math/solution/laplacian.F90
+```
+
+2. Compile the code using gfortran and the following options:
+   
+**Note: `-fopenmp` flag is needed for compiling the code. Do not forget to add it**
+
+- No compiler flags
+
+```bash
+gfortran -fopenmp laplacian.F90 -o laplacian_no_opt.out -ftime-report &> lap_no_opt.log  
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_no_opt.out &>> lap_no_opt.log  
+```
+
+- flag `O2`
+
+```bash
+gfortran -fopenmp -O2 laplacian.F90 -o laplacian_opt_O2.out -ftime-report &> lap_opt_O2.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O2.out &>> lap_opt_O2.log
+```
+
+- flag `O3`
+
+```bash
+gfortran -fopenmp -O3 laplacian.F90 -o laplacian_opt_O3.out -ftime-report &> lap_opt_O3.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O3.out &>> lap_opt_O3.log
+```
+
+- flag `O5`
+
+```bash
+gfortran -fopenmp -O5 laplacian.F90 -o laplacian_opt_O5.out -ftime-report &> lap_opt_O5.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O5.out &>> lap_opt_O5.log
+```
+
+- flag `Os`
+
+```bash
+gfortran -fopenmp -Os laplacian.F90 -o laplacian_opt_Os.out -ftime-report &> lap_opt_Os.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Os.out &>> lap_opt_Os.log
+```
+
+- flag `Og`
+
+```bash
+gfortran -fopenmp -Og laplacian.F90 -o laplacian_opt_Og.out -ftime-report &> lap_opt_Og.log
+
+srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Og.out &>> lap_opt_Og.log
+```
