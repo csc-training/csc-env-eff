@@ -119,3 +119,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - [Software installation on LUMI](https://docs.lumi-supercomputer.eu/software/)
 - Lots of information online
   - Try searching for any error messages you come across
+- More about compilers
+  - [General information](https://www.baeldung.com/cs/how-compilers-work)
+  - [Compiler Optimization](https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757)
+  - [Compiler options](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)    
