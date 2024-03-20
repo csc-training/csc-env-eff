@@ -43,7 +43,7 @@ wget https://raw.githubusercontent.com/csc-training/node-level-optimization/mast
 
 **(a) `-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
       
-**(b)  compare how the compilation statistics (usr and GGC) varies with the choice of compiler flag.**
+**(b)  compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.**
 
 **(c)  compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.**
 
@@ -96,6 +96,7 @@ gcc -fopenmp -Ofast laplacian.cpp -o laplacian_opt_Ofast -ftime-report &> lap_op
 srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Ofast &>> lap_opt_Ofast.log
 ```
 
+
 ## Fortran
 
 1. Migrate to the `fortran` subdirectory and download the code from GitHub.
@@ -112,7 +113,7 @@ wget https://raw.githubusercontent.com/csc-training/node-level-optimization/mast
 
 **(a) `-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
       
-**(b)  compare how the compilation statistics (usr and GGC) varies with the choice of compiler flag.**
+**(b)  compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.**
 
 **(c)  compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.**
 
