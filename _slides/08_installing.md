@@ -72,6 +72,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - New software is not automatically added to `$PATH`
   - Include the full path or add with `export PATH="/path/to/my/sw:$PATH"`
 
+#  Compiler optimizations
+
+- A compiler is a special program that reads, analyses and translates a human readable source code into a machine readable object code.
+- Compilers target specific operating systems and computer architectures. 
+- Compilers are using programming language specific.
+- **Code profiling**: examines the application code to ensure it is optimized, resulting in high application performance. It analyzes the memory, CPU, and network utilized by each software component or routine. 
+
 # Installation methods: Native installations
 
 - Installing directly to the system
