@@ -72,7 +72,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - New software is not automatically added to `$PATH`
   - Include the full path or add with `export PATH="/path/to/my/sw:$PATH"`
 
-#  Compiler optimizations
+#  Compiler
 
 - A compiler is a special program that reads, analyses and translates a human readable source code into a machine readable object code.
 - Compilers target specific operating systems and computer architectures. 
