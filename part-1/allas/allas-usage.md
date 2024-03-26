@@ -11,25 +11,24 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
 # Basic usage of Allas
 
-## Accessing Allas via the cPouta web interface
+## Accessing Allas via the Puhti web interface
 
-1. Open a view to the Allas service in your browser using the cPouta web interface: <https://pouta.csc.fi>
-2. Login with your CSC user account
-3. From the upper left corner, you'll find a project selection pop-up menu
-   - If you have several projects available, select one that you want use in this exercise
-4. From the menu on the left side of the interface, select `Object Store > Containers`
+1. Go to the Puhti web interface: <https://www.puhti.csc.fi>.
+2. Login with your CSC user account (or Haka).
+3. Select *Cloud storage configuration* from the *Pinned Apps* view on the dashboard.
+4. Enter your CSC password to authenticate, then create an Allas S3 connection for the project you want to use for this exercise.
+   - You may skip the previous step if you've already configured a connection.
 
-💡 A "container" in the cPouta web interface is called a "bucket" within the S3 protocol. Don't confuse this with Docker/Apptainer containers.
+💡 Now you'll be able to browse your _buckets_ and _objects_ in Allas using the *Files* app!
 
 {:style="counter-reset:step-counter 4"}
-5. Create a new _bucket_ by pressing the button: **➕ Container**
-   - Keep the bucket _Not public_ and name it as `<project number>_<username>`, in which `<project number>` is the number of your project (e.g. 2001234) and `<username>` is your CSC username
-6. Find the newly created bucket and open it
-7. Upload one file from your computer (any file should do, but prefer a file that you can open in Puhti, e.g. a text file)
+1. From the *Files* dropdown menu in the top navigation bar, select `s3allas-project_<id>`.
+2. Create a new bucket by pressing the *New Directory* button.
+   - Name it as `<id>_<username>`, in which `<id>` is the number of your project (e.g. 2001234) and `<username>` is your CSC username. Note that you cannot use a bucket name that already exists!
+3. Open the created bucket by clicking it.
+4. Upload one file from your computer into the bucket (any file should do, but prefer a file that you can open in Puhti, e.g. a text file).
 
-💭 During the exercises, you can use this web interface to get another view to the buckets and objects in Allas.
-
-☝🏻 Note, that you need to **reload** the view in order to see any recent changes.
+💭 During the exercises, you can use this web interface to get another view to your buckets and objects in Allas.
 
 ## Accessing Allas from Puhti
 
@@ -69,25 +68,25 @@ allas-conf
 💡 It might take a while to run `module load allas`
 
 {:style="counter-reset:step-counter 1"}
-2. If you have several projects with access to Allas available, select the one where you just created a bucket using the cPouta web interface
+2. If you have several projects with access to Allas available, select the one where you just created a bucket using the Puhti web interface
 3. Study what you have in Allas with [`a-commands`](https://docs.csc.fi/data/Allas/using_allas/a_commands/) and with [rclone](https://docs.csc.fi/data/Allas/using_allas/rclone/):
 
 - With `a-commands`:
 
 ```bash
 a-list
-a-list <project_number>_$USER             # replace <project number> with your CSC project number, e.g. 2001234
-a-info <project_number>_$USER/<filename>  # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+a-list <id>_$USER             # replace <id> with your CSC project number, e.g. 2001234
+a-info <id>_$USER/<filename>  # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
 ```
 
 - With `rclone`:
 
 ```bash
 rclone lsd allas:
-rclone ls allas:<project number>_$USER
-rclone lsl allas:<project number>_$USER
-rclone lsf allas:<project number>_$USER
-rclone cat allas:<project number>_$USER/<filename>
+rclone ls allas:<id>_$USER
+rclone lsl allas:<id>_$USER
+rclone lsf allas:<id>_$USER
+rclone cat allas:<id>_$USER/<filename>
 ```
 
 {:style="counter-reset:step-counter 3"}
@@ -96,13 +95,13 @@ rclone cat allas:<project number>_$USER/<filename>
 - With `a-commands`:
 
 ```bash
-a-get <project number>_$USER/<filename>     # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+a-get <id>_$USER/<filename>     # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
 ```
 
 - With `rclone`:
 
 ```bash
-rclone copy allas:<project number>_$USER/<filename> ./    # replace <project number> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+rclone copy allas:<id>_$USER/<filename> ./    # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
 ```
 
 {:style="counter-reset:step-counter 4"}
@@ -112,7 +111,7 @@ rclone copy allas:<project number>_$USER/<filename> ./    # replace <project num
 - With `a-commands`:
 
 ```bash
-a-put -b <project number>_$USER <newfilename>   # replace <project number> and <newfilename> accordingly
+a-put -b <id>_$USER <newfilename>   # replace <id> and <newfilename> accordingly
 ```
 
 💭 Try running `a-put -h` to understand the command-line switch above and to find more information on options.
@@ -122,18 +121,18 @@ a-put -b <project number>_$USER <newfilename>   # replace <project number> and <
 - With `rclone`:
 
 ```bash
-rclone copy <newfilename> allas:<project number>_$USER/   # replace <newfilename> and <project number> accordingly
+rclone copy <newfilename> allas:<id>_$USER/   # replace <newfilename> and <id> accordingly
 ```
 
 {:style="counter-reset:step-counter 6"}
 7. Check that the file in Puhti indeed has a counterpart in Allas:
 
 ```bash
-a-check -b <project number>_$USER <newfilename>   # replace <project number> and <newfilename>
+a-check -b <id>_$USER <newfilename>   # replace <id> and <newfilename>
 ```
 
 {:style="counter-reset:step-counter 7"}
-8. Locate the files you just uploaded to Allas in the cPouta web interface (search for the bucket name)
+8. Locate the files you just uploaded to Allas in the Puhti web interface (search for the bucket name)
 
 ### Clean up
 
@@ -159,7 +158,7 @@ rm <filename>             # replace <filename>
 1. Select a file that has an appropriate content and publish it with the command:
 
 ```bash
-a-publish -b <project number>_$USER <filename>   # replace <project number> and <filename>
+a-publish -b <id>_$USER <filename>   # replace <id> and <filename>
 ```
 
 {:style="counter-reset:step-counter 1"}
