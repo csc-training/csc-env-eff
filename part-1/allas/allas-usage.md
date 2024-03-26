@@ -22,9 +22,9 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 💡 Now you'll be able to browse your _buckets_ and _objects_ in Allas using the *Files* app!
 
 {:style="counter-reset:step-counter 4"}
-1. From the *Files* dropdown menu in the top navigation bar, select `s3allas-project_<id>`.
+1. From the *Files* dropdown menu in the top navigation bar, select `s3allas-project_<id>` where `<id>` is the number of your project (e.g. 2001234).
 2. Create a new bucket by pressing the *New Directory* button.
-   - Name it as `<id>_<username>`, in which `<id>` is the number of your project (e.g. 2001234) and `<username>` is your CSC username. Note that you cannot use a bucket name that already exists!
+   - Name it as `<id>_<username>`, in which `<id>` is again the number of your project and `<username>` is your CSC username. Note that you cannot use a bucket name that already exists!
 3. Open the created bucket by clicking it.
 4. Upload one file from your computer into the bucket (any file should do, but prefer a file that you can open in Puhti, e.g. a text file).
 

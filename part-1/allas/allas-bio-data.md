@@ -12,15 +12,14 @@ permalink: /hands-on/allas/allas-tutorial.html
 
 # Using Allas in CSC's HPC environment
 
- Before the actual exercise, open a view to the Allas service in your browser using the cPouta web interface.
+ Before the actual exercise, open a view to the Allas service in your browser using the Puhti web interface.
 
-1. Go to <https://pouta.csc.fi> and login with your account
-2. From the upper left corner open the project selection pop-up menu
-   - If you have several projects available, choose one that you want to use in this exercise
-3. From the menu on the left side of the interface, select `Object Store > Containers`
-4. During the exercise, you can use this web interface to get another view to the buckets and objects in Allas
-
-> Note that you need to **reload** the view in order to see changes
+1. Go to <https://www.puhti.csc.fi> and login with your account.
+2. Configure an Allas S3 connection using the _Cloud storage configuration_ tool.
+   - You need to first authenticate by providing your CSC password.
+   - If you have several projects available, choose one that you want to use in this exercise.
+3. Once you've configured a connection, select `s3allas-project_<id>` from the _Files_ dropdown menu in the top navigation bar. Replace `<id>` with the number of the project you chose to use (e.g. 2001234).
+4. During the exercise, you can use this web interface to get another view to the buckets and objects in Allas.
 
 ## 1. Login to Puhti
 
@@ -104,8 +103,8 @@ rclone lsf allas:$USER-genomes-rc/
 ```
 
 {:style="counter-reset:step-counter 2"}
-3. Check how this looks like in the Pouta web interface. Open a browser and go to <https://pouta.csc.fi/>
-4. In the Pouta web interface, go to the _Object Store_ section and list the buckets (which are called here _Containers_)
+3. Check how this looks like in the Puhti web interface. Open a browser and go to <https://www.puhti.csc.fi/>
+4. In the Puhti web interface, go to the _Files_ app and select `s3allas-project_<id>` to list the buckets of your project (replace `<id>` as needed).
 5. Locate your own `$USER-genomes-rc` bucket and download one of the uploaded fasta files to your local computer
 
 💡 You can read more about moving files at Docs CSC: [Copying files using scp](https://docs.csc.fi/data/moving/scp/) and [Moving data with rclone](https://docs.csc.fi/support/faq/how-to-move-data-between-puhti-and-allas/#move-data-with-rclone)
