@@ -14,7 +14,7 @@ permalink: /hands-on/installing/installing_using_cmake.html
 💬 CMake is an extensible, open-source system that manages the build process in an operating system and in a compiler-independent manner.
 
 
-## Example: Installing OpenCV
+## Example: Installing a test C++ application
 
 💬 In this example we'll install an simple test C++ application `Hello World`.
 
