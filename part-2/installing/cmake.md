@@ -16,21 +16,21 @@ permalink: /hands-on/installing/installing_using_cmake.html
 
 ## Example: Installing OpenCV
 
-💬 In this example we'll install an computer vision library, OpenCV.
+💬 In this example we'll install an simple test C++ application `Hello World`.
 
 1. Create a personal folder (if not done already) under your project's `/projappl` directory and move there.
 
-2. Download the software using git:
+2. Download the application using git:
 
 ```bash
-git clone https://github.com/opencv/opencv.git
+git clone https://github.com/jameskbride/cmake-hello-world.git
 ```
 
 {:style="counter-reset:step-counter 2"}
-3. Move into the folder `opencv`. Create a folder called `build` and move there:
+3. Move into the folder `cmake-hello-world`. Create a folder called `build` and move there:
 
 ```bash
-cd opencv
+cd cmake-hello-world
 mkdir build
 cd build
 ```
@@ -42,8 +42,20 @@ cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=$PWD
 ```
 
-💡 This will generate the needed `Makefile`. Now invoke the build system using `make` command. To speed up the process, you can use the flag `-j` to set the number of cores for the build process.
+{:style="counter-reset:step-counter 4"}
+5. This will generate the needed `Makefile`. Compile and install the application using `make` command
+
 
 ```bash
-make -j 8     # set the flag `-j` to 8 cores. 
+make 
+make install
 ```
+
+{:style="counter-reset:step-counter 5"}
+6. Check if the installation was successful:
+
+```bash
+$PWD/bin/CMakeHelloWorld
+```
+
+You should see the output `Hello, world!`
