@@ -51,6 +51,11 @@ make
 make install
 ```
 
+💡 Some 'real world' applications are large and possibly require more resources for faster compilation. In these cases, use the `-j` flag to set the number of cores for compilation. *Please check the number of cores (CPUs) available for use in your system. E.g., In linux, you can find this using `lscpu` command.*
+
+```bash
+make -j 8     # will build the system using 8 cores.
+```
 {:style="counter-reset:step-counter 5"}
 6. Check if the installation was successful:
 
