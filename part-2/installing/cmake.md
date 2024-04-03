@@ -27,40 +27,72 @@ git clone https://github.com/jameskbride/cmake-hello-world.git
 ```
 
 {:style="counter-reset:step-counter 2"}
-3. Move into the folder `cmake-hello-world`. Create a folder called `build` and move there:
+3. Move into the folder `cmake-hello-world`. Run `cmake` command. Set the source directory (`-S`) and the build directory (`-B`). This will generate the `Makefile`:
 
 ```bash
 cd cmake-hello-world
-mkdir build
-cd build
+cmake -S . -B build        # Here we create a build directory named `build`. If the build directory does not exist already, cmake creates it.
 ```
 
 {:style="counter-reset:step-counter 3"}
-4. Run `cmake` application to generate the `makefiles`. Use `-DCMAKE_INSTALL_PREFIX` flag to set installation path to the current folder:
+4. Now invoke the build system
 
 ```bash
-cmake .. -DCMAKE_INSTALL_PREFIX=$PWD
-```
-
-{:style="counter-reset:step-counter 4"}
-5. This will generate the needed `Makefile`. Compile and install the application using `make` command
-
-
-```bash
-make 
-make install
+cmake --build build
 ```
 
 💡 Some 'real world' applications are large and possibly require more resources for faster compilation. In these cases, use the `-j` flag to set the number of cores for compilation. *Please check the number of cores (CPUs) available for use in your system. E.g., In linux, you can find this using `lscpu` command.*
 
 ```bash
-make -j 8     # will build the system using 8 cores.
+cmake --build build -j 8     # This will build the system using 8 cores.
 ```
-{:style="counter-reset:step-counter 5"}
-6. Check if the installation was successful:
+
+{:style="counter-reset:step-counter 4"}
+
+5. Check if the installation was successful:
 
 ```bash
-$PWD/bin/CMakeHelloWorld
+$PWD/build/CMakeHelloWorld
 ```
 
 You should see the output `Hello, world!`
+
+💡 For 'real world' applications, the binary file is usually created in a default `bin` folder.
+
+```bash
+$PWD/build/bin/application_binary_file
+```
+
+### Alternate method : Using make command
+
+1. Move into the folder `cmake-hello-world` and create a build directory (`build`)
+
+
+```bash
+cd cmake-hello-world
+mkdir build
+```
+
+{:style="counter-reset:step-counter 1"}
+
+2. Move into the `build` folder and run cmake. Set the installation path to the current directory (`build`)
+
+```bash
+cd build
+cmake .. -DCMAKE_INSTALL_PREFIX=$PWD
+```
+
+{:style="counter-reset:step-counter 2"}
+
+3. Now compile and install using the `make` command
+
+```bash
+make
+make install
+```
+
+💡 For 'real world' applications, set the number of cores to be used for compilation using the `-j` flag.
+
+```bash
+make -j 8     
+```
