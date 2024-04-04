@@ -13,6 +13,11 @@ permalink: /hands-on/installing/installing_using_cmake.html
 
 💬 CMake is an extensible, open-source system that manages the build process in an operating system and in a compiler-independent manner.
 
+💬 CMake uses simple configuration files placed in each source directory (called CMakeLists.txt files) to generate standard build files (e.g., Makefiles).
+
+💬 CMake generates a native build environment that will compile source code, create libraries, generate wrappers and build executable binaries in arbitrary combinations. 
+
+💬 CMake supports in-place and out-of-place builds, and can therefore support multiple builds from a single source tree.
 
 ## Example: Installing a test C++ application
 
