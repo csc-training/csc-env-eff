@@ -15,5 +15,6 @@ has_toc: false
 
 1. [Essential tutorial - Allas in batch jobs]({{ site.baseurl }}{% link part-2/io/allas-batch-jobs.md %})
 2. [Essential tutorial - Using Allas with bio data]({{ site.baseurl }}{% link part-2/io/allas-bio-data.md %})
-3. [Essential tutorial - Using Allas with local rclone]({{ site.baseurl }}{% link part-2/io/local_rclone.md %})
+3. [Essential tutorial - Using Allas with bio data]({{ site.baseurl }}{% link part-2/io/fast-local-disks.md %})
+4. [Optional tutorial - Using Allas with local rclone]({{ site.baseurl }}{% link part-2/io/local_rclone.md %})
 
