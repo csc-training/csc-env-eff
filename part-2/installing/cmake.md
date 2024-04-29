@@ -9,7 +9,7 @@ has_toc: false
 permalink: /hands-on/installing/installing_using_cmake.html
 ---
 
-# Installing using cmake
+# Installing using CMake
 
 💬 CMake is an extensible, open-source system that manages the build process in an operating system and in a compiler-independent manner.
 
