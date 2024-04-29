@@ -17,17 +17,19 @@ Create a directory for the code. The recommended location is under the `/projapp
 mkdir -p /projappl/<project>/laplacian    # replace <project> with your CSC project, e.g. project_2001234
 ```
 
-We will examine two different programming languages (`cpp` and `fortran`) and their corresponding compilers (`gcc` and `gfortran`) in this exercise. 
+This exercise examines two different programming languages (`cpp` and `fortran`) and their corresponding compilers (`gcc` and `gfortran`). **Please choose one option (`cpp` or `fortran`) for the exercise**
 
-Create subdirectories for the two programs.
+Create subdirectories for the programs.
 
 ```bash
 mkdir -p /projappl/<project>/laplacian/cpp
 
+## OR
+
 mkdir -p /projappl/<project>/laplacian/fortran
 ```
 
-## CPP
+## Option 1 : CPP
 
 1. Migrate to the `cpp` subdirectory and download the code from GitHub.
 
@@ -100,7 +102,7 @@ srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-pe
 ```
 
 
-## Fortran
+## Option 2 : Fortran
 
 1. Migrate to the `fortran` subdirectory and download the code from GitHub.
 
