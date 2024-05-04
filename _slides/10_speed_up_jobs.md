@@ -30,7 +30,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
       - Ask experienced colleagues or <servicedesk@csc.fi> for guidance
 - Consider:
    - The software that solves your problem the fastest might not always be the best!
-      - Issues like ease-of-use, energy efficiency and memory/disk demands are also highly relevant
+      - Issues like ease-of-use and memory/disk demands are also highly relevant
    - Start simple and gradually use more complex approaches if needed
 
 # First steps for fast jobs (2/2)
@@ -113,7 +113,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   1. Load imbalance (variation in workload among cores)
   2. Parallel overheads (additional operations which are not present in serial calculation)
   3. Synchronization, communication
-  4. Fraction of serial code limits maximum speedup (Amdahl's law)
+  4. Fraction of serial code limits maximum speedup ([Amdahl's law](https://en.wikipedia.org/wiki/Amdahl%27s_law))
 </div>
 <div class=column style="width:43%">
 ![](img/scaling.png){width=100%}
@@ -122,7 +122,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Self study materials for OpenMP and MPI
 
 - Abundance of tutorials available online, search for *e.g.* "MPI tutorial"
-- Check the exercise materials and model answers from [CSC Summer School on HPC](https://github.com/csc-training/summerschool) (available on GitHub)
+- Check the exercise materials and model solutions from [CSC Summer School on HPC](https://github.com/csc-training/summerschool) (available on GitHub)
 - Other good online tutorials:
   - <https://hpc-tutorials.llnl.gov/mpi/>
   - <https://mpitutorial.com/tutorials/>
@@ -148,7 +148,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   2. allocates and deallocates memory on GPUs
   3. handles data transfers between CPU and GPUs
 - GPU kernels run multiple threads and multiple kernels may run concurrently on same GPU
-- When using multiple GPUs, CPU runs typically multiple processes or threads
+- When using multiple GPUs, CPU typically runs multiple processes or threads
 </div>
 <div class=column style="width:33%">
 ![](img/gpu-offload.svg){.center width=100%}
@@ -187,11 +187,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - To avoid:
    - Accessing lots of small files, having many files in a single directory
      - Recall the issues caused by Conda!
-   - Large files on a single object storage target (OST)
+   - Large files on a single object storage target (i.e. no [striping](https://docs.csc.fi/computing/lustre/#file-striping-and-alignment))
    - Opening and closing a file in a rapid pace
      - Includes database operations
-   - Accessing same files from many nodes
    - Using file locks for synchronization
+     - Writing to same file from many nodes
 
 # How much is too much?
 
@@ -218,24 +218,24 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # If you have lots of small jobs and/or files (1/2)
 
-- **Task farming** -- running multiple independent jobs simultaneously
+- **Task farming** -- running many similar independent jobs simultaneously
   - For 100+ jobs, regroup your tasks and execute them in a single job (step)
 - Check the tool you're using, there may be built-in support for running many tasks within a single job step (best option!)
-  - E.g. GROMACS multidir, CP2K farming
-  - Also Python and R if you write your own code
+  - E.g. [GROMACS multidir](https://docs.csc.fi/support/tutorials/gromacs-throughput/), [CP2K farming](https://docs.csc.fi/apps/cp2k/#high-throughput-computing-with-cp2k)
+  - Also [Python](https://docs.csc.fi/apps/python/#python-parallel-jobs) and [R](https://docs.csc.fi/support/tutorials/parallel-r/) if you write your own code
 - External tools: Array jobs*, HyperQueue
-  - Array jobs are simply a Slurm feature for submitting many jobs from a single batch script -- **mind the usual limits** (<100 jobs, duration >30min)
-  - HyperQueue is a *meta-scheduler*, which allows you to pack many (non-MPI) jobs within a single job step (recommended!)
+  - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/) are simply a Slurm feature for submitting many jobs from a single batch script -- **mind the usual limits** (<100 jobs, duration >30min)
+  - [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) is a *meta-scheduler*, which allows you to pack many (non-MPI) jobs within a single job step (recommended!)
 
 # If you have lots of small jobs and/or files (2/2)
 
-- In more complex cases (dependencies, error handling), workflow managers such as Nextflow, Snakemake or FireWorks can be used
+- In more complex cases (dependencies, error handling), workflow managers such as [Nextflow](https://docs.csc.fi/apps/nextflow/), [Snakemake](https://docs.csc.fi/apps/snakemake/) or [FireWorks](https://docs.csc.fi/computing/running/fireworks/) can be used
   - HyperQueue integration for Nextflow and Snakemake already available!
   - See [Docs CSC](https://docs.csc.fi/computing/running/throughput/) for more details
 - When working with lots of small files:
   - Check the tool you're using, there may be different options for data storage
-  - Tar/untar and compress your datasets, use SquashFS for read-only datasets and containers
-  - Use local disks: NVMe on Puhti, ramdisk (`/dev/shm`) on Mahti
+  - [Tar/untar and compress your datasets](https://docs.csc.fi/support/tutorials/env-guide/packing-and-compression-tools/), use [SquashFS](https://docs.csc.fi/computing/containers/run-existing/#mounting-datasets-with-squashfs) for read-only datasets and containers
+  - Use local disks: [NVMe](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks) on Puhti, [ramdisk (`/dev/shm`)](https://docs.csc.fi/computing/disk/#compute-nodes-without-local-ssd-nvme-disks) on Mahti
   - Remove intermediate files is possible
 
 # Summary (1/2)
