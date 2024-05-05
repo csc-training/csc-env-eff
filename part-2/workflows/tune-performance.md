@@ -11,16 +11,19 @@ permalink: /hands-on/throughput/tune_performance.html
 
 # Application performance
 
-> This exercise is done on Mahti, which requires that
-> - you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
-> - your account belongs to a project [that has access to the Mahti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
+> This exercise is done on **Mahti**, which requires that
+
+- you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+- your account belongs to a project [that has access to the Mahti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 ## Overview
 
-💡 In this exercise, you will optimize the performance of a real simulation use
+💬 In this exercise, you will optimize the performance of a real simulation use
 case by tuning the number of cores used and balance between MPI tasks and
 OpenMP threads. As an example application, we will use the
-[CP2K](https://docs.csc.fi/apps/cp2k/) software.
+[CP2K](https://docs.csc.fi/apps/cp2k/) software. The details of the code and
+what it does is not important for the completion of this exercise. Just take it
+as an example parallel program that uses hybrid MPI/OpenMP parallelization.
 
 ## Download a sample input file
 
@@ -32,7 +35,7 @@ OpenMP threads. As an example application, we will use the
    cd /scratch/<project>/$USER/app-perf
    ```
 
-2. Download a sample input file
+2. Download a sample input file:
  
    ```bash
    wget https://a3s.fi/CSC_training/cp2k.inp
@@ -124,14 +127,14 @@ environment variable to be equal to the number of threads per task.
 
    | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) |
    |:-------------------:|:-----------------------:|:----------------:|
-   |128                  |1                        |                  |
-   |                     |                         |                  |
-   |                     |                         |                  |
-   |                     |                         |                  |
-   |                     |                         |                  |
+   |128                  |                         |                  |
+   |64                   |                         |                  |
+   |32                   |                         |                  |
+   |16                   |                         |                  |
+   |8                    |                         |                  |
 
 💭 Were you able to run the calculation faster by launching multiple OpenMP
-threads per MPI task? Where is the optimum?
+threads per MPI task? What is the optimum ratio?
 
 💭 How does the memory usage vary when you increase the number of threads per
    task? Use the `seff` command to check. Can you explain the reason for your

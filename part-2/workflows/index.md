@@ -14,6 +14,6 @@ has_toc: false
 ## 11.2 Tutorials and exercises
 
 1. [Tutorial - Perform a simple scalability test]({{ site.baseurl }}{% link part-2/workflows/scaling.md %})
-2. [Tutorial - Running many jobs with `sbatch-hq`]({{ site.baseurl }}{% link part-2/workflows/hyperqueue.md %})
+2. [Tutorial - Processing many files in parallel with HyperQueue]({{ site.baseurl }}{% link part-2/workflows/hyperqueue.md %})
 3. [Advanced tutorial - Running Gaussian with HyperQueue]({{ site.baseurl }}{% link part-2/workflows/gaussian-hq.md %})
 4. [Exercise - Tune performance of a hybrid MPI/OpenMP application]({{ site.baseurl }}{% link part-2/workflows/tune-performance.md %})
