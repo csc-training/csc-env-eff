@@ -11,7 +11,7 @@ permalink: /hands-on/throughput/scaling.html
 
 # Performing a simple scaling test
 
-> This tutorial is done on Puhti, which requires that
+> This tutorial is done on **Puhti**, which requires that
 
 - you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 - your account belongs to a project that has
