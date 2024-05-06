@@ -3,15 +3,15 @@
 Snakemake workflow is one of the popular scientific workflows in the bioinformatics community. The workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment.
 
 
-## Use Containers as runtime environement 
+## Use Containers as Runtime Environment 
 
-One can also use a Singularity/Apptainer container as an alternative to native or Tykky container-based installations for better portability and reproducibility.  If you don't have a ready-made container for your needs, you can build a Singularity/Apptainer image on Puhti using **--fakeroot** option.  
+One can use Singularity/Apptainer container as an alternative to native or Tykky container-based installations for better portability and reproducibility.  If you don't have a ready-made container image for your needs, you can build a Singularity/Apptainer image on Puhti using **--fakeroot** option.  
 
 For the purpose of this tutorial a pre-built container image is provided to run snakemake workflow at scale.
 
 ## Use HyperQueue Executor to Submit Jobs
 
-If a workflow manager is using `sbatch` for each process execution, and you have many short processes, it's advisable to switch to HyperQueue to improve throughput and decrease load on the system batch scheduler.
+If a workflow manager is using `sbatch` for each process execution (i.e., a rule), and you have many short processes, it's advisable to switch to HyperQueue to improve throughput and decrease load on the system batch scheduler.
 
 You can load HyperQueue and Snakemake modules on Puhti as below:
 ```bash
@@ -45,7 +45,7 @@ wget https://a3s.fi/snakemake_scale/snakemake_scaling.tar.gz
 tar -xavf snakemake_scaling.tar.gz
 ```
 
-Batch script named as `snakemake_hq_puhti.sh`:
+The downloaded material includes scripts and data to run snakemake pipeline. You can use `snakemake_hq_puhti.sh` whose content is posted below:
 
 ```bash 
 #!/bin/bash
@@ -96,7 +96,7 @@ Please use correct project number in sbatch directives and submit the Snakemake 
 sbatch snakemake_hq_puhti.sh
 ```
 
-### How do you parallelise snakemake workflow?
+### How Do You Parallelise Snakemake Workflow?
 
 Parallelism can be achieved by allowing more parallel jobs (here modify the flag, -j) from snakemake as below:
 
@@ -106,3 +106,35 @@ snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --clust
 
 One can also use more than one node to achieve even more high-throughput as HyperQueue can make use of multi-node resource allocations.
 
+
+### Follow the Progress of Jobs
+
+1. Monitor the status of submitted job
+
+```
+squeue -j <slurmjobid>
+# or
+squeue --me
+# or
+squeue -u $USER
+
+```
+
+2. Monitor the progress of the individual sub-tasks using HyperQueue usub-commands
+
+```
+module load hyperqueue
+export HQ_SERVER_DIR=$PWD/hq-server-<slurmjobid>
+hq worker list   
+hq job list
+hq job info <hqjobid>
+hq job progress <hqjobid>
+hq task list <hqjobid>
+hq task info <hqjobid> <hqtaskid>
+
+```
+
+## More Information
+
+- [CSC documentation on Snakemake](https://docs.csc.fi/support/tutorials/snakemake-puhti/)
+- [Snakemake official documentation](https://snakemake.readthedocs.io/en/stable/)
