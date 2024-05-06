@@ -102,12 +102,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Hybrid programming: Launch threads (OpenMP)<br>within processes (MPI)
 
 - Shared memory programming inside a node, message passing between nodes &rarr; matches well modern supercomputer hardware
-- Advantages:
+- Pros and cons:
   - Fewer MPI processes for a given amount of cores
     - All-to-all communication bottlenecks alleviated
     - Decreased memory consumption if implementation uses replicated data
-  - Possibility for dedicating threads to different tasks
-    - E.g. a thread dedicated to communication or parallel I/O
+  - Possible to dedicate threads to specific tasks
+  - More complicated to program, overhead from thread creation/destruction
 - Optimum MPI task per node ratio depends on the application and should always be experimented!
 
 # Parallel scaling
