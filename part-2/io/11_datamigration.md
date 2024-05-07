@@ -147,10 +147,10 @@ p.ex1 {
    - shared across all nodes in the cluster (e.g., /scratch)
    - slow when accessing huge number of files!
 - Temporary local storage:
-   - available to running jobs on compute nodes
+   - available to running jobs on some compute nodes
    - varies depending on the supercomputer (Puhti vs. Mahti vs. LUMI)
    - automatically purged after the job finishes
-   - accessible to job using $TMPDIR and $LOCAL_SCRATCH 
+   - accessible to job using $TMPDIR/$LOCAL_SCRATCH 
     
 
 # Managing File I/O in HPC System (2/3)
@@ -172,7 +172,7 @@ p.ex1 {
 - Process data in memory when possible instead of writing to and reading from the disk
    - Files are saved in memory, allowing for better performance than using disk.
    - e.g., Use local /dev/shm directory (on Mahti) for large-scale I/O
-
+- Avoid using databases on /scratch. Consider hosting DBs on cloud resources (e.g., [Pukki-DBaaS](https://docs.csc.fi/cloud/dbaas/))
 
 # Working with Remote Disk Mounts
 
