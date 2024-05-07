@@ -1,32 +1,31 @@
 # Running Snakemake Workflow at Scale on Puhti
 
-Snakemake workflow is one of the popular scientific workflows in the bioinformatics community. The workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment.
+Snakemake workflow is one of the popular scientific workflow managers in the bioinformatics community. The workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a pre-installed module in Puhti supercomputing environment.
 
 
-## Use Containers as Runtime Environment 
+## Use Containers as a Runtime Environment 
 
-One can use Singularity/Apptainer container as an alternative to native or Tykky container-based installations for better portability and reproducibility.  If you don't have a ready-made container image for your needs, you can build a Singularity/Apptainer image on Puhti using **--fakeroot** option.  
+HPC-friendly containers like Singularity/Apptainer can be used as an alternative to native or Tykky container-based installations for better portability and reproducibility. If you don't have a ready-made container image for your needs, you can build a Singularity/Apptainer image on Puhti using **--fakeroot** option.  
 
-For the purpose of this tutorial a pre-built container image is provided to run snakemake workflow at scale.
+For the purpose of this tutorial a pre-built container image is provided later to run snakemake workflow at scale.
 
 ## Use HyperQueue Executor to Submit Jobs
 
-If a workflow manager is using `sbatch` for each process execution (i.e., a rule), and you have many short processes, it's advisable to switch to HyperQueue to improve throughput and decrease load on the system batch scheduler.
+If a workflow manager is using `sbatch` for each process execution (i.e., a rule in snakemkae terminology), and a workflows has many short processes, it's advisable to switch to HyperQueue to improve throughput and decrease unnecessary overload on system batch scheduler.
 
-You can load HyperQueue and Snakemake modules on Puhti as below:
+HyperQueue and Snakemake modules on Puhti can be loaded as below:
 ```bash
 module load hyperqueue/0.16.0
 module load snakemake/8.4.6
 ```
 ‼️ In case you are planning to use Snakemake workflow tests on LUMI supercomputer, you can use module installations done by CSC staff on LUMI. You can load HyperQueue and Snakemake modules as below:
-
-```bash 
-module use /appl/local/csc/modulefiles/
-module load hyperqueue/0.18.0
-module load snakemake/8.4.6
+```bash
+           module use /appl/local/csc/modulefiles/
+           module load hyperqueue/0.18.0
+           module load snakemake/8.4.6
 ```
 
-One can use HyperQueue executor settings depending on the Snakemake version as below:
+HyperQueue executor settings for snakemake workflow can be changed depending on the version of Snakemake, as shown below:
 
 ```bash
 # snakemake version 7.xx.x
@@ -38,14 +37,13 @@ snakemake --executor cluster-generic --cluster-generic-submit-cmd "hq submit ...
 
 ## Submit Snakemake Workflow on Cluster
 
-Download tutorial materials (scripts and data), which have been adapted from the [official Snakemake documentation](https://snakemake.readthedocs.io/en/v6.6.1/executor_tutorial/google_lifesciences.html), from CSC Allas object storage as below:
+Download tutorial material, which has been adapted from the [official Snakemake documentation](https://snakemake.readthedocs.io/en/v6.6.1/executor_tutorial/google_lifesciences.html), from CSC Allas object storage as below:
 
 ```bash
 wget https://a3s.fi/snakemake_scale/snakemake_scaling.tar.gz
 tar -xavf snakemake_scaling.tar.gz
 ```
-
-The downloaded material includes scripts and data to run snakemake pipeline. You can use `snakemake_hq_puhti.sh` whose content is posted below:
+The downloaded material includes scripts and data to run snakemake pipeline.  You can use `snakemake_hq_puhti.sh` whose content is posted below:
 
 ```bash 
 #!/bin/bash
@@ -90,7 +88,7 @@ hq worker stop all
 hq server stop
 ```
 
-Please use correct project number in sbatch directives and submit the Snakemake workflow job as below:
+Please use correct CSC project number in the sbatch directives of above script and submit the Snakemake workflow job as below:
 
 ```
 sbatch snakemake_hq_puhti.sh
@@ -98,7 +96,7 @@ sbatch snakemake_hq_puhti.sh
 
 ### How Do You Parallelise Snakemake Workflow?
 
-Parallelism can be achieved by allowing more parallel jobs (here modify the flag, -j) from snakemake as below:
+Parallelism can be achieved by allowing more parallel jobs (tip: check the flag, -j) from snakemake as below:
 
 ```
 snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 5"
