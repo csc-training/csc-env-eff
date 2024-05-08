@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Apptainer tutorial 2
-parent: 9. Containers and Apptainer
+parent: 10. Containers and Apptainer
 grand_parent: Part 2
 nav_order: 3
 has_children: false

@@ -1,13 +1,13 @@
 ---
 layout: default
-title: 11. Scaling up HPC workflows
+title: 11. How to speed up jobs
 parent: Part 2
 nav_order: 4
 has_children: true
 has_toc: false
 ---
 
-# 11. Scaling up HPC workflows
+# 11. How to speed up jobs
 
 ## [11.1 Slides](https://a3s.fi/CSC_training/10_speed_up_jobs.html)
 

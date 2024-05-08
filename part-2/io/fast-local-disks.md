@@ -1,17 +1,15 @@
 ---
 layout: default
 title: I/O intensive computing
-parent: 3. Disk areas
-grand_parent: Part 1
-nav_order: 4
+parent: 8. Working efficiently with data
+grand_parent: Part 2
+nav_order: 1
 has_children: false
 has_toc: false
-permalink: /hands-on/disk-areas/disk-areas-exercise-fastdisks.html
+permalink: /hands-on/io/io-exercise-fastdisks.html
 ---
 
 # How to run I/O intensive computing tasks efficiently?
-
-💬 _This exercise requires usage of the batch queue system. Feel free to carry on or return to this after Topic 5._
 
 ## Background
 
