@@ -3,7 +3,7 @@ layout: default
 title: Using Allas with bio data
 parent: 7. Allas
 grand_parent: Part 1
-nav_order: 2
+nav_order: 3
 has_children: false
 has_toc: false
 permalink: /hands-on/allas/allas-tutorial.html
@@ -104,8 +104,8 @@ rclone lsf allas:$USER-genomes-rc/
 ```
 
 {:style="counter-reset:step-counter 2"}
-3. Check how this looks like in the Pouta web interface. Open a browser and go to <https://pouta.csc.fi/>
-4. In the Pouta web interface, go to the _Object Store_ section and list the buckets (which are called here _Containers_)
+3. Check how this looks like in the Puhti web interface. Open a browser and go to <https://www.puhti.csc.fi/>
+4. In the Puhti web interface, go to the _Files_ app and select `s3allas-project_<id>` to list the buckets of your project (replace `<id>` as needed).
 5. Locate your own `$USER-genomes-rc` bucket and download one of the uploaded fasta files to your local computer
 
 💡 You can read more about moving files at Docs CSC: [Copying files using scp](https://docs.csc.fi/data/moving/scp/) and [Moving data with rclone](https://docs.csc.fi/support/faq/how-to-move-data-between-puhti-and-allas/#move-data-with-rclone)
