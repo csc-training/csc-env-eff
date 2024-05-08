@@ -3,7 +3,7 @@ layout: default
 title: I/O intensive computing
 parent: 8. Working efficiently with data
 grand_parent: Part 2
-nav_order: 1
+nav_order: 4
 has_children: false
 has_toc: false
 permalink: /hands-on/io/io-exercise-fastdisks.html
@@ -68,7 +68,7 @@ unset XDG_RUNTIME_DIR                     # Get rid of some unnecessary warnings
 
 cd $LOCAL_SCRATCH
 pwd
-singularity pull --name trinity.simg docker://trinityrnaseq/trinityrnaseq
+apptainer pull --name trinity.simg docker://trinityrnaseq/trinityrnaseq
 mv trinity.simg /scratch/<project>/$USER/                                                            
 ```
 

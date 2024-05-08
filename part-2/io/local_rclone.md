@@ -3,7 +3,7 @@ layout: default
 title: Using Allas with local rclone
 parent: 8. Working efficiently with data
 grand_parent: Part 2
-nav_order: 4
+nav_order: 3
 has_children: false
 has_toc: false
 permalink: /hands-on/disk-areas/disk-areas-exercise-fastdisks.html
