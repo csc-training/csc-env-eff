@@ -71,14 +71,14 @@ unzip gcta-1.94.1-linux-kernel-3-x86_64.zip
 6. Trying just the following will result in a `command not found` error because you are not accessing the right folder yet.
 
 ```bash
-gcta-1.94.1
+gcta64
 ```
 
 {:style="counter-reset:step-counter 6"}
 7. Try instead:
 
 ```bash
-gcta-1.94.1-linux-kernel-3-x86_64/gcta-1.94.1
+gcta-1.94.1-linux-kernel-3-x86_64/gcta64
 ```
 
 {:style="counter-reset:step-counter 7"}
@@ -86,7 +86,7 @@ gcta-1.94.1-linux-kernel-3-x86_64/gcta-1.94.1
 
 ```bash
 cd gcta-1.94.1-linux-kernel-3-x86_64
-./gcta-1.94.1
+./gcta64
 ```
 
 {:style="counter-reset:step-counter 8"}
@@ -97,6 +97,7 @@ cd gcta-1.94.1-linux-kernel-3-x86_64
 
 {:style="counter-reset:step-counter 9"}
 10. Move to `./gcta-1.94.1-linux-kernel-3-x86_64` if not there yet.
+
 11. Add the current working directory to `$PATH`:
 
 ```bash
@@ -107,7 +108,7 @@ export PATH=$PWD:$PATH
 12.  You can now run the program from any directory simply with:
 
 ```bash
-gcta-1.94.1
+gcta64
 ```
 
 ## Some notes
