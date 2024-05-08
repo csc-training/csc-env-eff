@@ -20,8 +20,6 @@ Before the actual exercise, open a view to the Allas service in your browser usi
 3. Once you've configured a connection, select `s3allas-project_<id>` from the _Files_ dropdown menu in the top navigation bar. Replace `<id>` with the number of the project you chose to use (e.g. 2001234).
 4. During the exercise, you can use this web interface to get another view to the buckets and objects in Allas.
 
-> Note that you need to **reload** the view in order to see changes
-
 ## 1. Login to Puhti
 
 1. Login to Puhti (open a login node shell if using the web interface):
