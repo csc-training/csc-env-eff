@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Compiler options : Performance Optimization
+title: Performance Optimization
 parent: 8. Installing own software
 grand_parent: Part 2
 nav_order: 7
