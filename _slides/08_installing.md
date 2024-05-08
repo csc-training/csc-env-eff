@@ -72,6 +72,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - New software is not automatically added to `$PATH`
   - Include the full path or add with `export PATH="/path/to/my/sw:$PATH"`
 
+#  Compiler
+
+- A compiler is a special program that reads, analyses and translates a human readable source code into a machine readable object code.
+- It performs 4 steps: Lexical analysis, syntactic and semantic analysis, optimization and output code generation.
+- Compilers target specific operating systems and computer architectures. 
+- Compilers are usually programming language specific.
+- **Code profiling**: examines the application code to ensure it is optimized, resulting in high application performance. It analyzes the memory, CPU, and network utilized by each software component or routine. 
+
 # Installation methods: Native installations
 
 - Installing directly to the system
@@ -111,3 +119,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - [Software installation on LUMI](https://docs.lumi-supercomputer.eu/software/)
 - Lots of information online
   - Try searching for any error messages you come across
+- More about compilers
+  - [General information](https://www.baeldung.com/cs/how-compilers-work)
+  - [Compiler Optimization](https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757)
+  - [Compiler options](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)    
