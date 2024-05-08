@@ -96,7 +96,7 @@ sbatch snakemake_hq_puhti.sh
 
 ### How Do You Parallelise Snakemake Workflow?
 
-Parallelism can be achieved by allowing more parallel jobs (tip: check the flag, -j) from snakemake as below:
+Once you reserve sufficient resources in batch script, parallelism can be achieved by allowing more parallel jobs (tip: check the flag, -j) from snakemake command as below:
 
 ```
 snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 5"
@@ -105,7 +105,7 @@ snakemake -s Snakefile -j 8 --use-singularity --executor cluster-generic --clust
 One can also use more than one node to achieve even more high-throughput as HyperQueue can make use of multi-node resource allocations.
 
 
-### Follow the Progress of Jobs
+### How Do You Follow the Progress of Jobs ?
 
 1. Monitor the status of submitted job
 
