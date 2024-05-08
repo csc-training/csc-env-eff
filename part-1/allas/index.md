@@ -19,3 +19,4 @@ has_toc: false
 
 1. [Essential tutorial - Basic usage of Allas]({{ site.baseurl }}{% link part-1/allas/allas-usage.md %})
 2. [Tutorial - File backup with Allas]({{ site.baseurl }}{% link part-1/allas/allas-backup.md %})
+3. [Advanced tutorial - Using Allas with bio data]({{ site.baseurl }}{% link part-1/allas/allas-bio-data.md %})

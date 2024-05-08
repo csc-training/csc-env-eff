@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Using Allas with bio data
-parent: 8. Working efficiently with data
-grand_parent: Part 2
+parent: 7. Allas
+grand_parent: Part 1
 nav_order: 2
 has_children: false
 has_toc: false

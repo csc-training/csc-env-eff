@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Allas in batch jobs
+title: Using Allas in batch jobs
 parent: 8. Working efficiently with data
 grand_parent: Part 2
 nav_order: 1
