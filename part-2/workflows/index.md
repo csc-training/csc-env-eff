@@ -2,7 +2,7 @@
 layout: default
 title: 11. How to speed up jobs
 parent: Part 2
-nav_order: 3
+nav_order: 4
 has_children: true
 has_toc: false
 ---
