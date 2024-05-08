@@ -59,7 +59,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Parallel file system (Lustre):
    - Shared across all nodes in the cluster (e.g., `/scratch`)
-   - Slow when accessing huge number of files!
+   - Optimized for parallel I/O of large files, slow if accessing lots of small files!
 - [Temporary local storage (NVMe)](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas):
    - Accessible on login nodes (`$TMPDIR`) and to jobs on some compute nodes (`$LOCAL_SCRATCH`)
    - Automatically purged after the job finishes
@@ -68,12 +68,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Managing file I/O (2/3)
 
-- Avoid accessing lots of small files on Lustre
-   - Actual data and metadata separated, optimized for parallel I/O of large files
+- To avoid on Lustre:
+   - Accessing lots of small files, opening/closing a single file in a rapid pace
+   - Having many files in a single directory
+- Use [file striping](https://docs.csc.fi/computing/lustre/#file-striping-and-alignment) to distribute large files across many OSTs
 - Use more efficient file formats when possible
-   - Use high-level I/O libraries and portable file formats like HDF5 or NetCDF
+   - Simply using `tar` and compression is a good start
+   - High-level I/O libraries and portable file formats like HDF5 or NetCDF
      - Enable fast I/O through a single file format and parallel operations
-   - Solution of TensorFlow in AI/ML: TFRecords - a simple record-oriented binary format
+     - [AI/ML example: TensorFlow's TFRecords](https://github.com/CSCfi/machine-learning-scripts/blob/master/notebooks/tf2-pets-create-tfrecords.ipynb) – a simple record-oriented binary format
 - Docs CSC: [How to achieve better I/O performance on Lustre](https://docs.csc.fi/support/tutorials/lustre_performance/)
 
 # Managing file I/O (3/3)
@@ -116,7 +119,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - In Puhti and Mahti, connection to LUMI-O can be opened with command:
   - `allas-conf --lumi`
 - Usage:
-  - Using LUMI-O with rclone (endpoint is `lumi-o:`)
+  - Using LUMI-O with `rclone` (endpoint is `lumi-o:`)
     - e.g., `rclone lsd lumi-o:`
   - One can use a-tools with option `--lumi`
     - e.g., `a-list --lumi`
@@ -129,19 +132,19 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - `allas-conf --mode s3cmd` 
     - `allas-conf --lumi`
 - Use `rclone` with `s3allas:` as endpoint for Allas and `lumi-o`: for LUMI-O
-    - e.g., `rclone copy -P lumi-o:lumi-bucket/object s3allas:allas-bucket/`
+    - `rclone copy -P lumi-o:lumi-bucket/object s3allas:allas-bucket/`
 
 # Moving data between IDA and Allas 
 
 - Needs transfer of data *via* supercomputer (e.g., Puhti)
-- First, [configure IDA in CSC supercomputer](https://docs.csc.fi/data/ida/using_ida/). For example:
+- First, [configure IDA in CSC supercomputers](https://docs.csc.fi/data/ida/using_ida/). For example:
 
- ```bash
- module load ida
- ida_configure
- ida upload /test123/data1 test_data
- ida download /project1 project1_data.zip
- ```
+```bash
+module load ida
+ida_configure
+ida upload /test123/data1 test_data
+ida download /project1 project1_data.zip
+```
 
 - Then, move data between Puhti and Allas
 
@@ -156,7 +159,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Questions that users should consider
 
 - Should I store each file as a separate object, or should I collect them into bigger chunks? 
-- In general: consider how you use the data
+   - In general: consider how you use the data
 - Should I use compression?
 - Who can use the data: projects and access rights?
 - What will happen to my data later on?
@@ -170,9 +173,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Listed in a purge list, e.g. `/scratch/purge_lists/project_2001234/path_summary.txt`
     - *[LCleaner](https://docs.csc.fi/support/tutorials/clean-up-data/#using-lcleaner-to-check-which-files-will-be-automatically-removed)* tool can help you discover which of your files have been targeted for automatic removal
 - **Best practice tips**
-  - Don't save everything automatically, use compression if it reduces file size
+  - Don't save everything automatically
   - Use *[LUE](https://docs.csc.fi/support/tutorials/lue/)* tool to analyze your disk usage
-    - Avoid `du`, `find -size` (heavy on file system)
+    - Avoid `du` and `find -size`, these commands are heavy on the file system
   - Move important data not in current use to Allas
 
 # Cleaning and backing up data (2/3)
