@@ -1,19 +1,19 @@
 ---
 layout: default
-title: 9. Containers and Apptainer
+title: 10. Containers and Apptainer
 parent: Part 2
-nav_order: 2
+nav_order: 3
 has_children: true
 has_toc: false
 ---
 
-# 9. Containers and Apptainer
+# 10. Containers and Apptainer
 
-## [9.1 Slides](https://a3s.fi/CSC_training/09_singularity.html)
+## [10.1 Slides](https://a3s.fi/CSC_training/09_singularity.html)
 
-## [9.2 Video: Containers](https://video.csc.fi/media/t/0_0ws9ei53)
+## [10.2 Video: Containers](https://video.csc.fi/media/t/0_0ws9ei53)
 
-## 9.3 Tutorials and exercises
+## 10.3 Tutorials and exercises
 
 1. [Essential tutorial - Introduction to Apptainer]({{ site.baseurl }}{% link part-2/containers/apptainer-tutorial-part1.md %})
 2. [Tutorial - Apptainer introduction continued]({{ site.baseurl }}{% link part-2/containers/apptainer-tutorial-part2.md %})

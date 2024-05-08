@@ -3,16 +3,15 @@ layout: default
 title: Using Allas with bio data
 parent: 7. Allas
 grand_parent: Part 1
-nav_order: 4
+nav_order: 3
 has_children: false
 has_toc: false
 permalink: /hands-on/allas/allas-tutorial.html
 ---
 
-
 # Using Allas in CSC's HPC environment
 
- Before the actual exercise, open a view to the Allas service in your browser using the Puhti web interface.
+Before the actual exercise, open a view to the Allas service in your browser using the Puhti web interface.
 
 1. Go to <https://www.puhti.csc.fi> and login with your account.
 2. Configure an Allas S3 connection using the _Cloud storage configuration_ tool.

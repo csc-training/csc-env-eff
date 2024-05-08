@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Installing Python packages and environments
-parent: 8. Installing own software
+parent: 9. Installing own software
 grand_parent: Part 2
 nav_order: 2
 has_children: false
