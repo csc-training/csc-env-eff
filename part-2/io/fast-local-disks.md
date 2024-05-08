@@ -6,7 +6,7 @@ grand_parent: Part 2
 nav_order: 4
 has_children: false
 has_toc: false
-permalink: /hands-on/io/io-exercise-fastdisks.html
+permalink: /hands-on/data-io/io-exercise-fastdisks.html
 ---
 
 # How to run I/O intensive computing tasks efficiently?
