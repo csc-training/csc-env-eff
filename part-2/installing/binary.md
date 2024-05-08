@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Installing binary applications
-parent: 8. Installing own software
+parent: 9. Installing own software
 grand_parent: Part 2
 nav_order: 1
 has_children: false
