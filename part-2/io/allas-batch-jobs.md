@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Allas in batch jobs
-parent: 7. Allas
-grand_parent: Part 1
+parent: 8. Working efficiently with data
+grand_parent: Part 2
 nav_order: 3
 has_children: false
 has_toc: false

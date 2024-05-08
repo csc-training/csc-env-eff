@@ -1,3 +1,14 @@
+---
+layout: default
+title: Using Allas with local rclone
+parent: 8. Working efficiently with data
+grand_parent: Part 2
+nav_order: 4
+has_children: false
+has_toc: false
+permalink: /hands-on/disk-areas/disk-areas-exercise-fastdisks.html
+---
+
 # Using Allas with Rclone from your local computer.
 
 The graphical user interfaces of Allas can normally manage data transfers between Allas and your local computing environment as long as the amount of data and files is small. However if you need transfer large amounts of data, then using command lines tools like `rclone` or `allas-cli-utils` could be more effective way to use Allas.
@@ -12,7 +23,7 @@ If you  don’t  have  Rclone in you local machine, dowload rclone executable to
 
 Executables can  be found from:
 
-    [https://rclone.org/downloads/](https://rclone.org/downloads/)
+[https://rclone.org/downloads/](https://rclone.org/downloads/)
 
 In case of Windows , if you don’t know, which version to choose, try the Intel/AMD 64 bit version:
 
