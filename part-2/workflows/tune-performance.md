@@ -3,7 +3,7 @@ layout: default
 title: Application performance
 parent: 11. How to speed up jobs
 grand_parent: Part 2
-nav_order: 4
+nav_order: 5
 has_children: false
 has_toc: false
 permalink: /hands-on/throughput/tune_performance.html

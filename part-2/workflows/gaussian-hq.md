@@ -3,7 +3,7 @@ layout: default
 title: Running Gaussian with sbatch-hq
 parent: 11. How to speed up jobs
 grand_parent: Part 2
-nav_order: 3
+nav_order: 4
 has_children: false
 has_toc: false
 permalink: /hands-on/throughput/gaussian_hq.html

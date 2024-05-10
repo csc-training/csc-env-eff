@@ -1,3 +1,14 @@
+---
+layout: default
+title: Snakemake workflows on Puhti
+parent: 11. How to speed up jobs
+grand_parent: Part 2
+nav_order: 3
+has_children: false
+has_toc: false
+permalink: /hands-on/throughput/snakemake.html
+---
+
 # Running Snakemake Workflow at Scale on Puhti
 
 Snakemake workflow is one of the popular scientific workflow managers in the bioinformatics community. The workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a pre-installed module in Puhti supercomputing environment.
