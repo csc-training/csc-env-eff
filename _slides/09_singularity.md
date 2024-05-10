@@ -165,7 +165,7 @@ apptainer_wrapper exec myprog <options>
 # Building using a definition file
 
 - Provides transparency
-  - Everybody can see what comands were used to buils the container
+  - Everybody can see what comands were used to build the container
 - Definition files reusable
   - Updating the software typically only requires minor changes to the file
 - Can be a bit cumbersome if you have to try many things (e.g. installing missing libraries)  
