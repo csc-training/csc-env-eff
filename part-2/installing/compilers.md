@@ -106,7 +106,7 @@ to avoid stressing Lustre.
 ## Bonus: Fortran version
 
 1. Re-run the previous steps for a similar program written in Fortran instead
-of C++.
+of C++. You may download the source code from Allas:
 
    ```bash
    wget https://a3s.fi/CSC_training/laplacian.F90
@@ -115,8 +115,8 @@ of C++.
 1. Use `gfortran` compiler instead of `gcc`. The previous options are the same
    for both compilers.
 
-💭 How does the performance/results compare to the C++ code? Does `gfortran`
-deliver similar improvements as `gcc`?
+💭 How does the performance and results compare with the C++ code? Does
+`gfortran` deliver similar improvements as `gcc`?
 
 ## More information
 
