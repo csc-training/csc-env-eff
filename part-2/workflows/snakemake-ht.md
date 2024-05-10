@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Application performance
+title: High-throughput Snakemake workflows
 parent: 11. How to speed up jobs
 grand_parent: Part 2
 nav_order: 3
