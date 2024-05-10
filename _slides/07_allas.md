@@ -76,7 +76,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - **Puhti, Mahti, Linux servers, Mac:**
     - `rclone`, `swift`, `s3cmd`, `a-tools`
 - **Laptops (Windows, Mac):**
-    - [Cyberduck](https://cyberduck.io/), [FileZilla (pro)](https://filezilla-project.org/), [Pouta web interface](https://pouta.csc.fi), [Mahti web interface](https://mahti.csc.fi)
+    - [Cyberduck](https://cyberduck.io/), [FileZilla (pro)](https://filezilla-project.org/), [Puhti web interface](https://puhti.csc.fi), [Mahti web interface](https://mahti.csc.fi)
 - **Virtual machines, small servers:**
     - In addition to the tools above, you can use FUSE-based virtual mounts
 

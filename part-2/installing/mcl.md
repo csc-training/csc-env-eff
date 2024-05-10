@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Installing a simple C code from source
-parent: 8. Installing own software
+parent: 9. Installing own software
 grand_parent: Part 2
 nav_order: 4
 has_children: false

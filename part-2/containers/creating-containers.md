@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Creating Apptainer containers
-parent: 9. Containers and Apptainer
+parent: 10. Containers and Apptainer
 grand_parent: Part 2
 nav_order: 6
 has_children: false

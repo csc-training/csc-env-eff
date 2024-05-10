@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Processing many files with HyperQueue
-parent: 10. How to speed up jobs
+parent: 11. How to speed up jobs
 grand_parent: Part 2
 nav_order: 2
 has_children: false

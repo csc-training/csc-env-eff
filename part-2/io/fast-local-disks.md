@@ -1,17 +1,15 @@
 ---
 layout: default
 title: I/O intensive computing
-parent: 3. Disk areas
-grand_parent: Part 1
+parent: 8. Working efficiently with data
+grand_parent: Part 2
 nav_order: 4
 has_children: false
 has_toc: false
-permalink: /hands-on/disk-areas/disk-areas-exercise-fastdisks.html
+permalink: /hands-on/data-io/io-exercise-fastdisks.html
 ---
 
 # How to run I/O intensive computing tasks efficiently?
-
-💬 _This exercise requires usage of the batch queue system. Feel free to carry on or return to this after Topic 5._
 
 ## Background
 
@@ -70,7 +68,7 @@ unset XDG_RUNTIME_DIR                     # Get rid of some unnecessary warnings
 
 cd $LOCAL_SCRATCH
 pwd
-singularity pull --name trinity.simg docker://trinityrnaseq/trinityrnaseq
+apptainer pull --name trinity.simg docker://trinityrnaseq/trinityrnaseq
 mv trinity.simg /scratch/<project>/$USER/                                                            
 ```
 

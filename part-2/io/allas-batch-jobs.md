@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Allas in batch jobs
-parent: 7. Allas
-grand_parent: Part 1
-nav_order: 3
+title: Using Allas in batch jobs
+parent: 8. Working efficiently with data
+grand_parent: Part 2
+nav_order: 1
 has_children: false
 has_toc: false
-permalink: /hands-on/allas/tutorial_allas-in-batch-jobs.html
+permalink: /hands-on/data-io/tutorial_allas-in-batch-jobs.html
 ---
 
 
