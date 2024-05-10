@@ -2,7 +2,6 @@
 
 Snakemake workflow is one of the popular scientific workflows in the bioinformatics community. The workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment.
 
-
 ## Use Containers as Runtime Environment 
 
 One can use Singularity/Apptainer container as an alternative to native or Tykky container-based installations for better portability and reproducibility.  If you don't have a ready-made container image for your needs, you can build a Singularity/Apptainer image on Puhti using **--fakeroot** option.  
@@ -92,7 +91,7 @@ The default script provided above is not optimised run in high-throughput way as
 snakemake -s Snakefile --jobs 8 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --cpus 5"
 ``` 
 
-And then, please use correct project number in sbatch directives and submit the Snakemake workflow job as below:
+You can correct above modification in the batch script (and use your own project number in sbatch directives) before submitting the Snakemake workflow job as below:
 
 ```
 sbatch snakemake_hq_puhti.sh
@@ -101,10 +100,11 @@ sbatch snakemake_hq_puhti.sh
 
 One can also use more than one node to achieve even more high-throughput as HyperQueue can make use of multi-node resource allocations.
 
+💬 Please note that just by increasing the number jobs will not alone automatically run all those jobs. Jobs parameter is just a maximum limit for concurrent jobs. Jobs will be eventually run when resources are available. In our case we submitted 8 parallel jobs, each taking 5 CPUs as we reserved 40 CPUs in batch script. In practice it is a good idea to dedicate few CPUs for workflow manager itself. 
 
 ### Follow the progress of jobs
 
-You check already the progress of your job by simply observing the current folder where you can see lot of new task-specific folders are created. Additionally, there are formal ways to check the progress of your jobs.
+You can already check the progress of your job by simply observing the current folder where you can see lot of new task-specific folders are being created. However, there are formal ways to check the progress of your jobs.
 
 1. Monitor the status of submitted job
 
@@ -131,9 +131,9 @@ hq task info <hqjobid> <hqtaskid>
 
 ```
 
-### How do you clean different job folders automatically?
+### How do you clean different task-specific folders automatically?
 
-HyperQueue creates task-specific folders (job-`<n>`) in the same directory from where you have submitted batch script. There are sometimes useful for debugging. However if your code is working fine creation of such large number folders may be annoying besides causing some overhead to parallel file system like Lustre. You can prevent creating such task-specific folders by setting `stdout and stderr` flags to none as shown below:
+HyperQueue creates task-specific folders (i.e., job-`<n>`) in the same directory from where you have submitted batch script. These are sometimes useful for debugging. However if your code is working fine, the creation of such large number folders may be annoying besides causing some overhead to parallel file systems like Lustre. You can prevent creating such task-specific folders by setting `stdout and stderr` flags to `none` as shown below:
 
 ```bash
 snakemake -s Snakefile -j 24 --use-singularity --executor cluster-generic --cluster-generic-submit-cmd "hq submit --stdout=none --stderr=none --cpus 5 "
