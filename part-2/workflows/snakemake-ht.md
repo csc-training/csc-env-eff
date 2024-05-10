@@ -1,3 +1,14 @@
+---
+layout: default
+title: Application performance
+parent: 11. How to speed up jobs
+grand_parent: Part 2
+nav_order: 3
+has_children: false
+has_toc: false
+permalink: /hands-on/throughput/snakemake-ht.html
+---
+
 # Running Snakemake Workflow at Scale on Puhti
 
 Snakemake workflow is one of the popular scientific workflows in the bioinformatics community. The workflow manager enables scalable and reproducible scientific pipelines by chaining a series of rules in a fully-specified software environment. Snakemake software is available as a module in Puhti supercomputing environment.
@@ -6,7 +17,7 @@ Snakemake workflow is one of the popular scientific workflows in the bioinformat
 
 One can use Singularity/Apptainer container as an alternative to native or Tykky container-based installations for better portability and reproducibility.  If you don't have a ready-made container image for your needs, you can build a Singularity/Apptainer image on Puhti using **--fakeroot** option.  
 
-For the purpose of this tutorial a pre-built container image is provided to run snakemake workflow at scale.
+For the purpose of this tutorial a pre-built container image which has all the software stack needed is provided to run snakemake workflow at scale.
 
 ## Use HyperQueue Executor to Submit Jobs
 
@@ -102,7 +113,7 @@ One can also use more than one node to achieve even more high-throughput as Hype
 
 ### Follow the progress of jobs
 
-You can already check the progress of your job by simply observing the current folder where you can see lot of new task-specific folders are being created. However, there are formal ways to check the progress of your jobs.
+You can already check the progress of your job by simply observing the current folder where you can see lot of new task-specific folders are being created. However, there are formal ways to check the progress of your jobs as shown below:
 
 1. Monitor the status of submitted job
 
