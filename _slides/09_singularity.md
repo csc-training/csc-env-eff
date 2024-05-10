@@ -27,7 +27,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Containers
 
 - Containers are a way of packaging software and their dependencies (libraries, etc.)
-- Popular container engines include Docker, Apptainer (previously called Singularity), Shifter
+- Popular container engines include Docker, Apptainer (previously called Singularity), Shifter, Podman etc
 - Apptainer is most popular in HPC environments
 
 # Containers vs. virtual machines (1/2)
@@ -43,12 +43,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Benefits of containers: Ease of installation
 
 - Containers are becoming a popular way of distributing software
-  - A single-command installation
+  - A single-command installation from existing image
   - More portable since all dependencies are included
-  - Normal user rights are enough when using an existing container
-- Root access on build system is enough
-  - Root access, package managers (yum, apt, etc.) can be utilized even when not available on the target system.
-  - Makes installing libraries easier
+- Limited root privileges inside the container if the build system supports it
+  - Package managers (yum, apt, etc.) can be utilized even when not available on the target system.
+  - Some containers need full root access in to build
 
 # Benefits of containers: Environment isolation
 
@@ -66,12 +65,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Apptainer in a nutshell
 
 - Containers can be run with user-level rights
-  - But: building new containers requires root access
+  - But: building new containers requires root access or support for `--fakeroot` option
 - Minimal performance overhead
 - Supports MPI
   - Requires containers tailored to the host system
 - Can use host driver stack (Nvidia/CUDA)
-  - Add the option `--nv`
+  - Add option `--nv`
 - Can import and run Docker containers
   - Running Docker directly would require root privileges
 
@@ -119,7 +118,7 @@ export SING_IMAGE=/path/to/container.sif
 apptainer_wrapper exec myprog <options>
 ```
 
-- Since `$SING_IMAGE` is set, the image file name is not needed in the `apptainer_wrapper` command
+- Additional options can be set with variable `$SING_FLAGS`, e.g. `export SING_FLAGS=--nv`
 
 # Using Docker containers with Apptainer
 
@@ -139,31 +138,43 @@ apptainer_wrapper exec myprog <options>
   - Complex installations with many dependencies/files
   - Obsolete dependencies incompatible with the native environment
     - Still needs to be kernel-compatible
-- Should be considered even when other methods exist
+  - Image is a single file
 
 # Just a random example (FASTX-toolkit)
 
 - Tested installation methods:
   - Native: 47 files, total size 1.9 MB
+    - Needed changes to source code to compile
   - Conda: 27464 files, total size  1.1 GB
   - Apptainer: 1 file, total size 339 MB
-- Containers are not the solution for everything, but they do have their uses
-  - Especially Conda environments should always be containerized to avoid file system issues (see [Tykky](https://docs.csc.fi/computing/containers/tykky/))
 
-# Building a new Apptainer container (1/2)
+# Methods of building a new Apptainer container
 
-- ‼️ Requires root access: Can not be done directly on, e.g., Puhti
+- Building using [Tykky](https://docs.csc.fi/computing/containers/tykky/))
+- Building from a definition (aka recipe) file
+- Building in "sandbox" mode
 
-- 1. Build a basic container in sandbox mode (`--sandbox`)
-  - Uses a folder structure instead of an image file
-- 2. Open a shell in the container and install the software
-  - Depending on the base image system, package managers can be used to install libraries and dependencies (`apt install`,s `yum install` etc.)
-  - Installation following the instructions of the software developer
-  
-# Building a new Apptainer container (2/2)
+# Building using Tykky
 
-- 3. Build a production image from the sandbox
-- 4. (optional) Make a definition file and build a production image from it
-  - Mostly necessary if you wish to distribute your container
-  - Also helps with updating and reusing containers
-- The production image can be transferred to, e.g., Puhti and run with user-level rights
+- Especially suited for Conda environments
+  - Can take an environment YAML file as an input
+- Can be used for any application type
+  - Use `--post-install <file>`to run the installation commands
+  - See [example](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md)
+
+# Building using a definition file
+
+- Provides transparency
+  - Everybody can see what comands were used to buils the container
+- Definition files reusable
+  - Updating the software typically only requires minor changes to the file
+- Can be a bit cumbersome if you have to try many things (e.g. installing missing libraries)  
+
+# Building using sandbox mode
+
+- container created as a directory structure instead of an image file
+- Installation done interactively
+  - Easier to test different options
+- A production image needs to be built for general use
+- Resulting image is a "black box"
+  - No record left of installation commands used
