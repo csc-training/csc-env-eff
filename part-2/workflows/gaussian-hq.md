@@ -16,7 +16,9 @@ permalink: /hands-on/throughput/gaussian_hq.html
 - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
 - Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
-> Also, your account should belong to the [Gaussian users group](https://docs.csc.fi/apps/gaussian/#license).
+> This tutorial is **optional** as it requires that your account belongs to the
+Gaussian users group. See [Docs CSC](https://docs.csc.fi/apps/gaussian/#license)
+for details on how to get added.
 
 ## Overview
 
