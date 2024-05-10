@@ -44,6 +44,9 @@ consider it an illustrative example.
    cd /scratch/<project>/$USER/laplacian
    ```
 
+   ☝🏻 Own software should normally be installed under `/projappl`, but for the
+   sake of this exercise it is sufficient to use `/scratch`.
+
 2. Download the source code from Allas:
 
    ```bash
