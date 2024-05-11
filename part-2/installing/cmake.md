@@ -11,93 +11,149 @@ permalink: /hands-on/installing/installing_cmake.html
 
 # Installing using CMake
 
-💬 CMake is an extensible, open-source system that manages the build process in an operating system and in a compiler-independent manner.
+💬 CMake is an extensible, open-source software build system. CMake uses simple
+`CMakeLists.txt` configuration files placed in each source directory to 
+generate standard `Makefile` build files. CMake generates a native build 
+environment that will compile source code, create libraries, generate wrappers
+and build executable binaries in arbitrary combinations.
 
-💬 CMake uses simple configuration files placed in each source directory (called CMakeLists.txt files) to generate standard build files (e.g., Makefiles).
+## Preparations
 
-💬 CMake generates a native build environment that will compile source code, create libraries, generate wrappers and build executable binaries in arbitrary combinations. 
+💬 In this tutorial we'll use CMake to install a simple C++ Hello World
+application.
 
-💬 CMake supports in-place and out-of-place builds, and can therefore support multiple builds from a single source tree.
+1. It is recommended to use the fast local disk when compiling software on CSC
+   supercomputers to move I/O load away from the parallel file system. Go there
+   and download the source code from Allas:
 
-## Example: Installing a test C++ application
+   ```bash
+   cd $TMPDIR
+   wget https://a3s.fi/CSC_training/hello-cmake.tgz
+   ```
 
-💬 In this example we'll install an simple test C++ application `Hello World`.
+2. Extract the package and move into the `hello-cmake` directory:
 
-1. Create a personal folder (if not done already) under your project's `/projappl` directory and move there.
+   ```bash
+   tar xvf hello-cmake.tgz
+   cd hello-cmake
+   ```
 
-2. Download the application using git:
+3. Most codes ship with a `README` or `INSTALL` file outlining the installation
+   procedure. When compiling other codes, start by reading these carefully. In
+   this case, the `README` just points to this tutorial page.
+4. Before compiling, one should ensure all the dependencies needed by the
+   software are available. Remember to always first check whether these can be
+   found on the CSC supercomputers as pre-installed modules. This example
+   depends on the Boost library, so check if it is available:
 
-```bash
-git clone https://github.com/jameskbride/cmake-hello-world.git
-```
+   ```bash
+   module spider boost
+   ```
 
-{:style="counter-reset:step-counter 2"}
-3. Move into the folder `cmake-hello-world`. Run `cmake` command. Set the source directory (`-S`) and the build directory (`-B`). This will generate the `Makefile`:
+5. Load the module with:
 
-```bash
-cd cmake-hello-world
-cmake -S . -B build        # Here we create a build directory named `build`. If the build directory does not exist already, cmake creates it.
-```
+   ```bash
+   module load boost
+   ```
 
-{:style="counter-reset:step-counter 3"}
-4. Now invoke the build system
+## Building with CMake
 
-```bash
-cmake --build build
-```
+💡 When your build generates files, they have to go somewhere. An *in-source*
+build puts them in your source tree, while an *out-of-source* build puts them
+in a completely separate directory. The latter alternative, which is covered
+below, is typically recommended, as you can build multiple variants of the code
+in separate directories.
 
-💡 Some 'real world' applications are large and possibly require more resources for faster compilation. In these cases, use the `-j` flag to set the number of cores for compilation. *Please check the number of cores (CPUs) available for use in your system. E.g., In linux, you can find this using `lscpu` command.*
+1. Load the `cmake` module:
 
-```bash
-cmake --build build -j 8     # This will build the system using 8 cores.
-```
+   ```bash
+   module load cmake
+   ```
 
-{:style="counter-reset:step-counter 4"}
+2. Create and move to a `build` directory in the root of the source code:
 
-5. Check if the installation was successful:
+   ```bash
+   mkdir build
+   cd build
+   ```
 
-```bash
-$PWD/build/CMakeHelloWorld
-```
+3. It is recommended to install own software under the `/projappl` directory
+   of your project. The installation directory can be specified using the
+   CMake flag `-DCMAKE_INSTALL_PREFIX=<path to install dir>`. CMake also
+   requires you to specify the source code root directory, so run the `cmake`
+   command as:
 
-You should see the output `Hello, world!`
+   ```bash
+   cmake .. -DCMAKE_INSTALL_PREFIX=/projappl/<project>/$USER/hello-cmake  # replace <project> with your CSC project, e.g. project_2001234
+   ```
+4. If you get errors, try to fix the problems. For example, if you did not load
+   the `boost` module, you'll get an error `Could NOT find Boost`. Often it is
+   easiest to remove everything in the `build` directory and start from the
+   beginning after fixing all issues.
+5. After running `cmake`, run `make` to compile the application:
 
-💡 For 'real world' applications, the binary file is usually created in a default `bin` folder.
+   ```bash
+   make
+   ```
+   
+   💡 `make` can also be run in parallel. For example, to run using 8 cores,
+   use `make -j 8`. However, do not compile in parallel on the login node,
+   but use instead an interactive session. See CSC's
+   [usage policy](https://docs.csc.fi/computing/usage-policy/) for details.
 
-```bash
-$PWD/build/bin/application_binary_file
-```
+6. Finally, install into the specified directory under `/projappl` with:
 
-### Alternate method : Using make command
+   ```bash
+   make install
+   ```
 
-1. Move into the folder `cmake-hello-world` and create a build directory (`build`)
+7. Check what was installed and where:
 
+   ```bash
+   cat install_manifest.txt
+   ```
 
-```bash
-cd cmake-hello-world
-mkdir build
-```
+## Test the installed application
 
-{:style="counter-reset:step-counter 1"}
+1. Own software installations are not automatically to your `PATH`, which means
+   that the installed binaries (commands) cannot be used without specifying the
+   full path. To access the commands directly from anywhere, the directory
+   containing the binaries should be added to `PATH`:
 
-2. Move into the `build` folder and run cmake. Set the installation path to the current directory (`build`)
+   ```bash
+   export PATH="/projappl/<project>/$USER/hello-cmake/bin:$PATH"  # replace <project> with your CSC project, e.g. project_2001234
+   ```
 
-```bash
-cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=$PWD
-```
+2. Try to run the program by typing:
 
-{:style="counter-reset:step-counter 2"}
+   ```bash
+   hi
+   ```
 
-3. Now compile and install using the `make` command
+3. You probably got an error like:
 
-```bash
-make
-make install
-```
+   ```bash
+   hi: error while loading shared libraries: libhello.so: cannot open shared object file: No such file or directory
+   ```
+   
+4. This happens because the program depends on a library file `libhello.so` and
+   does not know where to look for it. This is a quite common issue with
+   self-installed software. To fix the situation, add the `lib` path to the
+   `LD_LIBRARY_PATH` environment variable:
 
-💡 For 'real world' applications, set the number of cores to be used for compilation using the `-j` flag.
+   ```bash
+   export LD_LIBRARY_PATH="/projappl/<project>/$USER/hello-cmake/bin:$LD_LIBRARY_PATH"  # replace <project> with your CSC project, e.g. project_2001234
+   ```
 
-```bash
-make -j 8     
-```
+5. Retry running the program, it should now work!
+
+## More information
+
+- Not all software use CMake build system. For an example how to build software
+  using the traditional configure-make procedure, see this tutorial.
+- If you get stuck when compiling your own software, don't hesitate to ask for
+  help from [CSC Service Desk](https://docs.csc.fi/support/contact/)
+- Documentation on how to compile on
+  [Puhti](https://docs.csc.fi/computing/compiling-puhti/),
+  [Mahti](https://docs.csc.fi/computing/compiling-mahti/) and
+  [LUMI](https://docs.lumi-supercomputer.eu/development/).
