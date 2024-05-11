@@ -11,9 +11,7 @@ permalink: /hands-on/singularity/singularity_extra_replicating-conda.html
 
 # Replicating a Conda environment in a container
 
-This is an extra exercise which can not be run on Puhti. You will need access to a computer or virtual machine where you have root privileges and that has Apptainer installed.
-
-On Puhti, you can use [Tykky](https://docs.csc.fi/computing/containers/tykky/) to easily containerize Conda environments. This method is recommended over the manual procedure detailed in this exercise, which is mainly provided for you to develop your skills in working with containers. For tutorials on using Tykky, see:
+On CSC supercomputers you can use [Tykky](https://docs.csc.fi/computing/containers/tykky/) to easily containerize Conda environments. This method is recommended over the manual procedure detailed in this exercise, which is mainly provided for you to develop your skills in working with containers. For tutorials on using Tykky, see:
 
 - [Containerizing a Conda environment with Tykky](https://csc-training.github.io/csc-env-eff/hands-on/installing/installing_hands-on_python.html#example-containerizing-a-conda-environment-with-tykky)
 - [Installing packages from Bioconda using Tykky](https://csc-training.github.io/csc-env-eff/hands-on/modules/module-exercise-with-aligners.html#extra-installing-packages-from-bioconda)
@@ -24,7 +22,7 @@ Conda is a useful tool for installing software with complex dependencies. It has
 
 The main problems of Conda environments are related to storage. Conda environments are quite large, containing tens to hundreds of thousands of files. Just 3-4 environments are enough to fill the basic quota of a project's `/projappl` directory. Moreover, many of these files will be accessed each time you launch a program installed with Conda, generating massive I/O load which may degrade the performance of the system for all users.
 
-Conda environments can also be somewhat sensitive to changes in the base system, meaning that, e.g., updates on Puhti can sometimes break existing Conda environments, necessitating a re-install.
+Conda environments can also be somewhat sensitive to changes in the base system, meaning that e.g. system updates can sometimes break existing Conda environments, necessitating a re-install.
 
 Using an Apptainer container can help with both problems. A container is just a single file that is typically smaller than the total size of the Conda environment directory. It is also less sensitive to changes in the host system.
 
@@ -58,7 +56,6 @@ In addition to the `environment.yml` file, you will need an Apptainer definition
 
 ```text
 Bootstrap: docker
-
 From: continuumio/miniconda3
 
 %files
@@ -82,7 +79,7 @@ From: continuumio/miniconda3
 Make sure the files `environment.yml` and `conda_environment.def` are in the current directory and give the command:
 
 ```bash
-sudo apptainer build fastx.sif conda_environment.def
+apptainer build --fakeroot fastx.sif conda_environment.def
 ```
 
 This will build an Apptainer image file called `fastx.sif`. We can now verify that it works:
@@ -91,35 +88,3 @@ This will build an Apptainer image file called `fastx.sif`. We can now verify th
 apptainer exec fastx.sif fastq_to_fasta -h
 ```
 
-The image file could now be transferred to and used on Puhti.
-
-## Comparison of installation methods
-
-This particular environment was chosen because it is a good "bad example" of the effects different installation methods can have.
-
-The software package is a collection of applications written in C++ with only a few dependencies. Usually, similar packages are best installed natively. In this case, however, the code is quite old, and it will not compile with modern versions of `gcc` without some changes to the source code.
-
-The software is available in the Bioconda repository, so it can also be installed with:
-
-```bash
-conda install fastx_toolkit
-```
-
-- Good: Can be done with user privileges
-- Bad: Using this method, you will end up with a directory with a total size of about 1 GB and over 26000 files. The default file number limit for `/projappl` is 100000 files, so this single installation would already use more than 25 % of that.
-
-Containerizing the Conda environment like we did in this exercise is better:
-
-- Good: We ended up with a single 465 MB file. The default capacity limit of `/projappl` is 50 GB, so this installation would only use less than 1 % of the quota.
-- Good: Although containerization as outlined above cannot be done directly on Puhti, you can use Tykky to circumvent the need for root privileges (see the tutorials linked at the top).
-
-In this case there's also another good option – converting a ready-made Docker container:
-
-```bash
-apptainer build fastx.sif docker://biocontainers/fastx-toolkit:v0.0.14-6-deb_cv1
-```
-
-- Good: This can be done with user-level rights also on Puhti and you'll end up with a single 61 MB file.
-- Bad: Finding a ready, working container may take some time.
-
-Containers are not a "silver bullet" solution to all installation problems, but they are nonetheless a much more favorable alternative to direct Conda installations on HPC systems.

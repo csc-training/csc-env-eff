@@ -9,167 +9,117 @@ has_toc: false
 permalink: /hands-on/installing/compiler_options.html
 ---
 
-# Code performance based on compiler options
+# Compiling using optimizing compiler options
 
-Create a directory for the code. The recommended location is under the `/projappl` directory of your project:
+> This tutorial is done on **Puhti**, which requires that:
 
-```bash
-mkdir -p /projappl/<project>/laplacian    # replace <project> with your CSC project, e.g. project_2001234
-```
+- You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
-This exercise examines two different programming languages (`cpp` and `fortran`) and their corresponding compilers (`gcc` and `gfortran`). **Please choose one option (`cpp` or `fortran`) for the exercise**
+## Overview
 
-Create subdirectories for the programs.
+💭 Without any optimization options, a compiler tries to reduce the
+computational cost of compiling and to make debugging produce the expected
+results. Turning on optimization flags makes the compiler attempt to improve
+the performance and/or code size at the expense of compilation time and
+possibly the ability to debug the program.
 
-```bash
-mkdir -p /projappl/<project>/laplacian/cpp
+☝🏻 It is recommended to start with safe (basic) optimization, and then move up
+to intermediate, or even aggressive, while ensuring that results produced by
+the program remain correct and that the performance actually improves.
 
-## OR
+## Compare different optimization flags
 
-mkdir -p /projappl/<project>/laplacian/fortran
-```
+💬 This tutorial examines a simple C++ code that computes the Laplacian for a
+two-dimensional field. We'll use `gcc` to compile the code with different
+optimization options and observe how they affect performance. Understanding
+the details of the program is not important for completing this tutorial, just
+consider it an illustrative example.
 
-## Option 1 : CPP
+1. Create and enter a suitable scratch directory on Puhti (replace `<project>`
+   with your CSC project, e.g. `project_2001234`):
 
-1. Migrate to the `cpp` subdirectory and download the code from GitHub.
+   ```bash
+   mkdir -p /scratch/<project>/$USER/laplacian
+   cd /scratch/<project>/$USER/laplacian
+   ```
 
-```bash
-cd /projappl/<project>/laplacian/cpp
+   ☝🏻 Own software should normally be installed under `/projappl`, but for the
+   sake of this exercise it is sufficient to use `/scratch`.
 
-wget https://raw.githubusercontent.com/csc-training/node-level-optimization/master/math/solution/laplacian.cpp
-```
+2. Download the source code from Allas:
 
-2. Compile the code using gcc and the following options:
+   ```bash
+   wget https://a3s.fi/CSC_training/laplacian.cpp
+   ```
+
+3. To avoid causing unnecessary load on the login node, launch an interactive
+   session on a compute node:
+
+   ```bash
+   sinteractive --account <project> --time 00:15:00 --tmp 0  # replace <project> with your CSC project, e.g. project_2001234
+   ```
+
+4. First, compile the code using `gcc` without optimizing compiler options:
    
-**Note:** 
+   ```bash
+   gcc -fopenmp -o laplacian laplacian.cpp
+   ```
 
-**`-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
+   - `-o laplacian` instructs the compiler to name the executable output as
+     `laplacian`.
+   - `-fopenmp` flag is needed for this code since it uses OpenMP directives.
 
-### Exercise 
+5. Run the code as (should take about two minutes):
 
-1. Compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.
+   ```bash
+   ./laplacian
+   ```
 
-2. Compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.
+6. Recompile the code using safe (`-O2`), intermediate (`-O3`) and aggressive
+   (`-Ofast`) optimization options. For example:
 
-#### Options
+   ```bash
+   gcc -O2 -fopenmp laplacian.cpp -o laplacian_O2
+   ```
 
-- No compiler flags
+7. Re-run the program for each optimization level.
+   - How much does the performance improve in each case?
+   - Do the results remain the same for all optimization levels?
 
-```bash
-gcc -fopenmp laplacian.cpp -o laplacian_no_opt -ftime-report &> lap_no_opt.log  # &> redirects the terminal output to the file 'lap_no_opt.log'. This is optional.
+💡 In this case `-Ofast` increases code size by roughly 10% compared to using
+no optimization flags. Although the absolute difference for such a small code
+is insignificant (only about 2 KB), it is good to keep in mind that
+optimization may affect output program size. Similarly, more aggressive
+optimization typically increases compilation time and may worsen debugging
+experience.
 
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_no_opt &>> lap_no_opt.log   # &>> appends the terminal output to 'lap_no_opt.log'. This is optional.
-```
+☝🏻 Aggressive optimization may result in programs producing less precise or
+even incorrect results. Please be aware of this and thoroughly benchmark your
+code when using aggressively optimizing compiler flags.
 
-- flag `O2`
+💡 As the example code here is so small, it is not necessary to compile on the
+fast local disk to move I/O load away from the shared file system. However,
+when building a larger, more realistic software package, please use `$TMPDIR`
+to avoid stressing Lustre.
 
-```bash
-gcc -fopenmp -O2 laplacian.cpp -o laplacian_opt_O2 -ftime-report &> lap_opt_O2.log
+## Bonus: Fortran version
 
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O2 &>> lap_opt_O2.log
-```
+1. Re-run the previous steps for a similar program written in Fortran instead
+of C++. You may download the source code from Allas:
 
-- flag `O3`
+   ```bash
+   wget https://a3s.fi/CSC_training/laplacian.F90
+   ```
 
-```bash
-gcc -fopenmp -O3 laplacian.cpp -o laplacian_opt_O3 -ftime-report &> lap_opt_O3.log
+1. Use `gfortran` compiler instead of `gcc`. The previous options are the same
+   for both compilers.
 
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O3 &>> lap_opt_O3.log
-```
+💭 How does the performance and results compare with the C++ code? Does
+`gfortran` deliver similar improvements as `gcc`?
 
-- flag `Os`
+## More information
 
-```bash
-gcc -fopenmp -Os laplacian.cpp -o laplacian_opt_Os -ftime-report &> lap_opt_Os.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Os &>> lap_opt_Os.log
-```
-
-- flag `Og`
-
-```bash
-gcc -fopenmp -Og laplacian.cpp -o laplacian_opt_Og -ftime-report &> lap_opt_Og.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Og &>> lap_opt_Og.log
-```
-
-- flag `Ofast`
-
-```bash
-gcc -fopenmp -Ofast laplacian.cpp -o laplacian_opt_Ofast -ftime-report &> lap_opt_Ofast.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Ofast &>> lap_opt_Ofast.log
-```
-
-
-## Option 2 : Fortran
-
-1. Migrate to the `fortran` subdirectory and download the code from GitHub.
-
-```bash
-cd /projappl/<project>/laplacian/fortran
-
-wget https://raw.githubusercontent.com/csc-training/node-level-optimization/master/math/solution/laplacian.F90
-```
-
-2. Compile the code using gfortran and the following options:
-   
-**Note:** 
-
-**`-fopenmp` flag is needed for compiling the code. Do not forget to add it.**
-
-### Exercise 
-
-1. Compare how the compilation statistics (`usr` and `GGC`) varies with the choice of compiler flag.
-
-2. Compare also how the time taken for execution (during `srun`) varies with the choice of compiler flag.
-
-#### Options
-
-- No compiler flags
-
-```bash
-gfortran -fopenmp laplacian.F90 -o laplacian_no_opt.out -ftime-report &> lap_no_opt.log  
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_no_opt.out &>> lap_no_opt.log  
-```
-
-- flag `O2`
-
-```bash
-gfortran -fopenmp -O2 laplacian.F90 -o laplacian_opt_O2.out -ftime-report &> lap_opt_O2.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O2.out &>> lap_opt_O2.log
-```
-
-- flag `O3`
-
-```bash
-gfortran -fopenmp -O3 laplacian.F90 -o laplacian_opt_O3.out -ftime-report &> lap_opt_O3.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O3.out &>> lap_opt_O3.log
-```
-
-- flag `O5`
-
-```bash
-gfortran -fopenmp -O5 laplacian.F90 -o laplacian_opt_O5.out -ftime-report &> lap_opt_O5.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_O5.out &>> lap_opt_O5.log
-```
-
-- flag `Os`
-
-```bash
-gfortran -fopenmp -Os laplacian.F90 -o laplacian_opt_Os.out -ftime-report &> lap_opt_Os.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Os.out &>> lap_opt_Os.log
-```
-
-- flag `Og`
-
-```bash
-gfortran -fopenmp -Og laplacian.F90 -o laplacian_opt_Og.out -ftime-report &> lap_opt_Og.log
-
-srun --account <project> --partition small --time 00:05:00 --nodes 1 --ntasks-per-node 1 --cpus-per-task 1 ./laplacian_opt_Og.out &>> lap_opt_Og.log
-```
+- Docs CSC: [Compiling on Puhti](https://docs.csc.fi/computing/compiling-puhti/)
+- Docs CSC: [Compiling on Mahti](https://docs.csc.fi/computing/compiling-mahti/)
+- Docs LUMI: [Compiling on LUMI](https://docs.lumi-supercomputer.eu/development/)

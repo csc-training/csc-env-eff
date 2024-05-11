@@ -11,9 +11,11 @@ permalink: /hands-on/singularity/singularity_extra_creating-containers.html
 
 # Creating Apptainer containers
 
-This is an extra exercise which can not be run on Puhti. You will need access to a computer or virtual machine where you have root privileges and that has Apptainer (v1.1.x) installed.
-
 In this tutorial we will create an Apptainer container and install the same software as we installed in the tutorial ["Installing a simple C code from source"](https://csc-training.github.io/csc-env-eff/hands-on/installing/installing_hands-on_mcl.html). Feel free to revisit that tutorial for more information on the installation commands.
+
+CSC supercomputers support the `fakeroot` feature of Apptainer, so it is possible to build
+container images without root privileges. There are some limitations, so it is possible to run into problems, especially when using package managers. In these cases it is necessary to either use an
+alternate installation method for the dependency, or build in system where you do have root privileges.
 
 We will only cover Apptainer basics here. Detailed instructions can be found in the [official Apptainer documentation](https://apptainer.org/docs/user/latest/quick_start.html).
 
@@ -34,25 +36,41 @@ MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearc
 Include: yum
 ```
 
+By default Apptainer uses the home directory for cached files. As the home directory is quite
+small and easily fills up, it is recommended to use some other directory. For example to use
+$TMPDIR (make sure it is defined) set:
+
+```bash
+export APPTAINER_CACHEDIR=$TMPDIR
+```
+
+You can clean the cache with command:
+
+```bash
+apptainer cache clean
+```
+
 Using this definition file, build the container:
 
 ```bash
-sudo apptainer build --sandbox mcl centos.def
+apptainer build --fakeroot --sandbox mcl centos.def
 ```
 
 Note that instead of an image file, we created a directory called `mcl`. If you need to include some reference files etc., you can copy them to the correct subdirectory.
 
-We can now open a shell in the container. We need the container file system to be writable, so we include the option `--writable`:
+We can now open a shell in the container. We need the container file system to be writable, so we include the option `--writable`. We will also need to include `--fakeroot`:
 
 ```bash
-sudo apptainer shell --writable mcl
+apptainer shell --fakeroot --writable mcl
 ```
 
 The command prompt should now be `Apptainer>`
 
-If there is a need to make the container as small as possible, we should only install the dependencies we need. Usually the size is not that critical, so we may opt for ease of use.
+The base container images are typically very barebones and do not contain any compilers, 
+download tools etc, so those need to be installed. If there is a need to make the container as small as possible, we should only install the dependencies we need. Usually the size is not that critical, so we may opt for ease of use.
 
-In this case we will install the application group "Development Tools" that includes most of the components we need (C, C++, make), but also a lot of currently less important tools.
+In this case we will install the application group "Development Tools" that includes most of the components we need (C, C++, make), but also a lot of tools not needed in this example. We also
+install `wget` to download the source code.
 
 Notice that unlike on CSC supercomputers, we are able to use package management tools (in this case `yum`). This will often make installing libraries and other dependencies easier. Also notice that it is not necessary to use `sudo` inside the container.
 
@@ -107,13 +125,13 @@ We can now exit the container:
 exit
 ```
 
-In order to run the container without root privileges, build a production image from the sandbox:
+We can then build a production image from the sandbox:
 
 ```bash
-sudo apptainer build mcl.sif mcl
+apptainer build --fakeroot mcl.sif mcl
 ```
 
-We can now test it. Note that `sudo` is no longer needed:
+We can now test it:
 
 ```bash
 apptainer exec mcl.sif mcl --version
@@ -121,7 +139,7 @@ apptainer exec mcl.sif mcl --version
 
 ## Definition file
 
-The above method is applicable as is if you intend the container to be only used by you and your close collaborators. However, if you plan to distribute it wider, it's best to write a definition file for it. That way the other users can see what is in the container and they can, if they so choose, easily rebuild the production image.
+The above method is fine if you intend the container to be only used by you and your close collaborators. However, if you plan to distribute it wider, it's best to write a definition file for it. That way the other users can see what is in the container, and they can, if they so choose, easily rebuild the production image.
 
 A definition file will also make it easier to modify and reuse the container later. For example, software updates can often be done simply by modifying the version number in the definition file and rebuilding the image.
 
@@ -170,4 +188,10 @@ Include: yum
     exec /bin/bash "$@"
 ```
 
-In more complex cases, it often helpful to first build the image in the sandbox mode and make note of all the commands needed.
+You can now build the image:
+
+```bash
+apptainer build --fakeroot mcl.sif mcl.def
+```
+
+In more complex cases, it often helpful to first build the image in the sandbox mode and make note of all the commands needed. You can then write a definition file to replicate the necessary steps.
