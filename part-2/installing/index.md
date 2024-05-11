@@ -22,5 +22,4 @@ has_toc: false
 5. [Tutorial - Installing Perl applications and libraries]({{ site.baseurl }}{% link part-2/installing/perl.md %})
 6. [Tutorial - Installing Java applications]({{ site.baseurl }}{% link part-2/installing/java.md %})
 7. [Tutorial - Installing using CMake]({{ site.baseurl }}{%link part-2/installing/cmake.md %})
-8. [Exercise - Installing own C, C++ or Fortran programs]({{ site.baseurl }}{% link part-2/installing/hpc.md %})
-9. [Exercise - Optimizing compiler options]({{ site.baseurl }}{% link part-2/installing/compilers.md %})
+8. [Exercise - Optimizing compiler options]({{ site.baseurl }}{% link part-2/installing/compilers.md %})
