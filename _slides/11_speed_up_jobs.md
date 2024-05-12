@@ -16,12 +16,18 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
+# Outline
+
+- How to choose your software
+- Speeding up jobs through parallel programming
+- Benefits and pitfalls of workflows and high-throughput computing
+
 # The purpose of large computers
 
 - In principle, supercomputers are not much faster than laptops -- **they are simply bigger**
    - For fast computation, they utilize *parallelism* (and typically have special disk, memory and network solutions, too)
 - Parallelism simplified:
-   - You split a problem into smaller subtasks and solve them all simultaneously using hundreds of cores
+   - You split a problem into smaller subtasks and solve them all simultaneously using numerous cores
 
 # First steps for fast jobs (1/2)
 
@@ -61,8 +67,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # HPC parallel jobs
 
-- It is not only how your software is constructed and compiled that affects performance -- how it is parallelized and run are important factors, too!
-- **Recall:** a parallel job distributes the calculation over several cores in order to achieve a shorter wall-time
+- It is not just how your software is constructed and compiled that affects performance -- how it is parallelized and run are important factors, too!
+- **Recall:** a parallel job distributes the calculation over several cores in order to achieve a shorter wall-clock time
   - Example batch job scripts for [Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/), [Mahti](https://docs.csc.fi/computing/running/example-job-scripts-mahti/), [LUMI-C](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumic-job/) and [LUMI-G](https://docs.lumi-supercomputer.eu/runjobs/scheduled-jobs/lumig-job/)
   - **The best starting point:** [Software-specific batch scripts in Docs CSC](https://docs.csc.fi/apps/)
 
@@ -124,7 +130,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 ![](img/scaling.png){width=100%}
 </div>
 
-# Self study materials for OpenMP and MPI
+# Self-study materials for OpenMP and MPI
 
 - Abundance of tutorials available online, search for *e.g.* "MPI tutorial"
 - Check the exercise materials and model solutions from [CSC Summer School on HPC](https://github.com/csc-training/summerschool) (available on GitHub)
@@ -229,7 +235,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - E.g. [GROMACS multidir](https://docs.csc.fi/support/tutorials/gromacs-throughput/), [CP2K farming](https://docs.csc.fi/apps/cp2k/#high-throughput-computing-with-cp2k)
   - Also [Python](https://docs.csc.fi/apps/python/#python-parallel-jobs) and [R](https://docs.csc.fi/support/tutorials/parallel-r/) if you write your own code
 - External tools: Array jobs*, HyperQueue
-  - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/) are simply a Slurm feature for submitting many jobs from a single batch script -- **mind the usual limits** (<100 jobs, duration >30min)
+  - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/) are simply a Slurm feature for submitting many jobs from a single batch script -- **don't submit hundreds of short jobs!**
   - [HyperQueue](https://docs.csc.fi/apps/hyperqueue/) is a *meta-scheduler*, which allows you to pack many (non-MPI) jobs within a single job step (recommended!)
 
 # If you have lots of small jobs and/or files (2/2)
@@ -241,7 +247,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - Check the tool you're using, there may be different options for data storage
   - [Tar/untar and compress your datasets](https://docs.csc.fi/support/tutorials/env-guide/packing-and-compression-tools/), use [SquashFS](https://docs.csc.fi/computing/containers/run-existing/#mounting-datasets-with-squashfs) for read-only datasets and containers
   - Use local disks: [NVMe](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks) on Puhti, [ramdisk (`/dev/shm`)](https://docs.csc.fi/computing/disk/#compute-nodes-without-local-ssd-nvme-disks) on Mahti
-  - Remove intermediate files is possible
+  - Remove intermediate files if possible
 
 # Summary (1/2)
 
