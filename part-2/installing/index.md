@@ -11,8 +11,6 @@ has_toc: false
 
 ## [9.1 Slides](https://a3s.fi/CSC_training/08_installing.html)
 
-## [9.2 Video: Installing own software](https://video.csc.fi/media/t/0_anzwy1es)
-
 ## 9.3 Tutorials and exercises
 
 1. [Essential tutorial - Installing binary applications]({{ site.baseurl }}{% link part-2/installing/binary.md %})
