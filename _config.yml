@@ -33,3 +33,10 @@ just-the-docs:
     slides:
       nav_exclude: true
       search_exclude: true
+
+callouts:
+  note:
+    title: Note
+    color: blue
+  highlight:
+    color: yellow
