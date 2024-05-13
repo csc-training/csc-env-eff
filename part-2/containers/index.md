@@ -11,8 +11,6 @@ has_toc: false
 
 ## [10.1 Slides](https://a3s.fi/CSC_training/09_singularity.html)
 
-## [10.2 Video: Containers](https://video.csc.fi/media/t/0_0ws9ei53)
-
 ## 10.3 Tutorials and exercises
 
 1. [Essential tutorial - Introduction to Apptainer]({{ site.baseurl }}{% link part-2/containers/apptainer-tutorial-part1.md %})

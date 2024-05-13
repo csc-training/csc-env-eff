@@ -12,7 +12,7 @@ This topic is about installing your own software on the CSC servers.
 </div>
 <div class="column">
 <small>
-All materials (c) 2020-2023 by CSC – IT Center for Science Ltd.
+All materials (c) 2020-2024 by CSC – IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-ShareAlike** 4.0
 Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
@@ -60,6 +60,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - Can sometimes be complicated
   - If you run into problems, contact <servicedesk@csc.fi>
 
+# About compilers and profiling
+
+- A compiler is a special program that reads, analyses and translates a human-readable source code into a machine-readable object code
+- It performs 4 steps: Lexical analysis, syntactic and semantic analysis, optimization and output code generation
+- Compilers target specific operating systems and computer architectures and
+  are usually programming language-specific
+- **Code profiling**: Analysis of an application (memory, CPU, network utilized) to understand its performance
+  - Checking how much time is spent in different software routines is important to identify performance bottlenecks (don't optimize before this!)
+
 # Some general notes
 
 - No `sudo` available for users on the CSC supercomputers
@@ -71,14 +80,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Compile on the fast local disk (`$TMPDIR`) to avoid stressing Lustre
 - New software is not automatically added to `$PATH`
   - Include the full path or add with `export PATH="/path/to/my/sw:$PATH"`
-
-#  Compiler
-
-- A compiler is a special program that reads, analyses and translates a human readable source code into a machine readable object code.
-- It performs 4 steps: Lexical analysis, syntactic and semantic analysis, optimization and output code generation.
-- Compilers target specific operating systems and computer architectures. 
-- Compilers are usually programming language specific.
-- **Code profiling**: examines the application code to ensure it is optimized, resulting in high application performance. It analyzes the memory, CPU, and network utilized by each software component or routine. 
 
 # Installation methods: Native installations
 
@@ -119,7 +120,4 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - [Software installation on LUMI](https://docs.lumi-supercomputer.eu/software/)
 - Lots of information online
   - Try searching for any error messages you come across
-- More about compilers
-  - [General information](https://www.baeldung.com/cs/how-compilers-work)
-  - [Compiler Optimization](https://medium.com/nerd-for-tech/compiler-optimizations-boosting-code-performance-without-doing-much-95f1182a5757)
-  - [Compiler options](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)    
+  - [More about optimizing compiler options](https://gcc.gnu.org/onlinedocs/gcc/Optimize-Options.html)    
