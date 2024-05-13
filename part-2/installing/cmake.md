@@ -88,7 +88,7 @@ in separate directories.
    ```
 4. If you get errors, try to fix the problems. For example, if you did not load
    the `boost` module, you'll get an error `Could NOT find Boost`. Often it is
-   easiest to remove everything in the `build` directory and start from the
+   easiest to delete everything in the `build` directory and start from the
    beginning after fixing all issues.
 5. After running `cmake`, run `make` to compile the application:
 
@@ -115,10 +115,10 @@ in separate directories.
 
 ## Test the installed application
 
-1. Own software installations are not automatically to your `PATH`, which means
-   that the installed binaries (commands) cannot be used without specifying the
-   full path. To access the commands directly from anywhere, the directory
-   containing the binaries should be added to `PATH`:
+1. Own software installations are not automatically added to your `PATH`, which
+   means that the installed binaries (commands) cannot be used without
+   specifying the full path. To access the commands directly from anywhere, the
+   directory containing the binaries should be added to `PATH`:
 
    ```bash
    export PATH="/projappl/<project>/$USER/hello-cmake/bin:$PATH"  # replace <project> with your CSC project, e.g. project_2001234
