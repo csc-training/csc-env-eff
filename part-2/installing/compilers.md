@@ -3,7 +3,7 @@ layout: default
 title: Optimizing compiler options
 parent: 9. Installing own software
 grand_parent: Part 2
-nav_order: 7
+nav_order: 8
 has_children: false
 has_toc: false
 permalink: /hands-on/installing/compiler_options.html
@@ -12,9 +12,8 @@ permalink: /hands-on/installing/compiler_options.html
 # Compiling using optimizing compiler options
 
 > This tutorial is done on **Puhti**, which requires that:
-
-- You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
-- Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+  - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
+  - Your account belongs to a project [that has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 ## Overview
 
