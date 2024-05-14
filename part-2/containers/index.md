@@ -9,7 +9,7 @@ has_toc: false
 
 # 10. Containers and Apptainer
 
-## [10.1 Slides](https://a3s.fi/CSC_training/09_singularity.html)
+## [10.1 Slides](https://a3s.fi/CSC_training/10_singularity.html)
 
 ## 10.3 Tutorials and exercises
 
