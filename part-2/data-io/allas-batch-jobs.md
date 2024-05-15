@@ -21,10 +21,11 @@ hours.
 - In case of batch jobs, the situation is different, as it may take more than
   eight hours before the job even starts!
 
-1. To be able to use Allas in a batch job, run `allas-conf` again with the `-k`
-   option:
+1. To be able to use Allas in a batch job, load the Allas module and run
+   `allas-conf` again with the `-k` option:
 
    ```bash
+   module load allas
    allas-conf -k 
    ```
 
@@ -36,7 +37,7 @@ hours.
    ☝🏻 Note that if you mistype your password when using the `-k` option, you
    must use the command `unset OS_PASSWORD` before you can try again.
 
-2. Refresh the connection with the command:
+3. Refresh the connection with the command:
 
    ```bash
    allas-conf -k <project>  # replace <project> with your CSC project, e.g. project_2001234
@@ -46,7 +47,7 @@ hours.
    `a-delete`) automatically refresh the Allas connection when the commands are
    executed in a batch job.
 
-3. Choose a file from Allas. The file should have text in it. You can use the
+4. Choose a file from Allas. The file should have text in it. You can use the
    one you created in
    [one of the earlier tutorials](../../part-1/allas/allas-usage.md),
    or then any other text file you have in Allas:
@@ -55,13 +56,13 @@ hours.
    a-list <project_number>_$USER  # replace <project_number> with your CSC project number, e.g. 2001234, to match the bucket you created earlier
    ```
 
-4. Create a new batch job script. First open a new text file with the command:
+5. Create a new batch job script. First open a new text file with the command:
 
    ```bash
    nano allas_job.sh
    ```
 
-5. **Option 1:** `a-commands`
+6. **Option 1:** `a-commands`
    1. Copy the batch job script below to the text file you are editing:
 
       ```bash
@@ -86,7 +87,7 @@ hours.
    and `<filename>` to the name of the file you have in Allas. Remember to also
    define your billing project (`--account`).
 
-6. **Option 2:** `rclone`  
+7. **Option 2:** `rclone`  
    
    ☝🏻 If you use `rclone` or `swift` instead of the `a-commands`, you need to
    add `source allas_conf` commands to your script.
@@ -120,13 +121,13 @@ hours.
    2. Replace `<project_number>_$USER` to match your bucket name and `<filename>`
    to the name of the file you have in Allas. Remember to also define your
    billing project (`--account`).
-7. Submit the batch job with the command:
+8. Submit the batch job with the command:
 
    ```bash
    sbatch allas_job.sh
    ```
 
-8.  Monitor the progress of your batch job:
+9.  Monitor the progress of your batch job:
 
     ```bash
     squeue -u $USER
