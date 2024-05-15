@@ -142,7 +142,7 @@ in separate directories.
    `LD_LIBRARY_PATH` environment variable:
 
    ```bash
-   export LD_LIBRARY_PATH="/projappl/<project>/$USER/hello-cmake/bin:$LD_LIBRARY_PATH"  # replace <project> with your CSC project, e.g. project_2001234
+   export LD_LIBRARY_PATH="/projappl/<project>/$USER/hello-cmake/lib:$LD_LIBRARY_PATH"  # replace <project> with your CSC project, e.g. project_2001234
    ```
 
 5. Retry running the program, it should now work!
