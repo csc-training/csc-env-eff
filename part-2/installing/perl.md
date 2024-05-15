@@ -3,7 +3,7 @@ layout: default
 title: Installing Perl applications and libraries
 parent: 9. Installing own software
 grand_parent: Part 2
-nav_order: 6
+nav_order: 5
 has_children: false
 has_toc: false
 permalink: /hands-on/installing/installing_hands-on_perl.html

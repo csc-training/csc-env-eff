@@ -3,7 +3,7 @@ layout: default
 title: Installing using CMake
 parent: 9. Installing own software
 grand_parent: Part 2
-nav_order: 5
+nav_order: 7
 has_children: false
 has_toc: false
 permalink: /hands-on/installing/installing_cmake.html
@@ -53,7 +53,7 @@ application.
 5. Load the module with:
 
    ```bash
-   module load boost
+   module load boost/1.79.0
    ```
 
 ## Building with CMake
@@ -146,6 +146,84 @@ in separate directories.
    ```
 
 5. Retry running the program, it should now work!
+
+## Bonus: Create your own module for the program
+
+💡 Users can create their own modules for self-installed applications. See the
+["Module system" section](../../part-1/modules/index.md) for more details about
+the CSC module system.
+
+💬 CSC uses the [Lmod](https://lmod.readthedocs.io/en/latest/) module system
+in which the Lua language is used to write modulefiles.
+
+1. Create a directory for your own modulefiles:
+
+   ```bash
+   mkdir -p /projappl/<project>/$USER/my-modules  # replace <project> with your CSC project, e.g. project_2001234
+   cd /projappl/<project>/$USER/my-modules        # replace <project> with your CSC project, e.g. project_2001234
+   ```
+
+2. In this directory, create a directory for the "Hello World" program and move
+   there:
+
+   ```bash
+   mkdir -p hello-cmake
+   cd hello-cmake
+   ```
+
+3. Let's assume this is version 0.0.1 of the "Hello World" program. Create a
+   file `0.0.1.lua` and paste the contents below to it (using e.g. `nano`).
+   Remember to change `<project>` and `<user>` to match your CSC project and
+   username:
+
+   ```lua
+   -- This is an example modulefile for hello-cmake module
+   -- Edit <project> and <user> below as needed to match the installation root directory
+   local root = '/projappl/<project>/<user>/hello-cmake'
+   local version = '0.0.1'
+
+   load('boost/1.79.0')
+   prepend_path('PATH', pathJoin(root, 'bin'))
+   prepend_path('LD_LIBRARY_PATH', pathJoin(root, 'lib'))
+
+   if (mode() == 'load') then
+      LmodMessage('Hello World version', version, 'loaded.')
+   end
+   ```
+
+4. The example highlights a few Lmod/Lua features:
+   - Comments are specified with `--`.
+   - `local` is used to declare local variables, in this case for the version
+     number and installation path.
+   - `load()` is used to load modules the program depends on.
+   - `PATH` and `LD_LIBRARY_PATH` are modified using `prepend_path()`, and
+     `pathJoin()` function is used together with `root` variable to compose the
+     full paths to the `bin` and `lib` directories.
+   - A message is printed to the standard output when the module is loaded
+     using an `if` clause and `LmodMessage`.
+5. To make your own modules available you need to modify your `MODULEPATH`
+   variable. This can be done by hand or using `module use <path>` command, and
+   is required each time you start a new shell session:
+
+   ```bash
+   module use /projappl/<project>/$USER/my-modules                     # replace <project> with your CSC project, e.g. project_2001234
+   # or
+   export MODULEPATH=/projappl/<project>/$USER/my-modules:$MODULEPATH  # replace <project> with your CSC project, e.g. project_2001234
+   ```
+
+6. Now that the module system knows where to search for your own modules, you
+   can check if the module you created is available:
+
+   ```bash
+   module avail hello-cmake
+   ```
+
+7. Load the module and check if you can run `hi` command:
+
+   ```bash
+   module load hello-cmake/0.0.1
+   hi
+   ```
 
 ## More information
 
