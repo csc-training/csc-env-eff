@@ -215,13 +215,13 @@ in which the Lua language is used to write modulefiles.
    can check if the module you created is available:
 
    ```bash
-   module avail hello
+   module avail hello-cmake
    ```
 
 7. Load the module and check if you can run `hi` command:
 
    ```bash
-   module load hello/0.0.1
+   module load hello-cmake/0.0.1
    hi
    ```
 
