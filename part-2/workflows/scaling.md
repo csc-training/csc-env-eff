@@ -67,6 +67,7 @@ speeds up.
    #SBATCH --cpus-per-task=<N>   # Replace <N> with appropriate number of threads
    #SBATCH --time=00:05:00
 
+   export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
    srun md --particles=500 --steps=5000
    ```
 
