@@ -43,5 +43,5 @@ callouts:
 
 # Matomo configuration
 matomo:
-  url: docs-design-matomo.rahtiapp.fi
+  url: mwa-acf.2.rahtiapp.fi
   site_id: 4
