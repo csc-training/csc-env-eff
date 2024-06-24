@@ -40,3 +40,8 @@ callouts:
     color: blue
   highlight:
     color: yellow
+
+# Matomo configuration
+matomo:
+  url: docs-design-matomo.rahtiapp.fi
+  site_id: 4
