@@ -16,7 +16,7 @@ Welcome! This website contains materials for the *CSC Computing Environment*
 
 ## Guidelines
 
-1.  The course is divided into two parts and the material is organized by topics of increasing complexity -- feel free to jump to Part 2 if you know the basics already!
+1.  The course is divided into two parts and the material is organized by topics of increasing complexity -- Feel free to jump to Part 2 if you know the basics already!
 2.  If you're completely new to CSC and working on a command-line, start by going through the Prerequisites.
 3.  In each topic, first read the slides / watch the video.
 4.  Complete the tutorial(s) to make sure you’ve got the steps right.
