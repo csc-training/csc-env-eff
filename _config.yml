@@ -40,3 +40,8 @@ callouts:
     color: blue
   highlight:
     color: yellow
+
+# Matomo configuration
+matomo:
+  url: mwa-acf.2.rahtiapp.fi
+  site_id: 4
