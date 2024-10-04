@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Using SSH keys
-parent: 1. Prerequisites
-grand_parent: Part 1
-nav_order: 5
+parent: 1. Getting access
+grand_parent: Prerequisites
+nav_order: 3
 permalink: /hands-on/connecting/ssh-keys.html
 ---
 
