@@ -72,11 +72,11 @@ syntax is `--bind /path/inside/host:/path/inside/container`.
    💡 You can use `--bind` to set the container, for example, to find input
    data or configuration files from a certain directory.
 
-6. Bind a host directory in `/scratch` to a directory called `/input` indide
+6. Bind a host directory in `/projappl` to a directory called `/config` indide
 the container:
 
    ```bash
-   apptainer exec --bind /scratch/<project>:/input tutorial.sif ls /input # replace <project> with your CSC project, e.g. project_2001234
+   apptainer exec --bind /projappl/<project>:/config tutorial.sif ls /config # replace <project> with your CSC project, e.g. project_2001234
    ```
 
 ### Using the `apptainer_wrapper` script
@@ -151,9 +151,9 @@ name) on the host before invoking the container.
      `$TEST2` has not been set on host. It was `APPTAINERENV_TEST2="value2"`,
      remember?
 
-4. If you need to pass environment variables to a container, in most cases it 
+4. If you need to pass environment variables to a container, in most cases it is
    easiest just to set them on host. If this is not possible, you need to make
-   sure thay variable names instead of their values are passed on to the 
+   sure that variable names instead of their values are passed on to the 
    container, e.g:
 
    ```bash
