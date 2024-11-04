@@ -42,48 +42,54 @@ syntax is `--bind /path/inside/host:/path/inside/container`.
    sinteractive --account <project>  # replace <project> with your CSC project, e.g. project_2001234
    ```
 
-2. Try listing the contents of your project directory (edit the path as needed)
+2. Try listing the contents of your project's `/projappl` directory (edit the path as needed)
    from inside the container without `--bind`:
 
    ```bash
-   export SCRATCH=/scratch/<project>/$USER  # replace <project> with your CSC project, e.g. project_2001234
-   apptainer exec tutorial.sif ls $SCRATCH
+   apptainer exec tutorial.sif ls /projappl/<project> # replace <project> with your CSC project, e.g. project_2001234
    ```
 
 3. The container cannot see the host directory, so you will get a
    `No such file or directory` error.
-4. Try binding the host directory `/scratch` to the directory `/scratch` inside
+
+4. Try binding the host directory `/projappl` to the directory `/projappl` inside
    the container:
 
    ```bash
-   apptainer exec --bind $SCRATCH:/scratch tutorial.sif ls /scratch
-   # or
-   apptainer exec --bind /scratch:/scratch tutorial.sif ls $SCRATCH
+   apptainer exec --bind /projappl:/projappl tutorial.sif ls /projappl/<project> # replace <project> with your CSC project, e.g. project_2001234
    ```
 
 5. This time, the host directory is linked to the container directory and the
-   command shows what the container sees inside `/scratch`.
+   command shows what the container sees inside `/projappl`.
+
+   If the path is same in both host and container, you can simplify the
+   command a bit. This does the same as the above command:
+
+   ```bash
+   apptainer exec --bind /projappl tutorial.sif ls /projappl/<project> # replace <project> with your CSC project, e.g. project_2001234 
+   ```
 
    💡 You can use `--bind` to set the container, for example, to find input
    data or configuration files from a certain directory.
 
-6. Bind the host directory specified in `$SCRATCH` to a directory called
-   `/input`:
+6. Bind a host directory in `/projappl` to a directory called `/config` indide
+the container:
 
    ```bash
-   apptainer exec --bind $SCRATCH:/input tutorial.sif ls /input
+   apptainer exec --bind /projappl/<project>:/config tutorial.sif ls /config # replace <project> with your CSC project, e.g. project_2001234
    ```
 
 ### Using the `apptainer_wrapper` script
 
 1. If you use the wrapper script `apptainer_wrapper`, it will automatically
    take care of the most common bind use cases.
+
 2. You just need to set a `$SING_IMAGE` environment variable to point to the
    correct Apptainer image file:
 
    ```bash
    export SING_IMAGE=$PWD/tutorial.sif
-   apptainer_wrapper exec ls $SCRATCH
+   apptainer_wrapper exec ls /projappl/<project> # replace <project> with your CSC project, e.g. project_2001234
    ```
 
    💡 Note that the image file name is not needed in the `apptainer_wrapper`
@@ -123,6 +129,7 @@ name) on the host before invoking the container.
    apptainer exec --cleanenv tutorial.sif env | grep TEST
    ```
 
+   - Command `env` lists all set environment variables.
    - The first command is run on the host and we see `$TEST1` and
      `$APPTAINERENV_TEST2`.
    - The second command is run inside the container and we see `$TEST1`
@@ -131,7 +138,7 @@ name) on the host before invoking the container.
    - The third command is also run inside the container, but this time we
      omitted the host environment variables so we only see `$TEST2`.
 
-1. Note that any command-line variables on the host are substituted by their
+3. Note that any command-line variables on the host are substituted by their
    values when passed to the container:
 
    ```bash
@@ -143,6 +150,20 @@ name) on the host before invoking the container.
    - The second line results in an empty output because a variable called
      `$TEST2` has not been set on host. It was `APPTAINERENV_TEST2="value2"`,
      remember?
+
+4. If you need to pass environment variables to a container, in most cases it is
+   easiest just to set them on host. If this is not possible, you need to make
+   sure that variable names instead of their values are passed on to the 
+   container, e.g:
+
+   ```bash
+   apptainer exec tutorial.sif bash -c 'echo $TEST2'   
+   ```
+
+  In this example we run `bash` shell inside the container and user the `-c` 
+  option to give commands to run as a string. Since the string is encased in 
+  single quotes, any variables are passed literally instead of being 
+  substituted for their values.
 
 ## Exploring containers
 
