@@ -92,7 +92,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Using Allas in batch jobs
 
-- Swift (all projects, 8-hour) *vs*. S3 protocol (fixed for a project, persistent)
+- Command-line interface: use either Swift or S3 protocol
+   - Swift (multiple projects, 8-hour) *vs*. S3 protocol (fixed for a project, persistent)
 - `allas-conf` needs setting up CSC password interactively
    - Jobs may start late and actual job may take longer than 8 hrs
 - Use `allas-conf -k`
@@ -113,7 +114,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - `rclone` with endpoint `s3allas:`
    - `a-put`/`a-get` with `-S` flag
 
-# How to use LUMI-O from Puhti/Mahti
+# How to use LUMI-O from Puhti/Mahti ?
 
 - LUMI-O is very similar to Allas, but it uses only S3 protocol
 - In Puhti and Mahti, connection to LUMI-O can be opened with command:
@@ -137,24 +138,18 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Moving data between IDA and Allas 
 
 - Needs transfer of data *via* supercomputer (e.g., Puhti)
-- First, [configure IDA in CSC supercomputers](https://docs.csc.fi/data/ida/using_ida/). For example:
-
-```bash
-module load ida
-ida_configure
-ida upload /test123/data1 test_data
-ida download /project1 project1_data.zip
-```
-
-- Then, move data between Puhti and Allas
+- Requires [configuring IDA in CSC supercomputers](https://docs.csc.fi/data/ida/using_ida/).
+   - Load IDA module: `module load ida`
+   - Configure IDA database: `ida_configure`
+   - Upload data to IDA: `ida upload <target_in_ida> <local_file>`
+   - Download data from IDA: `ida download <target_in_ida> <local_file>` 
 
 # Transferring data for sensitive data computing
 
 - CSC sensitive data services: SD Connect and SD Desktop, use service-specific encryption
 - SD Desktop is able to read encrypted data from Allas
-   - If you want to make your data available in SD Desktop, you need to encrypt the data with the *CSC public key* before data is uploaded to Allas
+   - If you want to make your data available in SD Desktop, you need to use *SD Connect* to upload data to Allas
    - Use `a-put` with option `--sdx` or command `a-encrypt` to make your Allas data compatible with SD Desktop
-   - Upcoming version of SD Connect will change the situation, but new server will be compatible with previously uploaded data as well
 
 # Questions that users should consider
 
