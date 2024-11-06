@@ -19,10 +19,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Outline
 
 - Efficient file I/O in HPC systems
-- Using Allas in batch scripts 
+- Using Allas in batch scripts
 - Moving data to/from Allas, IDA and LUMI-O
 - Transferring data in sensitive data computing
-- Cleaning and backing up data 
+- Cleaning and backing up data
 - Working with remote mounts
 
 # Parallel file systems
@@ -101,7 +101,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
      - a-tools regenerate a token using `$OS_PASSWORD` automatically
      - `rclone` requires explicitly setting environment variable in batch jobs:
       ```bash
-      source /appl/opt/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+      source /appl/opt/csc-cli-utils/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
       ```
 
 # Configuring Allas for S3 protocol
@@ -114,7 +114,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - `rclone` with endpoint `s3allas:`
    - `a-put`/`a-get` with `-S` flag
 
-# How to use LUMI-O from Puhti/Mahti ?
+# How to use LUMI-O from Puhti/Mahti?
 
 - LUMI-O is very similar to Allas, but it uses only S3 protocol
 - In Puhti and Mahti, connection to LUMI-O can be opened with command:
@@ -126,23 +126,22 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - e.g., `a-list --lumi`
 - Docs CSC: [Using Allas and LUMI-O from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
 
-
-# Moving data between LUMI-O and Allas 
+# Moving data between LUMI-O and Allas
 
 - Requires activating connections to both LUMI-O and Allas at the same time:
-    - `allas-conf --mode s3cmd` 
+    - `allas-conf --mode s3cmd`
     - `allas-conf --lumi`
 - Use `rclone` with `s3allas:` as endpoint for Allas and `lumi-o`: for LUMI-O
     - `rclone copy -P lumi-o:lumi-bucket/object s3allas:allas-bucket/`
 
-# Moving data between IDA and Allas 
+# Moving data between IDA and Allas
 
 - Needs transfer of data *via* supercomputer (e.g., Puhti)
 - Requires [configuring IDA in CSC supercomputers](https://docs.csc.fi/data/ida/using_ida/).
    - Load IDA module: `module load ida`
    - Configure IDA database: `ida_configure`
    - Upload data to IDA: `ida upload <target_in_ida> <local_file>`
-   - Download data from IDA: `ida download <target_in_ida> <local_file>` 
+   - Download data from IDA: `ida download <target_in_ida> <local_file>`
 
 # Transferring data for sensitive data computing
 
@@ -150,15 +149,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - SD Desktop is able to read encrypted data from Allas
    - If you want to make your data available in SD Desktop, you need to use *SD Connect* to upload data to Allas
    - Use `a-put` with option `--sdx` or command `a-encrypt` to make your Allas data compatible with SD Desktop
-
-# Questions that users should consider
-
-- Should I store each file as a separate object, or should I collect them into bigger chunks? 
-   - In general: consider how you use the data
-- Should I use compression?
-- Who can use the data: projects and access rights?
-- What will happen to my data later on?
-- How to keep track of all the data I have in Allas?
 
 # Cleaning and backing up data (1/3)
 
@@ -181,9 +171,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - Based on hashes and requires more computing
   - Efficient way to store different versions of a dataset
 
-# Cleaning and backing up data (3/3) 
+# Cleaning and backing up data (3/3)
 
-- Please note that Allas is intended for storing *active data* 
+- Please note that Allas is intended for storing *active data*
 - Project lifetime is usually 1-5 years
 - Commands for backing up data:
    - `allas-backup --help`
@@ -196,5 +186,5 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Using `sshfs` command in Linux/MacOS:
    - `mkdir csc_home`
    - `sshfs <username>@puhti.csc.fi:/users/<username> csc_home`
-- To unmount the file system, give the command: 
+- To unmount the file system, give the command:
    - `fusermount -u csc_home`
