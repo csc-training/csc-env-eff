@@ -1,8 +1,8 @@
 ---
 layout: default
 title: CSC account and project
-parent: 1. Prerequisites
-grand_parent: Part 1
+parent: 1. Getting access
+grand_parent: Prerequisites
 nav_order: 1
 permalink: /hands-on/connecting/credentials.html
 ---
