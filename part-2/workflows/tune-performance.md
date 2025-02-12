@@ -154,8 +154,8 @@ observation?
 Note: if you plan to apply for study credits for this course, prepare a report
 including the tables above and discussion on all questions with the 💭 symbol
 and (upload the report and) present it with the course certificate to the local
-authority granting credits. CSC cannot grant credits but for carefully and
-correct reports we recommend granting them.
+authority granting credits. CSC cannot grant credits but for carefully prepared
+and correct reports we recommend granting them.
 
 
 ## More information
