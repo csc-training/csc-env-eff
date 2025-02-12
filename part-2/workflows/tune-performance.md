@@ -82,12 +82,12 @@ example simulation.
    Calculate the speedup by dividing the previous elapsed time with the elapsed
    time obtained using twice as many nodes:
 
-   | Number of nodes | Elapsed time (s) | Speedup                         |
-   |:---------------:|:----------------:|:-------------------------------:|
-   |1                |                  | -                               |
-   |2                |                  | *t*<sub>1</sub>/*t*<sub>2</sub> |
-   |4                |                  | *t*<sub>2</sub>/*t*<sub>4</sub> |
-   |8                |                  | *t*<sub>4</sub>/*t*<sub>8</sub> |
+   | Number of nodes | Elapsed time (s) | Speedup                         | SLURM JobID     |
+   |:---------------:|:----------------:|:-------------------------------:|:---------------:|
+   |1                |                  | -                               |                 |
+   |2                |                  | *t*<sub>1</sub>/*t*<sub>2</sub> |                 |
+   |4                |                  | *t*<sub>2</sub>/*t*<sub>4</sub> |                 |
+   |8                |                  | *t*<sub>4</sub>/*t*<sub>8</sub> |                 |
 
 ☝🏻 Remember that the speedup should be *at least* 1.5x when you double the
 number of cores! This is important to ensure that the CPU resources are used
@@ -136,13 +136,13 @@ environment variable to be equal to the number of threads per task.
 
 3. Complete the table below:
 
-   | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) | Memory utilized (GB) |
-   |:-------------------:|:-----------------------:|:----------------:|:--------------------:|
-   |128                  |                         |                  |                      |
-   |64                   |                         |                  |                      |
-   |32                   |                         |                  |                      |
-   |16                   |                         |                  |                      |
-   |8                    |                         |                  |                      |
+   | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) | Memory utilized (GB) | SLURM JobID |
+   |:-------------------:|:-----------------------:|:----------------:|:--------------------:|:-----------:|
+   |128                  |                         |                  |                      |             |
+   |64                   |                         |                  |                      |             |
+   |32                   |                         |                  |                      |             |
+   |16                   |                         |                  |                      |             |
+   |8                    |                         |                  |                      |             |
 
 💭 Were you able to run the calculation faster by launching multiple OpenMP
 threads per MPI task? What is the optimum ratio?
@@ -150,6 +150,13 @@ threads per MPI task? What is the optimum ratio?
 💭 How does the memory usage vary when you increase the number of threads per
 task? Use the `seff` command to check. Can you explain the reason for your
 observation?
+
+Note: if you plan to apply for study credits for this course, prepare a report
+including the tables above and discussion on all questions with the 💭 symbol
+and (upload the report and) present it with the course certificate to the local
+authority granting credits. CSC cannot grant credits but for carefully and
+correct reports we recommend granting them.
+
 
 ## More information
 
