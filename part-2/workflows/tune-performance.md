@@ -93,8 +93,8 @@ example simulation.
 number of cores! This is important to ensure that the CPU resources are used
 efficiently.
 
-💭 To how many nodes is the job able to scale up to efficiently? Using that
-node count, proceed to the next part!
+💭 To how many nodes is the job able to scale up to efficiently? **Using that
+node count, proceed to the next part!**
 
 ## Assess optimal thread–task balance
 
