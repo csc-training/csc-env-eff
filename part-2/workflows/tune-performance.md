@@ -75,14 +75,14 @@ example simulation.
    check how many seconds it took to run the simulation:
 
    ```bash
-   grep "CP2K " slurm-<jobid>.out | awk '{print $7}'
+   grep "CP2K  " slurm-<jobid>.out | awk '{print $7}'
    ```
 
 4. Repeat the job for the number of nodes listed below and complete the table!
    Calculate the speedup by dividing the previous elapsed time with the elapsed
    time obtained using twice as many nodes:
 
-   | Number of nodes | Elapsed time (s) | Speedup                         | SLURM JobID     |
+   | Number of nodes | Elapsed time (s) | Speedup                         | Slurm job ID    |
    |:---------------:|:----------------:|:-------------------------------:|:---------------:|
    |1                |                  | -                               |                 |
    |2                |                  | *t*<sub>1</sub>/*t*<sub>2</sub> |                 |
