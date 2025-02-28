@@ -115,7 +115,7 @@ environment variable to be equal to the number of threads per task.
    #!/bin/bash
    #SBATCH --partition=medium
    #SBATCH --account=<project>   # replace <project> with your CSC project, e.g. project_2001234
-   #SBATCH --nodes=1
+   #SBATCH --nodes=<N>           # replace <N> by the optimum number of nodes you got in the last part
    #SBATCH --ntasks-per-node=128
    #SBATCH --cpus-per-task=1
    #SBATCH --time=00:10:00
@@ -136,13 +136,13 @@ environment variable to be equal to the number of threads per task.
 
 3. Complete the table below:
 
-   | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) | Memory utilized (GB) | SLURM JobID |
-   |:-------------------:|:-----------------------:|:----------------:|:--------------------:|:-----------:|
-   |128                  |                         |                  |                      |             |
-   |64                   |                         |                  |                      |             |
-   |32                   |                         |                  |                      |             |
-   |16                   |                         |                  |                      |             |
-   |8                    |                         |                  |                      |             |
+   | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) | Memory utilized (GB) | Slurm job ID |
+   |:-------------------:|:-----------------------:|:----------------:|:--------------------:|:------------:|
+   |128                  |                         |                  |                      |              |
+   |64                   |                         |                  |                      |              |
+   |32                   |                         |                  |                      |              |
+   |16                   |                         |                  |                      |              |
+   |8                    |                         |                  |                      |              |
 
 💭 Were you able to run the calculation faster by launching multiple OpenMP
 threads per MPI task? What is the optimum ratio?
