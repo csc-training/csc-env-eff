@@ -75,14 +75,14 @@ example simulation.
    check how many seconds it took to run the simulation:
 
    ```bash
-   grep "CP2K " slurm-<jobid>.out | awk '{print $7}'
+   grep "CP2K  " slurm-<jobid>.out | awk '{print $7}'
    ```
 
 4. Repeat the job for the number of nodes listed below and complete the table!
    Calculate the speedup by dividing the previous elapsed time with the elapsed
    time obtained using twice as many nodes:
 
-   | Number of nodes | Elapsed time (s) | Speedup                         | SLURM JobID     |
+   | Number of nodes | Elapsed time (s) | Speedup                         | Slurm job ID    |
    |:---------------:|:----------------:|:-------------------------------:|:---------------:|
    |1                |                  | -                               |                 |
    |2                |                  | *t*<sub>1</sub>/*t*<sub>2</sub> |                 |
@@ -93,8 +93,8 @@ example simulation.
 number of cores! This is important to ensure that the CPU resources are used
 efficiently.
 
-💭 To how many nodes is the job able to scale up to efficiently? Using that
-node count, proceed to the next part!
+💭 To how many nodes is the job able to scale up to efficiently? **Using that
+node count, proceed to the next part!**
 
 ## Assess optimal thread–task balance
 
@@ -115,7 +115,7 @@ environment variable to be equal to the number of threads per task.
    #!/bin/bash
    #SBATCH --partition=medium
    #SBATCH --account=<project>   # replace <project> with your CSC project, e.g. project_2001234
-   #SBATCH --nodes=1
+   #SBATCH --nodes=<N>           # replace <N> by the optimum number of nodes you got in the last part
    #SBATCH --ntasks-per-node=128
    #SBATCH --cpus-per-task=1
    #SBATCH --time=00:10:00
@@ -136,13 +136,13 @@ environment variable to be equal to the number of threads per task.
 
 3. Complete the table below:
 
-   | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) | Memory utilized (GB) | SLURM JobID |
-   |:-------------------:|:-----------------------:|:----------------:|:--------------------:|:-----------:|
-   |128                  |                         |                  |                      |             |
-   |64                   |                         |                  |                      |             |
-   |32                   |                         |                  |                      |             |
-   |16                   |                         |                  |                      |             |
-   |8                    |                         |                  |                      |             |
+   | MPI tasks per node  | OpenMP threads per task | Elapsed time (s) | Memory utilized (GB) | Slurm job ID |
+   |:-------------------:|:-----------------------:|:----------------:|:--------------------:|:------------:|
+   |128                  |                         |                  |                      |              |
+   |64                   |                         |                  |                      |              |
+   |32                   |                         |                  |                      |              |
+   |16                   |                         |                  |                      |              |
+   |8                    |                         |                  |                      |              |
 
 💭 Were you able to run the calculation faster by launching multiple OpenMP
 threads per MPI task? What is the optimum ratio?
@@ -151,12 +151,11 @@ threads per MPI task? What is the optimum ratio?
 task? Use the `seff` command to check. Can you explain the reason for your
 observation?
 
-Note: if you plan to apply for study credits for this course, prepare a report
-including the tables above and discussion on all questions with the 💭 symbol
-and (upload the report and) present it with the course certificate to the local
-authority granting credits. CSC cannot grant credits but for carefully prepared
-and correct reports we recommend granting them.
-
+**Note**: if you plan to apply for study credits for this course, prepare a
+report including the tables above and discussion on all questions with the 💭
+symbol. Upload the report and present it together with the course certificate
+to the local authority granting credits. CSC cannot grant credits, but for
+carefully prepared and correct reports we recommend granting them.
 
 ## More information
 
