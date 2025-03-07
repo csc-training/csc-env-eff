@@ -84,7 +84,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Applying for Billing units
 
-- Billing units can be applied via the [Projects page in My CSC](https://my.csc.fi/welcome)
+- Billing units can be applied via the [Projects page in MyCSC](https://my.csc.fi/welcome)
    - Please acknowledge using CSC resources in your publications
    - Please also inform us about your work by adding your publications to the resource application!
 - Academic usage is one of the [free-of-charge use cases](https://research.csc.fi/pricing)

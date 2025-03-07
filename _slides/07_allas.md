@@ -82,7 +82,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Allas -- first steps
 
-- Use [My CSC](https://my.csc.fi) to apply for Allas access for your project -- Allas is not automatically available
+- Use [MyCSC](https://my.csc.fi) to apply for Allas access for your project -- Allas is not automatically available
 - In Puhti/Mahti, setup connection to Allas using the commands:
   ```bash
   module load allas
