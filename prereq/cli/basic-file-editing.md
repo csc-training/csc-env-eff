@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Basic file editing
-parent: 1. Prerequisites
-grand_parent: Part 1
-nav_order: 4
+parent: 2. Command-line basics
+grand_parent: Prerequisites
+nav_order: 2
 permalink: /hands-on/linux_prerequisites/basic-file-editing.html
 ---
 
