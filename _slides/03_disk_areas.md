@@ -65,9 +65,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - [`$TMPDIR` on login nodes](https://docs.csc.fi/computing/disk/#login-nodes)
     - Each of the login nodes have 2900 GiB of fast local storage in `$TMPDIR`
     - The local disk is meant for temporary storage (_e.g._ compiling software) and is cleaned frequently
-- [NVMe disks on some compute nodes on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
+- [NVMe disks on some compute nodes on Puhti and Mahti](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks)
     - Interactive, I/O and GPU nodes have fast local disks (NVMe) in `$LOCAL_SCRATCH`
-    - Also, the [GPU nodes on Mahti](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#gpu-batch-jobs) have fast local storage available
     - You must copy data to and from the fast disk during your batch job since the NVMe is accessible only during your job allocation
     - If your job reads and/or writes a lot of small files, using this can give a huge performance boost!
 
@@ -84,7 +83,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - None of the disk areas are automatically backed up by CSC, so make sure to perform regular backups to, _e.g._, Allas
 - Don't run databases or Conda on Lustre (`/projappl`, `/scratch`, `$HOME`)
-    - Containerize Conda environments with [Tykky](https://docs.csc.fi/computing/containers/tykky/) and use other CSC services like [Kaivos](https://docs.csc.fi/data/kaivos/overview/) or [cPouta](https://docs.csc.fi/cloud/pouta/) for databases (Rahti also an option but connecting to it from Puhti/Mahti is complicated)
+    - Containerize Conda environments with [Tykky](https://docs.csc.fi/computing/containers/tykky/) and use other CSC services like [Pukki](https://docs.csc.fi/cloud/dbaas/), [cPouta](https://docs.csc.fi/cloud/pouta/) or [Rahti](https://docs.csc.fi/cloud/rahti/) for databases
 - Don't create a lot of files, especially within a single folder
     - If you're creating 10 000+ files, you should probably rethink your workflow
 - Consider using fast local disks when working with many small files

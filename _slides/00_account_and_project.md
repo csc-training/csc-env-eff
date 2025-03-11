@@ -23,7 +23,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - A CSC account identifies you as a CSC user
 - With the account, you can join projects and access resources
 - Check out the [tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/credentials.html) and the [documentation](https://docs.csc.fi/accounts/)
-- Remember to keep your account alive by changing your password once a year
+- The password of your CSC user account is valid for one year at a time
+    - You will recieve a notification when it is about to expire
 - Never share your account or send the password to anyone
 
 # CSC project
@@ -45,15 +46,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Members will be alerted by emails (see [Section 6.3. of General Terms of Use](https://research.csc.fi/general-terms-of-use))
 -  If your project processes personal data or sensitive data, see [personal data announcement](https://docs.csc.fi/accounts/when-your-project-handles-personal-data/)
     - More information in [CSC's data policy](https://www.csc.fi/en/data-policy)
-    - Note that LUMI projects are not allowed to handle personal data currently
 
 # Billing units
 
-- CPU time and storing files consume "Billing units" (BU)
+- Computing and storing files consume "Billing units" (BU)
 - BUs are tied to CSC projects (not personal) and can be applied via <https://my.csc.fi>
    - Academic usage has been paid for by the Ministry of Education and Culture and is thus free of charge
-      - [Read more about free-of-charge use cases](https://research.csc.fi/pricing)
-      - [Read more about our solutions for business](https://www.csc.fi/solutions-for-business)
+      - [Read more about free-of-charge use cases](https://research.csc.fi/free-of-charge-use)
+      - [Read more about our services for commercial use](https://research.csc.fi/commercial-use/)
    - All members of a project can [apply for billing units](https://docs.csc.fi/accounts/how-to-apply-for-billing-units/)
    - Remember to [acknowledge CSC](https://docs.csc.fi/support/faq/how-to-cite-csc/) in your publications and mention these in your BU application
-- You can estimate [usage with the billing unit calculator](https://research.csc.fi/billing-units)
+- You can estimate [usage with the billing unit calculator](https://research.csc.fi/resources/#buc)

@@ -64,7 +64,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Check that results are as expected
    - Check the resource usage after the test run and adjust accordingly
 - How many cores to allocate?
-   - This depends on many things, so you have to try, see our [instructions about a scaling test](https://docs.csc.fi/support/tutorials/cmdline-handson/#scaling-test-for-an-mpi-parallel-job)
+   - This depends on many things, so you have to try, see our [performance checklist](https://docs.csc.fi/computing/running/performance-checklist/)
 
 # What if your job fails? Troubleshooting checklist 1/2
 

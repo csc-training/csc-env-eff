@@ -20,7 +20,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # The Allas object storage: what is it?
 
-- Allas is a CEPH-based object storage service for all CSC computing and cloud services
+- Allas is a Ceph-based object storage service for all CSC computing and cloud services
 - Possible to upload data from personal laptops or organizational storage systems into Allas
 - Meant for data storage during project lifetime
    - All project members have equal access to the data in Allas
@@ -76,13 +76,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - **Puhti, Mahti, Linux servers, Mac:**
     - `rclone`, `swift`, `s3cmd`, `a-tools`
 - **Laptops (Windows, Mac):**
-    - [Cyberduck](https://cyberduck.io/), [FileZilla (pro)](https://filezilla-project.org/), [Puhti web interface](https://puhti.csc.fi), [Mahti web interface](https://mahti.csc.fi)
+    - [Cyberduck](https://cyberduck.io/), [FileZilla (pro)](https://filezilla-project.org/), [Puhti web interface](https://puhti.csc.fi), [Mahti web interface](https://mahti.csc.fi), [Allas UI](https://allas.csc.fi)
 - **Virtual machines, small servers:**
     - In addition to the tools above, you can use FUSE-based virtual mounts
 
 # Allas -- first steps
 
-- Use [My CSC](https://my.csc.fi) to apply for Allas access for your project -- Allas is not automatically available
+- Use [MyCSC](https://my.csc.fi) to apply for Allas access for your project -- Allas is not automatically available
 - In Puhti/Mahti, setup connection to Allas using the commands:
   ```bash
   module load allas
@@ -127,7 +127,18 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - What will happen to my data later on?
 - How to keep track of all the data I have in Allas?
 
-# Fairdata services
+# Bonus: Sensitive data services
+
+- [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
+- [**SD Desktop**](https://sd-desktop.csc.fi) is a secure virtual desktop
+   - Controlled access
+   - Data importing **only** through the [**SD Connect**](https://sd-connect.csc.fi) service
+   - Isolation from the Internet
+   - No direct data export
+- Allas can be used for sensitive data, but **only** if the data is properly encrypted!
+   - The [**SD Connect**](https://sd-connect.csc.fi) procedure does the encryption
+
+# Bonus: Fairdata services
 
 - [https://www.fairdata.fi](https://www.fairdata.fi) -- Services to manage scientific data according to FAIR principles
 - Suitable for all static digital research material and related metadata
@@ -135,14 +146,3 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - **[IDA](https://ida.fairdata.fi):** storage for research data
 - **[Qvain](https://qvain.fairdata.fi/):** Describe your dataset and get a persistent indentifier for it
 - **[Etsin](https://etsin.fairdata.fi/):** Discover datasets based on metadata
-
-# Sensitive data services
-
-- [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
-- [**SD Desktop**](https://sd-desktop.csc.fi) is a secure virtual desktop
-   - Controlled access
-   - Data importing _only_ through the [**SD Connect**](https://sd-connect.csc.fi) service
-   - Isolation from the Internet
-   - No direct data export
-- Allas could be used for sensitive data, but _only_ if the data is properly encrypted
-   - The [**SD Connect**](https://sd-connect.csc.fi) procedure does the encryption

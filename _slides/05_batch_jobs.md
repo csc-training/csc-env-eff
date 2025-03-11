@@ -68,7 +68,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 ```bash
 #!/bin/bash
-#SBATCH --job-name=print_hostname   # Defines the job name shown in the queue
 #SBATCH --time=00:01:00             # Defines the max time the job can run
 #SBATCH --partition=test            # Defines the queue in which to run the job
 #SBATCH --ntasks=1                  # Defines the number of tasks (processes)
@@ -87,7 +86,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 <div class="column">
 
 - The [application pages in Docs CSC](https://docs.csc.fi/apps/) contain example scripts for some software
-- Use these as the *starting point* for your own scripts
+- Use these as the _starting point_ for your own scripts
 - They have been tested and optimized (although for minimal resources) for _that_ application
    - Consult the official manual or other examples to adapt to your own needs
    - Ask for support: <servicedesk@csc.fi>
@@ -143,9 +142,9 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - You can utilize HPC resources for running multiple independent serial jobs at the same time (task farming)
     - [Array jobs](https://docs.csc.fi/computing/running/array-jobs/)
     - [Other high-throughput tools](https://docs.csc.fi/computing/running/throughput/)
-- Pure serial resources are only available in Puhti
-    - Some tools, e.g. [HyperQueue](https://docs.csc.fi/apps/hyperqueue/), can make a set of serial jobs suitable for Mahti
-    - **But**, the workflow needs to fill (at least) one Mahti node and keep the CPUs busy for the job duration
+- On Mahti, pure serial resources are only available in `small` partition
+    - Some tools, e.g. [HyperQueue](https://docs.csc.fi/apps/hyperqueue/), can make a set of serial jobs suitable also for `medium` partition
+    - **But**, the workflow needs to fill (at least) one Mahti node (128 cores) and keep the CPUs busy for the job duration
 - When running many jobs, make sure that you don't overload the batch queue system or the parallel file system (mind your I/O and job steps)!
 
 # HPC parallel jobs
