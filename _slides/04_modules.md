@@ -25,7 +25,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - The solution for managing this situation: separating the applications into *modules*
 - *Environment modules* set up everything required by a particular application:
    -  Load libraries, adjust paths, set environment variables
-- CSC uses [*Lmod*](https://lmod.readthedocs.io/en/latest/) environment modules which are based on the *Lua* programming language
+- CSC uses [*Lmod*](https://lmod.readthedocs.io/en/latest/) environment modules
 
 # How to access pre-installed software on CSC supercomputers
 
