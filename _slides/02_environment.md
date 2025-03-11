@@ -24,12 +24,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - One or more central processing units (**CPUs**) with many **cores**
   - Shared **memory**
 - Some nodes may also have:
-  - **Local storage**
+  - **Local storage** (NVMe)
   - Graphics processing units (**GPUs**)
 
 </div>
 <div class="column">
-![](./img/node.svg){width=60%} 
+![](./img/node.svg){width=60%}
 </div>
 
 # Cluster systems
@@ -38,12 +38,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Login nodes are used to set up jobs (and to launch them)
 - Jobs are run on the compute nodes
 - A batch job system (scheduler) is used to run and manage the jobs
-  - On CSC machines, we use Slurm
-  - Other common systems include SGE and Torque/PBS
-  - The syntax is different but basic operation is similar
+  - On CSC machines, we use **Slurm**
+  - Note: Slurm uses term CPU for cores, which is a bit confusing
 </div>
 <div class="column">
-![](./img/cluster.svg){width=80%} 
+![](./img/cluster.svg){width=80%}
 </div>
 
 # Available HPC resources
@@ -71,12 +70,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 |                             | [Puhti](https://docs.csc.fi/computing/systems-puhti/)  | [Mahti](https://docs.csc.fi/computing/systems-mahti/)    | [LUMI](https://docs.lumi-supercomputer.eu/hardware/) |
 | ----------------------------------- |------- | ----     | ---- |
-| Pre-installed apps | [120+](https://docs.csc.fi/apps/by_system/#puhti) | [20+](https://docs.csc.fi/apps/by_system/#mahti) | [See here](https://docs.lumi-supercomputer.eu/software/)
+| Pre-installed apps | [120+](https://docs.csc.fi/apps/by_system/#puhti) | [40+](https://docs.csc.fi/apps/by_system/#mahti) | [See here](https://docs.lumi-supercomputer.eu/software/)
 | Cores per node              | 40     | 128       | 128
 | Job size (min-max cores)    | 1-1040 | 128-25600 | 1-65536
 | Memory per node (GiB)       | 192-1536 | 256     | 256-1024
-| GPU cards          | 320 (V100) | 96 (A100) | 10240 (MI250X)
-| Fast local disks (NVMe) | 106 CPU, 80 GPU   | 24 GPU  | 8 CPU, 8 GPU
+| GPU cards          | 320 (V100) | 96 (A100) | 11912 (MI250X)
+| Nodes with NVMe (CPU+GPU) | 106+80   | 60+24  | 8+8
 
 <small>
 In short: Mahti is for large parallel jobs, prepare to install and optimize your code. Still, one Puhti *node* is 10x your laptop. LUMI is like Mahti + massive AMD GPU capacity
