@@ -68,7 +68,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Jobs launched without `srun` don't record properly (e.g. `orterun`)
 - More detailed queries can be tailored with `sacct`
    - `sacct -j <slurm jobid> -o jobid,partition,state,elapsed,start,end`
-   - `sacct -S 2022-08-01` will show all jobs started after that date
+   - `sacct -S 2025-01-01` will show all jobs started after that date
    - Note! Querying data from the Slurm accounting database with `sacct` can be a very heavy operation
       - **Don't** query long time intervals or run `sacct` in a loop/using `watch` as this will degrade the performance of the system for all users
 
@@ -87,11 +87,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Billing units can be applied via the [Projects page in MyCSC](https://my.csc.fi/welcome)
    - Please acknowledge using CSC resources in your publications
    - Please also inform us about your work by adding your publications to the resource application!
-- Academic usage is one of the [free-of-charge use cases](https://research.csc.fi/pricing)
-- You can estimate [usage with the online billing calculator](https://research.csc.fi/billing-and-monitoring#buc)
+- Academic usage is one of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use)
+- You can estimate [usage with the online billing calculator](https://research.csc.fi/resources/#buc)
    - The calculator can also be used to estimate the value of the resources
-- For companies interested in using CSC's HPC services, please see our [solutions for business](https://www.csc.fi/solutions-for-business)
-   - [LUMI](https://www.lumi-supercomputer.eu/) has a substantial amount of [affordable](https://www.csc.fi/en/solutions-for-business-use-of-computing-services-and-pricing) computing resources (especially GPUs) available for industrial use!
+- For companies interested in using CSC's HPC services, please see our [services for commercial use](https://research.csc.fi/commercial-use/)
+   - [LUMI](https://www.lumi-supercomputer.eu/) has a substantial amount of [affordable](https://csc.fi/en/about-us/customers/high-performance-computing-for-companies/#service-price-list) computing resources (especially GPUs) available for industrial use!
 
 # BUs are also a metric for comparing usage efficiency
 
@@ -128,7 +128,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - **Important resource requests that should be monitored with `seff` are:**
    - [Memory requirements](https://docs.csc.fi/support/faq/how-much-memory-my-job-needs/)  
-   - [Disk workload](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
+   - [Disk workload](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas)
    - [GPU efficiency](https://docs.csc.fi/computing/usage-policy/#gpu-nodes)
    - [Scaling of a job over several cores and nodes](https://docs.csc.fi/computing/running/performance-checklist/#perform-a-scaling-test)
       - Parallel jobs must always benefit from all requested resources
