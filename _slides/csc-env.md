@@ -24,7 +24,8 @@ Navigate slides with arrow keys.
 * [05 Batch jobs](05_batch_jobs.html)
 * [06 Understanding usage](06_understanding_usage.html)
 * [07 Using Allas](07_allas.html)
-* [08 Installing software](08_installing.html)
-* [09 Singularity](09_singularity.html)
-* [10 Speed up jobs](10_speed_up_jobs.html)
+* [08 Working efficiently with data](08_datamigration_io.html)
+* [08 Installing software](09_installing.html)
+* [09 Singularity](10_singularity.html)
+* [10 Speed up jobs](11_speed_up_jobs.html)
 </div>
