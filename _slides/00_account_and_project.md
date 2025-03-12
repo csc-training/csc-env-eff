@@ -32,7 +32,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - CSC projects are used for managing access to CSC services and resources
 - Each project has its own disk quotas and billing unit quota
 - Every project has a project manager and members
-    - [Prerequisites and responsibilities of a project manager](https://www.csc.fi/en/prerequisites-for-a-project-manager)
+    - [Prerequisites and responsibilities of a project manager](https://research.csc.fi/prerequisites-for-a-project-manager)
 - Every CSC user also has a _personal_ project which is only for technical purposes
     - The personal project is not meant for submitting jobs
     - All usage (e.g. batch jobs) needs to be done with CSC projects (a.k.a. computing projects)

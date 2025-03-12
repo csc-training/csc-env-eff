@@ -45,7 +45,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 ![](./img/cluster.svg){width=80%}
 </div>
 
-# Available HPC resources
+# Available HPC and cloud resources
 
 - [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general-purpose supercomputer ☑️
 - [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
@@ -72,7 +72,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 | ----------------------------------- |------- | ----     | ---- |
 | Pre-installed apps | [120+](https://docs.csc.fi/apps/by_system/#puhti) | [40+](https://docs.csc.fi/apps/by_system/#mahti) | [See here](https://docs.lumi-supercomputer.eu/software/)
 | Cores per node              | 40     | 128       | 128
-| Job size (min-max cores)    | 1-1040 | 128-25600 | 1-65536
+| Job size (min-max cores)    | 1-1040 | 1-25600 | 1-65536
 | Memory per node (GiB)       | 192-1536 | 256     | 256-1024
 | GPU cards          | 320 (V100) | 96 (A100) | 11912 (MI250X)
 | Nodes with NVMe (CPU+GPU) | 106+80   | 60+24  | 8+8
