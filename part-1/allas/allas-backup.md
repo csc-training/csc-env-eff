@@ -9,7 +9,6 @@ has_toc: false
 permalink: /hands-on/allas/tutorial_allas-file-backup.html
 ---
 
-
 # Backing up files to Allas from Puhti
 
 ## Preparations (if not done already)

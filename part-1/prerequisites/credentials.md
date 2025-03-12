@@ -10,7 +10,7 @@ permalink: /hands-on/connecting/credentials.html
 # Get a CSC account and a project
 
 > This document includes the information required when starting to use CSC supercomputers and other services.
-> This document is a simplified version of [the accounts and projects guide in research.csc.fi](https://research.csc.fi/accounts-and-projects).
+> This document is a simplified version of [the accounts and projects guide in docs.csc.fi](https://docs.csc.fi/accounts/).
 
 ## Create a CSC account
 
@@ -41,14 +41,14 @@ permalink: /hands-on/connecting/credentials.html
 💡 The Project Manager [must have applied for the services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/#project-manager) for the project first. Here, you accept the _Terms of Use_ and activate them.
 
 1. Login to [MyCSC](https://my.csc.fi)
-2. Click My Projects and select a project
-3. In the bottom right corner you see the services section
-4. Select Puhti, (Mahti) and Allas, approve the terms and conditions and click Add service
+2. Click _Projects_ and select a project
+3. In the bottom right corner you see the _Services_ section. Click the _Add services_ button there.
+4. Select Puhti, (Mahti) and Allas, approve the terms of use and click _Add selected services_
 
 ## More information
 
-💭 [Docs: user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
+💭 [Docs: User account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/)
 
 💭 [Docs: Project access to CSC services](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/)
 
-💭 [Docs: Project Manager](https://www.csc.fi/en/prerequisites-for-a-project-manager)
+💭 [Research: Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager)
