@@ -19,13 +19,13 @@ Navigate slides with arrow keys.
 * [02 Environment](02_environment.html)
 * [03 Disk areas](03_disk_areas.html)
 * [04 Modules](04_modules.html)
+* [05 Batch jobs](05_batch_jobs.html)
 </div>
 <div class="column">  
-* [05 Batch jobs](05_batch_jobs.html)
 * [06 Understanding usage](06_understanding_usage.html)
 * [07 Using Allas](07_allas.html)
 * [08 Working efficiently with data](08_datamigration_io.html)
-* [08 Installing software](09_installing.html)
-* [09 Singularity](10_singularity.html)
-* [10 Speed up jobs](11_speed_up_jobs.html)
+* [09 Installing software](09_installing.html)
+* [10 Singularity](10_singularity.html)
+* [11 Speed up jobs](11_speed_up_jobs.html)
 </div>
