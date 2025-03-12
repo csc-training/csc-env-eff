@@ -30,9 +30,9 @@ Some tips:
 * Once you have the data, print it to a file so that you don't need to re-request
   it from the Slurm accounting database. For example,
 
-```bash
-sacct -S 2022-11-01 > sacct_output.txt
-```
+  ```bash
+  sacct -S 2022-11-01 > sacct_output.txt
+  ```
 
 * Work with this file using your favorite tools (e.g. `more` or `less`) to look
   at the contents (and `grep`, `awk`, `python`, etc. to extract/analyze data).
@@ -51,4 +51,4 @@ Some things to look for:
 * If you requested GPU resources, did those jobs really use the GPUs efficiently? (also shown with `seff`)
 
 Use this information to set the resource requests for similar new jobs. You can
-also look in [My CSC](https://my.csc.fi) for previous (monthly) usage per project.
+also look in [MyCSC](https://my.csc.fi) for previous (monthly) usage per project.

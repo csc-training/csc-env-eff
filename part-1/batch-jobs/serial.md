@@ -12,7 +12,8 @@ permalink: /hands-on/batch_jobs/serial.html
 # Batch job tutorial - Serial jobs
 
 > In this tutorial we'll get familiar with the basic usage of the Slurm batch queue system at CSC
-- The goal is to learn how to request resources that **match** the needs of a job
+>
+> - The goal is to learn how to request resources that **match** the needs of a job
 
 💬 A batch job consists of two parts: resource requests and the job step(s)
 
@@ -34,44 +35,41 @@ permalink: /hands-on/batch_jobs/serial.html
 
 1. Go to the `/scratch` directory of your project:
 
-```bash
-cd /scratch/<project>      # replace <project> with your CSC project, e.g. project_2001234
-```
+   ```bash
+   cd /scratch/<project>      # replace <project> with your CSC project, e.g. project_2001234
+   ```
 
-- Now your input (and output) will be on a shared disk that is accessible to the compute nodes.
+   - Now your input (and output) will be on a shared disk that is accessible to the compute nodes.
 
-💡 You can list your projects with `csc-projects`
+   💡 You can list your projects with `csc-projects`
 
-💡 Note! If you're using a project with other members (like the course project), first make a subdirectory for yourself (e.g. `mkdir $USER` and then move there (`cd $USER`) to not clutter the `/scratch` root of your project)
+   💡 Note! If you're using a project with other members (like the course project), first make a subdirectory for yourself (e.g. `mkdir $USER` and then move there (`cd $USER`) to not clutter the `/scratch` root of your project)
 
-{:style="counter-reset:step-counter 1"}
 2. Create a file called `my_serial.bash` e.g. with the `nano` text editor:
 
-```bash
-nano my_serial.bash
-```
+   ```bash
+   nano my_serial.bash
+   ```
 
-{:style="counter-reset:step-counter 2"}
 3. Copy the following **batch script** there and change `<project>` to the CSC project you actually want to use:
 
-```bash
-#!/bin/bash
-#SBATCH --account=<project>      # Choose the billing project. Has to be defined!
-#SBATCH --time=00:02:00          # Maximum duration of the job. Upper limit depends on the partition. 
-#SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
-#SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition. For a serial job this should be set 1!
+   ```bash
+   #!/bin/bash
+   #SBATCH --account=<project>      # Choose the billing project. Has to be defined!
+   #SBATCH --time=00:02:00          # Maximum duration of the job. Upper limit depends on the partition. 
+   #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition. For a serial job this should be set 1!
+   
+   srun hostname                    # Run hostname-command
+   srun sleep 60                    # Run sleep-command
+   ```
 
-srun hostname                    # Run hostname-command
-srun sleep 60                    # Run sleep-command
-```
-
-{:style="counter-reset:step-counter 3"}
 4. Submit the job to the batch queue and check its status with the commands:
 
-```bash
-sbatch my_serial.bash
-squeue -u $USER
-```
+   ```bash
+   sbatch my_serial.bash
+   squeue -u $USER
+   ```
 
 💬 In the batch job example above we are requesting
 
