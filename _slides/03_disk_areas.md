@@ -77,7 +77,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - [`/scratch`](https://docs.csc.fi/computing/disk/#scratch-directory) -- main working area, shared with project members, only for data in active use
 - [`/projappl`](https://docs.csc.fi/computing/disk/#projappl-directory) -- not cleaned up, _e.g._ for shared binaries
 - [Login node `$TMPDIR`](https://docs.csc.fi/computing/disk/#login-nodes) -- compiling, temporary storage, fast I/O
-- [Compute node NVMe `$LOCAL_SCRATCH`](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage) -- fast I/O in batch jobs
+- [Compute node NVMe `$LOCAL_SCRATCH`](https://docs.csc.fi/computing/disk/#compute-nodes-with-local-ssd-nvme-disks) -- fast I/O in batch jobs
 
 # Best practices
 
