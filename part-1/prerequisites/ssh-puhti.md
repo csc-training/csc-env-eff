@@ -26,7 +26,7 @@ permalink: /hands-on/connecting/ssh-puhti.html
 
 ## Connecting with SSH from the command-line
 
-💬 The basic Command Line Interface (CLI) in Unix-based systems is the Terminal. 
+💬 The basic Command-Line Interface (CLI) in Unix-based systems is the Terminal.
 
 💡 Different operating systems have slightly different CLIs and SSH-clients (programs that you can use to connect to the supercomputers).
 
@@ -39,11 +39,10 @@ Find the Terminal on your computer:
 
 1. Open a terminal and type (replace `cscusername` with your CSC username):
 
-```bash
-ssh cscusername@puhti.csc.fi
-```
+   ```bash
+   ssh cscusername@puhti.csc.fi
+   ```
 
-{:style="counter-reset:step-counter 1"}
 2. Scroll down to [In Puhti](#in-puhti)
 
 ### Connecting from macOS
@@ -52,11 +51,10 @@ ssh cscusername@puhti.csc.fi
 
 1. Open the Terminal application and type (replace `cscusername` with your CSC username):
 
-```bash
-ssh cscusername@puhti.csc.fi
-```
+   ```bash
+   ssh cscusername@puhti.csc.fi
+   ```
 
-{:style="counter-reset:step-counter 1"}
 2. Scroll down to [In Puhti](#in-puhti)
 
 ### Connecting from Windows
@@ -87,49 +85,47 @@ ssh cscusername@puhti.csc.fi
 
 1. If you're connecting to Puhti (or a specific Puhti login node) for the first time, SSH will ask you if you trust the authenticity of the host, *e.g.*:
 
-```text
-The authenticity of host 'puhti-login14.csc.fi' can't be established.
-ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
-Are you sure you want to continue connecting (yes/no/[fingerprint])?
-```
+   ```text
+   The authenticity of host 'puhti-login14.csc.fi' can't be established.
+   ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
+   Are you sure you want to continue connecting (yes/no/[fingerprint])?
+   ```
 
-{:style="counter-reset:step-counter 1"}
 2. The first time you connect, you need to accept, but the key should not change for the next login.
 3. Pay attention whether you logged in `login11`, `login12`, `login14` or `login15`.
 4. Once you've logged in you'll see a greeting starting something like this:
 
-```text
-┌─ Welcome ───────────────────────────────────────────────────────────────────┐
-│         CSC - Tieteen tietotekniikan keskus - IT Center for Science         │
-│            ____        __    __  _                                          │
-│           / __ \__  __/ /_  / /_(_)   - -  -   -                            │
-│          / /_/ / / / / __ \/ __/ /   - -  -   -                             │
-│         / ____/ /_/ / / / / /_/ /   - -  -   -                              │
-│        /_/    \__,_/_/ /_/\__/_/   - -  -   -                               │
-│                                                                             │
-│      Puhti.csc.fi - Atos BullSequana X400 - 682 CPU nodes - 80 GPU nodes    │
-├─ Contact ───────────────────────────────────────────────────────────────────┤
-│ Servicedesk : 09-457 2821, servicedesk@csc.fi   Switchboard : 09-457 2001   │
-├─ User Guide ────────────────────────────────────────────────────────────────┤
-│ https://docs.csc.fi                                                         │
-├─ Manage my account ─────────────────────────────────────────────────────────┤
-│ https://my.csc.fi/                                                          │
-├─ Software ──────────────────────────────────────────────────────────────────┤
-...
-└─────────────────────────────────────────────────────────────────────────────┘
-[cscusername@puhti-login14 ~]$
-```
+   ```text
+   ┌─ Welcome ───────────────────────────────────────────────────────────────────┐
+   │         CSC - Tieteen tietotekniikan keskus - IT Center for Science         │
+   │            ____        __    __  _                                          │
+   │           / __ \__  __/ /_  / /_(_)   - -  -   -                            │
+   │          / /_/ / / / / __ \/ __/ /   - -  -   -                             │
+   │         / ____/ /_/ / / / / /_/ /   - -  -   -                              │
+   │        /_/    \__,_/_/ /_/\__/_/   - -  -   -                               │
+   │                                                                             │
+   │      Puhti.csc.fi - Atos BullSequana X400 - 682 CPU nodes - 80 GPU nodes    │
+   ├─ Contact ───────────────────────────────────────────────────────────────────┤
+   │ Servicedesk : 09-457 2821, servicedesk@csc.fi   Switchboard : 09-457 2001   │
+   ├─ User Guide ────────────────────────────────────────────────────────────────┤
+   │ https://docs.csc.fi                                                         │
+   ├─ Manage my account ─────────────────────────────────────────────────────────┤
+   │ https://my.csc.fi/                                                          │
+   ├─ Software ──────────────────────────────────────────────────────────────────┤
+   ...
+   └─────────────────────────────────────────────────────────────────────────────┘
+   [cscusername@puhti-login14 ~]$
+   ```
 
-{:style="counter-reset:step-counter 4"}
 5. Now, you're ready to go.
-6. Let's do our first small task in Puhti: let's check our projects and that we have a one with access to Allas service! 
-```bash
-csc-projects
-module load allas
-allas-conf
-```
+6. Let's do our first small task in Puhti: let's check our projects and that we have a one with access to Allas service!
 
-{:style="counter-reset:step-counter 6"}
+   ```bash
+   csc-projects
+   module load allas
+   allas-conf
+   ```
+
 7. The first command `csc-projects` lists your projects. The second command `module load allas` loads the Allas tools in your use. The third command `allas-conf` sets up the connection to Allas: it will ask for your CSC password, and then you need to select which project you want to use (by typing the number of the project, for example `2`). If you don't see a project here, please return to [CSC account and project](credentials.md) tutorial and see that you have a project with access to Allas service. Please note, that it can take up to 1h after accepting the terms of use before the service is in use.
 
 ### Remote graphics
@@ -140,15 +136,15 @@ allas-conf
 
 1. Add X11-tunneling to your SSH connection by adding `-X` or `-Y` to your `ssh` command like this (replace `cscusername` with your CSC username):
 
-```bash
-ssh -X cscusername@puhti.csc.fi
-```
+   ```bash
+   ssh -X cscusername@puhti.csc.fi
+   ```
 
-Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`
+   Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`
 
-```bash
-export DISPLAY=:0
-```
+   ```bash
+   export DISPLAY=:0
+   ```
 
 #### On Windows
 
@@ -157,11 +153,11 @@ export DISPLAY=:0
 3. In PuTTY, X11 forwarding is enabled in the connection settings: `Connection -> SSH -> X11: Enable X11 forwarding`.
 4. If you are using WSL, you need to set either of the environment variables below in your `.bashrc` (depends on the version of WSL you are running):
 
-```bash
-export DISPLAY=:0
-# or
-export DISPLAY=:0.0
-```
+   ```bash
+   export DISPLAY=:0
+   # or
+   export DISPLAY=:0.0
+   ```
 
 ☝🏻 For intensive remote graphics we recommend using the [Puhti web interface](https://www.puhti.csc.fi/).
 
