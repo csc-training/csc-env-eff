@@ -27,7 +27,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Disk and storage overview  
 
-![](./img/disk-systems.svg){width=90%}
+![](./img/disk-systems-new.png)
 
 # Main disk areas in Puhti/Mahti
 
@@ -58,7 +58,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Disk and storage overview (revisited) 
 
-![](./img/disk-systems.svg){width=90%}
+![](./img/disk-systems-new.png)
 
 # Additional fast local disk areas 
 
