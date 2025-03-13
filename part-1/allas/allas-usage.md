@@ -11,7 +11,7 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
 # Basic usage of Allas
 
-## Accessing Allas via the Puhti web interface
+## Accessing Allas via the Puhti web interface (optional)
 
 1. Go to the Puhti web interface: <https://www.puhti.csc.fi>.
 2. Login with your CSC user account (or Haka).
@@ -29,7 +29,7 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
 💭 During the exercises, you can use this web interface to get another view to your buckets and objects in Allas.
 
-## Accessing Allas from Puhti
+## Accessing Allas from Puhti command-line
 
 ### Preparations (if not done already)
 
