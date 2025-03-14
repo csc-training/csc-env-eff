@@ -2,8 +2,8 @@ title: CSC Computing Environment
 description: Materials for the CSC Computing Environment -course
 theme: just-the-docs
 
-url: https://csc-training.github.io/csc-env-eff
-baseurl: ""
+url: https://csc-training.github.io
+baseurl: "/csc-env-eff"
 plugins:
   - jekyll-sitemap
 
