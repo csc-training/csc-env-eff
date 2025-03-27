@@ -1,6 +1,6 @@
 ---
 layout: default
-title: I/O intensive computing
+title: I/O-intensive computing
 parent: 8. Working efficiently with data
 grand_parent: Part 2
 nav_order: 4

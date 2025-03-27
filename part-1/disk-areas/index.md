@@ -16,5 +16,4 @@ has_toc: false
 ## 3.3 Tutorials and exercises
 
 1. [Essential tutorial - Main disk areas in CSC's computing environment]({{ site.baseurl }}{% link part-1/disk-areas/maindisks.md %})
-2. [Essential tutorial - Finding out where you have a lot of data]({{ site.baseurl }}{% link part-1/disk-areas/lue.md %})
-3. [Tutorial - Fast disk areas in CSC's computing environment]({{ site.baseurl }}{% link part-1/disk-areas/tutorial-fastdisks.md %})
+2. [Tutorial - Finding out where you have a lot of data]({{ site.baseurl }}{% link part-1/disk-areas/lue.md %})
