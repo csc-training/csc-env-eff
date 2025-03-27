@@ -13,6 +13,7 @@ has_toc: false
 
 ## 8.2 Tutorials and exercises
 
-1. [Essential tutorial - Using Allas in batch jobs]({{ site.baseurl }}{% link part-2/data-io/allas-batch-jobs.md %})
-2. [Tutorial - Using Allas with local `rclone`]({{ site.baseurl }}{% link part-2/data-io/local_rclone.md %})
-3. [Exercise - I/O intensive computing]({{ site.baseurl }}{% link part-2/data-io/fast-local-disks.md %})
+1. [Essential tutorial - Fast disk areas in CSC's computing environment]({{ site.baseurl }}{% link part-2/data-io/tutorial-fastdisks.md %})
+2. [Tutorial - Using Allas in batch jobs]({{ site.baseurl }}{% link part-2/data-io/allas-batch-jobs.md %})
+3. [Tutorial - Using Allas with local `rclone`]({{ site.baseurl }}{% link part-2/data-io/local_rclone.md %})
+4. [Exercise - I/O-intensive computing]({{ site.baseurl }}{% link part-2/data-io/fast-local-disks.md %})
