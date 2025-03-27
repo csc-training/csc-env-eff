@@ -23,7 +23,14 @@ file system used in CSC's computing environment.
 💬 In order to facilitate such heavy I/O operations, CSC provides fast local
 disk areas on the login and compute nodes.
 
-1. Identify the fast local disk areas on the login nodes with the following
+1. First login to Puhti using SSH (or by opening a login node shell in the
+   Puhti web interface):
+
+   ```bash
+   ssh <username>@puhti.csc.fi    # replace <username> with your CSC username, e.g. myname@puhti.csc.fi
+   ```
+
+2. Identify the fast local disk areas on the login nodes with the following
    command:
 
    ```bash
@@ -48,7 +55,7 @@ access the local disk of `puhti-login11` from `puhti-login12`.
    disk:
   
    ```bash
-   cd $TMPDIR           
+   cd $TMPDIR
    wget https://a3s.fi/CSC_training/Individual_files.tar.gz
    ```
 
