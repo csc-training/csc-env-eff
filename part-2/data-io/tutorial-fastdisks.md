@@ -11,8 +11,10 @@ permalink: /hands-on/data-io/tutorial-fastdisks.html
 
 # Fast disk areas in CSC's computing environment
 
+> ☝🏻 This tutorial requires that you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project that [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+>
 > Upon completion of this tutorial, you will be familiar with ideal disk areas
-> for I/O-intensive workloads, i.e. frequent read and write operations
+> for I/O-intensive workloads, i.e. frequent read and write operations.
 
 ## Perform a light-weight pre-processing of data files using fast local disk
 
@@ -66,12 +68,15 @@ access the local disk of `puhti-login11` from `puhti-login12`.
    cd Individual_files
    ```
 
-3. Merge each small file into a larger one and remove all small files
+3. Merge each small file into a larger one and remove all small files:
 
    ```bash
    find . -name 'individual.fasta*' | xargs cat >> Merged.fasta
    find . -name 'individual.fasta*' | xargs rm
    ```
+
+   💡 `xargs` is a convenient command that takes the output from one command
+   and uses it as an argument to another.
 
 ### Move your pre-processed data to the project-specific `/scratch` area before analysis
 
@@ -80,10 +85,10 @@ information about your projects.
 
 1. Create your own folder (using the environment variable `$USER`) under a
    project-specific directory on the `/scratch` disk (or skip this step if you
-   already created the folder in a previous tutorial).
+   already created the folder in a previous tutorial):
 
    ```bash
-   mkdir -p /scratch/<project>/$USER/    # replace <project> with your CSC project, e.g. project_2001234
+   mkdir -p /scratch/<project>/$USER    # replace <project> with your CSC project, e.g. project_2001234
    ```
 
 2. Move your pre-processed data from the previous step (i.e., the
@@ -94,7 +99,7 @@ information about your projects.
    ```
 
 3. You have now successfully moved your data to the `/scratch` area and can
-   start performing actual analysis using batch job scripts
+   start performing actual analysis using batch job scripts.
 
 ## Optional: Fast local disk areas on compute nodes
 
@@ -104,10 +109,12 @@ instead of the login nodes. The compute nodes are accessed either
 [interactively](../../part-1/batch-jobs/interactive.md) or using
 [batch jobs](../../part-1/batch-jobs/serial.md).
 
-1. Use the `sinteractive` command to request an interactive session on a
-   compute node with 1 GB fast local disk for 10 minutes:
+1. Move to the `/scratch` area of your project and use the `sinteractive`
+   command to request an interactive session on a compute node with 1 GB fast
+   local disk for 10 minutes:
 
    ```bash
+   cd /scratch/<project>/$USER    # replace <project> with your CSC project, e.g. project_2001234
    sinteractive --account <project> --time 00:10:00 --tmp 1    # replace <project> with your CSC project, e.g. project_2001234
    ```
 
@@ -123,8 +130,12 @@ instead of the login nodes. The compute nodes are accessed either
    echo $TMPDIR
    ```
 
-3. Try the same now in a proper batch job. Create a file called `my_nvme.bash`
-   using, for example, the `nano` text editor:
+   💡 Note how the path to the fast local storage area contains the ID of your
+   Slurm job, `/run/nvme/job_<id>`.
+
+3. Terminate the interactive session and now try the same in a proper batch
+   job. Create a file called `my_nvme.bash` using, for example, the `nano` text
+   editor:
 
    ```bash
    nano my_nvme.bash
@@ -175,9 +186,8 @@ instead of the login nodes. The compute nodes are accessed either
 
 ## More information
 
-💡 Read more about fast local disk areas in
-[Docs CSC](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas).
+💡 Docs CSC: [Temporary local disk areas](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas)
 
-💡 [Requesting local storage on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage).
+💡 Docs CSC: [Local storage on Puhti](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#local-storage)
 
-💡 [Requesting local storage on Mahti](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#local-storage).
+💡 Docs CSC: [Local storage on Mahti](https://docs.csc.fi/computing/running/creating-job-scripts-mahti/#local-storage)
