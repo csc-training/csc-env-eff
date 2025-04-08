@@ -22,7 +22,7 @@ has_toc: false
 ## 1.6 Tutorials and exercises
 
 1. [Essential tutorial - Getting a CSC account and project]({{ site.baseurl }}{% link part-1/prerequisites/credentials.md %})
-2. [Essential tutorial - Login to Puhti via a browser or SSH]({{ site.baseurl }}{% link part-1/prerequisites/ssh-puhti.md %})
-3. [Tutorial - Basic Linux commands]({{ site.baseurl }}{% link part-1/prerequisites/basic-linux-commands.md %})
-4. [Tutorial - Basic file editing]({{ site.baseurl }}{% link part-1/prerequisites/basic-file-editing.md %})
-5. [Advanced tutorial - Using SSH keys to authenticate connection]({{ site.baseurl }}{% link part-1/prerequisites/ssh-keys.md %})
+2. [Essential tutorial - Setting up SSH keys]({{ site.baseurl }}{% link part-1/prerequisites/ssh-keys.md %})
+3. [Essential tutorial - Login to Puhti via a browser or SSH]({{ site.baseurl }}{% link part-1/prerequisites/ssh-puhti.md %})
+4. [Tutorial - Basic Linux commands]({{ site.baseurl }}{% link part-1/prerequisites/basic-linux-commands.md %})
+5. [Tutorial - Basic file editing]({{ site.baseurl }}{% link part-1/prerequisites/basic-file-editing.md %})
