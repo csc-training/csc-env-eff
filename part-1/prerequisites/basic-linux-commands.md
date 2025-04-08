@@ -3,7 +3,7 @@ layout: default
 title: Basic Linux commands
 parent: 1. Prerequisites
 grand_parent: Part 1
-nav_order: 3
+nav_order: 4
 permalink: /hands-on/linux_prerequisites/basic-linux-commands.html
 ---
 

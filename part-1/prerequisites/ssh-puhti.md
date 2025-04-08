@@ -3,7 +3,7 @@ layout: default
 title: Login to Puhti
 parent: 1. Prerequisites
 grand_parent: Part 1
-nav_order: 2
+nav_order: 3
 permalink: /hands-on/connecting/ssh-puhti.html
 ---
 
@@ -22,13 +22,13 @@ permalink: /hands-on/connecting/ssh-puhti.html
 💭 The Puhti web interface landing page looks like this:  
 ![Puhti web interface](../../_slides/img/ood.png)
 
-💡 From the pinned apps and top menus you can *e.g.* access your files and open some applications or a command-line interface.
+💡 From the pinned apps and top menus you can, for example, access your files and open some applications or a command-line interface.
 
 ## Connecting with SSH from the command-line
 
 💬 The basic Command-Line Interface (CLI) in Unix-based systems is the Terminal.
 
-💡 Different operating systems have slightly different CLIs and SSH-clients (programs that you can use to connect to the supercomputers).
+💡 Different operating systems have slightly different CLIs and SSH clients, i.e. programs that you can use to connect to the supercomputers.
 
 ### Connecting from Linux
 
