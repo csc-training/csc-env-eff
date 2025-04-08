@@ -23,7 +23,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Moving data to/from Allas, IDA and LUMI-O
 - Transferring data in sensitive data computing
 - Cleaning and backing up data
-- Working with remote mounts
 
 # Parallel file systems
 
@@ -63,8 +62,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - [Temporary local storage (NVMe)](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas):
    - Accessible on login nodes (`$TMPDIR`) and to jobs on some compute nodes (`$LOCAL_SCRATCH`)
    - Automatically purged after the job finishes
-   - Availability varies depending on the supercomputer (Puhti/Mahti/LUMI)
-     - For example, Mahti has NVMe only on login nodes and GPU nodes
+   - Availability varies slightly depending on the supercomputer(Puhti/Mahti/LUMI)
+      - check the availability of [local storage in different job partitions](https://docs.csc.fi/computing/running/batch-job-partitions)
 
 # Managing file I/O (2/3)
 
@@ -149,6 +148,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - SD Desktop is able to read encrypted data from Allas
    - If you want to make your data available in SD Desktop, you need to use *SD Connect* to upload data to Allas
    - Use `a-put` with option `--sdx` or command `a-encrypt` to make your Allas data compatible with SD Desktop
+   - New feature with the flag  "--sdc" is availble now
 
 # Cleaning and backing up data (1/3)
 
@@ -181,10 +181,3 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - `allas-backup list `
    - `allas-backup restore snapshot-id`
 
-# Working with remote disk mounts
-
-- Using `sshfs` command in Linux/MacOS:
-   - `mkdir csc_home`
-   - `sshfs <username>@puhti.csc.fi:/users/<username> csc_home`
-- To unmount the file system, give the command:
-   - `fusermount -u csc_home`
