@@ -62,7 +62,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - [Temporary local storage (NVMe)](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas):
    - Accessible on login nodes (`$TMPDIR`) and to jobs on some compute nodes (`$LOCAL_SCRATCH`)
    - Automatically purged after the job finishes
-   - Available on Puhti, Mahti and LUMI
+   - Availability varies slightly depending on the supercomputer(Puhti/Mahti/LUMI)
 
 # Managing file I/O (2/3)
 
