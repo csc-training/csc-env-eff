@@ -63,6 +63,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Accessible on login nodes (`$TMPDIR`) and to jobs on some compute nodes (`$LOCAL_SCRATCH`)
    - Automatically purged after the job finishes
    - Availability varies slightly depending on the supercomputer(Puhti/Mahti/LUMI)
+      - check the availability of [local storage in different job partitions](https://docs.csc.fi/computing/running/batch-job-partitions)
 
 # Managing file I/O (2/3)
 
