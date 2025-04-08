@@ -10,6 +10,8 @@ permalink: /hands-on/connecting/ssh-puhti.html
 # Log in to Puhti
 
 > ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay before one can login to Puhti after creating a new project and adding services.
+>
+> ‼️ In order to [log in with SSH from the command-line](#connecting-with-ssh-from-the-command-line), you must have also set up SSH keys and uploaded your public key to MyCSC. [See the previous tutorial](ssh-keys.md).
 
 ## Puhti web interface
 
@@ -20,7 +22,8 @@ permalink: /hands-on/connecting/ssh-puhti.html
 3. You have now connected to Puhti!
 
 💭 The Puhti web interface landing page looks like this:  
-![Puhti web interface](../../_slides/img/ood.png)
+
+   ![Puhti web interface](../../_slides/img/ood.png)
 
 💡 From the pinned apps and top menus you can, for example, access your files and open some applications or a command-line interface.
 
@@ -30,11 +33,12 @@ permalink: /hands-on/connecting/ssh-puhti.html
 
 💡 Different operating systems have slightly different CLIs and SSH clients, i.e. programs that you can use to connect to the supercomputers.
 
-### Connecting from Linux
+### Connecting from Linux and macOS
 
-💬 Laptops and workstations running Linux typically have SSH installed.
+💬 Laptops and workstations running Linux or macOS typically have SSH pre-installed.
 
-Find the Terminal on your computer:  
+Find the Terminal on your computer:
+
 ![terminal-icon](../../_slides/img/terminal_icon1.png)
 
 1. Open a terminal and type (replace `cscusername` with your CSC username):
@@ -43,47 +47,56 @@ Find the Terminal on your computer:
    ssh cscusername@puhti.csc.fi
    ```
 
-2. Scroll down to [In Puhti](#in-puhti)
+   * Note! If you have saved your SSH key with a non-default name or in a non-default location, please specify the path to your key using the `-i` option:
 
-### Connecting from macOS
+     ```bash
+     ssh cscusername@puhti.csc.fi -i /path/to/private/key
+     ```
 
-💬 In macOS, you can use Terminal similarly to Linux machines:
+2. You may be prompted to type your SSH key passphrase.
 
-1. Open the Terminal application and type (replace `cscusername` with your CSC username):
+   💡 To avoid having to type your passphrase every time you connect to a CSC supercomputer, the `ssh-agent` utility can hold your keys in memory. Using `ssh-agent` is not necessary, but makes using SSH keys very convenient!
+      * On Linux systems, `ssh-agent` is typically configured and run automatically at login and requires no additional actions on your part.
+      * On macOS systems, you should add the following lines to the `~/.ssh/config` file:
 
-   ```bash
-   ssh cscusername@puhti.csc.fi
-   ```
+        ```text
+        Host *
+            UseKeychain no
+            AddKeysToAgent yes
+        ```
 
-2. Scroll down to [In Puhti](#in-puhti)
+3. Scroll down to [In Puhti](#in-puhti).
 
 ### Connecting from Windows
 
 💬 On Windows you have different options:
 
-- You can use the [Puhti web interface](https://www.puhti.csc.fi) to connect with your browser ([see above](#puhti-web-interface))
-- You can use the *Windows Power Shell*
-- You can [download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)
-- You can [download and install MobaXterm](https://mobaxterm.mobatek.net/download.html).
-- You can set up the Windows Subsystem for Linux which creates an independent virtual Linux installation that can see all the files on your Windows computer. [Instruction for WSL](https://learn.microsoft.com/en-us/windows/wsl/install).
+* You can use the [Puhti web interface](https://www.puhti.csc.fi) to connect with your browser (easiest, [see above](#puhti-web-interface)).
+* You can [download and install MobaXterm](https://mobaxterm.mobatek.net/download.html).
+* You can [download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+* You can use the Windows PowerShell. See [Docs CSC](https://docs.csc.fi/computing/connecting/ssh-windows/#powershell).
 
-‼️ The following steps assume you use MobaXterm. [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
+‼️ The following steps assume you use **MobaXterm**. [More examples can be found in Docs CSC](https://docs.csc.fi/computing/connecting/).
 
 1. Launch MobaXterm from the applications list (opens from the Windows logo), or search for it in the bottom bar search box.
-2. Click the "SSH" icon in the top left corner.
-3. In the Basic SSH settings section Remote host field write "puhti.csc.fi"
-4. Tick the "specify username" box and in the box write your CSC username (leave port in the default setting 22).
-5. Click "OK" at the bottom.
-6. MobaXterm will now login to puhti.csc.fi and ask you for your password.
+2. Click **Session** in the top-left corner and select **SSH**.
+3. In the **Basic SSH settings** section, write `puhti.csc.fi` in the **Remote host** field.
+4. Tick the **Specify username** box and enter your CSC username. The **Port** number can be left as 22 (default).
+5. In the **Advanced SSH settings** section, tick the **Use private key** box and add the path to the SSH private key you generated in the [previous tutorial](ssh-keys.md#windows).
+6. Click **OK**. If it is the first time you are connecting to Puhti, click **Accept**.
+7. You are asked to enter your SSH key passphrase.
 
-💡 The next time you want to login to Puhti, just select it from the "session" menu on the left.
+   💡 To avoid having to type your passphrase every time you connect, you may enable the MobAgent authentication agent in the program settings, **Settings > SSH > SSH agents**. Tick the **Use internal SSH agent "MobAgent"** box and select the key(s) you want to load.
 
-💭 The MobaXterm window looks like this:  
+8. You've now connected to Puhti!
+
+   💡 The next time you want to login to Puhti, just select it from the **User session** menu on the left!
+
 ![terminal-icon](../../_slides/img/mobaxterm-login.png)
 
 ## In Puhti
 
-1. If you're connecting to Puhti (or a specific Puhti login node) for the first time, SSH will ask you if you trust the authenticity of the host, *e.g.*:
+1. If you're connecting to Puhti (or a specific Puhti login node) for the first time, SSH will ask you if you trust the authenticity of the host:
 
    ```text
    The authenticity of host 'puhti-login14.csc.fi' can't be established.
@@ -92,7 +105,7 @@ Find the Terminal on your computer:
    ```
 
 2. The first time you connect, you need to accept, but the key should not change for the next login.
-3. Pay attention whether you logged in `login11`, `login12`, `login14` or `login15`.
+3. Pay attention to whether you logged in to `puhti-login11`, `puhti-login12`, `puhti-login14` or `puhti-login15`.
 4. Once you've logged in you'll see a greeting starting something like this:
 
    ```text
@@ -117,7 +130,7 @@ Find the Terminal on your computer:
    [cscusername@puhti-login14 ~]$
    ```
 
-5. Now, you're ready to go.
+5. Now, you're ready to go!
 6. Let's do our first small task in Puhti: let's check our projects and that we have a one with access to Allas service!
 
    ```bash
@@ -126,13 +139,18 @@ Find the Terminal on your computer:
    allas-conf
    ```
 
-7. The first command `csc-projects` lists your projects. The second command `module load allas` loads the Allas tools in your use. The third command `allas-conf` sets up the connection to Allas: it will ask for your CSC password, and then you need to select which project you want to use (by typing the number of the project, for example `2`). If you don't see a project here, please return to [CSC account and project](credentials.md) tutorial and see that you have a project with access to Allas service. Please note, that it can take up to 1h after accepting the terms of use before the service is in use.
+   1. The first command `csc-projects` lists your projects.
+   2. The second command `module load allas` loads the Allas tools in your use.
+   3. The third command `allas-conf` sets up the connection to Allas: it will ask for your CSC password, and then you need to select which project you want to use (by typing the number of the project, for example `2`).
+      * If you don't see a project here, please return to [CSC account and project](credentials.md) tutorial and ensure that you have a project with access to Allas service. Please note that it can take up to an hour after accepting the terms of use before the service is in use.
 
-### Remote graphics
+## Remote graphics
 
-💬 Remote graphics may not work by default. Try the [Puhti web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications. Another option is to enable X11-tunneling as follows.
+💬 Remote graphics may not work by default. Try the [Puhti web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications.
 
-#### On Linux/macOS
+💬 Another option is to enable X11-tunneling as follows.
+
+### On Linux and macOS
 
 1. Add X11-tunneling to your SSH connection by adding `-X` or `-Y` to your `ssh` command like this (replace `cscusername` with your CSC username):
 
@@ -140,27 +158,20 @@ Find the Terminal on your computer:
    ssh -X cscusername@puhti.csc.fi
    ```
 
-   Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`
+2. Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`:
 
    ```bash
    export DISPLAY=:0
    ```
 
-#### On Windows
+### On Windows
 
-1. MobaXterm will actually tunnel the connection by default.
-2. WSL and PuTTY require that an X server is installed and running. One of the options is [Xming](http://www.straightrunning.com/XmingNotes/).
-3. In PuTTY, X11 forwarding is enabled in the connection settings: `Connection -> SSH -> X11: Enable X11 forwarding`.
-4. If you are using WSL, you need to set either of the environment variables below in your `.bashrc` (depends on the version of WSL you are running):
-
-   ```bash
-   export DISPLAY=:0
-   # or
-   export DISPLAY=:0.0
-   ```
+1. MobaXterm will actually tunnel the connection by default!
+2. PuTTY requires that an X server is installed and running. One of the options is [Xming](http://www.straightrunning.com/XmingNotes/).
+3. In PuTTY, X11 forwarding is enabled in the connection settings: **Connection > SSH > X11: Enable X11 forwarding**.
 
 ☝🏻 For intensive remote graphics we recommend using the [Puhti web interface](https://www.puhti.csc.fi/).
 
 ## More information
 
-💭 [Docs: Connecting](https://docs.csc.fi/computing/connecting/)
+💭 [Docs CSC: Connecting](https://docs.csc.fi/computing/connecting/)
