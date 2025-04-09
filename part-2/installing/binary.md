@@ -66,13 +66,13 @@ on to ensure correct operation.
 3. Here is the link for the Linux version. Download the `.zip` file by running:
 
    ```bash
-   wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.1-linux-kernel-3-x86_64.zip
+   wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.94.4-linux-kernel-3-x86_64.zip
    ```
 
 4. Unzip the file:
 
    ```bash
-   unzip gcta-1.94.1-linux-kernel-3-x86_64.zip
+   unzip gcta-1.94.4-linux-kernel-3-x86_64.zip
    ```
 
 5. The software is now ready to use, but you will have to tell the computer
@@ -87,23 +87,23 @@ on to ensure correct operation.
 7. Try instead:
 
    ```bash
-   gcta-1.94.1-linux-kernel-3-x86_64/gcta64
+   gcta-1.94.4-linux-kernel-3-x86_64/gcta64
    ```
 
 8. Or:
 
    ```bash
-   cd gcta-1.94.1-linux-kernel-3-x86_64
+   cd gcta-1.94.4-linux-kernel-3-x86_64
    ./gcta64
    ```
 
 9. The result shows that the software runs.
    - The error message is just about missing arguments, which is normal.
 
-💡 Instead of providing the full path in the command line, you can also add the
-application to your `$PATH`.
+   💡 Instead of providing the full path in the command line, you can also add
+   the application to your `$PATH`.
 
-10. Move to `./gcta-1.94.1-linux-kernel-3-x86_64` if not there yet.
+10. Move to `./gcta-1.94.4-linux-kernel-3-x86_64` if not there yet.
 11. Add the current working directory to `$PATH`:
 
     ```bash
@@ -125,7 +125,7 @@ application to your `$PATH`.
 `$HOME/.bashrc` file. Instead of `$PWD`, use the full path:
 
 ```bash
-export PATH=/projappl/<project>/$USER/gcta-1.94.1-linux-kernel-3-x86_64:$PATH   # replace <project> with your CSC project, e.g. project_2001234
+export PATH=/projappl/<project>/$USER/gcta-1.94.4-linux-kernel-3-x86_64:$PATH   # replace <project> with your CSC project, e.g. project_2001234
 ```
 
 ‼️ If you make changes to your environment (e.g. edit `.bashrc`), it is possible
