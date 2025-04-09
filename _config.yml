@@ -16,7 +16,7 @@ favicon_ico: "/assets/images/logo.png"
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Copyright &copy; 2020-2024 CSC – IT Center for Science Ltd. This work is licensed under a <a href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>. This project has received funding from the European High-Performance Computing Joint Undertaking (EuroHPC JU) under grant agreements No 951732 and 101101903."
+footer_content: "Copyright &copy; 2020-2025 CSC – IT Center for Science Ltd. This work is licensed under a <a href=\"http://creativecommons.org/licenses/by-sa/4.0/\">Creative Commons Attribution-ShareAlike 4.0 Unported License</a>. This project has received funding from the European High-Performance Computing Joint Undertaking (EuroHPC JU) under grant agreements No 951732 and 101101903."
 
 gh_edit_link: true
 gh_edit_link_text: "Edit this page on GitHub"
