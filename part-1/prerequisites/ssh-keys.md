@@ -24,7 +24,7 @@ permalink: /hands-on/connecting/ssh-keys.html
 ‼️ MobaXterm and PuTTY provide MobaKeyGen and PuTTYgen tools for generating SSH key pairs. In this tutorial we assume you use MobaXterm and MobaKeyGen. The tools are, however, identical and the instructions can easily be adapted for PuTTYgen as well.
 
 1. Launch MobaXterm from the applications list (opens from the Windows logo), or search for it in the bottom bar search box.
-2. Open **MobaKeyGen** from the **Settings** tab.
+2. Open **MobaKeyGen** from the **Tools** tab.
 3. In the **Parameters** section, select **Ed25519** (EdDSA) as the key type (recommended). Another acceptable alternative is RSA 4096. If you use RSA, make sure to increase the number of bits to 4096 (default is 2048).
 4. Click **Generate**.
 
