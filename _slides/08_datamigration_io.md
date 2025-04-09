@@ -10,7 +10,7 @@ lang: en
 </div>
 <div class="column">
 <small>
-All materials (c) 2020-2024 by CSC – IT Center for Science Ltd.
+All materials (c) 2020-2025 by CSC – IT Center for Science Ltd.
 This work is licensed under a **Creative Commons Attribution-ShareAlike** 4.0
 Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creativecommons.org/licenses/by-sa/4.0/)
 </small>
@@ -57,13 +57,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Managing file I/O (1/3)
 
 - Parallel file system (Lustre):
-   - Shared across all nodes in the cluster (e.g., `/scratch`)
+   - Shared across all nodes in the cluster (e.g. `/scratch`)
    - Optimized for parallel I/O of large files, slow if accessing lots of small files!
 - [Temporary local storage (NVMe)](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas):
    - Accessible on login nodes (`$TMPDIR`) and to jobs on some compute nodes (`$LOCAL_SCRATCH`)
    - Automatically purged after the job finishes
-   - Availability varies slightly depending on the supercomputer(Puhti/Mahti/LUMI)
-      - check the availability of [local storage in different job partitions](https://docs.csc.fi/computing/running/batch-job-partitions)
+   - Availability varies slightly depending on the supercomputer (Puhti/Mahti/LUMI)
+      - Check the availability of [local storage in different job partitions](https://docs.csc.fi/computing/running/batch-job-partitions)
 
 # Managing file I/O (2/3)
 
@@ -87,12 +87,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - "Ramdisk" (`/dev/shm`) can be used on Mahti nodes without NVMe
    - `export TMPDIR=/dev/shm`
 - Do not use databases on `/scratch`
-   - Instead, consider hosting DBs on cloud resources (e.g., [Pukki DBaaS](https://docs.csc.fi/cloud/dbaas/))
+   - Instead, consider hosting DBs on cloud resources (e.g. [Pukki DBaaS](https://docs.csc.fi/cloud/dbaas/))
 
 # Using Allas in batch jobs
 
 - Command-line interface: use either Swift or S3 protocol
-   - Swift (multiple projects, 8-hour) *vs*. S3 protocol (fixed for a project, persistent)
+   - Swift (multiple projects, 8-hour) vs. S3 protocol (fixed for a project, persistent)
 - `allas-conf` needs setting up CSC password interactively
    - Jobs may start late and actual job may take longer than 8 hrs
 - Use `allas-conf -k`
@@ -120,9 +120,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - `allas-conf --lumi`
 - Usage:
   - Using LUMI-O with `rclone` (endpoint is `lumi-o:`)
-    - e.g., `rclone lsd lumi-o:`
+    - e.g. `rclone lsd lumi-o:`
   - One can use a-tools with option `--lumi`
-    - e.g., `a-list --lumi`
+    - e.g. `a-list --lumi`
 - Docs CSC: [Using Allas and LUMI-O from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
 
 # Moving data between LUMI-O and Allas
@@ -133,10 +133,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Use `rclone` with `s3allas:` as endpoint for Allas and `lumi-o`: for LUMI-O
     - `rclone copy -P lumi-o:lumi-bucket/object s3allas:allas-bucket/`
 
-# Moving data between IDA and Allas
+# Moving data between Fairdata IDA and Allas
 
-- Needs transfer of data *via* supercomputer (e.g., Puhti)
-- Requires [configuring IDA in CSC supercomputers](https://docs.csc.fi/data/ida/using_ida/).
+- Needs transfer of data *via* supercomputer (e.g. Puhti)
+- Requires [configuring Fairdata IDA in CSC supercomputers](https://docs.csc.fi/data/ida/using_ida/)
    - Load IDA module: `module load ida`
    - Configure IDA database: `ida_configure`
    - Upload data to IDA: `ida upload <target_in_ida> <local_file>`
@@ -147,8 +147,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - CSC sensitive data services: SD Connect and SD Desktop, use service-specific encryption
 - SD Desktop is able to read encrypted data from Allas
    - If you want to make your data available in SD Desktop, you need to use *SD Connect* to upload data to Allas
-   - Use `a-put` with option `--sdx` or command `a-encrypt` to make your Allas data compatible with SD Desktop
-   - New feature with the flag  "--sdc" is availble now
+   - Open SD Connect compatible connection to Allas with `allas-conf --sdc`
+   - Data can then be uploaded by using command `a-put` with option `--sdc`
+   - [More information in Docs CSC](https://docs.csc.fi/data/sensitive-data/sd-connect-command-line-interface/)
 
 # Cleaning and backing up data (1/3)
 
@@ -170,6 +171,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - Incremental (efficient) and version control (no overriding)
   - Based on hashes and requires more computing
   - Efficient way to store different versions of a dataset
+- New restic-based "data mover" tool coming soon!
 
 # Cleaning and backing up data (3/3)
 
@@ -180,4 +182,3 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - `allas-backup [add] file-or-directory`
    - `allas-backup list `
    - `allas-backup restore snapshot-id`
-
