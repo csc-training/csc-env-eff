@@ -21,6 +21,7 @@ areas, e.g. [data science and machine learning](https://docs.csc.fi/apps/python-
 as well as [geoinformatics](https://docs.csc.fi/apps/geoconda/).
 
 💡 For more details, please see the [Python page](https://docs.csc.fi/apps/python/)
+and [Python usage guide](https://docs.csc.fi/support/tutorials/python-usage-guide/)
 in Docs CSC.
 
 💭 By selecting a suitable Python environment to start with, you'll minimize
@@ -102,7 +103,7 @@ command-line interface, these commands may not work as is! This is because the
 Python modules provided by CSC are containerized and the user-installed
 binaries will refer to an inaccessible Python path inside the container. For
 workaround instructions, see our
-[Python documentation](https://docs.csc.fi/apps/python/#installing-python-packages-to-existing-modules),
+[Python usage guide](https://docs.csc.fi/support/tutorials/python-usage-guide/),
 or install your own environment from the beginning inside a container as
 outlined in the following example.
 
