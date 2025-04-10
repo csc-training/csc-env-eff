@@ -92,7 +92,9 @@ Find the Terminal on your computer:
 
    💡 The next time you want to login to Puhti, just select it from the **User session** menu on the left!
 
-![terminal-icon](../../_slides/img/mobaxterm-login.png)
+   💡 Note, you may also login with MobaXterm using the plain `ssh` command similar to Linux and macOS (see image below).
+
+   ![mobaxterm-view](../../_slides/img/mobaxterm-login.png)
 
 ## In Puhti
 
