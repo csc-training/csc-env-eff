@@ -20,14 +20,14 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Some software packages on the CSC supercomputers are installed as containers
   - May cause some changes to usage
-  - See the instructions in Docs CSC for each software for details
+  - See the instructions in [Docs CSC](https://docs.csc.fi/apps/) for each software for details
 - Containers provide an easy way to install software
   - A single-command installation if a suitable Docker or Apptainer/Singularity container exists
 
 # Containers
 
 - Containers are a way of packaging software and their dependencies (libraries, etc.)
-- Popular container engines include Docker, Apptainer (previously called Singularity), Shifter, Podman etc
+- Popular container engines include Docker, Apptainer (previously called Singularity), Shifter, Podman etc.
 - Apptainer is most popular in HPC environments
 
 # Containers vs. virtual machines (1/2)
@@ -46,7 +46,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   - A single-command installation from existing image
   - More portable since all dependencies are included
 - Limited root privileges inside the container if the build system supports it
-  - Package managers (yum, apt, etc.) can be utilized even when not available on the target system.
+  - Package managers (yum, apt, etc.) can be utilized even when not available on the target system
   - Some containers need full root access in to build
 
 # Benefits of containers: Environment isolation
@@ -65,7 +65,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Apptainer in a nutshell
 
 - Containers can be run with user-level rights
-  - But: building new containers requires root access or support for `--fakeroot` option
+  - **But**: building new containers requires root access or support for  
+    `--fakeroot` option
 - Minimal performance overhead
 - Supports MPI
   - Requires containers tailored to the host system
@@ -80,7 +81,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - No need to load a module
 - Users can run their own containers
 - Some CSC software installations are provided as containers (e.g. Python environments)
-  - See the software pages in Docs CSC for details
+  - See the [software pages in Docs CSC](https://docs.csc.fi/apps/) for details
 
 # Running Apptainer containers: Basic syntax
 
@@ -118,7 +119,8 @@ export SING_IMAGE=/path/to/container.sif
 apptainer_wrapper exec myprog <options>
 ```
 
-- Additional options can be set with variable `$SING_FLAGS`, e.g. `export SING_FLAGS=--nv`
+- Additional options can be set with variable `$SING_FLAGS`,  
+  e.g. `export SING_FLAGS=--nv`
 
 # Using Docker containers with Apptainer
 
@@ -150,8 +152,8 @@ apptainer_wrapper exec myprog <options>
 
 # Methods of building a new Apptainer container
 
-- Building using [Tykky](https://docs.csc.fi/computing/containers/tykky/))
-- Building from a definition (aka recipe) file
+- Building using [Tykky](https://docs.csc.fi/computing/containers/tykky/)
+- Building from a definition (a.k.a. recipe) file
 - Building in "sandbox" mode
 
 # Building using Tykky
@@ -159,7 +161,7 @@ apptainer_wrapper exec myprog <options>
 - Especially suited for Conda environments
   - Can take an environment YAML file as an input
 - Can be used for any application type
-  - Use `--post-install <file>`to run the installation commands
+  - Use `--post-install <file>` to run the installation commands
   - See [example](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md)
 
 # Building using a definition file
@@ -172,7 +174,7 @@ apptainer_wrapper exec myprog <options>
 
 # Building using sandbox mode
 
-- container created as a directory structure instead of an image file
+- Container created as a directory structure instead of an image file
 - Installation done interactively
   - Easier to test different options
 - A production image needs to be built for general use
