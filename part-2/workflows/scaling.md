@@ -100,7 +100,7 @@ speeds up.
 6. Check the elapsed time of each simulation once they have completed:
 
    ```bash
-   grep "Elapsed time" *.out | sort -n
+   grep "Elapsed time" *.out | sort -nk 4
    ```
 
 💭 Did the computation become faster? If so, is the scaling ideal, i.e. does
