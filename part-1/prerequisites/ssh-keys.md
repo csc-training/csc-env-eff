@@ -80,6 +80,8 @@ permalink: /hands-on/connecting/ssh-keys.html
 4. Enter a **Title** for your public key, for example *my-ssh-key*.
 5. Paste your public key into the **Key** field and click **Add**.
 
+   ☝🏻 When generating SSH keys using MobaKeyGen, the correctly formatted public key is found in the field under *Public key for pasting into OpenSSH server* (see step 6 of the [Windows instructions](#windows)).
+
    ![Add public key to MyCSC](../../_slides/img/mycsc-add-key2.png)
 
 6. You should now see your new key listed under **SSH PUBLIC KEYS**.

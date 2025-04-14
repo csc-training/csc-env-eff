@@ -84,6 +84,9 @@ Find the Terminal on your computer:
 4. Tick the **Specify username** box and enter your CSC username. The **Port** number can be left as 22 (default).
 5. In the **Advanced SSH settings** section, tick the **Use private key** box and add the path to the SSH private key you generated in the [previous tutorial](ssh-keys.md#windows).
 6. Click **OK**. If it is the first time you are connecting to Puhti, click **Accept**.
+
+   ![mobaxterm-view](../../_slides/img/mobaxterm-connect.png)
+
 7. You are asked to enter your SSH key passphrase.
 
    💡 To avoid having to type your passphrase every time you connect, you may enable the MobAgent authentication agent in the program settings, **Settings > SSH > SSH agents**. Tick the **Use internal SSH agent "MobAgent"** box and select the key(s) you want to load.
