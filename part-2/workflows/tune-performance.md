@@ -16,6 +16,11 @@ permalink: /hands-on/throughput/tune_performance.html
 - you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
 - your account belongs to a project [that has access to the Mahti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
+☝🏻 This exercise can in principle also be completed using Puhti. In this case,
+you need to edit the batch script settings below accordingly (e.g. partition),
+and note that Puhti has 40 CPU cores per node, not 128. Read more about
+[available batch job partitions on Puhti](https://docs.csc.fi/computing/running/batch-job-partitions/#puhti-partitions).
+
 ## Overview
 
 💬 In this exercise, you will optimize the performance of a real simulation use
@@ -27,7 +32,7 @@ uses hybrid MPI/OpenMP parallelization.
 
 ## Download a sample input file
 
-1. Create and enter a suitable scratch directory on Puhti (replace `<project>`
+1. Create and enter a suitable scratch directory on Mahti (replace `<project>`
    with your CSC project, e.g. `project_2001234`):
 
    ```bash
@@ -57,7 +62,7 @@ example simulation.
    #SBATCH --partition=medium
    #SBATCH --account=<project>    # replace <project> with your CSC project, e.g. project_2001234
    #SBATCH --nodes=<N>            # replace <N> with the number of nodes to run on
-   #SBATCH --ntasks-per-node=128  # Mahti has 128 CPU cores per node
+   #SBATCH --ntasks-per-node=128  # Mahti has 128 CPU cores per node, Puhti has 40
    #SBATCH --time=00:10:00
 
    module purge
@@ -106,7 +111,7 @@ input and should be tested.
 ☝🏻 To run multiple threads, one needs to set `--cpus-per-task`. The default
 is one CPU (thread) per task. To use all 128 physical cores in a Mahti node,
 the value of `--ntasks-per-node` multiplied by `--cpus-per-task` should equal
-128 (40 on Puhti). Most applications also require setting the `OMP_NUM_THREADS`
+128  (40 on Puhti). Most applications also require setting the `OMP_NUM_THREADS`
 environment variable to be equal to the number of threads per task.
 
 1. Copy the following script into a file `job.sh` using, e.g., `nano`:
