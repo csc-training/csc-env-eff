@@ -75,16 +75,20 @@ permalink: /hands-on/connecting/ssh-keys.html
 
 3. Locate **SSH PUBLIC KEYS** section and select **+ Add key**. As a security measure, you may be asked to log in again.
 
-   ![Add public key to MyCSC](../../_slides/img/mycsc-add-key1.png)
+   ![Add public key to MyCSC](../../_slides/img/ssh-no-keys.png)
 
-4. Enter a **Title** for your public key, for example *my-ssh-key*.
-5. Paste your public key into the **Key** field and click **Add**.
+4. Add your public key by either:
+   1. uploading the public key file in the **Upload file** tab, or
+   2. manually pasting its contents into the **Key** field in the **Manual input** tab. In this case, also add a **Title** for the key, e.g. "my-ssh-key".
 
    ☝🏻 When generating SSH keys using MobaKeyGen, the correctly formatted public key is found in the field under *Public key for pasting into OpenSSH server* (see step 6 of the [Windows instructions](#windows)).
 
-   ![Add public key to MyCSC](../../_slides/img/mycsc-add-key2.png)
+   ![Add public key to MyCSC](../../_slides/img/ssh-manual-input.png)
 
+5. Select **Upload** or **Add**.
 6. You should now see your new key listed under **SSH PUBLIC KEYS**.
+
+   ![Public key added to MyCSC](../../_slides/img/ssh-key-added.png)
 
 ‼️ Be patient, as it may take up to one hour for your new key to become active! If it takes longer than that, please contact <mailto:servicedesk@csc.fi>.
 
