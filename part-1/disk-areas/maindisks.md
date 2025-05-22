@@ -120,7 +120,7 @@ Let's assume that
    chmod g-w Merged.fasta          # g-w means that we "subtract" write permissions for users belong to our group (g), i.e. our project
    ```
 
-### Copying files from Puhti to Mahti (it is an optional task as it needs Mahti access)
+### Copying files from Puhti to Mahti (optional)
 
 1. Change to the folder where you have the example files
 2. Copy `Merged.fasta` file from Puhti to the `/scratch` drive of Mahti:
