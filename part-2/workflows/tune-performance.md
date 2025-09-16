@@ -74,20 +74,20 @@ example simulation.
    `openmpi/4.1.2` with `intel-oneapi-compilers-classic/2021.6.0` and
    `intel-oneapi-mpi/2021.6.0`.
 
-3. Submit the batch script:
+2. Submit the batch script:
    
    ```bash
    sbatch cp2k.sh
    ```
 
-4. Once the job has completed, you may use the program's internal timer to
+3. Once the job has completed, you may use the program's internal timer to
    check how many seconds it took to run the simulation:
 
    ```bash
    grep "CP2K  " slurm-<jobid>.out | awk '{print $7}'
    ```
 
-5. Repeat the job for the number of nodes listed below and complete the table!
+4. Repeat the job for the number of nodes listed below and complete the table!
    Calculate the speedup by dividing the previous elapsed time with the elapsed
    time obtained using twice as many nodes:
 
