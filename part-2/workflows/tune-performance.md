@@ -70,6 +70,10 @@ example simulation.
    srun cp2k.psmp -i cp2k.inp
    ```
 
+   ☝🏻 If you run this exercise on Puhti, please replace modules `gcc/9.4.0` and
+   `openmpi/4.1.2` with `intel-oneapi-compilers-classic/2021.6.0` and
+   `intel-oneapi-mpi/2021.6.0`.
+
 2. Submit the batch script:
    
    ```bash
@@ -131,6 +135,10 @@ environment variable to be equal to the number of threads per task.
    module load gcc/9.4.0 openmpi/4.1.2 cp2k/2023.2
    srun cp2k.psmp -i cp2k.inp
    ```
+
+   ☝🏻 If you run this exercise on Puhti, please replace modules `gcc/9.4.0` and
+   `openmpi/4.1.2` with `intel-oneapi-compilers-classic/2021.6.0` and
+   `intel-oneapi-mpi/2021.6.0`.
 
 2. Submit the job using different combinations of `--ntasks-per-node` and
    `--cpus-per-task`.
