@@ -66,7 +66,7 @@ example simulation.
    #SBATCH --time=00:10:00
 
    module purge
-   module load gcc/9.4.0 openmpi/4.1.2 cp2k/2023.2
+   module load gcc/14.2.0 openmpi/5.0.6 cp2k/2025.1
    srun cp2k.psmp -i cp2k.inp
    ```
 
@@ -128,7 +128,7 @@ environment variable to be equal to the number of threads per task.
    export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
    module purge
-   module load gcc/9.4.0 openmpi/4.1.2 cp2k/2023.2
+   module load gcc/14.2.0 openmpi/5.0.6 cp2k/2025.1
    srun cp2k.psmp -i cp2k.inp
    ```
 
