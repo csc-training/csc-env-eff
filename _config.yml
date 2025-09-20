@@ -2,13 +2,13 @@ title: CSC Computing Environment
 description: Materials for the CSC Computing Environment -course
 theme: just-the-docs
 
-url: https://csc-training.github.io
-baseurl: "/csc-env-eff"
+url: https://yetulaxman.github.io
+baseurl: "/ai-hpc-bioapps"
 plugins:
   - jekyll-sitemap
 
 aux_links:
-  View on GitHub: https://github.com/csc-training/csc-env-eff
+  View on GitHub: https://github.com/yetulaxman/ai-hpc-bioapps
 
 favicon_ico: "/assets/images/logo.png"
 
@@ -20,7 +20,7 @@ footer_content: "Copyright &copy; 2020-2025 CSC – IT Center for Science Ltd. T
 
 gh_edit_link: true
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/csc-training/csc-env-eff"
+gh_edit_repository: "https://github.com/yetulaxman/ai-hpc-bioapps"
 gh_edit_branch: "master"
 gh_edit_view_mode: "edit"
 

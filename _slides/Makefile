@@ -1,17 +1,6 @@
 LECTURES= \
-00_study_tips.md \
 00_account_and_project.md \
-01_logging_in.md \
-02_environment.md \
-03_disk_areas.md \
-04_modules.md \
-05_batch_jobs.md \
-06_understanding_usage.md \
-07_allas.md \
-08_installing.md \
-09_singularity.md \
-10_speed_up_jobs.md \
-csc-env.md
+01_logging_in.md 
 # csc-env.md creates the index for allas
 
 TITLE=Title.pdf
