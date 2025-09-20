@@ -24,5 +24,5 @@ Welcome! This website contains materials for the *CSC Computing Environment* -co
 9. Click the home icon in the bottom-right corner on any slide to return to this page.
 10.  [A video with study tips](https://video.csc.fi/media/t/0_d7trmsru).
 
-[Bioinformatics -- Get started with the basics!](bioinformatics){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
-[Material science -- Dig deeper into HPC workflows!](materialscience){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Part 1 -- Get started with the basics!](part-1){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
+[Part 2 -- Dig deeper into HPC workflows!](part-2){: .btn .btn-primary .fs-5 .mb-4 .mb-md-0 .mr-2 }
