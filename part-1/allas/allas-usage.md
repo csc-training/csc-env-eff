@@ -11,21 +11,16 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
 # Basic usage of Allas
 
-## Accessing Allas via the Puhti web interface (optional)
+## Accessing Allas via Allas web interface
 
-1. Go to the Puhti web interface: <https://www.puhti.csc.fi>.
-2. Login with your CSC user account (or Haka).
-3. Select *Cloud storage configuration* from the *Pinned Apps* view on the dashboard.
-4. Enter your CSC password to authenticate, then create an Allas S3 connection for the project you want to use for this exercise.
-   - You may skip the previous step if you've already configured a connection.
+1. Login to Allas web interface: <https://allas.csc.fi>
+2. From the upper left coner of the interface, select the CSC project you are using on this cource.
+3. Create a new bucket by pressing the *+Create Bucket* button.
+   - Name it as `<id>-<username>`, in which `<id>` is the number of your project and `<username>` is your CSC username. Note that you cannot use a bucket name that already exists!
 
-   💡 Now you'll be able to browse your *buckets* and *objects* in Allas using the *Files* app!
-
-5. From the *Files* dropdown menu in the top navigation bar, select `s3allas-project_<id>` where `<id>` is the number of your project (e.g. 2001234).
-6. Create a new bucket by pressing the *New Directory* button.
-   - Name it as `<id>_<username>`, in which `<id>` is again the number of your project and `<username>` is your CSC username. Note that you cannot use a bucket name that already exists!
-7. Open the created bucket by clicking it.
-8. Upload one file from your computer into the bucket (any file should do, but prefer a file that you can open in Puhti, e.g. a text file).
+4. Open the created bucket by clicking it.
+   
+5. Upload one file from your computer into the bucket (any file should do, but prefer a file that you can open in Puhti, e.g. a text file). Upload process starts from the *Upload* button in the upper right corner of the interface.
 
 💭 During the exercises, you can use this web interface to get another view to your buckets and objects in Allas.
 
@@ -64,25 +59,25 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
    💡 It might take a while to run `module load allas`
 
-2. If you have several projects with access to Allas available, select the one where you just created a bucket using the Puhti web interface
+2. If you have several projects with access to Allas available, select the one where you just created a bucket using the Allas web interface
 3. Study what you have in Allas with [`a-commands`](https://docs.csc.fi/data/Allas/using_allas/a_commands/) and with [rclone](https://docs.csc.fi/data/Allas/using_allas/rclone/):
 
    - With `a-commands`:
 
      ```bash
      a-list
-     a-list <id>_$USER             # replace <id> with your CSC project number, e.g. 2001234
-     a-info <id>_$USER/<filename>  # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+     a-list <id>-$USER             # replace <id> with your CSC project number, e.g. 2001234
+     a-info <id>-$USER/<filename>  # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
      ```
 
    - With `rclone`:
 
      ```bash
      rclone lsd allas:
-     rclone ls allas:<id>_$USER
-     rclone lsl allas:<id>_$USER
-     rclone lsf allas:<id>_$USER
-     rclone cat allas:<id>_$USER/<filename>
+     rclone ls allas:<id>-$USER
+     rclone lsl allas:<id>-$USER
+     rclone lsf allas:<id>-$USER
+     rclone cat allas:<id>-$USER/<filename>
      ```
 
 4. Download to Puhti the file that you just uploaded from your local computer to Allas. This can be done in two ways:
@@ -90,27 +85,27 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
    - With `a-commands`:
 
      ```bash
-     a-get <id>_$USER/<filename>     # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+     a-get <id>-$USER/<filename>     # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
      ```
 
    - With `rclone`:
 
      ```bash
-     rclone copy allas:<id>_$USER/<filename> ./    # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+     rclone copy allas:<id>-$USER/<filename> ./    # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
      ```
 
-5. Open, edit and rename the file so that you can distinguish it from the original one
+5. Open, edit and rename the file so that you can distinguish it from the original one.
 6. Upload the new file to Allas:
 
    - With `a-commands`:
 
      ```bash
-     a-put -b <id>_$USER <newfilename>   # replace <id> and <newfilename> accordingly
+     a-put -b <id>-$USER <newfilename>   # replace <id> and <newfilename> accordingly
      ```
 
      💭 Try running `a-put -h` to understand the command-line switch above and to find more information on options.
 
-     💬 With larger files it is good to include the option `-c` to enable `zstdmt` compression of the files.
+     💬 With larger text files it is good to include the option `-c` to enable `zstdmt` compression of the files.
 
    - With `rclone`:
 
@@ -121,10 +116,10 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 7. Check that the file in Puhti indeed has a counterpart in Allas:
 
    ```bash
-   a-check -b <id>_$USER <newfilename>   # replace <id> and <newfilename>
+   a-list <id>-$USER <newfilename>   # replace <id> and <newfilename>
    ```
 
-8. Locate the files you just uploaded to Allas in the Puhti web interface (search for the bucket name)
+8. Locate the files you just uploaded to Allas in the Allas web interface (search for the bucket name)
 
 ### Clean up
 
@@ -149,7 +144,7 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 1. Select a file that has an appropriate content and publish it with the command:
 
    ```bash
-   a-publish -b <id>_$USER <filename>   # replace <id> and <filename>
+   a-publish -b <id>-$USER <filename>   # replace <id> and <filename>
    ```
 
 2. The command outputs a URL (public link). Copy it to your browser or send it to your friends 😎
