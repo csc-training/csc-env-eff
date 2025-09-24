@@ -25,6 +25,7 @@ permalink: /hands-on/connecting/credentials.html
 6. Set your password
     - Use 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
 7. You will receive your CSC user account information via email.
+8. Make sure you have multi-factor authentication (MFA) activated: please see [instructions](https://docs.csc.fi/accounts/mfa/).
 
 ## Project
 
