@@ -21,22 +21,34 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Login via the web interfaces
 
 - A simple way to login to the Puhti supercomputer is via <https://www.puhti.csc.fi>
-- Use your CSC username and password
+- Login requires [multi-factor authentication](https://docs.csc.fi/accounts/mfa/) (MFA)
+  - Haka is recommended if your home organization already requires MFA
+  - Otherwise, [activate CSC MFA in MyCSC](https://my.csc.fi/mfa-activation-login) and use your CSC credentials
 - The web interface can be used, _e.g._, to launch GUI applications, browse files or open a command-line shell
    - The latter is useful if your computer does not have an SSH client, but you need command-line access to the supercomputer
 - Similar web interfaces are also available for Mahti and LUMI
   - More in-depth documentation in [Docs CSC](https://docs.csc.fi/computing/webinterface/) and [Docs LUMI](https://docs.lumi-supercomputer.eu/runjobs/webui/)
 
-# Login with SSH
+# Login with SSH (1/2)
 
 - SSH is a terminal program that gives you command-line access on the CSC supercomputer
 - It is a versatile main interface to a supercomputer
    - Laptop &harr; Toyota, Supercomputer &harr; F1. F1 needs a specialist interface.
-- Please read this page for an introduction on [how to log in with SSH](https://docs.csc.fi/computing/connecting/#using-an-ssh-client)
-   - Example: `ssh cscusername@puhti.csc.fi`
-   - Mac and Linux have SSH. On Windows, PowerShell can be used, but we recommend the web interfaces, or clients like MobaXterm or PuTTY
-- Plain SSH will not allow displaying remote graphics
-   - The web interfaces are often best for this, but can be enabled also by X11-tunneling (additional installations required on Windows, see link above)
+- Logging in with SSH requires setting up **SSH keys**
+  - A key pair is created and the **public** key is uploaded to MyCSC
+  - Using SSH keys is easier and safer than using a password with every login
+  - Read the [documentation](https://docs.csc.fi/computing/connecting/ssh-keys/) and do the [tutorial](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-keys.html)
+  - Consult the [FAQ](https://docs.csc.fi/support/faq/ssh-keys-not-working/) or contact <servicedesk@csc.fi> to troubleshoot issues
+
+# Login with SSH (2/2)
+
+- After adding your public key to MyCSC, it takes 30-60min for it to sync to Puhti. Once done, you may log in using `ssh` command
+   - Example: `ssh cscusername@puhti.csc.fi` or  
+     `ssh -i /path/to/ssh/keyfile cscusername@puhti.csc.fi`
+- Detailed instructions for [logging in with SSH on macOS and Linux](https://docs.csc.fi/computing/connecting/ssh-unix/) and [on Windows](https://docs.csc.fi/computing/connecting/ssh-windows/)
+  - On Windows, we recommend MobaXterm or PuTTY clients, or simply using the web interfaces instead of SSH
+- Note! Plain SSH will not allow displaying remote graphics
+   - The web interfaces are often best for this, but a graphical connection can also be enabled over SSH using [X11 forwarding](https://docs.csc.fi/computing/connecting/#graphical-connection)
 
 # Moving files between a local computer and Puhti
 
@@ -46,15 +58,23 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - _e.g._ `rsync -r foldername cscusername@puhti.csc.fi:/scratch/project_xxxx`
    - `rsync` exists in _MobaXterm_ but it removes write permissions of copied files
 - Sometimes a [GUI tool for transferring files](https://docs.csc.fi/data/moving/graphical_transfer/) is more convenient
-   - Nice tools are _e.g._ _FileZilla_ and _WinSCP_ (may require admin privileges)
-   - _MobaXterm_ also has a file transfer GUI (Tip: first, set persistent home directory)
+   - Nice tools are _e.g._ _FileZilla_ and _WinSCP_
+   - _MobaXterm_ also has a file transfer GUI (Tip: set persistent home directory)
    - The web interfaces can also be used to easily upload/download files
+- Note! Both the command-line and graphical file transfer tools are inherently SSH-based, so using them at CSC requires SSH keys!
 
-# Setting up SSH keys
+# Moving files between Puhti and Mahti (1/2)
 
-- Using SSH keys is easier and safer than using a password with every login
-   - A key pair is created and the **public** key is uploaded to the supercomputer
-- SSH keys can be easily used in Windows, Mac, Linux
-- Consult our [tutorials on how to set up SSH keys for your account](https://docs.csc.fi/computing/connecting/ssh-keys/)
-   - [Logging in to LUMI](https://docs.lumi-supercomputer.eu/firststeps/getstarted/) requires setting up an SSH key pair _and_ registering the public key in [MyCSC](https:/my.csc.fi)
-   - Adding SSH keys in MyCSC for Puhti and Mahti is also possible, but not yet a requirement for connecting
+- SSH keys should be set up on your local computer
+- To access Mahti from Puhti, or vice versa, you must ensure your SSH keys are *forwarded* to the server from where you want to connect onward
+  - This is called _SSH agent forwarding_
+  - Allows using e.g. `rsync` or `scp` to move files directly between Puhti/Mahti
+- On Linux/macOS, add option `-A` to your SSH command
+  - Example: `ssh -A cscusername@puhti.csc.fi`
+
+# Moving files between Puhti and Mahti (2/2)
+
+- Using MobaXterm:
+  - Similar to Linux/macOS if using local terminal, otherwise toggle _Allow agent forwarding_ under "Session" -> "SSH" -> "Advanced SSH settings" -> "Expert SSH settings"
+- Using PuTTY:
+  - Select "SSH" -> "Connection" -> "Auth" and toggle option _Allow agent forwarding_ under "Other authentication-related options"

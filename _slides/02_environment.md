@@ -54,6 +54,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via OKD (PaaS)
 - [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
 
+Coming early 2026:
+
+- [Roihu](https://docs.csc.fi/computing/systems-roihu/) is CSC's next national supercomputer, will replace Puhti and Mahti
+
 # Which supercomputer to use? 
 
 - What kind of resources can _your application_ use?
