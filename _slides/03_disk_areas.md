@@ -46,7 +46,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Puhti and Mahti have separate file systems
 - Data can be moved between the supercomputers
-    - [directly with rsync](https://docs.csc.fi/data/moving/rsync/)
+    - [directly with rsync](https://docs.csc.fi/data/moving/rsync/) (remember [SSH agent forwarding](https://docs.csc.fi/computing/connecting/ssh-unix/#ssh-agent-forwarding))
     - via [Allas object storage](https://docs.csc.fi/data/Allas/)
 - There are [many ways to transfer data between the CSC supercomputers and your local computer](https://docs.csc.fi/data/moving/)
 
