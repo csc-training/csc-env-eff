@@ -72,9 +72,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Note! Querying data from the Slurm accounting database with `sacct` can be a very heavy operation
       - **Don't** query long time intervals or run `sacct` in a loop/using `watch` as this will degrade the performance of the system for all users
 
-# Billing units
+# Billing Units
 
-- CPU time and storage space consume "[Billing units](https://docs.csc.fi/accounts/billing/)" (BU)
+- CPU time and storage space consume CPU and Storage [Billing Units](https://docs.csc.fi/accounts/billing/), respectively
 - BUs are a property of computing projects, not users
 - Monitor the BU usage of your project(s) from the command-line with `csc-projects`
    - For help/options, try `csc-projects -h`
@@ -82,9 +82,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Amount of resources allocated: All requested resources are billed, i.e. number of cores, amount of memory, NVMe, ...
    - Time allocated: Resources are billed based on the actual (wall) _time_ a job has **used**, not the reserved maximum time
 
-# Applying for Billing units
+# Applying for Billing Units
 
-- Billing units can be applied via the [Projects page in MyCSC](https://my.csc.fi/welcome)
+- Billing Units can be applied via the [Projects page in MyCSC](https://my.csc.fi/welcome)
    - Please acknowledge using CSC resources in your publications
    - Please also inform us about your work by adding your publications to the resource application!
 - Academic usage is one of the [free-of-charge use cases](https://research.csc.fi/free-of-charge-use)
@@ -96,15 +96,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # BUs are also a metric for comparing usage efficiency
 
 - Different resources have different rates
-   - 1 CPU core hour on Puhti equals 1 BU
-   - 1 GPU card hour on Puhti equals 60 BU (+ allocated CPU cores)
-   - 1 node hour on Mahti equals 100 BU
-   - 1 GiB hour of Memory on Puhti equals 0.1 BU
-   - 1st TiB of disk quota (`/scratch`, `/projappl`) is free-of-charge (0 BU)
-      - Applied excess quota is billed by 5 BU/TiBh. (5 billing units per TiB per hour)
-   - 1 used TiB hour in Allas equals 1 BU (i.e. 1 TiB of data consumes 8760 BU per year)
+   - 1 CPU core hour on Puhti equals 1 CPU BU
+   - 1 GPU card hour on Puhti equals 60 GPU BU (+ 1 GPU BU per allocated CPU core)
+   - 1 CPU node hour on Mahti equals 100 CPU BU
+   - 1 GiB hour of Memory on Puhti equals 0.1 CPU BU
+   - 1st TiB of disk quota (`/scratch`, `/projappl`) is free-of-charge (0 Storage BU)
+      - Applied excess quota is billed by 5 Storage BU/TiBh. (5 Storage Billing Units per TiB per hour)
+   - 1 used TiB hour in Allas equals 1 Storage BU (i.e. 1 TiB of data consumes 8760 Storage BU per year)
    - [This and other service billing information in Docs CSC](https://docs.csc.fi/accounts/billing/)
-   - For LUMI billing policy, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/)
+     - For LUMI billing policy, [see the LUMI documentation](https://docs.lumi-supercomputer.eu/runjobs/lumi_env/billing/)
 
 # Before starting large-scale calculations
 

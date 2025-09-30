@@ -161,7 +161,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 - A graphics processing unit (GPU, a graphics card), is capable of doing a certain type of simultaneous calculations _very_ efficiently
 - In order to take advantage of this power, an application must be (re)programmed to adapt to how the GPUs process data
 - CSC's GPU resources on Puhti and Mahti are relatively scarce and should be used only by applications [that really benefit from GPUs](https://docs.csc.fi/computing/usage-policy/#gpu-nodes)
-    - A GPU on Puhti/Mahti uses 60 times more billing units than a single CPU core - see above for performance requirements
+    - A GPU on Puhti/Mahti uses 60-100 times more GPU BUs than a single CPU core uses CPU BUs - see above for performance requirements
     - In practice, 1-10 CPUs (but not more) should be allocated per GPU on Puhti
     - Note that [LUMI-G](https://docs.lumi-supercomputer.eu/hardware/compute/lumig/) has a massive GPU capacity available, which is also "cheaper" as measured in BUs compared to Puhti/Mahti
 
