@@ -11,7 +11,7 @@ has_toc: false
 
 ## [4.1 Slides](https://a3s.fi/CSC_training/04_modules.html)
 
-## [4.2 Video: Modules and preinstalled software](https://video.csc.fi/media/t/0_y57f260c)
+## [4.2 Video: Modules and preinstalled software](https://video.csc.fi/media/t/0_w9iswgcj/725892)
 
 ## 4.2 Tutorials and exercises
 

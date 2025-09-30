@@ -11,7 +11,7 @@ has_toc: false
 
 ## [6.1 Slides](https://a3s.fi/CSC_training/06_understanding_usage.html)
 
-## [6.2 Video: Resource usage](https://video.csc.fi/media/t/0_bfbgk9zf)
+## [6.2 Video: Resource usage](https://video.csc.fi/media/t/0_ze567yuw/725892)
 
 ## 6.3 Tutorials and exercises
 

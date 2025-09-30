@@ -11,7 +11,7 @@ has_toc: false
 
 ## [3.1 Slides](https://a3s.fi/CSC_training/03_disk_areas.html)
 
-## [3.2 Video: Disk areas](https://video.csc.fi/media/t/0_99zrt6or)
+## [3.2 Video: Disk areas](https://video.csc.fi/media/t/0_ywh46och/725892)
 
 ## 3.3 Tutorials and exercises
 

@@ -11,7 +11,7 @@ has_toc: false
 
 ## [5.1 Slides](https://a3s.fi/CSC_training/05_batch_jobs.html)
 
-## [5.2 Video: Batch jobs](https://video.csc.fi/media/t/0_fagcet5x)
+## [5.2 Video: Batch jobs](https://video.csc.fi/media/t/0_i5ac64ub/725892)
 
 ## 5.3 Tutorials and exercises
 
