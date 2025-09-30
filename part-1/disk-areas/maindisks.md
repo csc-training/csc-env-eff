@@ -67,7 +67,7 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-maindisks.html
 
 ### Download the example files
 
-☝🏻 In this example you will *download* data from [Allas](https://docs.csc.fi/data/Allas/) object storage, but keep in mind that one should avoid using Allas to do data transfer between Puhti and Mahti.
+☝🏻 In this example you will *download* data from [Allas](https://docs.csc.fi/data/Allas/) object storage.
 
 1. Move to your home folder:
 
@@ -122,14 +122,21 @@ Let's assume that
 
 ### Copying files from Puhti to Mahti (optional)
 
-1. Change to the folder where you have the example files
-2. Copy `Merged.fasta` file from Puhti to the `/scratch` drive of Mahti:
+☝🏻 For this part you must ensure you have forwarded your SSH agent to Puhti, otherwise you will not be able to connect to Mahti.
+
+1. Check if your SSH keys are available on Puhti using command `ssh-add -L`.
+2. If true, it will print your public key. Proceed to step 4.
+3. If not:
+   1. Linux/macOS: Log out and log back in using `ssh -A` option.
+   2. Windows: Log out. Toggle option *Allow agent forwarding* found under "Session" -> "SSH" -> "Advanced SSH settings" -> "Expert SSH settings" (MobaXterm) **or** under "SSH" -> "Connection" -> "Auth" (PuTTY) before connecting again.
+4. Change to the folder where you have the example files
+5. Copy `Merged.fasta` file from Puhti to the `/scratch` drive of Mahti:
 
    ```bash
    rsync -P Merged.fasta <username>@mahti.csc.fi:/scratch/<project>/$USER/    # replace <username> with your CSC username and <project> with your CSC project, e.g. project_2001234
    ```
 
-3. Copy the `ggplot2_3.3.3_Rprogramme.tar.gz` file from Puhti to the `/projappl` directory on Mahti:
+6. Copy the `ggplot2_3.3.3_Rprogramme.tar.gz` file from Puhti to the `/projappl` directory on Mahti:
 
    ```bash
    rsync -P ggplot2_3.3.3_Rprogramme.tar.gz <username>@mahti.csc.fi:/projappl/<project>/$USER/    # replace <username> with your CSC username and <project> with your CSC project, e.g. project_2001234

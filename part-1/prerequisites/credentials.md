@@ -16,16 +16,18 @@ permalink: /hands-on/connecting/credentials.html
 
 💬 Every user needs a project and user account for using CSC services.
 
+💬 For registration, you will need a mobile device that has an authentication app for setting up multi-factor authentication (MFA).
+
 1. Go to [MyCSC](https://my.csc.fi)
-2. Click Log in or Get started.
-3. Click Virtu or Haka depending on which federation your home organization is a member of.
+2. Click *Login* or *Create account*.
+3. Click *Virtu* or *Haka* depending on which federation your home organization is a member of.
     - If your home organization doesn't provide Haka or Virtu, please see [how to contact us to register](https://docs.csc.fi/accounts/how-to-create-new-user-account/#getting-an-account-without-haka-or-virtu).
 4. Select your home organization and log in to their identity service.
-5. Fill in your information on the Sign up page.
-6. Set your password
+5. Fill in your information on the *Sign up* page.
+6. You will receive an email message containing a link to MyCSC where you can set your CSC account password.
     - Use 12 characters or more, containing both upper and lowercase letters and at least one number. No special characters are allowed.
-7. You will receive your CSC user account information via email.
-8. Make sure you have multi-factor authentication (MFA) activated: please see [instructions](https://docs.csc.fi/accounts/mfa/).
+7. If you are signing up with *Virtu* you will be prompted to [set up your CSC MFA](https://docs.csc.fi/accounts/mfa/#how-to-activate-csc-mfa) after setting your CSC accounts password. If you are signing up with Haka, you might already have a working MFA login integrated with your Haka login, and you will be asked to sign in with the Haka MFA. If your home organisation doesn't provide Haka MFA, you will be guided to set up CSC MFA.
+8. You will receive a confirmation via email after successfully registering your CSC user account.
 
 ## Project
 
@@ -35,7 +37,7 @@ permalink: /hands-on/connecting/credentials.html
 
 1. Join a project
     - via invitation link (ask the Project Manager to invite you)
-    - or if you are [eligible to act as a Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager) then go ahead and create a project
+    - or if you are [eligible to act as a Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager) then go ahead and [create a project](https://docs.csc.fi/accounts/how-to-create-new-project/)
 
 ## Add services to your project
 
