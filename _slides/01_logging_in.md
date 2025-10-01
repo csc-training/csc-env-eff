@@ -20,7 +20,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Login via the web interfaces
 
-- A simple way to login to the Puhti supercomputer is via <https://www.puhti.csc.fi>
+- A simple way to login to the Puhti supercomputer is via [puhti.csc.fi](https://www.puhti.csc.fi)
 - Login requires [multi-factor authentication](https://docs.csc.fi/accounts/mfa/) (MFA)
   - Haka is recommended if your home organization already requires MFA
   - Otherwise, [activate CSC MFA in MyCSC](https://my.csc.fi/mfa-activation-login) and use your CSC credentials
