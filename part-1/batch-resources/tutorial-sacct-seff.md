@@ -31,7 +31,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
    sacct -S YYYY-MM-DD    # replace YYYY-MM-DD
    ```
 
-3. Look for a specific job – _i.e._ specify the job ID using the `-j` option (if you can't think of one, you can use `27074259`):
+3. Look for a specific job – _i.e._ specify the job ID using the `-j` option (if you can't think of one, you can use `29712904`):
 
    ```bash
    sacct -j <slurmjobid>    # replace <slurmjobid> with a valid job ID 
@@ -63,7 +63,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
 
 💬 Run a simple array job to practice using `seff` and `sacct`.
 
-☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `27099109` (it is the same job).
+☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `29925966` (it is the same job).
 
 1. Create a file named `array.sh` and paste the following contents in it.
 
@@ -144,7 +144,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
 1. Look at the error messages produced by the failed jobs.
 2. When you know which sub jobs failed and why, adjust the resource requests as necessary.
 
-   ☝🏻 If you have limited time, you can skip to step 4 and use the job ID `27099394` (it is the same job with adjusted resource requests).
+   ☝🏻 If you have limited time, you can skip to step 4 and use the job ID `29926087` (it is the same job with adjusted resource requests).
 
    - Change time and memory reservations:
 
