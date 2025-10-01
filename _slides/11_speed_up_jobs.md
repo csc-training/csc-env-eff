@@ -136,9 +136,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Abundance of tutorials available online, search for *e.g.* "MPI tutorial"
 - Check the exercise materials and model solutions from [CSC Summer School on HPC](https://github.com/csc-training/summerschool) (available on GitHub)
 - Other good online tutorials:
-  - <https://hpc-tutorials.llnl.gov/mpi/>
-  - <https://mpitutorial.com/tutorials/>
-  - <https://www.openmp.org/resources/tutorials-articles/>
+  - [hpc-tutorials.llnl.gov/mpi](https://hpc-tutorials.llnl.gov/mpi/)
+  - [mpitutorial.com/tutorials](https://mpitutorial.com/tutorials/)
+  - [openmp.org/resources/tutorials-articles](https://www.openmp.org/resources/tutorials-articles/)
 
 # Graphics Processing Units (GPUs) can speed up jobs
 
