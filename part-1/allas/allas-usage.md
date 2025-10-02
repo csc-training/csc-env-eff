@@ -14,12 +14,10 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 ## Accessing Allas via Allas web interface
 
 1. Login to Allas web interface: <https://allas.csc.fi>
-2. From the upper left coner of the interface, select the CSC project you are using on this cource.
+2. From the upper-left corner of the interface, select the CSC project you are using on this course.
 3. Create a new bucket by pressing the *+Create Bucket* button.
    - Name it as `<id>-<username>`, in which `<id>` is the number of your project and `<username>` is your CSC username. Note that you cannot use a bucket name that already exists!
-
 4. Open the created bucket by clicking it.
-   
 5. Upload one file from your computer into the bucket (any file should do, but prefer a file that you can open in Puhti, e.g. a text file). Upload process starts from the *Upload* button in the upper right corner of the interface.
 
 💭 During the exercises, you can use this web interface to get another view to your buckets and objects in Allas.
