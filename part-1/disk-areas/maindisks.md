@@ -128,7 +128,7 @@ Let's assume that
 2. If true, it will print your public key. Proceed to step 4.
 3. If not:
    1. Linux/macOS: Log out and log back in using `ssh -A` option.
-   2. Windows: Log out. Toggle option *Allow agent forwarding* found under "Session" -> "SSH" -> "Advanced SSH settings" -> "Expert SSH settings" (MobaXterm) **or** under "SSH" -> "Connection" -> "Auth" (PuTTY) before connecting again.
+   2. Windows: Log out. Toggle option *Allow agent forwarding* found under "Session" -> "SSH" -> "Advanced SSH settings" -> "Expert SSH settings" (MobaXterm) **or** under "Connection" -> "SSH" -> "Auth" (PuTTY) before connecting again.
 4. Change to the folder where you have the example files
 5. Copy `Merged.fasta` file from Puhti to the `/scratch` drive of Mahti:
 
