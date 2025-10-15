@@ -17,8 +17,9 @@ permalink: /hands-on/throughput/tune_performance.html
 - your account belongs to a project [that has access to the Mahti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 
 ☝🏻 This exercise can in principle also be completed using Puhti. In this case,
-you need to edit the batch script settings below accordingly (e.g. partition),
-and note that Puhti has 40 CPU cores per node, not 128. Read more about
+you need to edit the batch script settings below accordingly (e.g. partition,
+runtime limit), and note that Puhti has 40 CPU cores per node, not 128. Read
+more about
 [available batch job partitions on Puhti](https://docs.csc.fi/computing/running/batch-job-partitions/#puhti-partitions).
 
 ## Overview
