@@ -13,7 +13,7 @@ permalink: /hands-on/singularity/singularity_extra_creating-containers.html
 
 💬 In this tutorial we will create an Apptainer container and install the same
 software as we installed in the tutorial
-["Installing a simple C code from source"](../installing/mcl.md). Feel free to
+["Installing a simple C code from source"](../installing/c.md). Feel free to
 revisit that tutorial for more information on the installation commands.
 
 💬 CSC supercomputers support the `fakeroot` feature of Apptainer, so it is
@@ -41,16 +41,15 @@ that.
 
 💭 In this case there is no specific reason to choose one distribution over
 another, but from experience it is known that the software installs without
-problems on CentOS, so we'll start with that.
+problems on Ubuntu, so we'll start with that.
 
 1. Start from a very bare-bones definition file. Copy the following lines to a
-   file called `centos.def`:
+   file called `hmmer.def`:
 
    ```text
-   Bootstrap: yum
-   OSVersion: 7
-   MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
-   Include: yum
+   Bootstrap: docker
+   From: ubuntu:24.04
+   
    ```
 
 2. By default, Apptainer uses the home directory for cached files. As the home
@@ -70,21 +69,41 @@ problems on CentOS, so we'll start with that.
 4. Using this definition file, build the container:
 
    ```bash
-   apptainer build --fakeroot --sandbox mcl centos.def
+   apptainer build --fix-perms --fakeroot --sandbox hmmer hmmer.def
    ```
 
-5. Note that instead of an image file, we created a directory called `mcl`. If
+   💡 It is also possible to do this directly without a definition file:
+
+   ```bash
+   apptainer build --fix-perms --fakeroot --sandbox hmmer docker://ubuntu:24.04
+   ```
+
+5. Note that instead of an image file, we created a directory called `hmmer`. If
    you need to include some reference files etc., you can copy them to the
    correct subdirectory.
+
 6. We can now open a shell in the container. We need the container file system
    to be writable, so we include the option `--writable`. We will also need to
    include `--fakeroot` option:
 
    ```bash
-   apptainer shell --fakeroot --writable mcl
+   apptainer shell --cleanenv --fakeroot --writable hmmer
    ```
 
 7. The command prompt should now be `Apptainer>`.
+
+   💡 Notice that unlike on CSC supercomputers, we are able to use package
+   management tools (in this case `apt`). This will often make installing
+   libraries and other dependencies easier. Also notice that it is not
+   necessary to use `sudo` inside the container. HMMER is available as a
+   package on Ubuntu, so we could install it directly:
+
+   ```bash
+   apt update
+   apt install -y hmmer
+    ```
+   Often the versions available through package mangers are not the latest,
+   so installing from source files may be preferable.
 
    💡 The base container images are typically very bare-bones and do not
    contain any compilers, download tools etc., so those need to be installed.
@@ -92,28 +111,24 @@ problems on CentOS, so we'll start with that.
    only install the dependencies we need. Usually the size is not that
    critical, so we may opt for ease of use.
    
-   💡 In this case we will install the application group "Development Tools"
+   💡 In this case we will install the application group `build-essential`
    that includes most of the components we need (C, C++, make), but also a lot
    of tools not needed in this example. We also install `wget` to download the
    source code.
-
-   💡 Notice that unlike on CSC supercomputers, we are able to use package
-   management tools (in this case `yum`). This will often make installing
-   libraries and other dependencies easier. Also notice that it is not
-   necessary to use `sudo` inside the container:
-
+   
    ```bash
-   yum group install "Development Tools" -y
-   yum install wget -y
+   qpt update
+   apt install -y build-essential
+   apt install -y wget
    ```
 
-8. We are now ready to install the `mcl` software. Download and extract the
+8. We are now ready to install the `hmmer` software. Download and extract the
    distribution package:
 
    ```bash
-   wget https://micans.org/mcl/src/mcl-latest.tar.gz
-   tar xf mcl-latest.tar.gz
-   cd mcl-14-137
+   wget http://eddylab.org/software/hmmer/hmmer.tar.gz
+   tar xf hmmer.tar.gz
+   cd hmmer-3.4
    ```
 
 9. Run configure:
@@ -130,17 +145,22 @@ problems on CentOS, so we'll start with that.
     make install
     ```
 
+   💡 Notice that in the container we can install to the default location (in this case /usr/local/bin), 
+   so we don't need to specify `--prefix` like when installing on Puhti directly. We also don't need to 
+   add anything to `$PATH`, as the installation location is already included in the default `$PATH` 
+   
+
 11. We can now test the application to see if it works:
 
     ```bash
-    mcl --version
+    hmmsearch -h
     ```
 
 12. If everything works we can clean up:
 
     ```bash
     cd ..
-    rm -rf mcl-*
+    rm -rf hmmer*
     ```
 
 13. We can also add a `runscript`:
@@ -158,13 +178,13 @@ problems on CentOS, so we'll start with that.
 15. We can then build a production image from the sandbox:
 
     ```bash
-    apptainer build --fakeroot mcl.sif mcl
+    apptainer build --fakeroot hmmer.sif hmmer
     ```
 
 16. We can now test it:
 
     ```bash
-    apptainer exec mcl.sif mcl --version
+    apptainer exec hmmer.sif hmmscan -h
     ```
 
 ## Definition file
@@ -185,53 +205,53 @@ the `%post` section:
 
    ```text
    %post
-       yum group install "Development Tools" -y
-       yum install wget -y
-       wget https://micans.org/mcl/src/mcl-latest.tar.gz
-       tar xf mcl-latest.tar.gz
-       cd mcl-14-137
-       ./configure
-       make
-       make install
+     apt update
+     apt install -y build-essential
+     apt install -y wget
+     wget http://eddylab.org/software/hmmer/hmmer.tar.gz
+     tar xf hmmer.tar.gz
+     cd hmmer-3.4
+     ./configure
+     make
+     make install
    ```
 
 2. If you need to set any environment variables, they go into the
    `%environment` section. If you need to include any files in the container,
    they go into `%files`. The `runscript` goes to `%runscript`.
-3. There are also other sections available if needed. More information can be
+3. 
+There are also other sections available if needed. More information can be
    found in the [Definition Files chapter](https://apptainer.org/docs/user/latest/definition_files.html)
    of the Apptainer documentation.
+
 4. The final definition file would look like this:
 
    ```text
-   Bootstrap: yum
-   OSVersion: 7
-   MirrorURL: http://mirror.centos.org/centos-%{OSVERSION}/%{OSVERSION}/os/$basearch/
-   Include: yum
+   Bootstrap: docker
+   From: ubuntu:24.04
    
    %post
-       yum group install "Development Tools" -y
-       yum install wget -y
-       wget https://micans.org/mcl/src/mcl-latest.tar.gz
-       tar xf mcl-latest.tar.gz
-       cd mcl-14-137
-       ./configure
-       make
-       make install
-       cd ..
-       rm -rf mcl-*
+    apt update
+    apt install -y build-essential
+    apt install -y wget
+    wget http://eddylab.org/software/hmmer/hmmer.tar.gz
+    tar xf hmmer.tar.gz
+    cd hmmer-3.4
+    ./configure
+    make
+    make install
    
-   %environment
-       export LC_ALL=C
+  %environment
+    export LC_ALL=C
    
-   %runscript
-       exec /bin/bash "$@"
+  %runscript
+    exec /bin/bash "$@"
    ```
 
 5. You can now build the image:
 
    ```bash
-   apptainer build --fakeroot mcl.sif mcl.def
+   apptainer build --fakeroot hmmer.sif hmmer.def
    ```
 
 6. In more complex cases, it often helpful to first build the image in the
