@@ -6,7 +6,7 @@ grand_parent: Part 2
 nav_order: 4
 has_children: false
 has_toc: false
-permalink: /hands-on/installing/installing_hands-on_mcl.html
+permalink: /hands-on/installing/installing_hands-on_c.html
 ---
 
 # Installing a simple C code from source
@@ -78,7 +78,7 @@ export PROJAPPL=/projappl/<project>  # replace <project> with your CSC project, 
     cd hmmer
     git clone https://github.com/EddyRivasLab/easel
     ```
-
+   
 ## Preparing to install
 
 1. Create a new directory called `version-3.4` under the `$PROJAPPL/$USER/hmmer` directory for
@@ -136,7 +136,7 @@ software needs are available.
 - In such cases, you should check if the missing library or program could be
   made available by loading a suitable module.
 
-🗯 The CSC computing environment has several compiler versions and HPC
+💭 The CSC computing environment has several compiler versions and HPC
 libraries available.
 
 - In some cases you may, for example, need to use a specific C compiler or
@@ -162,10 +162,10 @@ libraries available.
    ./configure --prefix=$PROJAPPL/$USER/hmmer/version-3.4  # double check that the path is correct
    ```
 
-  ☝🏻 If you clone the source code from git,the `configure` script is not included. You must first generate it with command:
-   ``bash
-   autoconf
-   ```
+   ☝🏻 If you clone the source code from git, the `configure` script is not included. You must first generate it with command:
+      ```bash
+      autoconf
+      ```
 
 3. Compile and install the software with the commands:
 

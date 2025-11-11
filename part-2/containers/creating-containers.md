@@ -46,9 +46,9 @@ problems on Ubuntu, so we'll start with that.
 1. Start from a very bare-bones definition file. Copy the following lines to a
    file called `hmmer.def`:
 
-   ```text
-   Bootstrap: docker
-   From: ubuntu:24.04
+    ```text
+    Bootstrap: docker
+    From: ubuntu:24.04
    
    ```
 
@@ -56,39 +56,40 @@ problems on Ubuntu, so we'll start with that.
    directory is quite small and easily fills up, it is recommended to use some
    other directory. For example to use `$TMPDIR` (make sure it is defined) set:
 
-   ```bash
-   export APPTAINER_CACHEDIR=$TMPDIR
-   ```
+    ```bash
+    export APPTAINER_CACHEDIR=$TMPDIR
+    ```
 
 3. You can clean the cache with command:
 
-   ```bash
-   apptainer cache clean
-   ```
+    ```bash
+    apptainer cache clean
+    ```
 
 4. Using this definition file, build the container:
 
-   ```bash
-   apptainer build --fix-perms --fakeroot --sandbox hmmer hmmer.def
-   ```
+    ```bash
+    apptainer build --fix-perms --fakeroot --sandbox hmmer hmmer.def
+    ```
 
    💡 It is also possible to do this directly without a definition file:
 
-   ```bash
-   apptainer build --fix-perms --fakeroot --sandbox hmmer docker://ubuntu:24.04
-   ```
+    ```bash
+    apptainer build --fix-perms --fakeroot --sandbox hmmer docker://ubuntu:24.04
+    ```
 
 5. Note that instead of an image file, we created a directory called `hmmer`. If
    you need to include some reference files etc., you can copy them to the
    correct subdirectory.
 
 6. We can now open a shell in the container. We need the container file system
-   to be writable, so we include the option `--writable`. We will also need to
-   include `--fakeroot` option:
+   to be writable, so we include the option `--writable`. Option `--cleanenv` prevents
+   the instance from inheriting any environment variables from the host system. We will 
+   also need to include `--fakeroot` option:
 
-   ```bash
-   apptainer shell --cleanenv --fakeroot --writable hmmer
-   ```
+    ```bash
+    apptainer shell --cleanenv --fakeroot --writable hmmer
+    ```
 
 7. The command prompt should now be `Apptainer>`.
 
@@ -98,9 +99,9 @@ problems on Ubuntu, so we'll start with that.
    necessary to use `sudo` inside the container. HMMER is available as a
    package on Ubuntu, so we could install it directly:
 
-   ```bash
-   apt update
-   apt install -y hmmer
+    ```bash
+    apt update
+    apt install -y hmmer
     ```
    Often the versions available through package mangers are not the latest,
    so installing from source files may be preferable.
@@ -116,26 +117,26 @@ problems on Ubuntu, so we'll start with that.
    of tools not needed in this example. We also install `wget` to download the
    source code.
    
-   ```bash
-   qpt update
-   apt install -y build-essential
-   apt install -y wget
-   ```
+    ```bash
+    apt update
+    apt install -y build-essential
+    apt install -y wget
+    ```
 
 8. We are now ready to install the `hmmer` software. Download and extract the
    distribution package:
 
-   ```bash
-   wget http://eddylab.org/software/hmmer/hmmer.tar.gz
-   tar xf hmmer.tar.gz
-   cd hmmer-3.4
-   ```
+    ```bash
+    wget http://eddylab.org/software/hmmer/hmmer.tar.gz
+    tar xf hmmer.tar.gz
+    cd hmmer-3.4
+    ```
 
 9. Run configure:
 
-   ```bash
-   ./configure
-   ```
+    ```bash
+    ./configure
+    ```
 
 10. Check the output of `configure` and install any missing dependencies. In
     this case there should not be any. Finally, run `make`:
@@ -203,50 +204,50 @@ version number in the definition file and rebuilding the image.
 and add various sections to it as required. The installation commands go into
 the `%post` section:
 
-   ```text
-   %post
-     apt update
-     apt install -y build-essential
-     apt install -y wget
-     wget http://eddylab.org/software/hmmer/hmmer.tar.gz
-     tar xf hmmer.tar.gz
-     cd hmmer-3.4
-     ./configure
-     make
-     make install
-   ```
+    ```text
+    %post
+      apt update
+      apt install -y build-essential
+      apt install -y wget
+      wget http://eddylab.org/software/hmmer/hmmer.tar.gz
+      tar xf hmmer.tar.gz
+      cd hmmer-3.4
+      ./configure
+      make
+      make install
+    ```
 
 2. If you need to set any environment variables, they go into the
    `%environment` section. If you need to include any files in the container,
    they go into `%files`. The `runscript` goes to `%runscript`.
-3. 
-There are also other sections available if needed. More information can be
+
+3. There are also other sections available if needed. More information can be
    found in the [Definition Files chapter](https://apptainer.org/docs/user/latest/definition_files.html)
    of the Apptainer documentation.
 
 4. The final definition file would look like this:
 
-   ```text
-   Bootstrap: docker
-   From: ubuntu:24.04
+    ```text
+    Bootstrap: docker
+    From: ubuntu:24.04
    
-   %post
-    apt update
-    apt install -y build-essential
-    apt install -y wget
-    wget http://eddylab.org/software/hmmer/hmmer.tar.gz
-    tar xf hmmer.tar.gz
-    cd hmmer-3.4
-    ./configure
-    make
-    make install
+    %post
+      apt update
+      apt install -y build-essential
+      apt install -y wget
+      wget http://eddylab.org/software/hmmer/hmmer.tar.gz
+      tar xf hmmer.tar.gz
+      cd hmmer-3.4
+      ./configure
+      make
+      make install
    
-  %environment
-    export LC_ALL=C
+    %environment
+      export LC_ALL=C
    
-  %runscript
-    exec /bin/bash "$@"
-   ```
+    %runscript
+      exec /bin/bash "$@"
+    ```
 
 5. You can now build the image:
 

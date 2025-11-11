@@ -18,7 +18,7 @@ has_toc: false
 1. [Essential tutorial - Installing binary applications]({{ site.baseurl }}{% link part-2/installing/binary.md %})
 2. [Essential tutorial - Installing Python packages and environments]({{ site.baseurl }}{% link part-2/installing/python.md %})
 3. [Tutorial - Installing R applications and libraries]({{ site.baseurl }}{% link part-2/installing/r.md %})
-4. [Tutorial - Installing a simple C code from source]({{ site.baseurl }}{% link part-2/installing/mcl.md %})
+4. [Tutorial - Installing a simple C code from source]({{ site.baseurl }}{% link part-2/installing/c.md %})
 5. [Tutorial - Installing Perl applications and libraries]({{ site.baseurl }}{% link part-2/installing/perl.md %})
 6. [Tutorial - Installing Java applications]({{ site.baseurl }}{% link part-2/installing/java.md %})
 7. [Advanced tutorial - Installing using CMake]({{ site.baseurl }}{%link part-2/installing/cmake.md %})
