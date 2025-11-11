@@ -33,11 +33,19 @@ permalink: /hands-on/connecting/credentials.html
 
 💬 To use CSC supercomputers every account has to be a member of a project. Access to a supercomputer (service) and computing time are tied to projects.
 
-💡 The default project called "Personal group of N.N." is not meant for submitting jobs
+☝🏻 The default project called "Personal group of N.N." is **not** meant for submitting jobs!
 
 1. Join a project
-    - via invitation link (ask the Project Manager to invite you)
-    - or if you are [eligible to act as a Project Manager](https://research.csc.fi/prerequisites-for-a-project-manager) then go ahead and [create a project](https://docs.csc.fi/accounts/how-to-create-new-project/)
+    1. via invitation link (ask the Project Manager to invite you)
+    2. or by [creating a new project](https://docs.csc.fi/accounts/how-to-create-new-project/)
+2. Note that there are different CSC project types:
+    1. [Academic projects](https://docs.csc.fi/accounts/how-to-create-new-project/#academic) – The default type for academic research. Read the [prerequisites for and responsibilites of a project manager](https://research.csc.fi/terms-of-use/prerequisites-for-a-project-manager/). Reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use/).
+    2. [Course projects](https://docs.csc.fi/accounts/how-to-create-new-project/#course) – Designed for delivering a course using CSC services once. Fixed time and resources. Reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use/).
+    3. [Student projects](https://docs.csc.fi/accounts/how-to-create-new-project/#student) – Designed to support students' work with courses and thesis work. Fixed time and resources. Reserved for [free-of-charge use cases](https://research.csc.fi/free-of-charge-use/). Read more about [getting started with student projects](https://docs.csc.fi/support/tutorials/student_quick/).
+    4. [LUMI](https://docs.csc.fi/accounts/how-to-create-new-project/#how-to-create-finnish-lumi-projects) – Projects restricted to LUMI environment. Fixed time and resources. Read the [prerequisites for and responsibilites of a project manager](https://research.csc.fi/terms-of-use/prerequisites-for-a-project-manager/).
+    5. Commercial – Reserved for projects outside of CSC's free of charge use policy. Only available through [CSC Service Desk](https://docs.csc.fi/support/contact/).
+
+💡 A summary of CSC project types you are entitled to create based on your Haka affiliation is available in [Docs CSC](https://docs.csc.fi/accounts/how-to-create-new-project/#right-to-create-csc-projects-based-on-haka-affiliation).
 
 ## Add services to your project
 
