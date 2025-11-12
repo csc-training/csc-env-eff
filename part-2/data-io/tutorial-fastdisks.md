@@ -64,7 +64,7 @@ access the local disk of `puhti-login11` from `puhti-login12`.
 2. Unpack the downloaded tar file:
 
    ```bash
-   tar -xavf Individual_files.tar.gz
+   tar -xvf Individual_files.tar.gz
    cd Individual_files
    ```
 
