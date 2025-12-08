@@ -54,7 +54,7 @@ permalink: /hands-on/connecting/credentials.html
 1. Login to [MyCSC](https://my.csc.fi)
 2. Click _Projects_ and select a project
 3. In the bottom right corner you see the _Services_ section. Click the _Add services_ button there.
-4. Select Puhti, (Mahti) and Allas, approve the terms of use and click _Add selected services_
+4. Select Roihu and Allas, approve the terms of use and click _Add selected services_
 
 ## More information
 

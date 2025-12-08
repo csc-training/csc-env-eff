@@ -9,13 +9,13 @@ permalink: /hands-on/linux_prerequisites/basic-linux-commands.html
 
 # Basic Linux commands
 
-> ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+> ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
 >
-> ☝🏻 You should also have already [logged in to Puhti with SSH](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-puhti.html) or via the Puhti web interface (and opened a login node shell).
+> ☝🏻 You should also have already [logged in to Roihu with SSH](https://csc-training.github.io/csc-env-eff/hands-on/connecting/ssh-roihu.html) or via the Roihu web interface (and opened a login node shell).
 
 ## Navigating folders
 
-1. Now that you have logged in to Puhti, check which folder you are in by typing `pwd` and hitting `Enter`:
+1. Now that you have logged in to Roihu, check which folder you are in by typing `pwd` and hitting `Enter`:
 
    ```bash
    pwd

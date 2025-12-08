@@ -9,7 +9,7 @@ permalink: /hands-on/connecting/ssh-keys.html
 
 # Creating and adding SSH keys
 
-> ‼️ To begin, make sure you have a user account at CSC that is a member of a project which has access to the Puhti service and perhaps Allas. Note that there’s a small delay before one can login to Puhti after creating a new project and adding services.
+> ‼️ To begin, make sure you have a user account at CSC that is a member of a project which has access to the Roihu service and perhaps Allas. Note that there’s a small delay before one can login to Roihu after creating a new project and adding services.
 >
 > 💬 SSH keys improve security and ease-of-use. They are required to be able to log in to CSC supercomputers from the terminal using an **SSH client**.
 >
@@ -64,7 +64,7 @@ permalink: /hands-on/connecting/ssh-keys.html
 
 ## Add public key to MyCSC
 
-💬 To be able to authenticate to Puhti using SSH keys, you need to upload your **public key** to the supercomputer.
+💬 To be able to authenticate to Roihu using SSH keys, you need to upload your **public key** to the supercomputer.
 
 ☝🏻 At CSC, SSH public keys are uploaded to the supercomputers by registering them in the MyCSC portal. **Other ways to upload SSH keys are not supported**.
 
@@ -92,7 +92,11 @@ permalink: /hands-on/connecting/ssh-keys.html
 
 ‼️ Be patient, as it may take up to one hour for your new key to become active! If it takes longer than that, please contact <mailto:servicedesk@csc.fi>.
 
-💡 Once your key has been synced, you may log in to Puhti and Mahti using an SSH client! [This is covered in the next tutorial](ssh-puhti.md).
+💡 Once your key has been synced, you may log in to Roihu using an SSH client! [This is covered in the next tutorial](ssh-roihu.md).
+
+## Signing the SSH public key
+
+FIXME: Add here steps how to use SSH CA.
 
 ## More information
 
