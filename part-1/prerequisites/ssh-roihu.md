@@ -1,29 +1,29 @@
 ---
 layout: default
-title: Login to Puhti
+title: Login to Roihu
 parent: 1. Prerequisites
 grand_parent: Part 1
 nav_order: 3
-permalink: /hands-on/connecting/ssh-puhti.html
+permalink: /hands-on/connecting/ssh-roihu.html
 ---
 
-# Log in to Puhti
+# Log in to Roihu
 
-> ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Puhti service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay before one can login to Puhti after creating a new project and adding services.
+> ‼️ To begin make sure you have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/) that is a member of a project which [has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/) and perhaps [Allas](https://docs.csc.fi/data/Allas/). Note that there's a small delay before one can login to Roihu after creating a new project and adding services.
 >
 > ‼️ In order to [log in with SSH from the command-line](#connecting-with-ssh-from-the-command-line), you must have also set up SSH keys and uploaded your public key to MyCSC. [See the previous tutorial](ssh-keys.md).
 
-## Puhti web interface
+## Roihu web interface
 
-💬 Connecting via the Puhti web interface is an easy way to access the Puhti supercomputer.
+💬 Connecting via the Roihu web interface is an easy way to access the Roihu supercomputer.
 
-1. Open a web browser and go to <https://www.puhti.csc.fi>
+1. Open a web browser and go to <https://www.roihu.csc.fi>
 2. Login with your CSC account (or Haka/Virtu)
-3. You have now connected to Puhti!
+3. You have now connected to Roihu!
 
-💭 The Puhti web interface landing page looks like this:  
+💭 The Roihu web interface landing page looks like this:  
 
-   ![Puhti web interface](../../_slides/img/ood.png)
+   ![Roihu web interface](../../_slides/img/ood.png)
 
 💡 From the pinned apps and top menus you can, for example, access your files and open some applications or a command-line interface.
 
@@ -44,13 +44,13 @@ Find the Terminal on your computer:
 1. Open a terminal and type (replace `cscusername` with your CSC username):
 
    ```bash
-   ssh cscusername@puhti.csc.fi
+   ssh cscusername@roihu-cpu.csc.fi
    ```
 
    * Note! If you have saved your SSH key with a non-default name or in a non-default location, please specify the path to your key using the `-i` option:
 
      ```bash
-     ssh cscusername@puhti.csc.fi -i /path/to/private/key
+     ssh cscusername@roihu-cpu.csc.fi -i /path/to/private/key
      ```
 
 2. You may be prompted to type your SSH key passphrase.
@@ -65,13 +65,13 @@ Find the Terminal on your computer:
             AddKeysToAgent yes
         ```
 
-3. Scroll down to [In Puhti](#in-puhti).
+3. Scroll down to [In Roihu](#in-roihu).
 
 ### Connecting from Windows
 
 💬 On Windows you have different options:
 
-* You can use the [Puhti web interface](https://www.puhti.csc.fi) to connect with your browser (easiest, [see above](#puhti-web-interface)).
+* You can use the [Roihu web interface](https://www.roihu.csc.fi) to connect with your browser (easiest, [see above](#roihu-web-interface)).
 * You can [download and install MobaXterm](https://mobaxterm.mobatek.net/download.html).
 * You can [download PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 * You can use the Windows PowerShell. See [Docs CSC](https://docs.csc.fi/computing/connecting/ssh-windows/#powershell).
@@ -80,10 +80,10 @@ Find the Terminal on your computer:
 
 1. Launch MobaXterm from the applications list (opens from the Windows logo), or search for it in the bottom bar search box.
 2. Click **Session** in the top-left corner and select **SSH**.
-3. In the **Basic SSH settings** section, write `puhti.csc.fi` in the **Remote host** field.
+3. In the **Basic SSH settings** section, write `roihu-cpu.csc.fi` in the **Remote host** field.
 4. Tick the **Specify username** box and enter your CSC username. The **Port** number can be left as 22 (default).
 5. In the **Advanced SSH settings** section, tick the **Use private key** box and add the path to the SSH private key you generated in the [previous tutorial](ssh-keys.md#windows).
-6. Click **OK**. If it is the first time you are connecting to Puhti, click **Accept**.
+6. Click **OK**. If it is the first time you are connecting to Roihu, click **Accept**.
 
    ![mobaxterm-view](../../_slides/img/mobaxterm-connect.png)
 
@@ -91,26 +91,26 @@ Find the Terminal on your computer:
 
    💡 To avoid having to type your passphrase every time you connect, you may enable the MobAgent authentication agent in the program settings, **Settings > SSH > SSH agents**. Tick the **Use internal SSH agent "MobAgent"** box and select the key(s) you want to load.
 
-8. You've now connected to Puhti!
+8. You've now connected to Roihu!
 
-   💡 The next time you want to login to Puhti, just select it from the **User session** menu on the left!
+   💡 The next time you want to login to Roihu, just select it from the **User session** menu on the left!
 
    💡 Note, you may also login with MobaXterm using the plain `ssh` command similar to Linux and macOS (see image below).
 
    ![mobaxterm-view](../../_slides/img/mobaxterm-login.png)
 
-## In Puhti
+## In Roihu
 
-1. If you're connecting to Puhti (or a specific Puhti login node) for the first time, SSH will ask you if you trust the authenticity of the host:
+1. If you're connecting to Roihu (or a specific Roihu login node) for the first time, SSH will ask you if you trust the authenticity of the host:
 
    ```text
-   The authenticity of host 'puhti-login14.csc.fi' can't be established.
+   The authenticity of host 'roihu-cpu-login4.csc.fi' can't be established.
    ECDSA key fingerprint is SHA256:kk0Tar9opQ+6Gq0GWJdWVVvFEMeI6kW1DW1VOYveT5c.
    Are you sure you want to continue connecting (yes/no/[fingerprint])?
    ```
 
 2. The first time you connect, you need to accept, but the key should not change for the next login.
-3. Pay attention to whether you logged in to `puhti-login11`, `puhti-login12`, `puhti-login14` or `puhti-login15`.
+3. Pay attention to whether you logged in to `roihu-cpu-login1`, `roihu-cpu-login2`, `roihu-cpu-login3` or `roihu-cpu-login4`.
 4. Once you've logged in you'll see a greeting starting something like this:
 
    ```text
@@ -122,7 +122,7 @@ Find the Terminal on your computer:
    │         / ____/ /_/ / / / / /_/ /   - -  -   -                              │
    │        /_/    \__,_/_/ /_/\__/_/   - -  -   -                               │
    │                                                                             │
-   │      Puhti.csc.fi - Atos BullSequana X400 - 682 CPU nodes - 80 GPU nodes    │
+   │      Roihu.csc.fi - Atos BullSequana X400 - 682 CPU nodes - 80 GPU nodes    │
    ├─ Contact ───────────────────────────────────────────────────────────────────┤
    │ Servicedesk : 09-457 2821, servicedesk@csc.fi   Switchboard : 09-457 2001   │
    ├─ User Guide ────────────────────────────────────────────────────────────────┤
@@ -132,11 +132,11 @@ Find the Terminal on your computer:
    ├─ Software ──────────────────────────────────────────────────────────────────┤
    ...
    └─────────────────────────────────────────────────────────────────────────────┘
-   [cscusername@puhti-login14 ~]$
+   [cscusername@roihu-cpu-login4 ~]$
    ```
 
 5. Now, you're ready to go!
-6. Let's do our first small task in Puhti: let's check our projects and that we have a one with access to Allas service!
+6. Let's do our first small task in Roihu: let's check our projects and that we have a one with access to Allas service!
 
    ```bash
    csc-projects
@@ -151,7 +151,7 @@ Find the Terminal on your computer:
 
 ## Remote graphics
 
-💬 Remote graphics may not work by default. Try the [Puhti web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications.
+💬 Remote graphics may not work by default. Try the [Roihu web interface](https://docs.csc.fi/computing/webinterface/) for running graphical applications.
 
 💬 Another option is to enable X11-tunneling as follows.
 
@@ -160,7 +160,7 @@ Find the Terminal on your computer:
 1. Add X11-tunneling to your SSH connection by adding `-X` or `-Y` to your `ssh` command like this (replace `cscusername` with your CSC username):
 
    ```bash
-   ssh -X cscusername@puhti.csc.fi
+   ssh -X cscusername@roihu-cpu.csc.fi
    ```
 
 2. Note that on Mac you need to have an X server running, for example [XQuartz](https://www.xquartz.org/). You also need to set in your `.bashrc`:
@@ -175,7 +175,7 @@ Find the Terminal on your computer:
 2. PuTTY requires that an X server is installed and running. One of the options is [Xming](http://www.straightrunning.com/XmingNotes/).
 3. In PuTTY, X11 forwarding is enabled in the connection settings: **Connection > SSH > X11: Enable X11 forwarding**.
 
-☝🏻 For intensive remote graphics we recommend using the [Puhti web interface](https://www.puhti.csc.fi/).
+☝🏻 For intensive remote graphics we recommend using the [Roihu web interface](https://www.roihu.csc.fi/).
 
 ## More information
 
