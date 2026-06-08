@@ -10,6 +10,8 @@ nav_order: 1
 Welcome! This website contains materials for the *CSC Computing Environment* -course.
 {: .fs-6 .fw-300 }
 
+> ‼️ Note: This course is currently being updated due to Roihu launch and Puhti & Mahti decommissioning happening during summer 2026. [More information regarding Roihu schedule](https://docs.csc.fi/computing/systems-roihu/)
+
 ## Guidelines
 
 1. The course is divided into two parts and the material is organized by topics of increasing complexity -- Feel free to jump to Part 2 if you know the basics already!
