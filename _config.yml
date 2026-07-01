@@ -40,6 +40,9 @@ callouts:
     color: blue
   highlight:
     color: yellow
+  warning:
+    title: Warning!
+    color: red
 
 # Matomo configuration
 matomo:
