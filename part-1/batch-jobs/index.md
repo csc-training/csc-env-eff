@@ -16,4 +16,4 @@ has_toc: false
 1. [Essential tutorial - Serial batch jobs]({{ site.baseurl }}{% link part-1/batch-jobs/serial.md %})
 2. [Tutorial - Parallel batch jobs]({{ site.baseurl }}{% link part-1/batch-jobs/parallel.md %})
 3. [Tutorial - Interactive batch jobs]({{ site.baseurl }}{% link part-1/batch-jobs/interactive.md %})
-4. [Exercise - Retrieving data from bio data repositories (Puhti)]({{ site.baseurl }}{% link part-1/batch-jobs/bio-data.md %})
+4. [Exercise - Retrieving data from bio data repositories (Roihu)]({{ site.baseurl }}{% link part-1/batch-jobs/bio-data.md %})

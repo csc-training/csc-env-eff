@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Retrieving data from bio data repositories (Puhti)
+title: Retrieving data from bio data repositories (Roihu)
 parent: 5. Batch queue system and interactive use
 grand_parent: Part 1
 nav_order: 4
@@ -9,7 +9,7 @@ has_toc: false
 permalink: /hands-on/batch_jobs/exercise_retrieving-bio-data.html
 ---
 
-# Exercise: Retrieving data from bio data repositories (Puhti)
+# Exercise: Retrieving data from bio data repositories (Roihu)
 
 > This exercise covers retrieving data from various commonly used bio data repositories.
 
@@ -19,12 +19,14 @@ permalink: /hands-on/batch_jobs/exercise_retrieving-bio-data.html
    sinteractive --account <project>   # replace <project> with your CSC project, e.g. project_2001234
    ```
 
-2. Alternatively, open a compute node shell through the [Puhti web interface](https://www.puhti.csc.fi).
-3. To access the applications in parts 2 and 3, we will need to load the `biokit` module:
+2. Alternatively, open a compute node shell through the [Roihu web interface](https://www.roihu.csc.fi).
+3. To access the applications in part 2, we will need to load the `bio-apps` meta module:
 
    ```bash
-   module load biokit
+   module load bio-apps
    ```
+
+   ☝🏻 `bio-apps` only makes the bio applications available, but each one still has to be loaded separately.
 
 4. Create a directory for yourself under the `/scratch` directory of your project and move there:
 
@@ -37,7 +39,7 @@ permalink: /hands-on/batch_jobs/exercise_retrieving-bio-data.html
 
 🗯 In normal usage it may be a good idea to use the `chmod` command to alter file access rights so that only you have write access to your own subfolder, but please do not do this if you are using a CSC course project, as it will make clean-up after the course harder.
 
-💡 You can find more information about this on the [Disk areas page in Docs CSC](https://docs.csc.fi/computing/disk/).
+💡 You can find more information about this on the [Disk areas page in Docs CSC](https://docs.csc.fi/computing/roihu-disk/).
 
 ## 1. Downloading data with `curl`
 
@@ -61,6 +63,11 @@ permalink: /hands-on/batch_jobs/exercise_retrieving-bio-data.html
    ```
 
 2. Next we use the [NCBI edirect tool](https://docs.csc.fi/apps/edirect/) to retrieve some data.
+
+   ```bash
+   module load edirect
+   ```
+
 3. Check how many proteins are found in the NCBI protein database for *Pythium* species (`count` row in the results):
 
    ```bash
@@ -85,40 +92,18 @@ permalink: /hands-on/batch_jobs/exercise_retrieving-bio-data.html
 9. **Extra exercise for fast ones**: Align the cellulose synthase 3 set with `mafft`
 
    ```bash
+   module load mafft
    mafft cesy3.fasta > cesy3_aln.fasta
    ```
 
 10. Study the results:
 
     ```bash
+    module load emboss
     infoalign cesy3_aln.fasta
     showalign cesy3_aln.fasta
     ```
 
-## 3. Downloading with enaDataGet
-
-1. Check the options of `enaDataGet` with command:
-
-   ```bash
-   enaDataGet -h
-   ```
-
-2. Download a file (Pythium iwayamai genome assembly)
-
-   ```bash
-   enaDataGet AKYA02000000 -f fasta
-   gunzip AKYA02.fasta.gz 
-   ls
-   ```
-
-3. **Extra exercise for fast ones**: Study the downloaded file:
-
-   ```bash
-   head -20 AKYA02.fasta
-   tail AKYA02.fasta
-   infoseq_summary AKYA02.fasta
-   ```
-
-## 4. Finishing up
+## 3. Finishing up
 
 1. Close the interactive session when you are done by typing `exit`.
