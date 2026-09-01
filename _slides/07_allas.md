@@ -54,6 +54,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - Some sources refer to *buckets* as *containers*
         - Must not be confused with Docker/Apptainer containers!
 - The name of the bucket must be unique within Allas
+- Avoid using special characters, including _ and upper case letters in bucket names
+    - Bad bucket name: My_New_%-data
+    - Good bucket name: my-new-percent-data
 
 # Allas objects
 
@@ -63,6 +66,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - In Allas, you can have 500 000 objects per bucket
 - There is only one level of hierarchy of buckets (no buckets within buckets)
     - There is no hierarchical directory structure, although it sometimes looks like that
+    - *123-bucket/dir1/data2.csv* means:
+         - bucket name: *123-bucket*
+         - object name: *dir/data2.csv*
 
 # Allas supports two protocols
 
@@ -70,11 +76,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Swift (used by `swift`, `rclone`, `a-tools`, `cyberduck`)  
 - Authentication and file handling is different for the protocols
 - **Avoid cross-using Swift and S3-based objects!**
+- **In Roihu the default protocol is now S3 while in Puhti and Mahti it was swift**
 
 # Allas clients
 
 - **Roihu, Linux servers, Mac:**
-    - `rclone`, `swift`, `s3cmd`, `a-tools`
+    - `rclone`, `s3cmd`, `a-tools`, `aws`, `s5cmd`
 - **Laptops (Windows, Mac):**
     - [Cyberduck](https://cyberduck.io/), [FileZilla (pro)](https://filezilla-project.org/), [Roihu web interface](https://www.roihu.csc.fi), [Allas UI](https://allas.csc.fi)
 - **Virtual machines, small servers:**
@@ -88,6 +95,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
   module load allas
   allas-conf
   ```
+- Note that in Roihu allas-conf sets up a permanent S3 based connection, so you need to run allas-conf only if you want to start to use a new Allas connection. 
 - [Study the manual and start using Allas with `rclone` or `a-tools`](https://docs.csc.fi/data/Allas/)
 - [This course](https://csc-training.github.io/csc-env-eff/part-1/allas/) includes also hands-on tutorials and a tutorial video about Allas
 
@@ -97,6 +105,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Fast and efficient
 - Available for Linux, Mac and Windows
 - **Overwrites and removes data without asking!**
+- Problems occur in cases where your bucket contains tens of thousands of long object names
    - Use with care: [`rclone` instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/rclone/)
 
 # Allas -- `a-tools`
@@ -106,6 +115,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Unlike `rclone`, `a-tools` does not overwrite or remove data without asking!
 - Developed for the CSC supercomputers, but you can install the tools in other Linux and Mac machines as well
 - Automatic packing (compression can be enabled as well if needed)
+- In Roihu a-tools use by default S3 protocol. Add option `--swift` to a-commands if you need to use swift protocol in Roihu.
 - [a-commands instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
   
 
@@ -117,6 +127,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - No way to freeze data
    - Use two projects if you need to prevent others from editing your data
 - Different interfaces may work in different ways
+- Cross using protocols cause problems for files larger than 5 GB, see the [tips for cross usage](https://docs.csc.fi/support/faq/roihu/#12-i-uploaded-data-from-puhtimahti-to-allas-now-im-downloading-it-to-roihu-and-get-an-error-saying-corrupted-on-transfer-md5-hashes-differ)
+
 
 # Questions that users should consider
 
@@ -127,7 +139,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - What will happen to my data later on?
 - How to keep track of all the data I have in Allas?
 
-# Bonus: Sensitive data services
+# Bonus1: Sensitive data services
 
 - [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
 - [**SD Desktop**](https://sd-desktop.csc.fi) is a secure virtual desktop
@@ -138,7 +150,17 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Allas can be used for sensitive data, but **only** if the data is properly encrypted!
    - The [**SD Connect**](https://sd-connect.csc.fi) procedure does the encryption
 
-# Bonus: Fairdata services
+# Bonus2: Lumi-O
+
+- Lumi-O is object storage service for Lumi super computers.
+- Default quota: 150 TiB
+- Lumi-O uses only S3 protocol and there is no https://allas.csc.fi -like web interface 
+- You need to apply for a Lumi-project to use the Lumi-O.
+- Lumi projects have always a maximum duration, three years in this case, after which the project is closed and you must move your data somewhere else
+- Allas is very full at the moment so if you need to store large datasets ( more than 3o TiB) we will ask you to use Lumi-O instead of Allas.
+
+
+# Bonus3: Fairdata services
 
 - [https://www.fairdata.fi](https://www.fairdata.fi) -- Services to manage scientific data according to FAIR principles
 - Suitable for all static digital research material and related metadata
