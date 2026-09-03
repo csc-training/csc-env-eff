@@ -26,7 +26,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - All project members have equal access to the data in Allas
    - Default quota is 10 TB per project
 - Clients available on Roihu
-   - See Docs CSC for instructions on [accessing Allas from LUMI](https://docs.csc.fi/data/Allas/allas_lumi/)
+   - See Docs CSC for instructions
+       - [Using Allas and Lumi-O object storage services in Roihu](https://docs.csc.fi/computing/allas-in-roihu/)
+       - [Tutorial for using Allas in the Roihu supercomputer](https://docs.csc.fi/data/Allas/allas-roihu/)q
 
 # The Allas object storage: what it is NOT
 
