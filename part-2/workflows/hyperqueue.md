@@ -137,13 +137,13 @@ looping `srun` or `sbatch` commands.
    can fit running on the reserved resources simultaneously to avoid too short
    Slurm jobs.
 
-1. Submit the script with:
+3. Submit the script with:
 
    ```bash
    sbatch hq.sh
    ```
 
-2. After a short while, you should notice that a file `sdf.tar.gz` containing
+4. After a short while, you should notice that a file `sdf.tar.gz` containing
    the output files has appeared in your working directory. How long did it
    take to convert all files?
 

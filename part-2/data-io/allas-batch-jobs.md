@@ -108,13 +108,13 @@ hours.
       filename=<filename>                      # Replace with your file name
       
       # Make sure the connection to Allas is open
-      source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+      source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf --swift -f -k $OS_PROJECT_NAME
       rclone copy allas:$bucketname/$filename ./
       
       wc -l $filename > $filename.num_rows
       
       # Make sure the connection to Allas is open
-      source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
+      source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf --swift -f -k $OS_PROJECT_NAME
       rclone copy $filename.num_rows allas:$bucketname
       ```
 

@@ -61,9 +61,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Optimized for parallel I/O of large files, slow if accessing lots of small files!
 - [Temporary local storage (NVMe)](https://docs.csc.fi/computing/roihu-disk/#temporary-local-disk-areas):
    - `$TMPDIR`: automatic on login + all compute nodes, no reservation needed
-   - `$LOCAL_SCRATCH`: extra, billed storage reservable (`--gres=nvme:<GB>`) on XL/Viz nodes
+   - `$LOCAL_SCRATCH`: extra, billed storage reservable (`--gres=nvme:<GB>`) on XL nodes (Viz not yet implemented)
    - Disaggregated storage: separate, larger shared fast-storage pool for full-node jobs
-   - Purged after job finishes; [availability varies by partition](https://docs.csc.fi/computing/running/batch-job-partitions)
+   - Purged after job finishes; [availability varies by partition](https://docs.csc.fi/computing/running/batch-job-partitions/#local-storage-on-roihu-nodes)
 
 # Managing file I/O (2/3)
 
@@ -94,25 +94,26 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - `allas-conf` needs setting up CSC password interactively
    - Jobs may start late and actual job may take longer than 8 hrs
 
-# Using Allas in batch jobs (1/2)
+# Using Allas in batch jobs (2/2)
 
-- Use `allas-conf -k`
+- For Swift connections, use `allas-conf --swift -k` (not needed for S3, which is already persistent)
    - stores password in variable `$OS_PASSWORD` to generate a new token automatically
      - a-tools regenerate a token using `$OS_PASSWORD` automatically
      - `rclone` requires explicitly setting environment variable in batch jobs:
-      ```bash
-      source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf -f -k $OS_PROJECT_NAME
-      ```
+
+```bash
+source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf --swift -f -k $OS_PROJECT_NAME
+```
 
 # Configuring Allas for S3 protocol
 
-- Opening Allas connection in s3mode
-  - `source allas_conf --mode s3cmd`
+- Opening Allas connection in S3 mode
+  - `source allas_conf -m S3`
 - Connection is persistent
 - Usage:
    - `s3cmd` with endpoint `s3:`
    - `rclone` with endpoint `s3allas:`
-   - `a-put`/`a-get` with `-S` flag
+   - `a-put --s3` to force S3 (`a-get` already defaults to S3; use `--swift` to switch)
 
 # How to use LUMI-O from Roihu?
 
@@ -129,7 +130,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Moving data between LUMI-O and Allas
 
 - Requires activating connections to both LUMI-O and Allas at the same time:
-    - `allas-conf --mode s3cmd`
+    - `allas-conf`
     - `allas-conf --lumi`
 - Use `rclone` with `s3allas:` as endpoint for Allas and `lumi-o`: for LUMI-O
     - `rclone copy -P lumi-o:lumi-bucket/object s3allas:allas-bucket/`
