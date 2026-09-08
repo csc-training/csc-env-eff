@@ -59,12 +59,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Parallel file system (Lustre):
    - Shared across all nodes in the cluster (e.g. `/scratch`)
    - Optimized for parallel I/O of large files, slow if accessing lots of small files!
-- [Temporary local storage (NVMe)](https://docs.csc.fi/computing/disk/#temporary-local-disk-areas):
-   - Accessible on login nodes (`$TMPDIR`) and to jobs on some compute nodes (`$LOCAL_SCRATCH`)
-      - Only XL and Viz nodes provide `$LOCAL_SCRATCH`, `$TMPDIR` and disaggregated storage are [available on other nodes](https://docs.csc.fi/computing/roihu-disk/#automatic-local-temporary-storage)
-   - Automatically purged after the job finishes
-   - Availability varies slightly depending on the supercomputer (Roihu/LUMI)
-      - Check the availability of [local storage in different job partitions](https://docs.csc.fi/computing/running/batch-job-partitions)
+- [Temporary local storage (NVMe)](https://docs.csc.fi/computing/roihu-disk/#temporary-local-disk-areas):
+   - `$TMPDIR`: automatic on login + all compute nodes, no reservation needed
+   - `$LOCAL_SCRATCH`: extra, billed storage reservable (`--gres=nvme:<GB>`) on XL/Viz nodes
+   - Disaggregated storage: separate, larger shared fast-storage pool for full-node jobs
+   - Purged after job finishes; [availability varies by partition](https://docs.csc.fi/computing/running/batch-job-partitions)
 
 # Managing file I/O (2/3)
 
@@ -91,7 +90,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Command-line interface: use either Swift or S3 protocol
    - Swift (multiple projects, 8-hour) vs. S3 protocol (fixed for a project, persistent)
-   - Roihu defaults to S3, unlike Puhti And Mahti
+   - Roihu defaults to S3, unlike Puhti and Mahti
 - `allas-conf` needs setting up CSC password interactively
    - Jobs may start late and actual job may take longer than 8 hrs
 
@@ -155,17 +154,17 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Cleaning and backing up data (1/3)
 
-- **[Disk cleaning](https://docs.csc.fi/support/tutorials/clean-up-data/#automatic-removal-of-files)**
-  - In force for project disk areas under `/scratch` **on Puhti**
-    - [Will also be implemented on Roihu](https://docs.csc.fi/computing/systems-roihu/#parallel-file-system)
-  - Files older than 180 days will be removed periodically
-    - Listed in a purge list, e.g. `/scratch/purge_lists/project_2001234/path_summary.txt`
+- **[Disk cleaning](https://docs.csc.fi/computing/usage-policy/#disk-cleaning)**
+   - In force for project disk areas under `/scratch` **on Roihu**
+   - Files not accessed for 90 days (5+ TiB quota) or 180 days (smaller quotas) are removed periodically
+      - You get at least 1 month's advance notice, plus a list of the files about to be removed
+      - Check your project's cleaning cycle with `csc-workspaces`
 
 - **Best practice tips**
-  - Don't save everything automatically
-  - Use *[LUE](https://docs.csc.fi/support/tutorials/lue/)* tool to analyze your disk usage
-    - Avoid `du` and `find -size`, these commands are heavy on the file system
-  - Move important data not in current use to Allas
+   - Don't save everything automatically
+   - Use *[LUE](https://docs.csc.fi/support/tutorials/lue/)* tool to analyze your disk usage
+      - Avoid `du` and `find -size`, these commands are heavy on the file system
+   - Move important data not in current use to Allas
 
 # Cleaning and backing up data (2/3)
 

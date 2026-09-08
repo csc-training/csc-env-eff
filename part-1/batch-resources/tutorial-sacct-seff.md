@@ -71,7 +71,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
    #!/bin/bash
    #SBATCH --account=<project>      # Choose the billing project. Has to be defined!
    #SBATCH --time=00:01:30          # Maximum duration of the job. Max: depends of the partition.
-   #SBATCH --partition=small        # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --partition=small        # Job queues: test, interactive, small, medium, large, longrun, hugemem, hugemem_longrun
    #SBATCH --job-name=array_job     # Name of the job visible in the queue.
    #SBATCH --output=out_%A_%a.txt   # Name of the output-file.
    #SBATCH --error=err_%A_%a.txt    # Name of the error-file.

@@ -57,7 +57,7 @@ permalink: /hands-on/batch_jobs/serial.html
    #!/bin/bash
    #SBATCH --account=<project>      # Choose the billing project. Has to be defined!
    #SBATCH --time=00:02:00          # Maximum duration of the job. Upper limit depends on the partition. 
-   #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --partition=test         # Job queues: test, interactive, small, medium, large, longrun, hugemem, hugemem_longrun
    #SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition. For a serial job this should be set 1!
    
    srun hostname                    # Run hostname-command
