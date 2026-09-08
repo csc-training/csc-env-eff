@@ -13,8 +13,9 @@ permalink: /hands-on/data-io/tutorial_allas-in-batch-jobs.html
 
 ## Preparations
 
-💬 The `allas-conf` command opens an Allas connection that is valid for eight
-hours.
+💬 The `allas-conf --swift` command opens a Swift-based Allas connection that
+is valid for eight hours. (Roihu's default S3 connection is persistent and
+does not have this limitation.)
 
 - In case of interactive usage, this eight-hour limit is not problematic as
   `allas-conf` can be executed again to extend the validity of the connection.
@@ -26,7 +27,7 @@ hours.
 
    ```bash
    module load allas
-   allas-conf -k 
+   allas-conf --swift -k 
    ```
 
    - Here, the option `-k` indicates that the password will be stored in an
@@ -40,7 +41,7 @@ hours.
 2. Refresh the connection with the command:
 
    ```bash
-   allas-conf -k <project>  # replace <project> with your CSC project, e.g. project_2001234
+   allas-conf --swift -k <project>  # replace <project> with your CSC project, e.g. project_2001234
    ```
 
    ☝🏻 When `$OS_PASSWORD` is set, the `a-commands` (`a-put`, `a-get`, `a-list`,
