@@ -66,7 +66,7 @@ permalink: /hands-on/batch_jobs/parallel.html
    #!/bin/bash
    #SBATCH --account=<project>      # Choose the billing project. Has to be defined!
    #SBATCH --time=00:00:10          # Maximum duration of the job. Upper limit depends on partition. 
-   #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --partition=test         # Job queues: test, interactive, small, medium, large, longrun, hugemem, hugemem_longrun
    #SBATCH --ntasks=1               # Number of tasks. Upper limit depends on partition.
    #SBATCH --cpus-per-task=4        # How many processors work on one task. Max: Number of CPUs per node.
    
@@ -140,7 +140,7 @@ permalink: /hands-on/batch_jobs/parallel.html
    #!/bin/bash
    #SBATCH --account=<project>      # Choose the billing project. Has to be defined!
    #SBATCH --time=00:00:10          # Maximum duration of the job. Upper limit depends of the partition. 
-   #SBATCH --partition=test         # Job queues: test, interactive, small, large, longrun, hugemem, hugemem_longrun
+   #SBATCH --partition=test         # Job queues: test, interactive, small, medium, large, longrun, hugemem, hugemem_longrun
    #SBATCH --nodes=2                # Number of compute nodes. Upper limit depends on partition.
    #SBATCH --ntasks-per-node=4      # How many tasks to launch per node. Depends on the number of cores and memory on a node.
    
