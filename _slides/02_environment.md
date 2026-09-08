@@ -51,7 +51,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - [Puhti](https://docs.csc.fi/computing/systems-puhti/) and [Mahti](https://docs.csc.fi/computing/systems-mahti/) compute services have been shut down, but their storage remains accessible for data migration
 - [LUMI](https://docs.lumi-supercomputer.eu/hardware/) is a European pre-exascale supercomputer operated by CSC
 - [Pouta](https://docs.csc.fi/cloud/pouta/) provides cloud resources via OpenStack (IaaS)
-- [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via OKD (PaaS)
+- [Rahti](https://docs.csc.fi/cloud/rahti/get-started/what-is-rahti/) provides containers via OKD (PaaS)
 - [Allas](https://docs.csc.fi/data/Allas/) provides object storage for all services
 
 # Which supercomputer to use? 

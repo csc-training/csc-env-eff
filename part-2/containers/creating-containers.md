@@ -266,4 +266,4 @@ the `%post` section:
 
 ## More information
 
-💡 Docs CSC: [Creating containers](https://docs.csc.fi/computing/containers/creating/)
+💡 Docs CSC: [Creating containers](https://docs.csc.fi/computing/containers/overview/#building-container-images)

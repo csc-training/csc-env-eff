@@ -73,7 +73,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Conda, Python and R packages
 
 - Some pre-installed software are distributed through the [Conda](https://docs.conda.io/en/latest/) package management tool
-   - Do not install Conda environments directly on the Lustre parallel file system, [containerize](https://docs.csc.fi/support/tutorials/singularity-scratch/) them instead using *e.g.* [Tykky](https://docs.csc.fi/computing/containers/tykky/)
+   - Do not install Conda environments directly on the Lustre parallel file system, [containerize](https://docs.csc.fi/computing/containers/overview/) them instead using *e.g.* [Tykky](https://docs.csc.fi/computing/containers/tykky/)
    - See the [usage policy](https://docs.csc.fi/computing/usage-policy/#conda-installations) for further details
 - Pre-installed Python packages are available in [`python-*` modules](https://docs.csc.fi/apps/python/)
    - Check Docs CSC for the available packages and usage instructions

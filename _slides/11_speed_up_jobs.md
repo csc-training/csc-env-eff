@@ -241,7 +241,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # If you have lots of small jobs and/or files (2/2)
 
-- In more complex cases (dependencies, error handling), workflow managers such as [Nextflow](https://docs.csc.fi/apps/nextflow/), [Snakemake](https://docs.csc.fi/apps/snakemake/) or [FireWorks](https://docs.csc.fi/computing/running/fireworks/) can be used
+- In more complex cases (dependencies, error handling), workflow managers such as [Nextflow](https://docs.csc.fi/apps/nextflow/), [Snakemake](https://docs.csc.fi/apps/snakemake/) or [FireWorks](https://docs.csc.fi/apps/fireworks/) can be used
   - HyperQueue integration for Nextflow and Snakemake already available!
   - See [Docs CSC](https://docs.csc.fi/computing/running/throughput/) for more details
 - When working with lots of small files:

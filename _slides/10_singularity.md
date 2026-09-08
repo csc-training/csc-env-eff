@@ -117,8 +117,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - For example:
   - `apptainer build pytorch_19.10-py3.sif docker://nvcr.io/nvidia/pytorch:19.10-py3`
 - More information in our documentation:
-  - [Running Apptainer containers](https://docs.csc.fi/computing/containers/run-existing/)
-  - [Creating Apptainer containers](https://docs.csc.fi/computing/containers/creating/)
+  - [Running Apptainer containers](https://docs.csc.fi/computing/containers/overview/#running-containers)
+  - [Creating Apptainer containers](https://docs.csc.fi/computing/containers/overview/#building-container-images)
   - [Using Tykky to create Apptainer containers](https://docs.csc.fi/computing/containers/tykky/)
   - [Apptainer containers on LUMI](https://docs.lumi-supercomputer.eu/software/containers/singularity/)
 
@@ -148,9 +148,10 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Especially suited for Conda environments
   - Can take an environment YAML file as an input
+  - `conda-containerize new --prefix <install_dir> env.yml`
 - Can be used for any application type
-  - Use `--post-install <file>` to run the installation commands
-  - See [example](https://github.com/CSCfi/hpc-container-wrapper/blob/master/examples/fftw.md)
+  - After creating the environment, use `conda-containerize update <dir> --post-install <file>` to run arbitrary installation commands
+  - See [example](https://docs.csc.fi/computing/containers/tykky/#modifying-a-conda-installation)
 
 # Building using a definition file
 
