@@ -58,8 +58,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
         - Must not be confused with Docker/Apptainer containers!
 - The name of the bucket must be unique within Allas
 - Avoid using special characters, including _ and upper case letters in bucket names
-    - Bad bucket name: My_New_%-data
-    - Good bucket name: my-new-percent-data
+    - Bad bucket name: `My_New_%-data`
+    - Good bucket name: `my-new-percent-data`
 
 # Allas objects
 
@@ -69,9 +69,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - In Allas, you can have 500 000 objects per bucket
 - There is only one level of hierarchy of buckets (no buckets within buckets)
     - There is no hierarchical directory structure, although it sometimes looks like that
-    - *123-bucket/dir1/data2.csv* means:
-         - bucket name: *123-bucket*
-         - object name: *dir1/data2.csv*
+    - `123-bucket/dir1/data2.csv` means:
+         - bucket name: `123-bucket`
+         - object name: `dir1/data2.csv`
 
 # Allas supports two protocols
 
@@ -94,13 +94,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Use [MyCSC](https://my.csc.fi) to apply for Allas access for your project. Allas is not automatically available
 - In Roihu, setup connection to Allas using the commands:
+
   ```bash
   module load allas
   allas-conf
   ```
-- Note that in Roihu allas-conf sets up a permanent S3 based connection, so you need to run allas-conf only if you want to start to use a new Allas connection. 
+
+- In Roihu, `allas-conf` sets up a permanent S3 connection -- rerun only if you want to switch connections.
 - [Study the manual and start using Allas with `rclone` or `a-tools`](https://docs.csc.fi/data/Allas/)
-- [This course](https://csc-training.github.io/csc-env-eff/part-1/allas/) includes also hands-on tutorials and a tutorial video about Allas
+- [This course](https://csc-training.github.io/csc-env-eff/part-1/allas/) includes also hands-on tutorials about Allas
 
 # Allas -- `rclone`
 
@@ -113,14 +115,13 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Allas -- `a-tools`
 
-- `a-tools` provide an easy and safe way to use Allas for occasional Allas users
+- `a-tools` provide an easy and safe way to use Allas for occasional users
 - Default bucket names are based on directories on Roihu
 - Unlike `rclone`, `a-tools` does not overwrite or remove data without asking!
 - Developed for the CSC supercomputers, but you can install the tools in other Linux and Mac machines as well
 - Automatic packing (compression can be enabled as well if needed)
 - In Roihu a-tools use by default S3 protocol. Add option `--swift` to a-commands if you need to use swift protocol in Roihu.
 - [a-commands instructions at Docs CSC](https://docs.csc.fi/data/Allas/using_allas/a_commands/)
-  
 
 # Issues with Allas
 
@@ -132,7 +133,6 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Different interfaces may work in different ways
 - Cross using protocols cause problems for files larger than 5 GB, see the [tips for cross usage](https://docs.csc.fi/support/faq/roihu/#12-i-uploaded-data-from-puhtimahti-to-allas-now-im-downloading-it-to-roihu-and-get-an-error-saying-corrupted-on-transfer-md5-hashes-differ)
 
-
 # Questions that users should consider
 
 - Should I store each file as a separate object, or should I collect them into bigger chunks?
@@ -142,18 +142,16 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - What will happen to my data later on?
 - How to keep track of all the data I have in Allas?
 
-# Lumi-O
+# LUMI-O
 
-- Lumi-O is object storage service for Lumi super computers.
+- LUMI-O is object storage service for LUMI supercomputer
 - Default quota: 150 TiB
-- Lumi-O uses only S3 protocol and there is no https://allas.csc.fi -like web interface 
-- You need to apply for a Lumi-project to use the Lumi-O.
-- Lumi projects have always a maximum duration, three years in this case, after which the project is closed and you must move your data somewhere else
-- Allas is very full at the moment so if you need to store large datasets ( more than 30 TiB) we will ask you to use Lumi-O instead of Allas.
+- LUMI-O uses only S3 protocol and there is no https://allas.csc.fi -like web interface
+- You need to apply for a LUMI-project to use LUMI-O
+- LUMI projects have always a maximum duration, three years in this case, after which the project is closed and you must move your data elsewhere
+- Allas is currently very full, so if you need to store large datasets (>30 TiB) we ask you to use LUMI-O instead
 
-
-
-# SD Connect andsensitive data services
+# SD Connect and sensitive data services
 
 - [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
 - [**SD Desktop**](https://sd-desktop.csc.fi) is a secure virtual desktop
@@ -163,9 +161,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - No direct data export
 - Allas can be used for sensitive data, but **only** if the data is properly encrypted!
    - The [**SD Connect**](https://sd-connect.csc.fi) adds automatic encryption and decryption to Allas
-   - Crypt4gh in use. Suffix: .c4gh
-
-
+   - Crypt4gh in use. Suffix: `.c4gh`
 
 # Fairdata services
 
@@ -175,4 +171,3 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - **[IDA](https://ida.fairdata.fi):** storage for research data
 - **[Qvain](https://qvain.fairdata.fi/):** Describe your dataset and get a persistent identifier for it
 - **[Etsin](https://etsin.fairdata.fi/):** Discover datasets based on metadata
-

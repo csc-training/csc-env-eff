@@ -56,6 +56,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Programming languages that need to be compiled
    - Typical examples are _e.g._ C, C++ and Fortran
 - Most resource-intensive software have been programmed using these
+- Roihu-CPU and Roihu-GPU have different architectures (AMD x86 vs. NVIDIA Grace/ARM)
+   - Compile separately for each side; a Roihu-CPU binary won't run on Roihu-GPU (and vice versa)
 - As a researcher, you typically _only_ need to compile a software (unless available pre-installed)
   - Can sometimes be complicated
   - If you run into problems, contact <servicedesk@csc.fi>
