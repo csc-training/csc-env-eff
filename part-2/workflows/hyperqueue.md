@@ -129,8 +129,9 @@ looping `srun` or `sbatch` commands.
    execute commands that the client submitted to the server.
     - This is in principle what Slurm also does, only difference is that you
       need to start the server and workers yourself.
-    - In this example, 48 cores are reserved for processing the files, meaning
-      that 48 conversion commands will be running in parallel.
+    - In this example, 48 cores (1/8 of a Roihu node) are reserved for
+      processing the files, meaning that 48 conversion commands will be
+      running in parallel.
 
    ☝🏻 Ideally, the number of sub-tasks should be larger than the amount that
    can fit running on the reserved resources simultaneously to avoid too short

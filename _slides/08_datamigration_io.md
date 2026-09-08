@@ -155,16 +155,16 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Cleaning and backing up data (1/3)
 
 - **[Disk cleaning](https://docs.csc.fi/computing/usage-policy/#disk-cleaning)**
-  - In force for project disk areas under `/scratch` **on Roihu**
-  - Files not accessed for 90 days (quotas 5 TiB and above) or 180 days (smaller quotas) will be removed periodically
-    - You get at least 1 month's advance notice, plus a list of the files about to be removed
-    - Check your project's cleaning cycle with `csc-workspaces`
+   - In force for project disk areas under `/scratch` **on Roihu**
+   - Files not accessed for 90 days (5+ TiB quota) or 180 days (smaller quotas) are removed periodically
+      - You get at least 1 month's advance notice, plus a list of the files about to be removed
+      - Check your project's cleaning cycle with `csc-workspaces`
 
 - **Best practice tips**
-  - Don't save everything automatically
-  - Use *[LUE](https://docs.csc.fi/support/tutorials/lue/)* tool to analyze your disk usage
-    - Avoid `du` and `find -size`, these commands are heavy on the file system
-  - Move important data not in current use to Allas
+   - Don't save everything automatically
+   - Use *[LUE](https://docs.csc.fi/support/tutorials/lue/)* tool to analyze your disk usage
+      - Avoid `du` and `find -size`, these commands are heavy on the file system
+   - Move important data not in current use to Allas
 
 # Cleaning and backing up data (2/3)
 
