@@ -47,9 +47,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Available HPC and cloud resources
 
-- [Roihu](https://docs.csc.fi/computing/systems-roihu/) is CSC's new national supercomputer, replaces Puhti and Mahti ☑️
-- [Puhti](https://docs.csc.fi/computing/systems-puhti/) is the general-purpose supercomputer
-- [Mahti](https://docs.csc.fi/computing/systems-mahti/) is the massively parallel flagship supercomputer
+- [Roihu](https://docs.csc.fi/computing/systems-roihu/) is CSC's new national supercomputer, replacing Puhti and Mahti ☑️
+- [Puhti](https://docs.csc.fi/computing/systems-puhti/) and [Mahti](https://docs.csc.fi/computing/systems-mahti/) compute services have been shut down, but their storage remains accessible for data migration
 - [LUMI](https://docs.lumi-supercomputer.eu/hardware/) is a European pre-exascale supercomputer operated by CSC
 - [Pouta](https://docs.csc.fi/cloud/pouta/) provides cloud resources via OpenStack (IaaS)
 - [Rahti](https://docs.csc.fi/cloud/rahti/rahti-what-is/) provides containers via OKD (PaaS)
@@ -77,7 +76,3 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 | Memory per node (GiB)       | 384-6144 | 256-1024
 | GPU cards          | 528 (GH200) | 11912 (MI250X)
 | Nodes with NVMe (CPU+GPU) | 486+132  | 8+8
-
-<!--<small>
-In short: Mahti is for large parallel jobs, prepare to install and optimize your code. Still, one Puhti *node* is 10x your laptop. LUMI is like Mahti + massive AMD GPU capacity
-</small>-->

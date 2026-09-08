@@ -65,4 +65,4 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-lue.html
 
 ## More information
 
-💡 See Docs CSC for more information about [managing data on Puhti and Mahti `/scratch` disks](https://docs.csc.fi/support/tutorials/clean-up-data/) and [using LUE](https://docs.csc.fi/support/tutorials/lue/) (e.g. how to fix `NOSIZE`/`NOPERM` errors).
+💡 See Docs CSC for more information about [managing data on `/scratch` disks](https://docs.csc.fi/support/tutorials/clean-up-data/) and [using LUE](https://docs.csc.fi/support/tutorials/lue/) (e.g. how to fix `NOSIZE`/`NOPERM` errors).

@@ -13,7 +13,7 @@ permalink: /hands-on/installing/installing_hands-on_c.html
 
 💬 In this tutorial we will install HMMER, a toolkit for biological sequence alignment and database 
 homology search to the [`/projappl` directory](https://docs.csc.fi/computing/disk/) of the user on
-Puhti.
+Roihu.
 
 💭 This software is also available as an installation package (`.deb`, `.rpm`)
 for various Linux distributions, but these can not be used on Roihu. Instead,
