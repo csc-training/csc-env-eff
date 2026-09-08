@@ -31,8 +31,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Main disk areas in Roihu
 
-- Home directory (`$HOME`)
-    - Other users cannot access your home directory
+- Personal home directory (`$HOME`)
 - ProjAppl directory (`/projappl/project_name`)
     - Shared with project members
     - Possible to limit access (`chmod g-rw`) to subfolders
@@ -48,7 +47,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 - Intended for data sharing and active use, not long-term storage
 
-- Dataset projects provide access to shared disk area under (`/projappl/project_name`) but have no computational resources
+- Dataset projects provide access to shared disk area under (`/dataset/project_name`) but have no computational resources
 
 - Write access to a dataset directory is restricted to a single project, while multiple other projects can be granted read access to this disk area.
 

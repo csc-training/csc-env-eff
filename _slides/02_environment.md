@@ -70,7 +70,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 |                             | [Roihu](https://docs.csc.fi/computing/systems-roihu/)  | [LUMI](https://docs.lumi-supercomputer.eu/hardware/) |
 | ----------------------------------- |------- | ---- |
-| Pre-installed apps | [50+](https://docs.csc.fi/apps/by_availability/#roihu) | [See here](https://docs.lumi-supercomputer.eu/software/)
+| Pre-installed apps | [100+](https://docs.csc.fi/apps/by_availability/#roihu) | [See here](https://docs.lumi-supercomputer.eu/software/)
 | Cores per node              | 64-384 | 128
 | Job size (min-max cores)    | 1-23040    | 1-65536
 | Memory per node (GiB)       | 384-6144 | 256-1024

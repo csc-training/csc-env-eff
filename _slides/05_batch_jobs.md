@@ -146,7 +146,7 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 
 # Running multiple serial jobs 2/2
 
-- On Roihu, pure serial resources are only available in `small` and `longrun` partitions
+- On Roihu, pure serial resources are available in `test`, `small`, `longrun`, `hugemem` and `hugemem_longrun` partitions
     - Some tools, e.g. [HyperQueue](https://docs.csc.fi/apps/hyperqueue/), can make a set of serial jobs suitable also for `medium` partition
     - **But**, the workflow needs to fill (at least) one Roihu node (384 cores) and keep the CPUs busy for the job duration
     - Due to the high core count, **it is important that all the resources are used efficiently inside a reserved node!**
