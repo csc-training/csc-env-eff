@@ -84,7 +84,7 @@ looping `srun` or `sbatch` commands.
    #SBATCH --account=<project>  # replace <project> with your CSC project, e.g. project_2001234
    #SBATCH --nodes=1
    #SBATCH --ntasks-per-node=1
-   #SBATCH --cpus-per-task=40
+   #SBATCH --cpus-per-task=48
    #SBATCH --time=00:10:00
 
    # Required by openbabel
@@ -129,8 +129,8 @@ looping `srun` or `sbatch` commands.
    execute commands that the client submitted to the server.
     - This is in principle what Slurm also does, only difference is that you
       need to start the server and workers yourself.
-    - In this example, one full Roihu node is reserved for processing the
-      files, meaning that 384 conversion commands will be running in parallel.
+    - In this example, 48 cores are reserved for processing the files, meaning
+      that 48 conversion commands will be running in parallel.
 
    ☝🏻 Ideally, the number of sub-tasks should be larger than the amount that
    can fit running on the reserved resources simultaneously to avoid too short

@@ -70,9 +70,11 @@ directory.
    export APPTAINER_CACHEDIR=$TMPDIR
    ```
 
-   ‼️ The hugemem (XL) and visualization (Viz) nodes will provide local scratch
-   under $LOCAL_SCRATCH, but this is not yet implemented. More information
-   available in [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#compute-nodes).
+   ‼️ The hugemem (XL) and visualization (Viz) nodes additionally provide
+   reservable local scratch under `$LOCAL_SCRATCH` (e.g. `--gres=nvme:<amount-in-GB>`
+   on XL nodes). This is billed separately and, for Viz nodes, the amount is
+   not yet finalized. More information available in
+   [Docs CSC](https://docs.csc.fi/computing/roihu-disk/#temporary-local-disk-areas).
 
 2. Avoid some unnecessary warnings by unsetting a certain environment variable:
 

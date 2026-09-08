@@ -25,7 +25,7 @@ permalink: /hands-on/installing/installing_hands-on_r.html
 
 2. There are several ways to use R in `r-env` on Roihu:
    - Interactive jobs on a compute node, using either the R console or RStudio  
-     💡 The easiest way to launch RStudio is to use the Puhti web interface at
+     💡 The easiest way to launch RStudio is to use the Roihu web interface at
      [www.roihu.csc.fi](https://www.roihu.csc.fi/)
    - Non-interactive batch jobs
    - Interactively on the login node, using the R console (**only** for moving
