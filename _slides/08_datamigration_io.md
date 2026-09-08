@@ -29,7 +29,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - A parallel file system (PFS) provides a common file system area that can be accessed from all nodes in a cluster
 - Without PFS users would have to always copy all needed data to compute nodes before runs (cf. local disk)
     - Also the results would not be visible outside the compute node
-- CSC uses **Lustre** parallel file system Roihu 
+- CSC uses **Lustre** parallel file system on Roihu 
 
 # Lustre
 

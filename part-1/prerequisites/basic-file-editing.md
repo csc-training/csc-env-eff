@@ -56,7 +56,7 @@ In the [previous tutorial](https://csc-training.github.io/csc-env-eff/hands-on/l
    ‼️ Note: The following has to be typed in your personal computer's terminal, not Roihu (make sure you have set up SSH keys and downloaded an SSH certificate):
 
    ```bash
-   scp cscusername@roihu.csc.fi:/path/to/your/filename.md /path/to/local/folder
+   scp cscusername@roihu-cpu.csc.fi:/path/to/your/filename.md /path/to/local/folder
    ```
 
 5. Look for the file on your personal computer and check that the contents match.
