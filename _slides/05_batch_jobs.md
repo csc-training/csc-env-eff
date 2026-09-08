@@ -19,7 +19,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # What is a batch job? 1/2
 
 - On a laptop you might be used to start a program (job) by clicking an icon, which starts the job instantly
-- If we start many jobs at the same time, we occasionally encounter problems like running out of memory _etc._
+- If we start many jobs at the same time, we occasionally encounter problems like running out of memory
 - In an HPC environment, the computer is shared among hundreds to thousands of other users who all have different resource needs
 - HPC batch jobs include a resource request, which corresponds to an **estimate of how much resources the job is expected to use**
 
@@ -146,14 +146,14 @@ srun echo "Hello $USER! You are on node $HOSTNAME"
 
 # Running multiple serial jobs 2/2
 
-- On Roihu, pure serial resources are only available in `small` and `longrun` partitions
-    - Some tools, e.g. [HyperQueue](https://docs.csc.fi/apps/hyperqueue/), can make a set of serial jobs suitable also for `medium` partition
-    - **But**, the workflow needs to fill (at least) one Roihu node (384 cores) and keep the CPUs busy for the job duration
+- On Roihu, pure serial resources are only available in the `small` and `longrun` partitions
+- Some tools, e.g. [HyperQueue](https://docs.csc.fi/apps/hyperqueue/), can make a set of serial jobs suitable also for the `medium` partition
+    - **But** medium nodes are full-node reservation only, so the workflow needs to fill (at least) one Roihu node (384 cores) and keep the CPUs busy for the job duration
     - Due to the high core count, **it is important that all the resources are used efficiently inside a reserved node!**
 
 # HPC parallel jobs
 
-- A parallel job distributes the calculation over several cores in order to achieve a shorter wall-time (and/or a larger allocatable memory)
+- A parallel job distributes the calculation over several cores in order to achieve a shorter wall-clock time (and/or a larger allocatable memory)
    - The total computational problem is divided into subtasks, which are processed by each core in parallel
 - There are two major parallelization standards: [OpenMP](https://en.wikipedia.org/wiki/OpenMP) and [MPI](https://en.wikipedia.org/wiki/Message_Passing_Interface)
    - Note, depending on the parallelization scheme there is a slight difference between _how_ the resource reservation is done
