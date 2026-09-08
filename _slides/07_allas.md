@@ -28,7 +28,8 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Clients available on Roihu
    - See Docs CSC for instructions
        - [Using Allas and Lumi-O object storage services in Roihu](https://docs.csc.fi/computing/allas-in-roihu/)
-       - [Tutorial for using Allas in the Roihu supercomputer](https://docs.csc.fi/data/Allas/allas-roihu/)q
+       - [Tutorial for using Allas in the Roihu supercomputer](https://docs.csc.fi/data/Allas/allas-roihu/)
+
 
 # The Allas object storage: what it is NOT
 
@@ -70,12 +71,12 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - There is no hierarchical directory structure, although it sometimes looks like that
     - *123-bucket/dir1/data2.csv* means:
          - bucket name: *123-bucket*
-         - object name: *dir/data2.csv*
+         - object name: *dir1/data2.csv*
 
 # Allas supports two protocols
 
-- S3 (used by `s3cmd`, `rclone`, `a-tools`)
-- Swift (used by `swift`, `rclone`, `a-tools`, `cyberduck`)  
+- S3 (used by `s3cmd`, `aws s3`, `rclone`, `a-tools`, `s5cmd`, `cyberduck`)
+- Swift (used by `swift`, `rclone`, `a-tools`, `cyberduck`, `https://allas.csc.fi`)  
 - Authentication and file handling is different for the protocols
 - **Avoid cross-using Swift and S3-based objects!**
 - **In Roihu the default protocol is now S3 while in Puhti and Mahti it was swift**
@@ -91,7 +92,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Allas -- first steps
 
-- Use [MyCSC](https://my.csc.fi) to apply for Allas access for your project -- Allas is not automatically available
+- Use [MyCSC](https://my.csc.fi) to apply for Allas access for your project. Allas is not automatically available
 - In Roihu, setup connection to Allas using the commands:
   ```bash
   module load allas
@@ -124,7 +125,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 # Issues with Allas
 
 - 8-hour connection limit with `swift`
-- No way to check quota
+- Quota can be checked only in MyCSC
 - Moving data inside Allas is not possible (`swift`)
 - No way to freeze data
    - Use two projects if you need to prevent others from editing your data
@@ -141,7 +142,18 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - What will happen to my data later on?
 - How to keep track of all the data I have in Allas?
 
-# Bonus1: Sensitive data services
+# Lumi-O
+
+- Lumi-O is object storage service for Lumi super computers.
+- Default quota: 150 TiB
+- Lumi-O uses only S3 protocol and there is no https://allas.csc.fi -like web interface 
+- You need to apply for a Lumi-project to use the Lumi-O.
+- Lumi projects have always a maximum duration, three years in this case, after which the project is closed and you must move your data somewhere else
+- Allas is very full at the moment so if you need to store large datasets ( more than 30 TiB) we will ask you to use Lumi-O instead of Allas.
+
+
+
+# SD Connect andsensitive data services
 
 - [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/) for processing sensitive data
 - [**SD Desktop**](https://sd-desktop.csc.fi) is a secure virtual desktop
@@ -150,16 +162,9 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - Isolation from the Internet
    - No direct data export
 - Allas can be used for sensitive data, but **only** if the data is properly encrypted!
-   - The [**SD Connect**](https://sd-connect.csc.fi) procedure does the encryption
+   - The [**SD Connect**](https://sd-connect.csc.fi) adds automatic encryption and decryption to Allas
+   - Crypt4gh in use. Suffix: .c4gh
 
-# Bonus2: Lumi-O
-
-- Lumi-O is object storage service for Lumi super computers.
-- Default quota: 150 TiB
-- Lumi-O uses only S3 protocol and there is no https://allas.csc.fi -like web interface 
-- You need to apply for a Lumi-project to use the Lumi-O.
-- Lumi projects have always a maximum duration, three years in this case, after which the project is closed and you must move your data somewhere else
-- Allas is very full at the moment so if you need to store large datasets ( more than 3o TiB) we will ask you to use Lumi-O instead of Allas.
 
 
 # Bonus3: Fairdata services
