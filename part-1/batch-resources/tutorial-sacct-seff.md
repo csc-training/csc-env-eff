@@ -31,7 +31,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
    sacct -S YYYY-MM-DD    # replace YYYY-MM-DD
    ```
 
-3. Look for a specific job – _i.e._ specify the job ID using the `-j` option (if you can't think of one, you can use `29712904`):
+3. Look for a specific job – _i.e._ specify the job ID using the `-j` option (if you can't think of one, you can use `879004`):
 
    ```bash
    sacct -j <slurmjobid>    # replace <slurmjobid> with a valid job ID 
@@ -63,7 +63,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
 
 💬 Run a simple array job to practice using `seff` and `sacct`.
 
-☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `148001` (it is the same job).
+☝🏻 If you have limited time, you can skip to [Examining the finished job](#examining-the-finished-job) and use the job ID `1225662` (it is the same job).
 
 1. Create a file named `array.sh` and paste the following contents in it.
 
