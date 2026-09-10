@@ -144,7 +144,7 @@ permalink: /hands-on/batch_resources/tutorial_sacct_and_seff.html
 1. Look at the error messages produced by the failed jobs.
 2. When you know which sub jobs failed and why, adjust the resource requests as necessary.
 
-   ☝🏻 If you have limited time, you can skip to step 4 and use the job ID `148017` (it is the same job with adjusted resource requests).
+   ☝🏻 If you have limited time, you can skip to step 4 and use the job ID `1225699` (it is the same job with adjusted resource requests).
 
    - Change time and memory reservations:
 
