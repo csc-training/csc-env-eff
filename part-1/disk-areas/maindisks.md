@@ -20,6 +20,10 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-maindisks.html
 
 💬 Active data files needed for computational simulations and analyses should be stored and shared in directories under `/scratch` while any software installations and binaries should be shared under the `/projappl` directory.
 
+‼️ None of the disk areas on Roihu and LUMI are automatically backed up by CSC. Data that is accidentally deleted by the user or otherwise lost cannot be recovered. It is the user's own responsibility to keep backup copies of any data they want to preserve.
+
+‼️ The `/scratch` disk area on Roihu is periodically cleaned of files that have not been accessed in 180 (default) or 90 (>5 TiB quota) days. See the [Usage policy](../../computing/usage-policy.md#disk-cleaning) page for details.
+
 ## Identify your personal and project-specific directories on Roihu supercomputer
 
 1. First login to Roihu using SSH (or by opening a login node shell in the [Roihu web interface](https://www.roihu.csc.fi)):
@@ -35,7 +39,7 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-maindisks.html
    csc-workspaces
    ```
 
-3. Inspect the output information summarizing your directories and their current quotas.
+3. Inspect the output information summarizing your directories, their current quotas and cleanup cycles.
 4. Visit your project's `/scratch` directory and list its contents:
 
    ```bash
@@ -120,7 +124,7 @@ Let's assume that
    chmod g-w Merged.fasta          # g-w means that we "subtract" write permissions for users belong to our group (g), i.e. our project
    ```
 
-### Copying files from Roihu to LUMI (optional)
+### Copying files from Roihu to LUMI (optional, requires a LUMI project)
 
 ☝🏻 For this part you must ensure you have forwarded your SSH agent to Roihu, otherwise you will not be able to connect to LUMI.
 
