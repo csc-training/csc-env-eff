@@ -169,3 +169,18 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - A production image needs to be built for general use
 - Resulting image is a "black box"
   - No record left of installation commands used
+
+# Roihu base images & software stacks
+
+- **[Satama](https://docs.csc.fi/cloud/satama/)** is CSC's container registry for securely storing, managing, and distributing container images
+- Dedicated base images for **Roihu-CPU** and **Roihu-GPU**
+    - Built on Rocky Linux 9
+    - Spack-built software stacks, dependencies, and modulefiles
+    - Software versions match the Roihu system software
+- Enable containers with a software environment identical to the platform
+    - Ideal for optimized workloads such as MPI containers
+- Resulting containers are self-contained
+    - No need to bind-mount host binaries
+    - ⚠️ Not portable to other machines/architectures
+
+
