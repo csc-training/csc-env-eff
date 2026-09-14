@@ -102,7 +102,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Best practices
 
-- None of the disk areas are automatically backed up by CSC, so make sure to perform regular backups to, _e.g._, Allas
+- <span style="color:red">**None of the disk areas are automatically backed up by CSC, so make sure to perform regular backups to, _e.g._, Allas**</span>
 - Don't run databases or Conda on Lustre (`/projappl`, `/scratch`, `$HOME`, `/dataset`)
     - Containerize Conda environments with [Tykky](https://docs.csc.fi/computing/containers/tykky/) and use other CSC services like [Pukki](https://docs.csc.fi/cloud/dbaas/), [cPouta](https://docs.csc.fi/cloud/pouta/) or [Rahti](https://docs.csc.fi/cloud/rahti/) for databases
 - Don't create a lot of files, especially within a single folder
