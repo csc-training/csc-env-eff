@@ -22,7 +22,7 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-maindisks.html
 
 ‼️ None of the disk areas on Roihu and LUMI are automatically backed up by CSC. Data that is accidentally deleted by the user or otherwise lost cannot be recovered. It is the user's own responsibility to keep backup copies of any data they want to preserve.
 
-‼️ The `/scratch` disk area on Roihu is periodically cleaned of files that have not been accessed in 180 (default) or 90 (>5 TiB quota) days. See the [Usage policy](../../computing/usage-policy.md#disk-cleaning) page for details.
+‼️ The `/scratch` disk area on Roihu is periodically cleaned of files that have not been accessed in 180 (default) or 90 (>5 TiB quota) days. See the [Docs CSC](https://docs.csc.fi/computing/usage-policy/#disk-cleaning) for details.
 
 ## Identify your personal and project-specific directories on Roihu supercomputer
 
