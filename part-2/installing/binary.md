@@ -73,6 +73,10 @@ working with the NCBI taxonomy.
    TaxonKit is a statically linked binary, so it has no library dependencies
    and runs on Roihu as-is.
 
+   ☝🏻 This exercise uses the CPU login node (`roihu-cpu`, x86_64). On the GPU
+   login node (`roihu-gpu`, aarch64) download the `linux_arm64` asset instead —
+   a binary for one architecture will not run on the other.
+
 4. Download the release (a `.tar.gz`, not a `.zip`):
 
    ```bash
