@@ -132,6 +132,12 @@ tar -xzf taxdump.tar.gz -C $HOME/.taxonkit names.dmp nodes.dmp delnodes.dmp merg
 echo 9606 | taxonkit lineage      # 9606 = Homo sapiens
 ```
 
+💡 On a real project you would stage this dataset once under `/projappl` and
+have all project members point to it with the `TAXONKIT_DB` environment
+variable, instead of each person downloading their own copy into
+`$HOME/.taxonkit`. `/projappl` is shared project space, so reference data
+(like binaries) is best installed there once for the whole group.
+
 ## Some notes about `$PATH`
 
 💡 `$PATH` is a list of directories, separated by `:`, that the shell searches
