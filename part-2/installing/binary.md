@@ -14,6 +14,7 @@ permalink: /hands-on/installing/installing_hands-on_binary.html
 > This tutorial is done on **Roihu**, which requires that:
   - You have a [user account at CSC](https://docs.csc.fi/accounts/how-to-create-new-user-account/).
   - Your account belongs to a project [that has access to the Roihu service](https://docs.csc.fi/accounts/how-to-add-service-access-for-project/).
+  - You are on the CPU login node (`ssh roihu-cpu`). Roihu has two architectures; this exercise uses the x86_64 CPU node (roihu-cpu.csc.fi).
 
 💬 In some cases software developers offer ready-made binary versions of their
 software.
