@@ -105,15 +105,15 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf --swift -f -k $OS_PROJECT_NAME
 ```
 
-# Configuring Allas for S3 protocol
+# Configuring Allas for S3 protocol on Roihu
 
 - Opening Allas connection in S3 mode
-  - `source allas_conf -m S3`
+  - `source allas_conf`  #defaults to S3
 - Connection is persistent
 - Usage:
    - `s3cmd` with endpoint `s3:`
    - `rclone` with endpoint `s3allas:`
-   - `a-put --s3` to force S3 (`a-get` already defaults to S3; use `--swift` to switch)
+- **Note**: `a-commands` defaults to S3; use `--swift` to switch to `swift` protocol
 
 # How to use LUMI-O from Roihu?
 
