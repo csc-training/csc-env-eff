@@ -52,85 +52,122 @@ on to ensure correct operation.
    cd $USER
    ```
 
-## Example: Installing the GCTA software
+## Example: Installing the TaxonKit software
 
-💬 In this example we'll install the binary release of the GCTA software.
+💬 In this example we install the binary release of TaxonKit, a tool for
+working with the NCBI taxonomy.
 
-1. Go to the [GCTA download page](https://yanglab.westlake.edu.cn/software/gcta/#Overview).
-2. Identify the Linux version.
-   - If several Linux versions are offered, try to find one with "x86" in the
-     name.
-   - If versions are offered by Linux distribution, try first the versions made
-     for CentOS or RedHat if present.
-   - Sometimes you may have to try different versions to find one that works.
-3. Here is the link for the Linux version. Download the `.zip` file by running:
+1. First check whether CSC already provides it:
 
    ```bash
-   wget https://yanglab.westlake.edu.cn/software/gcta/bin/gcta-1.95.2-linux-x86_64.zip
+   module spider taxonkit
    ```
+   This returns "Unable to find: taxonkit", so we install it ourselves.
 
-4. Unzip the file:
+2. Find the software online. TaxonKit has a project website,
+   [bioinf.shenwei.me/taxonkit](https://bioinf.shenwei.me/taxonkit/), and a
+   [download page](https://bioinf.shenwei.me/taxonkit/download/) — this is how
+   a researcher would normally find a tool that CSC does not provide.
+
+3. On the download page, identify the Linux 64-bit build (`linux_amd64`).
+   TaxonKit is a statically linked binary, so it has no library dependencies
+   and runs on Roihu as-is.
+
+4. Download the release (a `.tar.gz`, not a `.zip`):
 
    ```bash
-   unzip gcta-1.95.2-linux-x86_64.zip
+   wget https://github.com/shenwei356/taxonkit/releases/download/v0.20.0/taxonkit_linux_amd64.tar.gz
    ```
 
-5. The software is now ready to use, but you will have to tell the computer
-   where to find it.
-6. Trying just the following will result in a `command not found` error because
-   you are not accessing the right folder yet.
+5. Unpack it:
 
    ```bash
-   gcta
+   tar -xzf taxonkit_linux_amd64.tar.gz
    ```
+   This produces a single executable, `taxonkit`, in the current directory.
 
-7. Try instead:
+6. The download page says to install it with `sudo cp taxonkit /usr/local/bin/`.
+   On a supercomputer you have no `sudo` rights and cannot write to system
+   directories, so this does not work. We use `$PATH` instead.
+
+7. The bare command fails — the shell does not yet know where the file is:
 
    ```bash
-   gcta-1.95.2-linux-x86_64.zip/gcta
+   taxonkit          # command not found
    ```
 
-8. Or:
+8. Run it with an explicit path — this always works:
 
    ```bash
-   cd gcta-1.95.2-linux-x86_64
-   ./gcta
+   ./taxonkit version
+   ```
+   It prints the version, so the binary runs on Roihu.
+
+   💡 To avoid typing the path every time, add this folder to your `$PATH`.
+
+9. Add the current directory to `$PATH`:
+
+   ```bash
+   export PATH=$PWD:$PATH
    ```
 
-9. The result shows that the software runs.
-   - The error message is just about missing arguments, which is normal.
-
-   💡 Instead of providing the full path in the command line, you can also add
-   the application to your `$PATH`.
-
-10. Move to `./gcta-1.95.2-linux-x86_64` if not there yet.
-11. Add the current working directory to `$PATH`:
+10. Confirm the shell now finds it, then run it from anywhere:
 
     ```bash
-    export PATH=$PWD:$PATH
+    which taxonkit
+    taxonkit version
     ```
 
-12. You can now run the program from any directory simply with:
-
-    ```bash
-    gcta
-    ```
-
-## Some notes
-
-💡 When adding paths to `$PATH`, always remember to *append* the current
-`$PATH`, otherwise some of your normal shell commands etc. will stop working.
-
-☝🏻 To add paths automatically, you can add the `export` command to your
-`$HOME/.bashrc` file. Instead of `$PWD`, use the full path:
+💡 To actually resolve taxonomy (optional, not needed to complete this
+tutorial), TaxonKit needs the NCBI taxonomy files in `$HOME/.taxonkit`:
 
 ```bash
-export PATH=/projappl/<project>/$USER/gcta-1.95.2-linux-x86_64:$PATH   # replace <project> with your CSC project, e.g. project_2001234
+wget https://ftp.ncbi.nih.gov/pub/taxonomy/taxdump.tar.gz
+mkdir -p $HOME/.taxonkit
+tar -xzf taxdump.tar.gz -C $HOME/.taxonkit names.dmp nodes.dmp delnodes.dmp merged.dmp
+echo 9606 | taxonkit lineage      # 9606 = Homo sapiens
 ```
 
-‼️ If you make changes to your environment (e.g. edit `.bashrc`), it is possible
-that there will be conflicts with applications pre-installed by CSC.
+## Some notes about `$PATH`
 
-💭 If you encounter problems after modifying your environment, it is possible
-to restore it to the default state permanently or temporarily using the
-[`csc-env` command](https://docs.csc.fi/support/tutorials/using_csc_env/).
+💡 `$PATH` is a list of directories, separated by `:`, that the shell searches
+**in order** when you type a command name. It runs the first match it finds.
+`export PATH=$PWD:$PATH` puts your directory at the front of that list, so it
+is searched first.
+
+💡 Always keep the existing `$PATH` in the value. If you write
+`export PATH=$PWD` on its own, you erase the rest and normal commands (`ls`,
+`cat`, …) stop working.
+
+☝🏻 Order matters on a shared system. Look at your list:
+
+```bash
+echo $PATH
+```
+
+Your new folder now sits *ahead* of the directories that loaded modules add
+(compilers, MPI, and other tools). Because your directory is searched first, a
+file there would be used before a same-named tool from a module. This is
+harmless for a uniquely named tool like `taxonkit`. But if you want to be sure
+your own files can never override system or module tools, *append* your
+directory instead, so it is searched last:
+
+```bash
+export PATH=$PATH:$PWD
+```
+
+Use the front position (`$PWD:$PATH`) only when you deliberately want your own
+version of a tool to take priority over an installed one.
+
+☝🏻 To set the path automatically in future sessions, add the `export` to
+`$HOME/.bashrc`, using the full path instead of `$PWD`:
+
+```bash
+export PATH=/projappl/<project>/$USER:$PATH   # replace <project> with your CSC project, e.g. project_2001234
+```
+
+‼️ Editing `.bashrc` can conflict with applications pre-installed by CSC. It
+runs in every shell and every batch job, so keep it minimal.
+
+💭 If problems appear after changing your environment, restore the default
+with the [`csc-env` command](https://docs.csc.fi/support/tutorials/using_csc_env/).
