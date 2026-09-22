@@ -174,7 +174,6 @@ source /appl/soft/manual/general/common/allas/allas-cli-utils/allas_conf --swift
   - Incremental (efficient) and version control (no overriding)
   - Based on hashes and requires more computing
   - Efficient way to store different versions of a dataset
-- New restic-based "data mover" tool coming soon!
 
 # Cleaning and backing up data (3/3)
 
