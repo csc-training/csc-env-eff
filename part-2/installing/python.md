@@ -117,12 +117,6 @@ be some environment-specific instructions.
    pip3 uninstall coverage   # type y to confirm
    ```
 
-   ☝🏻 If `pip uninstall` reports the package is "not installed" but
-   `python -c "import coverage"` still works, `PYTHONUSERBASE` points somewhere
-   other than where the package was installed. Set it back to the value used at
-   install time (or open a fresh login shell for the module default), then
-   uninstall.
-
 ‼️ Note, if the package you installed also contains executable files, i.e. a
 command-line interface, these commands may not work as is! This is because the
 Python modules provided by CSC are containerized and the user-installed
