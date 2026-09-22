@@ -118,10 +118,10 @@ be some environment-specific instructions.
    ```
 
    ☝🏻 If `pip uninstall` reports the package is "not installed" but
-   `python -c "import coverage"` still works, `PYTHONUSERBASE` was changed after
-   the install. Open a fresh login shell to restore the module's default value,
-   then uninstall — reloading the module does not restore it, and `unset` is not
-   reliable.
+   `python -c "import coverage"` still works, `PYTHONUSERBASE` points somewhere
+   other than where the package was installed. Set it back to the value used at
+   install time (or open a fresh login shell for the module default), then
+   uninstall.
 
 ‼️ Note, if the package you installed also contains executable files, i.e. a
 command-line interface, these commands may not work as is! This is because the
