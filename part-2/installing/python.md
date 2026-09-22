@@ -53,15 +53,14 @@ be some environment-specific instructions.
 
 💬 Let's install a library called `coverage`.
 
-1. Start by loading a Python module and checking if the library is already
-   installed:
+1. Load a Python module and check whether the library is already installed:
 
    ```bash
    module load python-data
    python -c "import coverage"
    ```
 
-2. The error message is indicating that the library is not available:
+2. The error message shows that the library is not available:
 
    ```bash
    Traceback (most recent call last):
@@ -69,34 +68,54 @@ be some environment-specific instructions.
    ModuleNotFoundError: No module named 'coverage'
    ```
 
-3. Install the missing library:
+3. Check where `--user` installs will go. The `python-data` module sets
+   `PYTHONUSERBASE` for you, to an architecture-specific path:
+
+   ```bash
+   echo $PYTHONUSERBASE
+   # roihu-cpu login:  /users/<user>/.local/x86_64
+   # roihu-gpu login:  /users/<user>/.local/aarch64
+   ```
+
+   ☝🏻 On Roihu the user-install directory is **not** the plain `$HOME/.local`
+   assumed by generic guides. It is split per CPU architecture, because the CPU
+   and GPU login nodes use different processors. A package installed with
+   `--user` on one node is not visible on the other — install and run on the
+   same login node.
+
+4. (Optional) To install into a larger area than `$HOME`, set `PYTHONUSERBASE`
+   **before** installing:
+
+   ```bash
+   export PYTHONUSERBASE=/projappl/<project>/$USER   # replace <project>, e.g. project_2001234
+   ```
+
+   ☝🏻 Set this **before** `pip install`. The module only sets `PYTHONUSERBASE`
+   when it is unset, so once you export your own value it stays until you open a
+   new shell. If you change it *between* installing and uninstalling, `pip`
+   looks in the new location and will not find the package.
+
+5. Install the library:
 
    ```bash
    pip3 install --user coverage  # This may take a while - don't worry!
    ```
 
-4. Re-test to see if the library is now available:
+6. Re-test to confirm the import now works:
 
    ```bash
    python -c "import coverage"
    ```
 
-5. This time there's no error message, indicating that the import was
-   successful!
-6. User libraries are installed by default under `$HOME/.local`. It is a good
-   idea to change the installation folder, as the space in `$HOME` is limited:
+   No error means the import was successful.
+
+7. To locate or uninstall the package later, `pip` uses the current
+   `PYTHONUSERBASE`. As long as you have not changed it since installing:
 
    ```bash
-   export PYTHONUSERBASE=/path/to/another/installdir/  # /projappl is recommended
+   pip3 show coverage        # shows Location:, confirming where it is installed
+   pip3 uninstall coverage   # type y to confirm
    ```
-
-7. To uninstall the package:
-
-   ```bash
-   pip3 uninstall coverage
-   ```
-
-8. Type `y` to confirm.
 
 ‼️ Note, if the package you installed also contains executable files, i.e. a
 command-line interface, these commands may not work as is! This is because the
