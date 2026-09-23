@@ -130,7 +130,7 @@ HyperQueue.
 
    ```bash
    for f in ${PWD}/C7O2H10/*.com; do
-     echo "g16 < ${f} >> output/$(basename ${f%.*}).log" >> commandlist
+     echo "subg16 < ${f} >> output/$(basename ${f%.*}).log" >> commandlist
    done
    ```
 
