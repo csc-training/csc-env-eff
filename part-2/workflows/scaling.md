@@ -87,7 +87,7 @@ speeds up.
    cat slurm-<jobid>.out   # Replace <jobid> with the actual Slurm job id
    ```
 
-5. Repeat the above steps for the thread counts 2, 4, 8, 16 and 32 by editing
+5. Repeat the above steps for the thread counts 2, 4, 8, 16, 32 and 64 by editing
    `--cpus-per-task` in the `job.sh` script and then resubmitting the job. If
    you have limited time, you may also just download a set of pre-calculated
    results:
@@ -109,7 +109,7 @@ of any reasons that might limit the scalability? How many threads does it make
 sense to run the program with?
 
 ☝🏻 To ensure efficient use of resources, a good rule of thumb is that when
-you double the number of used cores the job should become *at least* 1.5 times
+you double the number of used cores the job should become *at least* 1.7 times
 faster. If this is not the case, request fewer cores.
 
 💡 Bonus! Increase the problem size by increasing `--particles=<value>`. Is the
