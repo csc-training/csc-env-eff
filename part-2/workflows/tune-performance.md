@@ -138,8 +138,8 @@ example simulation.
    ```
 
 4. Repeat the job for the number of nodes listed below and complete the table!
-   Calculate the speedup by dividing the previous elapsed time with the elapsed
-   time obtained using twice as many nodes:
+   Calculate the parallel efficiency from the elapsed times *t*<sub>N</sub> with 
+   formula in the table.
 
    | Number of nodes | Elapsed time (s) | Parallel efficiency             | Slurm job ID    |
    |:---------------:|:----------------:|:-------------------------------:|:---------------:|
