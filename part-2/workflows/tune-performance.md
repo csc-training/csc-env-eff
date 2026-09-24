@@ -144,9 +144,9 @@ example simulation.
    | Number of nodes | Elapsed time (s) | Parallel efficiency             | Slurm job ID    |
    |:---------------:|:----------------:|:-------------------------------:|:---------------:|
    |1                |                  | -                               |                 |
-   |2                |                  | *t*<sub>1</sub>/*2 t*<sub>2</sub> |                 |
-   |4                |                  | *t*<sub>1</sub>/*4 t*<sub>4</sub> |                 |
-   |6                |                  | *t*<sub>1</sub>/*6 t*<sub>6</sub> |                 |
+   |2                |                  | *t*<sub>1</sub>/(*2 t*<sub>2</sub>) |                 |
+   |4                |                  | *t*<sub>1</sub>/(*4 t*<sub>4</sub>) |                 |
+   |6                |                  | *t*<sub>1</sub>/(*6 t*<sub>6</sub>) |                 |
 
 ☝🏻 Remember that th eparallel efficiency should be *at least* 0.75. This is important to ensure 
 that the resources are used efficiently.
