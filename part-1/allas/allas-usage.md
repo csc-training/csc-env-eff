@@ -64,18 +64,18 @@ permalink: /hands-on/allas/tutorial_allas-file-transfer.html
 
      ```bash
      a-list
-     a-list <id>-$USER             # replace <id> with your CSC project number, e.g. 2001234
-     a-info <id>-$USER/<filename>  # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
+     a-list <id>-roihu-scratch/$USER             # replace <id> with your CSC project number, e.g. 2001234
+     a-info <id>-roihu-scratch/$USER/<filename>  # replace <id> with your CSC project number, e.g. 2001234, and <filename> with the file you uploaded
      ```
 
    - With `rclone`:
 
      ```bash
      rclone lsd s3allas:
-     rclone ls s3allas:<id>-$USER
-     rclone lsl s3allas:<id>-$USER
-     rclone lsf s3allas:<id>-$USER
-     rclone cat s3allas:<id>-$USER/<filename>
+     rclone ls s3allas:<id>-roihu-scratch/$USER
+     rclone lsl s3allas:<id>-roihu-scratch/$USER
+     rclone lsf s3allas:<id>-roihu-scratch/$USER
+     rclone cat s3allas:<id>-roihu-scratch/$USER/<filename>
      ```
 
 4. Download to Roihu the file that you just uploaded from your local computer to Allas. This can be done in two ways:
