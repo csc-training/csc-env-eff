@@ -42,6 +42,7 @@ speeds up.
    not important for the completion of this tutorial.
 
    ```bash
+   # Adapted from https://people.sc.fsu.edu/~jburkardt/c_src/md_openmp/md_openmp.c
    wget https://a3s.fi/CSC_training/md
    ```
 
