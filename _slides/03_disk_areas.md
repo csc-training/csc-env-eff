@@ -17,6 +17,30 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 </small>
 </div>
 
+# Why manage your data well while computing?
+
+- During computing, data change all the time: files are created, transformed, copied and deleted
+- Without records, you (or your collaborators) soon can't tell which file came from what
+- Choices about tools, file formats, access rights, versioning and backups affect data quality and research integrity
+- Documenting and organizing data as you go makes results reproducible and later sharing, archiving and publishing much easier
+- Want more? See CSC's [self-study research data management course](https://csc.fi/en/training-calendar/cscs-self-study-research-data-management-course/)
+
+# Document your work as you go
+
+- Record what was done: processing steps, parameters, tools, software versions and environment
+- Practical ways to do it:
+    - A `README` file in each project folder ([README examples](https://data-guidelines.scilifelab.se/topics/readme-files/))
+    - Computational notebooks, _e.g._ [Jupyter at CSC](https://docs.csc.fi/apps/jupyter/)
+    - A data dictionary or codebook describing variables ([how to make one](https://help.osf.io/article/217-how-to-make-a-data-dictionary))
+    - Domain-specific metadata standards, _e.g._ via [RDMkit](https://rdmkit.elixir-europe.org/your_domain)
+- Read more: Docs CSC [data documentation and organization](https://docs.csc.fi/data/datasets/metadata-and-documentation/#data-organization), RDMkit [metadata management](https://rdmkit.elixir-europe.org/metadata_management)
+
+# FAIR by design
+
+![](./img/rdm-fair-by-design.png){width=65%}
+
+- Create documentation and metadata throughout the process, not only at the end, so data stay **FAIR** and publishing is easy
+
 # Overview of disk areas
 
 - Main disk areas and their specific uses on Roihu
@@ -24,6 +48,7 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 - Moving data between supercomputers
 - Understanding quotas (available space and number of files) of different disk areas
 - Additional fast disk areas
+- Keeping your data safe and manageable: backups, version control and cleaning up
 
 # Disk and storage overview  
 
@@ -109,3 +134,24 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
     - If you're creating 10 000+ files, you should probably rethink your workflow
 - Consider using fast local disks when working with many small files
 - [Lustre best practices](https://docs.csc.fi/computing/lustre/#best-practices) and [efficient I/O in high-throughput workflows](https://docs.csc.fi/computing/running/throughput/#other-considerations)
+
+# Backups and version control
+
+- **Backups**
+    - CSC's disk areas are not backed up, so copy important data to, _e.g._, Allas ([tutorial](https://csc-training.github.io/csc-env-eff/hands-on/allas/tutorial_allas-file-backup.html))
+    - Agree in your project: who makes backups, how often, where they are kept, and who removes outdated copies
+- **Version control** -- track changes to code, scripts and configuration files
+    - _E.g._ Git with GitHub or GitLab ([Docs CSC: versioning](https://docs.csc.fi/data/datasets/metadata-and-documentation/#versioning))
+    - Compare, restore and share earlier versions; makes results easier to verify
+    - Does **not** replace backups
+
+# Clean up data you no longer need
+
+- Files in `/scratch` that have not been used for 90/180 days are [removed automatically](https://docs.csc.fi/computing/usage-policy/#disk-cleaning) -- decide yourself what to keep
+- Regularly look for duplicates, outdated intermediate files and superseded versions
+    - `csc-workspaces` and [`lue`](https://csc-training.github.io/csc-env-eff/hands-on/disk-areas/disk-areas-tutorial-lue.html) show where your data is
+- Before deleting:
+    - Always keep raw data and everything needed to reproduce your results
+    - Make sure backups are in place, and follow legal and institutional policies
+- Document what you removed and why
+- Read more: Docs CSC [cleaning up data](https://docs.csc.fi/support/tutorials/clean-up-data/), RDMkit [data deletion](https://rdmkit.elixir-europe.org/data_deletion)

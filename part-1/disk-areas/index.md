@@ -15,3 +15,4 @@ has_toc: false
 
 1. [Essential tutorial - Main disk areas on Roihu]({{ site.baseurl }}{% link part-1/disk-areas/maindisks.md %})
 2. [Tutorial - Finding out where you have a lot of data]({{ site.baseurl }}{% link part-1/disk-areas/lue.md %})
+3. [Tutorial - Managing your data during computing]({{ site.baseurl }}{% link part-1/disk-areas/data-management.md %})

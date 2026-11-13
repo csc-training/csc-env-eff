@@ -163,6 +163,23 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
    - The [**SD Connect**](https://sd-connect.csc.fi) adds automatic encryption and decryption to Allas
    - Crypt4gh in use. Suffix: `.c4gh`
 
+# Publishing research data
+
+- After computing, decide what is needed to understand and reproduce your results
+    - Usually raw data, final results, code and documentation -- not temporary files
+- Use a trusted repository ([re3data.org](https://www.re3data.org/), [CSC services](https://research.csc.fi/service/))
+- Provide metadata and documentation; prefer open, long-term file formats (_e.g._ CSV)
+- Get a persistent identifier (_e.g._ DOI) so the data can be cited
+- Check legal, ethical and institutional requirements first
+- Read more: Docs CSC [publishing datasets](https://docs.csc.fi/data/datasets/publishing-datasets/), video [Towards publishing data](https://video.csc.fi/edit/0_x0ejbmmk)
+
+# As open as possible, as closed as necessary
+
+![](./img/rdm-publishing-open-closed.png){width=65%}
+
+- Discovery metadata is always open: what the dataset is and who owns it
+- Data and documentation can be open, restricted or controlled, as set by the terms of use
+
 # Fairdata services
 
 - [https://www.fairdata.fi](https://www.fairdata.fi) -- Services to manage scientific data according to FAIR principles
