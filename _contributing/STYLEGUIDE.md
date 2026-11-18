@@ -69,5 +69,5 @@
 ## Terminology
 
 - When referring collectively to compute servers, use term
-  "CSC supercomputers". Puhti and Mahti (or LUMI) should be used explicitly
+  "CSC supercomputers". Roihu (or LUMI) should be used explicitly
   only when needed.

@@ -71,7 +71,7 @@ permalink: /set/permanent/link/if/needed.html
 
 ## Providing batch job files
 
-💬 [Batch job files](https://docs.csc.fi/computing/running/creating-job-scripts-puhti/#a-basic-batch-job-script) are scripts for Slurm queueing system used in CSC supercomputers.
+💬 [Batch job files](https://docs.csc.fi/computing/running/creating-job-scripts-roihu/) are scripts for Slurm queueing system used in CSC supercomputers.
 
 1. Provide necessary job-files commented like this:
     ```bash

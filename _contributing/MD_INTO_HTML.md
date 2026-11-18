@@ -1,66 +1,80 @@
 # Convert Markdown into HTML, preview, and publish
 
-## Copy the Singularity tool image to Puhti
+## Open a shell on Roihu
 
-- Copy e.g. to `$HOME/bin`, which is used in the examples below.
-- Initialize Allas with project_2001659 (see below, works only for CSC
-  staff).
-- To get the container image, use `a-get pandocTool/pandoc-env-eff.sif` for the
-  EuroCC slide theme with navigation icons (contains also the old theme).
-- Give execute permissions: `chmod u+x pandoc-env-eff.sif`.
+The slides are built with a container on Roihu. You can use either:
 
-> Alternatively: If you don't have Allas access, use
-`wget https://a3s.fi/pandocTool/pandoc-env-eff.sif`
+- **The web interface (easiest):** log in at <https://www.roihu.csc.fi> with
+  your CSC or Haka account and multi-factor authentication. On the dashboard,
+  open the shell app under *Pinned Apps* (or *Tools* in the top bar) and
+  choose the login node (Login node shell, Roihu-CPU) option. No SSH keys are needed. Keep the browser tab
+  open while a command runs, as closing it stops the command.
+- **SSH:** see [Connecting to CSC supercomputers](https://docs.csc.fi/computing/connecting/)
+  for setting up SSH keys and certificates.
 
-## Copy the theme and other dependencies to local directory (in Puhti)
+## Get the container image
 
-Note! The following recipe may not work smoothly on Puhti after RHEL8 update.
-You can use the following command instead as a temporary fix to generate HTML
-files:
+Copy the container to `$HOME/bin`, which is used in the examples below. This
+needs to be done only once.
 
 ```bash
-apptainer exec -B $PWD pandoc-env-eff.sif /slidetools/convert.sh -s -t csc-eurocc-2019 01_my_lecture.md
+mkdir -p $HOME/bin && cd $HOME/bin
+wget https://a3s.fi/pandocTool/pandoc-env-eff.sif   # or: curl -L -o pandoc-env-eff.sif https://a3s.fi/pandocTool/pandoc-env-eff.sif
+chmod u+x pandoc-env-eff.sif
 ```
 
-In this case, make sure to copy the Pandoc container to the directory where you
-are working.
+> Alternatively, if you have initialized Allas with project_2001659 (works only
+for CSC staff, see below), use `a-get pandocTool/pandoc-env-eff.sif`.
 
-Otherwise, the instructions are as follows:
+## Build the slides
 
-1. Go the same directory as the source `.md` files. If you haven't yet cloned
-   the repository, do so: `git clone https://github.com/csc-training/csc-env-eff`.
-   Note, this must be a subfolder in your `$HOME`.
-2. Run command:
+1. Clone the repository (or the branch you are working on) and go to the
+   `_slides` folder. The repository must be under your `$HOME`.
+
+   ```bash
+   cd $HOME
+   git clone -b <branch-name> https://github.com/csc-training/csc-env-eff.git   # leave out -b <branch-name> for master
+   cd csc-env-eff/_slides
+   ```
+
+2. Copy the theme files from the container into the folder:
 
    ```bash
    apptainer exec $HOME/bin/pandoc-env-eff.sif /bin/sh -c "cp -r /slidetools/* ."
    ```
 
-3. Now you can transform the `.md` files to `.html` faster and without font
-   embedding using a simple command (include `-t csc-eurocc-2019` to use the
+3. Create a self-contained HTML slide page (`-t csc-eurocc-2019` selects the
    correct theme):
 
    ```bash
-   $HOME/bin/pandoc-env-eff.sif -t csc-eurocc-2019 01_my_lecture.md
+   $HOME/bin/pandoc-env-eff.sif -s -t csc-eurocc-2019 03_disk_areas.md
    ```
 
-4. To create a self-contained HTML *slide* page, add `-s`:
+   Leave out `-s` for a faster build without embedded fonts and images.
 
-   ```bash
-   $HOME/bin/pandoc-env-eff.sif -s -t csc-eurocc-2019 01_my_lecture.md
-   ```
-
-5. To create the whole slide deck, add your page to the top of the Makefile
+4. To create the whole slide deck, add your page to the top of the Makefile
    at `csc-env-eff/_slides/Makefile` and run `make`.
+
+> If the build above fails, try this alternative command. Copy the
+container into the `_slides` folder first:
+>
+> ```bash
+> apptainer exec -B $PWD pandoc-env-eff.sif /slidetools/convert.sh -s -t csc-eurocc-2019 03_disk_areas.md
+> ```
 
 > Note, don't publish the theme and slidefactory accessory files, just the
 HTML. Note also that `a-publish` will not _overwrite_ files in Allas by
-default, so you'll need to use `a-put --override` or delete the file in Allas
+default, so you'll need to delete the old files in Allas
 first.
 
-## Speed up testing how the slides look like directly from Puhti
+## Preview the slides
 
-Start a local HTTP server in Puhti and access slides with your browser:
+The easiest way to preview the slides, and to share them with reviewers, is
+to publish them in a test bucket in Allas (see below) and open the URL in your
+browser. Add the URL to your pull request description.
+
+Alternatively, if you connect with SSH, you can start a local HTTP server on
+the login node and view the slides through SSH port forwarding:
 
 1. Go to the directory with HTML files and run command:
 
@@ -72,14 +86,13 @@ Start a local HTTP server in Puhti and access slides with your browser:
    another one. Note that this example works with default system python, so
    make sure that you are not using any Tykky or other Python environment.
    **Note, this is an unencrypted link, don't view anything private!**
-2. Launch another SSH session with local port forwarding:
+2. Check the login node name with `hostname` and launch another SSH session
+   with local port forwarding to that same login node:
 
    ```
-   ssh -L 80XX:localhost:80XX <username>@puhti-login12.csc.fi
-   ````
+   ssh -L 80XX:localhost:80XX <username>@<login-node-name>
+   ```
 
-   where XX is the port from step 1 and login node name must also match with
-   the command in step 1.
 3. Open up the page in your local browser using URL `http://localhost:80XX`.
 4. When done, please remember to shut down the server and release the port
    (ctrl-c in the python3 screen)!
@@ -104,7 +117,22 @@ Start a local HTTP server in Puhti and access slides with your browser:
      ```
 
    - `a-publish` will echo the URL, which in this case would be
-     `https://a3s.fi/my-csc-env/0X_cool_chapter.html`.
+     `https://a3s.fi/test-csc-env/0X_cool_chapter.html`.
+     
+3. If you need to update published slides
+
+`a-publish` will not overwrite files that are already in Allas. To publish an
+updated version, delete the old file first and then publish again:
+
+```bash
+a-delete test-csc-env/0X_cool_chapter.html
+a-publish -b test-csc-env 0X_cool_chapter.html
+```
+
+The URL stays the same. (Don't use `a-put --override` for this: `a-put`
+uploads the file as private, so the published URL stops working and shows an
+`AccessDenied` error.)
+     
 
 ## Link the files in eLena
 
