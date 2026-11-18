@@ -7,7 +7,7 @@ The slides are built with a container on Roihu. You can use either:
 - **The web interface (easiest):** log in at <https://www.roihu.csc.fi> with
   your CSC or Haka account and multi-factor authentication. On the dashboard,
   open the shell app under *Pinned Apps* (or *Tools* in the top bar) and
-  choose the login node option. No SSH keys are needed. Keep the browser tab
+  choose the login node (Login node shell, Roihu-CPU) option. No SSH keys are needed. Keep the browser tab
   open while a command runs, as closing it stops the command.
 - **SSH:** see [Connecting to CSC supercomputers](https://docs.csc.fi/computing/connecting/)
   for setting up SSH keys and certificates.
@@ -64,7 +64,7 @@ container into the `_slides` folder first:
 
 > Note, don't publish the theme and slidefactory accessory files, just the
 HTML. Note also that `a-publish` will not _overwrite_ files in Allas by
-default, so you'll need to use `a-put --override` or delete the file in Allas
+default, so you'll need to delete the old files in Allas
 first.
 
 ## Preview the slides
@@ -118,6 +118,21 @@ the login node and view the slides through SSH port forwarding:
 
    - `a-publish` will echo the URL, which in this case would be
      `https://a3s.fi/test-csc-env/0X_cool_chapter.html`.
+     
+3. If you need to update published slides
+
+`a-publish` will not overwrite files that are already in Allas. To publish an
+updated version, delete the old file first and then publish again:
+
+```bash
+a-delete test-csc-env/0X_cool_chapter.html
+a-publish -b test-csc-env 0X_cool_chapter.html
+```
+
+The URL stays the same. (Don't use `a-put --override` for this: `a-put`
+uploads the file as private, so the published URL stops working and shows an
+`AccessDenied` error.)
+     
 
 ## Link the files in eLena
 
