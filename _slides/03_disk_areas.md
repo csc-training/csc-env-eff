@@ -19,20 +19,24 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Why manage your data well while computing?
 
-- During computing, data change all the time: files are created, transformed, copied and deleted
-- Without records, you (or your collaborators) soon can't tell which file came from what
+- Data change all the time during computing -- without records, you (or your collaborators) soon can't tell which file came from what
 - Choices about tools, file formats, access rights, versioning and backups affect data quality and research integrity
 - Documenting and organizing data as you go makes results reproducible and later sharing, archiving and publishing much easier
-- Want more? See CSC's [self-study research data management course](https://csc.fi/en/training-calendar/cscs-self-study-research-data-management-course/)
+- Want more?
+    - CSC's [self-study research data management course](https://csc.fi/en/training-calendar/cscs-self-study-research-data-management-course/)
+    - LUMI AI Factory's [data management guide](https://lumi-ai-factory.github.io/data_management/) (written for industry, but the same practices apply to research)
 
-# Document your work as you go
+# Why documentation matters
 
-- Record what was done: processing steps, parameters, tools, software versions and environment
-- Practical ways to do it:
-    - A `README` file in each project folder ([README examples](https://data-guidelines.scilifelab.se/topics/readme-files/))
-    - Computational notebooks, _e.g._ [Jupyter at CSC](https://docs.csc.fi/apps/jupyter/)
-    - A data dictionary or codebook describing variables ([how to make one](https://help.osf.io/article/217-how-to-make-a-data-dictionary))
-    - Domain-specific metadata standards, _e.g._ via [RDMkit](https://rdmkit.elixir-europe.org/your_domain)
+- **During computing:** documentation records how data are processed, which tools and environments are used, and how versions and quality are managed, so analyses stay accurate, traceable and reproducible
+- **Long term:** it lets others (or your future self) reproduce, verify and reuse the data, supports version control and collaboration, and makes the data compatible with repositories, tools and disciplinary standards
+
+# How to document your work
+
+- Computational notebooks to capture what you do, _e.g._ [Jupyter at CSC](https://docs.csc.fi/apps/jupyter/)
+- A `README` file in each project folder ([examples](https://data-guidelines.scilifelab.se/topics/readme-files/))
+- A codebook for processing code and models, or a data dictionary for your variables ([how to](https://help.osf.io/article/217-how-to-make-a-data-dictionary))
+- Domain-specific data management guidelines and metadata standards where they exist, _e.g._ life science data management solutions in [RDMkit](https://rdmkit.elixir-europe.org/your_domain)
 - Read more: Docs CSC [data documentation and organization](https://docs.csc.fi/data/datasets/metadata-and-documentation/#data-organization), RDMkit [metadata management](https://rdmkit.elixir-europe.org/metadata_management)
 
 # FAIR by design

@@ -165,13 +165,11 @@ Unported License, [http://creativecommons.org/licenses/by-sa/4.0/](http://creati
 
 # Publishing research data
 
-- After computing, decide what is needed to understand and reproduce your results
-    - Usually raw data, final results, code and documentation -- not temporary files
-- Use a trusted repository ([re3data.org](https://www.re3data.org/), [CSC services](https://research.csc.fi/service/))
-- Provide metadata and documentation; prefer open, long-term file formats (_e.g._ CSV)
-- Get a persistent identifier (_e.g._ DOI) so the data can be cited
-- Check legal, ethical and institutional requirements first
-- Read more: Docs CSC [publishing datasets](https://docs.csc.fi/data/datasets/publishing-datasets/), video [Towards publishing data](https://video.csc.fi/edit/0_x0ejbmmk)
+- Publish complete, well-organized datasets (not temporary files)
+- Use trusted disciplinary or general data repositories (find _e.g._ via [re3data.org](https://www.re3data.org/), [CSC service catalog](https://research.csc.fi/service/), [ELIXIR deposition databases](https://elixir-europe.org/platforms/data/elixir-deposition-databases))
+- Check legal, ethical and institutional requirements, provide clear metadata and documentation, and choose open, long-term formats (_e.g._ CSV)
+- Assign persistent identifiers (_e.g._ DOIs) and a license to enable citation, long-term reference and reuse
+- Read more: Docs CSC [publishing datasets](https://docs.csc.fi/data/datasets/publishing-datasets/), video [Towards publishing data](https://video.csc.fi/media/t/0_x0ejbmmk)
 
 # As open as possible, as closed as necessary
 
