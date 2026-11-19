@@ -13,26 +13,30 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-data-management.html
 
 > In this tutorial you
 >
-> - Learn why research data management matters while you compute, not only when you publish.
+> - Learn to integrate research data management into your data processing and analysis workflows.
 > - Organize and document a project folder on Roihu.
 > - Use a checklist to decide what to keep, back up, remove and publish.
 
-💬 Research data management (RDM) is easy to postpone until the end of a project, but most of the important decisions are made during the computing phase. This page collects the key practices. For a full introduction, see CSC's [self-study research data management course](https://csc.fi/en/training-calendar/cscs-self-study-research-data-management-course/).
+💬 Research data management (RDM) should be considered throughout the research lifecycle, including the computing phase. Decisions related to data, software and computing environments affect the quality, reproducibility and long-term value of research outputs. This page collects the key practices. For a full introduction, see CSC's [self-study research data management course](https://csc.fi/en/training-calendar/cscs-self-study-research-data-management-course/).
 
 ## Plan before you compute
 
-- A **Data Management Plan (DMP)** describes how data will be collected, stored, processed, documented, shared and preserved during a project. Many funders require one.
-- A **Software Management Plan (SMP)** complements the DMP by describing how code, dependencies, versions and environments are managed.
-- Planning early tells you which computing and storage services you need at different stages, how much space you need and for how long, and whether your data need a secure environment (_e.g._ [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/)).
+Planning early helps you identify the storage, computing resources and services needed at different stages of the project, estimate capacity requirements, use resources efficiently, and ensure that sensitive data are handled in appropriate environments.
+
+- A **Data Management Plan (DMP)** supports planning for how data will be collected, processed, documented, stored and shared throughout a project. It helps identify resource needs, responsibilities and potential risks early on.
+- A **Software Management Plan (SMP)** complements the DMP by helping researchers manage code, software, dependencies, versions and computing environments.
+
 
 💡 When planning, consider:
 
-- How will you document your work and create metadata (_e.g._ electronic notebooks, automatically generated metadata)?
-- Which computing environments, tools and software will you use?
-- How will you manage access rights?
-- How will you ensure data quality?
-- How will you handle version control and backups, and when will you remove data you no longer need?
-- Where will data be stored after the analysis, and which versions will be shared or published?
+- **Data, storage and computing needs:** what resources are needed and how much capacity will be required?
+- **Computing environments, software and services:** which services will you use, how will you access them, are specialised environments needed for sensitive data (e.g. [CSC Sensitive Data Services](https://docs.csc.fi/data/sensitive-data/)), and are there any costs or quotas?
+- **Security requirements and access rights:** who grants access and who can access the data and services?
+- **Documentation and metadata:** how will others understand and reuse your work (e.g. metadata, codebooks and notebooks)?
+- **Workflows and software environments:** how will others reproduce your analyses (e.g. workflow descriptions, software versions and dependencies)?
+- **Version control, backups and data quality:** how will reliability be ensured, and who is responsible for versioning, backups and quality control?
+- **Storage, sharing and publication:** what will be stored, where will it be shared or published, and what can be removed?
+
 
 ## Organize and document a project folder
 
@@ -74,6 +78,8 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-data-management.html
 
 ☝🏻 Your batch job scripts are documentation too: keep them in version control together with the rest of your code, _e.g._ using Git and GitHub/GitLab.
 
+🏷️ Meaningful and consistent file names are part of good documentation. Use descriptive names that indicate the content, version or date of a file.
+
 ## Find data to clean up
 
 1. Use `csc-workspaces` to see how full your project's disk areas are.
@@ -90,24 +96,27 @@ permalink: /hands-on/disk-areas/disk-areas-tutorial-data-management.html
 
 Go through these questions with your research group. The answers help you decide which data, code, models and documentation are worth saving and, if possible, publishing.
 
-- Was any part of the analysis done by hand? If so, is it precisely documented, and does the documentation match what was actually done?
-- Have we automated (coded) as much as possible?
-- Are we using version control?
-- Have we documented our software environment?
+- Was any part of the analysis done by hand/manually? If so, is it precisely documented, and does the documentation match what was actually done?
+- Have we automated (coded) as much of the workflow as possible?
+- Are data, code and documentation under version control where appropriate?
+- Have we documented software versions, dependencies and computing environments?
+- Can another team member reproduce the analysis using the available data, code and documentation?
 - Have we saved all output that cannot be reconstructed from the original data and code?
-- How far back in the analysis pipeline can we go before the results are no longer (automatically) reproducible?
-- Can the data and documentation be cited with a persistent identifier (PID)?
+- How far back in the workflow can results still be reproduced automatically?
+- Can the data, code and documentation be cited with a persistent identifier (PID)?
 
 ## Before you publish
 
-- Choose the datasets needed to understand or reproduce your results (usually raw and final data, code and documentation, not temporary files).
-- Provide metadata and documentation, and use open, long-term file formats where possible.
+- Choose the data, code and documentation needed to understand or reproduce your results. In most cases this includes raw data, final datasets, analysis code and documentation, but not temporary or intermediate files.
+- Provide sufficient metadata and documentation so that others can understand and reuse the data and reproduce the analysis.
 - Check legal, ethical and access restrictions. Data can be **as open as possible, as closed as necessary**.
-- Publish in a trusted repository and get a persistent identifier (_e.g._ DOI). See [re3data.org](https://www.re3data.org/) and CSC's [Fairdata services](https://www.fairdata.fi).
+- Choose an appropriate licence for data (e.g. Creative Commons) and code (e.g. MIT or Apache).
+- Find a trusted repository, preferably a discipline-specific repository when available, that provides a persistent identifier (e.g. DOI). Find data repositories: [re3data.org](https://www.re3data.org/), see also [CSC's services](https://research.csc.fi/service/?need=publish-preserve-data), e.g [Fairdata services](https://www.fairdata.fi), [ELIXIR Deposition databases](https://elixir-europe.org/platforms/data/elixir-deposition-databases) (for life science research)
 
 ## More information
 
 - Docs CSC: [Data documentation and organization](https://docs.csc.fi/data/datasets/metadata-and-documentation/), [Publishing datasets](https://docs.csc.fi/data/datasets/publishing-datasets/), [Cleaning up data on scratch](https://docs.csc.fi/support/tutorials/clean-up-data/)
-- RDMkit: [Metadata management](https://rdmkit.elixir-europe.org/metadata_management), [Data deletion](https://rdmkit.elixir-europe.org/data_deletion), [Your domain](https://rdmkit.elixir-europe.org/your_domain)
+- RDMkit: [Documentation & metadata management](https://rdmkit.elixir-europe.org/metadata_management), [Data deletion](https://rdmkit.elixir-europe.org/data_deletion), [Data organisation](https://rdmkit.elixir-europe.org/data_organisation), [Your domain](https://rdmkit.elixir-europe.org/your_domain)
 - [README file examples](https://data-guidelines.scilifelab.se/topics/readme-files/) (SciLifeLab)
 - [CSC's self-study research data management course](https://csc.fi/en/training-calendar/cscs-self-study-research-data-management-course/)
+- [AI‑ready data and FAIR data management for industry](https://lumi-ai-factory.github.io/data_management/) 
